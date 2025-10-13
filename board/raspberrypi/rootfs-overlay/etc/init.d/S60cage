@@ -1,0 +1,40 @@
+#!/bin/sh
+
+start() {
+	export WPE_BACKEND=fdo
+	export LD_LIBRARY_PATH=/usr/lib
+	export XDG_RUNTIME_DIR=/tmp/runtime-root
+	mkdir -p $XDG_RUNTIME_DIR
+
+	ln -sf /usr/lib/libWPEBackend-fdo-1.0.so.1.10.1 /usr/lib/libWPEBackend-default.so
+
+	busybox httpd -h /root/www -p 8080 &
+
+	sleep 1
+
+	exec cage -- cog --platform=wl http://127.0.0.1:8080/index.html
+}
+
+stop () {
+    killall cog 2>/dev/null
+    killall cage 2>/dev/null
+    killall httpd 2>/dev/null
+}
+
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+	sleep 1
+        start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac

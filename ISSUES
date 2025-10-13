@@ -1,0 +1,17 @@
+- instaed of relying on rcS to launch cog/cage, replace the getty in inittab and remove getty tty1 completely
+- try using egl again instead of cage
+- custom splash
+- llm ai bot
+- ad hoc network support for monitoring and teacher contrl
+
+
+
+- make sure the css has the repaint like this
+
+body {
+    animation: repaint 0.01s;
+}
+@keyframes repaint {
+    from { opacity: 1; }
+    to   { opacity: 0.99; }
+}
