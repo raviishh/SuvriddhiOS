@@ -1,0 +1,16 @@
+start_file=start.elf
+fixup_file=fixup.dat
+
+kernel=Image
+
+disable_overscan=1
+
+gpu_mem_1024=256
+
+dtoverlay=miniuart-bt
+
+arm_64bit=1
+
+dtoverlay=vc4-kms-v3d
+
+disable_splash=1
