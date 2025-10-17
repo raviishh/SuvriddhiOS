@@ -1,12 +1,12 @@
-- instead of relying on rcS to launch cog/cage, replace the getty in inittab and remove getty tty1 completely -> and make it autorestart program if crashes or relaunch cage with a error screen program
-- try using egl again instead of cage
+- Instead of relying on rcS to launch cog/cage, replace the getty in inittab and remove getty tty1 completely -> and make it an autorestart program if it crashes or relaunch cage with an error screen program
+- Try using egl again instead of cage
 - custom splash
-- llm ai bot
-- ad hoc network support for monitoring and teacher contrl
+- Error Dictionary
+- ad hoc network support for monitoring and teacher control
 
 
 
-- make sure the css has the repaint like this
+- make sure the CSS has the repaint like this
 
 body {
     animation: repaint 0.01s;
