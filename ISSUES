@@ -1,4 +1,4 @@
-- instaed of relying on rcS to launch cog/cage, replace the getty in inittab and remove getty tty1 completely -> and make it autorestart program if crashes or relaunch cage with a error screen program
+- instead of relying on rcS to launch cog/cage, replace the getty in inittab and remove getty tty1 completely -> and make it autorestart program if crashes or relaunch cage with a error screen program
 - try using egl again instead of cage
 - custom splash
 - llm ai bot
