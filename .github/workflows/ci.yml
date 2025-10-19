@@ -1,0 +1,49 @@
+name: CI
+
+# this file runs automated tests to see if the React builds, along with other code auditing and formatting checks.
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          cd src
+          npm ci
+
+      - name: Build
+        run: |
+          cd src
+          npm run build
+
+      - name: Lint
+        run: |
+          cd src
+          npm run lint
+
+      - name: Check vulnerabilities
+        run: npm audit --audit-level=high
+
+      - name: Check code formatting
+        run: |
+          cd src
+          npm run format:check
+      
+      # If we decide to add tests later
+      # - name: Run tests
+      #   run: |
+      #     cd src
+      #     npm test
+        
