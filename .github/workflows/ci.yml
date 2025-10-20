@@ -34,7 +34,9 @@ jobs:
           npm run lint
 
       - name: Check vulnerabilities
-        run: npm audit --audit-level=high
+        run: |
+          cd src
+          npm audit --audit-level=high
 
       - name: Check code formatting
         run: |
