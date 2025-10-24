@@ -1,0 +1,259 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  <style>
+    /* Scoped styles so this fragment looks good inside the app */
+    .lesson-content h1 { font-size:2.05rem; margin-bottom:0.25rem; color:var(--color-foreground); text-align:left; }
+    .lesson-content h2 { font-size:1.25rem; margin-top:1.6rem; margin-bottom:0.6rem; color:var(--color-primary); }
+    .lesson-content p { line-height:1.7; margin-bottom:0.9rem; color:var(--color-card-foreground); }
+    .lead { color:var(--color-muted-foreground); margin-top:0; margin-bottom:1.2rem; text-align:left; }
+
+
+    /* Callout */
+    .callout {
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+      border-left:4px solid var(--color-primary);
+      padding:12px;
+      border-radius:8px;
+      margin:12px 0;
+      color:var(--color-card-foreground);
+    }
+
+    /* Styled code / pre */
+    .code-block {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      padding: 12px;
+      border-radius: 10px;
+      overflow:auto;
+      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+      font-size: 0.95rem;
+      line-height:1.45;
+      color: #e6e6e6;
+      margin:12px 0;
+    }
+    .code-block pre { margin:0; white-space:pre; }
+    .inline-code { background: rgba(255,255,255,0.03); padding: 2px 6px; border-radius:6px; font-family:inherit; font-size:0.95em; }
+
+    /* Tiny progress-like hint boxes for kid-friendly steps */
+    .steps { display:grid; gap:10px; margin:12px 0; }
+    .step { background: rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.02); padding:10px; border-radius:8px; }
+
+    /* Example output box */
+    .output {
+      background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.18));
+      border-radius:8px;
+      padding:10px;
+      font-family:inherit;
+      color: #bfe8c9;
+      border:1px solid rgba(0,0,0,0.4);
+      margin-top:8px;
+    }
+
+    hr { border:none; height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent); margin:18px 0; }
+  </style>
+
+  <h1>What is C?</h1>
+  <p class="lead">A friendly introduction to the C programming language — short, clear, and full of examples. Think of this as learning how to give instructions to the computer like a careful chef following a recipe.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Meet C — the language beneath the hood</h2>
+    <p>
+      C is a programming language created in the 1970s. It's simple, powerful, and very close to how computers actually work.
+      Imagine a robot that obeys exact instructions. C teaches you to write those exact instructions so the robot does useful things.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>Think of this: if high-level languages like Python are fancy LEGO kits (easy to snap together), C is the basic bricks and glue — you can build anything, but you need to be careful with the placement.</div>
+    </div>
+
+    <p>
+      Why learn C? Because it helps you understand how computers store data, how memory works, and how programs run. Operating systems, embedded devices, and games often use C for its speed and control.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. A C program — the first example</h2>
+    <p>
+      The simplest C program has a function called <span class="inline-code">main()</span>. When you run a C program, the computer starts by calling <span class="inline-code">main</span>.
+    </p>
+
+    <div class="code-block" aria-hidden="true">
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">#include &lt;stdio.h&gt;</span> tells the compiler we want the standard input/output functions (like <span class="inline-code">printf</span>).</li>
+        <li><span class="inline-code">int main()</span> is the starting point for the program.</li>
+        <li><span class="inline-code">printf</span> prints text to the screen.</li>
+        <li><span class="inline-code">return 0;</span> ends the program and tells the system everything is okay.</li>
+      </ul>
+    </p>
+
+    <div class="steps">
+      <div class="step"><strong>Try it:</strong> Save as <span class="inline-code">hello.c</span>, compile with <span class="inline-code">gcc hello.c -o hello</span>, run <span class="inline-code">./hello</span>.</div>
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">Hello, World!</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Variables — boxes for information</h2>
+    <p>
+      Variables are like labeled boxes where you store values. Each box has a type that says what it can hold: integers, characters, decimals, etc.
+    </p>
+
+    <div class="code-block" aria-hidden="true">
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int apples = 5;        // integer box
+    float price = 12.50;   // decimal box
+    char letter = 'A';     // single character
+
+    printf("Apples: %d\n", apples);
+    printf("Price: %.2f\n", price);
+    printf("Letter: %c\n", letter);
+
+    return 0;
+}</code></pre>
+    </div>
+
+    <p>
+      Notes:
+      <ul>
+        <li><span class="inline-code">%d</span> prints integers, <span class="inline-code">%.2f</span> prints floating numbers with 2 decimals, and <span class="inline-code">%c</span> prints a character.</li>
+        <li>Try changing the values to see different outputs.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Kid Friendly Analogy</div>
+      <div>Imagine you have a school locker for books (an <em>int</em> box). If you want to store toys (a different type), you need a different locker built for toys. Types tell the computer how to store the thing.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Control flow — making decisions and repeating tasks</h2>
+    <p>
+      Programs often need to make choices and repeat actions. C gives you tools: <span class="inline-code">if</span>, <span class="inline-code">else</span>, and loops like <span class="inline-code">for</span> and <span class="inline-code">while</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int n = 5;
+    if (n &gt; 0) {
+        printf("Positive\n");
+    } else {
+        printf("Zero or negative\n");
+    }
+
+    // loop
+    for (int i = 0; i &lt; n; i++) {
+        printf("i = %d\n", i);
+    }
+
+    return 0;
+}</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">if (condition)</span> runs the code if the condition is true.</li>
+        <li><span class="inline-code">for</span> repeats code a fixed number of times — good for counting.</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Functions — naming actions</h2>
+    <p>
+      Functions let you group instructions and give them a name. This keeps programs tidy and lets you reuse work.
+    </p>
+
+    <div class="code-block">
+<pre><code>#include &lt;stdio.h&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(3, 4);
+    printf("3 + 4 = %d\n", result);
+    return 0;
+}</code></pre>
+    </div>
+
+    <p>
+      <strong>Why functions?</strong> It's like asking someone to "make tea" instead of listing every single step each time — you name the action and use it whenever needed.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Small exercise</div>
+      <div>Write a function <span class="inline-code">multiply</span> that multiplies two numbers and returns the result. Call it from <span class="inline-code">main</span>.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. How a program becomes runnable — compilation</h2>
+    <p>
+      C code you write is text. To run it, you compile it: the compiler (like a translator) turns your code into machine instructions the computer understands.
+    </p>
+
+    <p>
+      If the compiler finds mistakes (errors), it gives messages so you can fix them. Learning to read these messages is a key skill.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Next steps — where to go from here</h2>
+    <p>
+      Great! You now know the basic ideas: programs, variables, control flow, functions, and compilation. Next lessons will teach you:
+      <ul>
+        <li>Working with arrays and strings</li>
+        <li>Pointers — C's most powerful idea (and trickiest)</li>
+        <li>Structs — grouping pieces of data</li>
+        <li>Small projects: counters, simple calculators, and text games</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>Start small. Write little programs, break them, fix them, and learn from the errors. Programming is a make-and-fix game — and that's how you get good.</div>
+    </div>
+
+  </section>
+</article>
