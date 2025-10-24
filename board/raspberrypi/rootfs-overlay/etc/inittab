@@ -33,7 +33,7 @@ null::sysinit:/bin/ln -sf /proc/self/fd/2 /dev/stderr
 #tty1::respawn:/sbin/getty -L  tty1 0 vt100 # HDMI console
 
 # Add code to restart cage/cog on crash using respawn
-::respawn:/etc/init.d/S60cage start
+::respawn:/etc/init.d/S60cage restart
 
 # Stuff to do for the 3-finger salute
 #::ctrlaltdel:/sbin/reboot
