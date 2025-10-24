@@ -1,0 +1,20 @@
+Hover doesn't work as intended -> Try transform-gpu which forces hardware acceleration and also try playing around with the transition options
+
+In Learn, when the mark completed button is pressed, it should move to the next item or topic (if no items left in topic)
+
+In Learn, account for runtime errors better
+
+Have ace editor cursor start focused and ready to code
+
+The active item should always start off dropped down
+
+Standardize the CSS for the lessons and exercises into one file
+
+Move more permanent data to localstorage instead of in zustand store (like completion data)
+
+For sandbox, set up saving file rest api and be able to load the code and auto save the code (dont allow compile until save with file name)
+    - allow to make new files and delete old files and make the file menu scrollable
+
+The error output in sandbox currently shows a file path in /tmp/suvriddhi_binaies something something -> Make it show the file name
+
+In Sandbox color code when there's an error and make it more aesthetically appealing

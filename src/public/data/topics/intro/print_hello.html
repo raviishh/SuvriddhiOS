@@ -1,0 +1,55 @@
+<article class="lesson-content" style="color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  <style>
+    /* Scoped styles so this fragment looks good inside the app */
+    .lesson-content h1 { font-size:2.05rem; margin-bottom:0.25rem; color:var(--color-foreground); text-align:center; }
+    .lesson-content h2 { font-size:1.25rem; margin-top:1.6rem; margin-bottom:0.6rem; color:var(--color-primary); }
+    .lesson-content p { line-height:1.7; margin-bottom:0.9rem; color:var(--color-card-foreground); }
+    hr { border:none; height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent); margin:18px 0; }
+    .code-block {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      padding: 12px;
+      border-radius: 10px;
+      overflow:auto;
+      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+      font-size: 0.95rem;
+      line-height:1.45;
+      color: #e6e6e6;
+      margin:12px 0;
+    }
+    .code-block pre { margin:0; white-space:pre; }
+  </style>
+<h1 style="text-align:center; font-size:2em; margin-bottom:0.5em;">Your First C Program: Printing “Hello, World!”</h1>
+<p>
+Welcome to your very first C exercise! Today, you're going to make your computer <strong>talk back</strong> to you — well, at least on the screen. This is a classic step for every programmer: writing the <code>Hello, World!</code> program.
+</p>
+
+<hr style="margin: 2em 0; border: none; border-top: 1px solid var(--border-color, #444);" />
+
+<h2>What We're Doing</h2>
+<p>
+When you run a C program, your computer follows the instructions you give it, step by step. Right now, our only instruction will be: “Hey computer, show the message <em>Hello, World!</em> on the screen.”
+</p>
+
+<h2>Here's the Code</h2>
+<pre class="code-block">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+</code>
+</pre>
+
+<p>
+Let's break it down line by line:
+</p>
+
+<ul style="margin-left:1em;">
+  <li><strong><code>#include &lt;stdio.h&gt;</code></strong> — this is like saying, “Please give me access to the tools that let me print text.” The file <code>stdio.h</code> contains useful input/output functions.</li>
+  <li><strong><code>int main()</code></strong> — this is the <em>main function</em>. Every C program starts running from here.</li>
+  <li><strong><code>printf("Hello, World!\n");</code></strong> — this prints the message onto the screen. The <code>\n</code> at the end tells your computer to go to a new line afterwa
+
+</article>

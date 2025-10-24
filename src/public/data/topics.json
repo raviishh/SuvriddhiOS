@@ -1,0 +1,92 @@
+[
+  {
+    "id": "intro_c",
+    "title": "Intro to C",
+    "items": [
+      {
+        "id": "intro_what_is_c",
+        "type": "lesson",
+        "title": "What is C?",
+        "contentFile": "topics/intro/what_is_c.html"
+      },
+      {
+        "id": "intro_first_program",
+        "type": "lesson",
+        "title": "Your First Program",
+        "contentFile": "topics/intro/first_program.html"
+      },
+      {
+        "id": "intro_variables",
+        "type": "lesson",
+        "title": "Variables",
+        "contentFile": "topics/intro/variables.html"
+      },
+      {
+        "id": "intro_print_hello",
+        "type": "exercise",
+        "title": "Print 'Hello, World!'",
+        "contentFile": "topics/intro/print_hello.html",
+        "tests": [
+          {
+            "input": "",
+            "expected": "Hello, World!\n"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "variables",
+    "title": "Variables and Data Types",
+    "items": [
+      {
+        "id": "variables_overview",
+        "type": "lesson",
+        "title": "Overview of Variables",
+        "icon": "book",
+        "path": "lessons/variables_overview.json"
+      },
+      {
+        "id": "variables_exercise1",
+        "type": "exercise",
+        "title": "Create and Print Variables",
+        "icon": "terminal",
+        "path": "exercises/variables_exercise1.json"
+      },
+      {
+        "id": "variables_exercise2",
+        "type": "exercise",
+        "title": "Sum of Two Integers",
+        "icon": "terminal",
+        "path": "exercises/variables_exercise2.json"
+      }
+    ]
+  },
+  {
+    "id": "control_flow",
+    "title": "Control Flow",
+    "items": [
+      {
+        "id": "control_ifelse",
+        "type": "lesson",
+        "title": "If, Else, and Conditions",
+        "icon": "book",
+        "path": "lessons/control_ifelse.json"
+      },
+      {
+        "id": "control_loops",
+        "type": "lesson",
+        "title": "Loops in C",
+        "icon": "book",
+        "path": "lessons/control_loops.json"
+      },
+      {
+        "id": "control_exercise1",
+        "type": "exercise",
+        "title": "Even or Odd Checker",
+        "icon": "terminal",
+        "path": "exercises/control_exercise1.json"
+      }
+    ]
+  }
+]

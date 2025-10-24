@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Defining standard color-scheme for entire app */
+
+@theme {
+
+  --font-display: 'OpenSans', sans-serif;
+
+  --color-background: rgb(21, 21, 21);
+  --color-foreground: rgb(242, 242, 242);
+  --color-card: rgb(31, 31, 31);
+  --color-card-foreground: rgb(242, 242, 242);
+  --color-primary: rgb(142, 124, 195);
+  --color-primary-muted: rgb(112, 94, 165);
+  --color-primary-foreground: rgb(242, 242, 242);
+  --color-secondary: rgb(51, 51, 51);
+  --color-secondary-foreground: rgb(242, 242, 242);
+  --color-muted: rgb(64, 64, 64);
+  --color-muted-foreground: rgb(166, 166, 166);
+  --color-border: rgb(51, 51, 51);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* button and a elements don't have cursor: pointer as default */
+  button, a {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+
+  /* For components/home/menucards.tsx */
+  .menu-card {
+    @apply relative overflow-hidden rounded-lg border border-border bg-card p-6 transition-all duration-300 cursor-pointer hover:border-primary hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  .menu-card::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity duration-300;
+  }
+
+  .menu-card:hover::before {
+    @apply opacity-100;
+  }
+
+  .menu-card-content {
+    @apply relative z-10;
+  }
+}

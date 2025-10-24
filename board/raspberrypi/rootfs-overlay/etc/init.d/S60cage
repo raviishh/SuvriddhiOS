@@ -12,7 +12,7 @@ start() {
 
 	sleep 1
 
-	exec cage -- cog --platform=wl http://127.0.0.1:8080/index.html
+	exec cage -- cog --platform=wl http://127.0.0.1:8080
 }
 
 stop () {
