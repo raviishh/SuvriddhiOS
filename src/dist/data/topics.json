@@ -1,7 +1,7 @@
 [
   {
     "id": "intro_c",
-    "title": "Introduction to C",
+    "title": "Intro to C",
     "items": [
       {
         "id": "intro_what_is_c",
@@ -25,7 +25,13 @@
         "id": "intro_print_hello",
         "type": "exercise",
         "title": "Print 'Hello, World!'",
-        "contentFile": "topics/intro/print_hello.html"
+        "contentFile": "topics/intro/print_hello.html",
+        "tests": [
+          {
+            "input": "",
+            "expected": "Hello, World!\n"
+          }
+        ]
       }
     ]
   },
