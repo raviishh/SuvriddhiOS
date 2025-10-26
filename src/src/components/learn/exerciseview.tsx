@@ -43,7 +43,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
         try {
             const compileRes = await fetch("http://127.0.0.1:8000/api/compile", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: code }) });
             const compileJson = await compileRes.json();
-            if (compileJson.status !== "success") {
+            if (compileJson.error) {
                 setOutput(`Compilation error: ${compileJson.error}`);
                 setRunning(false);
                 return;
@@ -54,11 +54,11 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
             const runJson = await runRes.json();
 
 
-            if (runJson.status === "success") {
+            if (runJson.success) {
                 setOutput("Code is correct. All tests passed!");
                 onMarkComplete();
             } else {
-                setOutput(`Test failed on case #${runJson.failedCaseIndex}\n\nInput:\n${runJson.input}\n\nExpected:\n${runJson.expected}\n\nOutput:\n${runJson.output}`);
+                setOutput(`Test failed on the following test case:${runJson.input === "" ? "" : `\n\nInput: ${runJson.input}`}\n\nOutput: ${runJson.output}\n\nExpected: ${runJson.expected}`);
             }
 
 
@@ -109,7 +109,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
 
                 <div className="mt-6">
                     <h3 className="text-lg font-medium">Output</h3>
-                    <pre className="mt-2 p-3 rounded-md bg-card text-foreground h-40 overflow-auto">{output ?? "No output yet"}</pre>
+                    <pre className="mt-2 p-3 rounded-md bg-card text-foreground h-auto min-h-40 overflow-auto">{output ?? "No output yet"}</pre>
                 </div>
             </div>
 

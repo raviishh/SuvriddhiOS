@@ -21,21 +21,24 @@ export default function Sandbox() {
     setStatus("Compiling...");
     setOutput("");
     setToken(null);
+
     
     try {
       const compileRes = await fetch("http://127.0.0.1:8000/api/compile", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code }),
+        body: JSON.stringify({ code: code }),
       });
 
       const compileJson = await compileRes.json();
 
-      if (compileJson.status !== "success") throw new Error(compileJson.error || "Compile failed");
+      if (compileJson.error) throw new Error(compileJson.error || "Compile failed");
 
       setStatus("Compiled Successfully");
 
       setToken(compileJson.token);
+
+      return compileJson.token;
 
     } catch (err: any) {
       setOutput(`Error: ${err.message}`);
@@ -43,8 +46,8 @@ export default function Sandbox() {
     }
   }
 
-  async function handleRun() {
-    if (!token) return;
+  async function handleRun(runToken: string | null) {
+    if (!runToken) return;
 
     setStatus("Running...");
     setOutput("");
@@ -53,12 +56,12 @@ export default function Sandbox() {
       const runRes = await fetch("http://127.0.0.1:8000/api/run", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token: token, tests: [] }),
+        body: JSON.stringify({ token: runToken, tests: [] }),
       });
 
       const runJson = await runRes.json();
 
-      if (runJson.status !== "success") throw new Error(runJson.error || "Run failed");
+      if (!runJson.success) throw new Error(runJson.error || "Runtime Error");
 
       setOutput(runJson.output);
       setStatus("Done");
@@ -70,8 +73,8 @@ export default function Sandbox() {
   }
 
   async function handleCompileAndRun() {
-    await handleCompile();
-    await handleRun();
+    const runToken: string | null = await handleCompile();
+    await handleRun(runToken);
   }
 
   return (
@@ -163,7 +166,7 @@ export default function Sandbox() {
               Compile
             </button>
             <button
-              onClick={handleRun}
+              onClick={() => handleRun(token)}
               className="bg-accent text-accent-foreground px-3 py-1 rounded hover:opacity-90"
             >
               Run
