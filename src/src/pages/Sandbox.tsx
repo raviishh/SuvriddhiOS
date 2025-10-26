@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
@@ -12,22 +12,70 @@ export default function Sandbox() {
   const [output, setOutput] = useState("");
   const [status, setStatus] = useState("Idle");
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [token, setToken] = useState<string | null>(null);
-  const [currentFile, setCurrentFile] = useState("hello.c");
+  const [fileTokens, setFileTokens] = useState<Record<string, string | null>>({});
+  const [currentFile, setCurrentFile] = useState<string | null>(null);
+  const [fileList, setFileList] = useState<string[]>([]);
 
-  const dummyFiles = ["hello.c", "sum.c", "loops.c"];
+
+  async function handleFileList() {
+    try {
+      const res = await fetch("http://127.0.0.1:8000/api/list");
+      const json = await res.json();
+      setFileList(json.files || []);
+      if (json.files.length && !currentFile) {
+        setCurrentFile(json.files[0]);
+        loadFile(json.files[0]);
+      }
+    } catch (err) {
+      console.error("Error fetching file list", err);
+    }
+  }
+
+  async function loadFile(filename: string) {
+    try {
+      const res = await fetch("http://127.0.0.1:8000/api/load", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ filename }),
+      });
+      const json = await res.json();
+      setCode(json.code || starterCode);
+      setCurrentFile(filename);
+    } catch (err) {
+      console.error("Error loading file", err);
+      setCode(starterCode);
+    }
+  }
+  
+  async function saveFile(filename: string, content: string) {
+    try {
+      await fetch("http://127.0.0.1:8000/api/save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ filename, code: content }),
+      });
+
+      if (!fileList.includes(filename)) handleFileList();
+    } catch (err) {
+      console.error("Error saving file", err);
+    }
+  }
 
   async function handleCompile() {
+
+    if (!currentFile) return;
+
     setStatus("Compiling...");
     setOutput("");
-    setToken(null);
+
+    setFileTokens(prev => ({ ...prev, [currentFile]: null }));
 
     
     try {
       const compileRes = await fetch("http://127.0.0.1:8000/api/compile", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code: code }),
+        body: JSON.stringify({ code }),
       });
 
       const compileJson = await compileRes.json();
@@ -36,7 +84,7 @@ export default function Sandbox() {
 
       setStatus("Compiled Successfully");
 
-      setToken(compileJson.token);
+      setFileTokens(prev => ({ ...prev, [currentFile]: compileJson.token }));
 
       return compileJson.token;
 
@@ -77,10 +125,28 @@ export default function Sandbox() {
     await handleRun(runToken);
   }
 
+
+  useEffect(() => {
+    if (currentFile) {
+      const timer = setTimeout(() => {
+        saveFile(currentFile, code);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [code, currentFile]);
+
+
+  useEffect(() => {
+    handleFileList();
+  }, []);
+
+
+
+  if (!currentFile) return <></>;
+
   return (
     <div className="flex h-screen bg-background text-foreground">
 
-      {/* Currently dummy codes are running -> Needs to be setup */}
       {sidebarOpen && (
         <div className="w-48 bg-card border-r border-border flex flex-col">
           <div className="flex items-center justify-between px-3 py-2 border-b border-border">
@@ -89,19 +155,41 @@ export default function Sandbox() {
               <ChevronLeft size={20}/>
             </button>
           </div>
+
           <div className="flex-1 p-2 overflow-auto">
-            {dummyFiles.map((f) => (
+
+            <div className="mb-2">
+              <button
+                className="w-full bg-primary text-primary-foreground px-2 py-1 rounded hover:opacity-90 text-xs"
+                onClick={async () => {
+                  const input = prompt("Enter new filename:");
+                  if (!input) return;
+                  const filename = input.endsWith(".c") ? input.slice(0, -2) : input;
+
+                  await fetch("http://127.0.0.1:8000/api/save", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ filename, code: starterCode }),
+                  });
+
+                  await handleFileList();
+                  setCurrentFile(filename);
+                  setCode(starterCode);
+                }}
+              >
+                + New File
+              </button>
+            </div>
+
+            {fileList.map((f) => (
               <button
                 key={f}
                 className={`block w-full text-left text-sm py-1 px-2 rounded hover:bg-muted ${
                   currentFile === f ? "bg-muted" : ""
                 }`}
-                onClick={() => {
-                  setCurrentFile(f);
-                  setCode(`${starterCode}`);
-                }}
+                onClick={() => loadFile(f)}
               >
-                {f}
+                {f + ".c"}
               </button>
             ))}
           </div>
@@ -111,23 +199,23 @@ export default function Sandbox() {
 
 
 
-
       <div className="flex flex-1 flex-col relative">
 
         <div className="bg-card border-b border-border px-4 py-2 flex items-center justify-between">
           <div className="flex items-center gap-2">
+
             {!sidebarOpen && (
               <button
-                onClick={() => setSidebarOpen(true)} className="bg-card rounded hover:bg-accent hover:text-accent-foreground transition-colors">
+                onClick={() => setSidebarOpen(true)} className="bg-card rounded hover:bg-secondary hover:text-foreground transition-colors">
                 <ChevronRight size={20}/>
               </button>
             )}
 
-            <Link to="/" className="bg-card rounded px-1 py-1 text-xs hover:bg-accent hover:text-accent-foreground transition-colors">
+            <Link to="/" className="bg-card rounded px-1 py-1 text-xs hover:bg-secondary hover:text-foreground transition-colors">
               <Home size={16} />
             </Link>
 
-            <h1 className="font-semibold text-sm opacity-90">{currentFile}</h1>
+            <h1 className="font-semibold text-sm opacity-90">{currentFile ? currentFile + ".c" : "No file selected"}</h1>
 
           </div>
           <span className="text-xs opacity-60">{status}</span>
@@ -161,13 +249,14 @@ export default function Sandbox() {
           <div className="flex space-x-2">
             <button
               onClick={handleCompile}
-              className="bg-accent text-primary-foreground px-3 py-1 rounded hover:opacity-90"
+              className="text-primary-foreground px-3 py-1 rounded hover:opacity-90"
             >
               Compile
             </button>
             <button
-              onClick={() => handleRun(token)}
-              className="bg-accent text-accent-foreground px-3 py-1 rounded hover:opacity-90"
+              disabled={fileTokens[currentFile] == null}
+              onClick={() => handleRun(fileTokens[currentFile])}
+              className={`${fileTokens[currentFile] == null ? "text-muted-foreground" : "text-foreground hover:opacity-90"} px-3 py-1 rounded `}
             >
               Run
             </button>

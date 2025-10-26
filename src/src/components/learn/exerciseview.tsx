@@ -41,7 +41,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
 
 
         try {
-            const compileRes = await fetch("http://127.0.0.1:8000/api/compile", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: code }) });
+            const compileRes = await fetch("http://127.0.0.1:8000/api/compile", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code }) });
             const compileJson = await compileRes.json();
             if (compileJson.error) {
                 setOutput(`Compilation error: ${compileJson.error}`);
