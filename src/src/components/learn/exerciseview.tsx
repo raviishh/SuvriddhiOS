@@ -69,44 +69,47 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
         }
     }
     return (
-        <div className="learning-container flex flex-col">
+        <div className="grow p-6 flex flex-col">
             {/* <div className="relative">
-                <h2 className="learning-title">{item.title}</h2>
+                <h2 className="absolute left-1/2 transform -translate-x-2/3 text-3xl font-semibold">{item.title}</h2>
             </div> */}
 
-            <div className="learning-content-exercise" dangerouslySetInnerHTML={{ __html: descriptionHtml ?? "<p>Loading...</p>" }} />
+            <div className="max-w-none m-10" dangerouslySetInnerHTML={{ __html: descriptionHtml ?? "<p>Loading...</p>" }} />
 
-            <div className="exercise-editor-container">
-                <div className="exercise-editor">
-                    <AceEditor
-                        mode="c_cpp"
-                        theme="tomorrow_night_eighties"
-                        name="editor"
-                        value={code}
-                        onChange={(val) => setCode(val)}
-                        fontSize={14}
-                        width="100%"
-                        height="400px"
-                        showPrintMargin={false}
-                        showGutter={true}
-                        highlightActiveLine={true}
-                          setOptions={{
-                            enableBasicAutocompletion: false, // Maybe enable these two for Learn and not for Train
-                            enableLiveAutocompletion: false,
-                            enableSnippets: false,
-                            useWorker: false,
-                            tabSize: 2,
-                        }}
-                    />
+
+            <div className="flex-1 m-10 flex flex-col">
+                <div className="border border-border rounded-lg overflow-hidden shadow-sm bg-card">
+
+                <AceEditor
+                    mode="c_cpp"
+                    theme="tomorrow_night_eighties"
+                    name="editor"
+                    value={code}
+                    onChange={(val) => setCode(val)}
+                    fontSize={14}
+                    width="100%"
+                    height="400px"
+                    showPrintMargin={false}
+                    showGutter={true}
+                    highlightActiveLine={true}
+                      setOptions={{
+                        enableBasicAutocompletion: false, // Maybe enable these two for Learn and not for Train
+                        enableLiveAutocompletion: false,
+                        enableSnippets: false,
+                        useWorker: false,
+                        tabSize: 2,
+                    }}
+                />
                 </div>
-                <div className="exercise-buttons">
-                    <button onClick={handleSubmit} disabled={running} className="learning-button-secondary">{running ? "Running..." : "Compile and Run"}</button>
-                    <button onClick={() => { setCode(starterCode); }} className="learning-button-reset">Reset</button>
+                <div className="mt-4 flex items-center gap-3">
+                    <button onClick={handleSubmit} disabled={running} className="px-4 py-2 rounded-md bg-primary-muted text-primary-foreground">{running ? "Running..." : "Compile and Run"}</button>
+                    <button onClick={() => { setCode(starterCode); }} className="px-3 py-2 rounded-md border border-border">Reset</button>
                 </div>
 
-                <div className="exercise-output-container">
-                    <h3 className="exercise-output-title">Output</h3>
-                    <pre className="exercise-output">{output ?? "No output yet"}</pre>
+
+                <div className="mt-6">
+                    <h3 className="text-lg font-medium">Output</h3>
+                    <pre className="mt-2 p-3 rounded-md bg-card text-foreground h-auto min-h-40 overflow-auto">{output ?? "No output yet"}</pre>
                 </div>
             </div>
 
