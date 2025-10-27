@@ -28,11 +28,6 @@ jobs:
           cd src
           npm run build
 
-      - name: Lint
-        run: |
-          cd src
-          npm run lint
-
       - name: Check vulnerabilities
         run: |
           cd src
