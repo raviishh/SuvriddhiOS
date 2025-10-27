@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import type { ExerciseItem } from "../../types/learningitems";
 import { useStore } from "../../store/useStore";
 
@@ -19,7 +19,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
     const [draftLoaded, setDraftLoaded] = useState(false);
 
 
-
+    const editorRef = useRef(null);
     useEffect(() => {
         fetch(`/data/${item.contentFile}`).then(r => r.text()).then(t => setDescriptionHtml(t)).catch(() => setDescriptionHtml("<p>Unable to load description</p>"));
 
@@ -34,6 +34,13 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
         if (draftLoaded) saveDraftForExercise(item.id, code);
     }, [code, draftLoaded]);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+        editorRef.current?.editor.focus();
+        editorRef.current?.editor.gotoLine(1, 0, true);
+        }, 100);
+        return () => clearTimeout(timer);
+    }, [currentFile]);
 
     async function handleSubmit() {
         setRunning(true);
@@ -79,6 +86,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
             <div className="exercise-editor-container">
                 <div className="exercise-editor">
                     <AceEditor
+                        ref={editorRef}
                         mode="c_cpp"
                         theme="tomorrow_night_eighties"
                         name="editor"
