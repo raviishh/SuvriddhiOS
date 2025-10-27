@@ -1,22 +1,18 @@
 /* Shared styles for lesson and exercise components */
 
 @layer components {
-  /* Main container for both lesson and exercise views */
   .learning-container {
     @apply grow p-6;
   }
 
-  /* Content area for lesson and exercise descriptions */
   .learning-content {
     @apply max-w-none;
   }
 
-  /* Exercise-specific content with margin */
   .learning-content-exercise {
     @apply max-w-none m-10;
   }
 
-  /* Title styling (currently commented out but standardized for future use) */
   .learning-title {
     @apply absolute left-1/2 transform -translate-x-2/3 text-3xl font-semibold;
   }
@@ -25,7 +21,6 @@
     @apply text-2xl text-center -ml-[calc((100vw-100%)/2)] font-bold mb-4;
   }
 
-  /* Button styles for learning components */
   .learning-button-primary {
     @apply px-4 py-3 bg-secondary text-primary-foreground rounded-3xl font-medium shadow-md hover:bg-secondary/80 transition-all;
   }
@@ -42,7 +37,6 @@
     @apply opacity-50 cursor-not-allowed;
   }
 
-  /* Exercise-specific styles */
   .exercise-editor-container {
     @apply flex-1 m-10 flex flex-col;
   }
@@ -67,7 +61,6 @@
     @apply mt-2 p-3 rounded-md bg-card text-foreground h-auto min-h-40 overflow-auto;
   }
 
-  /* Centered action buttons (like the complete button in lessons) */
   .learning-actions-center {
     @apply flex items-center justify-center;
   }
