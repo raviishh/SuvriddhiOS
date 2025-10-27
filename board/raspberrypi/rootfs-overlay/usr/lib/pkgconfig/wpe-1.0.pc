@@ -1,0 +1,10 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: wpe-1.0
+Description: The wpe library
+Version: 1.16.2
+Requires.private: xkbcommon, egl
+Libs: -L${libdir} -lwpe-1.0
+Cflags: -I${includedir}/wpe-1.0 -DWPE_ENABLE_XKB=1

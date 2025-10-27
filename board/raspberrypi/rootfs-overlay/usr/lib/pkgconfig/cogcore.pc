@@ -1,0 +1,10 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: cogcore
+Description: Cog Core - WPE WebKit base launcher
+Version: 0.18.5
+Requires: wpe-webkit-2.0 >= 2.39.91
+Libs: -L${libdir} -lcogcore
+Cflags: -I${includedir}/cog

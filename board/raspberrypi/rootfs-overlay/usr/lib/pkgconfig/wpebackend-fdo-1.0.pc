@@ -1,0 +1,10 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: wpebackend-fdo-1.0
+Description: The WPEBackend-fdo library
+Version: 1.16.0
+Requires: wpe-1.0 >= 1.6.0
+Libs: -L${libdir} -lWPEBackend-fdo-1.0
+Cflags: -I${includedir}/wpe-fdo-1.0

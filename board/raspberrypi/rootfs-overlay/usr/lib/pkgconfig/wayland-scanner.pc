@@ -1,0 +1,12 @@
+prefix=/usr
+includedir=${prefix}/include
+
+datarootdir=${prefix}/share
+pkgdatadir=${pc_sysrootdir}${datarootdir}/wayland
+bindir=${prefix}/bin
+wayland_scanner=/mnt/tmp/home/raviish/Documents/buildroot-2025.08/output/host/bin/wayland-scanner
+
+Name: Wayland Scanner
+Description: Wayland scanner
+Version: 1.23.1
+Cflags: -I${includedir}

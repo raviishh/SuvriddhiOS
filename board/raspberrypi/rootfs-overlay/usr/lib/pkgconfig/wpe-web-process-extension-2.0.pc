@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib
+includedir=${prefix}/include
+
+Name: WPE WebKit Web process extensions
+Description: Embeddable Web content engine - Web process extensions
+URL: https://wpewebkit.org
+Version: 2.48.3
+Requires: glib-2.0 libsoup-3.0 wpe-1.0
+Libs: -L${libdir} -lWPEWebKit-2.0
+Cflags: -I${includedir}/wpe-webkit-2.0

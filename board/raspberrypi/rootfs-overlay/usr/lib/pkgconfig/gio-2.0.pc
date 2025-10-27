@@ -1,0 +1,25 @@
+prefix=/usr
+bindir=${prefix}/bin
+datadir=${prefix}/share
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+schemasdir=${datadir}/glib-2.0/schemas
+dtdsdir=${datadir}/glib-2.0/dtds
+giomoduledir=/usr/lib/gio/modules
+gio=gio
+gio_querymodules=gio-querymodules
+glib_compile_schemas=glib-compile-schemas
+glib_compile_resources=glib-compile-resources
+gdbus=gdbus
+gdbus_codegen=gdbus-codegen
+gresource=gresource
+gsettings=gsettings
+
+Name: GIO
+Description: glib I/O library
+Version: 2.84.3
+Requires: glib-2.0, gobject-2.0
+Requires.private: gmodule-no-export-2.0, zlib
+Libs: -L${libdir} -lgio-2.0
+Cflags: -I${includedir}

@@ -5,7 +5,7 @@ kernel=Image
 
 disable_overscan=1
 
-gpu_mem_1024=256
+gpu_mem_1024=128
 
 dtoverlay=miniuart-bt
 

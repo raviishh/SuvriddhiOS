@@ -1,0 +1,11 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: libdisplay-info
+Description: EDID and DisplayID library
+URL: https://gitlab.freedesktop.org/emersion/libdisplay-info
+Version: 0.2.0
+Libs: -L${libdir} -ldisplay-info
+Libs.private: -lm
+Cflags: -I${includedir}

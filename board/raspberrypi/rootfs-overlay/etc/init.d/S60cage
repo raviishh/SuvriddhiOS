@@ -8,6 +8,8 @@ start() {
 
 	ln -sf /usr/lib/libWPEBackend-fdo-1.0.so.1.10.1 /usr/lib/libWPEBackend-default.so
 
+	/root/server &
+
 	busybox httpd -h /root/www -p 8080 &
 
 	sleep 1

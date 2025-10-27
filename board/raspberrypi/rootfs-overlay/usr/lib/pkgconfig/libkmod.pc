@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libkmod
+Description: Library to deal with kernel modules
+Version: 33
+Libs: -L${libdir} -lkmod
+Libs.private:  -L/mnt/tmp/home/raviish/Documents/buildroot-2025.08/output/host/bin/../aarch64-buildroot-linux-gnu/sysroot/usr/lib -llzma -L/mnt/tmp/home/raviish/Documents/buildroot-2025.08/output/host/bin/../aarch64-buildroot-linux-gnu/sysroot/usr/lib -lz
+Cflags: -I${includedir}
