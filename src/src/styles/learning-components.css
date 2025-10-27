@@ -1,0 +1,67 @@
+/* Shared styles for lesson and exercise components */
+
+@layer components {
+  .learning-container {
+    @apply grow p-6;
+  }
+
+  .learning-content {
+    @apply max-w-none;
+  }
+
+  .learning-content-exercise {
+    @apply max-w-none m-10;
+  }
+
+  .learning-title {
+    @apply absolute left-1/2 transform -translate-x-2/3 text-3xl font-semibold;
+  }
+
+  .learning-title-center {
+    @apply text-2xl text-center -ml-[calc((100vw-100%)/2)] font-bold mb-4;
+  }
+
+  .learning-button-primary {
+    @apply px-4 py-3 bg-secondary text-primary-foreground rounded-3xl font-medium shadow-md hover:bg-secondary/80 transition-all;
+  }
+
+  .learning-button-secondary {
+    @apply px-4 py-2 rounded-md bg-primary-muted text-primary-foreground;
+  }
+
+  .learning-button-reset {
+    @apply px-3 py-2 rounded-md border border-border;
+  }
+
+  .learning-button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .exercise-editor-container {
+    @apply flex-1 m-10 flex flex-col;
+  }
+
+  .exercise-editor {
+    @apply border border-border rounded-lg overflow-hidden shadow-sm bg-card;
+  }
+
+  .exercise-buttons {
+    @apply mt-4 flex items-center gap-3;
+  }
+
+  .exercise-output-container {
+    @apply mt-6;
+  }
+
+  .exercise-output-title {
+    @apply text-lg font-medium;
+  }
+
+  .exercise-output {
+    @apply mt-2 p-3 rounded-md bg-card text-foreground h-auto min-h-40 overflow-auto;
+  }
+
+  .learning-actions-center {
+    @apply flex items-center justify-center;
+  }
+}
