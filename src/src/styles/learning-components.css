@@ -1,0 +1,100 @@
+/* Lesson Content */
+.lesson-content h1 {
+  font-size: 2.05rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-foreground);
+  text-align: center; /* merged: center version wins */
+}
+
+.lesson-content h2 {
+  font-size: 1.25rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.6rem;
+  color: var(--color-primary);
+}
+
+.lesson-content p {
+  line-height: 1.7;
+  margin-bottom: 0.9rem;
+  color: var(--color-card-foreground);
+}
+
+.lead {
+  color: var(--color-muted-foreground);
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+/* Callout Box */
+.callout {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+  border-left: 4px solid var(--color-primary);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 12px 0;
+  color: var(--color-card-foreground);
+}
+
+/* Code Blocks */
+.code-block {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  padding: 12px;
+  border-radius: 10px;
+  overflow: auto;
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #e6e6e6;
+  margin: 12px 0;
+}
+
+.code-block pre {
+  margin: 0;
+  white-space: pre;
+}
+
+.inline-code {
+  background: rgba(255,255,255,0.03);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+/* Steps Boxes */
+.steps {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.step {
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.02);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Example Output */
+.output {
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.18));
+  border-radius: 8px;
+  padding: 10px;
+  font-family: inherit;
+  color: #bfe8c9;
+  border: 1px solid rgba(0,0,0,0.4);
+  margin-top: 8px;
+}
+
+/* Divider */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  margin: 18px 0;
+}
