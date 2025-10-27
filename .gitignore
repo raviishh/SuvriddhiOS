@@ -17,3 +17,6 @@
 
 # Causes corruption error with git
 package/jack2/0001-Update-to-waf-2-0-26.patch 
+
+# macOS metadata
+**/.DS_Store
