@@ -19,17 +19,20 @@ export default function LessonView({ item, onMarkComplete }: LessonViewProps) {
 
 
     return (
-        <div className="learning-container">
+        <div className="grow p-6">
             {/* <div className="relative">
-                <h2 className="learning-title">{item.title}</h2>
+                <h2 className="absolute left-1/2 transform -translate-x-2/3 text-3xl font-semibold">{item.title}</h2>
             </div> */}
-            {/* <h2 className="learning-title-center"></h2> */}
+            {/* <h2 className="text-2xl text-center -ml-[calc((100vw-100%)/2)] font-bold mb-4"></h2> */}
+
 
             {/* Include title with html file for now. Later make it standardized here */}
-            <div className="learning-content" dangerouslySetInnerHTML={{ __html: html ?? "<p>Loading...</p>" }} />
+            <link rel="stylesheet" href="common.css"></link>
+            <div className="max-w-none" dangerouslySetInnerHTML={{ __html: html ?? "<p>Loading...</p>" }} />
 
-            <div className="learning-actions-center">
-                <button onClick={onMarkComplete} className="learning-button-primary"><Check /></button>
+
+            <div className="flex items-center justify-center">
+                <button onClick={onMarkComplete} className="px-4 py-3 bg-secondary text-primary-foreground rounded-3xl font-medium shadow-md hover:bg-secondary/80 transition-all"><Check /></button>
             </div>
         </div>
     );
