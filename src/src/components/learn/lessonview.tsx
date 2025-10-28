@@ -28,7 +28,7 @@ export default function LessonView({ item, onMarkComplete }: LessonViewProps) {
 
             {/* Include title with html file for now. Later make it standardized here */}
             <link rel="stylesheet" href="common.css"></link>
-            <div className="max-w-none" dangerouslySetInnerHTML={{ __html: html ?? "<p>Loading...</p>" }} />
+            <div className="max-w-none learning-container" dangerouslySetInnerHTML={{ __html: html ?? "<p>Loading...</p>" }} />
 
 
             <div className="flex items-center justify-center">

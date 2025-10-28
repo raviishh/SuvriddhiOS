@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./learning-components.css";
+@import "./learning-container.css";
 /* Defining standard color-scheme for entire app */
 
 @theme {

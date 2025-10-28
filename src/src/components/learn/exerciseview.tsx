@@ -73,8 +73,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
             {/* <div className="relative">
                 <h2 className="absolute left-1/2 transform -translate-x-2/3 text-3xl font-semibold">{item.title}</h2>
             </div> */}
-            <link rel="stylesheet" href="common.css"></link>
-            <div className="max-w-none m-10" dangerouslySetInnerHTML={{ __html: descriptionHtml ?? "<p>Loading...</p>" }} />
+            <div className="max-w-none m-10 learning-container" dangerouslySetInnerHTML={{ __html: descriptionHtml ?? "<p>Loading...</p>" }} />
 
             <div className="flex-1 m-10 flex flex-col">
                 <div className="border border-border rounded-lg overflow-hidden shadow-sm bg-card">
