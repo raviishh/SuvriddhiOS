@@ -17,10 +17,16 @@ export default function OutputFeedback({
         <div className="mt-6">
             <h3 className="text-lg font-medium mb-3">Output</h3>
             {output ? (
-                <div className={`p-4 rounded-md ${isSuccess ? "bg-green-500/10 border border-green-500/20" : "bg-red-500/10 border border-red-500/20"}`}>
-                    <p className={`font-medium mb-2 ${isSuccess ? "text-green-500" : "text-red-500"}`}>
-                        {isSuccess ? `✅ ${successMessage}` : `❌ ${errorMessage}`}
-                    </p>
+                <div className={`p-4 rounded-md ${
+                    isSuccess === true ? "bg-green-500/10 border border-green-500/20" : 
+                    isSuccess === false ? "bg-red-500/10 border border-red-500/20" : 
+                    "bg-card border border-border"
+                }`}>
+                    {isSuccess !== null && (
+                        <p className={`font-medium mb-2 ${isSuccess ? "text-green-500" : "text-red-500"}`}>
+                            {isSuccess ? `✅ ${successMessage}` : `❌ ${errorMessage}`}
+                        </p>
+                    )}
                     <pre className="text-sm text-foreground whitespace-pre-wrap">{output}</pre>
                 </div>
             ) : (
