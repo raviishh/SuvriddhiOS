@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
@@ -15,6 +15,7 @@ export default function Sandbox() {
   const [fileTokens, setFileTokens] = useState<Record<string, string | null>>({});
   const [currentFile, setCurrentFile] = useState<string | null>(null);
   const [fileList, setFileList] = useState<string[]>([]);
+  const editorRef = useRef<AceEditor>(null);
 
 
   async function handleFileList() {
@@ -140,6 +141,17 @@ export default function Sandbox() {
     handleFileList();
   }, []);
 
+  // focus the editor when a file is loaded
+  useEffect(() => {
+    if (editorRef.current && currentFile) {
+      const editor = editorRef.current.editor;
+      if (editor) {
+        editor.focus();
+        editor.gotoLine(4, 2);
+      }
+    }
+  }, [currentFile]);
+
 
 
   if (!currentFile) return <></>;
@@ -223,6 +235,7 @@ export default function Sandbox() {
 
         <div className="flex-1">
           <AceEditor
+            ref={editorRef}
             mode="c_cpp"
             theme="tomorrow_night_eighties"
             name="editor"
