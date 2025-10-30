@@ -55,10 +55,10 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
 
 
             if (runJson.success) {
-                setOutput("Code is correct. All tests passed!");
+                setOutput("✅ Code is correct! All tests passed!");
                 onMarkComplete();
             } else {
-                setOutput(`Test failed on the following test case:${runJson.input === "" ? "" : `\n\nInput: ${runJson.input}`}\n\nOutput: ${runJson.output}\n\nExpected: ${runJson.expected}`);
+                setOutput(`❌ Test failed on the following test case:${runJson.input === "" ? "" : `\n\nInput: ${runJson.input}`}\n\nOutput: ${runJson.output}\n\nExpected: ${runJson.expected}`);
             }
 
 
