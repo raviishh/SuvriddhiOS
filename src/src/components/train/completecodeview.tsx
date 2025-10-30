@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { CompleteCodeDrill } from "../../types/drills";
 import { useStore } from "../../store/useStore";
+import OutputFeedback from "../common/outputfeedback";
 
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
@@ -13,6 +14,7 @@ export default function CompleteCodeView({ drill, onMarkComplete }: { drill: Com
     const [output, setOutput] = useState<string | null>(null);
     const [running, setRunning] = useState(false);
     const [draftLoaded, setDraftLoaded] = useState(false);
+    const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
 
     useEffect(() => {
         // Load existing draft of code if exists
@@ -24,6 +26,7 @@ export default function CompleteCodeView({ drill, onMarkComplete }: { drill: Com
         }
         setDraftLoaded(true);
         setOutput(null);
+        setIsSuccess(null);
     }, [drill.id]);
 
     // Autosave draft of code on change
@@ -34,6 +37,7 @@ export default function CompleteCodeView({ drill, onMarkComplete }: { drill: Com
     async function handleSubmit() {
         setRunning(true);
         setOutput(null);
+        setIsSuccess(null);
 
         try {
             const compileRes = await fetch("http://127.0.0.1:8000/api/compile", {
@@ -44,6 +48,7 @@ export default function CompleteCodeView({ drill, onMarkComplete }: { drill: Com
             const compileJson = await compileRes.json();
             if (compileJson.error) {
                 setOutput(`Compilation error: ${compileJson.error}`);
+                setIsSuccess(false);
                 setRunning(false);
                 return;
             }
@@ -56,14 +61,17 @@ export default function CompleteCodeView({ drill, onMarkComplete }: { drill: Com
             const runJson = await runRes.json();
 
             if (runJson.success) {
-                setOutput("✅ Code is correct! All tests passed!");
+                setOutput("All tests passed!");
+                setIsSuccess(true);
                 onMarkComplete();
             } else {
-                setOutput(`❌ Test failed on the following test case:${runJson.input === "" ? "" : `\n\nInput: ${runJson.input}`}\n\nOutput: ${runJson.output}\n\nExpected: ${runJson.expected}`);
+                setOutput(`Test failed on the following test case:${runJson.input === "" ? "" : `\n\nInput: ${runJson.input}`}\n\nOutput: ${runJson.output}\n\nExpected: ${runJson.expected}`);
+                setIsSuccess(false);
             }
 
         } catch (e: any) {
             setOutput("Runtime error: " + String(e.message ?? e));
+            setIsSuccess(false);
         } finally {
             setRunning(false);
         }
@@ -124,12 +132,11 @@ export default function CompleteCodeView({ drill, onMarkComplete }: { drill: Com
                     </button>
                 </div>
 
-                <div className="mt-6">
-                    <h3 className="text-lg font-medium">Output</h3>
-                    <pre className="mt-2 p-3 rounded-md bg-card text-foreground h-auto min-h-40 overflow-auto whitespace-pre-wrap">
-                        {output ?? "No output yet. Submit your solution to see results."}
-                    </pre>
-                </div>
+                <OutputFeedback
+                    output={output}
+                    isSuccess={isSuccess}
+                    emptyMessage="No output yet. Submit your solution to see results."
+                />
             </div>
         </div>
     );
