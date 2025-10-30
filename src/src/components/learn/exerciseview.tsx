@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import type { ExerciseItem } from "../../types/learningitems";
 import { useStore } from "../../store/useStore";
 import OutputFeedback from "../common/outputfeedback";
@@ -19,6 +19,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
     const [running, setRunning] = useState(false);
     const [draftLoaded, setDraftLoaded] = useState(false);
     const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
+    const editorRef = useRef<AceEditor>(null);
 
 
 
@@ -35,6 +36,17 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
     useEffect(() => {
         if (draftLoaded) saveDraftForExercise(item.id, code);
     }, [code, draftLoaded]);
+
+    // focus the editor when the component mounts or item changes
+    useEffect(() => {
+        if (editorRef.current) {
+            const editor = editorRef.current.editor;
+            if (editor) {
+                editor.focus();
+                editor.gotoLine(4, 2);
+            }
+        }
+    }, [item.id]);
 
 
     async function handleSubmit() {
@@ -86,6 +98,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
                 <div className="border border-border rounded-lg overflow-hidden shadow-sm bg-card">
 
                 <AceEditor
+                    ref={editorRef}
                     mode="c_cpp"
                     theme="tomorrow_night_eighties"
                     name="editor"
