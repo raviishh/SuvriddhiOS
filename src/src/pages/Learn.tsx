@@ -47,6 +47,22 @@ export default function Learn() {
   function onMarkComplete() {
     if (!active) return;
     markItemCompleted(active.itemId);
+    const currentTopicIndex = topics.findIndex(t => t.id === active.topicId);
+    if (currentTopicIndex === -1) return;
+
+    const currentTopic = topics[currentTopicIndex];
+    const currentItemIndex = currentTopic.items.findIndex(i => i.id === active.itemId);
+    if (currentItemIndex === -1) return;
+    if (currentItemIndex < currentTopic.items.length - 1) {
+      const nextItem = currentTopic.items[currentItemIndex + 1];
+      handleOpenItem(active.topicId, nextItem.id);
+    } else if (currentTopicIndex < topics.length - 1) {
+      const nextTopic = topics[currentTopicIndex + 1];
+      if (nextTopic.items.length > 0) {
+        handleOpenItem(nextTopic.id, nextTopic.items[0].id);
+      }
+    }
+    // If no more topics, stay on current item (do nothing)
   }
 
 
