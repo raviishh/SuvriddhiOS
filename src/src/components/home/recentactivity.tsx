@@ -11,7 +11,7 @@ export default function RecentActivity({ lastActivity }: { lastActivity: ActiveI
   const [topics, setTopics] = useState<Topic[]>([]);
 
   useEffect(() => {
-    fetch(`/data/topics.json`)
+    fetch(`/data/learn/topics.json`)
       .then(r => r.json())
       .then((t: Topic[]) => setTopics(t))
       .catch(() => setTopics([]));
