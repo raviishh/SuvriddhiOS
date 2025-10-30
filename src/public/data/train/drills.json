@@ -1,0 +1,148 @@
+[
+  {
+    "id": "basics",
+    "title": "C Basics",
+    "drills": [
+      {
+        "id": "complete_hello",
+        "type": "complete-code",
+        "title": "Complete Hello World",
+        "difficulty": "easy",
+        "description": "Complete the code to print 'Hello, World!' to the console.",
+        "starterCode": "#include <stdio.h>\n\nint main() {\n    /* YOUR CODE HERE */\n    return 0;\n}",
+        "solution": "#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+        "tests": [
+          {
+            "input": "",
+            "expected": "Hello, World!\n"
+          }
+        ]
+      },
+      {
+        "id": "debug_printf",
+        "type": "debug-code",
+        "title": "Fix the Print Statement",
+        "difficulty": "easy",
+        "description": "This code is supposed to print 'Welcome to C!' but has a bug. Find and fix it.",
+        "buggyCode": "#include <stdio.h>\n\nint main() {\n    printf(\"Welcome to C!\");\n    return 0;\n}",
+        "expectedOutput": "Welcome to C!\n",
+        "hint": "Check if the newline character is present",
+        "tests": [
+          {
+            "input": "",
+            "expected": "Welcome to C!\n"
+          }
+        ]
+      },
+      {
+        "id": "output_arithmetic",
+        "type": "determine-output",
+        "title": "Predict the Output",
+        "difficulty": "easy",
+        "description": "What will this code output?",
+        "code": "#include <stdio.h>\n\nint main() {\n    int a = 5;\n    int b = 3;\n    printf(\"%d\\n\", a + b);\n    return 0;\n}",
+        "correctOutput": "8",
+        "explanation": "The code adds 5 and 3, then prints the result which is 8."
+      }
+    ]
+  },
+  {
+    "id": "variables",
+    "title": "Variables & Data Types",
+    "drills": [
+      {
+        "id": "complete_swap",
+        "type": "complete-code",
+        "title": "Swap Two Variables",
+        "difficulty": "medium",
+        "description": "Complete the code to swap the values of two variables using a temporary variable.",
+        "starterCode": "#include <stdio.h>\n\nint main() {\n    int a = 10;\n    int b = 20;\n    int temp;\n    \n    /* YOUR CODE HERE - Swap a and b using temp */\n    \n    printf(\"%d %d\\n\", a, b);\n    return 0;\n}",
+        "solution": "#include <stdio.h>\n\nint main() {\n    int a = 10;\n    int b = 20;\n    int temp;\n    \n    temp = a;\n    a = b;\n    b = temp;\n    \n    printf(\"%d %d\\n\", a, b);\n    return 0;\n}",
+        "tests": [
+          {
+            "input": "",
+            "expected": "20 10\n"
+          }
+        ]
+      },
+      {
+        "id": "debug_datatype",
+        "type": "debug-code",
+        "title": "Fix the Data Type",
+        "difficulty": "medium",
+        "description": "This code should calculate the average of two numbers but gives wrong output. Fix it.",
+        "buggyCode": "#include <stdio.h>\n\nint main() {\n    int a = 5;\n    int b = 2;\n    int avg = (a + b) / 2;\n    printf(\"%.1f\\n\", avg);\n    return 0;\n}",
+        "expectedOutput": "3.5\n",
+        "hint": "Think about integer division vs floating-point division",
+        "tests": [
+          {
+            "input": "",
+            "expected": "3.5\n"
+          }
+        ]
+      },
+      {
+        "id": "output_modulo",
+        "type": "determine-output",
+        "title": "Modulo Operation",
+        "difficulty": "easy",
+        "description": "What will this code output?",
+        "code": "#include <stdio.h>\n\nint main() {\n    int x = 17;\n    int y = 5;\n    printf(\"%d\\n\", x % y);\n    return 0;\n}",
+        "correctOutput": "2",
+        "explanation": "The modulo operator % returns the remainder of division. 17 divided by 5 is 3 with remainder 2."
+      }
+    ]
+  },
+  {
+    "id": "control_flow",
+    "title": "Control Flow",
+    "drills": [
+      {
+        "id": "complete_even_odd",
+        "type": "complete-code",
+        "title": "Even or Odd Checker",
+        "difficulty": "easy",
+        "description": "Complete the code to check if a number is even or odd.",
+        "starterCode": "#include <stdio.h>\n\nint main() {\n    int num;\n    scanf(\"%d\", &num);\n    \n    /* YOUR CODE HERE - Check if num is even or odd */\n    \n    return 0;\n}",
+        "solution": "#include <stdio.h>\n\nint main() {\n    int num;\n    scanf(\"%d\", &num);\n    \n    if (num % 2 == 0) {\n        printf(\"Even\\n\");\n    } else {\n        printf(\"Odd\\n\");\n    }\n    \n    return 0;\n}",
+        "tests": [
+          {
+            "input": "4",
+            "expected": "Even\n"
+          },
+          {
+            "input": "7",
+            "expected": "Odd\n"
+          }
+        ]
+      },
+      {
+        "id": "debug_loop",
+        "type": "debug-code",
+        "title": "Fix the Loop",
+        "difficulty": "medium",
+        "description": "This loop should print numbers 1 to 5, but it doesn't work correctly. Fix it.",
+        "buggyCode": "#include <stdio.h>\n\nint main() {\n    int i;\n    for (i = 1; i < 5; i++) {\n        printf(\"%d\\n\", i);\n    }\n    return 0;\n}",
+        "expectedOutput": "1\n2\n3\n4\n5\n",
+        "hint": "Check the loop condition",
+        "tests": [
+          {
+            "input": "",
+            "expected": "1\n2\n3\n4\n5\n"
+          }
+        ]
+      },
+      {
+        "id": "output_nested_loop",
+        "type": "determine-output",
+        "title": "Nested Loop Output",
+        "difficulty": "medium",
+        "description": "What will this nested loop output?",
+        "code": "#include <stdio.h>\n\nint main() {\n    int i, j;\n    for (i = 1; i <= 2; i++) {\n        for (j = 1; j <= 3; j++) {\n            printf(\"%d \", i * j);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+        "correctOutput": "1 2 3 \n2 4 6 ",
+        "explanation": "The outer loop runs twice (i=1, i=2). For each i, the inner loop runs three times (j=1,2,3), printing i*j each time."
+      }
+    ]
+  }
+]
+
