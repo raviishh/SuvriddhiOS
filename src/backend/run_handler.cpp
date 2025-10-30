@@ -58,8 +58,8 @@ int handle_run(struct mg_connection *conn, void *ignored) {
             std::string tmpIn = "/tmp/" + token + ".in";
             std::string tmpOut = "/tmp/" + token + ".out";
             write_file(tmpIn, input);
-            // timeout after 60s.
-            std::string runCmd = "timeout 60s " + exePath + " < " + tmpIn + " > " + tmpOut + " 2>&1";
+            // timeout after 5s.
+            std::string runCmd = "timeout 5s " + exePath + " < " + tmpIn + " > " + tmpOut + " 2>&1";
             int ret = std::system(runCmd.c_str());
 
             std::string output = read_file(tmpOut);
