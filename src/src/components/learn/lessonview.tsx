@@ -11,7 +11,7 @@ export default function LessonView({ item, onMarkComplete }: LessonViewProps) {
     const [html, setHtml] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch(`/data/${item.contentFile}`)
+        fetch(`/data/learn/${item.contentFile}`)
             .then(r => r.text())
             .then(t => setHtml(t))
             .catch(() => setHtml("<p>Unable to load content.</p>"));
