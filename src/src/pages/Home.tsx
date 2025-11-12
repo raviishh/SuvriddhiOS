@@ -17,8 +17,6 @@ export default function Home() {
   } = useStore();
 
   const [topics, setTopics] = useState<Topic[]>([]);
-
-  // Load topics on mount
   useEffect(() => {
     fetch(`/data/learn/topics.json`)
       .then(r => r.json())
@@ -26,28 +24,23 @@ export default function Home() {
       .catch(() => setTopics([]));
   }, []);
 
-  // Save lastActivity whenever it changes
   useEffect(() => {
     if (lastActivity) {
       localStorage.setItem("lastActivity", JSON.stringify(lastActivity));
     }
   }, [lastActivity]);
 
-  // Load lastActivity & completed items once topics are loaded
   useEffect(() => {
     if (topics.length === 0) return;
 
-    // 1️⃣ Restore all completed items
     const savedCompletedItems = localStorage.getItem("completedItems");
     if (savedCompletedItems) {
       const completedItems: { topicId: string; itemId: string }[] = JSON.parse(savedCompletedItems);
       completedItems.forEach(item => {
-        // Only mark if not already completed
         if (!isItemCompleted(item.itemId)) markItemCompleted(item.itemId);
       });
     }
 
-    // 2️⃣ Restore lastActivity
     const savedLast = localStorage.getItem("lastActivity");
     if (savedLast && !lastActivity) {
       setLastActivity(JSON.parse(savedLast));

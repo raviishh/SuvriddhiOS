@@ -6,11 +6,10 @@ import { useStore } from "../store/useStore";
 import type { ActiveItem, Topic, TopicItem } from "../types/learningitems";
 
 export default function Learn() {
-  const { lastActivity, setLastActivity, markItemCompleted, isItemCompleted } = useStore();
+  const { setLastActivity, markItemCompleted, isItemCompleted } = useStore();
   const [topics, setTopics] = useState<Topic[]>([]);
   const [active, setActive] = useState<ActiveItem | null>(null);
 
-  // Fetch topics
   useEffect(() => {
     fetch(`/data/learn/topics.json`)
       .then(r => r.json())
@@ -18,11 +17,9 @@ export default function Learn() {
       .catch(() => setTopics([]));
   }, []);
 
-  // Restore completed items and lastActivity after topics load
   useEffect(() => {
     if (topics.length === 0) return;
 
-    // 1️⃣ Restore completed items
     const savedCompleted = localStorage.getItem("completedItems");
     if (savedCompleted) {
       const completedItems: { topicId: string; itemId: string }[] = JSON.parse(savedCompleted);
@@ -31,7 +28,6 @@ export default function Learn() {
       });
     }
 
-    // 2️⃣ Restore lastActivity if active not set yet
     if (!active) {
       const savedLast = localStorage.getItem("lastActivity");
       if (savedLast) {
@@ -41,7 +37,6 @@ export default function Learn() {
           setLastActivity(parsed);
         }
       } else {
-        // default to first item
         const firstItem: ActiveItem = { topicId: topics[0].id, itemId: topics[0].items[0].id };
         setActive(firstItem);
         setLastActivity(firstItem);
