@@ -1,0 +1,157 @@
+{
+    "error: expected ';' before '}'": {
+        "description": "This error occurs when a semicolon is missing at the end of a statement in C or C++.",
+        "explanation": "You forgot to put a semicolon before a closing brace or a block",
+        "fix": "Add a semicolon (;) at the end of the statement before the closing brace (})."
+    },
+    "error: '.*' undeclared (first use in this function)": {
+        "description": "This error occurs when you try to use a variable that hasn't been declared yet",
+        "explanation": "The variable you're trying to use hasn't been declared in the current scope.",
+        "fix": "Declare the variable before using it, ensuring it's in the correct scope."
+    },
+    "error: expected ')' before ';' token": {
+        "description": "This error occurs when there's a missing closing parenthesis in your code.",
+        "explanation": "You forgot to close a parenthesis before a semicolon.",
+        "fix": "Add the missing closing parenthesis before the semicolon."
+    },
+    "undefined reference to '.*'": {
+        "description": "This is a linker error that occurs when the linker cannot find the definition of a function or variable that has been declared but not defined.",
+        "explanation": "You declared a function or variable but didn't provide its definition or didn't link the file containing it.",
+        "fix": "Make sure to define all declared functions and variables, and ensure that the definitions are linked correctly."
+    },
+    "warning: assignment makes integer from pointer without a cast": {
+        "description": "This warning occurs when you assign a pointer to an integer type without an explicit cast.",
+        "explanation": "You're trying to assign a pointer value to an integer variable, which can lead to data loss or unexpected behavior.",
+        "fix": "Use an explicit cast to convert the pointer to an integer type, or ensure that you're assigning compatible types."
+    },
+    "error: incompatible types in assignment": {
+        "description": "This error occurs when you try to assign a value of one type to a variable of an incompatible type.",
+        "explanation": "The types of the variable and the value you're trying to assign don't match.",
+        "fix": "Ensure that the types are compatible, or use type casting if necessary."
+    },
+    "Segmentation fault (core dumped)": {
+        "description": "This is a runtime error that occurs when a program tries to access a memory location that it's not allowed to access.",
+        "explanation": "Your program is trying to read or write to a memory area that it shouldn't, often due to dereferencing a null or invalid pointer.",
+        "fix": "Check your pointers and memory allocations to ensure they are valid before accessing them."
+    },
+    "error: expected expression before '}' token": {
+        "description": "This error occurs when the compiler expects an expression but finds a closing brace instead.",
+        "explanation": "You left an expression incomplete, or have extra commas/braces.",
+        "fix": "Clean up extra braces and make sure every expression is valid."
+    },
+    "runtime error: array index out of bounds": {
+        "description": "This runtime error (often reported by AddressSanitizer or similar tools) occurs when you try to access an array element using an index outside the valid range.",
+        "explanation": "You're trying to access an array element with an index that is either negative or greater than or equal to the array's size.",
+        "fix": "Ensure that your index is within the valid range (0 to array size - 1) before accessing the array element."
+    },
+    "warning: control reaches end of non-void function": {
+        "description": "This warning occurs when a non-void function does not return a value on all code paths.",
+        "explanation": "Your function is expected to return a value, but there are code paths that do not have a return statement.",
+        "fix": "Make sure that all possible code paths in the function return a value."
+    },
+    "error: expected ';' before 'return'": {
+        "description": "This error occurs when a semicolon is missing before a return statement in C/C++.",
+        "explanation": "You forgot to put a semicolon at the end of the previous statement before the return statement.",
+        "fix": "Add a semicolon (;) at the end of the statement before the return statement."
+    },
+    "warning: '.*' is used uninitialized in this function": {
+        "description": "This warning occurs when a variable is used before it has been assigned a value.",
+        "explanation": "You're using a variable that hasn't been initialized, which can lead to undefined behavior.",
+        "fix": "Initialize the variable before using it to ensure it has a defined value."
+    },
+    "error: redefinition of 'variable'": {
+        "description": "This error occurs when you try to define a variable that has already been defined in the same scope.",
+        "explanation": "You've declared the same variable more than once in the same scope.",
+        "fix": "Remove the duplicate declaration or rename one of the variables to avoid conflicts."
+    },
+    "error: invalid type argument of unary '*'": {
+        "description": "This error occurs when you try to dereference a variable that is not a pointer.",
+        "explanation": "You're using the dereference operator (*) on a variable that isn't a pointer type.",
+        "fix": "Ensure that the variable you're dereferencing is indeed a pointer."
+    },
+    "error: expected identifier or '(' before numeric constant": {
+        "description": "This error occurs when the compiler encounters a numeric constant where it expects an identifier or a parenthesis.",
+        "explanation": "You have a syntax error where a numeric constant is placed incorrectly in your code.",
+        "fix": "Check your code for misplaced numeric constants and correct the syntax."
+    },
+    "error: expected declaration or statement at end of input": {
+        "description": "This error occurs when the compiler reaches the end of the file without finding a complete declaration or statement.",
+        "explanation": "You may have forgotten to close a block or provide a complete statement.",
+        "fix": "Ensure all code blocks are properly closed and all statements are complete."
+    },
+    "error: conflicting types for '.*'": {
+        "description": "This error occurs when a function is declared with a different signature than its previous declaration.",
+        "explanation": "The function's return type or parameter types do not match between declarations.",
+        "fix": "Make sure that all declarations of the function have the same return type and parameter types."
+    },
+    "free(): invalid pointer": {
+        "description": "This error occurs when you attempt to free a pointer that was not allocated by malloc/calloc/realloc or has already been freed.",
+        "explanation": "You're trying to free a pointer that is either invalid or has already been freed, leading to undefined behavior.",
+        "fix": "Ensure that you only free pointers that were allocated dynamically and have not been freed yet."
+    },
+    "warning: initialization makes pointer from integer without a cast": {
+        "description": "This warning occurs when you assign an integer value to a pointer type without an explicit cast.",
+        "explanation": "You're trying to assign an integer to a pointer variable, which can lead to incorrect memory addresses.",
+        "fix": "Use an explicit cast to convert the integer to a pointer type, or ensure that you're assigning compatible types."
+    },
+    "error: too few arguments to function '.*'": {
+        "description": "This error occurs when you call a function with fewer arguments than it requires.",
+        "explanation": "You're not providing enough arguments to the function as defined in its declaration.",
+        "fix": "Check the function's definition and provide the correct number of arguments when calling it."
+    },
+    "error: too many arguments to function '.*'": {
+        "description": "This error occurs when you call a function with more arguments than it requires.",
+        "explanation": "You're providing more arguments to the function than it is defined to accept.",
+        "fix": "Check the function's definition and provide the correct number of arguments when calling it."
+    },
+    "error: dereferencing pointer to incomplete type": {
+        "description": "This error occurs when you try to dereference a pointer to a type that has not been fully defined.",
+        "explanation": "You're attempting to access members of a struct or class that hasn't been fully defined yet.",
+        "fix": "Make sure the type is fully defined before dereferencing the pointer."
+    },
+    "error: expected ';', ',' or ')' before 'type'": {
+        "description": "This error occurs when the compiler expects a semicolon, comma, or closing parenthesis but finds a type instead.",
+        "explanation": "You have a syntax error where a type is placed incorrectly in your code.",
+        "fix": "Check your code for misplaced types and correct the syntax."
+    },
+    "runtime error: division by zero": {
+        "description": "This runtime error occurs when your program attempts to divide by zero, which is undefined behavior.",
+        "explanation": "You're trying to perform a division operation where the denominator is zero.",
+        "fix": "Add checks to ensure that the denominator is not zero before performing the division."
+    },
+    "*** stack smashing detected ***": {
+        "description": "This error occurs when a program writes more data to a buffer than it can hold, leading to corruption of adjacent memory.",
+        "explanation": "You're exceeding the bounds of an array or buffer, which can overwrite important data and lead to crashes or security vulnerabilities.",
+        "fix": "Ensure that you do not write more data than the allocated size of the buffer. Use safer functions that limit the amount of data written."
+    },
+    "warning: comparison between signed and unsigned integer expressions": {
+        "description": "This warning occurs when you compare a signed integer with an unsigned integer, which can lead to unexpected results.",
+        "explanation": "You're comparing two different types of integers, which can cause issues if the signed integer is negative.",
+        "fix": "Make sure both variables being compared are of the same type (either both signed or both unsigned) to avoid unexpected behavior."
+    },
+    "error: expected string literal before identifier": {
+        "description": "This error occurs when the compiler expects a string literal but finds an identifier instead.",
+        "explanation": "You have a syntax error where a string literal is expected but an identifier is provided.",
+        "fix": "Check your code for misplaced identifiers and ensure that string literals are used where required."
+    },
+    "error: multiple definition of '.*'": {
+        "description": "This error occurs when a variable is defined more than once in the same scope or across multiple files.",
+        "explanation": "You've defined the same variable multiple times, leading to conflicts during linking.",
+        "fix": "Ensure that each variable is defined only once. Use extern declarations in header files if necessary."
+    },
+    "warning: implicit declaration of function '.*'": {
+        "description": "This warning occurs when you use a function before declaring it.",
+        "explanation": "The compiler hasn't seen a declaration for the function you're trying to use.",
+        "fix": "Declare the function prototype before using it, or include the appropriate header file."
+    },
+    "Floating point exception (core dumped)": {
+        "description": "This error occurs when a program performs an invalid floating-point operation, such as division by zero or overflow.",
+        "explanation": "You're performing a floating-point operation that results in an undefined or unrepresentable value.",
+        "fix": "Add checks to ensure that your floating-point operations are valid and handle special cases appropriately."
+    },
+    "Process timed out!": {
+        "description": "This error occurs when a program exceeds the allowed time limit for execution.",
+        "explanation": "Your program took too long to complete its task and was terminated by the system.",
+        "fix": "Optimize your code to improve performance, or increase the time limit if possible."
+    }
+}

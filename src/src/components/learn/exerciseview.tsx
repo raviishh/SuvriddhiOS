@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import type { ExerciseItem } from "../../types/learningitems";
 import { useStore } from "../../store/useStore";
+import OutputFeedback from "../common/outputfeedback";
 
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
@@ -17,6 +18,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
     const [output, setOutput] = useState<string | null>(null);
     const [running, setRunning] = useState(false);
     const [draftLoaded, setDraftLoaded] = useState(false);
+    const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
 
 
     const editorRef = useRef(null);
@@ -45,6 +47,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
     async function handleSubmit() {
         setRunning(true);
         setOutput(null);
+        setIsSuccess(null);
 
 
         try {
@@ -52,6 +55,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
             const compileJson = await compileRes.json();
             if (compileJson.error) {
                 setOutput(`Compilation error: ${compileJson.error}`);
+                setIsSuccess(false);
                 setRunning(false);
                 return;
             }
@@ -62,60 +66,63 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
 
 
             if (runJson.success) {
-                setOutput("Code is correct. All tests passed!");
+                setOutput("All tests passed!");
+                setIsSuccess(true);
                 onMarkComplete();
             } else {
                 setOutput(`Test failed on the following test case:${runJson.input === "" ? "" : `\n\nInput: ${runJson.input}`}\n\nOutput: ${runJson.output}\n\nExpected: ${runJson.expected}`);
+                setIsSuccess(false);
             }
 
 
         } catch (e: any) {
             setOutput("Runtime error: " + String(e.message ?? e));
+            setIsSuccess(false);
         } finally {
             setRunning(false);
         }
     }
     return (
-        <div className="learning-container flex flex-col">
+        <div className="grow p-6 flex flex-col">
             {/* <div className="relative">
-                <h2 className="learning-title">{item.title}</h2>
+                <h2 className="absolute left-1/2 transform -translate-x-2/3 text-3xl font-semibold">{item.title}</h2>
             </div> */}
+            <div className="max-w-none m-10 learning-container" dangerouslySetInnerHTML={{ __html: descriptionHtml ?? "<p>Loading...</p>" }} />
 
-            <div className="learning-content-exercise" dangerouslySetInnerHTML={{ __html: descriptionHtml ?? "<p>Loading...</p>" }} />
+            <div className="flex-1 m-10 flex flex-col">
+                <div className="border border-border rounded-lg overflow-hidden shadow-sm bg-card">
 
-            <div className="exercise-editor-container">
-                <div className="exercise-editor">
-                    <AceEditor
-                        ref={editorRef}
-                        mode="c_cpp"
-                        theme="tomorrow_night_eighties"
-                        name="editor"
-                        value={code}
-                        onChange={(val) => setCode(val)}
-                        fontSize={14}
-                        width="100%"
-                        height="400px"
-                        showPrintMargin={false}
-                        showGutter={true}
-                        highlightActiveLine={true}
-                          setOptions={{
-                            enableBasicAutocompletion: false, // Maybe enable these two for Learn and not for Train
-                            enableLiveAutocompletion: false,
-                            enableSnippets: false,
-                            useWorker: false,
-                            tabSize: 2,
-                        }}
-                    />
+                <AceEditor
+                    mode="c_cpp"
+                    theme="tomorrow_night_eighties"
+                    name="editor"
+                    value={code}
+                    onChange={(val) => setCode(val)}
+                    fontSize={14}
+                    width="100%"
+                    height="400px"
+                    showPrintMargin={false}
+                    showGutter={true}
+                    highlightActiveLine={true}
+                      setOptions={{
+                        enableBasicAutocompletion: false, // Maybe enable these two for Learn and not for Train
+                        enableLiveAutocompletion: false,
+                        enableSnippets: false,
+                        useWorker: false,
+                        tabSize: 2,
+                    }}
+                />
                 </div>
-                <div className="exercise-buttons">
-                    <button onClick={handleSubmit} disabled={running} className="learning-button-secondary">{running ? "Running..." : "Compile and Run"}</button>
-                    <button onClick={() => { setCode(starterCode); }} className="learning-button-reset">Reset</button>
+                <div className="mt-4 flex items-center gap-3">
+                    <button onClick={handleSubmit} disabled={running} className="px-4 py-2 rounded-md bg-primary-muted text-primary-foreground">{running ? "Running..." : "Compile and Run"}</button>
+                    <button onClick={() => { setCode(starterCode); }} className="px-3 py-2 rounded-md border border-border">Reset</button>
                 </div>
 
-                <div className="exercise-output-container">
-                    <h3 className="exercise-output-title">Output</h3>
-                    <pre className="exercise-output">{output ?? "No output yet"}</pre>
-                </div>
+
+                <OutputFeedback
+                    output={output}
+                    isSuccess={isSuccess}
+                />
             </div>
 
         </div>

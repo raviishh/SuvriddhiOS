@@ -15,7 +15,7 @@ export default function Learn() {
 
 
   useEffect(() => {
-    fetch(`/data/topics.json`)
+    fetch(`/data/learn/topics.json`)
       .then(r => r.json())
       .then((t: Topic[]) => setTopics(t))
       .catch(() => setTopics([]));
