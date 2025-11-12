@@ -15,8 +15,9 @@ export default function Sandbox() {
   const [fileTokens, setFileTokens] = useState<Record<string, string | null>>({});
   const [currentFile, setCurrentFile] = useState<string | null>(null);
   const [fileList, setFileList] = useState<string[]>([]);
+  const editorRef = useRef<AceEditor>(null);
 
-  const editorRef = useRef(null);
+
   async function handleFileList() {
     try {
       const res = await fetch("http://127.0.0.1:8000/api/list");
@@ -140,13 +141,18 @@ export default function Sandbox() {
     handleFileList();
   }, []);
 
+  // focus the editor when a file is loaded
   useEffect(() => {
-    const timer = setTimeout(() => {
-      editorRef.current?.editor.focus();
-      editorRef.current?.editor.gotoLine(1, 0, true);
-    }, 100);
-    return () => clearTimeout(timer);
+    if (editorRef.current && currentFile) {
+      const editor = editorRef.current.editor;
+      if (editor) {
+        editor.focus();
+        editor.gotoLine(4, 2);
+      }
+    }
   }, [currentFile]);
+
+
 
   if (!currentFile) return <></>;
 

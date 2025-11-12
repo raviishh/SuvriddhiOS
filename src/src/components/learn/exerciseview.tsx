@@ -19,9 +19,10 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
     const [running, setRunning] = useState(false);
     const [draftLoaded, setDraftLoaded] = useState(false);
     const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
+    const editorRef = useRef<AceEditor>(null);
 
 
-    const editorRef = useRef(null);
+
     useEffect(() => {
         fetch(`/data/${item.contentFile}`).then(r => r.text()).then(t => setDescriptionHtml(t)).catch(() => setDescriptionHtml("<p>Unable to load description</p>"));
 
@@ -36,13 +37,17 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
         if (draftLoaded) saveDraftForExercise(item.id, code);
     }, [code, draftLoaded]);
 
+    // focus the editor when the component mounts or item changes
     useEffect(() => {
-        const timer = setTimeout(() => {
-        editorRef.current?.editor.focus();
-        editorRef.current?.editor.gotoLine(1, 0, true);
-        }, 100);
-        return () => clearTimeout(timer);
-    }, [currentFile]);
+        if (editorRef.current) {
+            const editor = editorRef.current.editor;
+            if (editor) {
+                editor.focus();
+                editor.gotoLine(4, 2);
+            }
+        }
+    }, [item.id]);
+
 
     async function handleSubmit() {
         setRunning(true);
@@ -93,6 +98,7 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
                 <div className="border border-border rounded-lg overflow-hidden shadow-sm bg-card">
 
                 <AceEditor
+                    ref={editorRef}
                     mode="c_cpp"
                     theme="tomorrow_night_eighties"
                     name="editor"
