@@ -7,14 +7,7 @@ import RecentActivity from "../components/home/recentactivity";
 import type { Topic } from "../types/learningitems";
 
 export default function Home() {
-  const {
-    language,
-    setLanguage,
-    lastActivity,
-    setLastActivity,
-    markItemCompleted,
-    isItemCompleted,
-  } = useStore();
+  const {language, setLanguage, lastActivity, setLastActivity, markItemCompleted, isItemCompleted} = useStore();
 
   const [topics, setTopics] = useState<Topic[]>([]);
   useEffect(() => {
