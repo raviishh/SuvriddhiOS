@@ -25,7 +25,6 @@ export default function Home() {
 
   useEffect(() => {
     if (topics.length === 0) return;
-
     const savedCompletedItems = localStorage.getItem("completedItems");
     if (savedCompletedItems) {
       const completedItems: { topicId: string; itemId: string }[] = JSON.parse(savedCompletedItems);
