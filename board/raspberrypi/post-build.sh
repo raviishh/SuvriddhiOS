@@ -17,23 +17,29 @@ cd backend
 
 ARCH=$(uname -m)
 
-if [[ "$ARCH" == "aarch64" || "$ARCH" == "arm64" ]]; then
+if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
+    echo "Suvriddhi: Native build detected ($ARCH)"
     SYSROOT="${TARGET_DIR}/../host/aarch64-buildroot-linux-gnu/sysroot"
+    
     g++ main.cpp compile_handler.cpp run_handler.cpp utils.cpp code_handler.cpp \
-        --sysroot=$SYSROOT \
+        --sysroot="$SYSROOT" \
         -lcivetweb \
-        -o ${TARGET_DIR}/root/server \
-        -I $SYSROOT/usr/include \
-        -L $SYSROOT/usr/lib
+        -o "${TARGET_DIR}/root/server" \
+        -I "$SYSROOT/usr/include" \
+        -L "$SYSROOT/usr/lib"
 else
-    ${TARGET_DIR}/../host/bin/aarch64-linux-g++ \
+    echo "Suvriddhi: Cross-build detected ($ARCH)"
+    CROSS_CPP="${TARGET_DIR}/../host/bin/aarch64-linux-g++"
+    SYSROOT="${TARGET_DIR}/../host/aarch64-buildroot-linux-gnu/sysroot"
+
+    "$CROSS_CPP" \
         main.cpp \
         compile_handler.cpp \
         run_handler.cpp \
         utils.cpp \
         code_handler.cpp \
         -lcivetweb \
-        -o ${TARGET_DIR}/root/server \
-        -I ${TARGET_DIR}/../host/aarch64-buildroot-linux-gnu/sysroot/usr/include \
-        -L ${TARGET_DIR}/../host/aarch64-buildroot-linux-gnu/sysroot/usr/lib
+        -o "${TARGET_DIR}/root/server" \
+        -I "$SYSROOT/usr/include" \
+        -L "$SYSROOT/usr/lib"
 fi
