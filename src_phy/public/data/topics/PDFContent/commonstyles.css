@@ -1,0 +1,108 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #0f1419;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+h1 {
+    color: #8b9cff;
+    border-bottom: 4px solid #8b9cff;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #a78bfa;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.definition {
+    background: #1a1f2e;
+    border-left: 5px solid #8b9cff;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.equation {
+    background: #1f1f1f;
+    border: 2px solid #ffd700;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1em;
+}
+
+.example {
+    background: #1a2f1a;
+    border-left: 5px solid #4caf50;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 5px;
+}
+
+.example h3 {
+    color: #66bb6a;
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
+ul li {
+    margin: 8px 0;
+}
+
+.highlight {
+    background: #5a5a00;
+    color: #ffeb3b;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+sup {
+    font-size: 0.7em;
+}
+
+sub {
+    font-size: 0.7em;
+}
+
+.note {
+    background: #2a2416;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+strong {
+    color: #c4b5fd;
+}
+
+.law-box {
+    background: #1a2535;
+    border: 2px solid #60a5fa;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.law-box h3 {
+    color: #60a5fa;
+    margin-bottom: 10px;
+}

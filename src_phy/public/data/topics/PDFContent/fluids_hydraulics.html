@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluid Mechanics - Study Guide</title>
+    <style> .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #0f1419;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+h1 {
+    color: #8b9cff;
+    border-bottom: 4px solid #8b9cff;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #a78bfa;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.definition {
+    background: #1a1f2e;
+    border-left: 5px solid #8b9cff;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.equation {
+    background: #1f1f1f;
+    border: 2px solid #ffd700;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1em;
+}
+
+.example {
+    background: #1a2f1a;
+    border-left: 5px solid #4caf50;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 5px;
+}
+
+.example h3 {
+    color: #66bb6a;
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
+ul li {
+    margin: 8px 0;
+}
+
+.highlight {
+    background: #5a5a00;
+    color: #ffeb3b;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+sup {
+    font-size: 0.7em;
+}
+
+sub {
+    font-size: 0.7em;
+}
+
+.note {
+    background: #2a2416;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+strong {
+    color: #c4b5fd;
+}
+
+.law-box {
+    background: #1a2535;
+    border: 2px solid #60a5fa;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.law-box h3 {
+    color: #60a5fa;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fluid Mechanics</h1>
+        
+        <h2>Bramah's Press (Hydraulic Press)</h2>
+        
+        <p>Bramah's press or Hydraulic press uses the principle of pressure transmission and force multiplier in a fluid to generate higher output forces for a relatively small input force. This is used extensively in the industry in multiple equipment like cranes to lift heavy loads with a lower force, machines to crush metal etc.</p>
+        
+        <div class="law-box">
+            <h3>The Principle</h3>
+            <p>For an incompressible fluid, any applied pressure is transmitted equally throughout the fluid and in all directions.</p>
+        </div>
+        
+        <div class="definition">
+            <p><strong>Pressure:</strong> Pressure = Applied Force / Area of application</p>
+            <p>Pressure is measured in N/m<sup>2</sup>, also known as Pascals.</p>
+            
+            <p style="margin-top: 15px;"><strong>Incompressible fluids:</strong> Those where the volume and density do not change with change in pressure. Water is an incompressible fluid; oils are considered incompressible.</p>
+        </div>
+        
+        <h2>How Hydraulic Press Works</h2>
+        
+        <p>Consider a hydraulic system with 2 piston-cylinder arrangements which are connected and filled with an incompressible oil. Let the area of the smaller cylinder be A<sub>1</sub> and that of the larger cylinder be A<sub>2</sub>.</p>
+        
+        <p>On the smaller piston, let us apply a force F<sub>1</sub>. Let the output force on the larger piston be F<sub>2</sub>. Let us find the relation between F<sub>1</sub> & F<sub>2</sub>.</p>
+        
+        <p>The applied force of F<sub>1</sub> on the small piston results in an applied pressure of P = F<sub>1</sub> / A<sub>1</sub>.</p>
+        
+        <p>As per the principle of equal transmission of pressure, P is transmitted equally throughout the fluid in this interconnected piston cylinder system. Thus, the larger piston is also subject to the same pressure P which results in a force of P × A<sub>2</sub>.</p>
+        
+        <div class="equation">
+            <p><strong>Force Multiplication in Hydraulic Press:</strong></p>
+            <p>F<sub>2</sub> = P × A<sub>2</sub></p>
+            <p>P = F<sub>1</sub> / A<sub>1</sub></p>
+            <p style="margin-top: 15px;"><strong>Therefore:</strong></p>
+            <p>F<sub>2</sub> = F<sub>1</sub> × (A<sub>2</sub> / A<sub>1</sub>)</p>
+        </div>
+        
+        <p>Based on the relative sizes of A<sub>1</sub> & A<sub>2</sub>, the force F<sub>2</sub> gets multiplied several times over F<sub>1</sub>. This highlights the principle of the hydraulic press.</p>
+        
+        <div class="example">
+            <h3>Example: Hydraulic Car Lift</h3>
+            <p>A hydraulic car lift has a small piston with an area of 0.02 m<sup>2</sup> and a large piston with an area of 0.5 m<sup>2</sup>. If a force of 100 N is applied to the small piston, what force is exerted by the large piston?</p>
+            
+            <p><strong>Given:</strong></p>
+            <ul>
+                <li>A<sub>1</sub> = 0.02 m<sup>2</sup></li>
+                <li>A<sub>2</sub> = 0.5 m<sup>2</sup></li>
+                <li>F<sub>1</sub> = 100 N</li>
+            </ul>
+            
+            <p><strong>Solution:</strong></p>
+            <p>F<sub>2</sub> = F<sub>1</sub> × (A<sub>2</sub> / A<sub>1</sub>)</p>
+            <p>F<sub>2</sub> = 100 × (0.5 / 0.02)</p>
+            <p>F<sub>2</sub> = 100 × 25</p>
+            <p>F<sub>2</sub> = 2500 N</p>
+            
+            <p><span class="highlight">The large piston exerts a force of 2500 N, which is 25 times the input force!</span></p>
+        </div>
+        
+        <h2>Equation of Continuity</h2>
+        
+        <p>In fluids, mass flow rate is an important measure. A special class of fluids is <strong>incompressible fluids</strong> – one where the density does not change as pressure changes. Liquid (or fluid) like water is considered to be incompressible.</p>
+        
+        <div class="law-box">
+            <h3>Equation of Continuity</h3>
+            <p>In an incompressible fluid, the mass flow rate is same everywhere. This means when water (say) is flowing through a pipe whose diameter is changing, at any cross section of the pipe the same mass of water would flow past a probe every second.</p>
+        </div>
+        
+        <p>Additionally, an incompressible fluid is one where the density does not change – this means given the mass flow rate is same and the density is constant, the volume flow rate will also be a constant at any cross section of the pipe.</p>
+        
+        <h2>Deriving the Equation</h2>
+        
+        <p>Consider 2 sections in the pipe at A and B. Let the radius at A be R<sub>A</sub> and at B be R<sub>B</sub>. Consider the velocity (speed) per second of the fluid (water) at A as v<sub>A</sub> and at B as v<sub>B</sub>. Let d be the constant density (which does not change since the fluid is incompressible).</p>
+        
+        <p><strong>The area of the pipe:</strong></p>
+        <ul>
+            <li>Area at A = π × R<sub>A</sub> × R<sub>A</sub> = π × R<sub>A</sub><sup>2</sup></li>
+            <li>Area at B = π × R<sub>B</sub> × R<sub>B</sub> = π × R<sub>B</sub><sup>2</sup></li>
+        </ul>
+        
+        <p><strong>Volume and mass per second:</strong></p>
+        <ul>
+            <li>Volume through A per second = π × R<sub>A</sub><sup>2</sup> × v<sub>A</sub></li>
+            <li>Mass through A per second = π × R<sub>A</sub><sup>2</sup> × v<sub>A</sub> × d</li>
+            <li>Volume through B per second = π × R<sub>B</sub><sup>2</sup> × v<sub>B</sub></li>
+            <li>Mass through B per second = π × R<sub>B</sub><sup>2</sup> × v<sub>B</sub> × d</li>
+        </ul>
+        
+        <p>For an incompressible fluid (say water), the mass & volume flow rate at A & B will be equal. Hence:</p>
+        
+        <div class="equation">
+            <p>π × R<sub>A</sub><sup>2</sup> × v<sub>A</sub> = π × R<sub>B</sub><sup>2</sup> × v<sub>B</sub></p>
+            <p style="margin-top: 10px;">or</p>
+            <p>v<sub>A</sub> × (R<sub>A</sub>)<sup>2</sup> = v<sub>B</sub> × (R<sub>B</sub>)<sup>2</sup></p>
+            <p style="margin-top: 15px;"><strong>General Form (for any channel shape):</strong></p>
+            <p>Velocity at A × Cross sectional Area at A = Velocity at B × Cross sectional Area at B</p>
+            <p style="margin-top: 10px;">or</p>
+            <p>v<sub>A</sub> × A<sub>A</sub> = v<sub>B</sub> × A<sub>B</sub></p>
+        </div>
+        
+        <div class="note">
+            <p><strong>Key Insight:</strong> When the cross-sectional area of a pipe decreases, the velocity of the fluid increases, and vice versa. This is why water flows faster through narrow sections of a hose!</p>
+        </div>
+        
+        <div class="example">
+            <h3>Example: Water Flow Through a Pipe</h3>
+            <p>Water flows through a pipe with a cross-sectional area of 0.04 m<sup>2</sup> at a velocity of 2 m/s. The pipe narrows to a cross-sectional area of 0.01 m<sup>2</sup>. What is the velocity of water in the narrow section?</p>
+            
+            <p><strong>Given:</strong></p>
+            <ul>
+                <li>A<sub>1</sub> = 0.04 m<sup>2</sup></li>
+                <li>v<sub>1</sub> = 2 m/s</li>
+                <li>A<sub>2</sub> = 0.01 m<sup>2</sup></li>
+                <li>v<sub>2</sub> = ?</li>
+            </ul>
+            
+            <p><strong>Solution:</strong></p>
+            <p>Using the equation of continuity:</p>
+            <p>v<sub>1</sub> × A<sub>1</sub> = v<sub>2</sub> × A<sub>2</sub></p>
+            <p>2 × 0.04 = v<sub>2</sub> × 0.01</p>
+            <p>0.08 = v<sub>2</sub> × 0.01</p>
+            <p>v<sub>2</sub> = 0.08 / 0.01</p>
+            <p>v<sub>2</sub> = 8 m/s</p>
+            
+            <p><span class="highlight">The velocity in the narrow section is 8 m/s, which is 4 times faster than in the wider section!</span></p>
+        </div>
+    </div>
+</body>
+</html>

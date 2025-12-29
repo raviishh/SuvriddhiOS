@@ -1,0 +1,332 @@
+[
+  {
+    "id": "kinematics",
+    "title": "Kinematics",
+    "items": [
+      {
+        "id": "kinematics_content",
+        "type": "lesson",
+        "title": "Introduction to Kinematics",
+        "contentFile": "topics/PDFContent/kinematics_page.html"
+      },
+      {
+        "id": "kinem_1",
+        "type": "lesson",
+        "title": "The first Kinematic Equation",
+        "contentFile": "topics/G01/index.html"
+      },
+      {
+        "id": "kinem_2",
+        "type": "lesson",
+        "title": "The second Kinematic Equation",
+        "contentFile": "topics/G02/index.html"
+      },
+      {
+        "id": "kinem_3",
+        "type": "lesson",
+        "title": "The third Kinematic Equation",
+        "contentFile": "topics/G03/index.html"
+      }
+    ]
+  },
+  {
+    "id": "FNE",
+    "title": "Forces and Energy",
+    "items": [
+      {
+        "id": "Forces_content",
+        "type": "lesson",
+        "title": "Introduction to Forces and Energy",
+        "contentFile": "topics/PDFContent/energy_force_page.html"
+      },
+      {
+        "id": "NSL",
+        "type": "lesson",
+        "title": "Newtons Second Law",
+        "contentFile": "topics/G04/index.html"
+      },
+      {
+        "id": "TOW",
+        "type": "lesson",
+        "title": "Net Forces",
+        "contentFile": "topics/G05/index.html"
+      },
+      {
+        "id": "ECONS",
+        "type": "lesson",
+        "title": "Energy Conservation",
+        "contentFile": "topics/G06/index.html"
+      }
+    ]
+  },
+  {
+    "id": "NDOM",
+    "title": "New Dimension of Motion",
+    "items": [
+      {
+        "id": "friction_circ_momentum",
+        "type": "lesson",
+        "title": "Friction, Circular Motion, and Momentum",
+        "contentFile": "topics/PDFContent/friction_circular_momentum.html"
+      },
+      {
+        "id": "Components of Vectors",
+        "type": "lesson",
+        "title": "Components of Vectors",
+        "contentFile": "topics/G07/index.html"
+      },
+      {
+        "id": "Momentum",
+        "type": "lesson",
+        "title": "Momentum",
+        "contentFile": "topics/G08/index.html"
+      },
+      {
+        "id": "Force=rocom",
+        "type": "lesson",
+        "title": "Rate of Change of momentum",
+        "contentFile": "topics/G09/index.html"
+      },
+      {
+        "id": "Friction",
+        "type": "lesson",
+        "title": "Friction",
+        "contentFile": "topics/G10/index.html"
+      },
+      {
+        "id": "Centripetal_Force",
+        "type": "lesson",
+        "title": "Centripetal Force",
+        "contentFile": "topics/G29/index.html"
+      }
+    ]
+  },
+  {
+    "id": "Fluids",
+    "title": "Fluids",
+    "items": [
+      {
+        "id": "Fluids_content",
+        "type": "lesson",
+        "title": "Introduction to Fluids",
+        "contentFile": "topics/PDFContent/fluids_hydraulics.html"
+      },
+      {
+        "id": "PIF",
+        "type": "lesson",
+        "title": "Pressure in fluids",
+        "contentFile": "topics/G12/index.html"
+      },
+      {
+        "id": "MFR",
+        "type": "lesson",
+        "title": "Law of Continuity",
+        "contentFile": "topics/G11/index.html"
+      }
+    ]
+  },
+  {
+    "id": "Mirrors",
+    "title": "Mirrors and Lenses",
+    "items": [
+      {
+        "id": "Mirrors_content",
+        "type": "lesson",
+        "title": "Introduction to Mirrors and Lenses",
+        "contentFile": "topics/PDFContent/optics_guide.html"
+      },
+      {
+        "id": "PMR",
+        "type": "lesson",
+        "title": "Plane Mirrors",
+        "contentFile": "topics/G13/index.html"
+      },
+      {
+        "id": "Concavem",
+        "type": "lesson",
+        "title": "Concave Mirrors",
+        "contentFile": "topics/G14/index.html"
+      },
+      {
+        "id": "Convexm",
+        "type": "lesson",
+        "title": "Convex Mirrors",
+        "contentFile": "topics/G15/index.html"
+      },
+      {
+        "id": "Refraction",
+        "type": "lesson",
+        "title": "Refraction",
+        "contentFile": "topics/G31/index.html"
+      },
+      {
+        "id": "Convexl",
+        "type": "lesson",
+        "title": "Convex Lenses",
+        "contentFile": "topics/G16/index.html"
+      },
+      {
+        "id": "Concavel",
+        "type": "lesson",
+        "title": "Concave Lenses",
+        "contentFile": "topics/G17/index.html"
+      },
+      {
+        "id": "DoubleSlitExperiment",
+        "type": "lesson",
+        "title": "Double Slit Experiment",
+        "contentFile": "topics/G18/index.html"
+      }
+    ]
+  },
+  {
+    "id": "Gravitation",
+    "title": "Gravitation",
+    "items": [
+      {
+        "id": "Gravitation_content",
+        "type": "lesson",
+        "title": "Introduction to Gravitation",
+        "contentFile": "topics/PDFContent/gravitation_guide.html"
+      },
+      {
+        "id": "Gravitationlvl",
+        "type": "lesson",
+        "title": "Gravitation between two bodies",
+        "contentFile": "topics/G19/index.html"
+      }
+    ]
+  },
+  {
+    "id": "EMAG1",
+    "title": "Electricity and Magnetism 1",
+    "items": [
+      {
+        "id": "emag1_content",
+        "type": "lesson",
+        "title": "Introduction to Electricity and Magnetism 1",
+        "contentFile": "topics/PDFContent/emag_guide.html"
+      },
+      {
+        "id": "Attraction_Repulsion",
+        "type": "lesson",
+        "title": "Attraction and Repulsion",
+        "contentFile": "topics/G21/index.html"
+      },
+      {
+        "id": "EFA",
+        "type": "lesson",
+        "title": "Electrostatic Force",
+        "contentFile": "topics/G23/index.html"
+      },
+      {
+        "id": "OhmLaw",
+        "type": "lesson",
+        "title": "Ohm's Law",
+        "contentFile": "topics/G33/index.html"
+      },
+      {
+        "id": "SPresistance",
+        "type": "lesson",
+        "title": "Series and Parallel Resistance",
+        "contentFile": "topics/G30/index.html"
+      }
+    ]
+  },
+  {
+    "id": "EMAG2",
+    "title": "Electricity and Magnetism 2",
+    "items": [
+      {
+        "id": "emag2_content",
+        "type": "lesson",
+        "title": "Introduction to Electricity and Magnetism 2",
+        "contentFile": "topics/PDFContent/emag2_guide.html"
+      },
+      {
+        "id": "Attraction_Repulsionmag",
+        "type": "lesson",
+        "title": "Attraction and Repulsion of magnets",
+        "contentFile": "topics/G22/index.html"
+      },
+      {
+        "id": "AmperesLaw",
+        "type": "lesson",
+        "title": "Ampere's Law",
+        "contentFile": "topics/G36/index.html"
+      },
+      {
+        "id": "FaradaysLaw",
+        "type": "lesson",
+        "title": "Faraday's Law",
+        "contentFile": "topics/G35/index.html"
+      },
+      {
+        "id": "Solenoids",
+        "type": "lesson",
+        "title": "Solenoids",
+        "contentFile": "topics/G37/index.html"
+      }
+    ]
+  },
+  {
+    "id": "GAS",
+    "title": "Gas Laws",
+    "items": [
+      {
+        "id": "gas_content",
+        "type": "lesson",
+        "title": "Introduction to Gas Laws",
+        "contentFile": "todo: add content file"
+      },
+      {
+        "id": "Ideal Gas law",
+        "type": "lesson",
+        "title": "Ideal Gas Law",
+        "contentFile": "topics/G32/index.html"
+      }
+    ]
+  },
+  {
+    "id": "Sound",
+    "title": "Sound",
+    "items": [
+      {
+        "id": "Sound_content",
+        "type": "lesson",
+        "title": "Introduction to Sound Waves",
+        "contentFile": "topics/PDFContent/sound_waves_guide.html"
+      },
+      {
+        "id": "Open-Open standing waves",
+        "type": "lesson",
+        "title": "Open-Open Standing Waves",
+        "contentFile": "topics/G25/index.html"
+      },
+      {
+        "id": "Open-Closed Standing Waves",
+        "type": "lesson",
+        "title": "Open-Closed Standing Waves",
+        "contentFile": "topics/G26/index.html"
+      }
+    ]
+  },
+  {
+    "id": "ProjectileMotion",
+    "title": "Projectile Motion",
+    "items": [
+      {
+        "id": "ProjectileMotion_content",
+        "type": "lesson",
+        "title": "Introduction to Projectile Motion",
+        "contentFile": "todo: add content file"
+      },
+      {
+        "id": "ProjectileMotionlvl",
+        "type": "lesson",
+        "title": "Projectile Motion",
+        "contentFile": "topics/G27/index.html"
+      }
+    ]
+  }
+]

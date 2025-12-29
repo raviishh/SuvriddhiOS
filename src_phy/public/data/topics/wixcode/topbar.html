@@ -1,0 +1,147 @@
+<div class="achievement-bar" id="achievement-bar">
+    <div class="bar-particles" id="bar-particles"></div>
+    <div class="achievement-notification">
+    <div class="achievement-popup" id="achievement-popup">
+    <div class="achievement-icon" id="popup-icon">🏆</div>
+    <div class="achievement-text">
+    <div class="achievement-title" id="popup-title">Achievement Get!</div>
+    <div class="achievement-desc" id="popup-desc">You've earned points!</div>
+    </div>
+    </div>
+    </div>
+    <div class="achievements-center">
+    <a href="https://games.quarklearning.online/achievements.html" class="achievements-btn">🏆 Achievements</a>
+    </div>
+    <div class="stats-section">
+    <div class="streak-display">
+    <span class="streak-icon">🔥</span>
+    <div class="streak-info">
+    <div class="streak-number" id="streak-number">0</div>
+    <div class="streak-label">streak</div>
+    </div>
+    </div>
+    <div class="rank-display">
+    <div class="rank-main">
+    <span class="rank-icon" id="rank-icon">👤</span>
+    <span class="rank-name" id="rank-name">New Student</span>
+    </div>
+    <div class="points-text" id="points-text">0 points</div>
+    </div>
+    </div>
+    </div>
+    
+    <style>
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;padding:0;overflow-x:hidden}
+    .achievement-bar{width:100%;height:70px;background:linear-gradient(135deg,#0a0a0f 0%,#1a0a1f 50%,#0f0a1a 100%);border-bottom:1px solid rgba(138,43,226,0.3);display:flex;align-items:center;justify-content:space-between;padding:0 30px;position:relative;overflow-x:hidden;overflow-y:visible;box-shadow:0 2px 20px rgba(0,0,0,0.3);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:white}
+    .bar-particles{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;opacity:0.3}
+    .bar-particle{position:absolute;color:rgba(255,255,255,0.4);font-size:8px;animation:barFloat 8s ease-in-out infinite}
+    @keyframes barFloat{0%,100%{transform:translateX(0px) translateY(0px);opacity:0.2}50%{transform:translateX(10px) translateY(-5px);opacity:0.6}}
+    .achievement-notification{flex:1;max-width:300px;height:50px;position:relative}
+    .achievement-popup{position:absolute;left:0;top:0;width:280px;height:50px;background:linear-gradient(135deg,#2d1810 0%,#3d2416 100%);border:2px solid #8b4513;border-radius:8px;display:flex;align-items:center;padding:8px 12px;transform:translateX(-100%);transition:all 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);opacity:0;box-shadow:0 4px 15px rgba(0,0,0,0.4)}
+    .achievement-popup.show{transform:translateX(0);opacity:1}
+    .achievement-icon{width:32px;height:32px;background:#4a4a4a;border:1px solid #666;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:16px;margin-right:10px;flex-shrink:0}
+    .achievement-text{flex:1;min-width:0}
+    .achievement-title{font-size:12px;font-weight:600;color:#ffff55;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .achievement-desc{font-size:11px;color:#cccccc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .achievements-center{flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+    .achievements-btn{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border:none;padding:12px 24px;border-radius:25px;color:white;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(102,126,234,0.3);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .achievements-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(102,126,234,0.4);text-decoration:none;color:white}
+    .stats-section{flex:1;max-width:300px;display:flex;align-items:center;justify-content:flex-end;gap:25px;margin-left:-10px;overflow-x:hidden}
+    .streak-display{display:flex;align-items:center;gap:8px;background:rgba(255,87,34,0.15);border:1px solid rgba(255,87,34,0.4);border-radius:20px;padding:8px 15px;transition:all 0.3s ease;min-width:0;flex-shrink:1}
+    .streak-display:hover{background:rgba(255,87,34,0.2);transform:scale(1.05)}
+    .streak-icon{font-size:20px}
+    .streak-info{display:flex;flex-direction:column;align-items:center;gap:1px}
+    .streak-number{font-size:16px;font-weight:700;color:#ff5722;line-height:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .streak-label{font-size:10px;color:rgba(255,255,255,0.7);line-height:1}
+    .rank-display{display:flex;flex-direction:column;align-items:center;text-align:center;background:rgba(33,150,243,0.15);border:1px solid rgba(33,150,243,0.4);border-radius:15px;padding:8px 15px;transition:all 0.3s ease;min-width:0;flex-shrink:1}
+    .rank-display:hover{background:rgba(33,150,243,0.2);transform:scale(1.05)}
+    .rank-main{display:flex;align-items:center;gap:6px;margin-bottom:2px}
+    .rank-icon{font-size:18px}
+    .rank-name{font-size:13px;font-weight:600;color:rgba(255,255,255,0.95);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .points-text{font-size:11px;color:rgba(255,255,255,0.6);line-height:1;overflow:hidden;text-overflow:ellipsis}
+    @media (max-width:768px){
+    .achievement-bar{padding:0 10px;height:60px}
+    .stats-section{gap:10px}
+    .achievements-btn{padding:8px 16px;font-size:12px}
+    .achievement-popup{max-width:220px;height:45px}
+    .rank-display,.streak-display{padding:6px 8px}
+    }
+    @media (max-width:600px){
+    .achievement-bar{flex-wrap:wrap;height:auto;padding:8px 10px;gap:8px;min-height:60px}
+    .achievement-notification{order:2;max-width:100%;width:100%;flex-basis:100%}
+    .achievements-center{order:1;flex-basis:100%;margin-bottom:5px}
+    .stats-section{order:3;justify-content:center;max-width:100%;flex-basis:100%}
+    }
+    </style>
+    
+    <script>
+    const STORAGE_KEYS={points:'ach_points',streak:'ach_streak',achievementsBitmap:'ach_bitmap'};
+    const ACHIEVEMENTS = {
+    points: [
+        { threshold: 50, name: "Getting Started", icon: "🌟" },
+        { threshold: 200, name: "Point Collector", icon: "💎" },
+        { threshold: 500, name: "Rising Scholar", icon: "📚" },
+        { threshold: 1000, name: "Point Hoarder", icon: "💰" },
+        { threshold: 5000, name: "Master", icon: "👑" },
+        { threshold: 10000, name: "Legendary", icon: "🏆" },
+        { threshold: 50000, name: "PHYSICS GOD?!", icon: "👽" }
+    ],
+    streak: [
+        { threshold: 7, name: "Week One Wonder", icon: "📅" },
+        { threshold: 10, name: "Double Digits", icon: "🔟" },
+        { threshold: 30, name: "Month Maven", icon: "📆" },
+        { threshold: 50, name: "Half-Century Hero", icon: "⭐" },
+        { threshold: 100, name: "Century Streak", icon: "💯" },
+    ],
+    correct: [
+        { threshold: 1, name: "A Start", icon: "✅" },
+        { threshold: 10, name: "Getting It", icon: "✅" },
+        { threshold: 100, name: "Brainiac", icon: "🧠" },
+        { threshold: 1000, name: "Quiz Master", icon: "🏅" }
+    ],
+    questions: [
+        { threshold: 1, name: "Questionable Start", icon: "❓" },
+        { threshold: 10, name: "Curious Mind", icon: "🤔" },
+        { threshold: 100, name: "Question Hoarder", icon: "📝" },
+        { threshold: 1000, name: "Quizzilla", icon: "📊" }
+    ],
+    perfection: [
+        { threshold: 1, name: "Near Perfect", icon: "⚡" },
+        { threshold: 10, name: "Excellence", icon: "🎪" },
+        { threshold: 100, name: "Perfectionist", icon: "💫" },
+        { threshold: 500, name: "Flawless Legend", icon: "🌟" }
+    ]
+};
+    function setCookie(n,v,d=2147483647){const e=new Date(Date.now()+d*864e5).toUTCString();document.cookie=`${encodeURIComponent(n)}=${encodeURIComponent(String(v))}; Expires=${e}; Path=/; Domain=.quarklearning.online; Secure; SameSite=None`}
+    function getCookie(n){const c=document.cookie?document.cookie.split('; '):[];for(let i=0;i<c.length;i++){const p=c[i].split('=');const k=decodeURIComponent(p.shift());const v=p.join('=');if(k===n)return decodeURIComponent(v)}return null}
+    let localSecret=null;
+    function initializeLocalSecret(){if(localSecret===null){const e=getCookie('ach_local_secret');if(e){localSecret=parseInt(e,10)}else{localSecret=Math.floor(Math.random()*10000);setCookie('ach_local_secret',String(localSecret),2147483647)}}return localSecret}
+    function decryptValue(e){const s=initializeLocalSecret();return e-(s*s)-(44*s)}
+    function isValueEncrypted(v){const n=parseInt(v,10);return !isNaN(n)&&Math.abs(n)>100000}
+    const RANK_THRESHOLDS=[{threshold:50,name:"Getting Started",icon:"🌟"},{threshold:200,name:"Point Collector",icon:"💎"},{threshold:500,name:"Rising Scholar",icon:"📚"},{threshold:1000,name:"Point Hoarder",icon:"💰"},{threshold:5000,name:"Master",icon:"👑"},{threshold:10000,name:"Legendary",icon:"🏆"},{threshold:50000,name:"HOW DID WE GET HERE?!",icon:"🚀"}];
+    const DEFAULT_RANK={name:"New Student",icon:"👤"};
+    // Added missing function
+    function getCurrentRank(points) {
+        for (let i = RANK_THRESHOLDS.length - 1; i >= 0; i--) {
+            if (points >= RANK_THRESHOLDS[i].threshold) {
+                return RANK_THRESHOLDS[i];
+            }
+        }
+        return DEFAULT_RANK;
+    } 
+    let pendingAchievements=[],isProcessingAchievements=false;
+    function loadPendingAchievements(){try{const stored=getCookie('pending_achievements');pendingAchievements=stored?JSON.parse(stored):[]}catch(e){pendingAchievements=[]}}
+    function savePendingAchievements(){try{setCookie('pending_achievements',JSON.stringify(pendingAchievements),1)}catch(e){}}
+    function clearPendingAchievements(){pendingAchievements=[];setCookie('pending_achievements','',0)}
+    function getValue(k){const r=getCookie(STORAGE_KEYS[k]);if(!r)return 0;if(isValueEncrypted(r)){try{const e=parseInt(r,10);if(isNaN(e))return 0;const d=decryptValue(e);return Math.max(0,d)}catch(e){return 0}}else{return parseInt(r,10)||0}}
+    function setValue(k,v){setCookie(STORAGE_KEYS[k],String(v),2147483647);updateStatsDisplay()}
+    function checkAchievementBitmap(){const stored=getCookie(STORAGE_KEYS.achievementsBitmap);const oldBitmapNum=Number.isFinite(Number(stored))?Number(stored):0;const oldBitmap=String(oldBitmapNum).padStart(2,'0');let newBitmap='';const newAchievements=[];const categories=['points','streak'];for(let i=0;i<categories.length;i++){const category=categories[i];const value=getValue(category);const maxTier=ACHIEVEMENTS[category].length;let tierUnlocked=0;for(let j=0;j<maxTier;j++){if(value>=ACHIEVEMENTS[category][j].threshold)tierUnlocked=j+1}const oldTier=parseInt(oldBitmap[i])||0;if(tierUnlocked>oldTier){const achievement=ACHIEVEMENTS[category][tierUnlocked-1];newAchievements.push({id:`${category}_${tierUnlocked}`,icon:achievement.icon||'🏆',title:achievement.name,description:achievement.description})}newBitmap+=tierUnlocked}const newBitmapNum=Number.isFinite(Number(newBitmap))?Number(newBitmap):0;if(newBitmapNum!==oldBitmapNum){setCookie(STORAGE_KEYS.achievementsBitmap,String(newBitmapNum),2147483647)}newAchievements.forEach(ach=>{if(!pendingAchievements.find(p=>p.id===ach.id)){pendingAchievements.push(ach)}});return newAchievements.length>0}
+    function addNewAchievement(i,ic,t,d){const a={id:i,icon:ic,title:t,description:d,timestamp:Date.now()};loadPendingAchievements();if(!pendingAchievements.find(ach=>ach.id===i)){pendingAchievements.push(a);savePendingAchievements();if(document.getElementById('achievement-popup')&&!isProcessingAchievements){processAchievementQueue()}}}
+    function processAchievementQueue(){if(isProcessingAchievements)return;loadPendingAchievements();if(pendingAchievements.length===0)return;isProcessingAchievements=true;const a=pendingAchievements.shift();showAchievementNotification(a.icon,a.title,a.description);savePendingAchievements();setTimeout(()=>{isProcessingAchievements=false;processAchievementQueue()},5000)}
+    function createBarParticles(){const c=document.getElementById('bar-particles');if(!c)return;c.innerHTML='';const p=['✦','✧','⭐','✨'];for(let i=0;i<8;i++){const el=document.createElement('div');el.className='bar-particle';el.textContent=p[Math.floor(Math.random()*p.length)];el.style.left=Math.random()*100+'%';el.style.top=Math.random()*70+'%';el.style.animationDelay=Math.random()*8+'s';el.style.animationDuration=(6+Math.random()*4)+'s';c.appendChild(el)}}
+    function updateStatsDisplay(){const p=getValue('points'),s=getValue('streak'),r=getCurrentRank(p);const se=document.getElementById('streak-number');if(se)se.textContent=s;const ri=document.getElementById('rank-icon'),rn=document.getElementById('rank-name'),pt=document.getElementById('points-text');if(ri)ri.textContent=r.icon;if(rn)rn.textContent=r.name;if(pt)pt.textContent=`${p.toLocaleString()} points`;checkAchievementBitmap();if(pendingAchievements.length>0&&!isProcessingAchievements){processAchievementQueue()}}
+    function showAchievementNotification(i,t,d){const p=document.getElementById('achievement-popup'),ic=document.getElementById('popup-icon'),ti=document.getElementById('popup-title'),de=document.getElementById('popup-desc');if(!p||!ic||!ti||!de)return;ic.textContent=i;ti.textContent=t;de.textContent=d;p.classList.add('show');setTimeout(()=>{p.classList.remove('show')},4000)}
+    if(!window.achievementBarInitialized){window.achievementBarInitialized=true;document.addEventListener('DOMContentLoaded',function(){updateStatsDisplay();createBarParticles();loadPendingAchievements();if(typeof checkAchievementsAndUpdate==='function'){setTimeout(()=>{checkAchievementsAndUpdate()},100)}setTimeout(()=>{processAchievementQueue()},1000)});window.addEventListener('focus',function(){updateStatsDisplay();loadPendingAchievements();if(typeof checkAchievementsAndUpdate==='function'){setTimeout(()=>{checkAchievementsAndUpdate()},100)}setTimeout(()=>{processAchievementQueue()},500)});setTimeout(()=>{if(document.readyState==='complete'){loadPendingAchievements();processAchievementQueue()}},2000)}
+    window.getValue=getValue;window.setValue=setValue;window.updateStatsDisplay=updateStatsDisplay;window.initializeLocalSecret=initializeLocalSecret;window.decryptValue=decryptValue;window.isValueEncrypted=isValueEncrypted;window.checkAchievementBitmap=checkAchievementBitmap;window.processAchievementQueue=processAchievementQueue;window.processAchievementQueue=processAchievementQueue;window.clearPendingAchievements=clearPendingAchievements;window.getCurrentRank=getCurrentRank;
+    </script>

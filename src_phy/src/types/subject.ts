@@ -1,0 +1,1 @@
+export type SubjectType = "Physics" | "Chemistry" | "Math";

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnetism & Electromagnetic Induction - Study Guide</title>
+    <style> .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #0f1419;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+h1 {
+    color: #8b9cff;
+    border-bottom: 4px solid #8b9cff;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #a78bfa;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.definition {
+    background: #1a1f2e;
+    border-left: 5px solid #8b9cff;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.equation {
+    background: #1f1f1f;
+    border: 2px solid #ffd700;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1em;
+}
+
+.example {
+    background: #1a2f1a;
+    border-left: 5px solid #4caf50;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 5px;
+}
+
+.example h3 {
+    color: #66bb6a;
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
+ul li {
+    margin: 8px 0;
+}
+
+.highlight {
+    background: #5a5a00;
+    color: #ffeb3b;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+sup {
+    font-size: 0.7em;
+}
+
+sub {
+    font-size: 0.7em;
+}
+
+.note {
+    background: #2a2416;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+strong {
+    color: #c4b5fd;
+}
+
+.law-box {
+    background: #1a2535;
+    border: 2px solid #60a5fa;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.law-box h3 {
+    color: #60a5fa;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Magnetism & Electromagnetic Induction</h1>
+        
+        <h2>Basic Properties of Magnets</h2>
+        
+        <p>Many of us are aware that magnets have 2 poles, the <strong>north and south pole</strong>. We know that like poles repel and unlike poles attract.</p>
+        
+        <div class="definition">
+            <p><strong>Ferromagnetic Substances:</strong> Magnets attract materials such as Iron (Fe), Cobalt (Co) and Nickel (Ni). These materials are known as ferromagnetic substances.</p>
+        </div>
+        
+        <h2>Magnetic Fields</h2>
+        
+        <p>Magnets generate a <strong>magnetic field</strong>. The strength of the field is given by the density of magnetic field lines.</p>
+        
+        <div class="definition">
+            <p><strong>Key Properties of Magnetic Field Lines:</strong></p>
+            <ul>
+                <li>Magnetic field lines are in closed loops</li>
+                <li>The divergence of the magnetic field vector is equal to 0 (∇ · B = 0)</li>
+                <li>Magnetic field lines do not cross each other</li>
+            </ul>
+        </div>
+        
+        <p>The attractive force between 2 magnets reduces with an increase in distance between the two magnets.</p>
+        
+        <div class="concept-box">
+            <h3>Understanding Divergence</h3>
+            <p>Divergence of a point on a vector field (in simple terms) is equal to the amount coming in minus the amount going out.</p>
+            
+            <p style="margin-top: 10px;"><strong>Example:</strong> Imagine a bathtub where water is coming in through the tap, but draining through the drain. If the amount of water that enters in 1s is 1L, and the amount that exits in 1s is 0.8L, then the divergence of a point in the bathtub is 0.2L per second.</p>
+            
+            <p style="margin-top: 10px;"><strong>Mathematical Definition:</strong></p>
+            <p style="font-family: 'Courier New', monospace; margin-top: 10px;">∇ · V(x, y) = ∂V(x,y)/∂x + ∂V(x,y)/∂y</p>
+            
+            <p style="margin-top: 10px;">The divergence of a vector field is the sum of a vector at point (x, y) partially differentiated with respect to x and partially differentiated with respect to y.</p>
+        </div>
+        
+        <h2>Electromagnetism</h2>
+        
+        <p>Electricity and magnetism are both interconnected and are expressions of the same entity – <strong>electromagnetism</strong>. This was demonstrated by Oersted in 1820.</p>
+        
+        <div class="definition">
+            <p><strong>Key Electromagnetic Principles:</strong></p>
+            <ul>
+                <li>Current moving in a wire generates a magnetic field as per the first right hand rule</li>
+                <li>A current-carrying wire in a magnetic field experiences a force by any magnet of magnitude I × B × L</li>
+                <li>The direction of the force is given by the 3rd right hand rule</li>
+            </ul>
+        </div>
+        
+        <h2>Ampere's Law</h2>
+        
+        <p>For a constant current, if there is any loop surrounding a current carrying wire, we can split the loop into multiple infinitesimally small segments. The sum of (The magnetic field × cosine of the angle between current and magnetic field × length of the small section of loop) for each of the small segments equals the magnetic constant multiplied by the current in the wire.</p>
+        
+        <p>The process of splitting into segments and summing up for each of the segments is known as an integral.</p>
+        
+        <div class="equation">
+            <p><strong>Ampere's Law:</strong></p>
+            <p>∫ B cos(θ) ds = μ<sub>0</sub> I<sub>enc</sub></p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Where:</p>
+            <ul style="list-style: none; padding-left: 0; font-size: 0.9em;">
+                <li>B = magnetic field</li>
+                <li>θ = angle between current and magnetic field</li>
+                <li>ds = length of small section of loop</li>
+                <li>μ<sub>0</sub> = magnetic constant = 4π × 10<sup>-7</sup> T·m/A</li>
+                <li>I<sub>enc</sub> = enclosed current</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <p><strong>Application:</strong> This shows us that to create strong magnets for magnetic confinement nuclear fusion reactions, we can just use a wire with a large amount of current flowing through it. A good example of a reactor that uses magnetic confinement is ITER.</p>
+        </div>
+        
+        <div class="example">
+            <h3>Example: CERN's Magnet</h3>
+            <p>If we need a 13.5 Tesla magnet, like the one in CERN, assuming a radius of 1 m:</p>
+            
+            <p><strong>Solution:</strong></p>
+            <p>Using Ampere's Law for a circular loop:</p>
+            <p>B × 2πr = μ<sub>0</sub> I</p>
+            <p>13.5 × 2π × 1 = 4π × 10<sup>-7</sup> × I</p>
+            <p>I = (13.5 × 2π) / (4π × 10<sup>-7</sup>)</p>
+            <p>I ≈ 67.5 million amps</p>
+            
+            <p><span class="highlight">We need approximately 67.5 million amps of current!</span></p>
+        </div>
+        
+        <h2>Solenoids</h2>
+        
+        <p>Solenoids are created when a current carrying wire is coiled, which creates an electromagnet.</p>
+        
+        <div class="equation">
+            <p><strong>Magnetic Field of a Solenoid:</strong></p>
+            <p>B = μ<sub>0</sub> nI / l</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Where:</p>
+            <ul style="list-style: none; padding-left: 0; font-size: 0.9em;">
+                <li>B = magnetic field</li>
+                <li>μ<sub>0</sub> = magnetic constant</li>
+                <li>n = number of coils of wire</li>
+                <li>I = current</li>
+                <li>l = length of the solenoid</li>
+            </ul>
+            <p style="margin-top: 10px; font-size: 0.9em;">The magnetic field is simply the product of the current × number of coils × magnetic constant, divided by length.</p>
+        </div>
+        
+        <h2>Electromagnetic Induction</h2>
+        
+        <p>Michael Faraday discovered that a changing magnetic field helps in inducing a current. The magnetic field can be changed by:</p>
+        
+        <ul>
+            <li>Turning an electromagnet on/off</li>
+            <li>Using a stronger magnet</li>
+            <li>Moving a magnet closer or further away</li>
+        </ul>
+        
+        <p>Overall, it was found out that a change in magnetic flux led to the induction of an EMF.</p>
+        
+        <div class="definition">
+            <p><strong>Magnetic Flux (Φ):</strong> The magnetic flux is equal to the product of the magnetic field, area of loop and sine of the angle between magnetic field and loop.</p>
+            <p style="margin-top: 10px; font-family: 'Courier New', monospace;">Φ = B × A × sin(θ)</p>
+        </div>
+        
+        <div class="law-box">
+            <h3>Faraday's Law of Induction</h3>
+            <p>The induced EMF is equal to the number of loops multiplied by the rate of change of magnetic flux - that is, how quickly the magnetic flux is changing over time.</p>
+        </div>
+        
+        <div class="equation">
+            <p><strong>Faraday's Law:</strong></p>
+            <p>V = -n dΦ/dt</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Where:</p>
+            <ul style="list-style: none; padding-left: 0; font-size: 0.9em;">
+                <li>V = induced EMF (voltage)</li>
+                <li>n = number of loops</li>
+                <li>dΦ/dt = rate of change of magnetic flux</li>
+                <li>The negative sign indicates the direction (Lenz's law)</li>
+            </ul>
+        </div>
+        
+        <div class="equation">
+            <p><strong>Alternative Form (for moving magnet):</strong></p>
+            <p>V = n × v × c × B</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Where:</p>
+            <ul style="list-style: none; padding-left: 0; font-size: 0.9em;">
+                <li>n = number of loops</li>
+                <li>v = velocity of magnet</li>
+                <li>c = circumference of each loop</li>
+                <li>B = magnetic field</li>
+            </ul>
+            <p style="margin-top: 10px; font-size: 0.9em;">The induced EMF is the product of velocity of magnet, length of wire and magnetic field. So, moving the magnet faster will generate more EMF.</p>
+        </div>
+        
+        <div class="note">
+            <p><strong>Key Insight:</strong> The faster the magnetic flux changes (either by moving the magnet faster, or changing the magnetic field more rapidly), the greater the induced EMF. This principle is fundamental to generators, transformers, and many other electrical devices.</p>
+        </div>
+    </div>
+</body>
+</html>
