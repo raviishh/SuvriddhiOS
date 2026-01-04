@@ -6,23 +6,13 @@ start() {
 	export XDG_RUNTIME_DIR=/tmp/runtime-root
 	mkdir -p $XDG_RUNTIME_DIR
 
-    echo "Starting server..."
-
 	ln -sf /usr/lib/libWPEBackend-fdo-1.0.so.1.10.1 /usr/lib/libWPEBackend-default.so
-
-    echo "linked"
 
 	/root/server &
 
-    echo "server started"
-
 	busybox httpd -h /root/www -p 8080 &
 
-    echo "httpd started"
-
-	sleep 600 # For testing
-
-    echo "Starting cage..."
+	sleep 5
 
 	exec cage -- cog --platform=wl http://127.0.0.1:8080
 }
