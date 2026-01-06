@@ -7,15 +7,16 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/ext-language_tools";
-import { LanguageType } from "../../types/language";
+import type { LanguageType } from "../../types/language";
 
 export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseItem; onMarkComplete: () => void; }) {
-    const [language, setLanguage] = useState<LanguageType>("C");
+    let starterCode = ""
+    const [language] = useState<LanguageType>("C");
     if (language === "Python") {
-        const starterCode = "print('Hello, World!')";
+        starterCode = "print('Hello, World!')\n";
     }
     else{
-        const starterCode = "#include <stdio.h>\nint main() {\n\t\n\t\n\t\n\treturn 0;\n}\n";
+        starterCode = "#include <stdio.h>\nint main() {\n\t\n\t\n\t\n\treturn 0;\n}\n";
     }
 
     const { getDraftForExercise, saveDraftForExercise } = useStore();

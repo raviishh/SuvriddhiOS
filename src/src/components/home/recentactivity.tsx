@@ -3,11 +3,11 @@ import { useStore } from "../../store/useStore";
 import { useEffect, useState } from "react";
 import type { ActiveItem, Topic } from "../../types/learningitems";
 import { Link } from "react-router";
-import { LanguageType } from "../../types/language";
+import type { LanguageType } from "../../types/language";
 
 export default function RecentActivity({ lastActivity }: { lastActivity: ActiveItem }) {
   const { getTopicProgress } = useStore();
-  const [language, setLanguage] = useState<LanguageType>("C");
+  const [language] = useState<LanguageType>("C");
   const [topics, setTopics] = useState<Topic[]>([]);
   let path = "/data/learn/topics.json";
   useEffect(() => {

@@ -4,10 +4,10 @@ import LessonView from "../components/learn/lessonview";
 import ExerciseView from "../components/learn/exerciseview";
 import { useStore } from "../store/useStore";
 import type { ActiveItem, Topic, TopicItem } from "../types/learningitems";
-import { LanguageType } from "../types/languages";
+import type { LanguageType } from "../types/language";
 
 export default function Learn() {
-  const [language, setLanguage] = useState<LanguageType>("C");
+  const [language] = useState<LanguageType>("C");
   const { setLastActivity, markItemCompleted, isItemCompleted } = useStore();
   const [topics, setTopics] = useState<Topic[]>([]);
   const [active, setActive] = useState<ActiveItem | null>(null);

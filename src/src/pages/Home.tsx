@@ -5,7 +5,6 @@ import LanguageSelector from "../components/home/languageselector";
 import MenuCards from "../components/home/menucards";
 import RecentActivity from "../components/home/recentactivity";
 import type { Topic } from "../types/learningitems";
-import { LanguageType } from "../../types/language";
 
 export default function Home() {
   const {language, setLanguage, lastActivity, setLastActivity, markItemCompleted, isItemCompleted} = useStore();

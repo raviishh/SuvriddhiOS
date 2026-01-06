@@ -7,10 +7,10 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/ext-language_tools";
-import { LanguageType } from "../../types/language";
+import type { LanguageType } from "../../types/language";
 
 export default function CompleteCodeView({ drill, onMarkComplete }: { drill: CompleteCodeDrill; onMarkComplete: () => void; }) {
-    const [language, setLanguage] = useState<LanguageType>("C");
+    const [language] = useState<LanguageType>("C");
     const { getDraftForDrill, saveDraftForDrill } = useStore();
     const [code, setCode] = useState<string>(drill.starterCode);
     const [output, setOutput] = useState<string | null>(null);
