@@ -4,18 +4,26 @@ import LessonView from "../components/learn/lessonview";
 import ExerciseView from "../components/learn/exerciseview";
 import { useStore } from "../store/useStore";
 import type { ActiveItem, Topic, TopicItem } from "../types/learningitems";
+import { LanguageType } from "../types/languages";
 
 export default function Learn() {
+  const [language, setLanguage] = useState<LanguageType>("C");
   const { setLastActivity, markItemCompleted, isItemCompleted } = useStore();
   const [topics, setTopics] = useState<Topic[]>([]);
   const [active, setActive] = useState<ActiveItem | null>(null);
 
+  let path = "/data/learn/topics.json";
   useEffect(() => {
-    fetch(`/data/learn/topics.json`)
+    if (language === "C") {
+      path = "/data/learn/topics.json";
+    } else if (language === "Python") {
+      path = "/data/learn/topics_py.json";
+    }
+    fetch(path)
       .then(r => r.json())
       .then((t: Topic[]) => setTopics(t))
       .catch(() => setTopics([]));
-  }, []);
+    }, []);
 
   useEffect(() => {
     if (topics.length === 0) return;

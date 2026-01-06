@@ -7,10 +7,16 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/ext-language_tools";
+import { LanguageType } from "../../types/language";
 
 export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseItem; onMarkComplete: () => void; }) {
-
-    const starterCode = "#include <stdio.h>\nint main() {\n\t\n\t\n\t\n\treturn 0;\n}\n";
+    const [language, setLanguage] = useState<LanguageType>("C");
+    if (language === "Python") {
+        const starterCode = "print('Hello, World!')";
+    }
+    else{
+        const starterCode = "#include <stdio.h>\nint main() {\n\t\n\t\n\t\n\treturn 0;\n}\n";
+    }
 
     const { getDraftForExercise, saveDraftForExercise } = useStore();
     const [descriptionHtml, setDescriptionHtml] = useState<string | null>(null);
@@ -54,7 +60,31 @@ export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseI
         setOutput(null);
         setIsSuccess(null);
 
+        if (language === "Python") {
+            try {
+                const res = await fetch("http://127.0.0.1:8000/api/python", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ code, tests: item.tests })
+                });
+                const json = await res.json();
 
+                if (json.success) {
+                    setOutput("All tests passed!");
+                    setIsSuccess(true);
+                    onMarkComplete();
+                } else {
+                    setOutput(`Test failed on the following test case:${json.input === "" ? "" : `\n\nInput: ${json.input}`}\n\nOutput: ${json.output}\n\nExpected: ${json.expected}`);
+                    setIsSuccess(false);
+                }
+            } catch (e: any) {
+                setOutput("Runtime error: " + String(e.message ?? e));
+                setIsSuccess(false);
+            } finally {
+                setRunning(false);
+            }
+            return;
+        }
         try {
             const compileRes = await fetch("http://127.0.0.1:8000/api/compile", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code }) });
             const compileJson = await compileRes.json();

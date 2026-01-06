@@ -21,7 +21,8 @@ if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
     echo "Suvriddhi: Native build detected ($ARCH)"
     SYSROOT="${TARGET_DIR}/../host/aarch64-buildroot-linux-gnu/sysroot"
     
-    g++ main.cpp compile_handler.cpp run_handler.cpp utils.cpp code_handler.cpp \
+    g++ main.cpp compile_handler.cpp run_handler.cpp utils.cpp \
+    code_handler.cpp python_handler.cpp \
         --sysroot="$SYSROOT" \
         -lcivetweb \
         -o "${TARGET_DIR}/root/server" \
@@ -38,6 +39,7 @@ else
         run_handler.cpp \
         utils.cpp \
         code_handler.cpp \
+        python_handler.cpp \
         -lcivetweb \
         -o "${TARGET_DIR}/root/server" \
         -I "$SYSROOT/usr/include" \

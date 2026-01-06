@@ -4,9 +4,16 @@ import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import { ChevronLeft, ChevronRight, Home } from "lucide-react";
 import { Link } from "react-router";
+import { LanguageType } from "../types/language";
 
 export default function Sandbox() {
-  const starterCode = "#include <stdio.h>\nint main() {\n\t\n\t\n\t\n\treturn 0;\n}\n";
+  const [language, setLanguage] = useState<LanguageType>("C");
+  if (language === "Python") {
+    const starterCode = "print('Hello, World!')\n";
+  }
+  else {
+    const starterCode = "#include <stdio.h>\nint main() {\n\t\n\t\n\t\n\treturn 0;\n}\n";
+  }
 
   const [code, setCode] = useState(starterCode);
   const [output, setOutput] = useState("");
@@ -122,8 +129,35 @@ export default function Sandbox() {
   }
 
   async function handleCompileAndRun() {
-    const runToken: string | null = await handleCompile();
-    await handleRun(runToken);
+    if (language === "Python") {
+      try {
+          const res = await fetch("http://127.0.0.1:8000/api/python", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ code, tests: drill.tests })
+          });
+          const json = await res.json();
+
+          if (json.success) {
+              setOutput("All tests passed!");
+              setIsSuccess(true);
+              onMarkComplete();
+          } else {
+              setOutput(`Test failed on the following test case:${json.input === "" ? "" : `\n\nInput: ${json.input}`}\n\nOutput: ${json.output}\n\nExpected: ${json.expected}`);
+              setIsSuccess(false);
+          }
+      } catch (e: any) {
+          setOutput("Runtime error: " + String(e.message ?? e));
+          setIsSuccess(false);
+      } finally {
+          setRunning(false);
+      }
+    return;
+  }
+    if (language === "C") {
+      const runToken: string | null = await handleCompile();
+      await handleRun(runToken);
+    }
   }
 
 
