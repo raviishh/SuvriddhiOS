@@ -23,7 +23,7 @@ export default function Learn() {
       .then(r => r.json())
       .then((t: Topic[]) => setTopics(t))
       .catch(() => setTopics([]));
-    }, []);
+  }, []);
 
   useEffect(() => {
     if (topics.length === 0) return;
