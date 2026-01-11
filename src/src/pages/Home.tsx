@@ -10,8 +10,14 @@ export default function Home() {
   const {language, setLanguage, lastActivity, setLastActivity, markItemCompleted, isItemCompleted} = useStore();
 
   const [topics, setTopics] = useState<Topic[]>([]);
+  let path = "/data/learn/topics.json";
   useEffect(() => {
-    fetch(`/data/learn/topics.json`)
+    if (language === "C") {
+      path = "/data/learn/topics.json";
+    } else if (language === "Python") {
+      path = "/data/learn/topics_py.json";
+    }
+    fetch(path)
       .then(r => r.json())
       .then((t: Topic[]) => setTopics(t))
       .catch(() => setTopics([]));

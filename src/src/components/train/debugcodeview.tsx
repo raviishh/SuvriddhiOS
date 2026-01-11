@@ -8,8 +8,10 @@ import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { Lightbulb } from "lucide-react";
+import type { LanguageType } from "../../types/language";
 
 export default function DebugCodeView({ drill, onMarkComplete }: { drill: DebugCodeDrill; onMarkComplete: () => void; }) {
+    const [language] = useState<LanguageType>("C");
     const { getDraftForDrill, saveDraftForDrill } = useStore();
     const [code, setCode] = useState<string>(drill.buggyCode);
     const [output, setOutput] = useState<string | null>(null);
@@ -42,6 +44,31 @@ export default function DebugCodeView({ drill, onMarkComplete }: { drill: DebugC
         setOutput(null);
         setIsSuccess(null);
 
+        if (language === "Python") {
+            try {
+                const res = await fetch("http://127.0.0.1:8000/api/python", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ code, tests: drill.tests })
+                });
+                const json = await res.json();
+
+                if (json.success) {
+                    setOutput("Bug fixed! All tests passed!");
+                    setIsSuccess(true);
+                    onMarkComplete();
+                } else {
+                    setOutput(`Test failed on the following test case:${json.input === "" ? "" : `\n\nInput: ${json.input}`}\n\nOutput: ${json.output}\n\nExpected: ${json.expected}`);
+                    setIsSuccess(false);
+                }
+            } catch (e: any) {
+                setOutput("Runtime error: " + String(e.message ?? e));
+                setIsSuccess(false);
+            } finally {
+                setRunning(false);
+            }
+            return;
+        }
         try {
             const compileRes = await fetch("http://127.0.0.1:8000/api/compile", {
                 method: "POST",

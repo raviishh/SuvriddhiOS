@@ -1,0 +1,106 @@
+[
+  {
+    "id": "intro_py",
+    "title": "Intro to Py",
+    "items": [
+      {
+        "id": "intro_what_is_py",
+        "type": "lesson",
+        "title": "What is Python?",
+        "contentFile": "topics/py/intro/what_is_py.html"
+      },
+      {
+        "id": "intro_first_program",
+        "type": "lesson",
+        "title": "Your First Program",
+        "contentFile": "topics/py/intro/first_program.html"
+      },
+      {
+        "id": "intro_variables",
+        "type": "lesson",
+        "title": "Variables",
+        "contentFile": "topics/py/intro/variables.html"
+      },
+      {
+        "id": "intro_print_hello",
+        "type": "exercise",
+        "title": "Print 'Hello, World!'",
+        "contentFile": "topics/py/intro/print_hello.html",
+        "tests": [
+          {
+            "input": "",
+            "expected": "Hello, World!\n"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "variables",
+    "title": "Variables and Data Types",
+    "items": [
+      {
+        "id": "variables_overview",
+        "type": "lesson",
+        "title": "Overview of Variables",
+        "icon": "book",
+        "path": "lessons/py/variables_overview.json"
+      },
+      {
+        "id": "variables_exercise1",
+        "type": "exercise",
+        "title": "Input and Output",
+        "contentFile": "topics/py/variables/variables_exercise1.html",
+        "tests": [
+          {
+            "input": "2",
+            "expected": "5"
+          },
+          {
+            "input": "5",
+            "expected": "8"
+          },
+          {
+            "input": "-1",
+            "expected": "2"
+          }
+          
+        ]
+      },
+      {
+        "id": "variables_exercise2",
+        "type": "exercise",
+        "title": "Sum of Two Integers",
+        "icon": "terminal",
+        "path": "exercises/py/variables_exercise2.json"
+      }
+    ]
+  },
+  {
+    "id": "control_flow",
+    "title": "Control Flow",
+    "items": [
+      {
+        "id": "control_ifelse",
+        "type": "lesson",
+        "title": "If, Else, and Conditions",
+        "icon": "book",
+        "path": "lessons/py/control_ifelse.json"
+      },
+      {
+        "id": "control_loops",
+        "type": "lesson",
+        "title": "Loops in Python",
+        "icon": "book",
+        "path": "lessons/py/control_loops.json"
+      },
+      {
+        "id": "control_exercise1",
+        "type": "exercise",
+        "title": "Even or Odd Checker",
+        "icon": "terminal",
+        "path": "exercises/py/control_exercise1.json"
+      }
+    ]
+  }
+]

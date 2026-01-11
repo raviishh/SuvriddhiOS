@@ -4,9 +4,17 @@ import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import { ChevronLeft, ChevronRight, Home } from "lucide-react";
 import { Link } from "react-router";
+import type { LanguageType } from "../types/language";
 
 export default function Sandbox() {
-  const starterCode = "#include <stdio.h>\nint main() {\n\t\n\t\n\t\n\treturn 0;\n}\n";
+  const [language] = useState<LanguageType>("C");
+  let starterCode = "";
+  if (language === "Python") {
+    starterCode = "print('Hello, World!')\n";
+  }
+  else {
+    starterCode = "#include <stdio.h>\nint main() {\n\t\n\t\n\t\n\treturn 0;\n}\n";
+  }
 
   const [code, setCode] = useState(starterCode);
   const [output, setOutput] = useState("");
@@ -122,8 +130,42 @@ export default function Sandbox() {
   }
 
   async function handleCompileAndRun() {
-    const runToken: string | null = await handleCompile();
-    await handleRun(runToken);
+    if (language === "Python") {
+    if (!code) return;
+
+    setStatus("Running...");
+    setOutput("");
+
+    try {
+      const res = await fetch("http://127.0.0.1:8000/api/python", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          code,
+          tests: [] // sandbox: explicitly empty
+        }),
+      });
+
+      const json = await res.json();
+
+      if (!json.success) {
+        throw new Error(json.error || "Runtime Error");
+      }
+
+      setOutput(json.output ?? "");
+      setStatus("Done");
+
+    } catch (e: any) {
+      setOutput(`Error: ${e.message ?? String(e)}`);
+      setStatus("Error");
+    }
+
+    return;
+  }
+    if (language === "C") {
+      const runToken: string | null = await handleCompile();
+      await handleRun(runToken);
+    }
   }
 
 
