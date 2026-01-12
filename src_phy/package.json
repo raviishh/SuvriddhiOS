@@ -16,7 +16,7 @@
     "@tiptap/starter-kit": "^3.8.0",
     "ace-builds": "^1.43.4",
     "lucide-react": "^0.546.0",
-    "pdfjs-dist": "^3.11.174",
+    "pdfjs-dist": "^5.4.530",
     "react": "^19.1.1",
     "react-ace": "^14.0.1",
     "react-dom": "^19.1.1",
