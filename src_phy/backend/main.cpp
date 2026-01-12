@@ -7,6 +7,7 @@
 #include <filesystem>
 #include "constants.h"
 #include <iostream>
+#include "python_handler.h"
 
 int main() {
     
@@ -30,6 +31,7 @@ int main() {
     mg_set_request_handler(ctx, "/api/save", handle_save, nullptr);
     mg_set_request_handler(ctx, "/api/load", handle_load, nullptr);
     mg_set_request_handler(ctx, "/api/list", handle_list, nullptr);
+    mg_set_request_handler(ctx, "/api/python", handle_python, nullptr);
 
     pause();
     
