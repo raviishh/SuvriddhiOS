@@ -1,11 +1,13 @@
-start_file=start.elf
-fixup_file=fixup.dat
+start_file=start4.elf
+fixup_file=fixup4.dat
 
 kernel=Image
 
 disable_overscan=1
 
-gpu_mem_1024=128
+gpu_mem_1024=256
+gpu_mem_2048=512
+gpu_mem_4096=1024
 
 dtoverlay=miniuart-bt
 
