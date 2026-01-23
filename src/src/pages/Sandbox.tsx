@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
-import { ChevronLeft, ChevronRight, Home } from "lucide-react";
-import { Link } from "react-router";
+import { ChevronLeft, ChevronRight, Home } from "lucide-preact";
+import { Link } from "preact-router/match";
 import type { LanguageType } from "../types/language";
 
 export default function Sandbox() {
@@ -265,7 +265,7 @@ export default function Sandbox() {
               </button>
             )}
 
-            <Link to="/" className="bg-card rounded px-1 py-1 text-xs hover:bg-secondary hover:text-foreground transition-colors">
+            <Link href="/" className="bg-card rounded px-1 py-1 text-xs hover:bg-secondary hover:text-foreground transition-colors">
               <Home size={16} />
             </Link>
 

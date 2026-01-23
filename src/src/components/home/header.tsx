@@ -1,5 +1,5 @@
-import { Settings } from "lucide-react";
-import { Link } from "react-router";
+import { Settings } from "lucide-preact";
+import { Link } from "preact-router/match";
 
 export default function Header() {
     return (
@@ -12,7 +12,7 @@ export default function Header() {
                 </div>
 
 
-                <Link to={"/settings"}>
+                <Link href={"/settings"}>
                     <button className="rounded-lg p-2 hover:bg-secondary transition-colors">
                         <Settings size={20} />
                     </button>

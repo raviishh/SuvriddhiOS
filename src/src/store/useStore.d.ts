@@ -1,0 +1,30 @@
+import type { LanguageType } from "../types/language";
+import type { ActiveItem, Topic } from "../types/learningitems";
+import type { ActiveDrill, DrillCategory } from "../types/drills";
+interface Store {
+    language: LanguageType;
+    setLanguage: (lang: LanguageType) => void;
+    lastActivity: ActiveItem | null;
+    setLastActivity: (item: ActiveItem) => void;
+    completed: Record<string, boolean>;
+    markItemCompleted: (itemId: string) => void;
+    getTopicProgress: (topics: Topic[], topicId: string) => number;
+    isItemCompleted: (itemId: string) => boolean;
+    drafts: Record<string, string>;
+    saveDraftForExercise: (itemId: string, code: string) => void;
+    getDraftForExercise: (itemId: string) => string | undefined;
+    lastDrill: ActiveDrill | null;
+    setLastDrill: (drill: ActiveDrill) => void;
+    drillsCompleted: Record<string, boolean>;
+    markDrillCompleted: (drillId: string) => void;
+    isDrillCompleted: (drillId: string) => boolean;
+    getCategoryProgress: (categories: DrillCategory[], categoryId: string) => number;
+    drillDrafts: Record<string, string>;
+    saveDraftForDrill: (drillId: string, code: string) => void;
+    getDraftForDrill: (drillId: string) => string | undefined;
+    drillAnswers: Record<string, string>;
+    saveDrillAnswer: (drillId: string, answer: string) => void;
+    getDrillAnswer: (drillId: string) => string | undefined;
+}
+export declare const useStore: import("zustand").UseBoundStore<import("zustand").StoreApi<Store>>;
+export {};

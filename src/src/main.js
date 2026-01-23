@@ -1,0 +1,12 @@
+import { jsx as _jsx, jsxs as _jsxs } from "preact/jsx-runtime";
+import { render } from "preact";
+import Router from "preact-router";
+import "./styles/index.css";
+import "./styles/fonts.css";
+import Home from "./pages/Home";
+import Learn from "./pages/Learn";
+import Train from "./pages/Train";
+import Sandbox from "./pages/Sandbox";
+import Settings from "./pages/Settings";
+const App = () => (_jsxs(Router, { children: [_jsx(Home, { path: "/" }), _jsx(Learn, { path: "/learn" }), _jsx(Train, { path: "/train" }), _jsx(Sandbox, { path: "/sandbox" }), _jsx(Settings, { path: "/settings" })] }));
+render(_jsx(App, {}), document.getElementById("root"));

@@ -1,7 +1,7 @@
 import { useStore } from "../../store/useStore";
 import type { Topic, TopicItem } from "../../types/learningitems";
 import ProgressRing from "./progressring";
-import { Book, Code2, ChevronDown, Check } from "lucide-react";
+import { Book, Code2, ChevronDown, Check } from "lucide-preact";
 
 interface SidebarTopicProps {
     topic: Topic;
