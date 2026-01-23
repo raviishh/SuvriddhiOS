@@ -7,7 +7,7 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/ext-language_tools";
-import { Lightbulb } from "lucide-react";
+import { Lightbulb } from "lucide-preact";
 import type { LanguageType } from "../../types/language";
 
 export default function DebugCodeView({ drill, onMarkComplete }: { drill: DebugCodeDrill; onMarkComplete: () => void; }) {

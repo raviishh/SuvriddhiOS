@@ -1,7 +1,7 @@
 import { useStore } from "../../store/useStore";
 import type { DrillCategory, Drill } from "../../types/drills";
 import ProgressRing from "../learn/progressring";
-import { Code2, Bug, Eye, ChevronDown, Check } from "lucide-react";
+import { Code2, Bug, Eye, ChevronDown, Check } from "lucide-preact";
 
 interface SidebarCategoryProps {
     category: DrillCategory;

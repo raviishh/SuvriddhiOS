@@ -2,8 +2,8 @@ import { useState } from "react";
 import SidebarTopic from "./sidebartopic";
 import type { Topic } from "../../types/learningitems";
 import { useStore } from "../../store/useStore";
-import { Link } from "react-router";
-import { Home, Settings } from "lucide-react";
+import { Link } from "preact-router/match";
+import { Home, Settings } from "lucide-preact";
 
 interface SidebarProps {
     topics: Topic[];
@@ -41,8 +41,8 @@ export default function Sidebar({ topics, activeTopicId, activeItemId, onOpenIte
 
 
             <div className="border-t border-border pt-5 flex justify-between px-4 text-sm text-muted-foreground">
-                <Link to="/" className="hover:text-primary transition-colors"><Home /></Link>
-                <Link to="/settings" className="hover:text-primary transition-colors"><Settings /></Link>
+                <Link href="/" className="hover:text-primary transition-colors"><Home /></Link>
+                <Link href="/settings" className="hover:text-primary transition-colors"><Settings /></Link>
             </div>
 
         </div>

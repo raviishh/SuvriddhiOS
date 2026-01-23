@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { LessonItem } from "../../types/learningitems";
-import { Check } from "lucide-react";
+import { Check } from "lucide-preact";
 
 interface LessonViewProps {
     item: LessonItem;

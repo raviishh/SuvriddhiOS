@@ -1,8 +1,8 @@
-import { Code2, BookOpen } from "lucide-react";
+import { Code2, BookOpen } from "lucide-preact";
 import { useStore } from "../../store/useStore";
 import { useEffect, useState } from "react";
 import type { ActiveItem, Topic } from "../../types/learningitems";
-import { Link } from "react-router";
+import { Link } from "preact-router/match";
 import type { LanguageType } from "../../types/language";
 
 export default function RecentActivity({ lastActivity }: { lastActivity: ActiveItem }) {
@@ -57,7 +57,7 @@ export default function RecentActivity({ lastActivity }: { lastActivity: ActiveI
             </div>
 
             <div className="flex sm:flex-col">
-              <Link to="/learn">
+              <Link href="/learn">
                 <button className="rounded-lg bg-primary-muted text-primary-foreground px-4 py-2 font-medium hover:opacity-80 active:scale-[0.97] transition-all">Resume</button>
               </Link>
             </div>
