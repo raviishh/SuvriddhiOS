@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@preact/preset-vite": "^2.10.3",
     "@tailwindcss/vite": "^4.1.15",
     "@tiptap/pm": "^3.8.0",
     "@tiptap/react": "^3.8.0",
@@ -17,6 +18,7 @@
     "ace-builds": "^1.43.4",
     "lucide-react": "^0.546.0",
     "pdfjs-dist": "^5.4.530",
+    "preact": "^10.28.3",
     "react": "^19.1.1",
     "react-ace": "^14.0.1",
     "react-dom": "^19.1.1",
@@ -31,7 +33,6 @@
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
-    "@vitejs/plugin-react": "^5.0.4",
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
