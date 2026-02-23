@@ -10,7 +10,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import type { LanguageType } from "../../types/language";
 
 export default function CompleteCodeView({ drill, onMarkComplete }: { drill: CompleteCodeDrill; onMarkComplete: () => void; }) {
-    const [language] = useState<LanguageType>("C");
+    const { language } = useStore();
     const { getDraftForDrill, saveDraftForDrill } = useStore();
     const [code, setCode] = useState<string>(drill.starterCode);
     const [output, setOutput] = useState<string | null>(null);

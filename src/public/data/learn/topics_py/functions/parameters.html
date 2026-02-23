@@ -1,0 +1,228 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Parameters & Arguments in Python</h1>
+  <p class="lead">
+    Parameters and arguments define how functions receive data.
+    They are the mechanism that transforms a static block of code
+    into a flexible, reusable abstraction.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. The Core Distinction</h2>
+    <p>
+      Although often used interchangeably in casual conversation,
+      parameters and arguments are technically different.
+    </p>
+
+    <ul>
+      <li><strong>Parameter</strong> — a variable listed in the function definition</li>
+      <li><strong>Argument</strong> — the actual value passed when calling the function</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code>def greet(name):   # 'name' is a parameter
+    print("Hello,", name)
+
+greet("Alice")     # "Alice" is an argument</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Precision Matters</div>
+      <div>
+        Parameters belong to the definition. Arguments belong to the call.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Multiple Parameters</h2>
+    <p>
+      Functions can accept multiple inputs separated by commas.
+    </p>
+
+    <div class="code-block">
+<pre><code>def add(a, b):
+    return a + b
+
+result = add(3, 5)</code></pre>
+    </div>
+
+    <p>
+      The order of arguments matters unless specified otherwise.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Positional vs Keyword Arguments</h2>
+
+    <h3>Positional Arguments</h3>
+    <p>
+      Matched based on order.
+    </p>
+
+    <div class="code-block">
+<pre><code>def describe(name, age):
+    print(name, "is", age, "years old")
+
+describe("Sam", 16)</code></pre>
+    </div>
+
+    <h3>Keyword Arguments</h3>
+    <p>
+      Matched by name.
+    </p>
+
+    <div class="code-block">
+<pre><code>describe(age=16, name="Sam")</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Design Insight</div>
+      <div>
+        Keyword arguments improve readability and reduce errors in long parameter lists.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Default Parameters</h2>
+    <p>
+      Parameters can have default values.
+    </p>
+
+    <div class="code-block">
+<pre><code>def greet(name="Guest"):
+    print("Hello,", name)
+
+greet()
+greet("Alice")</code></pre>
+    </div>
+
+    <p>
+      If no argument is provided, the default is used.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Best Practice</div>
+      <div>
+        Default values should be immutable (e.g., numbers, strings, tuples) 
+        to avoid unintended side effects.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Variable-Length Arguments</h2>
+    <p>
+      Python allows flexible argument counts using special syntax.
+    </p>
+
+    <h3>*args (Positional)</h3>
+
+    <div class="code-block">
+<pre><code>def total(*numbers):
+    return sum(numbers)
+
+print(total(1, 2, 3, 4))</code></pre>
+    </div>
+
+    <h3>**kwargs (Keyword)</h3>
+
+    <div class="code-block">
+<pre><code>def display_info(**info):
+    print(info)
+
+display_info(name="Alex", age=17)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">*args</span> collects extra positional arguments as a tuple.
+      <span class="inline-code">**kwargs</span> collects extra keyword arguments as a dictionary.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Argument Unpacking</h2>
+    <p>
+      You can unpack sequences or dictionaries into arguments.
+    </p>
+
+    <div class="code-block">
+<pre><code>values = (3, 5)
+print(add(*values))
+
+data = {"name": "Sam", "age": 16}
+describe(**data)</code></pre>
+    </div>
+
+    <p>
+      This spreads elements into individual arguments.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Common Mistakes</h2>
+    <ul>
+      <li>Confusing parameters with arguments</li>
+      <li>Mixing positional and keyword arguments incorrectly</li>
+      <li>Using mutable default arguments (e.g., lists)</li>
+      <li>Passing too many or too few arguments</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What happens?
+        <span class="inline-code">
+        def test(a, b=2):  
+            return a + b  
+        print(test(3))
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Why Parameters & Arguments Matter</h2>
+    <p>
+      Parameters define a function’s interface.
+      Arguments supply the data that powers its behavior.
+    </p>
+
+    <p>
+      Together, they enable abstraction — allowing one function
+      to operate on many different inputs without modification.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Refactor a function to replace multiple hardcoded values with parameters.
+        Evaluate how flexibility improves.
+      </div>
+    </div>
+  </section>
+
+</article>

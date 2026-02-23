@@ -1,0 +1,255 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Defining Functions in Python</h1>
+  <p class="lead">
+    Functions are reusable blocks of code that perform a specific task.
+    They are the foundation of abstraction — allowing you to hide complexity
+    behind a clean, readable interface.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why Functions Matter</h2>
+    <p>
+      Without functions, programs become long, repetitive, and difficult to maintain.
+      Functions let you:
+    </p>
+
+    <ul>
+      <li>Reuse logic</li>
+      <li>Organize code into meaningful units</li>
+      <li>Improve readability</li>
+      <li>Reduce duplication</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Core Idea</div>
+      <div>
+        Functions turn repeated instructions into reusable tools.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Basic Function Syntax</h2>
+    <p>
+      Functions are defined using the <span class="inline-code">def</span> keyword.
+    </p>
+
+    <div class="code-block">
+<pre><code>def greet():
+    print("Hello, world!")</code></pre>
+    </div>
+
+    <p>
+      This defines a function named <span class="inline-code">greet</span>.
+      To execute it, you must call it:
+    </p>
+
+    <div class="code-block">
+<pre><code>greet()</code></pre>
+    </div>
+
+    <p>
+      If you define a function but never call it, nothing happens.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Function Structure Breakdown</h2>
+
+    <div class="code-block">
+<pre><code>def function_name():
+    # indented block
+    statement</code></pre>
+    </div>
+
+    <ul>
+      <li><span class="inline-code">def</span> — declares a function</li>
+      <li><span class="inline-code">function_name</span> — identifier (must follow naming rules)</li>
+      <li><span class="inline-code">()</span> — parameter list (empty for now)</li>
+      <li><span class="inline-code">:</span> — begins the function body</li>
+      <li>Indented block — the code that runs when called</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>
+        Indentation defines the function body. Incorrect indentation breaks structure.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Functions with Parameters</h2>
+    <p>
+      Parameters allow functions to accept input.
+    </p>
+
+    <div class="code-block">
+<pre><code>def greet(name):
+    print("Hello,", name)</code></pre>
+    </div>
+
+    <p>
+      Calling the function:
+    </p>
+
+    <div class="code-block">
+<pre><code>greet("Alice")
+greet("Bob")</code></pre>
+    </div>
+
+    <p>
+      Parameters make functions flexible and reusable.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Return Values</h2>
+    <p>
+      Functions can send data back using <span class="inline-code">return</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>def add(a, b):
+    return a + b
+
+result = add(3, 5)
+print(result)</code></pre>
+    </div>
+
+    <p>
+      Key distinction:
+    </p>
+
+    <ul>
+      <li><span class="inline-code">print()</span> displays a value</li>
+      <li><span class="inline-code">return</span> sends a value back to the caller</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Design Principle</div>
+      <div>
+        Prefer returning values over printing inside functions when building reusable logic.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Local Scope</h2>
+    <p>
+      Variables created inside a function exist only within that function.
+    </p>
+
+    <div class="code-block">
+<pre><code>def example():
+    x = 10
+    print(x)
+
+example()
+print(x)  # Error</code></pre>
+    </div>
+
+    <p>
+      This is called <strong>local scope</strong>.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Abstraction Benefit</div>
+      <div>
+        Functions protect internal variables from interfering with the rest of your program.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Functions and Abstraction</h2>
+    <p>
+      Abstraction means hiding complexity behind a simple interface.
+    </p>
+
+    <div class="code-block">
+<pre><code>def calculate_area(radius):
+    return 3.14159 * radius ** 2</code></pre>
+    </div>
+
+    <p>
+      The caller does not need to know how the formula works.
+      They just use the function.
+    </p>
+
+    <p>
+      That is abstraction: separating <em>what</em> from <em>how</em>.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Common Mistakes</h2>
+    <ul>
+      <li>Forgetting to call the function</li>
+      <li>Missing parentheses when calling</li>
+      <li>Using <span class="inline-code">print</span> instead of <span class="inline-code">return</span></li>
+      <li>Incorrect indentation</li>
+      <li>Shadowing variable names unintentionally</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What prints?
+        <span class="inline-code">
+        def square(x):  
+            return x * x  
+        print(square(4))
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>9. Why Defining Functions Matters</h2>
+    <p>
+      Functions are the backbone of structured programming.
+      They improve modularity, scalability, and maintainability.
+    </p>
+
+    <p>
+      Mastering function definition is the first real step toward writing
+      professional-grade software.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Take a block of repeated code in a previous project and refactor it into a function.
+        Ask: Does this improve clarity? Does it reduce duplication?
+      </div>
+    </div>
+  </section>
+
+</article>

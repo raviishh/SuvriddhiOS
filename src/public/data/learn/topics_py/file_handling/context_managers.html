@@ -1,0 +1,211 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Context Managers in Python — The <span class="inline-code">with</span> Statement</h1>
+  <p class="lead">
+    If file handling were engineering, context managers would be the automatic safety system.
+    They guarantee cleanup. No leaks. No forgotten closes. No chaos.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. The problem — resource management</h2>
+    <p>
+      When you open a file, you allocate a system resource. If you forget to close it,
+      you create inefficiency and potential bugs. On larger systems, that becomes failure.
+    </p>
+
+    <div class="code-block">
+<pre><code>file = open("data.txt", "r")
+content = file.read()
+# What if an error happens here?
+file.close()</code></pre>
+    </div>
+
+    <p>
+      If an exception occurs before <span class="inline-code">close()</span>, the file may remain open.
+      That’s fragile design.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Engineering Principle</div>
+      <div>
+        Any resource you acquire — file, network connection, database — must be released.
+        Humans forget. Automation doesn’t.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. The solution — <span class="inline-code">with</span></h2>
+    <p>
+      The <span class="inline-code">with</span> statement creates a controlled execution block.
+      When the block exits — normally or due to an exception — cleanup happens automatically.
+    </p>
+
+    <div class="code-block">
+<pre><code>with open("data.txt", "r") as file:
+    content = file.read()
+    print(content)</code></pre>
+    </div>
+
+    <p>
+      Once execution leaves the block, Python automatically closes the file.
+      You cannot forget.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. What actually happens under the hood?</h2>
+    <p>
+      A context manager is an object that defines two special methods:
+    </p>
+
+    <ul>
+      <li><span class="inline-code">__enter__()</span> → runs at the start of the block</li>
+      <li><span class="inline-code">__exit__()</span> → runs at the end of the block</li>
+    </ul>
+
+    <p>
+      When you write:
+    </p>
+
+    <div class="code-block">
+<pre><code>with open("data.txt", "r") as file:
+    pass</code></pre>
+    </div>
+
+    <p>
+      Python internally does something conceptually similar to:
+    </p>
+
+    <div class="code-block">
+<pre><code>file = open("data.txt", "r")
+try:
+    # block runs here
+    pass
+finally:
+    file.close()</code></pre>
+    </div>
+
+    <p>
+      That <span class="inline-code">finally</span> guarantees execution — even if an error occurs.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Using <span class="inline-code">with</span> for writing</h2>
+
+    <div class="code-block">
+<pre><code>with open("log.txt", "a") as file:
+    file.write("New log entry\n")</code></pre>
+    </div>
+
+    <p>
+      Same pattern. Automatic closure. Cleaner code. Safer systems.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Industry Standard</div>
+      <div>
+        In professional Python code, file operations without <span class="inline-code">with</span>
+        are considered poor practice unless there is a specific reason.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Multiple context managers</h2>
+
+    <p>
+      You can manage multiple resources in a single statement.
+    </p>
+
+    <div class="code-block">
+<pre><code>with open("input.txt", "r") as infile, \
+     open("output.txt", "w") as outfile:
+
+    for line in infile:
+        outfile.write(line.upper())</code></pre>
+    </div>
+
+    <p>
+      Both files are automatically closed when the block ends.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Beyond files — context managers everywhere</h2>
+
+    <p>
+      Context managers are not limited to file handling. They are used for:
+    </p>
+
+    <ul>
+      <li>Database connections</li>
+      <li>Thread locks</li>
+      <li>Temporary state changes</li>
+      <li>Network sockets</li>
+    </ul>
+
+    <p>
+      The idea is universal: acquire → use → release.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Why this matters long-term</h2>
+
+    <p>
+      You now understand:
+      <ul>
+        <li>Why manual closing is risky</li>
+        <li>How <span class="inline-code">with</span> guarantees cleanup</li>
+        <li>What happens internally with <span class="inline-code">__enter__</span> and <span class="inline-code">__exit__</span></li>
+        <li>How to manage multiple resources cleanly</li>
+      </ul>
+    </p>
+
+    <p>
+      This is not beginner trivia. This is structural discipline.
+      Software at scale survives because of patterns like this.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Exercise</div>
+      <div>
+        Write a script that:
+        <ul>
+          <li>Reads from <span class="inline-code">input.txt</span></li>
+          <li>Converts all text to lowercase</li>
+          <li>Writes the result into <span class="inline-code">lowercase.txt</span></li>
+          <li>Uses a single <span class="inline-code">with</span> statement to manage both files</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+</article>

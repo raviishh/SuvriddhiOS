@@ -7,7 +7,7 @@ import type { LanguageType } from "../../types/language";
 
 export default function RecentActivity({ lastActivity }: { lastActivity: ActiveItem }) {
   const { getTopicProgress } = useStore();
-  const [language] = useState<LanguageType>("C");
+  const { language } = useStore();
   const [topics, setTopics] = useState<Topic[]>([]);
   let path = "/data/learn/topics.json";
   useEffect(() => {

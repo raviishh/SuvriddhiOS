@@ -1,0 +1,205 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Dictionary Comprehensions in Python</h1>
+  <p class="lead">
+    Dictionary comprehensions provide a concise way to construct dictionaries.
+    They combine iteration, transformation, and optional filtering into a single expressive statement.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What Is a Dictionary Comprehension?</h2>
+    <p>
+      A dictionary comprehension creates a dictionary using a compact syntax.
+    </p>
+
+    <div class="code-block">
+<pre><code>squares = {x: x * x for x in range(5)}
+print(squares)</code></pre>
+    </div>
+
+    <p>
+      Equivalent traditional approach:
+    </p>
+
+    <div class="code-block">
+<pre><code>squares = {}
+for x in range(5):
+    squares[x] = x * x</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Core Structure</div>
+      <div>
+        {key_expression: value_expression for item in iterable}
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Adding Conditions</h2>
+    <p>
+      You can filter items using an <code>if</code> clause.
+    </p>
+
+    <div class="code-block">
+<pre><code>even_squares = {x: x * x for x in range(10) if x % 2 == 0}
+print(even_squares)</code></pre>
+    </div>
+
+    <p>
+      Only items meeting the condition are included.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Extended Structure</div>
+      <div>
+        {key: value for item in iterable if condition}
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Transforming Existing Dictionaries</h2>
+
+    <p>
+      Dictionary comprehensions are commonly used to transform dictionaries.
+    </p>
+
+    <div class="code-block">
+<pre><code>prices = {"apple": 100, "banana": 50, "cherry": 200}
+
+discounted = {item: price * 0.9 for item, price in prices.items()}
+print(discounted)</code></pre>
+    </div>
+
+    <p>
+      You can also swap keys and values.
+    </p>
+
+    <div class="code-block">
+<pre><code>inverted = {value: key for key, value in prices.items()}
+print(inverted)</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Conditional Value Assignment</h2>
+
+    <p>
+      Inline conditional expressions can modify values.
+    </p>
+
+    <div class="code-block">
+<pre><code>grades = {"Alice": 85, "Bob": 72, "Charlie": 90}
+
+status = {
+    name: "Pass" if score >= 75 else "Fail"
+    for name, score in grades.items()
+}
+
+print(status)</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Nested Dictionary Comprehensions</h2>
+
+    <p>
+      Comprehensions can generate nested structures.
+    </p>
+
+    <div class="code-block">
+<pre><code>matrix = {
+    i: {j: i * j for j in range(3)}
+    for i in range(3)
+}
+
+print(matrix)</code></pre>
+    </div>
+
+    <p>
+      Use nested comprehensions cautiously to preserve readability.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Readability Guidelines</h2>
+
+    <ul>
+      <li>Keep expressions simple and clear</li>
+      <li>Avoid deeply nested logic</li>
+      <li>Prefer explicit loops when clarity decreases</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Best Practice</div>
+      <div>
+        Prioritize maintainability over compactness.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Common Mistakes</h2>
+    <ul>
+      <li>Forgetting the colon between key and value</li>
+      <li>Confusing dictionary and set comprehensions</li>
+      <li>Overcomplicating nested comprehensions</li>
+      <li>Creating duplicate keys unintentionally</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What is the output?
+        <span class="inline-code">
+        result = {x: x % 2 for x in range(4)}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Why Dictionary Comprehensions Matter</h2>
+    <p>
+      Dictionary comprehensions allow declarative transformation
+      of structured data.
+    </p>
+
+    <p>
+      They are especially powerful when processing configuration data,
+      JSON-like structures, and algorithmic mappings.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Transform a dataset by filtering entries and modifying values
+        using dictionary comprehensions.
+      </div>
+    </div>
+  </section>
+
+</article>

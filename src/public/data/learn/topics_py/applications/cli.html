@@ -1,0 +1,308 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>CLI Applications with Python (argparse)</h1>
+
+    <p class="lead">
+        In this lesson, you will learn how to turn a normal Python script into a
+        real command-line tool. By the end, you will build a small Task Manager
+        that works directly from the terminal.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What is a CLI application?</h2>
+
+        <p>
+            CLI means <strong>Command Line Interface</strong>. Instead of
+            clicking buttons, you type commands.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Simple idea
+            </div>
+            <div>
+                A CLI app is like talking to your computer using short text
+                instructions.
+            </div>
+        </div>
+
+        <p>For example:</p>
+
+        <div class="code-block">
+            <pre><code>python greet.py John</code></pre>
+        </div>
+
+        <p>
+            The word <span class="inline-code">John</span> is given to the
+            program as input.
+        </p>
+
+        <p>Many real tools are CLI programs:</p>
+
+        <ul>
+            <li>Git</li>
+            <li>Docker</li>
+            <li>Python itself</li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Reading arguments (the simple way)</h2>
+
+        <p>
+            When you run a Python file, you can pass words after it. Python
+            stores them inside a list called
+            <span class="inline-code">sys.argv</span>.
+        </p>
+
+        <div class="code-block">
+            <pre><code>import sys
+print(sys.argv)</code></pre>
+        </div>
+
+        <p>If you run:</p>
+
+        <div class="code-block">
+            <pre><code>python test.py hello world</code></pre>
+        </div>
+
+        <p>Output:</p>
+
+        <div class="output">['test.py', 'hello', 'world']</div>
+
+        <p>The first value is always the file name.</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Problem
+            </div>
+            <div>
+                Using <span class="inline-code">sys.argv</span> directly can
+                become messy and hard to manage.
+            </div>
+        </div>
+
+        <p>That is why we use a better tool: <strong>argparse</strong>.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Introducing argparse</h2>
+
+        <p>
+            <span class="inline-code">argparse</span> is a built-in Python
+            module that helps us:
+        </p>
+
+        <ul>
+            <li>Read command arguments clearly</li>
+            <li>Define required inputs</li>
+            <li>Create helpful messages</li>
+        </ul>
+
+        <div class="code-block">
+            <pre><code>import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("name")
+
+args = parser.parse_args()
+print("Hello,", args.name)</code></pre>
+        </div>
+
+        <p>Run it like this:</p>
+
+        <div class="code-block">
+            <pre><code>python greet.py Alice</code></pre>
+        </div>
+
+        <p>Output:</p>
+
+        <div class="output">Hello, Alice</div>
+
+        <p>Now your program understands structured input.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Optional arguments and flags</h2>
+
+        <p>
+            Sometimes we want optional inputs. These usually start with
+            <span class="inline-code">--</span>.
+        </p>
+
+        <div class="code-block">
+            <pre><code>import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("name")
+parser.add_argument("--age", type=int)
+
+args = parser.parse_args()
+
+print("Name:", args.name)
+print("Age:", args.age)</code></pre>
+        </div>
+
+        <p>Run:</p>
+
+        <div class="code-block">
+            <pre><code>python app.py John --age 16</code></pre>
+        </div>
+
+        <p>
+            If you skip <span class="inline-code">--age</span>, it will be
+            <span class="inline-code">None</span>.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Helpful feature
+            </div>
+            <div>
+                Try running the program with
+                <span class="inline-code">-h</span>. You will see an automatic
+                help message.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Building a real project — Task Manager CLI</h2>
+
+        <p>Now we build something useful. A small task manager that can:</p>
+
+        <ul>
+            <li>Add a task</li>
+            <li>List tasks</li>
+        </ul>
+
+        <div class="code-block">
+            <pre><code>import argparse
+
+tasks = []
+
+parser = argparse.ArgumentParser()
+parser.add_argument("action", choices=["add", "list"])
+parser.add_argument("task", nargs="?", help="Task description")
+
+args = parser.parse_args()
+
+if args.action == "add":
+    if args.task:
+        tasks.append(args.task)
+        print("Task added:", args.task)
+    else:
+        print("Please provide a task description.")
+
+elif args.action == "list":
+    if not tasks:
+        print("No tasks yet.")
+    else:
+        for i, task in enumerate(tasks, start=1):
+            print(f"{i}. {task}")</code></pre>
+        </div>
+
+        <p>Run:</p>
+
+        <div class="code-block">
+            <pre><code>python tasks.py add "Study math"
+python tasks.py list</code></pre>
+        </div>
+
+        <p>This works — but there is a limitation.</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Important
+            </div>
+            <div>
+                Tasks disappear when the program stops. In the next lesson, we
+                will learn how to save data properly.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Why CLI apps matter</h2>
+
+        <p>Many professional tools are CLI-based because:</p>
+
+        <ul>
+            <li>They are fast</li>
+            <li>They are powerful</li>
+            <li>They are easy to automate</li>
+        </ul>
+
+        <p>Learning CLI design teaches you:</p>
+
+        <ul>
+            <li>How programs receive input</li>
+            <li>How to structure commands</li>
+            <li>How to build tools instead of simple scripts</li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Small exercises</h2>
+
+        <ul>
+            <li>
+                Add a <span class="inline-code">--version</span> flag that
+                prints "Task Manager v1.0".
+            </li>
+            <li>
+                Add a new action called <span class="inline-code">remove</span>
+                that removes a task by number.
+            </li>
+            <li>
+                Improve the help message with a description inside
+                <span class="inline-code">ArgumentParser()</span>.
+            </li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Friendly reminder
+            </div>
+            <div>
+                Real applications start small. Keep building, testing, and
+                improving step by step.
+            </div>
+        </div>
+    </section>
+</article>

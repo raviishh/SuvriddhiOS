@@ -1,0 +1,309 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Debugging Techniques</h1>
+    <p class="lead">
+        Bugs are not accidents — they are inevitable. Debugging is the
+        disciplined process of locating, understanding, and eliminating them.
+    </p>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>1. What Is Debugging?</h2>
+
+        <p>
+            Debugging is not randomly changing code until it works. That is
+            guessing.
+        </p>
+
+        <p>Debugging is:</p>
+
+        <ul>
+            <li>Reproducing the problem</li>
+            <li>Reading the error carefully</li>
+            <li>Forming a hypothesis</li>
+            <li>Testing that hypothesis</li>
+            <li>Fixing the root cause</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700">Core Principle</div>
+            <div>Never fix what you don’t understand.</div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>2. Read the Traceback — Slowly</h2>
+
+        <p>
+            When Python throws an error, it gives you a traceback. Most
+            beginners skim it. Professionals study it.
+        </p>
+
+        <div class="code-block">
+            <pre><code>def divide(a, b):
+    return a / b
+
+print(divide(10, 0))</code></pre>
+        </div>
+
+        <p>The traceback tells you:</p>
+
+        <ul>
+            <li>Which file</li>
+            <li>Which line number</li>
+            <li>Which function</li>
+            <li>What error occurred</li>
+        </ul>
+
+        <p>
+            Start at the bottom of the traceback. That’s where the actual
+            exception is described.
+        </p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>3. Strategic Print Debugging</h2>
+
+        <p>
+            Sometimes you don’t know what values your variables hold. Print
+            them.
+        </p>
+
+        <div class="code-block">
+            <pre><code>def calculate_total(price, quantity):
+    print("Price:", price)
+    print("Quantity:", quantity)
+    return price * quantity</code></pre>
+        </div>
+
+        <p>This helps you verify assumptions.</p>
+
+        <p>But be strategic:</p>
+
+        <ul>
+            <li>Print inputs</li>
+            <li>Print intermediate calculations</li>
+            <li>Print before suspicious lines</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700">Warning</div>
+            <div>
+                If your code has 50 random print statements, you're not
+                debugging — you're panicking.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>4. Using assert for Sanity Checks</h2>
+
+        <p>
+            The <code>assert</code> statement checks assumptions. If the
+            condition is false, it raises an <code>AssertionError</code>.
+        </p>
+
+        <div class="code-block">
+            <pre><code>def sqrt(number):
+    assert number &gt;= 0, "Number must be non-negative"
+    return number ** 0.5</code></pre>
+        </div>
+
+        <p>
+            If someone passes a negative number, the program stops immediately.
+        </p>
+
+        <p>
+            Assertions are useful during development to catch impossible states.
+        </p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>5. Using the Python Debugger (pdb)</h2>
+
+        <p>
+            Python has a built-in debugger: <code>pdb</code>. It lets you pause
+            execution and inspect variables.
+        </p>
+
+        <div class="code-block">
+            <pre><code>import pdb
+
+def buggy_function():
+    x = 10
+    y = 0
+    pdb.set_trace()
+    return x / y
+
+buggy_function()</code></pre>
+        </div>
+
+        <p>When execution reaches <code>set_trace()</code>, you can:</p>
+
+        <ul>
+            <li>Inspect variables</li>
+            <li>Execute code line-by-line</li>
+            <li>Evaluate expressions</li>
+        </ul>
+
+        <p>Common commands:</p>
+
+        <ul>
+            <li><code>n</code> → next line</li>
+            <li><code>c</code> → continue</li>
+            <li><code>p variable</code> → print variable</li>
+            <li><code>q</code> → quit debugger</li>
+        </ul>
+
+        <p>This is structured debugging — not guessing.</p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>6. Rubber Duck Debugging</h2>
+
+        <p>Explain your code out loud. Line by line.</p>
+
+        <p>
+            When you articulate what your program is supposed to do, you often
+            notice where logic breaks.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700">Why It Works</div>
+            <div>Bugs hide in assumptions. Speaking forces clarity.</div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>7. Isolate the Problem</h2>
+
+        <p>If a large program fails:</p>
+
+        <ul>
+            <li>Comment out sections</li>
+            <li>Test smaller pieces independently</li>
+            <li>Reduce to a minimal reproducible example</li>
+        </ul>
+
+        <p>
+            If the bug disappears in a smaller example, the issue is likely in
+            integration.
+        </p>
+
+        <p>Large systems require isolation thinking.</p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>8. Common Debugging Mistakes</h2>
+
+        <ul>
+            <li>Changing multiple things at once</li>
+            <li>Ignoring the traceback</li>
+            <li>Suppressing errors instead of fixing them</li>
+            <li>Assuming the problem is somewhere else</li>
+        </ul>
+
+        <p>Debugging is a discipline. Not an emotional reaction.</p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>9. Mini Exercise</h2>
+
+        <p>Debug this function:</p>
+
+        <div class="code-block">
+            <pre><code>def average(numbers):
+    total = 0
+    for i in range(len(numbers)):
+        total += i
+    return total / len(numbers)
+
+print(average([10, 20, 30]))</code></pre>
+        </div>
+
+        <p>It runs — but produces the wrong result.</p>
+
+        <p>Use:</p>
+
+        <ul>
+            <li>Print debugging</li>
+            <li>Assertions</li>
+            <li>Reasoning about the loop</li>
+        </ul>
+
+        <p>Find the logical mistake.</p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>10. Big Picture</h2>
+
+        <p>
+            You will spend more time debugging than writing new code. That is
+            normal.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700">Professional Insight</div>
+            <div>
+                Strong developers don’t avoid bugs. They develop systematic ways
+                to eliminate them.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>11. Next Step</h2>
+
+        <p>You now know how to:</p>
+
+        <ul>
+            <li>Interpret errors</li>
+            <li>Handle them</li>
+            <li>Raise them</li>
+            <li>Create custom exceptions</li>
+            <li>Debug systematically</li>
+        </ul>
+
+        <p>
+            Next, we move into production-level thinking: Using Python’s
+            <code>logging</code> module to track errors properly instead of
+            relying on print statements.
+        </p>
+    </section>
+</article>

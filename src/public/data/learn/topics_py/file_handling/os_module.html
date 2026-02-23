@@ -1,0 +1,248 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>File Paths and the <span class="inline-code">os</span> Module</h1>
+  <p class="lead">
+    Files don’t float in space. They live in directories. If file handling is persistence,
+    paths are navigation. This lesson teaches you how Python locates files and how to manage the filesystem safely.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Understanding file paths</h2>
+    <p>
+      A <strong>file path</strong> tells Python exactly where a file is located.
+      There are two main types:
+    </p>
+
+    <ul>
+      <li><strong>Relative path</strong> — based on current working directory</li>
+      <li><strong>Absolute path</strong> — full path from the root of the system</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code># Relative
+open("data.txt")
+
+# Absolute (Linux/macOS example)
+open("/home/user/projects/data.txt")
+
+# Absolute (Windows example)
+open("C:\\Users\\User\\projects\\data.txt")</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Reality Check</div>
+      <div>
+        Most “FileNotFoundError” issues happen because the working directory
+        is not what you think it is.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. The current working directory</h2>
+
+    <p>
+      Python executes relative paths based on the <strong>current working directory</strong>.
+      You can check it using <span class="inline-code">os.getcwd()</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>import os
+
+print(os.getcwd())</code></pre>
+    </div>
+
+    <p>
+      To change it:
+    </p>
+
+    <div class="code-block">
+<pre><code>os.chdir("new_folder")</code></pre>
+    </div>
+
+    <p>
+      Changing directories mid-program should be done carefully —
+      it affects all relative paths afterward.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Building paths safely</h2>
+
+    <p>
+      Never manually combine paths with string concatenation.
+      Different operating systems use different separators.
+    </p>
+
+    <div class="code-block">
+<pre><code>import os
+
+folder = "data"
+filename = "info.txt"
+
+path = os.path.join(folder, filename)
+print(path)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">os.path.join()</span> automatically inserts the correct separator.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Best Practice</div>
+      <div>
+        Avoid: <span class="inline-code">folder + "/" + filename</span><br>
+        Prefer: <span class="inline-code">os.path.join()</span>
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Checking file and directory existence</h2>
+
+    <div class="code-block">
+<pre><code>import os
+
+if os.path.exists("data.txt"):
+    print("File exists")
+
+if os.path.isfile("data.txt"):
+    print("It is a file")
+
+if os.path.isdir("data_folder"):
+    print("It is a directory")</code></pre>
+    </div>
+
+    <p>
+      This prevents runtime errors and makes your code more robust.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Creating and removing directories</h2>
+
+    <div class="code-block">
+<pre><code>import os
+
+# Create directory
+os.mkdir("new_folder")
+
+# Create nested directories
+os.makedirs("parent/child/grandchild")
+
+# Remove empty directory
+os.rmdir("new_folder")</code></pre>
+    </div>
+
+    <p>
+      Important:
+      <ul>
+        <li><span class="inline-code">mkdir()</span> creates one level</li>
+        <li><span class="inline-code">makedirs()</span> creates nested paths</li>
+        <li>Directories must be empty before removal</li>
+      </ul>
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Listing directory contents</h2>
+
+    <div class="code-block">
+<pre><code>import os
+
+files = os.listdir(".")
+
+for file in files:
+    print(file)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">"."</span> represents the current directory.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. A note on <span class="inline-code">pathlib</span></h2>
+
+    <p>
+      Modern Python increasingly favors <span class="inline-code">pathlib</span>
+      for object-oriented path handling.
+    </p>
+
+    <div class="code-block">
+<pre><code>from pathlib import Path
+
+path = Path("data") / "info.txt"
+
+if path.exists():
+    print("File exists")</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">pathlib</span> is often cleaner and more expressive than <span class="inline-code">os.path</span>.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Why this matters</h2>
+
+    <p>
+      You now understand:
+      <ul>
+        <li>Relative vs absolute paths</li>
+        <li>How to inspect and change working directories</li>
+        <li>How to build cross-platform paths safely</li>
+        <li>How to create, check, and manage directories</li>
+      </ul>
+    </p>
+
+    <p>
+      Filesystem awareness is not optional. Scripts break in production
+      when developers hard-code paths incorrectly.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Exercise</div>
+      <div>
+        Write a script that:
+        <ul>
+          <li>Creates a folder named <span class="inline-code">reports</span> if it does not exist</li>
+          <li>Generates a file inside it called <span class="inline-code">summary.txt</span></li>
+          <li>Prints the absolute path of that file</li>
+          <li>Lists all files in the <span class="inline-code">reports</span> directory</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+</article>

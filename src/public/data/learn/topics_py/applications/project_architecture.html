@@ -1,0 +1,265 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Project Architecture — Organizing Real Python Projects</h1>
+    <p class="lead">
+        In this lesson, you will learn how to organize your code like a real
+        developer. Clean structure makes programs easier to read, fix, and grow.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. The problem with messy code</h2>
+        <p>Beginners often write everything in one file.</p>
+
+        <div class="code-block">
+            <pre><code>big_project.py</code></pre>
+        </div>
+
+        <p>This works at first. But when the project grows:</p>
+
+        <ul>
+            <li>The file becomes very long</li>
+            <li>It becomes hard to understand</li>
+            <li>It becomes hard to fix bugs</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Simple truth
+            </div>
+            <div>Messy structure leads to messy thinking.</div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Separating responsibilities</h2>
+        <p>Each file should have one clear purpose.</p>
+
+        <ul>
+            <li>One file handles the database</li>
+            <li>One file handles user input</li>
+            <li>One file runs the app</li>
+        </ul>
+
+        <p>This idea is called <strong>separation of concerns</strong>.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. A clean project structure</h2>
+
+        <div class="code-block">
+            <pre><code>task_manager/
+│
+├── app.py
+├── database.py
+├── models.py
+├── utils.py
+├── requirements.txt
+└── README.md</code></pre>
+        </div>
+
+        <p>Explanation:</p>
+
+        <ul>
+            <li><span class="inline-code">app.py</span> → main program</li>
+            <li>
+                <span class="inline-code">database.py</span> → database logic
+            </li>
+            <li>
+                <span class="inline-code">models.py</span> → data structures
+            </li>
+            <li>
+                <span class="inline-code">utils.py</span> → helper functions
+            </li>
+            <li>
+                <span class="inline-code">requirements.txt</span> → project
+                dependencies
+            </li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Splitting code into modules</h2>
+
+        <p>
+            Suppose this is inside <span class="inline-code">database.py</span>:
+        </p>
+
+        <div class="code-block">
+            <pre><code>import sqlite3
+
+def connect():
+    return sqlite3.connect("tasks.db")
+
+def create_table():
+    conn = connect()
+    cursor = conn.cursor()
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS tasks (
+        id INTEGER PRIMARY KEY,
+        description TEXT
+    )
+    """)
+    conn.commit()
+    conn.close()</code></pre>
+        </div>
+
+        <p>Now in <span class="inline-code">app.py</span>:</p>
+
+        <div class="code-block">
+            <pre><code>from database import create_table
+
+create_table()
+
+print("App started!")</code></pre>
+        </div>
+
+        <p>Files now work together cleanly.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Using packages (folders with __init__.py)</h2>
+        <p>When projects grow larger, we use folders.</p>
+
+        <div class="code-block">
+            <pre><code>task_manager/
+│
+├── app.py
+└── core/
+    ├── __init__.py
+    ├── database.py
+    └── models.py</code></pre>
+        </div>
+
+        <p>
+            The file <span class="inline-code">__init__.py</span> tells Python
+            that the folder is a package.
+        </p>
+
+        <p>Import example:</p>
+
+        <div class="code-block">
+            <pre><code>from core.database import create_table</code></pre>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Virtual environments</h2>
+        <p>
+            Different projects may need different libraries. A virtual
+            environment keeps them separate.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows</code></pre>
+        </div>
+
+        <p>Install packages inside the environment:</p>
+
+        <div class="code-block">
+            <pre><code>pip install flask</code></pre>
+        </div>
+
+        <p>Save dependencies:</p>
+
+        <div class="code-block">
+            <pre><code>pip freeze > requirements.txt</code></pre>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Refactoring example</h2>
+
+        <p>Before:</p>
+
+        <div class="code-block">
+            <pre><code>big_app.py (500 lines)</code></pre>
+        </div>
+
+        <p>After:</p>
+
+        <div class="code-block">
+            <pre><code>project/
+├── app.py
+├── database.py
+├── services.py
+└── models.py</code></pre>
+        </div>
+
+        <p>Same functionality. Cleaner structure.</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Important habit
+            </div>
+            <div>
+                Refactor early. Do not wait until the project becomes
+                unmanageable.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>8. Small exercises</h2>
+        <ul>
+            <li>
+                Take one of your old projects and split it into at least 3
+                files.
+            </li>
+            <li>
+                Create a folder called <span class="inline-code">core</span> and
+                move database code inside it.
+            </li>
+            <li>Create a virtual environment for your project.</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Final thought
+            </div>
+            <div>
+                Writing code is only half the skill. Organizing it is what makes
+                you professional.
+            </div>
+        </div>
+    </section>
+</article>

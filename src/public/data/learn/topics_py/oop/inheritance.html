@@ -1,0 +1,239 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+<h1>Inheritance</h1>
+
+<p class="lead">
+Inheritance allows one class to reuse code from another class.
+It helps us avoid repeating the same code again and again.
+</p>
+
+<!-- Chapter 1 -->
+<section class="chapter">
+<h2>1. What is Inheritance?</h2>
+
+<p>
+Inheritance means one class can take properties and methods from another class.
+</p>
+
+<p>
+The original class is called the <strong>parent class</strong>.  
+The new class is called the <strong>child class</strong>.
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+<div>
+A child inherits traits from parents.  
+For example, eye color or height.  
+In programming, a child class inherits data and behavior.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<!-- Chapter 2 -->
+<section class="chapter">
+<h2>2. Basic Example</h2>
+
+<div class="code-block">
+<pre><code>class Animal:
+    def speak(self):
+        print("This animal makes a sound")
+
+class Dog(Animal):
+    pass
+
+dog1 = Dog()
+dog1.speak()</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">Animal</span> is the parent class.</li>
+<li><span class="inline-code">Dog(Animal)</span> means Dog inherits from Animal.</li>
+<li><span class="inline-code">dog1</span> can use the <span class="inline-code">speak()</span> method.</li>
+</ul>
+</p>
+
+<p>
+Even though Dog does not define <span class="inline-code">speak()</span>,  
+it can still use it.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 3 -->
+<section class="chapter">
+<h2>3. Adding More to the Child Class</h2>
+
+<p>
+A child class can also have its own methods.
+</p>
+
+<div class="code-block">
+<pre><code>class Animal:
+    def speak(self):
+        print("This animal makes a sound")
+
+class Dog(Animal):
+    def fetch(self):
+        print("The dog is fetching the ball")
+
+dog1 = Dog()
+dog1.speak()
+dog1.fetch()</code></pre>
+</div>
+
+<p>
+Now Dog has:
+<ul>
+<li>The inherited <span class="inline-code">speak()</span> method</li>
+<li>Its own <span class="inline-code">fetch()</span> method</li>
+</ul>
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 4 -->
+<section class="chapter">
+<h2>4. Overriding a Parent Method</h2>
+
+<p>
+A child class can change a method from the parent class.
+This is called <strong>overriding</strong>.
+</p>
+
+<div class="code-block">
+<pre><code>class Animal:
+    def speak(self):
+        print("This animal makes a sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof!")
+
+dog1 = Dog()
+dog1.speak()</code></pre>
+</div>
+
+<p>
+Now Dog has its own version of <span class="inline-code">speak()</span>.
+The parent version is replaced.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 5 -->
+<section class="chapter">
+<h2>5. Using super()</h2>
+
+<p>
+Sometimes we want to use both the parent method and add new behavior.
+</p>
+
+<div class="code-block">
+<pre><code>class Animal:
+    def speak(self):
+        print("This animal makes a sound")
+
+class Dog(Animal):
+    def speak(self):
+        super().speak()
+        print("Woof!")
+
+dog1 = Dog()
+dog1.speak()</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">super()</span> calls the parent method.</li>
+<li>Then the child adds extra behavior.</li>
+</ul>
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 6 -->
+<section class="chapter">
+<h2>6. Why Use Inheritance?</h2>
+
+<p>
+Inheritance:
+<ul>
+<li>Reduces repeated code</li>
+<li>Makes programs easier to expand</li>
+<li>Creates logical relationships between classes</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Simple Rule</div>
+<div>
+Use inheritance when there is an “is-a” relationship.  
+A Dog <em>is an</em> Animal.  
+A Car is not an Animal.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<!-- Chapter 7 -->
+<section class="chapter">
+<h2>7. Small Exercise</h2>
+
+<p>
+Create a parent class called <span class="inline-code">Vehicle</span>.
+</p>
+
+<ul>
+<li>Add a method <span class="inline-code">start()</span> that prints "Vehicle started".</li>
+<li>Create a child class <span class="inline-code">Car</span>.</li>
+<li>Override <span class="inline-code">start()</span> to print "Car started".</li>
+<li>Create an object and test it.</li>
+</ul>
+
+</section>
+
+<hr />
+
+<!-- Conclusion -->
+<section class="chapter">
+<h2>8. What You Learned</h2>
+
+<p>
+You now understand:
+<ul>
+<li>A child class inherits from a parent class.</li>
+<li>The child can add new methods.</li>
+<li>The child can override parent methods.</li>
+<li><span class="inline-code">super()</span> calls the parent version.</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+<div>
+Do not use inheritance just to avoid typing.
+Use it when there is a real logical relationship.
+Good design matters.
+</div>
+</div>
+
+</section>
+
+</article>

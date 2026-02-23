@@ -1,0 +1,184 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Matplotlib Basics</h1>
+  <p class="lead">
+    A simple introduction to Matplotlib — the library used to turn numbers into pictures.
+    Think of Matplotlib as a drawing tool for your data.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why Do We Visualize Data?</h2>
+    <p>
+      Numbers are important. But pictures are easier to understand.
+      A graph can show patterns quickly.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Reading many numbers is like reading a long paragraph.
+        A graph is like seeing a picture. Your brain understands it faster.
+      </div>
+    </div>
+
+    <p>
+      Matplotlib helps us create graphs in Python.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Installing and Importing Matplotlib</h2>
+    <p>
+      Install Matplotlib using pip:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install matplotlib</code></pre>
+    </div>
+
+    <p>
+      Import it in Python:
+    </p>
+
+    <div class="code-block">
+<pre><code>import matplotlib.pyplot as plt</code></pre>
+    </div>
+
+    <p>
+      We use <span class="inline-code">plt</span> as a short name.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Creating a Line Plot</h2>
+    <p>
+      A line plot shows how something changes over time.
+    </p>
+
+    <div class="code-block">
+<pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 15, 25]
+
+plt.plot(x, y)
+plt.show()</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">plt.plot()</span> creates the line. <br/>
+      <span class="inline-code">plt.show()</span> displays the graph.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Adding Titles and Labels</h2>
+    <p>
+      A good graph always has a title and labels.
+    </p>
+
+    <div class="code-block">
+<pre><code>plt.plot(x, y)
+
+plt.title("Sales Over Time")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+
+plt.show()</code></pre>
+    </div>
+
+    <p>
+      Titles and labels make the graph clear.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Creating a Bar Chart</h2>
+    <p>
+      A bar chart compares values.
+    </p>
+
+    <div class="code-block">
+<pre><code>students = ["Ali", "Sara", "John"]
+marks = [85, 90, 78]
+
+plt.bar(students, marks)
+plt.title("Student Marks")
+plt.xlabel("Student")
+plt.ylabel("Marks")
+
+plt.show()</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">plt.bar()</span> creates bars instead of a line.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Saving a Graph</h2>
+    <p>
+      You can save the graph as an image file.
+    </p>
+
+    <div class="code-block">
+<pre><code>plt.plot(x, y)
+plt.title("Example Graph")
+
+plt.savefig("graph.png")
+plt.show()</code></pre>
+    </div>
+
+    <p>
+      This saves the graph as a PNG file.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Why Matplotlib Matters</h2>
+    <p>
+      Matplotlib is used in:
+      <ul>
+        <li>Data science</li>
+        <li>Research papers</li>
+        <li>Business reports</li>
+        <li>Machine learning projects</li>
+      </ul>
+    </p>
+
+    <p>
+      Clear graphs help people understand your results.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Small Exercises</div>
+      <div>
+        1. Create a line graph of temperature over 5 days. <br/>
+        2. Create a bar chart of 4 subjects and their marks. <br/>
+        3. Add a title and labels to your graph. <br/>
+        4. Save your graph as an image file.
+      </div>
+    </div>
+
+  </section>
+
+</article>

@@ -4,8 +4,9 @@ import Sidebar from "../components/learn/sidebar";
 import LessonView from "../components/learn/lessonview";
 import ExerciseView from "../components/learn/exerciseview";
 import { useStore } from "../store/useStore";
+
 export default function Learn() {
-    const [language] = useState("C");
+    const { language } = useStore();
     const { setLastActivity, markItemCompleted, isItemCompleted } = useStore();
     const [topics, setTopics] = useState([]);
     const [active, setActive] = useState(null);
@@ -17,6 +18,8 @@ export default function Learn() {
         else if (language === "Python") {
             path = "/data/learn/topics_py.json";
         }
+    console.log("Learn language:", language);
+
         fetch(path)
             .then(r => r.json())
             .then((t) => setTopics(t))

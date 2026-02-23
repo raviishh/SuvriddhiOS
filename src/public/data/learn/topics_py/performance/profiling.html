@@ -1,0 +1,172 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Profiling in Python (cProfile)</h1>
+  <p class="lead">Before you try to make code faster, you must measure it. Profiling helps you see where your program actually spends time.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why guessing is dangerous</h2>
+    <p>
+      Many programmers guess which part of their code is slow. Most of the time, they guess wrong.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Imagine your house has a water leak. You do not break random walls.  
+        First, you find exactly where the leak is.
+      </div>
+    </div>
+
+    <p>
+      Profiling is how we find the “leak” in performance.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. What is profiling?</h2>
+    <p>
+      Profiling means measuring how long each part of your program takes to run.
+    </p>
+
+    <p>
+      Python has a built-in tool called <strong>cProfile</strong>.
+    </p>
+
+    <p>
+      It tells you:
+      <ul>
+        <li>Which functions were called</li>
+        <li>How many times they were called</li>
+        <li>How much time they used</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. How to use cProfile</h2>
+    <p>
+      Suppose we have this file called <span class="inline-code">slow_program.py</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>def slow_function():
+    total = 0
+    for i in range(1000000):
+        total += i
+    return total
+
+def fast_function():
+    return sum(range(1000000))
+
+slow_function()
+fast_function()</code></pre>
+    </div>
+
+    <p>
+      To profile it, run this in the terminal:
+    </p>
+
+    <div class="code-block">
+<pre><code>python -m cProfile slow_program.py</code></pre>
+    </div>
+
+    <p>
+      Python will print a report.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Understanding the output</h2>
+    <p>
+      The output may look like this (simplified):
+    </p>
+
+    <div class="code-block">
+<pre><code>ncalls  tottime  percall  cumtime  percall  function
+1       0.200    0.200    0.200    0.200    slow_function
+1       0.020    0.020    0.020    0.020    fast_function</code></pre>
+    </div>
+
+    <p>Important columns:</p>
+
+    <ul>
+      <li><strong>ncalls</strong> — number of times the function ran</li>
+      <li><strong>tottime</strong> — time spent inside the function itself</li>
+      <li><strong>cumtime</strong> — total time including other functions it called</li>
+    </ul>
+
+    <p>
+      Here we can see that <span class="inline-code">slow_function</span> takes much more time than <span class="inline-code">fast_function</span>.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key Idea</div>
+      <div>
+        Look for functions with large <strong>cumtime</strong>.  
+        That is usually where your program is slow.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Profiling inside a script</h2>
+    <p>
+      You can also use cProfile directly inside Python:
+    </p>
+
+    <div class="code-block">
+<pre><code>import cProfile
+
+def slow():
+    total = 0
+    for i in range(1000000):
+        total += i
+    return total
+
+cProfile.run("slow()")</code></pre>
+    </div>
+
+    <p>
+      This runs the function and prints the profiling report.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Practice</h2>
+    <p>
+      Try this:
+    </p>
+
+    <ul>
+      <li>Create two functions that solve the same problem in different ways.</li>
+      <li>Profile both versions.</li>
+      <li>Compare the <strong>tottime</strong> and <strong>cumtime</strong>.</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Do not optimize first.  
+        Measure first.  
+        Then improve only the slow parts.
+      </div>
+    </div>
+
+  </section>
+</article>

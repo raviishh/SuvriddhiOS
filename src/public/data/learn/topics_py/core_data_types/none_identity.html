@@ -1,0 +1,243 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>NoneType & Identity (is vs ==)</h1>
+  <p class="lead">
+    Sometimes the most important value in a program is the absence of a value.  
+    That’s where <strong>None</strong> comes in. And once you understand <strong>None</strong>, you must also understand the critical difference between <strong>identity</strong> and <strong>equality</strong>.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is None?</h2>
+    <p>
+      <span class="inline-code">None</span> represents the absence of a value.  
+      It is its own type: <span class="inline-code">NoneType</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>x = None
+
+print(type(x))   # &lt;class 'NoneType'&gt;</code></pre>
+    </div>
+
+    <p>
+      Important:
+      <ul>
+        <li><span class="inline-code">None</span> is not 0</li>
+        <li>It is not an empty string</li>
+        <li>It is not False</li>
+      </ul>
+      It literally means “nothing here.”
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Think of <strong>None</strong> as an empty parking spot.  
+        The spot exists. But there is no car in it.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. When does None appear?</h2>
+    <p>
+      Functions return <span class="inline-code">None</span> by default if they don’t explicitly return something.
+    </p>
+
+    <div class="code-block">
+<pre><code>def greet():
+    print("Hello")
+
+result = greet()
+print(result)  # None</code></pre>
+    </div>
+
+    <p>
+      Many built-in methods also return <span class="inline-code">None</span> because they modify objects instead of producing new values.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Checking for None (the correct way)</h2>
+    <p>
+      To check for <span class="inline-code">None</span>, use <span class="inline-code">is</span>, not <span class="inline-code">==</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>value = None
+
+if value is None:
+    print("No value found")</code></pre>
+    </div>
+
+    <p>
+      Why?
+      Because <span class="inline-code">None</span> is a single unique object in Python.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Rule</div>
+      <div>
+        Always use <span class="inline-code">is None</span>  
+        Never use <span class="inline-code">== None</span>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Equality (==) — comparing values</h2>
+    <p>
+      The <span class="inline-code">==</span> operator checks if two objects have the same value.
+    </p>
+
+    <div class="code-block">
+<pre><code>a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)   # True</code></pre>
+    </div>
+
+    <p>
+      Even though they are separate lists, their contents are equal.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Identity (is) — comparing memory location</h2>
+    <p>
+      The <span class="inline-code">is</span> operator checks whether two variables refer to the same object in memory.
+    </p>
+
+    <div class="code-block">
+<pre><code>a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+print(a is b)   # False
+print(a is c)   # True</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">a</span> and <span class="inline-code">b</span> have equal values, but they are different objects.  
+      <span class="inline-code">a</span> and <span class="inline-code">c</span> point to the same object.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Why this distinction matters</h2>
+    <p>
+      Confusing <span class="inline-code">is</span> and <span class="inline-code">==</span> leads to subtle bugs.
+    </p>
+
+    <div class="code-block">
+<pre><code>x = 1000
+y = 1000
+
+print(x == y)  # True
+print(x is y)  # Sometimes False</code></pre>
+    </div>
+
+    <p>
+      Small integers may appear identical due to internal optimization, but this is an implementation detail — not something you should rely on.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Mental Model</div>
+      <div>
+        <strong>==</strong> asks: “Do these look the same?”  
+        <strong>is</strong> asks: “Are these literally the same object?”
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Truthiness of None</h2>
+    <p>
+      <span class="inline-code">None</span> evaluates to <span class="inline-code">False</span> in Boolean contexts.
+    </p>
+
+    <div class="code-block">
+<pre><code>value = None
+
+if not value:
+    print("This runs")</code></pre>
+    </div>
+
+    <p>
+      But be careful:  
+      Checking <span class="inline-code">if not value</span> does NOT specifically check for None.  
+      It also catches 0, "", empty lists, etc.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Common beginner mistakes</h2>
+    <ul>
+      <li>Using <span class="inline-code">== None</span> instead of <span class="inline-code">is None</span></li>
+      <li>Using <span class="inline-code">is</span> to compare strings or numbers</li>
+      <li>Confusing equality with identity</li>
+      <li>Overusing <span class="inline-code">if not value</span> when specifically checking for None</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What does this print?
+        <span class="inline-code">
+        a = []  
+        b = []  
+        print(a == b)  
+        print(a is b)
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>9. Where this fits in Core Data Types</h2>
+    <p>
+      <strong>None</strong> represents absence.  
+      <strong>==</strong> checks value equality.  
+      <strong>is</strong> checks identity.
+    </p>
+
+    <p>
+      This distinction becomes crucial when working with mutable objects — which is exactly what we explore next in <strong>Mutable vs Immutable Deep Dive</strong>.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Create variables. Compare them with <span class="inline-code">==</span> and <span class="inline-code">is</span>.  
+        Use <span class="inline-code">id()</span> to inspect memory identity.  
+        Build intuition by experimenting.
+      </div>
+    </div>
+  </section>
+
+</article>

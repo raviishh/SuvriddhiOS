@@ -1,0 +1,262 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Named Tuples</h1>
+  <p class="lead">
+    In this lesson, you will learn how to store related data in a clean and readable way.
+    This is done using <strong>named tuples</strong>.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. The problem with normal tuples</h2>
+    <p>
+      A tuple can store multiple values:
+    </p>
+
+    <div class="code-block">
+<pre><code>person = ("Alice", 25, "Engineer")
+
+print(person[0])
+print(person[1])</code></pre>
+    </div>
+
+    <p>
+      This works. But:
+      <ul>
+        <li>What does index 0 mean?</li>
+        <li>What does index 1 mean?</li>
+      </ul>
+    </p>
+
+    <p>
+      It is not very clear.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Problem</div>
+      <div>
+        Index numbers are hard to remember.
+        Code becomes confusing.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. What is a named tuple?</h2>
+    <p>
+      A <strong>named tuple</strong> is like a normal tuple.
+      But each value has a name.
+    </p>
+
+    <p>
+      We create it using the <span class="inline-code">collections</span> module.
+    </p>
+
+    <div class="code-block">
+<pre><code>from collections import namedtuple
+
+Person = namedtuple("Person", ["name", "age", "job"])
+
+p = Person("Alice", 25, "Engineer")
+
+print(p.name)
+print(p.age)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+Alice  
+25
+    </div>
+
+    <p>
+      Now the code is easier to read.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Named tuple features</h2>
+
+    <p>
+      Named tuples:
+      <ul>
+        <li>Are immutable (cannot be changed).</li>
+        <li>Allow access by name.</li>
+        <li>Still behave like tuples.</li>
+      </ul>
+    </p>
+
+    <div class="code-block">
+<pre><code>print(p[0])      # still works
+print(p.name)    # better way</code></pre>
+    </div>
+
+    <p>
+      Trying to change a value will cause an error:
+    </p>
+
+    <div class="code-block">
+<pre><code>p.age = 30</code></pre>
+    </div>
+
+    <p>
+      This will fail because named tuples are immutable.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Converting to dictionary</h2>
+
+    <p>
+      Named tuples have a useful method:
+    </p>
+
+    <div class="code-block">
+<pre><code>print(p._asdict())</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+{'name': 'Alice', 'age': 25, 'job': 'Engineer'}
+    </div>
+
+    <p>
+      This converts the named tuple into a dictionary.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Named tuple vs dictionary vs class</h2>
+
+    <p>
+      Let us compare:
+    </p>
+
+    <ul>
+      <li><strong>Tuple</strong> — simple, but not readable.</li>
+      <li><strong>Dictionary</strong> — readable, but slightly heavier.</li>
+      <li><strong>Class</strong> — powerful, but more code.</li>
+      <li><strong>Named tuple</strong> — simple and readable.</li>
+    </ul>
+
+    <p>
+      Use named tuples when:
+      <ul>
+        <li>You want simple structured data.</li>
+        <li>You do not need to change values.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>
+        Named tuples are good for small data structures.
+        For complex logic, use a class.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Modern note (typing.NamedTuple)</h2>
+
+    <p>
+      Python also provides another way using the <span class="inline-code">typing</span> module.
+    </p>
+
+    <div class="code-block">
+<pre><code>from typing import NamedTuple
+
+class Person(NamedTuple):
+    name: str
+    age: int
+    job: str
+
+p = Person("Alice", 25, "Engineer")
+
+print(p.name)</code></pre>
+    </div>
+
+    <p>
+      This version works well with type hints.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Practice -->
+  <section class="chapter">
+    <h2>7. Try it yourself</h2>
+
+    <p>
+      Create a named tuple called <span class="inline-code">Point</span> with:
+      <ul>
+        <li>x</li>
+        <li>y</li>
+      </ul>
+    </p>
+
+    <p>
+      Create a point and print its values.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Challenge</div>
+      <div>
+        Create a named tuple for a student:
+        name, grade, and subject.
+        Convert it to a dictionary.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. What you learned</h2>
+    <p>
+      Now you understand:
+      <ul>
+        <li>Why normal tuples can be unclear.</li>
+        <li>How named tuples add readable field names.</li>
+        <li>That named tuples are immutable.</li>
+        <li>When to use named tuples instead of classes.</li>
+      </ul>
+    </p>
+
+    <p>
+      In the next lesson, we will explore <strong>regular expressions</strong>.
+      This helps you search and match patterns in text.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        If your tuple has meaning, give it names.
+        Clear code is good code.
+      </div>
+    </div>
+
+  </section>
+</article>

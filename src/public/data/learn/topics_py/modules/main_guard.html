@@ -1,0 +1,185 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Understanding __name__ == "__main__"</h1>
+  <p class="lead">Learn how Python knows whether a file is being run directly or imported. This small line of code controls how your program behaves.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is __name__?</h2>
+    <p>
+      Every Python file has a special built-in variable called <span class="inline-code">__name__</span>.
+    </p>
+
+    <p>
+      Python automatically sets this variable.
+    </p>
+
+    <ul>
+      <li>If the file is run directly → <span class="inline-code">__name__</span> becomes <span class="inline-code">"__main__"</span></li>
+      <li>If the file is imported → <span class="inline-code">__name__</span> becomes the module name</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>Think of a person who can act as a team leader or a team member. The same person behaves differently depending on the role. A Python file can also act differently depending on how it is used.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Running a file directly</h2>
+    <p>
+      Create a file called <span class="inline-code">example.py</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code># example.py
+
+print("File is running")
+print("__name__ is:", __name__)</code></pre>
+    </div>
+
+    <p>
+      Run it:
+    </p>
+
+    <div class="code-block">
+<pre><code>python example.py</code></pre>
+    </div>
+
+    <div class="steps">
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">
+File is running
+__name__ is: __main__
+      </div>
+    </div>
+
+    <p>
+      Because we ran the file directly, Python sets <span class="inline-code">__name__</span> to <span class="inline-code">"__main__"</span>.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Importing the file</h2>
+    <p>
+      Now create another file called <span class="inline-code">test.py</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code># test.py
+
+import example</code></pre>
+    </div>
+
+    <p>
+      Run <span class="inline-code">test.py</span>.
+    </p>
+
+    <div class="steps">
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">
+File is running
+__name__ is: example
+      </div>
+    </div>
+
+    <p>
+      Now <span class="inline-code">__name__</span> is <span class="inline-code">"example"</span>, not <span class="inline-code">"__main__"</span>.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. The special if statement</h2>
+    <p>
+      We can control code execution using:
+    </p>
+
+    <div class="code-block">
+<pre><code>if __name__ == "__main__":
+    # code runs only when file is executed directly</code></pre>
+    </div>
+
+    <p>
+      Let’s improve <span class="inline-code">example.py</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code># example.py
+
+def greet():
+    print("Hello!")
+
+if __name__ == "__main__":
+    greet()</code></pre>
+    </div>
+
+    <p>
+      Now:
+      <ul>
+        <li>If you run <span class="inline-code">example.py</span> → it prints "Hello!"</li>
+        <li>If you import <span class="inline-code">example</span> → it does not print anything automatically</li>
+      </ul>
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Why this is important</h2>
+    <p>
+      This pattern allows a file to:
+      <ul>
+        <li>Act as a reusable module</li>
+        <li>Also act as a standalone program</li>
+      </ul>
+    </p>
+
+    <p>
+      This is very common in real Python projects.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Best Practice</div>
+      <div>Place testing code or demo code inside the <span class="inline-code">if __name__ == "__main__"</span> block. Keep reusable functions outside it.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>6. Key idea to remember</h2>
+    <p>
+      <span class="inline-code">__name__ == "__main__"</span> means:
+    </p>
+
+    <p>
+      “Run this code only if this file is executed directly.”
+    </p>
+
+    <p>
+      It prevents unwanted code from running when the file is imported.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>If you forget this pattern, your module may run test code every time it is imported. That can cause confusion.</div>
+    </div>
+
+  </section>
+</article>

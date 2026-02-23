@@ -1,0 +1,209 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Loop Control in Python</h1>
+  <p class="lead">
+    Loop control statements modify how loops behave during execution.
+    They allow you to exit early, skip iterations, or intentionally do nothing.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. The <span class="inline-code">break</span> Statement</h2>
+    <p>
+      <span class="inline-code">break</span> immediately terminates the loop.
+      Control moves to the first statement after the loop.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(10):
+    if i == 5:
+        break
+    print(i)</code></pre>
+    </div>
+
+    <p>
+      Output: 0 1 2 3 4  
+      The loop stops when <span class="inline-code">i == 5</span>.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Execution Insight</div>
+      <div>
+        <span class="inline-code">break</span> overrides the loop condition entirely.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. The <span class="inline-code">continue</span> Statement</h2>
+    <p>
+      <span class="inline-code">continue</span> skips the rest of the current iteration
+      and moves to the next cycle.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(5):
+    if i == 2:
+        continue
+    print(i)</code></pre>
+    </div>
+
+    <p>
+      Output: 0 1 3 4  
+      The value 2 is skipped.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Distinction</div>
+      <div>
+        <span class="inline-code">break</span> ends the loop.  
+        <span class="inline-code">continue</span> skips only one iteration.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. The <span class="inline-code">pass</span> Statement</h2>
+    <p>
+      <span class="inline-code">pass</span> does nothing.
+      It is a placeholder used when syntax requires a statement.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(5):
+    if i == 3:
+        pass
+    print(i)</code></pre>
+    </div>
+
+    <p>
+      This loop behaves normally.  
+      <span class="inline-code">pass</span> simply occupies space.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">When to Use</div>
+      <div>
+        Use <span class="inline-code">pass</span> when scaffolding code or defining empty functions/classes.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Loop <span class="inline-code">else</span> Behavior</h2>
+    <p>
+      Both <span class="inline-code">for</span> and <span class="inline-code">while</span> loops
+      can include an <span class="inline-code">else</span> block.
+    </p>
+
+    <p>
+      The <span class="inline-code">else</span> block executes only if the loop completes normally —
+      meaning no <span class="inline-code">break</span> occurred.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(3):
+    print(i)
+else:
+    print("Completed without break")</code></pre>
+    </div>
+
+    <p>
+      If a <span class="inline-code">break</span> is triggered, the <span class="inline-code">else</span> block is skipped.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Practical Patterns</h2>
+    <p>
+      Loop control statements are commonly used for:
+    </p>
+
+    <ul>
+      <li>Search operations</li>
+      <li>Input validation</li>
+      <li>Early termination for efficiency</li>
+      <li>Filtering logic</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code>numbers = [3, 7, 9, 12]
+
+for num in numbers:
+    if num % 2 == 0:
+        print("Even number found")
+        break
+else:
+    print("No even numbers found")</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Common Mistakes</h2>
+    <ul>
+      <li>Placing <span class="inline-code">continue</span> before updating loop variables (in while loops)</li>
+      <li>Accidentally skipping necessary logic</li>
+      <li>Misunderstanding loop <span class="inline-code">else</span> behavior</li>
+      <li>Overusing <span class="inline-code">break</span> instead of restructuring logic</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What happens here?
+        <span class="inline-code">
+        x = 0  
+        while x < 3:  
+            x += 1  
+            if x == 2:  
+                break  
+        else:  
+            print("Done")
+        </span>
+        Does "Done" print?
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Why Loop Control Matters</h2>
+    <p>
+      Loop control statements refine iteration behavior.
+      They give you precision over execution flow.
+    </p>
+
+    <p>
+      Mastery of loop control prevents infinite loops,
+      improves efficiency, and enables elegant search and validation logic.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Implement a search algorithm twice —
+        once without <span class="inline-code">break</span>,
+        and once with it.
+        Compare clarity and efficiency.
+      </div>
+    </div>
+  </section>
+
+</article>

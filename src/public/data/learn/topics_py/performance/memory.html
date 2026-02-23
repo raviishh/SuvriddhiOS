@@ -1,0 +1,215 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Memory Management Basics in Python</h1>
+  <p class="lead">When your program runs, it uses memory (RAM). In this lesson, you will learn where your data lives and how Python handles it.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is memory?</h2>
+    <p>
+      Memory (RAM) is the space where your program stores data while it runs.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Think of memory as a desk.  
+        When you work, you place books and papers on the desk.  
+        If the desk becomes full, it becomes messy and slow to use.
+      </div>
+    </div>
+
+    <p>
+      Every number, string, list, and object in Python takes space in memory.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Variables are labels, not boxes</h2>
+    <p>
+      In Python, variables do not directly store values.  
+      They are labels that point to objects in memory.
+    </p>
+
+    <div class="code-block">
+<pre><code>a = 10
+b = a</code></pre>
+    </div>
+
+    <p>
+      Here:
+      <ul>
+        <li>An integer object <span class="inline-code">10</span> is created in memory.</li>
+        <li><span class="inline-code">a</span> points to that object.</li>
+        <li><span class="inline-code">b</span> also points to the same object.</li>
+      </ul>
+    </p>
+
+    <p>
+      You can check memory identity using:
+    </p>
+
+    <div class="code-block">
+<pre><code>print(id(a))
+print(id(b))</code></pre>
+    </div>
+
+    <p>
+      If both IDs are the same, they point to the same object.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Mutable vs Immutable Objects</h2>
+    <p>
+      This is very important for memory.
+    </p>
+
+    <h3>Immutable (cannot change)</h3>
+    <ul>
+      <li>int</li>
+      <li>float</li>
+      <li>string</li>
+      <li>tuple</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code>x = 5
+x = x + 1</code></pre>
+    </div>
+
+    <p>
+      Python does not change the old 5.  
+      It creates a new object 6 and makes <span class="inline-code">x</span> point to it.
+    </p>
+
+    <h3>Mutable (can change)</h3>
+    <ul>
+      <li>list</li>
+      <li>dict</li>
+      <li>set</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code>numbers = [1, 2, 3]
+numbers.append(4)</code></pre>
+    </div>
+
+    <p>
+      The same list object is modified.  
+      No new list is created.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key Difference</div>
+      <div>
+        Immutable objects create new memory when changed.  
+        Mutable objects modify existing memory.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. References and shared objects</h2>
+    <p>
+      Because variables are labels, two variables can point to the same object.
+    </p>
+
+    <div class="code-block">
+<pre><code>a = [1, 2]
+b = a
+
+b.append(3)
+print(a)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">[1, 2, 3]</div>
+
+    <p>
+      Why?  
+      Because <span class="inline-code">a</span> and <span class="inline-code">b</span> point to the same list.
+    </p>
+
+    <p>
+      If you want a separate copy:
+    </p>
+
+    <div class="code-block">
+<pre><code>b = a.copy()</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Common memory mistakes</h2>
+    <ul>
+      <li>Creating large lists again and again</li>
+      <li>Copying data when not needed</li>
+      <li>Keeping unused variables for a long time</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code># Memory heavy
+big_list = list(range(1000000))
+another_list = big_list.copy()</code></pre>
+    </div>
+
+    <p>
+      This doubles the memory usage.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Think Carefully</div>
+      <div>
+        Do you really need a new copy?  
+        Or can you reuse the existing data?
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>6. Practice</h2>
+    <p>Predict what happens:</p>
+
+    <div class="code-block">
+<pre><code>a = [10, 20]
+b = a
+a = [30, 40]
+print(b)</code></pre>
+    </div>
+
+    <p>
+      Questions:
+      <ul>
+        <li>Do <span class="inline-code">a</span> and <span class="inline-code">b</span> still point to the same object?</li>
+        <li>What will be printed?</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Understanding memory makes debugging easier and helps you write faster programs.
+      </div>
+    </div>
+
+  </section>
+</article>

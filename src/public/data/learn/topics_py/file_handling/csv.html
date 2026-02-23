@@ -1,0 +1,232 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Working with CSV Files in Python</h1>
+  <p class="lead">
+    CSV files power spreadsheets, datasets, exports, analytics pipelines, and dashboards.
+    If text files are notebooks, CSV files are structured tables. This lesson teaches you how to read and write them properly.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is a CSV file?</h2>
+    <p>
+      CSV stands for <strong>Comma-Separated Values</strong>. It stores tabular data in plain text.
+      Each line represents a row. Commas separate columns.
+    </p>
+
+    <div class="code-block">
+<pre><code>name,age,score
+Alice,17,92
+Bob,18,85
+Charlie,17,88</code></pre>
+    </div>
+
+    <p>
+      Spreadsheet programs like Excel and Google Sheets export and import CSV files easily.
+      Python handles them using the built-in <span class="inline-code">csv</span> module.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key Insight</div>
+      <div>
+        CSV is simple but strict. Commas, quotes, and line breaks must be handled correctly.
+        Never parse CSV manually using <span class="inline-code">split(",")</span> in production code.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Reading a CSV file</h2>
+
+    <p>
+      Use the <span class="inline-code">csv.reader</span> object to iterate through rows.
+    </p>
+
+    <div class="code-block">
+<pre><code>import csv
+
+with open("students.csv", "r", newline="") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)</code></pre>
+    </div>
+
+    <p>
+      Each <span class="inline-code">row</span> is returned as a list of strings.
+    </p>
+
+    <p>
+      Why <span class="inline-code">newline=""</span>? It prevents blank-line issues on certain systems.
+      This is recommended best practice in Python’s documentation.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Skipping headers</h2>
+
+    <p>
+      Many CSV files include a header row.
+    </p>
+
+    <div class="code-block">
+<pre><code>import csv
+
+with open("students.csv", "r", newline="") as file:
+    reader = csv.reader(file)
+    header = next(reader)  # Skip header
+    
+    for row in reader:
+        print(row)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">next(reader)</span> advances the iterator once.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Using <span class="inline-code">DictReader</span> (Cleaner approach)</h2>
+
+    <p>
+      Instead of lists, <span class="inline-code">csv.DictReader</span> returns each row as a dictionary.
+      Column names become keys.
+    </p>
+
+    <div class="code-block">
+<pre><code>import csv
+
+with open("students.csv", "r", newline="") as file:
+    reader = csv.DictReader(file)
+    
+    for row in reader:
+        print(row["name"], row["score"])</code></pre>
+    </div>
+
+    <p>
+      This is safer and more readable for structured datasets.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Professional Practice</div>
+      <div>
+        Use <span class="inline-code">DictReader</span> whenever your CSV includes headers.
+        It reduces indexing mistakes.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Writing to a CSV file</h2>
+
+    <h3>Basic writer</h3>
+
+    <div class="code-block">
+<pre><code>import csv
+
+with open("output.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    
+    writer.writerow(["name", "age", "score"])
+    writer.writerow(["Alice", 17, 92])
+    writer.writerow(["Bob", 18, 85])</code></pre>
+    </div>
+
+    <p>
+      Each <span class="inline-code">writerow()</span> call writes one row.
+    </p>
+
+    <h3>Using DictWriter</h3>
+
+    <div class="code-block">
+<pre><code>import csv
+
+fieldnames = ["name", "age", "score"]
+
+with open("output.csv", "w", newline="") as file:
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    
+    writer.writeheader()
+    writer.writerow({"name": "Alice", "age": 17, "score": 92})
+    writer.writerow({"name": "Bob", "age": 18, "score": 85})</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">writeheader()</span> automatically writes column names.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Common pitfalls</h2>
+
+    <ul>
+      <li>Forgetting <span class="inline-code">newline=""</span> → extra blank rows</li>
+      <li>Assuming numeric types — CSV reads everything as strings</li>
+      <li>Manually splitting strings instead of using the <span class="inline-code">csv</span> module</li>
+      <li>Ignoring encoding (UTF-8 is usually safe)</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code># Converting string values to integers
+age = int(row["age"])
+score = float(row["score"])</code></pre>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Why CSV still matters</h2>
+
+    <p>
+      You now understand:
+      <ul>
+        <li>How CSV files store structured data</li>
+        <li>How to read rows safely</li>
+        <li>The advantage of DictReader and DictWriter</li>
+        <li>How to avoid common formatting issues</li>
+      </ul>
+    </p>
+
+    <p>
+      CSV remains a universal exchange format — lightweight, readable, and tool-compatible.
+      It is foundational in data engineering and analytics workflows.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Exercise</div>
+      <div>
+        Create a CSV file containing student names and three subject scores.
+        Then write a Python program that:
+        <ul>
+          <li>Calculates the average score for each student</li>
+          <li>Writes a new CSV file including the average column</li>
+          <li>Uses <span class="inline-code">DictReader</span> and <span class="inline-code">DictWriter</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+</article>

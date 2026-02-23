@@ -1,0 +1,194 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Virtual Environments (venv) in Python</h1>
+  <p class="lead">Learn how to isolate your project’s dependencies. Virtual environments keep projects clean and prevent version conflicts.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why virtual environments exist</h2>
+    <p>
+      Different projects may need different versions of the same library.
+    </p>
+
+    <p>
+      Example:
+      <ul>
+        <li>Project A needs <span class="inline-code">Django 3</span></li>
+        <li>Project B needs <span class="inline-code">Django 4</span></li>
+      </ul>
+    </p>
+
+    <p>
+      If both are installed globally, they can conflict.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>Imagine two school projects needing different textbooks. Instead of mixing books in one bag, you keep separate bags. A virtual environment is that separate bag.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. What is a virtual environment?</h2>
+    <p>
+      A virtual environment is an isolated Python environment inside your project folder.
+    </p>
+
+    <p>
+      It has:
+      <ul>
+        <li>Its own Python interpreter</li>
+        <li>Its own installed packages</li>
+      </ul>
+    </p>
+
+    <p>
+      It does not affect other projects.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Creating a virtual environment</h2>
+    <p>
+      In your project folder, run:
+    </p>
+
+    <div class="code-block">
+<pre><code>python -m venv venv</code></pre>
+    </div>
+
+    <p>
+      This creates a folder called <span class="inline-code">venv</span>.
+    </p>
+
+    <p>
+      Inside this folder are the isolated Python files.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Activating the virtual environment</h2>
+    <p>
+      Before installing packages, you must activate it.
+    </p>
+
+    <h3>On Windows:</h3>
+    <div class="code-block">
+<pre><code>venv\Scripts\activate</code></pre>
+    </div>
+
+    <h3>On macOS / Linux:</h3>
+    <div class="code-block">
+<pre><code>source venv/bin/activate</code></pre>
+    </div>
+
+    <p>
+      After activation, your terminal usually shows:
+    </p>
+
+    <div class="code-block">
+<pre><code>(venv)</code></pre>
+    </div>
+
+    <p>
+      This means you are inside the virtual environment.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Installing packages inside venv</h2>
+    <p>
+      Now install a package:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install requests</code></pre>
+    </div>
+
+    <p>
+      This installs the package only inside this virtual environment.
+    </p>
+
+    <p>
+      Other projects will not see it.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Deactivating the environment</h2>
+    <p>
+      To leave the virtual environment, type:
+    </p>
+
+    <div class="code-block">
+<pre><code>deactivate</code></pre>
+    </div>
+
+    <p>
+      The <span class="inline-code">(venv)</span> label disappears.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Why this is important</h2>
+    <p>
+      Virtual environments:
+      <ul>
+        <li>Prevent version conflicts</li>
+        <li>Make projects reproducible</li>
+        <li>Keep system Python clean</li>
+        <li>Are required in professional development</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Best Practice</div>
+      <div>Create a virtual environment for every serious project. It avoids many problems later.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Key idea to remember</h2>
+    <p>
+      A virtual environment is a separate space for one project.
+    </p>
+
+    <p>
+      It keeps your dependencies organized and safe.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>Never install large libraries globally unless absolutely necessary. Always prefer a virtual environment.</div>
+    </div>
+
+  </section>
+</article>

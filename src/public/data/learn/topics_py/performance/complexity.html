@@ -1,0 +1,212 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Time Complexity in Python</h1>
+  <p class="lead">Learn why some programs run fast and others become slow. In this lesson, we focus on growth — how your code behaves when the input becomes bigger.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What does “fast” really mean?</h2>
+    <p>
+      A program can feel fast when the input is small. But what happens when the input becomes very large?
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Imagine washing 5 plates. Easy. Now imagine washing 5,000 plates. The work grows with the number of plates.
+      </div>
+    </div>
+
+    <p>
+      In programming, we care about how the running time grows when the input size grows.
+      This idea is called <strong>time complexity</strong>.
+    </p>
+
+    <p>
+      Input size can mean:
+      <ul>
+        <li>The number of items in a list</li>
+        <li>The number of characters in a string</li>
+        <li>The number of rows in a file</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Big-O notation (simple version)</h2>
+    <p>
+      Big-O notation describes how runtime grows. Do not worry about math. Just focus on the pattern.
+    </p>
+
+    <h3>O(1) — Constant Time</h3>
+    <p>The time does not change, even if input grows.</p>
+
+    <div class="code-block">
+<pre><code>numbers = [10, 20, 30]
+print(numbers[0])</code></pre>
+    </div>
+
+    <p>
+      Accessing by index is constant time. It takes the same time whether the list has 3 items or 3 million.
+    </p>
+
+    <h3>O(n) — Linear Time</h3>
+    <p>The time grows with the number of items.</p>
+
+    <div class="code-block">
+<pre><code>for item in numbers:
+    print(item)</code></pre>
+    </div>
+
+    <p>
+      If the list doubles in size, the work also doubles.
+    </p>
+
+    <h3>O(n²) — Quadratic Time</h3>
+    <p>The time grows very fast. Often caused by nested loops.</p>
+
+    <div class="code-block">
+<pre><code>for i in numbers:
+    for j in numbers:
+        print(i, j)</code></pre>
+    </div>
+
+    <p>
+      If the list doubles, the work becomes about four times bigger.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>As input grows, O(n²) becomes slow much faster than O(n).</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Common Python operations and their cost</h2>
+    <p>
+      Some operations in Python are fast. Others are slower.
+    </p>
+
+    <ul>
+      <li><strong>List indexing:</strong> fast (O(1))</li>
+      <li><strong>Dictionary lookup:</strong> fast (O(1))</li>
+      <li><strong>Loop through list:</strong> linear (O(n))</li>
+      <li><strong>Nested loops:</strong> quadratic (O(n²))</li>
+      <li><strong>Checking "x in list":</strong> linear (O(n))</li>
+      <li><strong>Checking "x in set":</strong> fast (O(1))</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code># Slow for large data
+if 1000 in large_list:
+    print("Found")
+
+# Faster
+large_set = set(large_list)
+if 1000 in large_set:
+    print("Found")</code></pre>
+    </div>
+
+    <p>
+      Sets use a different internal structure that makes lookups faster.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Why nested loops are dangerous</h2>
+    <p>
+      Nested loops multiply the work.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(n):
+    for j in range(n):
+        pass</code></pre>
+    </div>
+
+    <p>
+      If n = 10 → 100 operations.  
+      If n = 1,000 → 1,000,000 operations.
+    </p>
+
+    <p>
+      That growth becomes huge very quickly.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Think Before You Loop</div>
+      <div>
+        Always ask: Can I solve this with one loop instead of two?
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. A simple optimization example</h2>
+    <p>
+      Suppose we want to count duplicates.
+    </p>
+
+    <div class="code-block">
+<pre><code># Slow version
+duplicates = []
+for x in numbers:
+    if numbers.count(x) > 1:
+        duplicates.append(x)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">count()</span> loops every time. That creates O(n²).
+    </p>
+
+    <p>
+      Better version:
+    </p>
+
+    <div class="code-block">
+<pre><code># Faster version
+from collections import Counter
+
+counts = Counter(numbers)
+duplicates = [x for x in numbers if counts[x] > 1]</code></pre>
+    </div>
+
+    <p>
+      This avoids repeated scanning.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>6. Practice</h2>
+    <p>Answer these questions:</p>
+    <ul>
+      <li>Is a single loop O(n) or O(n²)?</li>
+      <li>Why is searching in a set faster than in a list?</li>
+      <li>What happens if you use three nested loops?</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Do not try to memorize everything. Just remember this rule:
+        <strong>The way your code grows is more important than how fast it feels right now.</strong>
+      </div>
+    </div>
+
+  </section>
+</article>

@@ -1,0 +1,207 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>async and await — Writing Asynchronous Code</h1>
+  <p class="lead">In this lesson, you will learn how to use <strong>async</strong> and <strong>await</strong> correctly. These two keywords allow Python to pause tasks without blocking the whole program.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What does <span class="inline-code">async</span> do?</h2>
+    <p>
+      When you write:
+    </p>
+
+    <div class="code-block">
+<pre><code>async def task():
+    print("Hello")</code></pre>
+    </div>
+
+    <p>
+      You are creating an <strong>asynchronous function</strong>.
+    </p>
+
+    <p>
+      Important:
+      <br>
+      Calling it does NOT run it immediately.
+    </p>
+
+    <div class="code-block">
+<pre><code>task()</code></pre>
+    </div>
+
+    <p>
+      This only creates a coroutine object.
+      It does not execute the function.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple idea</div>
+      <div>An async function is like a recipe card. You must give it to the event loop to actually cook it.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Running an async function</h2>
+    <p>
+      To run an async function, use:
+    </p>
+
+    <div class="code-block">
+<pre><code>import asyncio
+
+async def task():
+    print("Hello")
+
+asyncio.run(task())</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">asyncio.run()</span> starts the event loop and executes the async function.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. What does <span class="inline-code">await</span> do?</h2>
+    <p>
+      <span class="inline-code">await</span> pauses an async function until something finishes.
+    </p>
+
+    <div class="code-block">
+<pre><code>import asyncio
+
+async def task():
+    print("Start")
+    await asyncio.sleep(2)
+    print("End")
+
+asyncio.run(task())</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">await asyncio.sleep(2)</span> waits 2 seconds.
+      But it does NOT block the whole program.
+    </p>
+
+    <p>
+      While waiting, the event loop can run other tasks.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Multiple async tasks</h2>
+    <p>
+      Let’s run two async functions together.
+    </p>
+
+    <div class="code-block">
+<pre><code>import asyncio
+
+async def task_one():
+    print("Task One Start")
+    await asyncio.sleep(2)
+    print("Task One End")
+
+async def task_two():
+    print("Task Two Start")
+    await asyncio.sleep(1)
+    print("Task Two End")
+
+async def main():
+    await asyncio.gather(task_one(), task_two())
+
+asyncio.run(main())</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">asyncio.gather()</span> runs multiple async tasks at the same time.
+    </p>
+
+    <p>
+      Because <span class="inline-code">task_two()</span> waits only 1 second, it finishes first.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. time.sleep vs asyncio.sleep</h2>
+
+    <p><strong>Blocking sleep:</strong></p>
+
+    <div class="code-block">
+<pre><code>import time
+time.sleep(2)</code></pre>
+    </div>
+
+    <p>
+      This stops the whole program.
+    </p>
+
+    <p><strong>Non-blocking sleep:</strong></p>
+
+    <div class="code-block">
+<pre><code>import asyncio
+await asyncio.sleep(2)</code></pre>
+    </div>
+
+    <p>
+      This pauses only the current async task.
+      Other async tasks can continue.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Very Important</div>
+      <div>You can only use <span class="inline-code">await</span> inside an <span class="inline-code">async def</span> function.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Common mistakes</h2>
+    <ul>
+      <li>Forgetting to use <span class="inline-code">asyncio.run()</span></li>
+      <li>Using <span class="inline-code">time.sleep()</span> inside async functions</li>
+      <li>Calling async functions without <span class="inline-code">await</span></li>
+    </ul>
+
+    <p>
+      If you forget <span class="inline-code">await</span>, your task may never run.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Small Exercise</h2>
+    <p>
+      Write a program that:
+      <ul>
+        <li>Creates two async functions.</li>
+        <li>One waits 1 second.</li>
+        <li>The other waits 3 seconds.</li>
+        <li>Run them together using <span class="inline-code">asyncio.gather()</span>.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Tip</div>
+      <div>The shorter task should finish first. If not, check your <span class="inline-code">await</span> statements.</div>
+    </div>
+  </section>
+
+</article>

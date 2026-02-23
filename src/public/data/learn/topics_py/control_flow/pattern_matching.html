@@ -1,0 +1,218 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Pattern Matching in Python</h1>
+  <p class="lead">
+    Pattern matching allows you to compare a value against multiple patterns
+    and execute code based on structural matches.
+    Introduced in Python 3.10, it provides a powerful alternative to long
+    <span class="inline-code">if-elif</span> chains.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. The <span class="inline-code">match</span> Statement</h2>
+    <p>
+      Pattern matching uses the <span class="inline-code">match</span> keyword
+      followed by one or more <span class="inline-code">case</span> blocks.
+    </p>
+
+    <div class="code-block">
+<pre><code>status = 404
+
+match status:
+    case 200:
+        print("OK")
+    case 404:
+        print("Not Found")
+    case 500:
+        print("Server Error")
+    case _:
+        print("Unknown status")</code></pre>
+    </div>
+
+    <p>
+      The underscore (<span class="inline-code">_</span>) acts as a wildcard —
+      similar to <span class="inline-code">else</span>.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key Distinction</div>
+      <div>
+        Unlike <span class="inline-code">if</span>, pattern matching compares structure, not just equality.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Matching Multiple Values</h2>
+    <p>
+      You can match multiple literals using the pipe (<span class="inline-code">|</span>) operator.
+    </p>
+
+    <div class="code-block">
+<pre><code>day = "Saturday"
+
+match day:
+    case "Saturday" | "Sunday":
+        print("Weekend")
+    case _:
+        print("Weekday")</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Matching Sequences</h2>
+    <p>
+      Pattern matching can destructure sequences like lists and tuples.
+    </p>
+
+    <div class="code-block">
+<pre><code>point = (3, 0)
+
+match point:
+    case (0, 0):
+        print("Origin")
+    case (x, 0):
+        print("On X-axis at", x)
+    case (0, y):
+        print("On Y-axis at", y)
+    case (x, y):
+        print("Point at", x, y)</code></pre>
+    </div>
+
+    <p>
+      Variables like <span class="inline-code">x</span> and <span class="inline-code">y</span>
+      capture matched values.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Using Guards (Conditional Patterns)</h2>
+    <p>
+      Guards add extra conditions using <span class="inline-code">if</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>number = 15
+
+match number:
+    case n if n % 2 == 0:
+        print("Even")
+    case n if n % 2 != 0:
+        print("Odd")</code></pre>
+    </div>
+
+    <p>
+      Guards refine matches with Boolean logic.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Matching Dictionaries</h2>
+    <p>
+      You can match dictionary structures by keys.
+    </p>
+
+    <div class="code-block">
+<pre><code>response = {"status": 200, "data": "OK"}
+
+match response:
+    case {"status": 200, "data": message}:
+        print("Success:", message)
+    case {"status": 404}:
+        print("Not Found")</code></pre>
+    </div>
+
+    <p>
+      Only specified keys are required to match.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. When to Use Pattern Matching</h2>
+    <p>
+      Pattern matching is useful when:
+    </p>
+
+    <ul>
+      <li>Handling structured data (APIs, JSON, tuples)</li>
+      <li>Replacing long <span class="inline-code">if-elif</span> chains</li>
+      <li>Working with different command types</li>
+      <li>Parsing input formats</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Design Consideration</div>
+      <div>
+        For simple equality checks, <span class="inline-code">if</span> may be clearer.
+        Use <span class="inline-code">match</span> when structure matters.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Common Mistakes</h2>
+    <ul>
+      <li>Forgetting the default case (<span class="inline-code">case _:</span>)</li>
+      <li>Misunderstanding variable capture vs literal match</li>
+      <li>Using it for trivial logic where <span class="inline-code">if</span> is simpler</li>
+      <li>Running on Python versions earlier than 3.10</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What prints?
+        <span class="inline-code">
+        value = (0, 5)  
+        match value:  
+            case (0, y):  
+                print("Y-axis", y)
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Why Pattern Matching Matters</h2>
+    <p>
+      Pattern matching introduces structural thinking into Python control flow.
+      Instead of asking “Is this equal?”, you ask “Does this shape match?”
+    </p>
+
+    <p>
+      It encourages clearer branching logic when working with complex data.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Refactor a long <span class="inline-code">if-elif</span> chain
+        into a <span class="inline-code">match</span> statement.
+        Compare readability and maintainability.
+      </div>
+    </div>
+  </section>
+
+</article>

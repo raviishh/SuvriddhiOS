@@ -1,0 +1,217 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  <!-- <link rel="stylesheet" href="common.css" /> -->
+  
+  <h1>Python Syntax — The Rules of the Language</h1>
+  <p class="lead">A friendly introduction to Python syntax — clear, practical, and example-driven. Think of syntax as the grammar rules that help the computer understand exactly what you mean.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is syntax?</h2>
+    <p>
+      Syntax is the set of rules that tells Python how code must be written. Just like English needs correct grammar to make sense, Python needs correct syntax to run.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>If vocabulary is the words you know, syntax is the sentence structure. “Dog bites man” works. “Bites man dog” is confusing. Python feels the same way.</div>
+    </div>
+
+    <p>
+      The good news? Python is known for having clean, readable syntax. It avoids unnecessary symbols and tries to look like plain English.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Your first Python program</h2>
+    <p>
+      In Python, you don’t need a special <span class="inline-code">main()</span> function. The code runs from top to bottom.
+    </p>
+
+    <div class="code-block" aria-hidden="true">
+<pre><code>print("Hello, World!")</code></pre>
+    </div>
+
+    <p>
+      That’s it. No semicolons. No curly braces. Just a function call.
+      <ul>
+        <li><span class="inline-code">print()</span> displays text on the screen.</li>
+        <li>Text must go inside quotation marks.</li>
+      </ul>
+    </p>
+
+    <div class="steps">
+      <div class="step"><strong>Try it:</strong> Save as <span class="inline-code">hello.py</span>, run with <span class="inline-code">python hello.py</span>.</div>
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">Hello, World!</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Indentation — Python’s most important rule</h2>
+    <p>
+      Unlike many languages, Python uses indentation (spaces at the beginning of a line) to define blocks of code.
+      Indentation is not optional — it’s required.
+    </p>
+
+    <div class="code-block" aria-hidden="true">
+<pre><code>age = 18
+
+if age >= 18:
+    print("You are an adult.")
+    print("You can vote.")
+print("Done.")</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li>The colon <span class="inline-code">:</span> starts a block.</li>
+        <li>Indented lines belong to that block.</li>
+        <li>Lines without indentation are outside the block.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>Most Python programs use 4 spaces for indentation. Be consistent — mixing tabs and spaces can cause errors.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Variables — simple and dynamic</h2>
+    <p>
+      Python does not require you to declare variable types. The type is decided automatically.
+    </p>
+
+    <div class="code-block">
+<pre><code>name = "Aarav"
+age = 15
+height = 5.7
+is_student = True
+
+print(name)
+print(age)</code></pre>
+    </div>
+
+    <p>
+      Notes:
+      <ul>
+        <li>No need to write <span class="inline-code">int</span> or <span class="inline-code">float</span> before variables.</li>
+        <li>Strings use quotes.</li>
+        <li>Booleans are written as <span class="inline-code">True</span> and <span class="inline-code">False</span> (capitalized).</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>In Python, boxes label themselves automatically. You just put something in, and Python figures out what it is.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Comments — notes for humans</h2>
+    <p>
+      Comments are ignored by Python. They are used to explain code to other people (or your future self).
+    </p>
+
+    <div class="code-block">
+<pre><code># This is a single-line comment
+
+age = 20  # This is an inline comment
+
+"""
+This is a multi-line comment.
+It can span several lines.
+"""</code></pre>
+    </div>
+
+    <p>
+      Use comments wisely. Clear code is better than too many comments.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Line breaks and statements</h2>
+    <p>
+      In Python, each line usually represents one statement. You don’t need semicolons.
+    </p>
+
+    <div class="code-block">
+<pre><code>x = 5
+y = 10
+print(x + y)</code></pre>
+    </div>
+
+    <p>
+      If a statement is very long, you can continue it using parentheses:
+    </p>
+
+    <div class="code-block">
+<pre><code>total = (10 + 20 +
+         30 + 40)</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Keywords — reserved words in Python</h2>
+    <p>
+      Python has reserved words that have special meaning. You cannot use them as variable names.
+    </p>
+
+    <div class="code-block">
+<pre><code>if
+else
+for
+while
+def
+return
+class
+import</code></pre>
+    </div>
+
+    <p>
+      These words form the structure of Python programs.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Quick recap — the core syntax rules</h2>
+    <p>
+      You now understand:
+      <ul>
+        <li>Python runs top to bottom.</li>
+        <li>Indentation defines blocks.</li>
+        <li>No semicolons required.</li>
+        <li>Variables are dynamically typed.</li>
+        <li>Colons start code blocks.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>When you see an error like <span class="inline-code">IndentationError</span> or <span class="inline-code">SyntaxError</span>, don’t panic. Read the message carefully — it usually tells you exactly what rule you broke.</div>
+    </div>
+
+  </section>
+</article>

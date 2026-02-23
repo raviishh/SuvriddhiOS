@@ -1,0 +1,208 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+<h1>Instance vs Class Variables</h1>
+
+<p class="lead">
+In this lesson, you will learn the difference between two types of variables inside a class.
+Some data belongs to each object.
+Some data is shared by all objects.
+</p>
+
+<!-- Chapter 1 -->
+<section class="chapter">
+<h2>1. Instance Variables — Personal Data</h2>
+
+<p>
+An <strong>instance variable</strong> belongs to one specific object.
+Each object has its own copy.
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+<div>
+Think about students in a school.  
+Each student has their own name and age.  
+That information is personal.
+</div>
+</div>
+
+<div class="code-block">
+<pre><code>class Student:
+    def __init__(self, name):
+        self.name = name
+
+student1 = Student("Arjun")
+student2 = Student("Maya")
+
+print(student1.name)
+print(student2.name)</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">self.name</span> is an instance variable.</li>
+<li><span class="inline-code">student1</span> and <span class="inline-code">student2</span> store different names.</li>
+<li>Each object keeps its own data.</li>
+</ul>
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 2 -->
+<section class="chapter">
+<h2>2. Class Variables — Shared Data</h2>
+
+<p>
+A <strong>class variable</strong> is shared by all objects of that class.
+There is only one copy.
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+<div>
+All students go to the same school.  
+The school name is the same for everyone.  
+That is shared information.
+</div>
+</div>
+
+<div class="code-block">
+<pre><code>class Student:
+    school_name = "Greenwood High"
+
+    def __init__(self, name):
+        self.name = name
+
+student1 = Student("Arjun")
+student2 = Student("Maya")
+
+print(student1.school_name)
+print(student2.school_name)</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">school_name</span> is written directly inside the class.</li>
+<li>It is not inside <span class="inline-code">__init__</span>.</li>
+<li>All objects share the same value.</li>
+</ul>
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 3 -->
+<section class="chapter">
+<h2>3. Changing Class Variables</h2>
+
+<p>
+If we change a class variable, it affects all objects.
+</p>
+
+<div class="code-block">
+<pre><code>Student.school_name = "Sunrise School"
+
+print(student1.school_name)
+print(student2.school_name)</code></pre>
+</div>
+
+<p>
+Both objects now show the new school name.
+</p>
+
+<p>
+But if we change an instance variable:
+</p>
+
+<div class="code-block">
+<pre><code>student1.name = "Rahul"
+
+print(student1.name)
+print(student2.name)</code></pre>
+</div>
+
+<p>
+Only <span class="inline-code">student1</span> changes.  
+<span class="inline-code">student2</span> stays the same.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 4 -->
+<section class="chapter">
+<h2>4. When to Use Each?</h2>
+
+<p>
+Use <strong>instance variables</strong> when the data is different for each object.
+</p>
+
+<p>
+Use <strong>class variables</strong> when the data should be shared by all objects.
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Simple Rule</div>
+<div>
+If changing the value should affect everyone → use a class variable.  
+If changing the value should affect only one object → use an instance variable.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<!-- Chapter 5 -->
+<section class="chapter">
+<h2>5. Small Exercise</h2>
+
+<p>
+Create a class called <span class="inline-code">Car</span>.
+</p>
+
+<ul>
+<li>Add a class variable called <span class="inline-code">wheels</span> with value 4.</li>
+<li>Add an instance variable called <span class="inline-code">brand</span>.</li>
+<li>Create two car objects with different brands.</li>
+<li>Print both brand and wheels.</li>
+</ul>
+
+<p>
+Try changing the class variable and see what happens.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Conclusion -->
+<section class="chapter">
+<h2>6. What You Learned</h2>
+
+<p>
+You now understand:
+<ul>
+<li>Instance variables belong to one object.</li>
+<li>Class variables are shared by all objects.</li>
+<li>Where you define the variable matters.</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+<div>
+Beginners often confuse these two.  
+If your objects start sharing data by mistake, check whether you used a class variable instead of an instance variable.
+</div>
+</div>
+
+</section>
+
+</article>

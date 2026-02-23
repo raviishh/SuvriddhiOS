@@ -1,0 +1,177 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Environment Variables (Python)</h1>
+  <p class="lead">Learn how programs store hidden settings using environment variables. These are small pieces of information given by the operating system to your program.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What Are Environment Variables?</h2>
+    <p>
+      Environment variables are special values stored by the operating system.
+      Programs can read them while running.
+    </p>
+
+    <p>
+      They usually store:
+      <ul>
+        <li>Paths to important folders</li>
+        <li>System settings</li>
+        <li>Configuration values</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>Think of environment variables as sticky notes the operating system gives to your program before it starts.</div>
+    </div>
+
+    <p>
+      Some common environment variables:
+      <ul>
+        <li><span class="inline-code">PATH</span> – Where programs are located</li>
+        <li><span class="inline-code">HOME</span> – Your home folder (Linux/macOS)</li>
+        <li><span class="inline-code">USERPROFILE</span> – Your home folder (Windows)</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Reading Environment Variables</h2>
+
+    <p>
+      We use the <span class="inline-code">os</span> module to access them.
+    </p>
+
+    <div class="code-block">
+<pre><code>import os
+
+print(os.environ)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">os.environ</span> is like a dictionary that contains all environment variables.
+    </p>
+
+    <h3>Get One Variable</h3>
+
+    <div class="code-block">
+<pre><code>import os
+
+home = os.getenv("HOME")
+print(home)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">getenv()</span> safely gets a variable.
+      If it does not exist, it returns <span class="inline-code">None</span>.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Creating Environment Variables in Python</h2>
+
+    <div class="code-block">
+<pre><code>import os
+
+os.environ["MY_NAME"] = "Alice"
+
+print(os.getenv("MY_NAME"))</code></pre>
+    </div>
+
+    <p>
+      This creates a new environment variable called <span class="inline-code">MY_NAME</span>.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>This variable exists only while the program is running. It disappears after the program ends.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Why Are Environment Variables Useful?</h2>
+
+    <p>
+      They help programs behave differently without changing code.
+    </p>
+
+    <p>
+      For example:
+      <ul>
+        <li>Store an API key</li>
+        <li>Switch between test mode and production mode</li>
+        <li>Change folder locations</li>
+      </ul>
+    </p>
+
+    <p>
+      Instead of writing:
+    </p>
+
+    <div class="code-block">
+<pre><code>API_KEY = "12345"</code></pre>
+    </div>
+
+    <p>
+      You can write:
+    </p>
+
+    <div class="code-block">
+<pre><code>import os
+
+API_KEY = os.getenv("API_KEY")</code></pre>
+    </div>
+
+    <p>
+      This keeps secret values outside your code.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Small Practice Project</h2>
+
+    <p>
+      Write a program that:
+      <ul>
+        <li>Reads an environment variable called <span class="inline-code">USER_NAME</span></li>
+        <li>If it exists, prints: "Hello, USER_NAME"</li>
+        <li>If it does not exist, prints: "Hello, Guest"</li>
+      </ul>
+    </p>
+
+    <div class="code-block">
+<pre><code>import os
+
+name = os.getenv("USER_NAME")
+
+if name:
+    print("Hello,", name)
+else:
+    print("Hello, Guest")</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>Environment variables are often used in real-world software. Learning this makes your programs more professional.</div>
+    </div>
+
+    <p>
+      Great job! You now understand how programs use hidden system settings.
+      Next, we will learn about file permissions.
+    </p>
+
+  </section>
+
+</article>

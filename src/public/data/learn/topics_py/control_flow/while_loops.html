@@ -1,0 +1,216 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>While Loops in Python</h1>
+  <p class="lead">
+    A <span class="inline-code">while</span> loop repeatedly executes code as long as a condition remains True.  
+    It is the foundation of indefinite iteration — loops where the number of repetitions is not known beforehand.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Basic Syntax</h2>
+    <p>
+      A <span class="inline-code">while</span> loop runs as long as its condition evaluates to <span class="inline-code">True</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>count = 1
+
+while count <= 5:
+    print(count)
+    count += 1</code></pre>
+    </div>
+
+    <p>
+      Execution flow:
+      <ul>
+        <li>Check condition</li>
+        <li>If True → execute block</li>
+        <li>Repeat</li>
+        <li>If False → exit loop</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Critical Rule</div>
+      <div>
+        You must modify the loop variable.  
+        Otherwise, the condition never changes — resulting in an infinite loop.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Infinite Loops</h2>
+    <p>
+      An infinite loop occurs when the condition never becomes False.
+    </p>
+
+    <div class="code-block">
+<pre><code>while True:
+    print("This runs forever")</code></pre>
+    </div>
+
+    <p>
+      Infinite loops are sometimes intentional (e.g., servers, game loops), but dangerous if accidental.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Debug Tip</div>
+      <div>
+        If your program freezes, check your loop condition first.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Using <span class="inline-code">break</span></h2>
+    <p>
+      <span class="inline-code">break</span> immediately exits the loop, regardless of the condition.
+    </p>
+
+    <div class="code-block">
+<pre><code>while True:
+    user_input = input("Enter 'q' to quit: ")
+    if user_input == "q":
+        break
+    print("You typed:", user_input)</code></pre>
+    </div>
+
+    <p>
+      The loop continues until <span class="inline-code">break</span> is triggered.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Using <span class="inline-code">continue</span></h2>
+    <p>
+      <span class="inline-code">continue</span> skips the rest of the current iteration and moves to the next cycle.
+    </p>
+
+    <div class="code-block">
+<pre><code>count = 0
+
+while count < 5:
+    count += 1
+    if count == 3:
+        continue
+    print(count)</code></pre>
+    </div>
+
+    <p>
+      When <span class="inline-code">count == 3</span>, the print statement is skipped.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. While with <span class="inline-code">else</span></h2>
+    <p>
+      A <span class="inline-code">while</span> loop can include an <span class="inline-code">else</span> block.
+      It runs only if the loop ends normally (not via <span class="inline-code">break</span>).
+    </p>
+
+    <div class="code-block">
+<pre><code>count = 1
+
+while count <= 3:
+    print(count)
+    count += 1
+else:
+    print("Loop finished normally")</code></pre>
+    </div>
+
+    <p>
+      If a <span class="inline-code">break</span> occurs, the <span class="inline-code">else</span> block is skipped.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Common Patterns</h2>
+    <p>
+      While loops are useful when:
+    </p>
+
+    <ul>
+      <li>Waiting for user input</li>
+      <li>Running until a condition changes</li>
+      <li>Polling or monitoring systems</li>
+      <li>Retrying operations until success</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code>password = ""
+
+while password != "secret":
+    password = input("Enter password: ")
+
+print("Access granted")</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Common Mistakes</h2>
+    <ul>
+      <li>Forgetting to update the loop variable</li>
+      <li>Creating accidental infinite loops</li>
+      <li>Misplacing <span class="inline-code">break</span> or <span class="inline-code">continue</span></li>
+      <li>Overusing while loops when a <span class="inline-code">for</span> loop is clearer</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What happens here?
+        <span class="inline-code">
+        x = 5  
+        while x > 0:  
+            print(x)  
+            x -= 2
+        </span>
+        How many times does it print?
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Why While Loops Matter</h2>
+    <p>
+      While loops give you control over repetition when the number of iterations isn’t predetermined.
+    </p>
+
+    <p>
+      They are powerful — but require disciplined condition management.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Write loops that terminate predictably.  
+        Then intentionally break them.  
+        Understanding failure modes builds real mastery.
+      </div>
+    </div>
+  </section>
+
+</article>

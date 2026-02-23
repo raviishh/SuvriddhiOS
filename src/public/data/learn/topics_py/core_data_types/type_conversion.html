@@ -1,0 +1,206 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Type Conversion</h1>
+  <p class="lead">
+    Sometimes you need to change one data type into another. A number might arrive as text. A Boolean might need to become a number. This process is called <strong>type conversion</strong>.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why type conversion matters</h2>
+    <p>
+      Different data types behave differently. You can’t safely mix them without understanding what Python will do.
+    </p>
+
+    <div class="code-block">
+<pre><code>age = "18"
+print(age + 1)   # ❌ TypeError</code></pre>
+    </div>
+
+    <p>
+      Python prevents you from accidentally mixing incompatible types.
+      You must convert explicitly.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Converting to integers</h2>
+    <p>
+      Use <span class="inline-code">int()</span> to convert values into integers.
+    </p>
+
+    <div class="code-block">
+<pre><code>age = "18"
+age_num = int(age)
+
+print(age_num + 1)  # 19</code></pre>
+    </div>
+
+    <p>
+      You can also convert floats:
+    </p>
+
+    <div class="code-block">
+<pre><code>print(int(3.9))   # 3 (decimal is removed)</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>
+        <span class="inline-code">int()</span> does NOT round — it truncates (cuts off the decimal part).
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Converting to floats</h2>
+    <p>
+      Use <span class="inline-code">float()</span> to create floating-point numbers.
+    </p>
+
+    <div class="code-block">
+<pre><code>print(float("3.14"))  # 3.14
+print(float(5))       # 5.0</code></pre>
+    </div>
+
+    <p>
+      This is useful when working with user input or division results.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Converting to strings</h2>
+    <p>
+      Use <span class="inline-code">str()</span> to convert values into text.
+    </p>
+
+    <div class="code-block">
+<pre><code>score = 95
+message = "Your score is " + str(score)
+
+print(message)</code></pre>
+    </div>
+
+    <p>
+      This is especially useful when combining numbers with strings.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Converting to Booleans</h2>
+    <p>
+      Use <span class="inline-code">bool()</span> to convert values into <span class="inline-code">True</span> or <span class="inline-code">False</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>print(bool(0))        # False
+print(bool(1))        # True
+print(bool(""))       # False
+print(bool("Hello"))  # True</code></pre>
+    </div>
+
+    <p>
+      Rule of thumb:
+      <ul>
+        <li>Zero and empty values → False</li>
+        <li>Non-zero and non-empty → True</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Invalid conversions</h2>
+    <p>
+      Not every conversion is possible.
+    </p>
+
+    <div class="code-block">
+<pre><code>print(int("hello"))  # ❌ ValueError</code></pre>
+    </div>
+
+    <p>
+      Python raises an error when conversion doesn’t make logical sense.
+      Always validate input if you’re unsure.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Implicit vs explicit conversion</h2>
+    <p>
+      Python sometimes converts types automatically (implicit conversion).
+    </p>
+
+    <div class="code-block">
+<pre><code>print(5 + 2.0)  # 7.0 (int automatically becomes float)</code></pre>
+    </div>
+
+    <p>
+      But in most cases, you must convert manually (explicit conversion).
+      Explicit is better — it keeps your intent clear.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Common beginner mistakes</h2>
+    <ul>
+      <li>Forgetting to convert input() (which always returns a string)</li>
+      <li>Assuming int() rounds instead of truncates</li>
+      <li>Trying to convert non-numeric text to numbers</li>
+      <li>Over-relying on implicit conversion</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What happens if you run:
+        <span class="inline-code">int("10.5")</span>?  
+        Why?
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>9. Where this fits in Core Data Types</h2>
+    <p>
+      Type conversion connects all core data types together. Without it, numbers, strings, and Booleans would remain isolated.
+    </p>
+
+    <p>
+      Next: <strong>NoneType & Identity (is vs ==)</strong> — where we explore absence of value and how Python checks identity versus equality.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Experiment with conversions in the Python shell.  
+        Try valid conversions. Try invalid ones.  
+        Understand the error messages — they are your teachers.
+      </div>
+    </div>
+  </section>
+
+</article>

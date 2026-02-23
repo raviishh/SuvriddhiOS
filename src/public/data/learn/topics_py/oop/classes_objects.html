@@ -1,0 +1,216 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+<h1>Classes & Objects</h1>
+
+<p class="lead">
+A simple introduction to one of the most important ideas in Python. 
+Classes help us model real-world things inside a program.
+</p>
+
+<!-- Chapter 1 -->
+<section class="chapter">
+<h2>1. What is a Class?</h2>
+
+<p>
+A <strong>class</strong> is a blueprint.  
+It describes what something is and what it can do.
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+<div>
+Think about a cookie cutter.  
+The cutter is the class.  
+The cookies made from it are objects.
+</div>
+</div>
+
+<p>
+The class does not create anything by itself.  
+It only defines the structure.
+</p>
+
+<div class="code-block">
+<pre><code>class Dog:
+    pass</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">class Dog:</span> creates a new class named Dog.</li>
+<li><span class="inline-code">pass</span> means “do nothing for now.”</li>
+</ul>
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 2 -->
+<section class="chapter">
+<h2>2. What is an Object?</h2>
+
+<p>
+An <strong>object</strong> is a real thing created from a class.
+</p>
+
+<p>
+If a class is the blueprint,  
+an object is the actual building.
+</p>
+
+<div class="code-block">
+<pre><code>class Dog:
+    pass
+
+dog1 = Dog()
+dog2 = Dog()
+
+print(dog1)
+print(dog2)</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">Dog()</span> creates a new object.</li>
+<li><span class="inline-code">dog1</span> and <span class="inline-code">dog2</span> are two different objects.</li>
+<li>Each object lives in a different place in memory.</li>
+</ul>
+</p>
+
+<p>
+Even though they come from the same class, they are separate objects.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 3 -->
+<section class="chapter">
+<h2>3. Giving Objects Data (Attributes)</h2>
+
+<p>
+Objects can store information.  
+This information is called an <strong>attribute</strong>.
+</p>
+
+<div class="code-block">
+<pre><code>class Dog:
+    pass
+
+dog1 = Dog()
+dog1.name = "Buddy"
+dog1.age = 3
+
+print(dog1.name)
+print(dog1.age)</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">dog1.name</span> creates an attribute called name.</li>
+<li><span class="inline-code">dog1.age</span> stores the dog's age.</li>
+<li>Attributes belong to that specific object.</li>
+</ul>
+</p>
+
+<p>
+If we create another dog, it will not automatically have these values.
+</p>
+
+<div class="code-block">
+<pre><code>dog2 = Dog()
+print(dog2.name)</code></pre>
+</div>
+
+<p>
+This will cause an error because <span class="inline-code">dog2</span> does not have a name yet.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 4 -->
+<section class="chapter">
+<h2>4. Why Use Classes?</h2>
+
+<p>
+Classes help organize code.
+</p>
+
+<p>
+Instead of using many separate variables like:
+</p>
+
+<div class="code-block">
+<pre><code>dog1_name = "Buddy"
+dog1_age = 3</code></pre>
+</div>
+
+<p>
+We group related data together inside an object.
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Real-World Thinking</div>
+<div>
+In real life, a dog has a name, age, color, and more.  
+Using classes lets us model real-world objects clearly.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<!-- Chapter 5 -->
+<section class="chapter">
+<h2>5. Small Exercise</h2>
+
+<p>
+Create a class called <span class="inline-code">Car</span>.
+</p>
+
+<p>
+Then:
+<ul>
+<li>Create one object called <span class="inline-code">my_car</span>.</li>
+<li>Add attributes <span class="inline-code">brand</span> and <span class="inline-code">year</span>.</li>
+<li>Print them.</li>
+</ul>
+</p>
+
+</section>
+
+<hr />
+
+<!-- Conclusion -->
+<section class="chapter">
+<h2>6. What You Learned</h2>
+
+<p>
+You now understand:
+<ul>
+<li>A class is a blueprint.</li>
+<li>An object is created from a class.</li>
+<li>Objects can store data using attributes.</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+<div>
+Do not worry if this feels simple.  
+Object-oriented programming becomes powerful when we add methods and constructors.  
+That is coming next.
+</div>
+</div>
+
+</section>
+
+</article>

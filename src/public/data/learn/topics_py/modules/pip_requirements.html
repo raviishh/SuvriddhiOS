@@ -1,0 +1,175 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>pip and Requirements Files</h1>
+  <p class="lead">Learn how to install packages and share dependencies with others. pip and requirements files make Python projects easy to reproduce.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is pip?</h2>
+    <p>
+      pip is Python’s package manager.
+    </p>
+
+    <p>
+      It allows you to:
+      <ul>
+        <li>Install libraries</li>
+        <li>Upgrade libraries</li>
+        <li>Remove libraries</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>If Python is your kitchen, pip is the delivery service that brings ingredients.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Installing packages with pip</h2>
+    <p>
+      Install a package:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install requests</code></pre>
+    </div>
+
+    <p>
+      Upgrade a package:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install --upgrade requests</code></pre>
+    </div>
+
+    <p>
+      Remove a package:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip uninstall requests</code></pre>
+    </div>
+
+    <p>
+      Always run pip inside your virtual environment.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. What is a requirements file?</h2>
+    <p>
+      A requirements file is a text file that lists all dependencies and their versions.
+    </p>
+
+    <p>
+      The file is usually named:
+    </p>
+
+    <div class="code-block">
+<pre><code>requirements.txt</code></pre>
+    </div>
+
+    <p>
+      Example content:
+    </p>
+
+    <div class="code-block">
+<pre><code>requests==2.31.0
+flask==2.3.2</code></pre>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Creating a requirements file</h2>
+    <p>
+      If you already installed packages inside your virtual environment, run:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip freeze &gt; requirements.txt</code></pre>
+    </div>
+
+    <p>
+      This saves all installed packages and their exact versions.
+    </p>
+
+    <p>
+      Now you can share this file with others.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Installing from requirements.txt</h2>
+    <p>
+      To install everything listed in the file:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install -r requirements.txt</code></pre>
+    </div>
+
+    <p>
+      pip reads the file and installs all dependencies automatically.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Why requirements files matter</h2>
+    <p>
+      Requirements files:
+      <ul>
+        <li>Make projects reproducible</li>
+        <li>Help teams work together</li>
+        <li>Prevent version conflicts</li>
+        <li>Are required in professional projects</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Best Practice</div>
+      <div>Always include a requirements.txt file when sharing a Python project.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Key idea to remember</h2>
+    <p>
+      pip installs packages.
+    </p>
+
+    <p>
+      requirements.txt records exactly which packages and versions your project needs.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>Never guess which versions you used. Always record them using pip freeze.</div>
+    </div>
+
+  </section>
+</article>

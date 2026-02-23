@@ -1,0 +1,215 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>The Basic Execution Model in Python</h1>
+  <p class="lead">Understand how Python runs your code — step by step, line by line. This lesson explains what really happens when you press “Run.” Think of it as watching the engine work under the hood.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Programs run top to bottom</h2>
+    <p>
+      Python executes code in a simple way: it starts at the first line and moves downward, one statement at a time.
+      There is no guessing, no skipping — unless you explicitly tell it to.
+    </p>
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>Imagine reading a book. You start at the top of the page and move down line by line. Python does the same with your code.</div>
+    </div>
+
+    <div class="code-block">
+<pre><code>print("Start")
+print("Middle")
+print("End")</code></pre>
+    </div>
+
+    <div class="steps">
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">
+Start
+Middle
+End
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Variables are stored in memory</h2>
+    <p>
+      When Python sees a variable assignment, it:
+      <ul>
+        <li>Evaluates the right-hand side</li>
+        <li>Stores the result in memory</li>
+        <li>Associates the name with that value</li>
+      </ul>
+    </p>
+
+    <div class="code-block">
+<pre><code>x = 10
+y = x + 5
+print(y)</code></pre>
+    </div>
+
+    <p>
+      Execution steps:
+      <ol>
+        <li>Store 10 in <span class="inline-code">x</span></li>
+        <li>Compute <span class="inline-code">x + 5</span> → 15</li>
+        <li>Store 15 in <span class="inline-code">y</span></li>
+        <li>Print 15</li>
+      </ol>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Expressions are evaluated before assignment</h2>
+    <p>
+      Python always evaluates expressions first, then performs assignments.
+    </p>
+
+    <div class="code-block">
+<pre><code>a = 2 + 3 * 4
+print(a)</code></pre>
+    </div>
+
+    <p>
+      Order of evaluation:
+      <ul>
+        <li>Multiplication happens before addition</li>
+        <li>3 × 4 = 12</li>
+        <li>2 + 12 = 14</li>
+        <li>14 is stored in <span class="inline-code">a</span></li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Control flow changes execution order</h2>
+    <p>
+      By default, execution is sequential. But control statements like <span class="inline-code">if</span> and loops change the flow.
+    </p>
+
+    <div class="code-block">
+<pre><code>num = 3
+
+if num > 0:
+    print("Positive")
+
+print("Done")</code></pre>
+    </div>
+
+    <p>
+      If the condition is true, the indented block runs.
+      If false, Python skips it and continues downward.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key Rule</div>
+      <div>Indentation defines execution blocks in Python. Incorrect indentation changes program behavior or causes errors.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Functions pause and resume execution</h2>
+    <p>
+      When Python encounters a function call:
+      <ul>
+        <li>It jumps into the function</li>
+        <li>Executes its body</li>
+        <li>Returns to where it was called</li>
+      </ul>
+    </p>
+
+    <div class="code-block">
+<pre><code>def greet():
+    print("Hello")
+
+print("Before")
+greet()
+print("After")</code></pre>
+    </div>
+
+    <div class="steps">
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">
+Before
+Hello
+After
+      </div>
+    </div>
+
+    <p>
+      Execution order:
+      <ol>
+        <li>Print "Before"</li>
+        <li>Jump into <span class="inline-code">greet()</span></li>
+        <li>Print "Hello"</li>
+        <li>Return</li>
+        <li>Print "After"</li>
+      </ol>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Errors stop execution</h2>
+    <p>
+      If Python encounters an error, execution immediately stops.
+    </p>
+
+    <div class="code-block">
+<pre><code>print("Start")
+print(10 / 0)
+print("End")</code></pre>
+    </div>
+
+    <p>
+      Since division by zero causes an error, "End" will never print.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>Always read error messages carefully. They tell you exactly where execution failed.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Putting it all together</h2>
+    <p>
+      Python’s execution model is built on simple rules:
+      <ul>
+        <li>Code runs top to bottom</li>
+        <li>Expressions are evaluated before assignment</li>
+        <li>Indentation defines blocks</li>
+        <li>Functions temporarily change execution flow</li>
+        <li>Errors stop execution</li>
+      </ul>
+    </p>
+
+    <p>
+      Master this mental model and debugging becomes much easier.
+      If you can trace code line by line on paper, you truly understand how it runs.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>When confused, simulate execution manually. Pretend you are the interpreter. Follow each line carefully and track variable values.</div>
+    </div>
+  </section>
+
+</article>

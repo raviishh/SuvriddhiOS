@@ -1,0 +1,204 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Enums</h1>
+
+    <p class="lead">
+        Enums are used when a variable should have only a fixed set of values.
+        They make code safer and easier to read.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. The Problem with Normal Values</h2>
+
+        <p>Sometimes we use strings to represent fixed choices.</p>
+
+        <div class="code-block">
+            <pre><code>status = "STARTED"</code></pre>
+        </div>
+
+        <p>But someone might accidentally write:</p>
+
+        <div class="code-block">
+            <pre><code>status = "STRATED"   # spelling mistake</code></pre>
+        </div>
+
+        <p>Python will not stop this mistake. This can cause bugs.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. What is an Enum?</h2>
+
+        <p>
+            An <strong>Enum</strong> (short for Enumeration) defines a fixed
+            group of constants.
+        </p>
+
+        <p>We must import it first.</p>
+
+        <div class="code-block">
+            <pre><code>from enum import Enum
+
+class Status(Enum):
+    STARTED = 1
+    RUNNING = 2
+    FINISHED = 3</code></pre>
+        </div>
+
+        <p>Explanation:</p>
+
+        <ul>
+            <li><span class="inline-code">Status</span> is an Enum class.</li>
+            <li>Each name has a fixed value.</li>
+            <li>No other values are allowed.</li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Using Enums</h2>
+
+        <div class="code-block">
+            <pre><code>current_status = Status.STARTED
+
+print(current_status)
+print(current_status.name)
+print(current_status.value)</code></pre>
+        </div>
+
+        <p>Explanation:</p>
+
+        <ul>
+            <li>
+                <span class="inline-code">Status.STARTED</span> is a safe
+                constant.
+            </li>
+            <li><span class="inline-code">.name</span> gives the name.</li>
+            <li><span class="inline-code">.value</span> gives the number.</li>
+        </ul>
+
+        <p>Now we cannot accidentally assign a wrong value.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Comparing Enums</h2>
+
+        <p>Enums are easy to compare.</p>
+
+        <div class="code-block">
+            <pre><code>if current_status == Status.STARTED:
+    print("The process has started")</code></pre>
+        </div>
+
+        <p>This is safer than comparing strings.</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Analogy
+            </div>
+            <div>
+                Think of traffic lights. Only three colors are allowed: Red,
+                Yellow, Green. You cannot invent a new color. Enums work the
+                same way.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. When to Use Enums</h2>
+
+        <p>Use Enums when:</p>
+
+        <ul>
+            <li>There is a fixed set of choices</li>
+            <li>You want to prevent spelling mistakes</li>
+            <li>You want clearer and safer code</li>
+        </ul>
+
+        <p>Examples:</p>
+
+        <ul>
+            <li>Days of the week</li>
+            <li>Game difficulty levels</li>
+            <li>Order status</li>
+            <li>Traffic signals</li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Small Exercise</h2>
+
+        <p>
+            Create an Enum called <span class="inline-code">Difficulty</span>.
+        </p>
+
+        <ul>
+            <li>
+                Add <span class="inline-code">EASY</span>,
+                <span class="inline-code">MEDIUM</span>, and
+                <span class="inline-code">HARD</span>.
+            </li>
+            <li>Assign them values 1, 2, and 3.</li>
+            <li>
+                Create a variable and compare it inside an
+                <span class="inline-code">if</span> statement.
+            </li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>7. What You Learned</h2>
+
+        <p>You now understand:</p>
+
+        <ul>
+            <li>Enums define fixed sets of values.</li>
+            <li>They prevent mistakes caused by wrong strings.</li>
+            <li>They make comparisons clear and safe.</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Friendly Tip
+            </div>
+            <div>
+                If a variable should only have a few allowed values, an Enum is
+                usually better than a string. It keeps your programs strong and
+                reliable.
+            </div>
+        </div>
+    </section>
+</article>

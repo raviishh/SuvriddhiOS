@@ -1,0 +1,148 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>The Zen of Python</h1>
+  <p class="lead">Python is more than syntax — it has a philosophy. The Zen of Python is a short set of guiding principles that shape how Python code should be written. Think of it as the design manifesto behind the language.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is the Zen of Python?</h2>
+    <p>
+      The Zen of Python is a collection of aphorisms written by Tim Peters, one of Python’s core developers.
+      It expresses the values that guide Python’s design.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">How to see it</div>
+      <div>In any Python interpreter, type <span class="inline-code">import this</span> and press Enter.</div>
+    </div>
+
+    <p>
+      It will print a short poem-like list of principles about writing clean, readable, and maintainable code.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Core ideas explained</h2>
+    <p>
+      Let’s break down some of the most important ideas from the Zen.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">“Beautiful is better than ugly.”</div>
+      <div>Code should be clean and elegant. Even if it works, messy code is not acceptable.</div>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">“Explicit is better than implicit.”</div>
+      <div>Be clear about what your code is doing. Avoid hidden behavior that surprises others.</div>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">“Simple is better than complex.”</div>
+      <div>Choose straightforward solutions when possible.</div>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">“Readability counts.”</div>
+      <div>Code is read more often than it is written. Write for humans first.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Example — bad vs better style</h2>
+
+    <p>Hard to read:</p>
+
+    <div class="code-block">
+<pre><code>x=[i*i for i in range(10)if i%2==0]</code></pre>
+    </div>
+
+    <p>More readable:</p>
+
+    <div class="code-block">
+<pre><code>squares = [
+    i * i
+    for i in range(10)
+    if i % 2 == 0
+]</code></pre>
+    </div>
+
+    <p>
+      Both versions work. But the second version respects readability.
+      It follows the spirit of the Zen.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Practical impact on your code</h2>
+    <p>
+      Following the Zen means:
+      <ul>
+        <li>Use meaningful variable names</li>
+        <li>Avoid unnecessary clever tricks</li>
+        <li>Keep functions short and focused</li>
+        <li>Write code others can understand quickly</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key mindset</div>
+      <div>If someone else reads your code six months later, they should understand it without struggle — even if that person is you.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. The bigger lesson</h2>
+    <p>
+      The Zen of Python is not about strict rules.
+      It is about writing thoughtful software.
+    </p>
+
+    <p>
+      Many programming languages prioritize performance or flexibility above all.
+      Python prioritizes clarity.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important line</div>
+      <div>“There should be one — and preferably only one — obvious way to do it.”</div>
+    </div>
+
+    <p>
+      This principle explains why Python avoids unnecessary complexity in its design.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>6. Final thoughts</h2>
+    <p>
+      The Zen of Python teaches you how to think, not just how to code.
+      As you grow as a programmer, you’ll notice that the best developers naturally follow these principles.
+    </p>
+
+    <p>
+      Good Python is not just correct — it is clear, intentional, and elegant.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>Before writing code, ask: Is this simple? Is it readable? Would another developer thank me for this?</div>
+    </div>
+  </section>
+
+</article>

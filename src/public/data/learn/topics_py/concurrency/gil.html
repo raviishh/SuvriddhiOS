@@ -1,0 +1,179 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>The GIL — Why Threads Don’t Always Make Things Faster</h1>
+  <p class="lead">In this lesson, we explain the GIL in a simple way. You will understand why threads are great for waiting tasks, but not always good for heavy calculations.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is the GIL?</h2>
+    <p>
+      GIL means <strong>Global Interpreter Lock</strong>.
+    </p>
+
+    <p>
+      It is a rule inside Python that says:
+      <br><br>
+      <strong>Only one thread can run Python code at a time.</strong>
+    </p>
+
+    <p>
+      Even if you create many threads, only one thread runs at any moment.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>Imagine a classroom with one whiteboard and many students. Only one student can write on the board at a time. That rule is like the GIL.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Why does the GIL exist?</h2>
+    <p>
+      Python uses the GIL to keep memory safe and simple.
+    </p>
+
+    <p>
+      Without it, Python would be much more complex.
+      The GIL prevents many memory errors.
+    </p>
+
+    <p>
+      So the GIL is not a mistake.
+      It makes Python easier and safer.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. CPU-bound vs I/O-bound tasks</h2>
+    <p>
+      The GIL affects different types of tasks in different ways.
+    </p>
+
+    <p><strong>CPU-bound task:</strong></p>
+    <ul>
+      <li>Heavy calculations</li>
+      <li>Large loops</li>
+      <li>Math operations</li>
+    </ul>
+
+    <p><strong>I/O-bound task:</strong></p>
+    <ul>
+      <li>Waiting for internet</li>
+      <li>Reading files</li>
+      <li>Waiting for user input</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>The GIL blocks CPU-bound threads from running at the same time. But it does NOT block waiting tasks in the same way.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Example: CPU-heavy threads</h2>
+
+    <div class="code-block">
+<pre><code>import threading
+
+def heavy_task():
+    total = 0
+    for i in range(100000000):
+        total += i
+    print("Task finished")
+
+t1 = threading.Thread(target=heavy_task)
+t2 = threading.Thread(target=heavy_task)
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+
+print("Done")</code></pre>
+    </div>
+
+    <p>
+      You might expect this to run twice as fast.
+      But usually, it does NOT.
+    </p>
+
+    <p>
+      Why?
+      Because the GIL allows only one thread to run Python code at a time.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. When does the GIL matter?</h2>
+    <p>
+      The GIL matters when:
+    </p>
+    <ul>
+      <li>You use threads</li>
+      <li>Your program is CPU-heavy</li>
+    </ul>
+
+    <p>
+      The GIL does NOT matter much when:
+    </p>
+    <ul>
+      <li>Your program is waiting (I/O tasks)</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Rule</div>
+      <div>CPU work → use multiprocessing. Waiting work → threads are fine.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Final Summary</h2>
+    <p>
+      Let’s summarize:
+    </p>
+    <ul>
+      <li>The GIL allows only one thread to run Python code at a time.</li>
+      <li>Threads do not speed up heavy calculations.</li>
+      <li>Threads are still useful for waiting tasks.</li>
+      <li>Use multiprocessing for real parallel CPU work.</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Don’t panic</div>
+      <div>The GIL sounds scary, but it is simple: it only matters for heavy CPU tasks with threads.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Small Exercise</h2>
+    <p>
+      Answer these questions:
+      <ul>
+        <li>Are threads good for downloading many files at once?</li>
+        <li>Are threads good for heavy math calculations?</li>
+        <li>What should you use for CPU-heavy tasks?</li>
+      </ul>
+    </p>
+  </section>
+
+</article>

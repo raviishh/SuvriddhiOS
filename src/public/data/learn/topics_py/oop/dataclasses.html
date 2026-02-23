@@ -1,0 +1,210 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+<h1>Dataclasses</h1>
+
+<p class="lead">
+Dataclasses are a shorter and cleaner way to create classes that mainly store data.
+They reduce repeated code.
+</p>
+
+<!-- Chapter 1 -->
+<section class="chapter">
+<h2>1. The Problem with Normal Classes</h2>
+
+<p>
+Sometimes we create classes that only store data.
+</p>
+
+<div class="code-block">
+<pre><code>class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+student1 = Student("Arjun", 85)
+print(student1.name)</code></pre>
+</div>
+
+<p>
+This works fine.
+But if we create many classes like this, we keep writing the same pattern:
+</p>
+
+<ul>
+<li>Constructor</li>
+<li>Attribute assignments</li>
+<li>Sometimes a <span class="inline-code">__str__</span> method</li>
+</ul>
+
+<p>
+This becomes repetitive.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 2 -->
+<section class="chapter">
+<h2>2. Introducing Dataclasses</h2>
+
+<p>
+Python provides a shortcut called <strong>dataclass</strong>.
+</p>
+
+<p>
+We must first import it.
+</p>
+
+<div class="code-block">
+<pre><code>from dataclasses import dataclass
+
+@dataclass
+class Student:
+    name: str
+    marks: int
+
+student1 = Student("Arjun", 85)
+print(student1.name)</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">@dataclass</span> tells Python to generate special methods automatically.</li>
+<li>We only define variable names and types.</li>
+<li>Python automatically creates <span class="inline-code">__init__</span> for us.</li>
+</ul>
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 3 -->
+<section class="chapter">
+<h2>3. Automatic __str__ and More</h2>
+
+<p>
+Dataclasses also automatically create:
+</p>
+
+<ul>
+<li><span class="inline-code">__init__</span></li>
+<li><span class="inline-code">__repr__</span></li>
+<li>Comparison methods (like ==)</li>
+</ul>
+
+<div class="code-block">
+<pre><code>student1 = Student("Arjun", 85)
+print(student1)</code></pre>
+</div>
+
+<p>
+The output will show the data clearly without writing extra code.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 4 -->
+<section class="chapter">
+<h2>4. Default Values</h2>
+
+<p>
+We can also give default values.
+</p>
+
+<div class="code-block">
+<pre><code>from dataclasses import dataclass
+
+@dataclass
+class Book:
+    title: str
+    author: str = "Unknown"
+
+book1 = Book("Python Basics")
+print(book1)</code></pre>
+</div>
+
+<p>
+If we do not provide the author, it becomes "Unknown".
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 5 -->
+<section class="chapter">
+<h2>5. When to Use Dataclasses</h2>
+
+<p>
+Use dataclasses when:
+</p>
+
+<ul>
+<li>Your class mainly stores data</li>
+<li>You do not need complex logic inside the constructor</li>
+<li>You want cleaner code</li>
+</ul>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Important</div>
+<div>
+If your class has complex behavior or many custom methods,
+a normal class may be better.
+Dataclasses are for simple data models.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<!-- Chapter 6 -->
+<section class="chapter">
+<h2>6. Small Exercise</h2>
+
+<p>
+Create a dataclass called <span class="inline-code">Car</span>.
+</p>
+
+<ul>
+<li>Add attributes <span class="inline-code">brand</span> (string).</li>
+<li>Add attribute <span class="inline-code">year</span> (integer).</li>
+<li>Add default value <span class="inline-code">color = "Black"</span>.</li>
+<li>Create two objects and print them.</li>
+</ul>
+
+</section>
+
+<hr />
+
+<!-- Conclusion -->
+<section class="chapter">
+<h2>7. What You Learned</h2>
+
+<p>
+You now understand:
+</p>
+
+<ul>
+<li>Dataclasses reduce repeated code.</li>
+<li><span class="inline-code">@dataclass</span> generates methods automatically.</li>
+<li>They are best for simple data containers.</li>
+</ul>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+<div>
+If you find yourself writing many simple classes with only attributes,
+consider using dataclasses.
+They keep your code short and clean.
+</div>
+</div>
+
+</section>
+
+</article>

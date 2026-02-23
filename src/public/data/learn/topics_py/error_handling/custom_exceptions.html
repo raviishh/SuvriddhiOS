@@ -1,0 +1,266 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+<h1>Custom Exceptions</h1>
+<p class="lead">Built-in exceptions are useful. But as your programs grow, generic errors become vague. Custom exceptions let you describe exactly what went wrong in your own system.</p>
+
+<hr />
+
+<section class="chapter">
+<h2>1. Why Create Custom Exceptions?</h2>
+
+<p>
+Imagine building a banking system.
+</p>
+
+<ul>
+<li>Is <code>ValueError</code> descriptive enough for a failed withdrawal?</li>
+<li>Does <code>RuntimeError</code> clearly explain a failed authentication?</li>
+</ul>
+
+<p>
+In small programs, built-in exceptions are fine.
+In larger systems, vague errors become confusing.
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Core Idea</div>
+<div>
+Custom exceptions make your code readable, structured, and self-explanatory.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>2. Creating a Custom Exception</h2>
+
+<p>
+Custom exceptions are just classes that inherit from <code>Exception</code>.
+</p>
+
+<div class="code-block">
+<pre><code>class InsufficientFundsError(Exception):
+    pass</code></pre>
+</div>
+
+<p>
+That’s it.
+You’ve created a new exception type.
+</p>
+
+<p>
+Now you can raise it:
+</p>
+
+<div class="code-block">
+<pre><code>def withdraw(balance, amount):
+    if amount &gt; balance:
+        raise InsufficientFundsError("Not enough balance.")
+    return balance - amount</code></pre>
+</div>
+
+<p>
+This is clearer than using <code>ValueError</code>.
+It communicates business logic.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>3. Catching Custom Exceptions</h2>
+
+<p>
+You handle them like any other exception.
+</p>
+
+<div class="code-block">
+<pre><code>try:
+    print(withdraw(100, 150))
+
+except InsufficientFundsError as e:
+    print("Transaction failed:", e)</code></pre>
+</div>
+
+<p>
+Now your program distinguishes:
+<ul>
+<li>Logical system errors</li>
+<li>Unexpected Python runtime errors</li>
+</ul>
+</p>
+
+<p>
+This separation is powerful in larger systems.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>4. Adding Extra Information</h2>
+
+<p>
+You can customize your exception further by defining an <code>__init__</code> method.
+</p>
+
+<div class="code-block">
+<pre><code>class InvalidAgeError(Exception):
+    def __init__(self, age):
+        self.age = age
+        super().__init__(f"Invalid age provided: {age}")</code></pre>
+</div>
+
+<p>
+Now:
+</p>
+
+<div class="code-block">
+<pre><code>def register(age):
+    if age &lt; 0:
+        raise InvalidAgeError(age)
+    return "Registered successfully"</code></pre>
+</div>
+
+<p>
+The exception carries structured data.
+That’s professional-level design.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>5. Inheriting from Other Exceptions</h2>
+
+<p>
+You don’t always have to inherit directly from <code>Exception</code>.
+You can subclass more specific types.
+</p>
+
+<div class="code-block">
+<pre><code>class DatabaseConnectionError(RuntimeError):
+    pass</code></pre>
+</div>
+
+<p>
+Now:
+<ul>
+<li>It behaves like a <code>RuntimeError</code></li>
+<li>But has a domain-specific meaning</li>
+</ul>
+</p>
+
+<p>
+This is common in frameworks and large applications.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>6. When Should You Use Custom Exceptions?</h2>
+
+<p>
+Use them when:
+</p>
+
+<ul>
+<li>Your project is growing beyond simple scripts</li>
+<li>You have domain-specific rules</li>
+<li>You want clearer debugging</li>
+<li>You’re designing APIs or reusable modules</li>
+</ul>
+
+<p>
+Avoid them when:
+</p>
+
+<ul>
+<li>The program is tiny</li>
+<li>A built-in exception is already perfectly descriptive</li>
+</ul>
+
+<div class="callout">
+<div style="font-weight:700;">Design Rule</div>
+<div>
+Don’t invent new exceptions just to look advanced.
+Use them when they improve clarity.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>7. Mini Exercise</h2>
+
+<p>
+Create a custom exception called <code>WeakPasswordError</code>.
+</p>
+
+<p>
+Then:
+</p>
+
+<ul>
+<li>Raise it if a password has fewer than 8 characters</li>
+<li>Raise it if the password has no digits</li>
+<li>Catch it and print a meaningful message</li>
+</ul>
+
+<p>
+Focus on clarity and structure.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>8. Big Picture</h2>
+
+<p>
+Built-in exceptions help you manage Python-level errors.
+Custom exceptions help you manage system-level rules.
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Strategic Insight</div>
+<div>
+As systems scale, error clarity becomes more important than clever code.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>9. Next Step</h2>
+
+<p>
+Now you can:
+</p>
+
+<ul>
+<li>Understand errors</li>
+<li>Handle them</li>
+<li>Raise them</li>
+<li>Create your own</li>
+</ul>
+
+<p>
+Next, we move into practical debugging techniques — how to systematically track down and eliminate bugs.
+</p>
+
+</section>
+
+</article>

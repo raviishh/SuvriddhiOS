@@ -1,0 +1,275 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+  <h1>Intro to Databases with SQLite</h1>
+  <p class="lead">In this lesson, you will learn how to store data properly using a real database. By the end, you will build a small User Manager that saves information in SQLite.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why do we need databases?</h2>
+    <p>
+      So far, we stored data in memory (lists).
+      The problem:
+    </p>
+
+    <ul>
+      <li>Data disappears when the program stops</li>
+      <li>It becomes hard to manage large amounts of data</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple idea</div>
+      <div>A database is a safe storage system for your data.</div>
+    </div>
+
+    <p>
+      Real applications always use databases.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. What is SQLite?</h2>
+    <p>
+      SQLite is a small database built into Python.
+    </p>
+
+    <ul>
+      <li>No installation needed</li>
+      <li>Data stored in a single file</li>
+      <li>Very simple to use</li>
+    </ul>
+
+    <p>
+      We use the built-in module:
+      <span class="inline-code">sqlite3</span>
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Creating a database</h2>
+
+    <div class="code-block">
+<pre><code>import sqlite3
+
+# connect to database (creates file if it does not exist)
+conn = sqlite3.connect("users.db")
+
+# create a cursor (used to execute SQL)
+cursor = conn.cursor()
+
+print("Database created successfully!")
+
+conn.close()</code></pre>
+    </div>
+
+    <p>
+      A new file called <span class="inline-code">users.db</span> will appear.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Creating a table</h2>
+
+    <div class="code-block">
+<pre><code>import sqlite3
+
+conn = sqlite3.connect("users.db")
+cursor = conn.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER
+)
+""")
+
+conn.commit()
+conn.close()
+
+print("Table created!")</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li>A table stores data in rows and columns</li>
+        <li><span class="inline-code">PRIMARY KEY</span> gives each row a unique ID</li>
+      </ul>
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Inserting data (INSERT)</h2>
+
+    <div class="code-block">
+<pre><code>import sqlite3
+
+conn = sqlite3.connect("users.db")
+cursor = conn.cursor()
+
+cursor.execute(
+    "INSERT INTO users (name, age) VALUES (?, ?)",
+    ("Alice", 16)
+)
+
+conn.commit()
+conn.close()
+
+print("User added!")</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>Use <span class="inline-code">?</span> placeholders to prevent security problems.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Reading data (SELECT)</h2>
+
+    <div class="code-block">
+<pre><code>import sqlite3
+
+conn = sqlite3.connect("users.db")
+cursor = conn.cursor()
+
+cursor.execute("SELECT * FROM users")
+
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+
+conn.close()</code></pre>
+    </div>
+
+    <p>
+      Output example:
+    </p>
+
+    <div class="output">
+(1, 'Alice', 16)
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Updating and deleting data</h2>
+
+    <h3>Update</h3>
+
+    <div class="code-block">
+<pre><code>cursor.execute(
+    "UPDATE users SET age = ? WHERE name = ?",
+    (17, "Alice")
+)</code></pre>
+    </div>
+
+    <h3>Delete</h3>
+
+    <div class="code-block">
+<pre><code>cursor.execute(
+    "DELETE FROM users WHERE name = ?",
+    ("Alice",)
+)</code></pre>
+    </div>
+
+    <p>
+      Always call:
+    </p>
+
+    <div class="code-block">
+<pre><code>conn.commit()</code></pre>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Putting it together — User Manager</h2>
+
+    <div class="code-block">
+<pre><code>import sqlite3
+
+conn = sqlite3.connect("users.db")
+cursor = conn.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER
+)
+""")
+
+name = input("Enter name: ")
+age = int(input("Enter age: "))
+
+cursor.execute(
+    "INSERT INTO users (name, age) VALUES (?, ?)",
+    (name, age)
+)
+
+conn.commit()
+
+cursor.execute("SELECT * FROM users")
+rows = cursor.fetchall()
+
+print("\nAll users:")
+for row in rows:
+    print(row)
+
+conn.close()</code></pre>
+    </div>
+
+    <p>
+      Now your data is saved permanently.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>9. Small exercises</h2>
+    <ul>
+      <li>Add an email column to the table.</li>
+      <li>Write a function to search users by name.</li>
+      <li>Delete a user by ID.</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Reminder</div>
+      <div>Databases are the backbone of real applications.  
+      Now your programs can remember things even after they stop.</div>
+    </div>
+
+  </section>
+
+</article>

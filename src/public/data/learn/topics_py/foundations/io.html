@@ -1,0 +1,213 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Input & Output in Python</h1>
+  <p class="lead">A clear and friendly guide to how Python talks to the outside world — taking input from users and showing output on the screen. Think of this as teaching your program how to listen and speak.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is Input and Output?</h2>
+    <p>
+      Programs are not very useful if they only think silently. They need to communicate.
+      <strong>Input</strong> is information the program receives. <strong>Output</strong> is information the program sends out.
+    </p>
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>Imagine Python is a helpful assistant. Input is you giving instructions. Output is the assistant replying with results.</div>
+    </div>
+    <p>
+      In Python, the most basic tools for this are:
+      <ul>
+        <li><span class="inline-code">print()</span> — for output</li>
+        <li><span class="inline-code">input()</span> — for input</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Output — using print()</h2>
+    <p>
+      The <span class="inline-code">print()</span> function displays information on the screen.
+    </p>
+
+    <div class="code-block" aria-hidden="true">
+<pre><code>print("Hello, World!")
+print(5)
+print("The answer is", 42)</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li>Text goes inside quotes.</li>
+        <li>Numbers don’t need quotes.</li>
+        <li>You can print multiple things separated by commas.</li>
+      </ul>
+    </p>
+
+    <div class="steps">
+      <div class="step"><strong>Try it:</strong> Run this in a Python file or interactive shell.</div>
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">
+Hello, World!
+5
+The answer is 42
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Input — using input()</h2>
+    <p>
+      The <span class="inline-code">input()</span> function waits for the user to type something and press Enter.
+    </p>
+
+    <div class="code-block" aria-hidden="true">
+<pre><code>name = input("Enter your name: ")
+print("Hello,", name)</code></pre>
+    </div>
+
+    <p>
+      How it works:
+      <ul>
+        <li>The text inside <span class="inline-code">input()</span> is a prompt shown to the user.</li>
+        <li>Whatever the user types is stored in a variable.</li>
+        <li><span class="inline-code">input()</span> always returns a string.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Note</div>
+      <div>Even if the user types a number, Python stores it as text unless you convert it.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Converting Input — strings to numbers</h2>
+    <p>
+      Since <span class="inline-code">input()</span> gives you text, you must convert it if you want numbers.
+    </p>
+
+    <div class="code-block">
+<pre><code>age = input("Enter your age: ")
+age = int(age)
+
+print("Next year you will be", age + 1)</code></pre>
+    </div>
+
+    <p>
+      Cleaner version:
+    </p>
+
+    <div class="code-block">
+<pre><code>age = int(input("Enter your age: "))
+print("Next year you will be", age + 1)</code></pre>
+    </div>
+
+    <p>
+      Common conversions:
+      <ul>
+        <li><span class="inline-code">int()</span> → whole numbers</li>
+        <li><span class="inline-code">float()</span> → decimals</li>
+        <li><span class="inline-code">str()</span> → convert to text</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Formatting Output — making it neat</h2>
+    <p>
+      Sometimes you want cleaner, more controlled output. Python’s f-strings help with that.
+    </p>
+
+    <div class="code-block">
+<pre><code>name = "Aisha"
+score = 95
+
+print(f"{name} scored {score} marks.")</code></pre>
+    </div>
+
+    <p>
+      Why use f-strings?
+      <ul>
+        <li>They’re readable.</li>
+        <li>You can insert variables directly inside curly braces <span class="inline-code">{ }</span>.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Tip</div>
+      <div>Always prefer f-strings over older formatting methods. They are cleaner and modern.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Simple Practice Program</h2>
+    <p>
+      Let’s combine input and output into a tiny interactive program.
+    </p>
+
+    <div class="code-block">
+<pre><code>num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+sum_result = num1 + num2
+
+print(f"The sum is {sum_result}")</code></pre>
+    </div>
+
+    <p>
+      This program:
+      <ul>
+        <li>Takes two numbers as input</li>
+        <li>Converts them to floats</li>
+        <li>Prints their sum</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Next steps — beyond basic I/O</h2>
+    <p>
+      You now know how to:
+      <ul>
+        <li>Display output with <span class="inline-code">print()</span></li>
+        <li>Take input using <span class="inline-code">input()</span></li>
+        <li>Convert data types</li>
+        <li>Format clean output</li>
+      </ul>
+    </p>
+
+    <p>
+      Next, you can explore:
+      <ul>
+        <li>File input and output (reading/writing files)</li>
+        <li>Handling invalid user input with error handling</li>
+        <li>Building interactive command-line tools</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>Good programs don’t just calculate — they communicate clearly. Make your input prompts helpful and your output readable.</div>
+    </div>
+  </section>
+
+</article>
