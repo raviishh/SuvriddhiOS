@@ -1,63 +1,77 @@
-<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
-  
-  <h1>Sets in Python</h1>
-  <p class="lead">
-    Sets are unordered collections of unique elements.
-    They are optimized for membership testing, deduplication, and mathematical set operations.
-  </p>
-
-  <!-- Chapter 1 -->
-  <section class="chapter">
-    <h2>1. What Is a Set?</h2>
-    <p>
-      A set is a collection of distinct values enclosed in curly braces.
-      Duplicate values are automatically removed.
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Sets in Python</h1>
+    <p class="lead">
+        Sets are unordered collections of unique elements. They are optimized
+        for membership testing, deduplication, and mathematical set operations.
     </p>
 
-    <div class="code-block">
-<pre><code>numbers = {1, 2, 3, 3}
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What Is a Set?</h2>
+        <p>
+            A set is a collection of distinct values enclosed in curly braces.
+            Duplicate values are automatically removed.
+        </p>
+
+        <div class="code-block">
+            <pre><code>numbers = {1, 2, 3, 3}
 print(numbers)   # {1, 2, 3}</code></pre>
-    </div>
+        </div>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Key Properties</div>
-      <div>
-        • Unordered<br>
-        • Mutable<br>
-        • No duplicate elements<br>
-        • Fast membership testing
-      </div>
-    </div>
-  </section>
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Key Properties
+            </div>
+            <div>
+                • Unordered<br />
+                • Mutable<br />
+                • No duplicate elements<br />
+                • Fast membership testing
+            </div>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 2 -->
-  <section class="chapter">
-    <h2>2. Creating Sets</h2>
-    <p>
-      Use curly braces or the <code>set()</code> constructor.
-    </p>
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Creating Sets</h2>
+        <p>Use curly braces or the <code>set()</code> constructor.</p>
 
-    <div class="code-block">
-<pre><code>a = {1, 2, 3}
+        <div class="code-block">
+            <pre><code>a = {1, 2, 3}
 b = set([4, 5, 6])
 empty = set()   # Not {}</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Note: <code>{}</code> creates an empty dictionary, not a set.
-    </p>
-  </section>
+        <p>Note: <code>{}</code> creates an empty dictionary, not a set.</p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 3 -->
-  <section class="chapter">
-    <h2>3. Adding and Removing Elements</h2>
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Adding and Removing Elements</h2>
 
-    <div class="code-block">
-<pre><code>fruits = {"apple", "banana"}
+        <div class="code-block">
+            <pre><code>fruits = {"apple", "banana"}
 
 fruits.add("cherry")
 fruits.remove("banana")
@@ -65,136 +79,134 @@ fruits.discard("mango")   # No error if not found
 fruits.pop()              # Removes arbitrary element
 
 print(fruits)</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Since sets are unordered, <code>pop()</code> removes a random element.
-    </p>
-  </section>
+        <p>
+            Since sets are unordered, <code>pop()</code> removes a random
+            element.
+        </p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 4 -->
-  <section class="chapter">
-    <h2>4. Set Operations</h2>
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Set Operations</h2>
 
-    <p>
-      Sets support mathematical operations.
-    </p>
+        <p>Sets support mathematical operations.</p>
 
-    <div class="code-block">
-<pre><code>a = {1, 2, 3}
+        <div class="code-block">
+            <pre><code>a = {1, 2, 3}
 b = {3, 4, 5}
 
 print(a | b)   # Union
 print(a & b)   # Intersection
 print(a - b)   # Difference
 print(a ^ b)   # Symmetric difference</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Equivalent methods:
-    </p>
+        <p>Equivalent methods:</p>
 
-    <div class="code-block">
-<pre><code>a.union(b)
+        <div class="code-block">
+            <pre><code>a.union(b)
 a.intersection(b)
 a.difference(b)
 a.symmetric_difference(b)</code></pre>
-    </div>
-  </section>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 5 -->
-  <section class="chapter">
-    <h2>5. Membership and Performance</h2>
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Membership and Performance</h2>
 
-    <p>
-      Sets use hash tables internally.
-      Membership testing is typically O(1).
-    </p>
+        <p>
+            Sets use hash tables internally. Membership testing is typically
+            O(1).
+        </p>
 
-    <div class="code-block">
-<pre><code>numbers = {1, 2, 3, 4}
+        <div class="code-block">
+            <pre><code>numbers = {1, 2, 3, 4}
 print(3 in numbers)   # True</code></pre>
-    </div>
+        </div>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Performance Insight</div>
-      <div>
-        Use sets instead of lists when frequent membership checks are required.
-      </div>
-    </div>
-  </section>
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Performance Insight
+            </div>
+            <div>
+                Use sets instead of lists when frequent membership checks are
+                required.
+            </div>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 6 -->
-  <section class="chapter">
-    <h2>6. Immutable Sets (frozenset)</h2>
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Immutable Sets (frozenset)</h2>
 
-    <p>
-      A <code>frozenset</code> is an immutable version of a set.
-    </p>
+        <p>A <code>frozenset</code> is an immutable version of a set.</p>
 
-    <div class="code-block">
-<pre><code>fs = frozenset([1, 2, 3])
+        <div class="code-block">
+            <pre><code>fs = frozenset([1, 2, 3])
 # fs.add(4)  # AttributeError</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Useful when sets need to be dictionary keys.
-    </p>
-  </section>
+        <p>Useful when sets need to be dictionary keys.</p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 7 -->
-  <section class="chapter">
-    <h2>7. Common Mistakes</h2>
-    <ul>
-      <li>Expecting sets to preserve order</li>
-      <li>Using <code>{}</code> to create an empty set</li>
-      <li>Trying to add mutable objects (like lists)</li>
-      <li>Assuming <code>pop()</code> removes the “last” element</li>
-    </ul>
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Common Mistakes</h2>
+        <ul>
+            <li>Expecting sets to preserve order</li>
+            <li>Using <code>{}</code> to create an empty set</li>
+            <li>Trying to add mutable objects (like lists)</li>
+            <li>Assuming <code>pop()</code> removes the “last” element</li>
+        </ul>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
-      <div>
-        What is the result?
-        <span class="inline-code">
-        s = {1, 2, 2, 3}  
-        s.add(3)  
-        print(len(s))
-        </span>
-      </div>
-    </div>
-  </section>
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Quick Check
+            </div>
+            <div>
+                What is the result?
+                <span class="inline-code">
+                    s = {1, 2, 2, 3} s.add(3) print(len(s))
+                </span>
+            </div>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Conclusion -->
-  <section class="chapter">
-    <h2>8. Why Sets Matter</h2>
-    <p>
-      Sets provide efficient tools for uniqueness and mathematical comparisons.
-      They are critical in data cleaning, filtering, and optimization scenarios.
-    </p>
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>8. Why Sets Matter</h2>
+        <p>
+            Sets provide efficient tools for uniqueness and mathematical
+            comparisons. They are critical in data cleaning, filtering, and
+            optimization scenarios.
+        </p>
 
-    <p>
-      Mastery of sets enables better algorithm design,
-      particularly when working with large datasets.
-    </p>
+        <p>
+            Mastery of sets enables better algorithm design, particularly when
+            working with large datasets.
+        </p>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
-      <div>
-        Write a program that removes duplicates from user input
-        and compares two lists using set operations.
-      </div>
-    </div>
-  </section>
-
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Practice Strategy
+            </div>
+            <div>
+                Write a program that removes duplicates from user input and
+                compares two lists using set operations.
+            </div>
+        </div>
+    </section>
 </article>

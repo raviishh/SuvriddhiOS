@@ -1,138 +1,149 @@
-<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
-  
-  <h1>Choosing the Right Data Structure in Python</h1>
-  <p class="lead">
-    Selecting the appropriate data structure directly impacts performance,
-    readability, maintainability, and scalability.
-    The choice should be driven by access patterns, mutability requirements,
-    and algorithmic complexity.
-  </p>
-
-  <!-- Chapter 1 -->
-  <section class="chapter">
-    <h2>1. Start With the Problem</h2>
-    <p>
-      Before selecting a structure, ask:
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Choosing the Right Data Structure in Python</h1>
+    <p class="lead">
+        Selecting the appropriate data structure directly impacts performance,
+        readability, maintainability, and scalability. The choice should be
+        driven by access patterns, mutability requirements, and algorithmic
+        complexity.
     </p>
 
-    <ul>
-      <li>Do I need ordered data?</li>
-      <li>Do I need unique elements?</li>
-      <li>Do I need fast lookups by key?</li>
-      <li>Will the data change frequently?</li>
-      <li>Is indexing important?</li>
-    </ul>
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. Start With the Problem</h2>
+        <p>Before selecting a structure, ask:</p>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Decision Principle</div>
-      <div>
-        Choose based on operations you perform most often,
-        not on convenience.
-      </div>
-    </div>
-  </section>
+        <ul>
+            <li>Do I need ordered data?</li>
+            <li>Do I need unique elements?</li>
+            <li>Do I need fast lookups by key?</li>
+            <li>Will the data change frequently?</li>
+            <li>Is indexing important?</li>
+        </ul>
 
-  <hr />
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Decision Principle
+            </div>
+            <div>
+                Choose based on operations you perform most often, not on
+                convenience.
+            </div>
+        </div>
+    </section>
 
-  <!-- Chapter 2 -->
-  <section class="chapter">
-    <h2>2. When to Use a List</h2>
+    <hr />
 
-    <ul>
-      <li>Ordered collection</li>
-      <li>Frequent indexing by position</li>
-      <li>Allow duplicates</li>
-      <li>Frequent iteration</li>
-    </ul>
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. When to Use a List</h2>
 
-    <div class="code-block">
-<pre><code>tasks = ["code", "review", "deploy"]
+        <ul>
+            <li>Ordered collection</li>
+            <li>Frequent indexing by position</li>
+            <li>Allow duplicates</li>
+            <li>Frequent iteration</li>
+        </ul>
+
+        <div class="code-block">
+            <pre><code>tasks = ["code", "review", "deploy"]
 tasks.append("test")</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Avoid lists when fast membership checks dominate.
-    </p>
-  </section>
+        <p>Avoid lists when fast membership checks dominate.</p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 3 -->
-  <section class="chapter">
-    <h2>3. When to Use a Tuple</h2>
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. When to Use a Tuple</h2>
 
-    <ul>
-      <li>Fixed, immutable data</li>
-      <li>Representing coordinates or records</li>
-      <li>Dictionary keys</li>
-      <li>Returning multiple values</li>
-    </ul>
+        <ul>
+            <li>Fixed, immutable data</li>
+            <li>Representing coordinates or records</li>
+            <li>Dictionary keys</li>
+            <li>Returning multiple values</li>
+        </ul>
 
-    <div class="code-block">
-<pre><code>point = (10, 20)
+        <div class="code-block">
+            <pre><code>point = (10, 20)
 x, y = point</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Use tuples when structure should not change.
-    </p>
-  </section>
+        <p>Use tuples when structure should not change.</p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 4 -->
-  <section class="chapter">
-    <h2>4. When to Use a Set</h2>
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. When to Use a Set</h2>
 
-    <ul>
-      <li>Enforcing uniqueness</li>
-      <li>Fast membership testing (O(1))</li>
-      <li>Mathematical set operations</li>
-    </ul>
+        <ul>
+            <li>Enforcing uniqueness</li>
+            <li>Fast membership testing (O(1))</li>
+            <li>Mathematical set operations</li>
+        </ul>
 
-    <div class="code-block">
-<pre><code>unique_ids = {101, 102, 103}
+        <div class="code-block">
+            <pre><code>unique_ids = {101, 102, 103}
 if 102 in unique_ids:
     print("Exists")</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Avoid sets when order matters.
-    </p>
-  </section>
+        <p>Avoid sets when order matters.</p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 5 -->
-  <section class="chapter">
-    <h2>5. When to Use a Dictionary</h2>
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. When to Use a Dictionary</h2>
 
-    <ul>
-      <li>Mapping identifiers to values</li>
-      <li>Fast lookups by key</li>
-      <li>Structured data modeling</li>
-    </ul>
+        <ul>
+            <li>Mapping identifiers to values</li>
+            <li>Fast lookups by key</li>
+            <li>Structured data modeling</li>
+        </ul>
 
-    <div class="code-block">
-<pre><code>users = {
+        <div class="code-block">
+            <pre><code>users = {
     "alice": {"role": "admin"},
     "bob": {"role": "user"}
 }</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Dictionaries are ideal for configuration, JSON data, and indexing systems.
-    </p>
-  </section>
+        <p>
+            Dictionaries are ideal for configuration, JSON data, and indexing
+            systems.
+        </p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 6 -->
-  <section class="chapter">
-    <h2>6. Complexity Comparison</h2>
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Complexity Comparison</h2>
 
-    <div class="code-block">
-<pre><code># Average time complexity
+        <div class="code-block">
+            <pre><code># Average time complexity
 
 List:
   Access by index: O(1)
@@ -143,80 +154,85 @@ Set:
 
 Dictionary:
   Lookup by key: O(1)</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Performance considerations should guide large-scale system design.
-    </p>
-  </section>
+        <p>
+            Performance considerations should guide large-scale system design.
+        </p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 7 -->
-  <section class="chapter">
-    <h2>7. Design Patterns and Trade-Offs</h2>
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Design Patterns and Trade-Offs</h2>
 
-    <ul>
-      <li>List of dictionaries → tabular data</li>
-      <li>Dictionary of lists → grouped data</li>
-      <li>Set for validation → fast existence checks</li>
-      <li>Tuple for immutable records → structural safety</li>
-    </ul>
+        <ul>
+            <li>List of dictionaries → tabular data</li>
+            <li>Dictionary of lists → grouped data</li>
+            <li>Set for validation → fast existence checks</li>
+            <li>Tuple for immutable records → structural safety</li>
+        </ul>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Architectural Insight</div>
-      <div>
-        Data modeling decisions affect downstream maintainability.
-      </div>
-    </div>
-  </section>
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Architectural Insight
+            </div>
+            <div>
+                Data modeling decisions affect downstream maintainability.
+            </div>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 8 -->
-  <section class="chapter">
-    <h2>8. Common Mistakes</h2>
-    <ul>
-      <li>Using lists when dictionaries are needed</li>
-      <li>Using sets when order matters</li>
-      <li>Over-nesting instead of creating classes</li>
-      <li>Ignoring algorithmic complexity</li>
-    </ul>
+    <!-- Chapter 8 -->
+    <section class="chapter">
+        <h2>8. Common Mistakes</h2>
+        <ul>
+            <li>Using lists when dictionaries are needed</li>
+            <li>Using sets when order matters</li>
+            <li>Over-nesting instead of creating classes</li>
+            <li>Ignoring algorithmic complexity</li>
+        </ul>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
-      <div>
-        Which structure is most appropriate?
-        <span class="inline-code">
-        You need to store usernames and quickly retrieve user details.
-        </span>
-      </div>
-    </div>
-  </section>
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Quick Check
+            </div>
+            <div>
+                Which structure is most appropriate?
+                <span class="inline-code">
+                    You need to store usernames and quickly retrieve user
+                    details.
+                </span>
+            </div>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Conclusion -->
-  <section class="chapter">
-    <h2>9. Why Data Structure Choice Matters</h2>
-    <p>
-      Data structures define the efficiency and clarity of your program.
-      Poor selection leads to performance bottlenecks and fragile systems.
-    </p>
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>9. Why Data Structure Choice Matters</h2>
+        <p>
+            Data structures define the efficiency and clarity of your program.
+            Poor selection leads to performance bottlenecks and fragile systems.
+        </p>
 
-    <p>
-      Strong engineers think in terms of access patterns,
-      mutation frequency, and scalability.
-    </p>
+        <p>
+            Strong engineers think in terms of access patterns, mutation
+            frequency, and scalability.
+        </p>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
-      <div>
-        Review an existing project.
-        Identify at least two places where a better data structure
-        would improve performance or clarity.
-      </div>
-    </div>
-  </section>
-
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Practice Strategy
+            </div>
+            <div>
+                Review an existing project. Identify at least two places where a
+                better data structure would improve performance or clarity.
+            </div>
+        </div>
+    </section>
 </article>

@@ -1,70 +1,87 @@
-<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
-  
-  <h1>Dictionaries in Python</h1>
-  <p class="lead">
-    Dictionaries are unordered (in concept), key–value data structures optimized for fast lookups.
-    They map unique keys to corresponding values and are implemented using hash tables.
-  </p>
-
-  <!-- Chapter 1 -->
-  <section class="chapter">
-    <h2>1. What Is a Dictionary?</h2>
-    <p>
-      A dictionary stores data as key–value pairs inside curly braces.
-      Each key must be unique and hashable.
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Dictionaries in Python</h1>
+    <p class="lead">
+        Dictionaries are unordered (in concept), key–value data structures
+        optimized for fast lookups. They map unique keys to corresponding values
+        and are implemented using hash tables.
     </p>
 
-    <div class="code-block">
-<pre><code>student = {
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What Is a Dictionary?</h2>
+        <p>
+            A dictionary stores data as key–value pairs inside curly braces.
+            Each key must be unique and hashable.
+        </p>
+
+        <div class="code-block">
+            <pre><code>student = {
     "name": "Alice",
     "age": 16,
     "grade": "A"
 }</code></pre>
-    </div>
+        </div>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Key Properties</div>
-      <div>
-        • Key–value structure<br>
-        • Keys must be immutable (hashable)<br>
-        • Values can be any type<br>
-        • Fast average-case lookup (O(1))
-      </div>
-    </div>
-  </section>
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Key Properties
+            </div>
+            <div>
+                • Key–value structure<br />
+                • Keys must be immutable (hashable)<br />
+                • Values can be any type<br />
+                • Fast average-case lookup (O(1))
+            </div>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 2 -->
-  <section class="chapter">
-    <h2>2. Creating Dictionaries</h2>
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Creating Dictionaries</h2>
 
-    <div class="code-block">
-<pre><code>a = {"x": 1, "y": 2}
+        <div class="code-block">
+            <pre><code>a = {"x": 1, "y": 2}
 
 b = dict(x=10, y=20)
 
 pairs = [("a", 1), ("b", 2)]
 c = dict(pairs)</code></pre>
-    </div>
+        </div>
 
-    <p>
-      An empty dictionary:
-    </p>
+        <p>An empty dictionary:</p>
 
-    <div class="code-block">
-<pre><code>empty = {}</code></pre>
-    </div>
-  </section>
+        <div class="code-block">
+            <pre><code>empty = {}</code></pre>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 3 -->
-  <section class="chapter">
-    <h2>3. Accessing and Modifying Values</h2>
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Accessing and Modifying Values</h2>
 
-    <div class="code-block">
-<pre><code>student = {"name": "Alice", "age": 16}
+        <div class="code-block">
+            <pre><code>student = {"name": "Alice", "age": 16}
 
 print(student["name"])
 
@@ -72,26 +89,24 @@ student["age"] = 17
 student["city"] = "Bangalore"
 
 print(student)</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Safer access using <code>get()</code>:
-    </p>
+        <p>Safer access using <code>get()</code>:</p>
 
-    <div class="code-block">
-<pre><code>print(student.get("grade"))          # None
+        <div class="code-block">
+            <pre><code>print(student.get("grade"))          # None
 print(student.get("grade", "N/A"))   # Default value</code></pre>
-    </div>
-  </section>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 4 -->
-  <section class="chapter">
-    <h2>4. Dictionary Methods</h2>
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Dictionary Methods</h2>
 
-    <div class="code-block">
-<pre><code>d = {"a": 1, "b": 2}
+        <div class="code-block">
+            <pre><code>d = {"a": 1, "b": 2}
 
 print(d.keys())
 print(d.values())
@@ -99,131 +114,127 @@ print(d.items())
 
 d.pop("a")
 d.update({"c": 3})</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Important methods:
-    </p>
+        <p>Important methods:</p>
 
-    <ul>
-      <li><code>keys()</code> – View of keys</li>
-      <li><code>values()</code> – View of values</li>
-      <li><code>items()</code> – View of key–value pairs</li>
-      <li><code>pop(key)</code> – Remove key and return value</li>
-      <li><code>update(dict)</code> – Merge dictionaries</li>
-      <li><code>clear()</code> – Remove all entries</li>
-    </ul>
-  </section>
+        <ul>
+            <li><code>keys()</code> – View of keys</li>
+            <li><code>values()</code> – View of values</li>
+            <li><code>items()</code> – View of key–value pairs</li>
+            <li><code>pop(key)</code> – Remove key and return value</li>
+            <li><code>update(dict)</code> – Merge dictionaries</li>
+            <li><code>clear()</code> – Remove all entries</li>
+        </ul>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 5 -->
-  <section class="chapter">
-    <h2>5. Iterating Over Dictionaries</h2>
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Iterating Over Dictionaries</h2>
 
-    <div class="code-block">
-<pre><code>d = {"a": 1, "b": 2}
+        <div class="code-block">
+            <pre><code>d = {"a": 1, "b": 2}
 
 for key in d:
     print(key, d[key])
 
 for key, value in d.items():
     print(key, value)</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Iteration order preserves insertion order (Python 3.7+).
-    </p>
-  </section>
+        <p>Iteration order preserves insertion order (Python 3.7+).</p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 6 -->
-  <section class="chapter">
-    <h2>6. Dictionary Performance and Design</h2>
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Dictionary Performance and Design</h2>
 
-    <p>
-      Dictionaries use hash tables internally.
-      Average-case lookup, insertion, and deletion are O(1).
-    </p>
+        <p>
+            Dictionaries use hash tables internally. Average-case lookup,
+            insertion, and deletion are O(1).
+        </p>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Design Insight</div>
-      <div>
-        Use dictionaries when you need fast lookups by identifier,
-        not when order-based indexing is required.
-      </div>
-    </div>
-  </section>
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Design Insight
+            </div>
+            <div>
+                Use dictionaries when you need fast lookups by identifier, not
+                when order-based indexing is required.
+            </div>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 7 -->
-  <section class="chapter">
-    <h2>7. Nested Dictionaries</h2>
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Nested Dictionaries</h2>
 
-    <div class="code-block">
-<pre><code>students = {
+        <div class="code-block">
+            <pre><code>students = {
     "Alice": {"age": 16, "grade": "A"},
     "Bob": {"age": 17, "grade": "B"}
 }
 
 print(students["Alice"]["grade"])</code></pre>
-    </div>
+        </div>
 
-    <p>
-      Nested dictionaries model structured or hierarchical data.
-    </p>
-  </section>
+        <p>Nested dictionaries model structured or hierarchical data.</p>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Chapter 8 -->
-  <section class="chapter">
-    <h2>8. Common Mistakes</h2>
-    <ul>
-      <li>Using mutable types (like lists) as keys</li>
-      <li>Accessing non-existent keys without <code>get()</code></li>
-      <li>Confusing dictionaries with lists</li>
-      <li>Overusing nested dictionaries when classes would be clearer</li>
-    </ul>
+    <!-- Chapter 8 -->
+    <section class="chapter">
+        <h2>8. Common Mistakes</h2>
+        <ul>
+            <li>Using mutable types (like lists) as keys</li>
+            <li>Accessing non-existent keys without <code>get()</code></li>
+            <li>Confusing dictionaries with lists</li>
+            <li>Overusing nested dictionaries when classes would be clearer</li>
+        </ul>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
-      <div>
-        What happens here?
-        <span class="inline-code">
-        d = {"a": 1}  
-        d["b"] = 2  
-        del d["a"]  
-        print(d)
-        </span>
-      </div>
-    </div>
-  </section>
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Quick Check
+            </div>
+            <div>
+                What happens here?
+                <span class="inline-code">
+                    d = {"a": 1} d["b"] = 2 del d["a"] print(d)
+                </span>
+            </div>
+        </div>
+    </section>
 
-  <hr />
+    <hr />
 
-  <!-- Conclusion -->
-  <section class="chapter">
-    <h2>9. Why Dictionaries Matter</h2>
-    <p>
-      Dictionaries are foundational for building scalable systems.
-      They power configuration systems, JSON structures, caching, and APIs.
-    </p>
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>9. Why Dictionaries Matter</h2>
+        <p>
+            Dictionaries are foundational for building scalable systems. They
+            power configuration systems, JSON structures, caching, and APIs.
+        </p>
 
-    <p>
-      Mastering dictionaries enables efficient data modeling
-      and high-performance lookup operations.
-    </p>
+        <p>
+            Mastering dictionaries enables efficient data modeling and
+            high-performance lookup operations.
+        </p>
 
-    <div class="callout">
-      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
-      <div>
-        Build a small key–value database such as a contact manager
-        or inventory tracker using dictionaries.
-      </div>
-    </div>
-  </section>
-
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Practice Strategy
+            </div>
+            <div>
+                Build a small key–value database such as a contact manager or
+                inventory tracker using dictionaries.
+            </div>
+        </div>
+    </section>
 </article>
