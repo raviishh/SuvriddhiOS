@@ -1,0 +1,226 @@
+    <article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+    
+    <h1>Time Complexity Intuition in Python</h1>
+    <p class="lead">
+        Time complexity measures how runtime grows as input size increases.
+        It is not about exact time in seconds — it is about growth patterns.
+        Understanding this is essential for writing scalable code.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. Why Time Complexity Matters</h2>
+        <p>
+        Code that works for 10 items may fail for 10 million.
+        Time complexity predicts how algorithms behave at scale.
+        </p>
+
+        <div class="callout">
+        <div style="font-weight:700; color:var(--color-primary);">Core Idea</div>
+        <div>
+            Focus on how performance grows — not on small input speed.
+        </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Big-O Notation</h2>
+        <p>
+        Big-O describes the upper bound growth rate of an algorithm.
+        </p>
+
+        <ul>
+        <li><strong>O(1)</strong> – Constant time</li>
+        <li><strong>O(n)</strong> – Linear time</li>
+        <li><strong>O(n²)</strong> – Quadratic time</li>
+        <li><strong>O(log n)</strong> – Logarithmic time</li>
+        </ul>
+
+        <div class="code-block">
+    <pre><code># O(1)
+    x = numbers[0]
+
+    # O(n)
+    for num in numbers:
+        print(num)</code></pre>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Constant Time — O(1)</h2>
+        <p>
+        Operations that do not depend on input size.
+        </p>
+
+        <div class="code-block">
+    <pre><code>value = my_list[3]
+    exists = key in my_dict</code></pre>
+        </div>
+
+        <p>
+        Accessing a list index or dictionary key is constant time (average case).
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Linear Time — O(n)</h2>
+
+        <p>
+        Runtime grows proportionally with input size.
+        </p>
+
+        <div class="code-block">
+    <pre><code>for item in items:
+        process(item)</code></pre>
+        </div>
+
+        <p>
+        Searching for a value in a list is O(n).
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Quadratic Time — O(n²)</h2>
+
+        <p>
+        Nested loops over the same data.
+        </p>
+
+        <div class="code-block">
+    <pre><code>for i in items:
+        for j in items:
+            compare(i, j)</code></pre>
+        </div>
+
+        <p>
+        Performance degrades rapidly as n increases.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Logarithmic Time — O(log n)</h2>
+
+        <p>
+        Algorithms that repeatedly divide the problem size.
+        </p>
+
+        <div class="code-block">
+    <pre><code># Binary search pattern
+    while left <= right:
+        mid = (left + right) // 2
+        if condition:
+            right = mid - 1
+        else:
+            left = mid + 1</code></pre>
+        </div>
+
+        <p>
+        Efficient for large datasets.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Ignoring Constants and Lower Terms</h2>
+
+        <p>
+        In Big-O, constants and smaller terms are ignored.
+        </p>
+
+        <div class="code-block">
+    <pre><code>O(3n + 5) → O(n)
+    O(n² + n) → O(n²)</code></pre>
+        </div>
+
+        <div class="callout">
+        <div style="font-weight:700; color:var(--color-primary);">Key Principle</div>
+        <div>
+            Growth dominates constants.
+        </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 8 -->
+    <section class="chapter">
+        <h2>8. Data Structures and Complexity</h2>
+
+        <ul>
+        <li>List index access → O(1)</li>
+        <li>List search → O(n)</li>
+        <li>Set membership → O(1)</li>
+        <li>Dictionary lookup → O(1)</li>
+        <li>Sorting → O(n log n)</li>
+        </ul>
+
+        <p>
+        Choosing the right data structure often improves complexity.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 9 -->
+    <section class="chapter">
+        <h2>9. Common Misconceptions</h2>
+        <ul>
+        <li>Fast on small inputs means efficient</li>
+        <li>More compact code means faster code</li>
+        <li>Big-O measures exact runtime</li>
+        <li>O(1) means instant</li>
+        </ul>
+
+        <div class="callout">
+        <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+        <div>
+            What is the complexity?
+            <span class="inline-code">
+            for i in range(n):  
+                print(i)
+            </span>
+        </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>10. Why Time Complexity Intuition Matters</h2>
+        <p>
+        Engineers who understand growth patterns build scalable systems.
+        Those who ignore complexity build bottlenecks.
+        </p>
+
+        <p>
+        Always think: How does this scale?
+        </p>
+
+        <div class="callout">
+        <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+        <div>
+            Take a simple algorithm and analyze its complexity.
+            Then refactor it to improve performance.
+        </div>
+        </div>
+    </section>
+
+    </article>

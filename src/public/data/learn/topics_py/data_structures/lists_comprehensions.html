@@ -1,0 +1,207 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>List Comprehensions in Python</h1>
+    <p class="lead">
+        List comprehensions provide a concise, expressive way to create lists.
+        They combine iteration, optional filtering, and transformation into a
+        single readable construct.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What Is a List Comprehension?</h2>
+        <p>
+            A list comprehension is a compact syntax for generating a new list
+            from an iterable.
+        </p>
+
+        <div class="code-block">
+            <pre><code>squares = [x * x for x in range(5)]
+print(squares)</code></pre>
+        </div>
+
+        <p>Equivalent traditional loop:</p>
+
+        <div class="code-block">
+            <pre><code>squares = []
+for x in range(5):
+    squares.append(x * x)</code></pre>
+        </div>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Core Structure
+            </div>
+            <div>[expression for item in iterable]</div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Adding Conditions</h2>
+        <p>You can filter elements using an <code>if</code> clause.</p>
+
+        <div class="code-block">
+            <pre><code>evens = [x for x in range(10) if x % 2 == 0]
+print(evens)</code></pre>
+        </div>
+
+        <p>This keeps only values satisfying the condition.</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Extended Structure
+            </div>
+            <div>[expression for item in iterable if condition]</div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Conditional Expressions Inside</h2>
+        <p>You can also use an inline conditional expression.</p>
+
+        <div class="code-block">
+            <pre><code>labels = ["even" if x % 2 == 0 else "odd" for x in range(5)]
+print(labels)</code></pre>
+        </div>
+
+        <p>This transforms each element differently based on a condition.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Working with Strings and Other Iterables</h2>
+
+        <div class="code-block">
+            <pre><code>letters = [char.upper() for char in "python"]
+print(letters)</code></pre>
+        </div>
+
+        <p>Any iterable (lists, tuples, strings, ranges) can be used.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Nested List Comprehensions</h2>
+
+        <p>You can use multiple <code>for</code> clauses.</p>
+
+        <div class="code-block">
+            <pre><code>pairs = [(x, y) for x in range(3) for y in range(2)]
+print(pairs)</code></pre>
+        </div>
+
+        <p>Example: Flattening a matrix.</p>
+
+        <div class="code-block">
+            <pre><code>matrix = [[1, 2], [3, 4], [5, 6]]
+flat = [num for row in matrix for num in row]
+print(flat)</code></pre>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Readability Guidelines</h2>
+        <p>List comprehensions improve clarity when:</p>
+
+        <ul>
+            <li>The transformation is simple</li>
+            <li>The logic fits on one line</li>
+            <li>There are at most one or two conditions</li>
+        </ul>
+
+        <p>Avoid deeply nested or overly complex expressions.</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Best Practice
+            </div>
+            <div>
+                If the comprehension becomes hard to read, rewrite it as a
+                standard loop.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Common Mistakes</h2>
+        <ul>
+            <li>Overcomplicating expressions</li>
+            <li>Misplacing the <code>if</code> clause</li>
+            <li>
+                Confusing filtering <code>if</code> with inline conditional
+                expressions
+            </li>
+            <li>Using comprehensions where clarity suffers</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Quick Check
+            </div>
+            <div>
+                What does this produce?
+                <span class="inline-code">
+                    result = [x for x in range(6) if x % 3]
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>8. Why List Comprehensions Matter</h2>
+        <p>
+            List comprehensions combine iteration and transformation into a
+            single, expressive statement.
+        </p>
+
+        <p>
+            They encourage declarative thinking — focusing on what you want
+            rather than how to build it step-by-step.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Practice Strategy
+            </div>
+            <div>
+                Rewrite several existing loops in your codebase as list
+                comprehensions. Compare readability and performance.
+            </div>
+        </div>
+    </section>
+</article>

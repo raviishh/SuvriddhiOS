@@ -1,0 +1,307 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+<h1>try / except / else / finally</h1>
+<p class="lead">Errors will happen. Professional code doesn’t hope they won’t — it plans for them. Python gives us structured tools to respond intelligently instead of crashing.</p>
+
+<hr />
+
+<section class="chapter">
+<h2>1. Why We Need Error Handling</h2>
+
+<p>
+By default, when a runtime error occurs, Python stops the program immediately.
+That’s fine for small scripts — but unacceptable in real systems.
+</p>
+
+<p>
+Imagine:
+<ul>
+<li>A banking app crashing because someone typed a letter instead of a number.</li>
+<li>A game shutting down because a file wasn’t found.</li>
+<li>A robot freezing because of a sensor glitch.</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Core Idea</div>
+<div>
+Instead of letting the program crash, we intercept the error and decide what to do.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>2. The Basic Structure: try and except</h2>
+
+<p>
+The <code>try</code> block contains code that might fail.  
+The <code>except</code> block runs if an error occurs.
+</p>
+
+<div class="code-block">
+<pre><code>try:
+    number = int(input("Enter a number: "))
+    print(10 / number)
+except ZeroDivisionError:
+    print("You cannot divide by zero!")</code></pre>
+</div>
+
+<p>
+What happens here?
+<ul>
+<li>If the user enters 0 → Python raises <code>ZeroDivisionError</code>.</li>
+<li>The program does not crash.</li>
+<li>The <code>except</code> block handles it.</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Important Rule</div>
+<div>
+Always catch specific exceptions. Avoid using a bare <code>except:</code>.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>3. Catching Multiple Errors</h2>
+
+<p>
+Different failures require different responses.
+</p>
+
+<div class="code-block">
+<pre><code>try:
+    number = int(input("Enter a number: "))
+    result = 10 / number
+    print(result)
+
+except ValueError:
+    print("That was not a valid number.")
+
+except ZeroDivisionError:
+    print("You cannot divide by zero.")</code></pre>
+</div>
+
+<p>
+Notice:
+<ul>
+<li><code>ValueError</code> → invalid conversion from string to int</li>
+<li><code>ZeroDivisionError</code> → mathematical impossibility</li>
+</ul>
+</p>
+
+<p>
+Precise handling makes code predictable.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>4. The else Block — When Nothing Goes Wrong</h2>
+
+<p>
+The <code>else</code> block runs only if no exceptions occurred.
+</p>
+
+<div class="code-block">
+<pre><code>try:
+    number = int(input("Enter a number: "))
+    result = 10 / number
+
+except ValueError:
+    print("Invalid input.")
+
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+
+else:
+    print("Result:", result)</code></pre>
+</div>
+
+<p>
+Why use <code>else</code>?
+<ul>
+<li>Keeps error-handling separate from success logic</li>
+<li>Makes code cleaner</li>
+<li>Prevents accidental execution if something failed</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Design Insight</div>
+<div>
+Put only risky code inside <code>try</code>.  
+Put normal logic in <code>else</code>.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>5. The finally Block — Always Runs</h2>
+
+<p>
+The <code>finally</code> block executes no matter what — error or not.
+</p>
+
+<div class="code-block">
+<pre><code>try:
+    file = open("data.txt")
+    content = file.read()
+
+except FileNotFoundError:
+    print("File not found.")
+
+finally:
+    print("Execution finished.")</code></pre>
+</div>
+
+<p>
+Even if an error happens, <code>finally</code> runs.
+</p>
+
+<p>
+Common uses:
+<ul>
+<li>Closing files</li>
+<li>Releasing resources</li>
+<li>Cleaning up connections</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Professional Standard</div>
+<div>
+If your code opens something (file, connection, socket), it must close it.
+<code>finally</code> guarantees cleanup.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>6. The Full Structure</h2>
+
+<p>
+All together:
+</p>
+
+<div class="code-block">
+<pre><code>try:
+    # risky code
+    pass
+
+except SpecificError:
+    # handle known error
+    pass
+
+else:
+    # runs if no exception occurred
+    pass
+
+finally:
+    # always runs
+    pass</code></pre>
+</div>
+
+<p>
+You do not need all four every time.
+But understanding them makes you deliberate instead of reactive.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>7. What NOT to Do</h2>
+
+<p>
+This is dangerous:
+</p>
+
+<div class="code-block">
+<pre><code>try:
+    risky_operation()
+except:
+    pass</code></pre>
+</div>
+
+<p>
+Why?
+<ul>
+<li>It hides errors.</li>
+<li>It makes debugging harder.</li>
+<li>It can mask serious bugs.</li>
+</ul>
+</p>
+
+<p>
+Catching everything without handling it is not defensive programming.
+It is avoidance.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>8. Mini Exercise</h2>
+
+<p>
+Write a program that:
+</p>
+
+<ul>
+<li>Asks the user for two numbers</li>
+<li>Divides the first by the second</li>
+<li>Handles invalid input</li>
+<li>Handles division by zero</li>
+<li>Prints the result only if successful</li>
+<li>Always prints "Program ended."</li>
+</ul>
+
+<p>
+This forces you to use <code>try</code>, <code>except</code>, <code>else</code>, and <code>finally</code>.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>9. Next Step</h2>
+
+<p>
+Now you can handle errors that Python raises automatically.
+Next, we level up:
+</p>
+
+<p>
+You will learn how to <strong>raise your own exceptions</strong> and enforce rules inside your programs.
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Mindset Shift</div>
+<div>
+Beginner programmers react to errors.  
+Strong programmers anticipate them.
+</div>
+</div>
+
+</section>
+
+</article>

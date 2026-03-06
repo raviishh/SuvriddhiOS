@@ -1,0 +1,194 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Pandas Basics</h1>
+  <p class="lead">
+    A simple introduction to Pandas — the library used to work with tables and data in Python.
+    Think of Pandas as Excel inside Python.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is Pandas?</h2>
+    <p>
+      Pandas is a Python library used to work with structured data.
+      Structured data means data in rows and columns, like a table.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        If NumPy is a powerful calculator, Pandas is a smart spreadsheet.
+        It helps you organize, filter, and analyze data easily.
+      </div>
+    </div>
+
+    <p>
+      Pandas is used in data science, business analysis, and machine learning.
+      It is built on top of NumPy.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Installing and Importing Pandas</h2>
+    <p>
+      Install Pandas using pip:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install pandas</code></pre>
+    </div>
+
+    <p>
+      Import it in Python:
+    </p>
+
+    <div class="code-block">
+<pre><code>import pandas as pd</code></pre>
+    </div>
+
+    <p>
+      We use <span class="inline-code">pd</span> as a short name.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Creating a DataFrame</h2>
+    <p>
+      The main object in Pandas is called a <strong>DataFrame</strong>.
+      A DataFrame is a table.
+    </p>
+
+    <div class="code-block">
+<pre><code>import pandas as pd
+
+data = {
+    "Name": ["Ali", "Sara", "John"],
+    "Marks": [85, 90, 78]
+}
+
+df = pd.DataFrame(data)
+print(df)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+Name   Marks <br/>
+Ali      85 <br/>
+Sara     90 <br/>
+John     78
+    </div>
+
+    <p>
+      Each column has a name.
+      Each row is one record.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Reading a CSV File</h2>
+    <p>
+      CSV means "Comma Separated Values".
+      It is a simple file format for storing tables.
+    </p>
+
+    <div class="code-block">
+<pre><code>df = pd.read_csv("students.csv")
+print(df)</code></pre>
+    </div>
+
+    <p>
+      Pandas reads the file and turns it into a DataFrame.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Selecting Data</h2>
+    <p>
+      You can select one column:
+    </p>
+
+    <div class="code-block">
+<pre><code>print(df["Marks"])</code></pre>
+    </div>
+
+    <p>
+      You can filter rows using a condition:
+    </p>
+
+    <div class="code-block">
+<pre><code>high_marks = df[df["Marks"] > 80]
+print(high_marks)</code></pre>
+    </div>
+
+    <p>
+      This shows only students with marks greater than 80.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Basic Data Information</h2>
+    <p>
+      Pandas has useful functions to understand data.
+    </p>
+
+    <div class="code-block">
+<pre><code>print(df.head())       # First 5 rows
+print(df.describe())   # Summary statistics
+print(df["Marks"].mean())</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">describe()</span> gives average, minimum, maximum, and more.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Why Pandas Matters</h2>
+    <p>
+      Pandas is used in:
+      <ul>
+        <li>Data analysis</li>
+        <li>Business reports</li>
+        <li>Machine learning</li>
+        <li>Research projects</li>
+      </ul>
+    </p>
+
+    <p>
+      It makes working with large data simple and fast.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Small Exercises</div>
+      <div>
+        1. Create a DataFrame with 3 students and their ages. <br/>
+        2. Add a new column called "Grade". <br/>
+        3. Filter students with age greater than 18. <br/>
+        4. Find the average age.
+      </div>
+    </div>
+
+  </section>
+
+</article>

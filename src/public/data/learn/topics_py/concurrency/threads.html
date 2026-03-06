@@ -1,0 +1,239 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>What Are Threads?</h1>
+  <p class="lead">A simple guide to threads in Python — how to run more than one task at the same time. Think of this as learning how to give your computer more than one job without making it panic.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why threads exist</h2>
+    <p>
+      Normally, Python runs code one line at a time. It finishes one task before starting the next.
+    </p>
+
+    <p>
+      But what if one task is slow? For example, waiting 5 seconds for data from the internet. During those 5 seconds, the program does nothing.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>Imagine one worker in a shop. If the worker waits for a delivery, no other work gets done. But if there are two workers, one can wait while the other keeps working.</div>
+    </div>
+
+    <p>
+      Threads allow your program to do multiple tasks at the same time — especially useful when tasks spend time waiting.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. A blocking example</h2>
+    <p>
+      Let’s look at a simple program that waits.
+    </p>
+
+    <div class="code-block">
+<pre><code>import time
+
+def slow_task():
+    print("Starting slow task...")
+    time.sleep(3)
+    print("Slow task finished.")
+
+slow_task()
+print("Program finished.")</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+Starting slow task...
+(3 second pause)
+Slow task finished.
+Program finished.
+    </div>
+
+    <p>
+      Notice: the program waits 3 seconds before doing anything else.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Creating a thread</h2>
+    <p>
+      Python has a module called <span class="inline-code">threading</span>.
+      It lets us create a new thread.
+    </p>
+
+    <div class="code-block">
+<pre><code>import threading
+import time
+
+def slow_task():
+    print("Starting slow task...")
+    time.sleep(3)
+    print("Slow task finished.")
+
+thread = threading.Thread(target=slow_task)
+thread.start()
+
+print("Program finished.")</code></pre>
+    </div>
+
+    <p>
+      What changed?
+      <ul>
+        <li><span class="inline-code">threading.Thread</span> creates a new thread.</li>
+        <li><span class="inline-code">target=slow_task</span> tells it what function to run.</li>
+        <li><span class="inline-code">thread.start()</span> starts the thread.</li>
+      </ul>
+    </p>
+
+    <p>
+      Now the slow task runs in a separate thread.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>The main program does NOT wait automatically. It continues running.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Waiting for a thread — join()</h2>
+    <p>
+      Sometimes we want the main program to wait until the thread finishes.
+      For that, we use <span class="inline-code">join()</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>import threading
+import time
+
+def slow_task():
+    print("Starting slow task...")
+    time.sleep(3)
+    print("Slow task finished.")
+
+thread = threading.Thread(target=slow_task)
+thread.start()
+
+thread.join()
+
+print("Program finished.")</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">join()</span> tells the main program:
+      "Wait here until the thread is done."
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Two threads running together</h2>
+    <p>
+      Let’s run two tasks at the same time.
+    </p>
+
+    <div class="code-block">
+<pre><code>import threading
+import time
+
+def task_one():
+    for i in range(3):
+        print("Task One:", i)
+        time.sleep(1)
+
+def task_two():
+    for i in range(3):
+        print("Task Two:", i)
+        time.sleep(1)
+
+t1 = threading.Thread(target=task_one)
+t2 = threading.Thread(target=task_two)
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+
+print("All tasks finished.")</code></pre>
+    </div>
+
+    <p>
+      Output might look like:
+    </p>
+
+    <div class="output">
+Task One: 0
+Task Two: 0
+Task One: 1
+Task Two: 1
+Task One: 2
+Task Two: 2
+All tasks finished.
+    </div>
+
+    <p>
+      The order can change. Threads run independently.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. When should you use threads?</h2>
+    <p>
+      Threads are useful when your program:
+      <ul>
+        <li>Waits for internet responses</li>
+        <li>Reads or writes files</li>
+        <li>Waits for user input</li>
+      </ul>
+    </p>
+
+    <p>
+      These are called <strong>I/O tasks</strong> (input/output tasks).
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Remember</div>
+      <div>Threads are good when the program spends time waiting.</div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Small Exercise</h2>
+    <p>
+      Write a program that:
+      <ul>
+        <li>Creates two threads.</li>
+        <li>Each thread prints numbers from 1 to 5.</li>
+        <li>Each print waits 0.5 seconds.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>If your output looks mixed up, that is normal. Threads can switch at any time.</div>
+    </div>
+  </section>
+
+</article>

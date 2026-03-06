@@ -1,0 +1,265 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>The Logging Module</h1>
+    <p class="lead">
+        Print statements are temporary. Logging is systematic. In real
+        applications, you don’t just fix bugs — you monitor systems while they
+        run.
+    </p>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>1. Why Not Just Use print()?</h2>
+
+        <p>
+            Beginners debug using <code>print()</code>. That works — for small
+            scripts.
+        </p>
+
+        <p>But in larger programs:</p>
+
+        <ul>
+            <li>You need different levels of importance</li>
+            <li>You may want logs saved to a file</li>
+            <li>You might need timestamps</li>
+            <li>You may want to disable debug output later</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700">Core Idea</div>
+            <div>Logging gives structure, control, and scalability.</div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>2. Basic Logging Setup</h2>
+
+        <p>Python provides a built-in <code>logging</code> module.</p>
+
+        <div class="code-block">
+            <pre><code>import logging
+
+logging.basicConfig(level=logging.INFO)
+
+logging.info("Program started.")
+logging.warning("This is a warning.")
+logging.error("Something went wrong.")</code></pre>
+        </div>
+
+        <p>This replaces print statements with categorized messages.</p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>3. Logging Levels</h2>
+
+        <p>Logging messages have severity levels.</p>
+
+        <ul>
+            <li><code>DEBUG</code> → Detailed diagnostic info</li>
+            <li><code>INFO</code> → General program events</li>
+            <li><code>WARNING</code> → Something unexpected happened</li>
+            <li><code>ERROR</code> → A serious problem occurred</li>
+            <li><code>CRITICAL</code> → Program may not continue</li>
+        </ul>
+
+        <p>Example:</p>
+
+        <div class="code-block">
+            <pre><code>import logging
+
+logging.basicConfig(level=logging.DEBUG)
+
+logging.debug("Variable x = 10")
+logging.info("User logged in")
+logging.warning("Low disk space")
+logging.error("File not found")
+logging.critical("System failure")</code></pre>
+        </div>
+
+        <p>
+            If the logging level is set to <code>INFO</code>, DEBUG messages
+            won’t appear. This filtering is powerful.
+        </p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>4. Logging to a File</h2>
+
+        <p>In real applications, logs are saved for later analysis.</p>
+
+        <div class="code-block">
+            <pre><code>import logging
+
+logging.basicConfig(
+    filename="app.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+logging.info("Application started.")</code></pre>
+        </div>
+
+        <p>
+            Now logs are written to <code>app.log</code> instead of the console.
+        </p>
+
+        <p>The format string adds:</p>
+
+        <ul>
+            <li>Timestamp</li>
+            <li>Severity level</li>
+            <li>Message</li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>5. Logging Exceptions Properly</h2>
+
+        <p>Instead of printing errors manually, log them.</p>
+
+        <div class="code-block">
+            <pre><code>import logging
+
+logging.basicConfig(level=logging.ERROR)
+
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    logging.exception("Division by zero occurred")</code></pre>
+        </div>
+
+        <p>
+            <code>logging.exception()</code> automatically includes the
+            traceback. This is professional error reporting.
+        </p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>6. When to Log vs When to Raise</h2>
+
+        <p>This distinction matters.</p>
+
+        <ul>
+            <li>
+                <strong>Raise</strong> → Stop execution because a rule was
+                violated
+            </li>
+            <li>
+                <strong>Log</strong> → Record information about what happened
+            </li>
+        </ul>
+
+        <p>Sometimes you do both.</p>
+
+        <div class="code-block">
+            <pre><code>if balance &lt; 0:
+    logging.error("Negative balance detected.")
+    raise ValueError("Balance cannot be negative.")</code></pre>
+        </div>
+
+        <p>Logging documents the event. Raising enforces the rule.</p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>7. Avoid Common Logging Mistakes</h2>
+
+        <ul>
+            <li>Logging everything at ERROR level</li>
+            <li>Using print and logging inconsistently</li>
+            <li>Exposing sensitive data in logs</li>
+            <li>Ignoring logs entirely</li>
+        </ul>
+
+        <p>Logs are diagnostic tools. Use them thoughtfully.</p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>8. Mini Exercise</h2>
+
+        <p>Create a program that:</p>
+
+        <ul>
+            <li>Logs when the program starts</li>
+            <li>Asks the user for a number</li>
+            <li>Logs DEBUG information about the input</li>
+            <li>Handles division by zero</li>
+            <li>Logs errors properly</li>
+            <li>Saves logs to a file</li>
+        </ul>
+
+        <p>Think about which logging level each message belongs to.</p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>9. Big Picture</h2>
+
+        <p>
+            Error handling protects your program. Debugging fixes problems.
+            Logging monitors behavior.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700">Final Insight</div>
+            <div>
+                Mature systems don’t just work — they explain themselves when
+                something goes wrong.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>10. Section Complete</h2>
+
+        <p>You now understand:</p>
+
+        <ul>
+            <li>Syntax vs runtime errors</li>
+            <li>Structured exception handling</li>
+            <li>Raising exceptions</li>
+            <li>Custom exceptions</li>
+            <li>Debugging techniques</li>
+            <li>Logging systems</li>
+        </ul>
+
+        <p>That’s a full defensive programming toolkit.</p>
+
+        <p>
+            From here, you’re not just writing Python. You’re engineering
+            resilient software.
+        </p>
+    </section>
+</article>

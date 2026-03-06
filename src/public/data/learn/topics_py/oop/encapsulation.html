@@ -1,0 +1,220 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+<h1>Encapsulation</h1>
+
+<p class="lead">
+Encapsulation means protecting data inside a class.
+It controls how data is accessed and changed.
+</p>
+
+<!-- Chapter 1 -->
+<section class="chapter">
+<h2>1. Why Protect Data?</h2>
+
+<p>
+Sometimes we do not want users of a class to change data directly.
+</p>
+
+<p>
+For example, a bank account balance should not be changed freely.
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+<div>
+Think of a safe.
+You cannot touch the money inside directly.
+You must use the correct method to open it.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<!-- Chapter 2 -->
+<section class="chapter">
+<h2>2. Public vs Private Variables</h2>
+
+<p>
+In Python:
+<ul>
+<li>Normal variables are public.</li>
+<li>Variables starting with <span class="inline-code">_</span> are “protected” (by convention).</li>
+<li>Variables starting with <span class="inline-code">__</span> are private (name-mangled).</li>
+</ul>
+</p>
+
+<p>
+Let us see a normal class first.
+</p>
+
+<div class="code-block">
+<pre><code>class BankAccount:
+    def __init__(self, balance):
+        self.balance = balance
+
+account = BankAccount(1000)
+account.balance = -500   # This should not be allowed
+print(account.balance)</code></pre>
+</div>
+
+<p>
+Here, we changed the balance to a negative number.
+This is unsafe.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 3 -->
+<section class="chapter">
+<h2>3. Making a Variable Private</h2>
+
+<p>
+We can use double underscore <span class="inline-code">__</span> to make a variable private.
+</p>
+
+<div class="code-block">
+<pre><code>class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance
+
+account = BankAccount(1000)
+print(account.__balance)</code></pre>
+</div>
+
+<p>
+This will cause an error.
+Python hides the variable.
+</p>
+
+<p>
+The variable still exists, but it cannot be accessed directly.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 4 -->
+<section class="chapter">
+<h2>4. Using Methods to Control Access</h2>
+
+<p>
+Instead of direct access, we use methods.
+</p>
+
+<div class="code-block">
+<pre><code>class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount(1000)
+account.deposit(500)
+
+print(account.get_balance())</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">__balance</span> is private.</li>
+<li><span class="inline-code">deposit()</span> safely changes the balance.</li>
+<li><span class="inline-code">get_balance()</span> allows reading the balance.</li>
+</ul>
+</p>
+
+<p>
+Now the data is protected.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 5 -->
+<section class="chapter">
+<h2>5. Adding Safety Rules</h2>
+
+<p>
+We can add rules inside methods.
+</p>
+
+<div class="code-block">
+<pre><code>def withdraw(self, amount):
+    if 0 < amount <= self.__balance:
+        self.__balance -= amount
+    else:
+        print("Invalid withdrawal")</code></pre>
+</div>
+
+<p>
+This prevents wrong operations.
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+<div>
+Encapsulation does not hide data completely.
+It controls how data is changed.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<!-- Chapter 6 -->
+<section class="chapter">
+<h2>6. Small Exercise</h2>
+
+<p>
+Create a class called <span class="inline-code">Temperature</span>.
+</p>
+
+<ul>
+<li>Add a private variable <span class="inline-code">__celsius</span>.</li>
+<li>Add a method <span class="inline-code">set_temperature(self, value)</span>.</li>
+<li>Do not allow temperatures below -273.</li>
+<li>Add a method to return the temperature.</li>
+</ul>
+
+</section>
+
+<hr />
+
+<!-- Conclusion -->
+<section class="chapter">
+<h2>7. What You Learned</h2>
+
+<p>
+You now understand:
+<ul>
+<li>Encapsulation protects data inside a class.</li>
+<li>Private variables use <span class="inline-code">__</span>.</li>
+<li>Methods control how data is accessed and changed.</li>
+<li>This prevents unsafe operations.</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+<div>
+Good class design means controlling data carefully.
+Do not allow users to change important values directly.
+Always use methods to protect your logic.
+</div>
+</div>
+
+</section>
+
+</article>

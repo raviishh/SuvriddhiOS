@@ -1,0 +1,202 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Introduction to pytest</h1>
+  <p class="lead">
+    In the previous lesson, we used <strong>unittest</strong>.  
+    Now we learn <strong>pytest</strong> — a simpler and more modern testing tool for Python.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why pytest?</h2>
+    <p>
+      <span class="inline-code">unittest</span> works well. But sometimes it feels long and complex.
+    </p>
+
+    <p>
+      <strong>pytest</strong> is:
+      <ul>
+        <li>Shorter to write</li>
+        <li>Easier to read</li>
+        <li>Very popular in real projects</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Idea</div>
+      <div>
+        If <span class="inline-code">unittest</span> is like filling a long form,  
+        <span class="inline-code">pytest</span> is like writing a short message.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Installing pytest</h2>
+    <p>
+      pytest is not built into Python.  
+      You need to install it.
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install pytest</code></pre>
+    </div>
+
+    <p>
+      After installing, you can use it in any project.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Writing Your First pytest Test</h2>
+    <p>
+      Let’s test the same function as before.
+    </p>
+
+    <p><strong>Step 1:</strong> Create a file called <span class="inline-code">math_utils.py</span></p>
+
+    <div class="code-block">
+<pre><code>def add(a, b):
+    return a + b</code></pre>
+    </div>
+
+    <p><strong>Step 2:</strong> Create a file called <span class="inline-code">test_math_utils.py</span></p>
+
+    <div class="code-block">
+<pre><code>from math_utils import add
+
+def test_add_positive_numbers():
+    result = add(2, 3)
+    assert result == 5</code></pre>
+    </div>
+
+    <p>
+      That’s it.  
+      No classes. No special methods. Just a normal function.
+    </p>
+
+    <p>
+      The line <span class="inline-code">assert result == 5</span> checks if the result is correct.  
+      If it is wrong, the test fails.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Running pytest</h2>
+    <p>
+      Open your terminal in the project folder. Run:
+    </p>
+
+    <div class="code-block">
+<pre><code>pytest</code></pre>
+    </div>
+
+    <p><strong>If the test passes, you will see something like:</strong></p>
+
+    <div class="output">
+1 passed in 0.01s
+    </div>
+
+    <p><strong>If the test fails, you will see details like:</strong></p>
+
+    <div class="output">
+E       assert 6 == 5
+    </div>
+
+    <p>
+      pytest clearly shows what went wrong.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Writing Multiple Tests</h2>
+    <p>
+      You can write many test functions in the same file.
+    </p>
+
+    <div class="code-block">
+<pre><code>def test_add_negative_numbers():
+    assert add(-2, -3) == -5
+
+def test_add_zero():
+    assert add(0, 5) == 5</code></pre>
+    </div>
+
+    <p>
+      pytest automatically finds all functions that:
+      <ul>
+        <li>Start with <span class="inline-code">test_</span></li>
+        <li>Are inside files that start with <span class="inline-code">test_</span></li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Rule</div>
+      <div>
+        Name your test files and test functions correctly.  
+        Otherwise, pytest will not find them.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. unittest vs pytest</h2>
+    <p><strong>unittest style:</strong></p>
+
+    <div class="code-block">
+<pre><code>class TestAdd(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(2, 3), 5)</code></pre>
+    </div>
+
+    <p><strong>pytest style:</strong></p>
+
+    <div class="code-block">
+<pre><code>def test_add():
+    assert add(2, 3) == 5</code></pre>
+    </div>
+
+    <p>
+      pytest is shorter and easier to read.  
+      That is why many developers prefer it.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Small Exercise</h2>
+    <p>
+      1. Write a function <span class="inline-code">subtract(a, b)</span>.  
+      2. Write at least 3 pytest tests for it.  
+      3. Run <span class="inline-code">pytest</span>.  
+      4. Break your function on purpose.  
+      5. Observe how pytest shows the error.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        pytest makes testing simple.  
+        Simple tools help you focus on writing good code.
+      </div>
+    </div>
+  </section>
+
+</article>

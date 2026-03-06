@@ -5,9 +5,10 @@ import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import { ChevronLeft, ChevronRight, Home } from "lucide-preact";
 import { Link } from "preact-router/match";
 import type { LanguageType } from "../types/language";
+import { useStore } from "../store/useStore";
 
 export default function Sandbox() {
-  const [language] = useState<LanguageType>("C");
+  const { language } = useStore();
   let starterCode = "";
   if (language === "Python") {
     starterCode = "print('Hello, World!')\n";

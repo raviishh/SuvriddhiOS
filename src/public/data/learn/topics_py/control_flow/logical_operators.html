@@ -1,0 +1,244 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Logical Operators in Python</h1>
+  <p class="lead">
+    Logical operators combine multiple conditions into a single Boolean expression. They are the connective tissue of decision logic.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What Are Logical Operators?</h2>
+    <p>
+      Logical operators allow you to evaluate multiple conditions together.
+      Python provides three:
+    </p>
+
+    <ul>
+      <li><span class="inline-code">and</span></li>
+      <li><span class="inline-code">or</span></li>
+      <li><span class="inline-code">not</span></li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Core Idea</div>
+      <div>
+        Logical operators return Boolean results — but they can also return actual values due to short-circuit behavior.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. The <span class="inline-code">and</span> Operator</h2>
+    <p>
+      <span class="inline-code">and</span> returns True only if both conditions are True.
+    </p>
+
+    <div class="code-block">
+<pre><code>age = 20
+has_id = True
+
+print(age >= 18 and has_id)  # True
+print(age < 18 and has_id)   # False</code></pre>
+    </div>
+
+    <p>
+      Truth table:
+    </p>
+
+    <div class="code-block">
+<pre><code>True  and True   → True
+True  and False  → False
+False and True   → False
+False and False  → False</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key Insight</div>
+      <div>
+        If the first condition is False, Python stops immediately.  
+        The second condition is never evaluated.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. The <span class="inline-code">or</span> Operator</h2>
+    <p>
+      <span class="inline-code">or</span> returns True if at least one condition is True.
+    </p>
+
+    <div class="code-block">
+<pre><code>is_weekend = False
+is_holiday = True
+
+print(is_weekend or is_holiday)  # True</code></pre>
+    </div>
+
+    <p>
+      Truth table:
+    </p>
+
+    <div class="code-block">
+<pre><code>True  or True   → True
+True  or False  → True
+False or True   → True
+False or False  → False</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Short-Circuit Rule</div>
+      <div>
+        If the first condition is True, Python stops immediately.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. The <span class="inline-code">not</span> Operator</h2>
+    <p>
+      <span class="inline-code">not</span> reverses a Boolean value.
+    </p>
+
+    <div class="code-block">
+<pre><code>is_logged_in = False
+
+print(not is_logged_in)  # True</code></pre>
+    </div>
+
+    <p>
+      Truth table:
+    </p>
+
+    <div class="code-block">
+<pre><code>not True  → False
+not False → True</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Common Use</div>
+      <div>
+        <span class="inline-code">if not items:</span>  
+        Clean and Pythonic way to check emptiness.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Operator Precedence</h2>
+    <p>
+      Logical operators follow precedence rules:
+    </p>
+
+    <ul>
+      <li><span class="inline-code">not</span> (highest)</li>
+      <li><span class="inline-code">and</span></li>
+      <li><span class="inline-code">or</span> (lowest)</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code>print(True or False and False)  
+# Evaluated as: True or (False and False)
+# Result: True</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Best Practice</div>
+      <div>
+        When in doubt, use parentheses for clarity.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Logical Operators with Non-Boolean Values</h2>
+    <p>
+      Logical operators don’t always return True or False.  
+      They return one of the actual operands.
+    </p>
+
+    <div class="code-block">
+<pre><code>print(0 and 5)        # 0
+print(5 and 10)       # 10
+print("" or "Hello")  # "Hello"
+print("Hi" or "Bye")  # "Hi"</code></pre>
+    </div>
+
+    <p>
+      Rules:
+      <ul>
+        <li><span class="inline-code">and</span> → returns first False value or last value</li>
+        <li><span class="inline-code">or</span> → returns first True value</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Why This Exists</div>
+      <div>
+        This enables default value patterns like:
+        <span class="inline-code">username = input_name or "Guest"</span>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Common Mistakes</h2>
+    <ul>
+      <li>Confusing bitwise operators (<span class="inline-code">&amp;</span>, <span class="inline-code">|</span>) with logical operators</li>
+      <li>Forgetting operator precedence</li>
+      <li>Overcomplicating conditions instead of simplifying them</li>
+      <li>Misunderstanding short-circuit behavior</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What does this print?
+        <span class="inline-code">
+        print(5 and 0 or 3)
+        </span>
+        Evaluate step by step.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Why Logical Operators Matter</h2>
+    <p>
+      Logical operators allow you to build complex decision systems from simple Boolean building blocks.
+    </p>
+
+    <p>
+      They power authentication checks, validation systems, filtering logic, and virtually every non-trivial algorithm.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Write compound conditions. Then simplify them.  
+        The ability to reduce complex logic into clean expressions is a core programming skill.
+      </div>
+    </div>
+  </section>
+
+</article>

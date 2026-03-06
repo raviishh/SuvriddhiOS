@@ -1,0 +1,181 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Running Programs with subprocess (Python)</h1>
+  <p class="lead">Learn how Python can run other programs and system commands. In this lesson, Python becomes a manager that tells other programs what to do.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why Run Other Programs?</h2>
+    <p>
+      Sometimes your Python program needs to:
+      <ul>
+        <li>Run a system command (like <span class="inline-code">ls</span> or <span class="inline-code">dir</span>)</li>
+        <li>Run another Python file</li>
+        <li>Use tools already installed on your computer</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>Think of Python as a manager. It can hire another worker (program) to do a job and then read the result.</div>
+    </div>
+
+    <p>
+      Python uses a built-in module called <span class="inline-code">subprocess</span> for this.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Importing subprocess</h2>
+
+    <div class="code-block">
+<pre><code>import subprocess</code></pre>
+    </div>
+
+    <p>
+      Now Python can run system commands.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Running a Simple Command</h2>
+
+    <div class="code-block">
+<pre><code>import subprocess
+
+subprocess.run(["ls"])</code></pre>
+    </div>
+
+    <p>
+      This runs the <span class="inline-code">ls</span> command (used in Linux/macOS to list files).
+    </p>
+
+    <p>
+      On Windows, use:
+    </p>
+
+    <div class="code-block">
+<pre><code>subprocess.run(["dir"], shell=True)</code></pre>
+    </div>
+
+    <p>
+      We use a list like <span class="inline-code">["ls"]</span> because each word in a command should be a separate item in the list.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Capturing Output</h2>
+
+    <p>
+      Sometimes we want to save the result instead of just printing it.
+    </p>
+
+    <div class="code-block">
+<pre><code>import subprocess
+
+result = subprocess.run(
+    ["ls"],
+    capture_output=True,
+    text=True
+)
+
+print(result.stdout)</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">capture_output=True</span> saves the output</li>
+        <li><span class="inline-code">text=True</span> gives output as normal text</li>
+        <li><span class="inline-code">result.stdout</span> contains the result</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Running Another Python File</h2>
+
+    <p>
+      You can run another Python script from your program.
+    </p>
+
+    <div class="code-block">
+<pre><code>import subprocess
+
+subprocess.run(["python", "otherfile.py"])</code></pre>
+    </div>
+
+    <p>
+      This runs <span class="inline-code">otherfile.py</span> just like typing it in the terminal.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Handling Errors</h2>
+
+    <p>
+      If a command fails, we can make Python raise an error.
+    </p>
+
+    <div class="code-block">
+<pre><code>import subprocess
+
+subprocess.run(["ls", "unknown_folder"], check=True)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">check=True</span> makes Python show an error if the command fails.
+    </p>
+
+    <p>
+      Programs return a number called a "return code":
+      <ul>
+        <li>0 means success</li>
+        <li>Other numbers mean something went wrong</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Small Practice Challenge</h2>
+
+    <p>
+      Try writing a program that:
+      <ul>
+        <li>Runs a command to list files</li>
+        <li>Saves the output</li>
+        <li>Prints the output</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>If your command does not work, try running it directly in the terminal first. Make sure it works there.</div>
+    </div>
+
+    <p>
+      Great work! You now know how Python can control other programs.
+      Next, we will learn about environment variables.
+    </p>
+
+  </section>
+
+</article>

@@ -1,0 +1,257 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Strings Deep Dive</h1>
+  <p class="lead">
+    Strings are how programs work with text. Names, messages, passwords, file paths, user input — all of it lives inside <strong>strings</strong>. If numbers are for calculation, strings are for communication.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is a string?</h2>
+    <p>
+      A string is a sequence of characters wrapped in quotes.
+    </p>
+
+    <div class="code-block">
+<pre><code>name = "Alice"
+message = 'Hello, world!'
+empty = ""
+
+print(type(name))  # &lt;class 'str'&gt;</code></pre>
+    </div>
+
+    <p>
+      You can use double quotes (<span class="inline-code">"</span>) or single quotes (<span class="inline-code">'</span>). Python treats them the same.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Think of a string as a train made of characters. Each letter is a carriage, connected in order.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Indexing — accessing characters</h2>
+    <p>
+      Each character in a string has a position called an <strong>index</strong>. Indexing starts at 0.
+    </p>
+
+    <div class="code-block">
+<pre><code>word = "Python"
+
+print(word[0])  # P
+print(word[1])  # y
+print(word[-1]) # n (last character)</code></pre>
+    </div>
+
+    <p>
+      Negative indexing counts from the end.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Slicing — extracting parts</h2>
+    <p>
+      Slicing lets you extract a portion of a string.
+    </p>
+
+    <div class="code-block">
+<pre><code>text = "Programming"
+
+print(text[0:6])   # Progra
+print(text[3:])    # gramming
+print(text[:4])    # Prog
+print(text[::2])   # Pormig</code></pre>
+    </div>
+
+    <p>
+      Format: <span class="inline-code">string[start:end:step]</span>  
+      The <span class="inline-code">end</span> index is not included.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Strings are immutable</h2>
+    <p>
+      Strings cannot be changed after creation.
+    </p>
+
+    <div class="code-block">
+<pre><code>name = "Alice"
+# name[0] = "M"   ❌ This will cause an error</code></pre>
+    </div>
+
+    <p>
+      Instead, you create a new string:
+    </p>
+
+    <div class="code-block">
+<pre><code>name = "Alice"
+new_name = "M" + name[1:]
+print(new_name)  # Mlice</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Why this matters</div>
+      <div>
+        Immutability makes strings safer and more predictable. We’ll revisit this concept in the Mutability lesson.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. String methods — built-in tools</h2>
+    <p>
+      Strings come with many helpful methods.
+    </p>
+
+    <div class="code-block">
+<pre><code>text = "  Hello World  "
+
+print(text.lower())      # hello world
+print(text.upper())      # HELLO WORLD
+print(text.strip())      # removes spaces
+print(text.replace("World", "Python"))
+print(len(text))         # length of string</code></pre>
+    </div>
+
+    <p>
+      Methods don’t change the original string — they return a new one.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Concatenation & repetition</h2>
+    <p>
+      You can combine strings using <span class="inline-code">+</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>first = "Hello"
+second = "World"
+
+print(first + " " + second)  # Hello World
+print("Ha" * 3)              # HaHaHa</code></pre>
+    </div>
+
+    <p>
+      Repetition uses the <span class="inline-code">*</span> operator.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. f-Strings — modern formatting</h2>
+    <p>
+      The cleanest way to insert variables into strings is using f-strings.
+    </p>
+
+    <div class="code-block">
+<pre><code>name = "Alice"
+age = 20
+
+print(f"My name is {name} and I am {age} years old.")</code></pre>
+    </div>
+
+    <p>
+      Inside <span class="inline-code">{}</span>, you can even write expressions:
+    </p>
+
+    <div class="code-block">
+<pre><code>print(f"Next year I will be {age + 1}.")</code></pre>
+    </div>
+
+    <p>
+      f-strings are readable, powerful, and the recommended approach.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Escape characters</h2>
+    <p>
+      Some characters need special handling using a backslash <span class="inline-code">\</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>print("Line 1\nLine 2")
+print("He said \"Hello\"")
+print("C:\\Users\\Alice")</code></pre>
+    </div>
+
+    <p>
+      Common escapes:
+      <ul>
+        <li><span class="inline-code">\n</span> → new line</li>
+        <li><span class="inline-code">\t</span> → tab</li>
+        <li><span class="inline-code">\"</span> → quote</li>
+        <li><span class="inline-code">\\</span> → backslash</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 9 -->
+  <section class="chapter">
+    <h2>9. Common beginner mistakes</h2>
+    <ul>
+      <li>Trying to modify a string directly</li>
+      <li>Forgetting indexing starts at 0</li>
+      <li>Mixing numbers and strings without conversion</li>
+      <li>Using <span class="inline-code">+</span> instead of f-strings for complex formatting</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What does <span class="inline-code">"Python"[::-1]</span> return?  
+        Run it. Understand it.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>10. Where this fits in Core Data Types</h2>
+    <p>
+      Strings are immutable sequences of characters. They are foundational for user interaction, file handling, web development, and almost every real-world program.
+    </p>
+
+    <p>
+      Next up: <strong>String Manipulation Challenges</strong> — because reading about strings is one thing. Bending them to your will is another.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Open Python. Slice aggressively. Reverse strings. Count letters. Replace words.  
+        Mastery comes from experimentation, not memorization.
+      </div>
+    </div>
+  </section>
+
+</article>

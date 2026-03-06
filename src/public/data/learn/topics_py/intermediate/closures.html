@@ -1,0 +1,259 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Closures</h1>
+  <p class="lead">
+    In this lesson, you will learn how a function can remember data,
+    even after another function has finished running.
+    This idea is called a <strong>closure</strong>.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Functions inside functions</h2>
+    <p>
+      Python allows one function to be defined inside another.
+    </p>
+
+    <div class="code-block">
+<pre><code>def outer():
+    message = "Hello"
+
+    def inner():
+        print(message)
+
+    inner()
+
+outer()</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+Hello
+    </div>
+
+    <p>
+      The inner function can use variables from the outer function.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. What is a closure?</h2>
+    <p>
+      A <strong>closure</strong> happens when:
+      <ul>
+        <li>An inner function remembers variables from the outer function.</li>
+        <li>The outer function has already finished running.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>
+        Think of a closure like a backpack.  
+        The inner function carries some variables with it,
+        even after leaving the outer function.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. A real closure example</h2>
+
+    <div class="code-block">
+<pre><code>def outer():
+    message = "Hello"
+
+    def inner():
+        print(message)
+
+    return inner
+
+my_function = outer()
+my_function()</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+Hello
+    </div>
+
+    <p>
+      Notice:
+      <ul>
+        <li><span class="inline-code">outer()</span> has finished.</li>
+        <li>But <span class="inline-code">inner()</span> still remembers <span class="inline-code">message</span>.</li>
+      </ul>
+    </p>
+
+    <p>
+      That is a closure.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Changing remembered variables</h2>
+
+    <p>
+      What if we want to change the outer variable?
+      We use the keyword <span class="inline-code">nonlocal</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>def counter():
+    count = 0
+
+    def increase():
+        nonlocal count
+        count += 1
+        print(count)
+
+    return increase
+
+my_counter = counter()
+
+my_counter()
+my_counter()
+my_counter()</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+1  
+2  
+3
+    </div>
+
+    <p>
+      The inner function updates the remembered variable.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Closure vs Class</h2>
+
+    <p>
+      The counter example can also be written using a class.
+    </p>
+
+    <div class="code-block">
+<pre><code>class Counter:
+    def __init__(self):
+        self.count = 0
+
+    def increase(self):
+        self.count += 1
+        print(self.count)
+
+c = Counter()
+c.increase()
+c.increase()</code></pre>
+    </div>
+
+    <p>
+      Both solutions work.
+    </p>
+
+    <p>
+      Difference:
+      <ul>
+        <li>Closures are simpler for small tasks.</li>
+        <li>Classes are better for large, complex programs.</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Why closures matter</h2>
+
+    <p>
+      Closures are important because:
+      <ul>
+        <li>Decorators use closures.</li>
+        <li>They help store state without using global variables.</li>
+        <li>They make code cleaner.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>
+        A closure is created when a function remembers variables from its outer scope.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Practice -->
+  <section class="chapter">
+    <h2>7. Try it yourself</h2>
+    <p>
+      Create a function that:
+      <ul>
+        <li>Takes a number as input.</li>
+        <li>Returns a function.</li>
+        <li>The returned function multiplies its input by the remembered number.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Challenge</div>
+      <div>
+        Try building a simple login system where a function remembers a password.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. What you learned</h2>
+    <p>
+      Now you understand:
+      <ul>
+        <li>Inner functions can access outer variables.</li>
+        <li>Closures remember variables after the outer function ends.</li>
+        <li><span class="inline-code">nonlocal</span> allows modification of outer variables.</li>
+      </ul>
+    </p>
+
+    <p>
+      In the next lesson, we will learn about <strong>type hinting</strong>.
+      This helps make code easier to understand.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Closures can feel strange at first.  
+        Print values often. Watch what changes and what stays.
+      </div>
+    </div>
+
+  </section>
+</article>

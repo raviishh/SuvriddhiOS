@@ -1,0 +1,222 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>When Python Is Slow (And Why)</h1>
+    <p class="lead">
+        Python is powerful and easy to use. But sometimes it is slower than
+        other languages. In this lesson, we explain why — and what you can do
+        about it.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. Python is interpreted</h2>
+        <p>
+            Python is an interpreted language. This means the code runs line by
+            line using a program called an interpreter.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Simple Idea
+            </div>
+            <div>
+                Python reads and executes your code step by step. Some other
+                languages are translated into machine code before running.
+            </div>
+        </div>
+
+        <p>
+            Because of this extra step, Python usually runs slower than compiled
+            languages like C or C++.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Dynamic typing adds work</h2>
+        <p>
+            Python is dynamically typed. This means you do not declare types
+            like int or float.
+        </p>
+
+        <div class="code-block">
+            <pre><code>x = 5
+x = "hello"</code></pre>
+        </div>
+
+        <p>
+            Python allows this. But to allow this flexibility, Python must check
+            types while the program runs.
+        </p>
+
+        <p>
+            These checks make Python slower compared to languages that know
+            types in advance.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Too many loops in Python</h2>
+        <p>
+            Loops written in pure Python can be slow, especially for large data.
+        </p>
+
+        <div class="code-block">
+            <pre><code>total = 0
+for i in range(10000000):
+    total += i</code></pre>
+        </div>
+
+        <p>Each step is handled by the Python interpreter.</p>
+
+        <p>Built-in functions are often faster:</p>
+
+        <div class="code-block">
+            <pre><code>total = sum(range(10000000))</code></pre>
+        </div>
+
+        <p>Built-in functions are written in optimized C code.</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Rule
+            </div>
+            <div>
+                Prefer built-in functions over manual loops when possible.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. String concatenation in loops</h2>
+        <p>
+            Strings are immutable. Every time you add to a string, a new string
+            is created.
+        </p>
+
+        <div class="code-block">
+            <pre><code>text = ""
+for i in range(10000):
+    text += "a"</code></pre>
+        </div>
+
+        <p>This creates many new strings and can be slow.</p>
+
+        <p>Better way:</p>
+
+        <div class="code-block">
+            <pre><code>parts = []
+for i in range(10000):
+    parts.append("a")
+
+text = "".join(parts)</code></pre>
+        </div>
+
+        <p>This is faster and uses memory more efficiently.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Recursion and function calls</h2>
+        <p>
+            Every function call has some overhead. Deep recursion can slow down
+            your program.
+        </p>
+
+        <div class="code-block">
+            <pre><code>def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)</code></pre>
+        </div>
+
+        <p>Sometimes a loop is faster and simpler.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. What professionals do</h2>
+        <ul>
+            <li>Use built-in functions</li>
+            <li>Use libraries like NumPy for heavy math</li>
+            <li>Profile before optimizing</li>
+            <li>Rewrite critical parts in C (advanced)</li>
+        </ul>
+
+        <p>Often, Python code calls optimized C libraries behind the scenes.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. When NOT to optimize</h2>
+        <p>Do not optimize too early.</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Important Advice
+            </div>
+            <div>
+                First make your code correct. Then make it clear. Only then make
+                it faster — if needed.
+            </div>
+        </div>
+
+        <p>Many programs are already fast enough.</p>
+    </section>
+
+    <hr />
+
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>8. Practice</h2>
+        <p>Consider these questions:</p>
+        <ul>
+            <li>
+                Why are built-in functions usually faster than manual loops?
+            </li>
+            <li>Why is string concatenation inside loops slow?</li>
+            <li>When should you start optimizing your code?</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Final Thought
+            </div>
+            <div>
+                Python is slower than some languages — but it is faster to write
+                and easier to maintain. In many real projects, developer time is
+                more important than machine time.
+            </div>
+        </div>
+    </section>
+</article>

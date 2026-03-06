@@ -1,0 +1,199 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Working with the Shell (Python)</h1>
+  <p class="lead">Learn how to use the terminal (shell) and how Python works with it. In this lesson, you will run programs from the command line and pass information into Python.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What Is the Shell?</h2>
+    <p>
+      The shell (also called the terminal or command line) is a text-based way to control your computer.
+    </p>
+
+    <p>
+      Instead of clicking with a mouse, you type commands.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>The shell is like a remote control for your computer. You type instructions, and the computer obeys.</div>
+    </div>
+
+    <p>
+      You can:
+      <ul>
+        <li>Move between folders</li>
+        <li>Create or delete files</li>
+        <li>Run programs</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Basic Shell Commands</h2>
+
+    <p>
+      Here are common commands:
+    </p>
+
+    <ul>
+      <li><span class="inline-code">pwd</span> – Show current folder (Linux/macOS)</li>
+      <li><span class="inline-code">ls</span> – List files (Linux/macOS)</li>
+      <li><span class="inline-code">cd</span> – Change folder</li>
+      <li><span class="inline-code">mkdir</span> – Create folder</li>
+      <li><span class="inline-code">rm</span> – Delete file (Linux/macOS)</li>
+    </ul>
+
+    <p>
+      On Windows:
+      <ul>
+        <li><span class="inline-code">dir</span> instead of <span class="inline-code">ls</span></li>
+        <li><span class="inline-code">del</span> instead of <span class="inline-code">rm</span></li>
+      </ul>
+    </p>
+
+    <p>
+      These commands are not Python. They are part of your operating system.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Running Python from the Shell</h2>
+
+    <p>
+      If you have a file called <span class="inline-code">program.py</span>, you can run it like this:
+    </p>
+
+    <div class="code-block">
+<pre><code>python program.py</code></pre>
+    </div>
+
+    <p>
+      The shell tells Python to start the program.
+    </p>
+
+    <p>
+      You can also start interactive mode:
+    </p>
+
+    <div class="code-block">
+<pre><code>python</code></pre>
+    </div>
+
+    <p>
+      Then you can type Python code directly.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Passing Arguments to a Python Program</h2>
+
+    <p>
+      Sometimes we want to give information to a program from the shell.
+    </p>
+
+    <div class="code-block">
+<pre><code>python program.py Alice</code></pre>
+    </div>
+
+    <p>
+      Here, <span class="inline-code">Alice</span> is an argument.
+    </p>
+
+    <p>
+      Inside Python, we use the <span class="inline-code">sys</span> module to read arguments.
+    </p>
+
+    <div class="code-block">
+<pre><code>import sys
+
+print(sys.argv)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">sys.argv</span> is a list:
+      <ul>
+        <li>The first item is the file name</li>
+        <li>The next items are arguments</li>
+      </ul>
+    </p>
+
+    <h3>Example</h3>
+
+    <div class="code-block">
+<pre><code>import sys
+
+if len(sys.argv) > 1:
+    print("Hello,", sys.argv[1])
+else:
+    print("Hello, Guest")</code></pre>
+    </div>
+
+    <p>
+      If you run:
+    </p>
+
+    <div class="code-block">
+<pre><code>python program.py Bob</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">Hello, Bob</div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Small Practice Project — Command-Line Calculator</h2>
+
+    <p>
+      Create a simple calculator that adds two numbers from the shell.
+    </p>
+
+    <div class="code-block">
+<pre><code>import sys
+
+if len(sys.argv) == 3:
+    a = int(sys.argv[1])
+    b = int(sys.argv[2])
+    print("Result:", a + b)
+else:
+    print("Usage: python program.py number1 number2")</code></pre>
+    </div>
+
+    <p>
+      Run it like this:
+    </p>
+
+    <div class="code-block">
+<pre><code>python program.py 5 7</code></pre>
+    </div>
+
+    <div class="output">Result: 12</div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>Many real programs use command-line arguments. This makes your programs flexible and powerful.</div>
+    </div>
+
+    <p>
+      Excellent work! You now understand how the shell and Python work together.
+      You have completed the System Interaction and OS Concepts section.
+    </p>
+
+  </section>
+
+</article>

@@ -1,0 +1,215 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Packaging and Distribution</h1>
+  <p class="lead">
+    A simple introduction to packaging in Python — how to organize your code and share it with others.
+    Think of this as turning your code into a toolbox that other people can use.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is a Python Package?</h2>
+    <p>
+      A Python package is a collection of Python files grouped together.
+      It helps organize code into modules.
+    </p>
+
+    <p>
+      A module is just a Python file.
+      A package is a folder that contains Python files.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        One tool is useful.
+        A toolbox with many tools is more powerful.
+        A package is like that toolbox.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Installing Packages with pip</h2>
+    <p>
+      Python uses a tool called <strong>pip</strong> to install packages.
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install numpy</code></pre>
+    </div>
+
+    <p>
+      This downloads and installs the package.
+    </p>
+
+    <p>
+      To see installed packages:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip list</code></pre>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Virtual Environments</h2>
+    <p>
+      A virtual environment is a separate workspace for your project.
+      It keeps project packages isolated.
+    </p>
+
+    <p>
+      This prevents version conflicts between projects.
+    </p>
+
+    <div class="code-block">
+<pre><code>python -m venv myenv</code></pre>
+    </div>
+
+    <p>
+      Activate it:
+    </p>
+
+    <div class="code-block">
+<pre><code># Windows
+myenv\Scripts\activate
+
+# Mac/Linux
+source myenv/bin/activate</code></pre>
+    </div>
+
+    <p>
+      After activation, installed packages stay inside this environment.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. requirements.txt</h2>
+    <p>
+      A <span class="inline-code">requirements.txt</span> file lists the packages your project needs.
+    </p>
+
+    <div class="code-block">
+<pre><code>pip freeze &gt; requirements.txt</code></pre>
+    </div>
+
+    <p>
+      This saves all installed packages into the file.
+    </p>
+
+    <p>
+      Another person can install them using:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install -r requirements.txt</code></pre>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Basic Project Structure</h2>
+    <p>
+      A simple project folder may look like this:
+    </p>
+
+    <div class="code-block">
+<pre><code>my_project/
+│
+├── main.py
+├── utils.py
+├── requirements.txt
+└── README.md</code></pre>
+    </div>
+
+    <p>
+      <ul>
+        <li><strong>main.py</strong> — main program</li>
+        <li><strong>utils.py</strong> — helper functions</li>
+        <li><strong>requirements.txt</strong> — needed packages</li>
+        <li><strong>README.md</strong> — project explanation</li>
+      </ul>
+    </p>
+
+    <p>
+      Good structure makes your project easier to understand.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Sharing Your Project</h2>
+    <p>
+      You can share your project by:
+      <ul>
+        <li>Sending the folder</li>
+        <li>Uploading to GitHub</li>
+        <li>Publishing as a package</li>
+      </ul>
+    </p>
+
+    <p>
+      Clear structure and requirements make sharing easy.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Always include a README file.
+        Explain what the project does and how to run it.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Why Packaging Matters</h2>
+    <p>
+      Packaging helps you:
+      <ul>
+        <li>Organize code clearly</li>
+        <li>Avoid dependency problems</li>
+        <li>Share projects professionally</li>
+      </ul>
+    </p>
+
+    <p>
+      Even small projects should follow good structure.
+      Good habits make you a better developer.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Small Exercises</div>
+      <div>
+        1. Create a project folder with two Python files. <br/>
+        2. Create a virtual environment. <br/>
+        3. Install one package inside it. <br/>
+        4. Generate a requirements.txt file. <br/>
+      </div>
+    </div>
+
+  </section>
+
+</article>

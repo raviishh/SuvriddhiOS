@@ -1,0 +1,190 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Garbage Collection in Python</h1>
+  <p class="lead">When your program creates objects, they use memory. But what happens when those objects are no longer needed? Python cleans them automatically. This process is called garbage collection.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is “garbage” in programming?</h2>
+    <p>
+      Garbage means objects that are no longer used by your program.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Imagine your desk again.  
+        When you finish using a paper, you throw it away.  
+        If you never clean your desk, it becomes full.
+      </div>
+    </div>
+
+    <p>
+      In Python, unused objects are cleaned so memory does not stay full.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Reference counting</h2>
+    <p>
+      Python mainly uses something called <strong>reference counting</strong>.
+    </p>
+
+    <p>
+      Every object keeps track of how many variables point to it.
+    </p>
+
+    <div class="code-block">
+<pre><code>a = [1, 2, 3]   # reference count = 1
+b = a           # reference count = 2</code></pre>
+    </div>
+
+    <p>
+      Now the list has two references: <span class="inline-code">a</span> and <span class="inline-code">b</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>del a           # reference count = 1
+del b           # reference count = 0</code></pre>
+    </div>
+
+    <p>
+      When the reference count becomes zero, Python removes the object from memory.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. The problem of circular references</h2>
+    <p>
+      Sometimes objects refer to each other.
+    </p>
+
+    <div class="code-block">
+<pre><code>a = []
+b = []
+
+a.append(b)
+b.append(a)</code></pre>
+    </div>
+
+    <p>
+      Now:
+      <ul>
+        <li><span class="inline-code">a</span> points to <span class="inline-code">b</span></li>
+        <li><span class="inline-code">b</span> points to <span class="inline-code">a</span></li>
+      </ul>
+    </p>
+
+    <p>
+      Even if you delete <span class="inline-code">a</span> and <span class="inline-code">b</span>, they still reference each other.
+      The reference count never becomes zero.
+    </p>
+
+    <p>
+      This is called a <strong>circular reference</strong>.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Python’s garbage collector</h2>
+    <p>
+      To fix circular references, Python has a special garbage collector.
+    </p>
+
+    <p>
+      It:
+      <ul>
+        <li>Looks for groups of objects that reference each other</li>
+        <li>Checks if they are still reachable from the program</li>
+        <li>Removes them if they are not used anymore</li>
+      </ul>
+    </p>
+
+    <p>
+      This runs automatically. Most of the time, you do not need to control it.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. When should you care?</h2>
+    <p>
+      Usually, you do not need to think about garbage collection.
+    </p>
+
+    <p>
+      But you should care when:
+      <ul>
+        <li>Your program runs for a very long time</li>
+        <li>You handle very large data</li>
+        <li>Memory usage keeps increasing</li>
+      </ul>
+    </p>
+
+    <p>
+      You can manually run garbage collection:
+    </p>
+
+    <div class="code-block">
+<pre><code>import gc
+gc.collect()</code></pre>
+    </div>
+
+    <p>
+      But in most cases, this is not necessary.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Rule</div>
+      <div>
+        If memory keeps growing, check your references.  
+        Something may still be pointing to objects.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>6. Practice</h2>
+    <p>
+      Think about this:
+    </p>
+
+    <div class="code-block">
+<pre><code>a = [1, 2, 3]
+b = a
+a = None
+print(b)</code></pre>
+    </div>
+
+    <p>
+      Questions:
+      <ul>
+        <li>Does the list still exist in memory?</li>
+        <li>Why?</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Python helps you manage memory automatically.  
+        But understanding how it works makes you a stronger programmer.
+      </div>
+    </div>
+
+  </section>
+</article>

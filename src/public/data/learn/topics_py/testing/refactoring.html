@@ -1,0 +1,203 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Code Refactoring in Python</h1>
+    <p class="lead">
+        Refactoring means improving your code without changing what it does. The
+        output stays the same. The behavior stays the same. Only the structure
+        becomes better.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What is Refactoring?</h2>
+        <p>Refactoring is cleaning up your code.</p>
+
+        <p>
+            You do NOT add new features. You do NOT change results. You only
+            improve the design.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Simple Analogy
+            </div>
+            <div>
+                Imagine your room is messy. You clean and organize it. The room
+                is the same room — just cleaner.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Why Refactor?</h2>
+        <p>Over time, code can become:</p>
+
+        <ul>
+            <li>Too long</li>
+            <li>Hard to read</li>
+            <li>Repeated in many places</li>
+            <li>Difficult to maintain</li>
+        </ul>
+
+        <p>Refactoring makes code:</p>
+
+        <ul>
+            <li>Cleaner</li>
+            <li>Easier to understand</li>
+            <li>Easier to change later</li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Example: Messy Code</h2>
+
+        <div class="code-block">
+            <pre><code>def calculate_total(price, tax):
+    total = price + (price * tax)
+    print("Total price is:", total)
+    return price + (price * tax)</code></pre>
+        </div>
+
+        <p>Problems:</p>
+
+        <ul>
+            <li>The calculation is written twice</li>
+            <li>The function both prints and returns</li>
+            <li>Not very clear</li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Refactored Version</h2>
+
+        <div class="code-block">
+            <pre><code>def calculate_total(price, tax):
+    total = price + (price * tax)
+    return total</code></pre>
+        </div>
+
+        <p>Now:</p>
+
+        <ul>
+            <li>The calculation is written once</li>
+            <li>The function has one clear job</li>
+            <li>The code is easier to read</li>
+        </ul>
+
+        <p>
+            If we want to print the result, we can do it outside the function.
+        </p>
+
+        <div class="code-block">
+            <pre><code>total = calculate_total(100, 0.1)
+print("Total price is:", total)</code></pre>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Important Rule: Refactor After Testing</h2>
+        <p>You should refactor only when tests exist.</p>
+
+        <p>Why?</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Safety Net
+            </div>
+            <div>
+                Tests protect you. After refactoring, run the tests. If they
+                pass, your changes are safe.
+            </div>
+        </div>
+
+        <p>Refactoring without tests is risky.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Common Refactoring Techniques</h2>
+
+        <ul>
+            <li>Rename unclear variables</li>
+            <li>Break long functions into smaller ones</li>
+            <li>Remove repeated code</li>
+            <li>Improve formatting</li>
+        </ul>
+
+        <p>Example of better variable names:</p>
+
+        <div class="code-block">
+            <pre><code># Bad
+def f(x, y):
+    return x * y
+
+# Better
+def multiply(number1, number2):
+    return number1 * number2</code></pre>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>7. Small Exercise</h2>
+        <p>Refactor this function:</p>
+
+        <div class="code-block">
+            <pre><code>def process(numbers):
+    result = 0
+    for n in numbers:
+        result = result + n
+    print("Sum is:", result)
+    return result</code></pre>
+        </div>
+
+        <p>Goals:</p>
+
+        <ul>
+            <li>Improve variable names</li>
+            <li>Remove unnecessary parts</li>
+            <li>Keep the output the same</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Final Thought
+            </div>
+            <div>
+                Good programmers write code. Great programmers improve it.
+            </div>
+        </div>
+    </section>
+</article>

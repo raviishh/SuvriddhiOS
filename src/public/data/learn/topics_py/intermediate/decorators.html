@@ -1,0 +1,293 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Decorators</h1>
+  <p class="lead">
+    In this lesson, you will learn how to modify a function without changing its code.
+    This is called a <strong>decorator</strong>.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Functions are objects</h2>
+    <p>
+      In Python, functions are not special.  
+      They are objects. This means:
+      <ul>
+        <li>You can store them in variables.</li>
+        <li>You can pass them as arguments.</li>
+        <li>You can return them from other functions.</li>
+      </ul>
+    </p>
+
+    <div class="code-block">
+<pre><code>def greet():
+    print("Hello!")
+
+say_hello = greet
+say_hello()</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+Hello!
+    </div>
+
+    <p>
+      Notice: we did not call <span class="inline-code">greet()</span>.  
+      We stored the function inside another variable.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Functions inside functions</h2>
+    <p>
+      A function can create another function.
+    </p>
+
+    <div class="code-block">
+<pre><code>def outer():
+    def inner():
+        print("Inside inner function")
+    return inner
+
+my_function = outer()
+my_function()</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+Inside inner function
+    </div>
+
+    <p>
+      The outer function returns the inner function.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Adding behavior to a function</h2>
+    <p>
+      Suppose we want to print something before and after a function runs.
+    </p>
+
+    <div class="code-block">
+<pre><code>def decorator_function(original_function):
+
+    def wrapper():
+        print("Before the function runs")
+        original_function()
+        print("After the function runs")
+
+    return wrapper
+
+
+def greet():
+    print("Hello!")
+
+new_greet = decorator_function(greet)
+new_greet()</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+Before the function runs  
+Hello!  
+After the function runs
+    </div>
+
+    <p>
+      The decorator wraps the original function with extra behavior.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>
+        Think of a decorator like gift wrapping.  
+        The gift inside stays the same, but something extra is added outside.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. The @ syntax</h2>
+    <p>
+      Python gives a cleaner way to use decorators.
+    </p>
+
+    <div class="code-block">
+<pre><code>def decorator_function(original_function):
+
+    def wrapper():
+        print("Before the function runs")
+        original_function()
+        print("After the function runs")
+
+    return wrapper
+
+
+@decorator_function
+def greet():
+    print("Hello!")
+
+greet()</code></pre>
+    </div>
+
+    <p>
+      This is exactly the same as:
+    </p>
+
+    <div class="code-block">
+<pre><code>greet = decorator_function(greet)</code></pre>
+    </div>
+
+    <p>
+      The <span class="inline-code">@</span> symbol is just a shortcut.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Decorators with arguments</h2>
+    <p>
+      What if the function takes parameters?
+      We must pass them inside the wrapper.
+    </p>
+
+    <div class="code-block">
+<pre><code>def decorator_function(original_function):
+
+    def wrapper(name):
+        print("Before the function runs")
+        original_function(name)
+        print("After the function runs")
+
+    return wrapper
+
+
+@decorator_function
+def greet(name):
+    print("Hello,", name)
+
+greet("Alice")</code></pre>
+    </div>
+
+    <p>
+      For many arguments, we can use:
+      <span class="inline-code">*args</span> and <span class="inline-code">**kwargs</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>def decorator_function(original_function):
+
+    def wrapper(*args, **kwargs):
+        print("Before the function runs")
+        result = original_function(*args, **kwargs)
+        print("After the function runs")
+        return result
+
+    return wrapper</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Why decorators are useful</h2>
+
+    <p>
+      Decorators are often used for:
+      <ul>
+        <li>Logging</li>
+        <li>Measuring time</li>
+        <li>Checking permissions</li>
+        <li>Caching results</li>
+      </ul>
+    </p>
+
+    <p>
+      Many web frameworks use decorators.
+      For example, defining routes in web applications.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>
+        A decorator changes behavior without changing the original function’s code.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Practice -->
+  <section class="chapter">
+    <h2>7. Try it yourself</h2>
+    <p>
+      Create a decorator that:
+      <ul>
+        <li>Prints "Function started"</li>
+        <li>Runs the function</li>
+        <li>Prints "Function finished"</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Challenge</div>
+      <div>
+        Create a decorator that counts how many times a function is called.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. What you learned</h2>
+    <p>
+      Now you understand:
+      <ul>
+        <li>Functions are objects.</li>
+        <li>Functions can return other functions.</li>
+        <li>Decorators wrap functions.</li>
+        <li>The <span class="inline-code">@</span> symbol is just syntax sugar.</li>
+      </ul>
+    </p>
+
+    <p>
+      In the next lesson, we will study <strong>closures</strong>.
+      Closures explain how inner functions remember outer variables.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        If decorators feel confusing, draw a small diagram.  
+        Show one function wrapping another.  
+        Visual thinking helps.
+      </div>
+    </div>
+
+  </section>
+</article>

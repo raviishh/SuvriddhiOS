@@ -1,0 +1,239 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Docstrings & Documentation in Python</h1>
+    <p class="lead">
+        Documentation explains what your code does, how to use it, and why it
+        exists. Docstrings are the primary built-in way to document functions,
+        classes, and modules in Python.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What Is a Docstring?</h2>
+        <p>
+            A docstring is a string literal placed immediately after a function,
+            class, or module definition. It describes the purpose and usage of
+            that object.
+        </p>
+
+        <div class="code-block">
+            <pre><code>def greet(name):
+    """Return a greeting message for the given name."""
+    return f"Hello, {name}"</code></pre>
+        </div>
+
+        <p>
+            Docstrings use triple quotes (<span class="inline-code">"""</span>
+            or <span class="inline-code">'''</span>).
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Key Distinction
+            </div>
+            <div>
+                Comments explain implementation details. Docstrings explain
+                usage and behavior.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Accessing Docstrings</h2>
+        <p>
+            Docstrings are stored in the
+            <span class="inline-code">__doc__</span> attribute.
+        </p>
+
+        <div class="code-block">
+            <pre><code>print(greet.__doc__)</code></pre>
+        </div>
+
+        <p>
+            They are also used by the built-in
+            <span class="inline-code">help()</span> function.
+        </p>
+
+        <div class="code-block">
+            <pre><code>help(greet)</code></pre>
+        </div>
+
+        <p>This makes docstrings part of Python’s introspection system.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Writing Effective Docstrings</h2>
+        <p>A good docstring should:</p>
+
+        <ul>
+            <li>Describe what the function does</li>
+            <li>Explain parameters</li>
+            <li>Specify return values</li>
+            <li>Mention exceptions (if relevant)</li>
+        </ul>
+
+        <div class="code-block">
+            <pre><code>def add(a, b):
+    """
+    Add two numbers.
+
+    Parameters:
+        a (int or float): First number.
+        b (int or float): Second number.
+
+    Returns:
+        int or float: The sum of a and b.
+    """
+    return a + b</code></pre>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. One-Line vs Multi-Line Docstrings</h2>
+
+        <h3>One-Line Docstring</h3>
+
+        <div class="code-block">
+            <pre><code>def square(x):
+    """Return the square of x."""
+    return x * x</code></pre>
+        </div>
+
+        <h3>Multi-Line Docstring</h3>
+
+        <div class="code-block">
+            <pre><code>def divide(a, b):
+    """
+    Divide a by b.
+
+    Raises:
+        ZeroDivisionError: If b is zero.
+    """
+    return a / b</code></pre>
+        </div>
+
+        <p>
+            Use one-line docstrings for simple functions. Use multi-line format
+            for more complex behavior.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Module and Class Docstrings</h2>
+
+        <p>Modules and classes can also include docstrings.</p>
+
+        <div class="code-block">
+            <pre><code>"""Utility functions for mathematical operations."""
+
+class Calculator:
+    """Perform basic arithmetic operations."""
+    pass</code></pre>
+        </div>
+
+        <p>These help organize large codebases.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Documentation Conventions</h2>
+        <p>Python projects often follow documentation styles such as:</p>
+
+        <ul>
+            <li>Google style</li>
+            <li>NumPy style</li>
+            <li>reStructuredText (Sphinx)</li>
+        </ul>
+
+        <p>Consistency is more important than the specific format.</p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Best Practice
+            </div>
+            <div>
+                Document public functions and APIs. Avoid excessive
+                documentation for trivial internal code.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Common Mistakes</h2>
+        <ul>
+            <li>Writing comments instead of docstrings</li>
+            <li>Describing how instead of what</li>
+            <li>Forgetting to update documentation after code changes</li>
+            <li>Over-documenting trivial functions</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Quick Check
+            </div>
+            <div>
+                Where should the docstring be placed?
+                <span class="inline-code"> def example(): x = 10 </span>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>8. Why Documentation Matters</h2>
+        <p>
+            Documentation transforms code from a private script into a reusable
+            system. It enables collaboration, maintainability, and scalability.
+        </p>
+
+        <p>
+            Well-documented code communicates intent clearly — reducing
+            confusion and future debugging effort.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Practice Strategy
+            </div>
+            <div>
+                Add proper docstrings to an existing project. Ensure each
+                function clearly states purpose, parameters, and returns.
+            </div>
+        </div>
+    </section>
+</article>

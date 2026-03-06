@@ -1,0 +1,241 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+<h1>Raising Exceptions</h1>
+<p class="lead">Handling errors is good. Creating meaningful errors is better. When your code detects something invalid, it should not continue silently — it should raise an exception.</p>
+
+<hr />
+
+<section class="chapter">
+<h2>1. Why Raise Exceptions?</h2>
+
+<p>
+So far, we've handled errors that Python raised automatically.
+But what if <strong>you</strong> detect something wrong?
+</p>
+
+<p>
+Example:
+<ul>
+<li>A negative age</li>
+<li>A password that’s too short</li>
+<li>A withdrawal amount greater than account balance</li>
+</ul>
+</p>
+
+<p>
+If your function receives invalid input, it should stop immediately.
+That’s where <code>raise</code> comes in.
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Core Principle</div>
+<div>
+If something violates the rules of your program, fail early and clearly.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>2. Basic Syntax of raise</h2>
+
+<p>
+The <code>raise</code> keyword lets you trigger an exception manually.
+</p>
+
+<div class="code-block">
+<pre><code>age = -5
+
+if age &lt; 0:
+    raise ValueError("Age cannot be negative.")</code></pre>
+</div>
+
+<p>
+What happens?
+<ul>
+<li>If age is negative → program stops.</li>
+<li>Python shows a <code>ValueError</code> with your custom message.</li>
+</ul>
+</p>
+
+<p>
+You are enforcing correctness.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>3. Raising Exceptions Inside Functions</h2>
+
+<p>
+This is where it becomes useful.
+</p>
+
+<div class="code-block">
+<pre><code>def withdraw(balance, amount):
+    if amount &gt; balance:
+        raise ValueError("Insufficient funds.")
+    return balance - amount
+
+print(withdraw(100, 150))</code></pre>
+</div>
+
+<p>
+Instead of silently returning something incorrect, the function stops execution.
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Design Insight</div>
+<div>
+Functions should protect themselves.
+Never assume the caller passes valid input.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>4. Choosing the Right Exception Type</h2>
+
+<p>
+Use built-in exception types when possible.
+</p>
+
+<ul>
+<li><code>ValueError</code> → correct type, wrong value</li>
+<li><code>TypeError</code> → wrong type entirely</li>
+<li><code>IndexError</code> → invalid index</li>
+<li><code>RuntimeError</code> → general runtime failure</li>
+</ul>
+
+<p>
+Example:
+</p>
+
+<div class="code-block">
+<pre><code>def square(number):
+    if not isinstance(number, (int, float)):
+        raise TypeError("Input must be a number.")
+    return number ** 2</code></pre>
+</div>
+
+<p>
+Type validation + clear error messaging = professional code.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>5. Raising Exceptions After Catching Them</h2>
+
+<p>
+Sometimes you catch an error — then decide it’s still critical.
+You can re-raise it.
+</p>
+
+<div class="code-block">
+<pre><code>try:
+    value = int("abc")
+except ValueError:
+    print("Conversion failed.")
+    raise</code></pre>
+</div>
+
+<p>
+Here:
+<ul>
+<li>We log or print something.</li>
+<li>Then re-raise the same exception.</li>
+</ul>
+</p>
+
+<p>
+This preserves the original traceback.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>6. Defensive Programming Mindset</h2>
+
+<p>
+Raising exceptions is not being dramatic.
+It is enforcing contracts.
+</p>
+
+<p>
+When you write a function, you are making a promise:
+</p>
+
+<ul>
+<li>If valid input → I return a correct result.</li>
+<li>If invalid input → I fail clearly and immediately.</li>
+</ul>
+
+<div class="callout">
+<div style="font-weight:700;">Professional Reality</div>
+<div>
+Silent failures are worse than crashes.  
+Clear exceptions are easier to debug than incorrect results.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>7. Mini Exercise</h2>
+
+<p>
+Write a function <code>set_password(password)</code> that:
+</p>
+
+<ul>
+<li>Raises <code>ValueError</code> if the password is less than 8 characters</li>
+<li>Raises <code>TypeError</code> if password is not a string</li>
+<li>Returns "Password set successfully" otherwise</li>
+</ul>
+
+<p>
+The goal is not complexity.  
+The goal is enforcing rules.
+</p>
+
+</section>
+
+<hr />
+
+<section class="chapter">
+<h2>8. Next Step</h2>
+
+<p>
+You now know how to raise built-in exceptions.
+Next, we go one level deeper:
+</p>
+
+<p>
+You will create your own custom exception classes.
+</p>
+
+<div class="callout">
+<div style="font-weight:700;">Strategic Thinking</div>
+<div>
+As programs grow, generic errors become vague.  
+Custom exceptions make large systems readable and maintainable.
+</div>
+</div>
+
+</section>
+
+</article>

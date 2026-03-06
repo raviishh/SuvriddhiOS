@@ -11,7 +11,7 @@ import type { LanguageType } from "../../types/language";
 
 export default function ExerciseView({ item, onMarkComplete }: { item: ExerciseItem; onMarkComplete: () => void; }) {
     let starterCode = ""
-    const [language] = useState<LanguageType>("C");
+    const { language } = useStore();
     if (language === "Python") {
         starterCode = "print('Hello, World!')\n";
     }

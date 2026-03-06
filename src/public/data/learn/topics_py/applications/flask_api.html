@@ -1,0 +1,286 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Simple REST API with Flask</h1>
+
+    <p class="lead">
+        In this lesson, you will learn how to build a small web server using
+        Flask. By the end, you will create your own Notes API that sends and
+        receives data using JSON.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What is a server?</h2>
+
+        <p>
+            A server is a program that waits for requests and sends back
+            responses.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Simple example
+            </div>
+            <div>
+                Your browser asks: “Give me a webpage.”<br />
+                The server replies: “Here it is.”
+            </div>
+        </div>
+
+        <p>When you open a website:</p>
+        <ul>
+            <li>Your browser sends a request</li>
+            <li>A server receives it</li>
+            <li>The server sends back data</li>
+        </ul>
+
+        <p>Today, you will build your own server.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. What is an API?</h2>
+
+        <p>API means <strong>Application Programming Interface</strong>.</p>
+
+        <p>A REST API is a server that:</p>
+        <ul>
+            <li>Receives requests</li>
+            <li>Returns data (usually JSON)</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Think of it like this
+            </div>
+            <div>
+                An API is like a waiter in a restaurant.<br />
+                You ask for food. The waiter brings it.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Installing Flask</h2>
+
+        <p>Flask is a small Python library for building web servers.</p>
+
+        <div class="steps">
+            <div class="step">Install Flask:</div>
+            <div class="code-block">
+                <pre><code>pip install flask</code></pre>
+            </div>
+        </div>
+
+        <p>Now you are ready to build your first server.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Your first Flask server</h2>
+
+        <div class="code-block">
+            <pre><code>from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello from my server!"
+
+if __name__ == "__main__":
+    app.run(debug=True)</code></pre>
+        </div>
+
+        <p>Save as <span class="inline-code">app.py</span> and run:</p>
+
+        <div class="code-block">
+            <pre><code>python app.py</code></pre>
+        </div>
+
+        <p>Then open your browser and go to:</p>
+
+        <div class="output">http://127.0.0.1:5000/</div>
+
+        <p>You just built a working web server.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Understanding routes</h2>
+
+        <p>A route tells Flask what to do when someone visits a URL.</p>
+
+        <div class="code-block">
+            <pre><code>@app.route("/hello")
+def hello():
+    return "Hello there!"</code></pre>
+        </div>
+
+        <p>Visiting:</p>
+
+        <div class="output">http://127.0.0.1:5000/hello</div>
+
+        <p>will show:</p>
+
+        <div class="output">Hello there!</div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Returning JSON data</h2>
+
+        <p>Most APIs return JSON.</p>
+
+        <div class="code-block">
+            <pre><code>from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route("/notes")
+def get_notes():
+    notes = ["Buy milk", "Study math"]
+    return jsonify(notes)</code></pre>
+        </div>
+
+        <p>When you visit:</p>
+
+        <div class="output">http://127.0.0.1:5000/notes</div>
+
+        <p>You will see:</p>
+
+        <div class="output">["Buy milk", "Study math"]</div>
+
+        <p>That is JSON data.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Handling POST requests</h2>
+
+        <p>GET is used to read data. POST is used to send data.</p>
+
+        <div class="code-block">
+            <pre><code>from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+notes = []
+
+@app.route("/notes", methods=["POST"])
+def add_note():
+    data = request.get_json()
+    note = data.get("note")
+    notes.append(note)
+    return jsonify({"message": "Note added!"})</code></pre>
+        </div>
+
+        <p>To test POST requests, you can use:</p>
+
+        <ul>
+            <li>Postman</li>
+            <li>curl</li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 8 -->
+    <section class="chapter">
+        <h2>8. Putting it together — Notes API</h2>
+
+        <div class="code-block">
+            <pre><code>from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+notes = []
+
+@app.route("/notes", methods=["GET"])
+def get_notes():
+    return jsonify(notes)
+
+@app.route("/notes", methods=["POST"])
+def add_note():
+    data = request.get_json()
+    note = data.get("note")
+    notes.append(note)
+    return jsonify({"message": "Note added!"})
+
+if __name__ == "__main__":
+    app.run(debug=True)</code></pre>
+        </div>
+
+        <p>Your API now:</p>
+        <ul>
+            <li>Stores notes in memory</li>
+            <li>Returns them as JSON</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Important
+            </div>
+            <div>
+                The data will reset when the server stops. In a later lesson,
+                you will store data in a database.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 9 -->
+    <section class="chapter">
+        <h2>9. Small exercises</h2>
+
+        <ul>
+            <li>
+                Add a new route <span class="inline-code">/about</span> that
+                returns a short message.
+            </li>
+            <li>
+                Return JSON in this format:
+                <span class="inline-code">{"notes": [...]}</span>
+            </li>
+            <li>Add error checking if the note is empty.</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Reminder
+            </div>
+            <div>
+                You just built your first backend server. This is the foundation
+                of real web applications.
+            </div>
+        </div>
+    </section>
+</article>

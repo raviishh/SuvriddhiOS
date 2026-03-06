@@ -1,0 +1,189 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Async Programming — Switching Tasks Smartly</h1>
+  <p class="lead">In this lesson, you will learn what asynchronous programming means. It is a way to handle many waiting tasks without using threads or processes.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. The problem: waiting wastes time</h2>
+    <p>
+      Imagine your program needs to:
+    </p>
+    <ul>
+      <li>Download data from the internet</li>
+      <li>Wait for a server response</li>
+      <li>Wait for a file to load</li>
+    </ul>
+
+    <p>
+      These tasks take time.
+      During that time, the program often just waits.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple idea</div>
+      <div>If a task is just waiting, the CPU is mostly free. We should let it do something else.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. What is asynchronous programming?</h2>
+    <p>
+      Asynchronous programming (async programming) is a way to:
+    </p>
+    <ul>
+      <li>Start a task</li>
+      <li>Pause it while it waits</li>
+      <li>Let another task run</li>
+      <li>Come back later when ready</li>
+    </ul>
+
+    <p>
+      The program switches between tasks while they wait.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>Imagine a chef cooking pasta and soup. While the pasta boils, the chef prepares vegetables. The chef does not just stand and wait.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Blocking vs Non-Blocking</h2>
+    <p>
+      A <strong>blocking</strong> task stops the program until it finishes.
+    </p>
+
+    <div class="code-block">
+<pre><code>import time
+
+print("Start")
+time.sleep(3)
+print("End")</code></pre>
+    </div>
+
+    <p>
+      The program waits 3 seconds. Nothing else runs.
+    </p>
+
+    <p>
+      A <strong>non-blocking</strong> task allows the program to do something else while waiting.
+    </p>
+
+    <p>
+      Async programming uses non-blocking tasks.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. The event loop</h2>
+    <p>
+      Async programs use something called an <strong>event loop</strong>.
+    </p>
+
+    <p>
+      The event loop:
+    </p>
+    <ul>
+      <li>Starts tasks</li>
+      <li>Checks which tasks are waiting</li>
+      <li>Switches to tasks that are ready</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>Think of the event loop as a manager. It decides which worker should work next.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. A first async example</h2>
+
+    <div class="code-block">
+<pre><code>import asyncio
+
+async def say_hello():
+    print("Hello")
+    await asyncio.sleep(2)
+    print("World")
+
+asyncio.run(say_hello())</code></pre>
+    </div>
+
+    <p>
+      New things here:
+    </p>
+    <ul>
+      <li><span class="inline-code">async def</span> creates an async function.</li>
+      <li><span class="inline-code">await</span> pauses the function while waiting.</li>
+      <li><span class="inline-code">asyncio.run()</span> starts the event loop.</li>
+    </ul>
+
+    <p>
+      <span class="inline-code">await asyncio.sleep(2)</span> waits 2 seconds without blocking the whole program.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Why async is useful</h2>
+    <p>
+      Async programming is very useful for:
+    </p>
+    <ul>
+      <li>Web servers</li>
+      <li>Chat applications</li>
+      <li>Downloading many files</li>
+      <li>Calling many APIs</li>
+    </ul>
+
+    <p>
+      It is powerful when many tasks spend time waiting.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>Async does NOT use multiple CPU cores. It is about smart waiting, not heavy computing.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Small Exercise</h2>
+    <p>
+      Write an async function that:
+      <ul>
+        <li>Prints "Start"</li>
+        <li>Waits 1 second using <span class="inline-code">await asyncio.sleep()</span></li>
+        <li>Prints "Done"</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Tip</div>
+      <div>Remember: you must use <span class="inline-code">asyncio.run()</span> to run async functions.</div>
+    </div>
+  </section>
+
+</article>

@@ -1,0 +1,221 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  <!-- <link rel="stylesheet" href="common.css" /> -->
+  
+  <h1>Variables in Python</h1>
+  <p class="lead">A clear and friendly guide to understanding variables in Python — how they store data, how they behave, and why they matter. Think of variables as labeled jars where you store ingredients for your program.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is a variable?</h2>
+    <p>
+      A variable is a name that refers to a value. In Python, when you create a variable, you are telling the computer:
+      “Store this value and let me refer to it using this name.”
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Imagine you have jars in a kitchen. You label one <strong>sugar</strong> and put sugar inside.
+        The label is the variable name, and what’s inside the jar is the value.
+      </div>
+    </div>
+
+    <p>
+      Unlike some languages, Python does not require you to declare a type explicitly.
+      The type is determined automatically based on the value you assign.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Creating variables</h2>
+    <p>
+      In Python, you create a variable using the assignment operator <span class="inline-code">=</span>.
+    </p>
+
+    <div class="code-block" aria-hidden="true">
+<pre><code>age = 16
+name = "Aarav"
+height = 5.8
+is_student = True
+
+print(age)
+print(name)
+print(height)
+print(is_student)</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">age = 16</span> stores an integer.</li>
+        <li><span class="inline-code">name = "Aarav"</span> stores a string (text).</li>
+        <li><span class="inline-code">height = 5.8</span> stores a float (decimal).</li>
+        <li><span class="inline-code">is_student = True</span> stores a boolean value.</li>
+      </ul>
+    </p>
+
+    <div class="steps">
+      <div class="step"><strong>Try it:</strong> Save as <span class="inline-code">variables.py</span> and run <span class="inline-code">python variables.py</span>.</div>
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">
+16<br/>
+Aarav<br/>
+5.8<br/>
+True
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Variable types — what can they store?</h2>
+    <p>
+      Python supports many data types. The most common beginner types are:
+    </p>
+
+    <div class="code-block" aria-hidden="true">
+<pre><code>x = 10            # int
+y = 3.14          # float
+z = "Hello"       # str
+flag = False      # bool
+
+print(type(x))
+print(type(y))
+print(type(z))
+print(type(flag))</code></pre>
+    </div>
+
+    <p>
+      Notes:
+      <ul>
+        <li><span class="inline-code">int</span> → whole numbers</li>
+        <li><span class="inline-code">float</span> → decimal numbers</li>
+        <li><span class="inline-code">str</span> → text</li>
+        <li><span class="inline-code">bool</span> → True or False</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>
+        Python is dynamically typed. This means you don’t tell Python the type — it figures it out automatically.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Changing values</h2>
+    <p>
+      Variables can change. You can reassign them at any time.
+    </p>
+
+    <div class="code-block">
+<pre><code>score = 10
+print(score)
+
+score = 20
+print(score)</code></pre>
+    </div>
+
+    <p>
+      The variable <span class="inline-code">score</span> first stores 10, then stores 20.
+      The old value is replaced.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Think Carefully</div>
+      <div>
+        In Python, variables are names that reference objects.
+        When you reassign, the name now points to a different value.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Variable naming rules</h2>
+    <p>
+      Python has simple naming rules:
+      <ul>
+        <li>Names can contain letters, numbers, and underscores.</li>
+        <li>Names cannot start with a number.</li>
+        <li>Names are case-sensitive (<span class="inline-code">age</span> and <span class="inline-code">Age</span> are different).</li>
+      </ul>
+    </p>
+
+    <div class="code-block">
+<pre><code>user_name = "Riya"   # valid
+score2 = 100         # valid
+2score = 50          # invalid (cannot start with number)</code></pre>
+    </div>
+
+    <p>
+      Best practice: use descriptive names like <span class="inline-code">total_price</span> instead of vague names like <span class="inline-code">tp</span>.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Simple operations with variables</h2>
+    <p>
+      Variables can be used in calculations and string operations.
+    </p>
+
+    <div class="code-block">
+<pre><code>a = 5
+b = 3
+sum_result = a + b
+
+first = "Hello"
+second = "World"
+message = first + " " + second
+
+print(sum_result)
+print(message)</code></pre>
+    </div>
+
+    <p>
+      Here:
+      <ul>
+        <li>Numbers can be added, subtracted, multiplied, etc.</li>
+        <li>Strings can be combined using <span class="inline-code">+</span> (concatenation).</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Practice ideas</h2>
+    <p>
+      To strengthen your understanding, try:
+      <ul>
+        <li>Create variables for your name, age, and favorite subject.</li>
+        <li>Calculate your age next year.</li>
+        <li>Create two strings and combine them into a sentence.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>
+        Keep experimenting. Change values, print types, mix numbers and strings.
+        The fastest way to understand variables is to play with them.
+      </div>
+    </div>
+
+  </section>
+</article>

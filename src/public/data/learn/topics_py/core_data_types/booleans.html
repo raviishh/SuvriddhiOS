@@ -1,0 +1,226 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Booleans & Truthiness</h1>
+  <p class="lead">
+    Booleans power decision-making. Every conditional, every loop guard, every validation check ultimately depends on one question: is this <strong>True</strong> or <strong>False</strong>?
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is a Boolean?</h2>
+    <p>
+      A Boolean is a data type with only two possible values: <span class="inline-code">True</span> and <span class="inline-code">False</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>is_logged_in = True
+is_admin = False
+
+print(type(is_logged_in))  # &lt;class 'bool'&gt;</code></pre>
+    </div>
+
+    <p>
+      Note: <span class="inline-code">True</span> and <span class="inline-code">False</span> must be capitalized. They are special keywords.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Think of a Boolean as a light switch. It’s either ON or OFF. No in-between.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Comparison operators</h2>
+    <p>
+      Booleans often come from comparisons.
+    </p>
+
+    <div class="code-block">
+<pre><code>x = 10
+y = 5
+
+print(x &gt; y)    # True
+print(x &lt; y)    # False
+print(x == 10)  # True
+print(x != y)   # True
+print(x &gt;= 10)  # True</code></pre>
+    </div>
+
+    <p>
+      Common comparison operators:
+      <ul>
+        <li><span class="inline-code">==</span> equal to</li>
+        <li><span class="inline-code">!=</span> not equal to</li>
+        <li><span class="inline-code">&gt;</span>, <span class="inline-code">&lt;</span></li>
+        <li><span class="inline-code">&gt;=</span>, <span class="inline-code">&lt;=</span></li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Common Mistake</div>
+      <div>
+        <span class="inline-code">=</span> assigns a value.  
+        <span class="inline-code">==</span> compares values.  
+        Mixing them up causes logic errors.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Logical operators</h2>
+    <p>
+      You can combine Boolean expressions using logical operators.
+    </p>
+
+    <div class="code-block">
+<pre><code>age = 20
+has_id = True
+
+print(age &gt;= 18 and has_id)  # True
+print(age &lt; 18 or has_id)    # True
+print(not has_id)            # False</code></pre>
+    </div>
+
+    <p>
+      Logical operators:
+      <ul>
+        <li><span class="inline-code">and</span> → both conditions must be True</li>
+        <li><span class="inline-code">or</span> → at least one must be True</li>
+        <li><span class="inline-code">not</span> → reverses the result</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Booleans in conditionals</h2>
+    <p>
+      Booleans are most commonly used inside <span class="inline-code">if</span> statements.
+    </p>
+
+    <div class="code-block">
+<pre><code>temperature = 30
+
+if temperature &gt; 25:
+    print("It's warm!")
+else:
+    print("It's cool!")</code></pre>
+    </div>
+
+    <p>
+      The <span class="inline-code">if</span> block runs only if the condition evaluates to <span class="inline-code">True</span>.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Truthiness — not everything is strictly True or False</h2>
+    <p>
+      In Python, many values can be evaluated as True or False even if they are not Boolean types.
+      This is called <strong>truthiness</strong>.
+    </p>
+
+    <div class="code-block">
+<pre><code>print(bool(0))        # False
+print(bool(1))        # True
+print(bool(""))       # False
+print(bool("Hello"))  # True
+print(bool([]))       # False
+print(bool([1, 2]))   # True</code></pre>
+    </div>
+
+    <p>
+      Generally:
+      <ul>
+        <li>Zero values → False</li>
+        <li>Empty collections → False</li>
+        <li>Everything else → True</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Why this matters</div>
+      <div>
+        You don’t always need to write <span class="inline-code">if len(my_list) &gt; 0</span>.  
+        You can simply write <span class="inline-code">if my_list:</span>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Short-circuit evaluation</h2>
+    <p>
+      Python evaluates logical expressions from left to right and stops as soon as the result is determined.
+    </p>
+
+    <div class="code-block">
+<pre><code>print(False and print("Hello"))  # "Hello" never runs
+print(True or print("World"))    # "World" never runs</code></pre>
+    </div>
+
+    <p>
+      This is called <strong>short-circuiting</strong>.  
+      It’s efficient — and sometimes surprising.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Common beginner mistakes</h2>
+    <ul>
+      <li>Using <span class="inline-code">=</span> instead of <span class="inline-code">==</span></li>
+      <li>Forgetting operator precedence in complex conditions</li>
+      <li>Overcomplicating logic instead of simplifying conditions</li>
+      <li>Not understanding truthiness of empty values</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What does this print?
+        <span class="inline-code">bool("False")</span>  
+        Run it. Think about why.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Where this fits in Core Data Types</h2>
+    <p>
+      Booleans drive program flow. Without them, programs couldn’t make decisions.
+    </p>
+
+    <p>
+      Next: <strong>Type Conversion</strong>. Because sometimes you need to turn numbers or strings into Booleans — and vice versa.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Write small conditionals. Combine <span class="inline-code">and</span>, <span class="inline-code">or</span>, and <span class="inline-code">not</span>.  
+        Break your logic. Fix it. That’s how Boolean intuition develops.
+      </div>
+    </div>
+  </section>
+
+</article>

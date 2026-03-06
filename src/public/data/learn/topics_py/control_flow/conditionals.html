@@ -1,0 +1,271 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Conditional Statements in Python</h1>
+  <p class="lead">
+    Conditional statements control program flow. They allow your code to make decisions, branch logic, and respond dynamically to different inputs and states.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. The Basic <span class="inline-code">if</span> Statement</h2>
+    <p>
+      The <span class="inline-code">if</span> statement executes a block of code only if its condition evaluates to <span class="inline-code">True</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>age = 18
+
+if age >= 18:
+    print("You are legally an adult.")</code></pre>
+    </div>
+
+    <p>
+      Syntax rules:
+      <ul>
+        <li>Condition must evaluate to a Boolean</li>
+        <li>Colon <span class="inline-code">:</span> is required</li>
+        <li>Indentation defines the block</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Critical Detail</div>
+      <div>
+        Python uses indentation, not braces. Incorrect spacing = broken logic.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. The <span class="inline-code">if-else</span> Structure</h2>
+    <p>
+      Use <span class="inline-code">else</span> to define an alternative path when the condition is False.
+    </p>
+
+    <div class="code-block">
+<pre><code>temperature = 15
+
+if temperature > 25:
+    print("It's warm.")
+else:
+    print("It's cool.")</code></pre>
+    </div>
+
+    <p>
+      Only one branch runs — never both.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Execution Model</div>
+      <div>
+        Python evaluates the condition once. If True → run <span class="inline-code">if</span> block.  
+        Otherwise → run <span class="inline-code">else</span> block.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. The <span class="inline-code">elif</span> Ladder</h2>
+    <p>
+      <span class="inline-code">elif</span> (short for “else if”) allows multiple conditions.
+    </p>
+
+    <div class="code-block">
+<pre><code>score = 82
+
+if score >= 90:
+    print("Grade: A")
+elif score >= 80:
+    print("Grade: B")
+elif score >= 70:
+    print("Grade: C")
+else:
+    print("Grade: Below C")</code></pre>
+    </div>
+
+    <p>
+      Python checks conditions top to bottom.  
+      The first True condition stops the chain.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Design Principle</div>
+      <div>
+        Order matters. Put the most restrictive conditions first.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Nested Conditionals</h2>
+    <p>
+      You can place conditionals inside other conditionals.
+    </p>
+
+    <div class="code-block">
+<pre><code>age = 20
+has_id = True
+
+if age >= 18:
+    if has_id:
+        print("Entry allowed.")
+    else:
+        print("ID required.")
+else:
+    print("Underage.")</code></pre>
+    </div>
+
+    <p>
+      Nested structures increase complexity. Use carefully.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Best Practice</div>
+      <div>
+        If nesting becomes deep, consider simplifying logic with logical operators.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Combining Conditions</h2>
+    <p>
+      Use logical operators to combine conditions directly.
+    </p>
+
+    <div class="code-block">
+<pre><code>age = 20
+has_id = True
+
+if age >= 18 and has_id:
+    print("Entry allowed.")
+else:
+    print("Entry denied.")</code></pre>
+    </div>
+
+    <p>
+      Logical operators:
+      <ul>
+        <li><span class="inline-code">and</span> → both must be True</li>
+        <li><span class="inline-code">or</span> → at least one must be True</li>
+        <li><span class="inline-code">not</span> → negates the condition</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Ternary Conditional Expression</h2>
+    <p>
+      Python provides a compact conditional expression.
+    </p>
+
+    <div class="code-block">
+<pre><code>age = 17
+
+status = "Adult" if age >= 18 else "Minor"
+print(status)</code></pre>
+    </div>
+
+    <p>
+      Format:
+      <span class="inline-code">value_if_true if condition else value_if_false</span>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Use Sparingly</div>
+      <div>
+        Ternary expressions improve brevity, not clarity. Avoid overuse.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Conditional Logic with Truthiness</h2>
+    <p>
+      Conditions don’t need explicit comparisons if the value already evaluates to True or False.
+    </p>
+
+    <div class="code-block">
+<pre><code>items = []
+
+if items:
+    print("Items exist.")
+else:
+    print("No items found.")</code></pre>
+    </div>
+
+    <p>
+      Empty collections, zero, and empty strings evaluate to False.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Common Mistakes</h2>
+    <ul>
+      <li>Using <span class="inline-code">=</span> instead of <span class="inline-code">==</span></li>
+      <li>Misplacing indentation</li>
+      <li>Incorrect ordering in <span class="inline-code">elif</span> chains</li>
+      <li>Over-nesting conditionals</li>
+      <li>Forgetting parentheses in complex logical expressions</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What prints?
+        <span class="inline-code">
+        x = 5  
+        if x > 3:  
+            if x < 10:  
+                print("A")  
+        else:  
+            print("B")
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>9. Why Conditionals Matter</h2>
+    <p>
+      Conditionals define decision logic. Every authentication system, validation rule, AI branch, and user interaction depends on them.
+    </p>
+
+    <p>
+      Mastering conditionals means mastering control flow — the backbone of programming.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Write increasingly complex decision trees. Then simplify them.  
+        Refactoring conditional logic builds real programming maturity.
+      </div>
+    </div>
+  </section>
+
+</article>

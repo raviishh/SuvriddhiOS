@@ -1,0 +1,232 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Return Values in Python</h1>
+    <p class="lead">
+        Return values allow functions to send data back to the caller. They are
+        the foundation of composability — enabling functions to build on one
+        another rather than just produce output.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What <span class="inline-code">return</span> Does</h2>
+        <p>
+            The <span class="inline-code">return</span> statement ends a
+            function and sends a value back to the calling code.
+        </p>
+
+        <div class="code-block">
+            <pre><code>def add(a, b):
+    return a + b
+
+result = add(3, 5)
+print(result)</code></pre>
+        </div>
+
+        <p>
+            When <span class="inline-code">add(3, 5)</span> runs, the value
+            <span class="inline-code">8</span> is returned and stored in
+            <span class="inline-code">result</span>.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Return vs Print</h2>
+        <p>This distinction is critical.</p>
+
+        <div class="code-block">
+            <pre><code>def square(x):
+    print(x * x)</code></pre>
+        </div>
+
+        <p>The function above displays a value, but does not return it.</p>
+
+        <div class="code-block">
+            <pre><code>value = square(4)
+print(value)</code></pre>
+        </div>
+
+        <p>
+            <span class="inline-code">value</span> becomes
+            <span class="inline-code">None</span>.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Design Rule
+            </div>
+            <div>Printing is for users. Returning is for programs.</div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Returning Multiple Values</h2>
+        <p>Python allows multiple values to be returned as a tuple.</p>
+
+        <div class="code-block">
+            <pre><code>def divide(a, b):
+    quotient = a // b
+    remainder = a % b
+    return quotient, remainder
+
+q, r = divide(10, 3)</code></pre>
+        </div>
+
+        <p>Multiple values are automatically packaged into a tuple.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Early Return</h2>
+        <p>
+            A function stops executing immediately when it hits
+            <span class="inline-code">return</span>.
+        </p>
+
+        <div class="code-block">
+            <pre><code>def check_number(n):
+    if n &lt; 0:
+        return "Negative"
+    return "Non-negative"</code></pre>
+        </div>
+
+        <p>
+            Early returns simplify branching logic and reduce nested conditions.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Implicit Return of None</h2>
+        <p>
+            If no <span class="inline-code">return</span> statement is provided,
+            Python automatically returns <span class="inline-code">None</span>.
+        </p>
+
+        <div class="code-block">
+            <pre><code>def example():
+    x = 10
+
+print(example())</code></pre>
+        </div>
+
+        <p>Output:</p>
+
+        <div class="code-block">
+            <pre><code>None</code></pre>
+        </div>
+
+        <p>Every function returns something — even if you do not specify it.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Returning Complex Data</h2>
+        <p>
+            Functions can return any object: lists, dictionaries, classes, or
+            other functions.
+        </p>
+
+        <div class="code-block">
+            <pre><code>def create_profile(name, age):
+    return {
+        "name": name,
+        "age": age
+    }</code></pre>
+        </div>
+
+        <p>
+            This allows structured data to flow between parts of your program.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Common Mistakes</h2>
+        <ul>
+            <li>
+                Using <span class="inline-code">print</span> instead of
+                <span class="inline-code">return</span>
+            </li>
+            <li>
+                Placing code after a <span class="inline-code">return</span> (it
+                will never run)
+            </li>
+            <li>
+                Forgetting that a function without
+                <span class="inline-code">return</span> returns
+                <span class="inline-code">None</span>
+            </li>
+            <li>Returning inconsistent types across branches</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Quick Check
+            </div>
+            <div>
+                What prints?
+                <span class="inline-code">
+                    def test(x): if x &gt; 5: return x print("Small")
+                    print(test(3))
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>8. Why Return Values Matter</h2>
+        <p>
+            Return values make functions composable. Instead of isolated blocks
+            of logic, you create a chain of reusable transformations.
+        </p>
+
+        <p>
+            Mastering return values is essential for building scalable, modular,
+            and testable software.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Practice Strategy
+            </div>
+            <div>
+                Refactor a function that prints output into one that returns
+                data. Then reuse that returned value in another function.
+            </div>
+        </div>
+    </section>
+</article>

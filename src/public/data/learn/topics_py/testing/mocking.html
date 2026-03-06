@@ -1,0 +1,203 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Mocking in Python</h1>
+  <p class="lead">
+    Sometimes your code depends on the outside world — files, APIs, time, or databases.  
+    In this lesson, you will learn how to <strong>mock</strong> those parts during testing.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. The Problem: Outside Dependencies</h2>
+    <p>
+      Look at this example:
+    </p>
+
+    <div class="code-block">
+<pre><code>import requests
+
+def get_user_name():
+    response = requests.get("https://api.example.com/user")
+    data = response.json()
+    return data["name"]</code></pre>
+    </div>
+
+    <p>
+      This function depends on:
+      <ul>
+        <li>The internet</li>
+        <li>An external server</li>
+        <li>The API working correctly</li>
+      </ul>
+    </p>
+
+    <p>
+      If the internet is slow or the server is down, your test fails.  
+      But maybe your code is correct.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Main Idea</div>
+      <div>
+        Good tests should be fast and stable.  
+        They should not depend on the real internet or real databases.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. What is Mocking?</h2>
+    <p>
+      Mocking means replacing a real object with a fake one during testing.
+    </p>
+
+    <p>
+      Instead of calling the real API, we create a fake version that returns what we want.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>
+        Imagine you are testing a car.  
+        Instead of driving on a real road, you test it in a simulator.  
+        The simulator is a "mock" version of the road.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Using unittest.mock</h2>
+    <p>
+      Python has a built-in module called <span class="inline-code">unittest.mock</span>.
+    </p>
+
+    <p>
+      Let’s simplify our example.
+    </p>
+
+    <p><strong>File: data_service.py</strong></p>
+
+    <div class="code-block">
+<pre><code>def get_data():
+    return {"name": "Real User"}
+
+def get_user_name():
+    data = get_data()
+    return data["name"]</code></pre>
+    </div>
+
+    <p>
+      Now we want to test <span class="inline-code">get_user_name()</span>  
+      without calling the real <span class="inline-code">get_data()</span>.
+    </p>
+
+    <p><strong>File: test_data_service.py</strong></p>
+
+    <div class="code-block">
+<pre><code>import unittest
+from unittest.mock import patch
+from data_service import get_user_name
+
+class TestUserName(unittest.TestCase):
+
+    @patch("data_service.get_data")
+    def test_get_user_name(self, mock_get_data):
+        mock_get_data.return_value = {"name": "Fake User"}
+        result = get_user_name()
+        self.assertEqual(result, "Fake User")
+
+if __name__ == "__main__":
+    unittest.main()</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">@patch("data_service.get_data")</span> replaces the real function.</li>
+        <li><span class="inline-code">mock_get_data.return_value</span> sets fake data.</li>
+        <li>The real function is not called.</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Why Mocking is Important</h2>
+    <p>
+      Mocking:
+      <ul>
+        <li>Makes tests faster</li>
+        <li>Makes tests more reliable</li>
+        <li>Lets you test code in isolation</li>
+      </ul>
+    </p>
+
+    <p>
+      If you do not mock external systems, your tests may:
+      <ul>
+        <li>Fail randomly</li>
+        <li>Be slow</li>
+        <li>Depend on the internet</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Mocking Another Example (Time)</h2>
+    <p>
+      Sometimes your code depends on the current time.
+    </p>
+
+    <p><strong>File: clock.py</strong></p>
+
+    <div class="code-block">
+<pre><code>import datetime
+
+def get_current_year():
+    return datetime.datetime.now().year</code></pre>
+    </div>
+
+    <p>
+      We can mock <span class="inline-code">datetime.datetime.now</span>  
+      to return a fixed date.
+    </p>
+
+    <p>
+      This makes your test predictable.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>6. Small Exercise</h2>
+    <p>
+      1. Create a function <span class="inline-code">get_discount()</span> that calls another function <span class="inline-code">get_user_type()</span>.  
+      2. In your test, mock <span class="inline-code">get_user_type()</span>.  
+      3. Make it return different values (like "premium", "basic").  
+      4. Check if <span class="inline-code">get_discount()</span> returns the correct result.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Mock only what you do not control.  
+        Test your own logic.  
+        Fake the outside world.
+      </div>
+    </div>
+  </section>
+
+</article>

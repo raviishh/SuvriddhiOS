@@ -1,0 +1,234 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Iteration Helpers in Python</h1>
+  <p class="lead">
+    Iteration helpers are built-in tools that make loops cleaner, safer, and more expressive.
+    They reduce boilerplate and eliminate common indexing errors.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. <span class="inline-code">range()</span> — Controlled Numeric Iteration</h2>
+    <p>
+      <span class="inline-code">range()</span> generates a sequence of numbers without storing them all in memory.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(5):
+    print(i)</code></pre>
+    </div>
+
+    <p>
+      Variants:
+    </p>
+
+    <div class="code-block">
+<pre><code>range(stop)
+range(start, stop)
+range(start, stop, step)</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Performance Insight</div>
+      <div>
+        <span class="inline-code">range()</span> is memory-efficient.
+        It generates values on demand.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. <span class="inline-code">enumerate()</span> — Index + Value</h2>
+    <p>
+      <span class="inline-code">enumerate()</span> provides both index and element during iteration.
+    </p>
+
+    <div class="code-block">
+<pre><code>fruits = ["apple", "banana", "cherry"]
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)</code></pre>
+    </div>
+
+    <p>
+      Optional start index:
+    </p>
+
+    <div class="code-block">
+<pre><code>for index, fruit in enumerate(fruits, start=1):
+    print(index, fruit)</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Why It Matters</div>
+      <div>
+        Avoid manual counters. Cleaner code. Fewer bugs.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. <span class="inline-code">zip()</span> — Parallel Iteration</h2>
+    <p>
+      <span class="inline-code">zip()</span> combines multiple iterables and iterates over them in parallel.
+    </p>
+
+    <div class="code-block">
+<pre><code>names = ["Alice", "Bob", "Charlie"]
+scores = [85, 92, 78]
+
+for name, score in zip(names, scores):
+    print(name, score)</code></pre>
+    </div>
+
+    <p>
+      Stops when the shortest iterable ends.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Use Case</div>
+      <div>
+        Perfect for pairing related datasets.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. <span class="inline-code">reversed()</span> — Reverse Iteration</h2>
+    <p>
+      <span class="inline-code">reversed()</span> iterates over a sequence in reverse order.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in reversed(range(5)):
+    print(i)</code></pre>
+    </div>
+
+    <p>
+      This avoids manual index manipulation.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. <span class="inline-code">sorted()</span> — Sorted Iteration</h2>
+    <p>
+      <span class="inline-code">sorted()</span> returns a new sorted list from any iterable.
+    </p>
+
+    <div class="code-block">
+<pre><code>numbers = [5, 2, 9, 1]
+
+for num in sorted(numbers):
+    print(num)</code></pre>
+    </div>
+
+    <p>
+      Optional parameters:
+    </p>
+
+    <div class="code-block">
+<pre><code>sorted(iterable, reverse=True)
+sorted(iterable, key=function)</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key Detail</div>
+      <div>
+        <span class="inline-code">sorted()</span> does not modify the original list.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. <span class="inline-code">any()</span> and <span class="inline-code">all()</span></h2>
+    <p>
+      These evaluate iterables for Boolean conditions.
+    </p>
+
+    <div class="code-block">
+<pre><code>values = [True, True, False]
+
+print(any(values))  # True
+print(all(values))  # False</code></pre>
+    </div>
+
+    <p>
+      Rules:
+      <ul>
+        <li><span class="inline-code">any()</span> → True if at least one element is True</li>
+        <li><span class="inline-code">all()</span> → True only if every element is True</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Efficiency Note</div>
+      <div>
+        Both functions short-circuit — they stop early when result is determined.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Common Mistakes</h2>
+    <ul>
+      <li>Using manual indexing instead of <span class="inline-code">enumerate()</span></li>
+      <li>Assuming <span class="inline-code">zip()</span> pads shorter lists (it does not)</li>
+      <li>Forgetting that <span class="inline-code">sorted()</span> returns a new list</li>
+      <li>Overcomplicating loops instead of using helpers</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What prints?
+        <span class="inline-code">
+        print(any([0, "", [], 5]))
+        </span>
+        Why?
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Why Iteration Helpers Matter</h2>
+    <p>
+      Iteration helpers improve clarity and reduce error surface.
+      They represent idiomatic Python — concise, expressive, and efficient.
+    </p>
+
+    <p>
+      Writing clean loops is not about fewer lines.
+      It is about fewer failure points.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Rewrite a loop using at least two iteration helpers.
+        Then compare readability and complexity.
+      </div>
+    </div>
+  </section>
+
+</article>

@@ -1,0 +1,252 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Nested Data Structures in Python</h1>
+    <p class="lead">
+        Nested data structures are combinations of lists, tuples, sets, and
+        dictionaries stored within one another. They allow representation of
+        hierarchical, multi-dimensional, or structured data.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What Are Nested Data Structures?</h2>
+        <p>
+            A nested data structure contains one data structure inside another.
+        </p>
+
+        <div class="code-block">
+            <pre><code>matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+
+student = {
+    "name": "Alice",
+    "scores": [85, 90, 88]
+}</code></pre>
+        </div>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Common Patterns
+            </div>
+            <div>
+                • List of lists (matrices)<br />
+                • Dictionary of lists<br />
+                • List of dictionaries<br />
+                • Dictionary of dictionaries
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. Accessing Nested Elements</h2>
+        <p>Access requires multiple indexing operations.</p>
+
+        <div class="code-block">
+            <pre><code>matrix = [[1, 2], [3, 4]]
+print(matrix[1][0])   # 3
+
+students = {
+    "Alice": {"math": 90, "science": 85}
+}
+
+print(students["Alice"]["math"])  # 90</code></pre>
+        </div>
+
+        <p>Each level requires a separate index or key lookup.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Modifying Nested Structures</h2>
+
+        <div class="code-block">
+            <pre><code>matrix = [[1, 2], [3, 4]]
+matrix[0][1] = 99
+
+students = {
+    "Alice": {"math": 90}
+}
+
+students["Alice"]["math"] = 95
+students["Alice"]["english"] = 88</code></pre>
+        </div>
+
+        <p>Modifications depend on whether the inner structure is mutable.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Iterating Through Nested Structures</h2>
+
+        <p>Iteration often requires nested loops.</p>
+
+        <div class="code-block">
+            <pre><code>matrix = [[1, 2], [3, 4]]
+
+for row in matrix:
+    for value in row:
+        print(value)</code></pre>
+        </div>
+
+        <p>Iterating through nested dictionaries:</p>
+
+        <div class="code-block">
+            <pre><code>students = {
+    "Alice": {"math": 90, "science": 85},
+    "Bob": {"math": 78, "science": 88}
+}
+
+for name, subjects in students.items():
+    for subject, score in subjects.items():
+        print(name, subject, score)</code></pre>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. Combining Comprehensions</h2>
+
+        <p>Nested comprehensions can generate complex structures.</p>
+
+        <div class="code-block">
+            <pre><code>matrix = [[i * j for j in range(3)] for i in range(3)]
+
+squares = {
+    i: {j: i * j for j in range(3)}
+    for i in range(3)
+}</code></pre>
+        </div>
+
+        <p>Keep comprehensions readable and avoid excessive nesting.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. Deep vs Shallow Copy</h2>
+
+        <p>
+            Shallow copying duplicates only the outer structure. Inner objects
+            remain shared.
+        </p>
+
+        <div class="code-block">
+            <pre><code>import copy
+
+matrix = [[1, 2], [3, 4]]
+shallow = matrix.copy()
+deep = copy.deepcopy(matrix)</code></pre>
+        </div>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Important Distinction
+            </div>
+            <div>Use deep copies when modifying nested data independently.</div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Real-World Applications</h2>
+        <ul>
+            <li>Representing JSON data</li>
+            <li>Modeling databases</li>
+            <li>Storing configuration files</li>
+            <li>Building adjacency lists in graphs</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Design Insight
+            </div>
+            <div>
+                If nesting becomes too deep, consider defining classes for
+                better structure.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 8 -->
+    <section class="chapter">
+        <h2>8. Common Mistakes</h2>
+        <ul>
+            <li>Incorrect indexing depth</li>
+            <li>Modifying shared references unintentionally</li>
+            <li>Overcomplicating structure instead of simplifying design</li>
+            <li>Forgetting to handle missing keys in nested dictionaries</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Quick Check
+            </div>
+            <div>
+                What is printed?
+                <span class="inline-code">
+                    data = [[1, 2], [3, 4]] copy_data = data copy_data[0][0] =
+                    99 print(data)
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Conclusion -->
+    <section class="chapter">
+        <h2>9. Why Nested Data Structures Matter</h2>
+        <p>
+            Nested structures enable modeling of complex, real-world systems.
+            They form the backbone of APIs, configuration systems, and
+            structured data processing.
+        </p>
+
+        <p>
+            Mastery of nested data structures is essential for writing scalable
+            and maintainable applications.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Practice Strategy
+            </div>
+            <div>
+                Parse a JSON-like dictionary and extract specific nested values.
+                Then refactor the structure for clarity and efficiency.
+            </div>
+        </div>
+    </section>
+</article>

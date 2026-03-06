@@ -21,7 +21,7 @@ export default function Home() {
       .then(r => r.json())
       .then((t: Topic[]) => setTopics(t))
       .catch(() => setTopics([]));
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     if (lastActivity) {

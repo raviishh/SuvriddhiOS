@@ -1,0 +1,225 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>NumPy Basics</h1>
+  <p class="lead">
+    A simple introduction to NumPy — the fast and powerful math library in Python. 
+    Think of NumPy as a super calculator that works with many numbers at the same time.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is NumPy?</h2>
+    <p>
+      NumPy is a Python library used for working with numbers. 
+      It is very fast and is used in science, data analysis, and artificial intelligence.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        A normal Python list is like writing numbers in a notebook. 
+        NumPy is like using a scientific calculator — faster and built for math.
+      </div>
+    </div>
+
+    <p>
+      Many other libraries (like Pandas and machine learning tools) use NumPy inside them.
+      So learning NumPy is very important.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Installing and Importing NumPy</h2>
+    <p>
+      First, install NumPy using pip:
+    </p>
+
+    <div class="code-block">
+<pre><code>pip install numpy</code></pre>
+    </div>
+
+    <p>
+      Then import it in Python:
+    </p>
+
+    <div class="code-block">
+<pre><code>import numpy as np</code></pre>
+    </div>
+
+    <p>
+      We write <span class="inline-code">as np</span> because it is shorter and easier to type.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Creating NumPy Arrays</h2>
+    <p>
+      NumPy works with something called an <strong>array</strong>.
+      An array is like a list, but faster and more powerful.
+    </p>
+
+    <div class="code-block">
+<pre><code>import numpy as np
+
+numbers = np.array([1, 2, 3, 4])
+print(numbers)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+    <div class="output">[1 2 3 4]</div>
+
+    <p>
+      You can also create 2D arrays (like tables):
+    </p>
+
+    <div class="code-block">
+<pre><code>matrix = np.array([[1, 2],
+                   [3, 4]])
+print(matrix)</code></pre>
+    </div>
+
+    <p>
+      This is called a 2D array. It has rows and columns.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Tip</div>
+      <div>
+        1D array = one line of numbers. <br/>
+        2D array = table of numbers.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Special Arrays</h2>
+    <p>
+      NumPy can quickly create arrays filled with zeros or ones.
+    </p>
+
+    <div class="code-block">
+<pre><code>zeros = np.zeros(3)
+print(zeros)
+
+ones = np.ones(4)
+print(ones)</code></pre>
+    </div>
+
+    <p>
+      You can also create a range of numbers:
+    </p>
+
+    <div class="code-block">
+<pre><code>numbers = np.arange(0, 5)
+print(numbers)</code></pre>
+    </div>
+
+    <p>
+      This creates numbers from 0 to 4.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Fast Math with Arrays</h2>
+    <p>
+      NumPy can do math on all numbers at the same time.
+      You do not need loops.
+    </p>
+
+    <div class="code-block">
+<pre><code>import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+print(a + b)
+print(a * 2)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+    <div class="output">
+[5 7 9] <br/>
+[2 4 6]
+    </div>
+
+    <p>
+      This is called <strong>element-wise operation</strong>.
+      Each number is calculated one by one automatically.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Shape and Size</h2>
+    <p>
+      You can check the shape of an array.
+      Shape tells you how many rows and columns it has.
+    </p>
+
+    <div class="code-block">
+<pre><code>matrix = np.array([[1, 2, 3],
+                   [4, 5, 6]])
+
+print(matrix.shape)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+    <div class="output">(2, 3)</div>
+
+    <p>
+      This means 2 rows and 3 columns.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Why NumPy Matters</h2>
+    <p>
+      NumPy is used in:
+      <ul>
+        <li>Data science</li>
+        <li>Artificial intelligence</li>
+        <li>Scientific research</li>
+        <li>Game engines</li>
+      </ul>
+    </p>
+
+    <p>
+      It is the foundation for many advanced Python tools.
+      If you understand NumPy, you understand how many data tools work.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Small Exercises</div>
+      <div>
+        1. Create a 3x3 array of numbers. <br/>
+        2. Multiply the array by 5. <br/>
+        3. Create two arrays and add them together. <br/>
+        4. Check the shape of your array.
+      </div>
+    </div>
+
+  </section>
+</article>

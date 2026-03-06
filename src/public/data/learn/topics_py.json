@@ -1,106 +1,740 @@
 [
-  {
-    "id": "intro_py",
-    "title": "Intro to Py",
-    "items": [
-      {
-        "id": "intro_what_is_py",
-        "type": "lesson",
-        "title": "What is Python?",
-        "contentFile": "topics/py/intro/what_is_py.html"
-      },
-      {
-        "id": "intro_first_program",
-        "type": "lesson",
-        "title": "Your First Program",
-        "contentFile": "topics/py/intro/first_program.html"
-      },
-      {
-        "id": "intro_variables",
-        "type": "lesson",
-        "title": "Variables",
-        "contentFile": "topics/py/intro/variables.html"
-      },
-      {
-        "id": "intro_print_hello",
-        "type": "exercise",
-        "title": "Print 'Hello, World!'",
-        "contentFile": "topics/py/intro/print_hello.html",
-        "tests": [
-          {
-            "input": "",
-            "expected": "Hello, World!\n"
-          }
+    {
+        "id": "foundations",
+        "title": "Foundations of Python",
+        "items": [
+            {
+                "id": "found_what_is_python",
+                "type": "lesson",
+                "title": "What Is Python?",
+                "contentFile": "topics_py/foundations/what_is_python.html"
+            },
+            {
+                "id": "found_syntax",
+                "type": "lesson",
+                "title": "Python Syntax Essentials",
+                "contentFile": "topics_py/foundations/syntax.html"
+            },
+            {
+                "id": "found_variables",
+                "type": "lesson",
+                "title": "Variables & Dynamic Typing",
+                "contentFile": "topics_py/foundations/variables.html"
+            },
+            {
+                "id": "found_io",
+                "type": "lesson",
+                "title": "Basic Input & Output",
+                "contentFile": "topics_py/foundations/io.html"
+            },
+            {
+                "id": "found_execution_model",
+                "type": "lesson",
+                "title": "Python Execution Model",
+                "contentFile": "topics_py/foundations/execution_model.html"
+            },
+            {
+                "id": "found_zen_python",
+                "type": "lesson",
+                "title": "The Zen of Python & Pythonic Thinking",
+                "contentFile": "topics_py/foundations/zen_python.html"
+            }
         ]
-      }
-    ]
-  },
-  {
-    "id": "variables",
-    "title": "Variables and Data Types",
-    "items": [
-      {
-        "id": "variables_overview",
-        "type": "lesson",
-        "title": "Overview of Variables",
-        "icon": "book",
-        "path": "lessons/py/variables_overview.json"
-      },
-      {
-        "id": "variables_exercise1",
-        "type": "exercise",
-        "title": "Input and Output",
-        "contentFile": "topics/py/variables/variables_exercise1.html",
-        "tests": [
-          {
-            "input": "2",
-            "expected": "5"
-          },
-          {
-            "input": "5",
-            "expected": "8"
-          },
-          {
-            "input": "-1",
-            "expected": "2"
-          }
-          
+    },
+    {
+        "id": "core_data_types",
+        "title": "Core Data Types",
+        "items": [
+            {
+                "id": "types_numbers",
+                "type": "lesson",
+                "title": "Numbers (int, float, complex)",
+                "contentFile": "topics_py/core_data_types/numbers.html"
+            },
+            {
+                "id": "types_booleans",
+                "type": "lesson",
+                "title": "Booleans & Truthiness",
+                "contentFile": "topics_py/core_data_types/booleans.html"
+            },
+            {
+                "id": "types_strings",
+                "type": "lesson",
+                "title": "Strings Deep Dive",
+                "contentFile": "topics_py/core_data_types/strings.html"
+            },
+            {
+                "id": "types_conversion",
+                "type": "lesson",
+                "title": "Type Conversion",
+                "contentFile": "topics_py/core_data_types/type_conversion.html"
+            },
+            {
+                "id": "types_none_identity",
+                "type": "lesson",
+                "title": "NoneType & Identity (is vs ==)",
+                "contentFile": "topics_py/core_data_types/none_identity.html"
+            },
+            {
+                "id": "types_mutable_vs_immutable",
+                "type": "lesson",
+                "title": "Mutable vs Immutable Deep Dive",
+                "contentFile": "topics_py/core_data_types/mutable_vs_immutable.html"
+            },
+            {
+                "id": "types_shallow_deep_copy",
+                "type": "lesson",
+                "title": "Shallow vs Deep Copy",
+                "contentFile": "topics_py/core_data_types/shallow_deep_copy.html"
+            }
         ]
-      },
-      {
-        "id": "variables_exercise2",
-        "type": "exercise",
-        "title": "Sum of Two Integers",
-        "icon": "terminal",
-        "path": "exercises/py/variables_exercise2.json"
-      }
-    ]
-  },
-  {
-    "id": "control_flow",
-    "title": "Control Flow",
-    "items": [
-      {
-        "id": "control_ifelse",
-        "type": "lesson",
-        "title": "If, Else, and Conditions",
-        "icon": "book",
-        "path": "lessons/py/control_ifelse.json"
-      },
-      {
-        "id": "control_loops",
-        "type": "lesson",
-        "title": "Loops in Python",
-        "icon": "book",
-        "path": "lessons/py/control_loops.json"
-      },
-      {
-        "id": "control_exercise1",
-        "type": "exercise",
-        "title": "Even or Odd Checker",
-        "icon": "terminal",
-        "path": "exercises/py/control_exercise1.json"
-      }
-    ]
-  }
+    },
+    {
+        "id": "control_flow",
+        "title": "Control Flow",
+        "items": [
+            {
+                "id": "control_conditionals",
+                "type": "lesson",
+                "title": "Conditional Statements",
+                "contentFile": "topics_py/control_flow/conditionals.html"
+            },
+            {
+                "id": "control_logical_ops",
+                "type": "lesson",
+                "title": "Logical Operators",
+                "contentFile": "topics_py/control_flow/logical_operators.html"
+            },
+            {
+                "id": "control_while",
+                "type": "lesson",
+                "title": "While Loops",
+                "contentFile": "topics_py/control_flow/while_loops.html"
+            },
+            {
+                "id": "control_for",
+                "type": "lesson",
+                "title": "For Loops",
+                "contentFile": "topics_py/control_flow/for_loops.html"
+            },
+            {
+                "id": "control_loop_control",
+                "type": "lesson",
+                "title": "Loop Control (break, continue)",
+                "contentFile": "topics_py/control_flow/loop_control.html"
+            },
+            {
+                "id": "control_iteration_helpers",
+                "type": "lesson",
+                "title": "Iteration Helpers (range, enumerate, zip)",
+                "contentFile": "topics_py/control_flow/iteration_helpers.html"
+            },
+            {
+                "id": "control_pattern_matching",
+                "type": "lesson",
+                "title": "Pattern Matching (Python 3.10+)",
+                "contentFile": "topics_py/control_flow/pattern_matching.html"
+            }
+        ]
+    },
+    {
+        "id": "functions",
+        "title": "Functions & Abstraction",
+        "items": [
+            {
+                "id": "func_defining",
+                "type": "lesson",
+                "title": "Defining Functions",
+                "contentFile": "topics_py/functions/defining.html"
+            },
+            {
+                "id": "func_parameters",
+                "type": "lesson",
+                "title": "Parameters & Arguments",
+                "contentFile": "topics_py/functions/parameters.html"
+            },
+            {
+                "id": "func_return",
+                "type": "lesson",
+                "title": "Return Values",
+                "contentFile": "topics_py/functions/return_values.html"
+            },
+            {
+                "id": "func_scope",
+                "type": "lesson",
+                "title": "Scope (LEGB Rule)",
+                "contentFile": "topics_py/functions/scope.html"
+            },
+            {
+                "id": "func_lambda",
+                "type": "lesson",
+                "title": "Lambda Functions",
+                "contentFile": "topics_py/functions/lambda.html"
+            },
+            {
+                "id": "func_recursion",
+                "type": "lesson",
+                "title": "Recursion",
+                "contentFile": "topics_py/functions/recursion.html"
+            },
+            {
+                "id": "func_docstrings",
+                "type": "lesson",
+                "title": "Docstrings & Documentation",
+                "contentFile": "topics_py/functions/docstrings.html"
+            }
+        ]
+    },
+    {
+        "id": "data_structures",
+        "title": "Data Structures",
+        "items": [
+            {
+                "id": "ds_lists",
+                "type": "lesson",
+                "title": "Lists",
+                "contentFile": "topics_py/data_structures/lists.html"
+            },
+            {
+                "id": "ds_list_comprehensions",
+                "type": "lesson",
+                "title": "List Comprehensions",
+                "contentFile": "topics_py/data_structures/list_comprehensions.html"
+            },
+            {
+                "id": "ds_tuples",
+                "type": "lesson",
+                "title": "Tuples",
+                "contentFile": "topics_py/data_structures/tuples.html"
+            },
+            {
+                "id": "ds_sets",
+                "type": "lesson",
+                "title": "Sets",
+                "contentFile": "topics_py/data_structures/sets.html"
+            },
+            {
+                "id": "ds_dictionaries",
+                "type": "lesson",
+                "title": "Dictionaries",
+                "contentFile": "topics_py/data_structures/dictionaries.html"
+            },
+            {
+                "id": "ds_dict_comprehensions",
+                "type": "lesson",
+                "title": "Dictionary Comprehensions",
+                "contentFile": "topics_py/data_structures/dict_comprehensions.html"
+            },
+            {
+                "id": "ds_nested",
+                "type": "lesson",
+                "title": "Nested Data Structures",
+                "contentFile": "topics_py/data_structures/nested.html"
+            },
+            {
+                "id": "ds_choosing",
+                "type": "lesson",
+                "title": "Choosing the Right Data Structure",
+                "contentFile": "topics_py/data_structures/choosing.html"
+            },
+            {
+                "id": "ds_time_complexity_intuition",
+                "type": "lesson",
+                "title": "Time Complexity Intuition",
+                "contentFile": "topics_py/data_structures/time_complexity_intuition.html"
+            }
+        ]
+    },
+    {
+        "id": "file_handling",
+        "title": "File Handling & Persistence",
+        "items": [
+            {
+                "id": "file_reading",
+                "type": "lesson",
+                "title": "Reading Text Files",
+                "contentFile": "topics_py/file_handling/reading.html"
+            },
+            {
+                "id": "file_writing",
+                "type": "lesson",
+                "title": "Writing Files",
+                "contentFile": "topics_py/file_handling/writing.html"
+            },
+            {
+                "id": "file_context_manager",
+                "type": "lesson",
+                "title": "Context Managers (with)",
+                "contentFile": "topics_py/file_handling/context_managers.html"
+            },
+            {
+                "id": "file_csv",
+                "type": "lesson",
+                "title": "Working with CSV",
+                "contentFile": "topics_py/file_handling/csv.html"
+            },
+            {
+                "id": "file_json",
+                "type": "lesson",
+                "title": "JSON Parsing & Writing",
+                "contentFile": "topics_py/file_handling/json.html"
+            },
+            {
+                "id": "file_os_module",
+                "type": "lesson",
+                "title": "File Paths & os Module",
+                "contentFile": "topics_py/file_handling/os_module.html"
+            },
+            {
+                "id": "file_pathlib",
+                "type": "lesson",
+                "title": "pathlib (Modern Approach)",
+                "contentFile": "topics_py/file_handling/pathlib.html"
+            }
+        ]
+    },
+    {
+        "id": "error_handling",
+        "title": "Error Handling & Defensive Programming",
+        "items": [
+            {
+                "id": "err_syntax_vs_runtime",
+                "type": "lesson",
+                "title": "Syntax vs Runtime Errors",
+                "contentFile": "topics_py/error_handling/syntax_vs_runtime.html"
+            },
+            {
+                "id": "err_try_except",
+                "type": "lesson",
+                "title": "try / except / else / finally",
+                "contentFile": "topics_py/error_handling/try_except.html"
+            },
+            {
+                "id": "err_raising",
+                "type": "lesson",
+                "title": "Raising Exceptions",
+                "contentFile": "topics_py/error_handling/raising_exceptions.html"
+            },
+            {
+                "id": "err_custom",
+                "type": "lesson",
+                "title": "Custom Exceptions",
+                "contentFile": "topics_py/error_handling/custom_exceptions.html"
+            },
+            {
+                "id": "err_debugging",
+                "type": "lesson",
+                "title": "Debugging Techniques",
+                "contentFile": "topics_py/error_handling/debugging.html"
+            },
+            {
+                "id": "err_logging",
+                "type": "lesson",
+                "title": "Logging Module",
+                "contentFile": "topics_py/error_handling/logging.html"
+            }
+        ]
+    },
+    {
+        "id": "modules_project_structure",
+        "title": "Modules & Project Structure",
+        "items": [
+            {
+                "id": "mod_import_system",
+                "type": "lesson",
+                "title": "Import System",
+                "contentFile": "topics_py/modules/import_system.html"
+            },
+            {
+                "id": "mod_custom_modules",
+                "type": "lesson",
+                "title": "Creating Custom Modules",
+                "contentFile": "topics_py/modules/custom_modules.html"
+            },
+            {
+                "id": "mod_main_guard",
+                "type": "lesson",
+                "title": "__name__ == \"__main__\"",
+                "contentFile": "topics_py/modules/main_guard.html"
+            },
+            {
+                "id": "mod_package_structure",
+                "type": "lesson",
+                "title": "Package Structure",
+                "contentFile": "topics_py/modules/package_structure.html"
+            },
+            {
+                "id": "mod_venv",
+                "type": "lesson",
+                "title": "Virtual Environments (venv)",
+                "contentFile": "topics_py/modules/venv.html"
+            },
+            {
+                "id": "mod_dependency_mgmt",
+                "type": "lesson",
+                "title": "Dependency Management",
+                "contentFile": "topics_py/modules/dependency_management.html"
+            },
+            {
+                "id": "mod_pip_requirements",
+                "type": "lesson",
+                "title": "pip & Requirements Files",
+                "contentFile": "topics_py/modules/pip_requirements.html"
+            },
+            {
+                "id": "mod_pyproject",
+                "type": "lesson",
+                "title": "pyproject.toml",
+                "contentFile": "topics_py/modules/pyproject.html"
+            },
+            {
+                "id": "mod_wheels_vs_source",
+                "type": "lesson",
+                "title": "Wheels vs Source Distributions",
+                "contentFile": "topics_py/modules/wheels_vs_source.html"
+            }
+        ]
+    },
+    {
+        "id": "oop",
+        "title": "Object-Oriented Programming",
+        "items": [
+            {
+                "id": "oop_classes_objects",
+                "type": "lesson",
+                "title": "Classes & Objects",
+                "contentFile": "topics_py/oop/classes_objects.html"
+            },
+            {
+                "id": "oop_instance_vs_class",
+                "type": "lesson",
+                "title": "Instance vs Class Variables",
+                "contentFile": "topics_py/oop/instance_vs_class.html"
+            },
+            {
+                "id": "oop_methods_self",
+                "type": "lesson",
+                "title": "Methods & self",
+                "contentFile": "topics_py/oop/methods_self.html"
+            },
+            {
+                "id": "oop_init",
+                "type": "lesson",
+                "title": "Constructors (__init__)",
+                "contentFile": "topics_py/oop/constructors.html"
+            },
+            {
+                "id": "oop_encapsulation",
+                "type": "lesson",
+                "title": "Encapsulation",
+                "contentFile": "topics_py/oop/encapsulation.html"
+            },
+            {
+                "id": "oop_inheritance",
+                "type": "lesson",
+                "title": "Inheritance",
+                "contentFile": "topics_py/oop/inheritance.html"
+            },
+            {
+                "id": "oop_polymorphism",
+                "type": "lesson",
+                "title": "Polymorphism",
+                "contentFile": "topics_py/oop/polymorphism.html"
+            },
+            {
+                "id": "oop_dunder",
+                "type": "lesson",
+                "title": "Dunder Methods",
+                "contentFile": "topics_py/oop/dunder_methods.html"
+            },
+            {
+                "id": "oop_dataclasses",
+                "type": "lesson",
+                "title": "Dataclasses",
+                "contentFile": "topics_py/oop/dataclasses.html"
+            },
+            {
+                "id": "oop_enums",
+                "type": "lesson",
+                "title": "Enums",
+                "contentFile": "topics_py/oop/enums.html"
+            }
+        ]
+    },
+    {
+        "id": "intermediate_python",
+        "title": "Intermediate Python Features",
+        "items": [
+            {
+                "id": "int_iterators",
+                "type": "lesson",
+                "title": "Iterators & Iterator Protocol",
+                "contentFile": "topics_py/intermediate/iterators.html"
+            },
+            {
+                "id": "int_generators",
+                "type": "lesson",
+                "title": "Generators & yield",
+                "contentFile": "topics_py/intermediate/generators.html"
+            },
+            {
+                "id": "int_decorators",
+                "type": "lesson",
+                "title": "Decorators",
+                "contentFile": "topics_py/intermediate/decorators.html"
+            },
+            {
+                "id": "int_closures",
+                "type": "lesson",
+                "title": "Closures",
+                "contentFile": "topics_py/intermediate/closures.html"
+            },
+            {
+                "id": "int_type_hinting",
+                "type": "lesson",
+                "title": "Type Hinting (typing)",
+                "contentFile": "topics_py/intermediate/type_hinting.html"
+            },
+            {
+                "id": "int_static_typing",
+                "type": "lesson",
+                "title": "Static Type Checking (mypy conceptually)",
+                "contentFile": "topics_py/intermediate/static_typing.html"
+            },
+            {
+                "id": "int_namedtuples",
+                "type": "lesson",
+                "title": "NamedTuples",
+                "contentFile": "topics_py/intermediate/namedtuples.html"
+            },
+            {
+                "id": "int_regex",
+                "type": "lesson",
+                "title": "Regular Expressions",
+                "contentFile": "topics_py/intermediate/regex.html"
+            }
+        ]
+    },
+    {
+        "id": "concurrency_parallelism",
+        "title": "Concurrency & Parallelism",
+        "items": [
+            {
+                "id": "conc_threads",
+                "type": "lesson",
+                "title": "Threads",
+                "contentFile": "topics_py/concurrency/threads.html"
+            },
+            {
+                "id": "conc_multiprocessing",
+                "type": "lesson",
+                "title": "Multiprocessing",
+                "contentFile": "topics_py/concurrency/multiprocessing.html"
+            },
+            {
+                "id": "conc_gil",
+                "type": "lesson",
+                "title": "The GIL Explained",
+                "contentFile": "topics_py/concurrency/gil.html"
+            },
+            {
+                "id": "conc_async_basics",
+                "type": "lesson",
+                "title": "Async Programming Basics",
+                "contentFile": "topics_py/concurrency/async_basics.html"
+            },
+            {
+                "id": "conc_async_await",
+                "type": "lesson",
+                "title": "async / await",
+                "contentFile": "topics_py/concurrency/async_await.html"
+            },
+            {
+                "id": "conc_asyncio",
+                "type": "lesson",
+                "title": "asyncio",
+                "contentFile": "topics_py/concurrency/asyncio.html"
+            }
+        ]
+    },
+    {
+        "id": "testing_code_quality",
+        "title": "Testing & Code Quality",
+        "items": [
+            {
+                "id": "test_unittest",
+                "type": "lesson",
+                "title": "Unit Testing (unittest)",
+                "contentFile": "topics_py/testing/unittest.html"
+            },
+            {
+                "id": "test_pytest",
+                "type": "lesson",
+                "title": "Introduction to pytest",
+                "contentFile": "topics_py/testing/pytest.html"
+            },
+            {
+                "id": "test_mocking",
+                "type": "lesson",
+                "title": "Mocking",
+                "contentFile": "topics_py/testing/mocking.html"
+            },
+            {
+                "id": "test_tdd",
+                "type": "lesson",
+                "title": "Test-Driven Development",
+                "contentFile": "topics_py/testing/tdd.html"
+            },
+            {
+                "id": "test_refactoring",
+                "type": "lesson",
+                "title": "Code Refactoring",
+                "contentFile": "topics_py/testing/refactoring.html"
+            },
+            {
+                "id": "test_pep8",
+                "type": "lesson",
+                "title": "PEP 8 Deep Dive",
+                "contentFile": "topics_py/testing/pep8.html"
+            }
+        ]
+    },
+    {
+        "id": "performance_optimization",
+        "title": "Performance & Optimization",
+        "items": [
+            {
+                "id": "perf_complexity",
+                "type": "lesson",
+                "title": "Time Complexity in Python",
+                "contentFile": "topics_py/performance/complexity.html"
+            },
+            {
+                "id": "perf_profiling",
+                "type": "lesson",
+                "title": "Profiling (cProfile)",
+                "contentFile": "topics_py/performance/profiling.html"
+            },
+            {
+                "id": "perf_memory",
+                "type": "lesson",
+                "title": "Memory Management Basics",
+                "contentFile": "topics_py/performance/memory.html"
+            },
+            {
+                "id": "perf_gc",
+                "type": "lesson",
+                "title": "Garbage Collection",
+                "contentFile": "topics_py/performance/garbage_collection.html"
+            },
+            {
+                "id": "perf_slow_python",
+                "type": "lesson",
+                "title": "When Python Is Slow (and why)",
+                "contentFile": "topics_py/performance/why_slow.html"
+            }
+        ]
+    },
+    {
+        "id": "system_interaction",
+        "title": "System Interaction & OS Concepts",
+        "items": [
+            {
+                "id": "sys_os_deep",
+                "type": "lesson",
+                "title": "os Module Deep Dive",
+                "contentFile": "topics_py/system/os_deep_dive.html"
+            },
+            {
+                "id": "sys_subprocess",
+                "type": "lesson",
+                "title": "subprocess",
+                "contentFile": "topics_py/system/subprocess.html"
+            },
+            {
+                "id": "sys_env_vars",
+                "type": "lesson",
+                "title": "Environment Variables",
+                "contentFile": "topics_py/system/environment_variables.html"
+            },
+            {
+                "id": "sys_permissions",
+                "type": "lesson",
+                "title": "File Permissions",
+                "contentFile": "topics_py/system/file_permissions.html"
+            },
+            {
+                "id": "sys_shell",
+                "type": "lesson",
+                "title": "Working with the Shell",
+                "contentFile": "topics_py/system/shell.html"
+            }
+        ]
+    },
+    {
+        "id": "real_applications",
+        "title": "Building Real Applications",
+        "items": [
+            {
+                "id": "app_cli",
+                "type": "lesson",
+                "title": "CLI Applications (argparse)",
+                "contentFile": "topics_py/applications/cli.html"
+            },
+            {
+                "id": "app_flask_api",
+                "type": "lesson",
+                "title": "Simple REST API (Flask)",
+                "contentFile": "topics_py/applications/flask_api.html"
+            },
+            {
+                "id": "app_requests",
+                "type": "lesson",
+                "title": "Working with APIs (requests)",
+                "contentFile": "topics_py/applications/requests.html"
+            },
+            {
+                "id": "app_sqlite",
+                "type": "lesson",
+                "title": "Intro to Databases (SQLite)",
+                "contentFile": "topics_py/applications/sqlite.html"
+            },
+            {
+                "id": "app_architecture",
+                "type": "lesson",
+                "title": "Project Architecture",
+                "contentFile": "topics_py/applications/project_architecture.html"
+            }
+        ]
+    },
+    {
+        "id": "ecosystem_overview",
+        "title": "Python Ecosystem Overview",
+        "items": [
+            {
+                "id": "eco_numpy",
+                "type": "lesson",
+                "title": "NumPy Basics",
+                "contentFile": "topics_py/ecosystems/numpy.html"
+            },
+            {
+                "id": "eco_pandas",
+                "type": "lesson",
+                "title": "Pandas Basics",
+                "contentFile": "topics_py/ecosystems/pandas.html"
+            },
+            {
+                "id": "eco_matplotlib",
+                "type": "lesson",
+                "title": "Matplotlib",
+                "contentFile": "topics_py/ecosystems/matplotlib.html"
+            },
+            {
+                "id": "eco_packaging",
+                "type": "lesson",
+                "title": "Packaging & Distribution",
+                "contentFile": "topics_py/ecosystems/packaging.html"
+            }
+        ]
+    }
 ]

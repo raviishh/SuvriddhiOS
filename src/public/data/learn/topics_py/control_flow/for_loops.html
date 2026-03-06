@@ -1,0 +1,237 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>For Loops in Python</h1>
+  <p class="lead">
+    A <span class="inline-code">for</span> loop is used for definite iteration — when you want to iterate over a sequence of elements.
+    It is cleaner, safer, and often more readable than a <span class="inline-code">while</span> loop.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Basic Syntax</h2>
+    <p>
+      A <span class="inline-code">for</span> loop iterates over an iterable (like a list, string, or range).
+    </p>
+
+    <div class="code-block">
+<pre><code>numbers = [1, 2, 3, 4]
+
+for num in numbers:
+    print(num)</code></pre>
+    </div>
+
+    <p>
+      Execution flow:
+      <ul>
+        <li>Take first element</li>
+        <li>Execute block</li>
+        <li>Move to next element</li>
+        <li>Repeat until exhausted</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Core Idea</div>
+      <div>
+        A <span class="inline-code">for</span> loop automatically handles iteration control.  
+        No manual counter required.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Using <span class="inline-code">range()</span></h2>
+    <p>
+      <span class="inline-code">range()</span> generates a sequence of numbers.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(5):
+    print(i)</code></pre>
+    </div>
+
+    <p>
+      Output: 0, 1, 2, 3, 4
+    </p>
+
+    <p>
+      Variations:
+    </p>
+
+    <div class="code-block">
+<pre><code>range(stop)
+range(start, stop)
+range(start, stop, step)</code></pre>
+    </div>
+
+    <div class="code-block">
+<pre><code>for i in range(1, 10, 2):
+    print(i)</code></pre>
+    </div>
+
+    <p>
+      Prints odd numbers from 1 to 9.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Looping Through Strings</h2>
+    <p>
+      Strings are iterable character by character.
+    </p>
+
+    <div class="code-block">
+<pre><code>for letter in "Python":
+    print(letter)</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Using <span class="inline-code">break</span> and <span class="inline-code">continue</span></h2>
+    <p>
+      <span class="inline-code">break</span> exits the loop immediately.  
+      <span class="inline-code">continue</span> skips to the next iteration.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(5):
+    if i == 3:
+        break
+    print(i)</code></pre>
+    </div>
+
+    <div class="code-block">
+<pre><code>for i in range(5):
+    if i == 2:
+        continue
+    print(i)</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Using <span class="inline-code">else</span> with For</h2>
+    <p>
+      A <span class="inline-code">for</span> loop can include an <span class="inline-code">else</span> block.
+      It executes if the loop completes without hitting <span class="inline-code">break</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(3):
+    print(i)
+else:
+    print("Loop completed normally")</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Nested For Loops</h2>
+    <p>
+      You can place a <span class="inline-code">for</span> loop inside another.
+    </p>
+
+    <div class="code-block">
+<pre><code>for i in range(3):
+    for j in range(2):
+        print(i, j)</code></pre>
+    </div>
+
+    <p>
+      Common use cases:
+      <ul>
+        <li>Matrix operations</li>
+        <li>Grid-based games</li>
+        <li>Combinatorial logic</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Performance Note</div>
+      <div>
+        Nested loops multiply time complexity.  
+        Two loops → roughly O(n²).
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Looping with Index: <span class="inline-code">enumerate()</span></h2>
+    <p>
+      Use <span class="inline-code">enumerate()</span> to access both index and value.
+    </p>
+
+    <div class="code-block">
+<pre><code>fruits = ["apple", "banana", "cherry"]
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)</code></pre>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Common Mistakes</h2>
+    <ul>
+      <li>Modifying a list while iterating over it</li>
+      <li>Off-by-one errors with <span class="inline-code">range()</span></li>
+      <li>Overusing nested loops</li>
+      <li>Using <span class="inline-code">while</span> when a <span class="inline-code">for</span> loop is simpler</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What prints?
+        <span class="inline-code">
+        for i in range(1, 5):  
+            print(i * 2)
+        </span>
+        How many times does it run?
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>9. Why For Loops Matter</h2>
+    <p>
+      For loops are the standard tool for iteration in Python.  
+      They are concise, readable, and less error-prone than manual counter loops.
+    </p>
+
+    <p>
+      Mastering iteration is fundamental to processing data, building algorithms, and writing efficient programs.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Rewrite while loops as for loops when possible.  
+        Then analyze readability and complexity.  
+        This builds structural awareness in your code.
+      </div>
+    </div>
+  </section>
+
+</article>

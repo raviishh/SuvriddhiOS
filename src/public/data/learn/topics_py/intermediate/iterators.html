@@ -1,0 +1,263 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Iterators & The Iterator Protocol</h1>
+  <p class="lead">
+    In this lesson, you will learn how Python really goes through items one by one. 
+    You use <span class="inline-code">for</span> loops all the time — but what is happening behind the scenes?
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is an iterator?</h2>
+    <p>
+      An <strong>iterator</strong> is something that gives values one at a time.
+      It does not give everything at once. It gives the next value only when asked.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>
+        Think of a candy machine.  
+        You press a button → one candy comes out.  
+        Press again → another candy.  
+        That machine is like an iterator.
+      </div>
+    </div>
+
+    <p>
+      Lists, tuples, strings, and many other objects in Python can be used in a <span class="inline-code">for</span> loop.
+      These objects are called <strong>iterables</strong>.
+    </p>
+
+    <p>
+      An <strong>iterable</strong> is something you can loop over.  
+      An <strong>iterator</strong> is the object that actually gives the next value.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Using iter() and next()</h2>
+    <p>
+      Python gives us two important functions:
+      <ul>
+        <li><span class="inline-code">iter()</span> — turns an iterable into an iterator</li>
+        <li><span class="inline-code">next()</span> — asks for the next value</li>
+      </ul>
+    </p>
+
+    <div class="code-block">
+<pre><code>numbers = [10, 20, 30]
+
+my_iterator = iter(numbers)
+
+print(next(my_iterator))
+print(next(my_iterator))
+print(next(my_iterator))</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+10  
+20  
+30
+    </div>
+
+    <p>
+      Each time we call <span class="inline-code">next()</span>, we get the next item.
+    </p>
+
+    <p>
+      But what happens if we ask again?
+    </p>
+
+    <div class="code-block">
+<pre><code>print(next(my_iterator))</code></pre>
+    </div>
+
+    <p>
+      Python gives an error:
+    </p>
+
+    <div class="output">
+StopIteration
+    </div>
+
+    <p>
+      This means: "There are no more values."
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. How for loops really work</h2>
+    <p>
+      When you write:
+    </p>
+
+    <div class="code-block">
+<pre><code>for number in numbers:
+    print(number)</code></pre>
+    </div>
+
+    <p>
+      Python secretly does something like this:
+    </p>
+
+    <div class="code-block">
+<pre><code>my_iterator = iter(numbers)
+
+while True:
+    try:
+        number = next(my_iterator)
+        print(number)
+    except StopIteration:
+        break</code></pre>
+    </div>
+
+    <p>
+      So a <span class="inline-code">for</span> loop is just:
+      <ul>
+        <li>Create iterator</li>
+        <li>Keep asking for next value</li>
+        <li>Stop when there are no more values</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>
+        The <span class="inline-code">for</span> loop is not magic.  
+        It uses <span class="inline-code">iter()</span> and <span class="inline-code">next()</span> behind the scenes.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. The Iterator Protocol</h2>
+    <p>
+      The <strong>iterator protocol</strong> is a simple rule.
+      If an object:
+      <ul>
+        <li>Has a method called <span class="inline-code">__iter__()</span></li>
+        <li>Has a method called <span class="inline-code">__next__()</span></li>
+      </ul>
+      Then Python knows how to loop over it.
+    </p>
+
+    <p>
+      <span class="inline-code">__iter__()</span> → returns the iterator object  
+      <span class="inline-code">__next__()</span> → returns the next value
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Creating your own iterator</h2>
+
+    <p>
+      Let us build a simple counter that counts from 1 to a number.
+    </p>
+
+    <div class="code-block">
+<pre><code>class Counter:
+    def __init__(self, max_number):
+        self.max = max_number
+        self.current = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current &gt; self.max:
+            raise StopIteration
+        value = self.current
+        self.current += 1
+        return value
+
+
+counter = Counter(3)
+
+for number in counter:
+    print(number)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+1  
+2  
+3
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">__iter__()</span> returns the object itself.</li>
+        <li><span class="inline-code">__next__()</span> gives the next number.</li>
+        <li>When finished, it raises <span class="inline-code">StopIteration</span>.</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Practice -->
+  <section class="chapter">
+    <h2>6. Try it yourself</h2>
+    <p>
+      Change the counter so that it counts backward from 5 to 1.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Challenge</div>
+      <div>
+        Create an iterator that gives only even numbers from 2 to 10.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Why this matters</h2>
+    <p>
+      Many advanced Python features depend on the iterator protocol:
+      <ul>
+        <li>Generators</li>
+        <li>File reading</li>
+        <li>Data streaming</li>
+      </ul>
+    </p>
+
+    <p>
+      If you understand iterators, you understand how Python moves through data.
+      This is a core idea in Python.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Do not just read this lesson.  
+        Write the examples. Change numbers. Break things.  
+        Programming becomes clear when you experiment.
+      </div>
+    </div>
+
+  </section>
+</article>

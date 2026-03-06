@@ -1,0 +1,233 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        color: var(--color-card-foreground);
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>asyncio — The Engine Behind Async Programs</h1>
+    <p class="lead">
+        In this lesson, you will learn how <strong>asyncio</strong> works. It is
+        the built-in Python library that manages async tasks and the event loop.
+    </p>
+
+    <!-- Chapter 1 -->
+    <section class="chapter">
+        <h2>1. What is asyncio?</h2>
+        <p>
+            <span class="inline-code">asyncio</span> is a Python module for
+            asynchronous programming.
+        </p>
+
+        <p>It provides:</p>
+        <ul>
+            <li>The event loop</li>
+            <li>Tools to create tasks</li>
+            <li>Ways to run many async functions together</li>
+        </ul>
+
+        <p>
+            In short:
+            <br />
+            <strong>asyncio manages async tasks.</strong>
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Simple idea
+            </div>
+            <div>
+                If async functions are workers, asyncio is the manager that
+                gives them turns.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 2 -->
+    <section class="chapter">
+        <h2>2. The Event Loop (Deeper Look)</h2>
+        <p>The event loop:</p>
+        <ul>
+            <li>Starts tasks</li>
+            <li>Pauses tasks that are waiting</li>
+            <li>Resumes tasks when ready</li>
+            <li>Repeats this very quickly</li>
+        </ul>
+
+        <p>This switching happens many times per second.</p>
+
+        <p>
+            Important:
+            <br />
+            Async programs usually run on a single thread.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 3 -->
+    <section class="chapter">
+        <h2>3. Creating tasks</h2>
+        <p>Sometimes we want to schedule async functions manually.</p>
+
+        <div class="code-block">
+            <pre><code>import asyncio
+
+async def task():
+    print("Task started")
+    await asyncio.sleep(2)
+    print("Task finished")
+
+async def main():
+    t = asyncio.create_task(task())
+    await t
+
+asyncio.run(main())</code></pre>
+        </div>
+
+        <p>
+            <span class="inline-code">asyncio.create_task()</span> schedules a
+            coroutine to run soon.
+        </p>
+
+        <p>The event loop decides when it runs.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 4 -->
+    <section class="chapter">
+        <h2>4. Running many tasks together</h2>
+        <p>We can create multiple tasks and run them at the same time.</p>
+
+        <div class="code-block">
+            <pre><code>import asyncio
+
+async def download(name, delay):
+    print(f"Starting {name}")
+    await asyncio.sleep(delay)
+    print(f"Finished {name}")
+
+async def main():
+    task1 = asyncio.create_task(download("File A", 3))
+    task2 = asyncio.create_task(download("File B", 1))
+    task3 = asyncio.create_task(download("File C", 2))
+
+    await task1
+    await task2
+    await task3
+
+asyncio.run(main())</code></pre>
+        </div>
+
+        <p>Even though they start together:</p>
+        <ul>
+            <li>File B finishes first (1 second)</li>
+            <li>File C finishes second (2 seconds)</li>
+            <li>File A finishes last (3 seconds)</li>
+        </ul>
+
+        <p>They overlap while waiting.</p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 5 -->
+    <section class="chapter">
+        <h2>5. gather() vs create_task()</h2>
+
+        <p><strong>Using gather:</strong></p>
+
+        <div class="code-block">
+            <pre><code>await asyncio.gather(
+    download("A", 2),
+    download("B", 1)
+)</code></pre>
+        </div>
+
+        <p>
+            <span class="inline-code">gather()</span> runs multiple coroutines
+            and waits for all of them.
+        </p>
+
+        <p><strong>Using create_task:</strong></p>
+
+        <div class="code-block">
+            <pre><code>task = asyncio.create_task(download("A", 2))
+await task</code></pre>
+        </div>
+
+        <p>
+            <span class="inline-code">create_task()</span> gives you more
+            control. You can start tasks early and await them later.
+        </p>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 6 -->
+    <section class="chapter">
+        <h2>6. When should you use asyncio?</h2>
+        <p>Use asyncio when:</p>
+        <ul>
+            <li>You have many network requests</li>
+            <li>You build web servers</li>
+            <li>You handle many users at once</li>
+            <li>Your program waits often</li>
+        </ul>
+
+        <p>Do NOT use asyncio for:</p>
+        <ul>
+            <li>Heavy CPU calculations</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Clear Rule
+            </div>
+            <div>
+                Asyncio is for high-level waiting tasks. Multiprocessing is for
+                heavy CPU tasks.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- Chapter 7 -->
+    <section class="chapter">
+        <h2>7. Final Summary of This Section</h2>
+        <ul>
+            <li><strong>Threads</strong> → good for waiting tasks.</li>
+            <li><strong>Multiprocessing</strong> → good for heavy CPU work.</li>
+            <li><strong>GIL</strong> → limits CPU threads.</li>
+            <li>
+                <strong>Async / asyncio</strong> → smart switching between
+                waiting tasks.
+            </li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700; color: var(--color-primary)">
+                Big Picture
+            </div>
+            <div>
+                Concurrency is about handling many tasks. Parallelism is about
+                using many CPU cores. Choose the right tool.
+            </div>
+        </div>
+    </section>
+</article>

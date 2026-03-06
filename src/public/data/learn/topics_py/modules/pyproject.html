@@ -1,0 +1,149 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Understanding pyproject.toml</h1>
+  <p class="lead">Learn what pyproject.toml is and why modern Python projects use it. This file defines how your project is built and what it depends on.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is pyproject.toml?</h2>
+    <p>
+      <span class="inline-code">pyproject.toml</span> is a configuration file used in modern Python projects.
+    </p>
+
+    <p>
+      It describes:
+      <ul>
+        <li>Project metadata (name, version)</li>
+        <li>Dependencies</li>
+        <li>Build system settings</li>
+      </ul>
+    </p>
+
+    <p>
+      It replaces older systems like <span class="inline-code">setup.py</span>.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>If your project is a product, pyproject.toml is its instruction manual. It explains what the product needs and how it should be built.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Basic structure of pyproject.toml</h2>
+    <p>
+      A simple example:
+    </p>
+
+    <div class="code-block">
+<pre><code>[project]
+name = "myproject"
+version = "0.1.0"
+description = "A simple Python project"
+dependencies = [
+    "requests==2.31.0",
+    "flask>=2.3,<3.0"
+]</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">[project]</span> starts a section.</li>
+        <li><span class="inline-code">name</span> is the project name.</li>
+        <li><span class="inline-code">version</span> is the current version.</li>
+        <li><span class="inline-code">dependencies</span> lists required libraries.</li>
+      </ul>
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Build system section</h2>
+    <p>
+      Most projects also include a build system section.
+    </p>
+
+    <div class="code-block">
+<pre><code>[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"</code></pre>
+    </div>
+
+    <p>
+      This tells Python how to build the project.
+    </p>
+
+    <p>
+      Beginners usually do not need to modify this section.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. When do you need pyproject.toml?</h2>
+    <p>
+      You need this file when:
+      <ul>
+        <li>You want to publish a package</li>
+        <li>You are building a reusable library</li>
+        <li>You are working on a professional project</li>
+      </ul>
+    </p>
+
+    <p>
+      For small scripts, it is not required.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. pyproject.toml vs requirements.txt</h2>
+    <p>
+      Both list dependencies, but they are different.
+    </p>
+
+    <ul>
+      <li><span class="inline-code">requirements.txt</span> is mainly for installing dependencies.</li>
+      <li><span class="inline-code">pyproject.toml</span> defines the entire project configuration.</li>
+    </ul>
+
+    <p>
+      Many professional projects use pyproject.toml as the main configuration file.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>6. Key idea to remember</h2>
+    <p>
+      <span class="inline-code">pyproject.toml</span> is the modern way to describe a Python project.
+    </p>
+
+    <p>
+      It contains project information, dependencies, and build settings in one place.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>If you plan to share or publish your project, learn pyproject.toml early. It is the current standard.</div>
+    </div>
+
+  </section>
+</article>

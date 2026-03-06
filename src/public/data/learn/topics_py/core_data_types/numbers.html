@@ -1,0 +1,218 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Numbers (int, float, complex)</h1>
+  <p class="lead">
+    Numbers are the backbone of programming. Whether you're counting users, calculating profit, or simulating physics — it all starts with numeric data. In Python, numbers come in three core types: <strong>int</strong>, <strong>float</strong>, and <strong>complex</strong>.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Integers — whole numbers</h2>
+    <p>
+      An <span class="inline-code">int</span> represents whole numbers. No decimal point. Just clean, solid values.
+    </p>
+
+    <div class="code-block">
+<pre><code>x = 10
+y = -3
+z = 0
+
+print(type(x))  # &lt;class 'int'&gt;</code></pre>
+    </div>
+
+    <p>
+      Integers can be positive, negative, or zero. Python supports arbitrarily large integers — meaning they don’t “overflow” the way they might in lower-level languages.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Think of <strong>int</strong> like counting books on a shelf. You can have 5 books. Not 5.7 books. Whole objects → whole numbers.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Floats — numbers with decimals</h2>
+    <p>
+      A <span class="inline-code">float</span> stores decimal numbers (technically, floating-point numbers).
+    </p>
+
+    <div class="code-block">
+<pre><code>price = 19.99
+temperature = -4.5
+
+print(type(price))  # &lt;class 'float'&gt;</code></pre>
+    </div>
+
+    <p>
+      Floats are used when precision matters — measurements, money, scientific calculations.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Reality</div>
+      <div>
+        Floats are not perfectly precise. Due to how computers store decimal numbers in binary, some results may look slightly “off.”
+      </div>
+    </div>
+
+    <div class="code-block">
+<pre><code>print(0.1 + 0.2)  
+# 0.30000000000000004</code></pre>
+    </div>
+
+    <p>
+      That tiny error isn't a bug — it's a representation issue. Later lessons will show how to handle precision properly.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Complex numbers — real + imaginary</h2>
+    <p>
+      Python also supports <span class="inline-code">complex</span> numbers. These have a real part and an imaginary part.
+    </p>
+
+    <div class="code-block">
+<pre><code>z = 2 + 3j
+
+print(type(z))       # &lt;class 'complex'&gt;
+print(z.real)        # 2.0
+print(z.imag)        # 3.0</code></pre>
+    </div>
+
+    <p>
+      The <span class="inline-code">j</span> represents the imaginary unit (√-1). Complex numbers are heavily used in advanced math, physics, and engineering.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">When would you use this?</div>
+      <div>
+        Signal processing, electrical engineering, simulations, or advanced mathematics. If you're just building web apps — probably not daily. But it's powerful that Python includes it natively.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Basic arithmetic operations</h2>
+    <p>
+      Python supports standard mathematical operators:
+    </p>
+
+    <div class="code-block">
+<pre><code>a = 10
+b = 3
+
+print(a + b)   # Addition → 13
+print(a - b)   # Subtraction → 7
+print(a * b)   # Multiplication → 30
+print(a / b)   # Division → 3.333...
+print(a // b)  # Floor division → 3
+print(a % b)   # Modulus → 1
+print(a ** b)  # Exponent → 1000</code></pre>
+    </div>
+
+    <p>
+      Key distinction:
+      <ul>
+        <li><span class="inline-code">/</span> always returns a float</li>
+        <li><span class="inline-code">//</span> discards the decimal (floor division)</li>
+        <li><span class="inline-code">%</span> gives the remainder</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Mixing number types</h2>
+    <p>
+      Python automatically promotes types when needed.
+    </p>
+
+    <div class="code-block">
+<pre><code>result = 5 + 2.0
+print(result)        # 7.0
+print(type(result))  # float</code></pre>
+    </div>
+
+    <p>
+      When an <span class="inline-code">int</span> interacts with a <span class="inline-code">float</span>, the result becomes a float.
+      This prevents accidental data loss.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Useful built-in numeric functions</h2>
+    <p>
+      Python includes built-in functions that work with numbers:
+    </p>
+
+    <div class="code-block">
+<pre><code>print(abs(-10))     # 10
+print(round(3.1415, 2))  # 3.14
+print(pow(2, 3))    # 8</code></pre>
+    </div>
+
+    <p>
+      These utilities help you avoid reinventing the wheel.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Common beginner mistakes</h2>
+    <ul>
+      <li>Expecting perfect float precision</li>
+      <li>Confusing <span class="inline-code">/</span> and <span class="inline-code">//</span></li>
+      <li>Forgetting that division always produces a float</li>
+      <li>Using strings instead of numbers in calculations</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Quick Check</div>
+      <div>
+        What is the type of <span class="inline-code">5 / 2</span>?  
+        What about <span class="inline-code">5 // 2</span>?  
+        Run it. Don’t guess.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>8. Where this fits in Core Data Types</h2>
+    <p>
+      Numbers are immutable — once created, they cannot be changed (we’ll explore this more in the Mutability lesson).
+    </p>
+
+    <p>
+      Next up: <strong>Booleans & Truthiness</strong>. Because once you can calculate values, you’ll want to make decisions based on them.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Strategy</div>
+      <div>
+        Open a Python shell. Experiment with arithmetic. Break things. Observe types with <span class="inline-code">type()</span>.  
+        Mastery comes from interaction, not passive reading.
+      </div>
+    </div>
+  </section>
+
+</article>

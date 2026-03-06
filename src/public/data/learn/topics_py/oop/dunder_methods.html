@@ -1,0 +1,230 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+
+<h1>Dunder Methods</h1>
+
+<p class="lead">
+Dunder methods are special methods in Python.
+They have double underscores before and after the name.
+Example: <span class="inline-code">__init__</span>.
+</p>
+
+<p>
+“Dunder” means “double underscore.”
+</p>
+
+<!-- Chapter 1 -->
+<section class="chapter">
+<h2>1. What Are Dunder Methods?</h2>
+
+<p>
+Dunder methods allow us to control how objects behave.
+</p>
+
+<p>
+They are also called <strong>magic methods</strong>.
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Simple Idea</div>
+<div>
+Dunder methods tell Python what to do when we use built-in functions like
+<span class="inline-code">print()</span>, <span class="inline-code">len()</span>, or even <span class="inline-code">+</span>.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<!-- Chapter 2 -->
+<section class="chapter">
+<h2>2. The __str__ Method</h2>
+
+<p>
+The <span class="inline-code">__str__</span> method controls what happens when we print an object.
+</p>
+
+<p>
+Without <span class="inline-code">__str__</span>:
+</p>
+
+<div class="code-block">
+<pre><code>class Book:
+    def __init__(self, title):
+        self.title = title
+
+book = Book("Python Basics")
+print(book)</code></pre>
+</div>
+
+<p>
+The output will look strange, like a memory address.
+</p>
+
+<p>
+Now let us improve it.
+</p>
+
+<div class="code-block">
+<pre><code>class Book:
+    def __init__(self, title):
+        self.title = title
+
+    def __str__(self):
+        return "Book: " + self.title
+
+book = Book("Python Basics")
+print(book)</code></pre>
+</div>
+
+<p>
+Now the output is clean and readable.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 3 -->
+<section class="chapter">
+<h2>3. The __len__ Method</h2>
+
+<p>
+The <span class="inline-code">__len__</span> method allows us to use <span class="inline-code">len()</span> on an object.
+</p>
+
+<div class="code-block">
+<pre><code>class Playlist:
+    def __init__(self, songs):
+        self.songs = songs
+
+    def __len__(self):
+        return len(self.songs)
+
+playlist = Playlist(["Song1", "Song2", "Song3"])
+print(len(playlist))</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li>Python calls <span class="inline-code">__len__</span> when we use <span class="inline-code">len()</span>.</li>
+<li>We control what length means for our object.</li>
+</ul>
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 4 -->
+<section class="chapter">
+<h2>4. Operator Overloading (__add__)</h2>
+
+<p>
+Dunder methods also control operators like <span class="inline-code">+</span>.
+</p>
+
+<div class="code-block">
+<pre><code>class Number:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return Number(self.value + other.value)
+
+    def __str__(self):
+        return str(self.value)
+
+n1 = Number(5)
+n2 = Number(3)
+
+result = n1 + n2
+print(result)</code></pre>
+</div>
+
+<p>
+Explanation:
+<ul>
+<li><span class="inline-code">__add__</span> runs when we use <span class="inline-code">+</span>.</li>
+<li>We define what addition means for this class.</li>
+</ul>
+</p>
+
+<p>
+This is called <strong>operator overloading</strong>.
+</p>
+
+</section>
+
+<hr />
+
+<!-- Chapter 5 -->
+<section class="chapter">
+<h2>5. Why Use Dunder Methods?</h2>
+
+<p>
+Dunder methods:
+<ul>
+<li>Make objects behave like built-in types</li>
+<li>Improve readability</li>
+<li>Give full control over object behavior</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Important</div>
+<div>
+Do not create your own random dunder names.
+Only use the special ones defined by Python.
+</div>
+</div>
+
+</section>
+
+<hr />
+
+<!-- Chapter 6 -->
+<section class="chapter">
+<h2>6. Small Exercise</h2>
+
+<p>
+Create a class called <span class="inline-code">Box</span>.
+</p>
+
+<ul>
+<li>Add an attribute <span class="inline-code">items</span> (a list).</li>
+<li>Implement <span class="inline-code">__len__</span> so <span class="inline-code">len(box)</span> returns number of items.</li>
+<li>Implement <span class="inline-code">__str__</span> so printing the box shows the items clearly.</li>
+</ul>
+
+</section>
+
+<hr />
+
+<!-- Conclusion -->
+<section class="chapter">
+<h2>7. What You Learned</h2>
+
+<p>
+You now understand:
+<ul>
+<li>Dunder methods are special Python methods.</li>
+<li><span class="inline-code">__str__</span> controls printing.</li>
+<li><span class="inline-code">__len__</span> controls length.</li>
+<li><span class="inline-code">__add__</span> controls the + operator.</li>
+</ul>
+</p>
+
+<div class="callout">
+<div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+<div>
+Dunder methods make your classes feel powerful.
+But use them carefully.
+Only override behavior when it makes logical sense.
+</div>
+</div>
+
+</section>
+
+</article>

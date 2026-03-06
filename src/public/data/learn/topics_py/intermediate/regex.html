@@ -1,0 +1,294 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Regular Expressions (re)</h1>
+  <p class="lead">
+    In this lesson, you will learn how to search for patterns inside text.
+    This is done using <strong>regular expressions</strong>.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is a regular expression?</h2>
+    <p>
+      A regular expression (regex) is a pattern.
+      It describes what text should look like.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>
+        Think of regex like a search rule.
+        Instead of searching for one exact word,
+        you search for a pattern.
+      </div>
+    </div>
+
+    <p>
+      For example:
+      <ul>
+        <li>Find all numbers in a sentence.</li>
+        <li>Find email addresses.</li>
+        <li>Find words that start with capital letters.</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Using the re module</h2>
+    <p>
+      Python provides regular expressions through the <span class="inline-code">re</span> module.
+    </p>
+
+    <div class="code-block">
+<pre><code>import re
+
+text = "My age is 18"
+
+match = re.search(r"\d+", text)
+
+print(match.group())</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+18
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">\d</span> means a digit.</li>
+        <li><span class="inline-code">+</span> means one or more.</li>
+        <li><span class="inline-code">r""</span> means raw string (important for regex).</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Common regex patterns</h2>
+
+    <ul>
+      <li><span class="inline-code">.</span> → any character</li>
+      <li><span class="inline-code">\d</span> → digit (0–9)</li>
+      <li><span class="inline-code">\w</span> → word character (letters, numbers, _)</li>
+      <li><span class="inline-code">\s</span> → space</li>
+      <li><span class="inline-code">*</span> → zero or more</li>
+      <li><span class="inline-code">+</span> → one or more</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code>import re
+
+text = "cat bat rat"
+
+words = re.findall(r"\w+at", text)
+print(words)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+['cat', 'bat', 'rat']
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. search() vs findall()</h2>
+
+    <p>
+      <ul>
+        <li><span class="inline-code">search()</span> → finds first match</li>
+        <li><span class="inline-code">findall()</span> → finds all matches</li>
+      </ul>
+    </p>
+
+    <div class="code-block">
+<pre><code>import re
+
+text = "There are 3 apples and 5 bananas"
+
+first_number = re.search(r"\d+", text)
+all_numbers = re.findall(r"\d+", text)
+
+print(first_number.group())
+print(all_numbers)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+3  
+['3', '5']
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Simple email example</h2>
+
+    <p>
+      Let us find email-like text.
+    </p>
+
+    <div class="code-block">
+<pre><code>import re
+
+text = "Contact me at test@example.com"
+
+pattern = r"\w+@\w+\.\w+"
+
+match = re.search(pattern, text)
+
+print(match.group())</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+test@example.com
+    </div>
+
+    <p>
+      This pattern means:
+      <ul>
+        <li>Word characters</li>
+        <li>@ symbol</li>
+        <li>Word characters</li>
+        <li>Dot</li>
+        <li>Word characters</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Replacing text</h2>
+
+    <p>
+      We can also replace matched text using <span class="inline-code">sub()</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>import re
+
+text = "My number is 12345"
+
+new_text = re.sub(r"\d+", "XXXXX", text)
+
+print(new_text)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+My number is XXXXX
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Why regular expressions matter</h2>
+
+    <p>
+      Regular expressions are useful for:
+      <ul>
+        <li>Validating input</li>
+        <li>Cleaning data</li>
+        <li>Searching large text files</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>
+        Regex is powerful.
+        But start simple.
+        Complex patterns can become hard to read.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Practice -->
+  <section class="chapter">
+    <h2>8. Try it yourself</h2>
+
+    <p>
+      Write a pattern that:
+      <ul>
+        <li>Finds all numbers in a sentence.</li>
+      </ul>
+    </p>
+
+    <p>
+      Try:
+    </p>
+
+    <div class="code-block">
+<pre><code>text = "I have 2 cats and 3 dogs."</code></pre>
+    </div>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Challenge</div>
+      <div>
+        Create a pattern that finds words starting with a capital letter.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>9. What you learned</h2>
+    <p>
+      Now you understand:
+      <ul>
+        <li>What regular expressions are.</li>
+        <li>How to use the <span class="inline-code">re</span> module.</li>
+        <li>The difference between search and findall.</li>
+        <li>How to replace text using sub().</li>
+      </ul>
+    </p>
+
+    <p>
+      You have now completed the intermediate section of Python features.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Practice small patterns first.
+        Regex becomes easier with repetition.
+      </div>
+    </div>
+
+  </section>
+</article>

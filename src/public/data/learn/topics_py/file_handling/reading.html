@@ -1,0 +1,224 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Reading Text Files in Python</h1>
+  <p class="lead">
+    Learn how to read data from text files in Python — clearly, safely, and efficiently. 
+    If variables are boxes in memory, files are storage rooms on disk. This lesson teaches you how to open the door and look inside.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why read from files?</h2>
+    <p>
+      Programs rarely run in isolation. Real software loads configuration files, reads logs,
+      processes datasets, and consumes user-generated content. File input is how your program
+      interacts with persistent data — information that survives after the program exits.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Analogy</div>
+      <div>
+        Think of RAM as your desk — temporary workspace. A file is the filing cabinet.
+        When the computer shuts down, your desk is cleared. The cabinet remains.
+      </div>
+    </div>
+
+    <p>
+      Reading files correctly is foundational for data science, backend systems,
+      automation scripts, and even embedded software.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Opening a file — the <span class="inline-code">open()</span> function</h2>
+    <p>
+      Python provides the built-in function <span class="inline-code">open()</span> to access files.
+      To read a text file, we use mode <span class="inline-code">"r"</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>file = open("example.txt", "r")
+content = file.read()
+print(content)
+file.close()</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">open("example.txt", "r")</span> opens the file in read mode.</li>
+        <li><span class="inline-code">read()</span> loads the entire file as one string.</li>
+        <li><span class="inline-code">close()</span> releases the file resource.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>
+        Always close files. Leaving them open wastes system resources and can cause bugs.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. The better way — context managers (<span class="inline-code">with</span>)</h2>
+    <p>
+      Manually closing files is error-prone. If an exception occurs, <span class="inline-code">close()</span>
+      might never run. Python solves this with context managers.
+    </p>
+
+    <div class="code-block">
+<pre><code>with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)</code></pre>
+    </div>
+
+    <p>
+      Once the block ends, Python automatically closes the file.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Best Practice</div>
+      <div>
+        Use <span class="inline-code">with</span> for all file operations. 
+        In professional codebases, manual open/close is discouraged.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Reading strategies — choosing the right method</h2>
+    <p>
+      Python offers multiple ways to read file contents. Each serves a different use case.
+    </p>
+
+    <h3>1. Read entire file</h3>
+    <div class="code-block">
+<pre><code>with open("example.txt", "r") as file:
+    data = file.read()</code></pre>
+    </div>
+
+    <p>Best for small files.</p>
+
+    <h3>2. Read line by line (memory efficient)</h3>
+    <div class="code-block">
+<pre><code>with open("example.txt", "r") as file:
+    for line in file:
+        print(line.strip())</code></pre>
+    </div>
+
+    <p>Ideal for large files.</p>
+
+    <h3>3. Read all lines into a list</h3>
+    <div class="code-block">
+<pre><code>with open("example.txt", "r") as file:
+    lines = file.readlines()</code></pre>
+    </div>
+
+    <p>
+      Returns a list where each element is one line.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Understanding file paths</h2>
+    <p>
+      Python looks for files relative to the current working directory unless given an absolute path.
+    </p>
+
+    <div class="code-block">
+<pre><code># Relative path
+open("data/info.txt")
+
+# Absolute path (example)
+open("/home/user/data/info.txt")</code></pre>
+    </div>
+
+    <p>
+      If you see <span class="inline-code">FileNotFoundError</span>, verify:
+      <ul>
+        <li>The file exists</li>
+        <li>The path is correct</li>
+        <li>You have read permissions</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Handling errors safely</h2>
+    <p>
+      Production-grade code anticipates failure. Files may not exist, permissions may be restricted,
+      or encoding issues may occur.
+    </p>
+
+    <div class="code-block">
+<pre><code>try:
+    with open("example.txt", "r") as file:
+        print(file.read())
+except FileNotFoundError:
+    print("File not found.")
+except PermissionError:
+    print("Permission denied.")</code></pre>
+    </div>
+
+    <p>
+      This prevents your program from crashing unexpectedly.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Next steps — building real capability</h2>
+    <p>
+      You now understand:
+      <ul>
+        <li>How to open files</li>
+        <li>Why <span class="inline-code">with</span> is superior</li>
+        <li>Different reading methods</li>
+        <li>Basic error handling</li>
+      </ul>
+    </p>
+
+    <p>
+      Next lessons will cover:
+      <ul>
+        <li>Writing to files</li>
+        <li>Appending data</li>
+        <li>Working with CSV files</li>
+        <li>JSON parsing and persistence</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Exercise</div>
+      <div>
+        Create a text file called <span class="inline-code">notes.txt</span>.
+        Write three lines manually. Then write a Python program that:
+        <ul>
+          <li>Reads the file</li>
+          <li>Prints each line with line numbers</li>
+          <li>Handles the case where the file does not exist</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+</article>

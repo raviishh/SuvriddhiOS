@@ -1,0 +1,191 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>What is the Python Import System?</h1>
+  <p class="lead">A simple guide to understanding how Python shares code between files. Think of this as learning how to borrow tools instead of building everything from scratch.</p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is a module?</h2>
+    <p>
+      A module is simply a Python file. That’s it.
+      If you create a file called <span class="inline-code">tools.py</span>, that file is a module.
+    </p>
+
+    <p>
+      Modules help us organize code. Instead of writing everything in one big file, we split code into smaller pieces.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>Imagine cooking. You don’t grow the vegetables every time. You go to the market and get what you need. Modules are like that market — you import what you need.</div>
+    </div>
+
+    <p>
+      Python already gives us many built-in modules like:
+      <ul>
+        <li><span class="inline-code">math</span> (for mathematics)</li>
+        <li><span class="inline-code">random</span> (for random numbers)</li>
+        <li><span class="inline-code">os</span> (for working with the system)</li>
+      </ul>
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Basic import</h2>
+    <p>
+      To use a module, we write the <span class="inline-code">import</span> keyword.
+    </p>
+
+    <div class="code-block">
+<pre><code>import math
+
+print(math.sqrt(16))</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">import math</span> loads the math module.</li>
+        <li><span class="inline-code">math.sqrt(16)</span> calls the square root function.</li>
+      </ul>
+    </p>
+
+    <div class="steps">
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">4.0</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Import specific parts</h2>
+    <p>
+      Sometimes we only want one thing from a module.
+    </p>
+
+    <div class="code-block">
+<pre><code>from math import sqrt
+
+print(sqrt(25))</code></pre>
+    </div>
+
+    <p>
+      Now we can use <span class="inline-code">sqrt</span> directly without writing <span class="inline-code">math.sqrt</span>.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important</div>
+      <div>Using <span class="inline-code">from module import *</span> is not recommended for beginners. It can cause name conflicts and confusion.</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Using an alias</h2>
+    <p>
+      Sometimes module names are long. We can rename them using <span class="inline-code">as</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>import math as m
+
+print(m.pi)</code></pre>
+    </div>
+
+    <p>
+      This is common in real projects. For example:
+      <ul>
+        <li><span class="inline-code">import numpy as np</span></li>
+        <li><span class="inline-code">import pandas as pd</span></li>
+      </ul>
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Creating your own module</h2>
+    <p>
+      Let’s create a file called <span class="inline-code">greetings.py</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code># greetings.py
+
+def say_hello(name):
+    return f"Hello, {name}!"</code></pre>
+    </div>
+
+    <p>
+      Now in another file:
+    </p>
+
+    <div class="code-block">
+<pre><code>import greetings
+
+print(greetings.say_hello("Anna"))</code></pre>
+    </div>
+
+    <div class="steps">
+      <div class="step"><strong>Output:</strong></div>
+      <div class="output">Hello, Anna!</div>
+    </div>
+
+    <p>
+      Python finds <span class="inline-code">greetings.py</span> in the same folder and loads it as a module.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. What happens when you import?</h2>
+    <p>
+      When Python imports a module:
+      <ul>
+        <li>It runs the file one time.</li>
+        <li>It stores the module in memory.</li>
+        <li>If imported again, it does not run it again.</li>
+      </ul>
+    </p>
+
+    <p>
+      This makes programs faster and prevents repeating code.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Why imports matter</h2>
+    <p>
+      Imports allow:
+      <ul>
+        <li>Code organization</li>
+        <li>Code reuse</li>
+        <li>Cleaner projects</li>
+        <li>Team collaboration</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly tip</div>
+      <div>If your file becomes very long, it is time to split it into modules. Small files are easier to understand and debug.</div>
+    </div>
+
+  </section>
+</article>

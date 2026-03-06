@@ -1,0 +1,207 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Test-Driven Development (TDD)</h1>
+  <p class="lead">
+    Test-Driven Development (TDD) is a way of writing code.  
+    First you write the test. Then you write the code.  
+    It may feel strange at first — but it is very powerful.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is TDD?</h2>
+    <p>
+      TDD is a simple cycle:
+    </p>
+
+    <ul>
+      <li>1. Write a test</li>
+      <li>2. Run it (it fails)</li>
+      <li>3. Write the code</li>
+      <li>4. Run it again (it passes)</li>
+      <li>5. Improve the code</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>
+        In TDD, tests are written before the real code.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Why Use TDD?</h2>
+    <p>
+      TDD helps you:
+      <ul>
+        <li>Think clearly before coding</li>
+        <li>Avoid writing unnecessary code</li>
+        <li>Build safer programs</li>
+      </ul>
+    </p>
+
+    <p>
+      It forces you to ask:
+      <br>
+      “What should this function really do?”
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Example: Building is_even()</h2>
+    <p>
+      We want to create a function called <span class="inline-code">is_even(n)</span>.  
+      It should return <span class="inline-code">True</span> if a number is even,  
+      and <span class="inline-code">False</span> if it is odd.
+    </p>
+
+    <p><strong>Step 1: Write the Test First</strong></p>
+
+    <div class="code-block">
+<pre><code># test_numbers.py
+
+def test_is_even():
+    assert is_even(4) == True
+    assert is_even(3) == False</code></pre>
+    </div>
+
+    <p>
+      If you run this now, it will fail.  
+      Why? Because <span class="inline-code">is_even</span> does not exist yet.
+    </p>
+
+    <p>
+      This is normal in TDD.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Step 2: Write the Simplest Code</h2>
+
+    <div class="code-block">
+<pre><code># numbers.py
+
+def is_even(n):
+    return n % 2 == 0</code></pre>
+    </div>
+
+    <p>
+      Now run the test again.
+    </p>
+
+    <div class="code-block">
+<pre><code>pytest</code></pre>
+    </div>
+
+    <p>
+      If everything is correct, the test passes.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key Rule</div>
+      <div>
+        Write the simplest code that makes the test pass.  
+        Do not add extra features.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Step 3: Improve the Code (Refactor)</h2>
+    <p>
+      After the test passes, you can improve the code.
+    </p>
+
+    <p>
+      Example:
+      <ul>
+        <li>Better variable names</li>
+        <li>Cleaner structure</li>
+        <li>Remove repetition</li>
+      </ul>
+    </p>
+
+    <p>
+      But remember:
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Rule</div>
+      <div>
+        Never change behavior during refactoring.  
+        Tests must still pass.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Advantages and Challenges</h2>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+      <li>Cleaner design</li>
+      <li>Fewer bugs</li>
+      <li>More confidence when changing code</li>
+    </ul>
+
+    <p><strong>Challenges:</strong></p>
+    <ul>
+      <li>Feels slower at first</li>
+      <li>Requires discipline</li>
+      <li>Hard for beginners</li>
+    </ul>
+
+    <p>
+      TDD is not magic.  
+      But when used correctly, it improves code quality.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Small Exercise</h2>
+    <p>
+      1. Write a test first for a function <span class="inline-code">divide(a, b)</span>.  
+      2. The function should return the result of division.  
+      3. Write tests for:
+    </p>
+
+    <ul>
+      <li>Normal division</li>
+      <li>Division by 1</li>
+      <li>Division by zero (should raise an error)</li>
+    </ul>
+
+    <p>
+      4. Run the tests.  
+      5. Then write the function.  
+      6. Make the tests pass.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Final Thought</div>
+      <div>
+        In normal coding, you write code and hope it works.  
+        In TDD, you prove it works.
+      </div>
+    </div>
+  </section>
+
+</article>

@@ -1,0 +1,204 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Unit Testing in Python (unittest)</h1>
+  <p class="lead">
+    Learn how to check if your Python code works correctly. In this lesson, we use Python’s built-in testing tool called <strong>unittest</strong>. Simple, clear, and step by step.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is Testing?</h2>
+    <p>
+      Testing means checking if your code works the way you expect.
+      When you write a function, you want to make sure it gives the correct answer.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>
+        Imagine you solve 10 math questions. Before giving your homework to the teacher, you check your answers.  
+        Testing is like checking your answers before showing your program to users.
+      </div>
+    </div>
+
+    <p>
+      Programs can have <strong>bugs</strong>. A bug is a mistake in the code.  
+      Testing helps us find bugs early.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. What is a Unit?</h2>
+    <p>
+      A <strong>unit</strong> is one small part of a program.  
+      Usually, a unit is a single function.
+    </p>
+
+    <div class="code-block">
+<pre><code>def add(a, b):
+    return a + b</code></pre>
+    </div>
+
+    <p>
+      Here, <span class="inline-code">add</span> is a unit.  
+      We can test it to make sure it works correctly.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Writing Your First Test</h2>
+    <p>
+      Python has a built-in module called <span class="inline-code">unittest</span>.  
+      We use it to write tests.
+    </p>
+
+    <p><strong>Step 1:</strong> Create a file called <span class="inline-code">math_utils.py</span></p>
+
+    <div class="code-block">
+<pre><code>def add(a, b):
+    return a + b</code></pre>
+    </div>
+
+    <p><strong>Step 2:</strong> Create another file called <span class="inline-code">test_math_utils.py</span></p>
+
+    <div class="code-block">
+<pre><code>import unittest
+from math_utils import add
+
+class TestAddFunction(unittest.TestCase):
+
+    def test_add_positive_numbers(self):
+        result = add(2, 3)
+        self.assertEqual(result, 5)
+
+if __name__ == "__main__":
+    unittest.main()</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li><span class="inline-code">import unittest</span> loads the testing tool.</li>
+        <li><span class="inline-code">class TestAddFunction</span> is where we write tests.</li>
+        <li><span class="inline-code">self.assertEqual()</span> checks if two values are equal.</li>
+        <li>If they are not equal, the test fails.</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Running the Test</h2>
+    <p>
+      Open your terminal inside the folder. Run:
+    </p>
+
+    <div class="code-block">
+<pre><code>python -m unittest</code></pre>
+    </div>
+
+    <p><strong>If the test passes, you will see something like:</strong></p>
+
+    <div class="output">
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+    </div>
+
+    <p><strong>If the test fails, you will see something like:</strong></p>
+
+    <div class="output">
+FAIL: test_add_positive_numbers
+AssertionError: 6 != 5
+    </div>
+
+    <p>
+      This means something is wrong in your function.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Writing More Tests</h2>
+    <p>
+      Good testing means checking many cases.
+    </p>
+
+    <div class="code-block">
+<pre><code>def test_add_negative_numbers(self):
+    result = add(-2, -3)
+    self.assertEqual(result, -5)
+
+def test_add_zero(self):
+    result = add(0, 5)
+    self.assertEqual(result, 5)</code></pre>
+    </div>
+
+    <p>
+      Why write many tests?
+      <ul>
+        <li>To check different inputs</li>
+        <li>To catch hidden bugs</li>
+        <li>To make your code strong</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Why Unit Testing Is Important</h2>
+    <p>
+      Unit testing:
+      <ul>
+        <li>Helps you find bugs early</li>
+        <li>Makes your code safer to change</li>
+        <li>Makes your project look professional</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>
+        If you change your code later, you can run tests again.  
+        If tests still pass, your code is still correct.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>7. Small Exercise</h2>
+    <p>
+      1. Write a function <span class="inline-code">multiply(a, b)</span> in <span class="inline-code">math_utils.py</span>.  
+      2. Write at least 3 tests for it.  
+      3. Run the tests.  
+      4. Change the function to return the wrong answer.  
+      5. Run the tests again and observe what happens.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        Good programmers do not trust their code.  
+        They test it.
+      </div>
+    </div>
+  </section>
+
+</article>

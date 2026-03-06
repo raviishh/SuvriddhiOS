@@ -1,0 +1,218 @@
+<article
+    class="lesson-content"
+    style="
+        padding: 24px;
+        max-width: 95%;
+        margin: 0 auto;
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            &quot;Segoe UI&quot;,
+            Roboto,
+            &quot;Helvetica Neue&quot;,
+            Arial;
+    "
+>
+    <h1>Syntax vs Runtime Errors</h1>
+    <p class="lead">
+        Before you can fix errors, you need to understand what kind of mistake
+        you made. Not all errors are equal — and Python treats them differently.
+    </p>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>1. What is an error?</h2>
+
+        <p>
+            An error happens when Python cannot continue executing your program.
+            Think of your program like instructions for a robot. If the
+            instructions are written incorrectly, the robot refuses to start. If
+            the instructions are correct but impossible to perform, the robot
+            crashes midway.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700">Core Idea</div>
+            <div>
+                Some errors happen <strong>before</strong> the program runs.
+                Some errors happen <strong>while</strong> the program runs.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>2. Syntax Errors — breaking Python’s grammar</h2>
+
+        <p>
+            A <strong>syntax error</strong> happens when your code violates
+            Python’s rules. It’s like writing a sentence with no verb. The
+            structure is invalid. Python cannot even start running the program.
+        </p>
+
+        <div class="code-block">
+            <pre><code>print("Hello"</code></pre>
+        </div>
+
+        <p>Output:</p>
+
+        <div class="output">SyntaxError: '(' was never closed</div>
+
+        <p>
+            Python checks syntax <em>before execution</em>. If there is a syntax
+            error, the program never begins.
+        </p>
+
+        <ul>
+            <li>Missing parentheses</li>
+            <li>Missing colons after <code>if</code> or <code>for</code></li>
+            <li>Incorrect indentation</li>
+            <li>Misspelled keywords</li>
+        </ul>
+
+        <div class="callout">
+            <div style="font-weight: 700">Important</div>
+            <div>
+                You cannot catch syntax errors using <code>try/except</code>.
+                They must be fixed before the program runs.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>3. Runtime Errors — crashing during execution</h2>
+
+        <p>
+            A <strong>runtime error</strong> happens while the program is
+            running. The syntax is valid — but something goes wrong during
+            execution.
+        </p>
+
+        <div class="code-block">
+            <pre><code>number = 10
+result = number / 0
+print(result)</code></pre>
+        </div>
+
+        <p>Output:</p>
+
+        <div class="output">ZeroDivisionError: division by zero</div>
+
+        <p>
+            Python started executing the program. Then it hit something
+            impossible: dividing by zero.
+        </p>
+
+        Other common runtime errors:
+        <ul>
+            <li>
+                <strong>NameError</strong> — using a variable that doesn’t exist
+            </li>
+            <li><strong>TypeError</strong> — using the wrong type of data</li>
+            <li>
+                <strong>IndexError</strong> — accessing a list index that
+                doesn't exist
+            </li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>4. Reading the Traceback</h2>
+
+        <p>
+            When a runtime error occurs, Python shows a
+            <strong>traceback</strong>. It tells you:
+        </p>
+
+        <ul>
+            <li>Where the error happened (line number)</li>
+            <li>What type of error occurred</li>
+            <li>A short explanation</li>
+        </ul>
+
+        <div class="code-block">
+            <pre><code>numbers = [1, 2, 3]
+print(numbers[5])</code></pre>
+        </div>
+
+        <div class="output">IndexError: list index out of range</div>
+
+        <p>
+            The traceback is not noise. It is a diagnostic report. Professional
+            programmers read tracebacks carefully instead of guessing.
+        </p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>5. Why This Distinction Matters</h2>
+
+        <p>Understanding error types helps you:</p>
+
+        <ul>
+            <li>Fix problems faster</li>
+            <li>Write safer code</li>
+            <li>Design better systems</li>
+        </ul>
+
+        <p>
+            Syntax errors are structural mistakes. Runtime errors are logical or
+            situational failures.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700">Defensive Thinking Begins Here</div>
+            <div>
+                Good programmers assume runtime errors will happen. Great
+                programmers design systems that handle them gracefully.
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>6. Mini Practice</h2>
+
+        <p>Identify whether each is a syntax error or runtime error:</p>
+
+        <ol>
+            <li>Missing colon after <code>if</code></li>
+            <li>Dividing by zero</li>
+            <li>Using a variable before defining it</li>
+            <li>Indentation error</li>
+        </ol>
+
+        <p>(Answers: Syntax, Runtime, Runtime, Syntax)</p>
+    </section>
+
+    <hr />
+
+    <section class="chapter">
+        <h2>7. Next Step</h2>
+
+        <p>
+            Now that you understand the difference between errors, the next
+            lesson will teach you how to
+            <strong>handle runtime errors gracefully</strong> using
+            <code>try</code> and <code>except</code>.
+        </p>
+
+        <div class="callout">
+            <div style="font-weight: 700">Reality Check</div>
+            <div>
+                Errors are not a sign of failure. They are feedback from the
+                interpreter. Learning to read them is a core programming skill.
+            </div>
+        </div>
+    </section>
+</article>

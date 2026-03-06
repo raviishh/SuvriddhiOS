@@ -1,0 +1,298 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Generators & yield</h1>
+  <p class="lead">
+    In the last lesson, you built your own iterator.  
+    Now we learn something easier and more powerful: <strong>generators</strong>.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. The problem with normal functions</h2>
+    <p>
+      A normal function runs once and returns a value.
+      After it returns, it is finished.
+    </p>
+
+    <div class="code-block">
+<pre><code>def give_numbers():
+    return [1, 2, 3]
+
+numbers = give_numbers()
+print(numbers)</code></pre>
+    </div>
+
+    <p>
+      This works. But notice:
+      <ul>
+        <li>All numbers are created at once.</li>
+        <li>They are stored in memory as a full list.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Think About It</div>
+      <div>
+        What if we needed one million numbers?  
+        Storing them all at once could use a lot of memory.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. What is a generator?</h2>
+    <p>
+      A <strong>generator</strong> is a special kind of function.
+      Instead of returning all values at once, it gives them one by one.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Simple Analogy</div>
+      <div>
+        A normal function gives you the whole cake.  
+        A generator gives you one slice at a time.
+      </div>
+    </div>
+
+    <p>
+      Generators use a special keyword: <span class="inline-code">yield</span>.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Your first generator</h2>
+
+    <div class="code-block">
+<pre><code>def count_to_three():
+    yield 1
+    yield 2
+    yield 3
+
+gen = count_to_three()
+
+print(next(gen))
+print(next(gen))
+print(next(gen))</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+1  
+2  
+3
+    </div>
+
+    <p>
+      Each time we call <span class="inline-code">next()</span>, the function continues from where it stopped.
+    </p>
+
+    <p>
+      When there are no more <span class="inline-code">yield</span> statements, Python raises <span class="inline-code">StopIteration</span>.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. How yield works</h2>
+    <p>
+      The keyword <span class="inline-code">yield</span> does two things:
+      <ul>
+        <li>It sends a value back.</li>
+        <li>It pauses the function.</li>
+      </ul>
+    </p>
+
+    <p>
+      When <span class="inline-code">next()</span> is called again, the function continues from the line after <span class="inline-code">yield</span>.
+    </p>
+
+    <div class="code-block">
+<pre><code>def example():
+    print("Start")
+    yield 10
+    print("Middle")
+    yield 20
+    print("End")
+
+g = example()
+
+print(next(g))
+print(next(g))</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+Start  
+10  
+Middle  
+20
+    </div>
+
+    <p>
+      Notice that "End" is not printed yet.  
+      It will print only if we call <span class="inline-code">next()</span> again.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Generators with loops</h2>
+
+    <p>
+      Generators are very powerful when combined with loops.
+    </p>
+
+    <div class="code-block">
+<pre><code>def count_up_to(n):
+    for i in range(1, n + 1):
+        yield i
+
+for number in count_up_to(5):
+    print(number)</code></pre>
+    </div>
+
+    <p>
+      Output:
+    </p>
+
+    <div class="output">
+1  
+2  
+3  
+4  
+5
+    </div>
+
+    <p>
+      This generator gives one number at a time.
+      It does not create a full list.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Generator expressions</h2>
+    <p>
+      Python also allows a short way to create generators.
+    </p>
+
+    <div class="code-block">
+<pre><code>numbers = (x * 2 for x in range(5))
+
+for num in numbers:
+    print(num)</code></pre>
+    </div>
+
+    <p>
+      This looks like a list comprehension:
+    </p>
+
+    <div class="code-block">
+<pre><code>[x * 2 for x in range(5)]</code></pre>
+    </div>
+
+    <p>
+      But notice:
+      <ul>
+        <li>Square brackets <span class="inline-code">[ ]</span> create a list.</li>
+        <li>Parentheses <span class="inline-code">( )</span> create a generator.</li>
+      </ul>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Why generators matter</h2>
+
+    <p>
+      Generators:
+      <ul>
+        <li>Use less memory.</li>
+        <li>Work well with large data.</li>
+        <li>Follow the iterator protocol automatically.</li>
+      </ul>
+    </p>
+
+    <p>
+      Every generator is an iterator.
+      But not every iterator is a generator.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Important Idea</div>
+      <div>
+        Generators are easier than writing your own <span class="inline-code">__iter__()</span> and <span class="inline-code">__next__()</span>.
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Practice -->
+  <section class="chapter">
+    <h2>8. Try it yourself</h2>
+    <p>
+      Write a generator that:
+      <ul>
+        <li>Gives only even numbers from 2 to 20.</li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Challenge</div>
+      <div>
+        Create an infinite generator that keeps giving numbers starting from 1.
+        (Be careful when testing it!)
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Conclusion -->
+  <section class="chapter">
+    <h2>9. What comes next</h2>
+    <p>
+      Now you understand:
+      <ul>
+        <li>How generators pause and continue.</li>
+        <li>How they save memory.</li>
+        <li>How they work with <span class="inline-code">for</span> loops.</li>
+      </ul>
+    </p>
+
+    <p>
+      In the next lesson, we will learn about <strong>closures</strong>.
+      This will explain how functions can remember data.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Friendly Tip</div>
+      <div>
+        The best way to understand generators is to print messages inside them.
+        Watch when they pause. Watch when they continue.
+      </div>
+    </div>
+
+  </section>
+</article>

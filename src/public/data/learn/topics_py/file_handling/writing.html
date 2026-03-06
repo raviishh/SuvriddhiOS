@@ -1,0 +1,219 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>Writing Text Files in Python</h1>
+  <p class="lead">
+    Reading is passive. Writing is power. In this lesson, you’ll learn how Python stores new data on disk — safely, intentionally, and without accidentally deleting everything.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. Why writing matters</h2>
+    <p>
+      Writing files is how programs save results, logs, user input, reports, and generated data.
+      If reading is opening the cabinet, writing is placing new documents inside.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Reality Check</div>
+      <div>
+        Writing can overwrite existing data. One careless mode choice can wipe a file.
+        Professionals treat file writing carefully.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. File modes — understand before you type</h2>
+
+    <p>
+      When opening a file for writing, the mode determines behavior:
+    </p>
+
+    <ul>
+      <li><span class="inline-code">"w"</span> → Write (creates file or overwrites existing file)</li>
+      <li><span class="inline-code">"a"</span> → Append (adds to end of file)</li>
+      <li><span class="inline-code">"x"</span> → Create (fails if file already exists)</li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Most Common Mistake</div>
+      <div>
+        Using <span class="inline-code">"w"</span> on an important file. 
+        It deletes existing content immediately.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Basic writing with <span class="inline-code">"w"</span></h2>
+
+    <div class="code-block">
+<pre><code>with open("output.txt", "w") as file:
+    file.write("Hello, world!\n")
+    file.write("This is a new file.\n")</code></pre>
+    </div>
+
+    <p>
+      Explanation:
+      <ul>
+        <li>If <span class="inline-code">output.txt</span> does not exist, Python creates it.</li>
+        <li>If it exists, its previous contents are erased.</li>
+        <li><span class="inline-code">\n</span> creates a new line.</li>
+      </ul>
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Appending instead of overwriting</h2>
+
+    <p>
+      To preserve existing data and add new content, use append mode.
+    </p>
+
+    <div class="code-block">
+<pre><code>with open("output.txt", "a") as file:
+    file.write("Adding another line.\n")</code></pre>
+    </div>
+
+    <p>
+      This adds content at the end without deleting previous lines.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Use Case</div>
+      <div>
+        Logging systems use append mode so old log entries remain intact.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Writing multiple lines efficiently</h2>
+
+    <p>
+      Instead of calling <span class="inline-code">write()</span> repeatedly,
+      you can write multiple lines at once.
+    </p>
+
+    <div class="code-block">
+<pre><code>lines = ["First line\n", "Second line\n", "Third line\n"]
+
+with open("output.txt", "w") as file:
+    file.writelines(lines)</code></pre>
+    </div>
+
+    <p>
+      Important:
+      <ul>
+        <li><span class="inline-code">writelines()</span> does NOT add newlines automatically.</li>
+        <li>You must include <span class="inline-code">\n</span> yourself.</li>
+      </ul>
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Writing formatted data</h2>
+
+    <p>
+      Often you’ll write computed values to files.
+    </p>
+
+    <div class="code-block">
+<pre><code>name = "Alice"
+score = 92
+
+with open("report.txt", "w") as file:
+    file.write(f"Student: {name}\n")
+    file.write(f"Score: {score}\n")</code></pre>
+    </div>
+
+    <p>
+      Using f-strings keeps your file output clean and readable.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Safe writing with error handling</h2>
+
+    <p>
+      Files may fail to write due to permission issues or disk errors.
+      Defensive programming prevents crashes.
+    </p>
+
+    <div class="code-block">
+<pre><code>try:
+    with open("output.txt", "w") as file:
+        file.write("Safe writing example.\n")
+except PermissionError:
+    print("You do not have permission to write to this file.")
+except OSError:
+    print("A system-related error occurred.")</code></pre>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Next steps — deeper persistence</h2>
+
+    <p>
+      You now understand:
+      <ul>
+        <li>Write vs append modes</li>
+        <li>How files are created</li>
+        <li>How to avoid accidental data loss</li>
+        <li>Basic defensive writing</li>
+      </ul>
+    </p>
+
+    <p>
+      Coming next:
+      <ul>
+        <li>Context managers in depth</li>
+        <li>Working with CSV files</li>
+        <li>JSON serialization</li>
+        <li>Path handling with <span class="inline-code">pathlib</span></li>
+      </ul>
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Exercise</div>
+      <div>
+        Build a simple journaling script:
+        <ul>
+          <li>Ask the user for a daily entry</li>
+          <li>Append it to <span class="inline-code">journal.txt</span></li>
+          <li>Add a separator line between entries</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+</article>

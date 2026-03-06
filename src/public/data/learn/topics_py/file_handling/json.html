@@ -1,0 +1,255 @@
+<article class="lesson-content" style="padding:24px; max-width: 95%; margin:0 auto; color:var(--color-card-foreground); font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+  
+  <h1>JSON Parsing & Writing in Python</h1>
+  <p class="lead">
+    JSON is the language of APIs, web apps, configs, and modern data exchange.
+    If CSV is a spreadsheet, JSON is a structured data tree. This lesson shows you how to read it, manipulate it, and write it back safely.
+  </p>
+
+  <!-- Chapter 1 -->
+  <section class="chapter">
+    <h2>1. What is JSON?</h2>
+    <p>
+      JSON stands for <strong>JavaScript Object Notation</strong>. It stores structured data using
+      key–value pairs and arrays.
+    </p>
+
+    <div class="code-block">
+<pre><code>{
+  "name": "Alice",
+  "age": 17,
+  "subjects": ["Math", "Physics", "Economics"],
+  "active": true
+}</code></pre>
+    </div>
+
+    <p>
+      JSON maps naturally to Python data types:
+    </p>
+
+    <ul>
+      <li>Object → <span class="inline-code">dict</span></li>
+      <li>Array → <span class="inline-code">list</span></li>
+      <li>String → <span class="inline-code">str</span></li>
+      <li>Number → <span class="inline-code">int</span> / <span class="inline-code">float</span></li>
+      <li>true / false → <span class="inline-code">True</span> / <span class="inline-code">False</span></li>
+      <li>null → <span class="inline-code">None</span></li>
+    </ul>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Key Insight</div>
+      <div>
+        JSON is text. Python objects are in memory. Parsing converts text → Python objects.
+        Writing converts Python objects → JSON text.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 2 -->
+  <section class="chapter">
+    <h2>2. Reading (Parsing) JSON from a file</h2>
+
+    <p>
+      Use the built-in <span class="inline-code">json</span> module.
+    </p>
+
+    <div class="code-block">
+<pre><code>import json
+
+with open("data.json", "r") as file:
+    data = json.load(file)
+
+print(data)
+print(data["name"])</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">json.load()</span> reads the file and converts JSON into a Python object.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 3 -->
+  <section class="chapter">
+    <h2>3. Parsing JSON from a string</h2>
+
+    <p>
+      If JSON is received from an API or stored as a string:
+    </p>
+
+    <div class="code-block">
+<pre><code>import json
+
+json_string = '{"name": "Alice", "age": 17}'
+data = json.loads(json_string)
+
+print(data["age"])</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">loads()</span> parses a JSON string.
+      Think: <strong>load → file</strong>, <strong>loads → string</strong>.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 4 -->
+  <section class="chapter">
+    <h2>4. Writing JSON to a file</h2>
+
+    <p>
+      To save Python data as JSON:
+    </p>
+
+    <div class="code-block">
+<pre><code>import json
+
+data = {
+    "name": "Alice",
+    "age": 17,
+    "subjects": ["Math", "Physics"]
+}
+
+with open("output.json", "w") as file:
+    json.dump(data, file)</code></pre>
+    </div>
+
+    <p>
+      <span class="inline-code">json.dump()</span> writes Python data as JSON text.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 5 -->
+  <section class="chapter">
+    <h2>5. Pretty printing JSON</h2>
+
+    <p>
+      By default, JSON is written in compact format. For readability, use indentation.
+    </p>
+
+    <div class="code-block">
+<pre><code>with open("output.json", "w") as file:
+    json.dump(data, file, indent=4)</code></pre>
+    </div>
+
+    <p>
+      The <span class="inline-code">indent</span> parameter formats the output cleanly.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Professional Practice</div>
+      <div>
+        Use indentation for config files and human-readable storage.
+        Use compact format for performance-sensitive data transfer.
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 6 -->
+  <section class="chapter">
+    <h2>6. Modifying and rewriting JSON</h2>
+
+    <p>
+      A common workflow:
+    </p>
+
+    <ol>
+      <li>Load JSON</li>
+      <li>Modify Python object</li>
+      <li>Write back to file</li>
+    </ol>
+
+    <div class="code-block">
+<pre><code>import json
+
+with open("data.json", "r") as file:
+    data = json.load(file)
+
+data["age"] = 18
+data["subjects"].append("Chemistry")
+
+with open("data.json", "w") as file:
+    json.dump(data, file, indent=4)</code></pre>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 7 -->
+  <section class="chapter">
+    <h2>7. Common pitfalls</h2>
+
+    <ul>
+      <li>Forgetting that JSON keys must be strings</li>
+      <li>Trying to serialize unsupported Python objects (e.g., sets)</li>
+      <li>Confusing <span class="inline-code">load</span> vs <span class="inline-code">loads</span></li>
+      <li>Overwriting files without backup</li>
+    </ul>
+
+    <div class="code-block">
+<pre><code># This will raise TypeError
+data = {"numbers": {1, 2, 3}}</code></pre>
+    </div>
+
+    <p>
+      JSON supports lists but not sets.
+    </p>
+
+  </section>
+
+  <hr />
+
+  <!-- Chapter 8 -->
+  <section class="chapter">
+    <h2>8. Why JSON is critical</h2>
+
+    <p>
+      You now understand:
+      <ul>
+        <li>How JSON maps to Python data types</li>
+        <li>How to parse from files and strings</li>
+        <li>How to write structured data safely</li>
+        <li>How to modify and persist changes</li>
+      </ul>
+    </p>
+
+    <p>
+      JSON is the backbone of REST APIs, web services, configuration systems,
+      and modern data pipelines.
+    </p>
+
+    <div class="callout">
+      <div style="font-weight:700; color:var(--color-primary);">Practice Exercise</div>
+      <div>
+        Create a JSON file storing:
+        <ul>
+          <li>Three students</li>
+          <li>Their subjects</li>
+          <li>Their scores</li>
+        </ul>
+        Then write a Python script that:
+        <ul>
+          <li>Calculates each student’s average</li>
+          <li>Adds the average to the JSON structure</li>
+          <li>Writes the updated data back with indentation</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+</article>
