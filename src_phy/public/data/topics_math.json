@@ -1,0 +1,236 @@
+[
+    {
+        "id": "Algebra",
+        "title": "Algebra",
+        "items": [
+            {
+                "id": "3",
+                "type": "lesson",
+                "title": "Intersection of Lines",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "4",
+                "type": "lesson",
+                "title": "Polar Coordinates",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "5",
+                "type": "lesson",
+                "title": "Sequences (AP and GP)",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "6",
+                "type": "lesson",
+                "title": "Inequalities",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "7",
+                "type": "lesson",
+                "title": "Quadratics",
+                "contentFile": "topics_math/index.html"
+            }
+        ]
+    },
+    {
+        "id": "Probability",
+        "title": "Probability",
+        "items": [
+            {
+                "id": "8",
+                "type": "lesson",
+                "title": "Probability",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "9",
+                "type": "lesson",
+                "title": "Probability Tree Puzzle",
+                "contentFile": "topics_math/index.html"
+            }
+        ]
+    },
+    {
+        "id": "TrigonometryAndGeometry",
+        "title": "Trigonometry and Geometry",
+        "items": [
+            {
+                "id": "10",
+                "type": "lesson",
+                "title": "Bearings Puzzle",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "11",
+                "type": "lesson",
+                "title": "Pythagorean Theorem",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "12",
+                "type": "lesson",
+                "title": "Angle of Elevation",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "13",
+                "type": "lesson",
+                "title": "Swim - Trigonometry",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "14",
+                "type": "lesson",
+                "title": "Perimeter",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "15",
+                "type": "lesson",
+                "title": "Area",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "16",
+                "type": "lesson",
+                "title": "Internal Angles",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "17",
+                "type": "lesson",
+                "title": "Circle Theorems",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "23",
+                "type": "lesson",
+                "title": "Congruency Puzzle",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "24",
+                "type": "lesson",
+                "title": "Similarity Puzzle",
+                "contentFile": "topics_math/index.html"
+            }
+        ]
+    },
+    {
+        "id": "ExponentsAndLogarithms",
+        "title": "Exponents and Logarithms",
+        "items": [
+            {
+                "id": "18",
+                "type": "lesson",
+                "title": "Number of Digits - Logarithm",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "19",
+                "type": "lesson",
+                "title": "Patterns in Exponents",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "21",
+                "type": "lesson",
+                "title": "Laws of Exponents",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "22",
+                "type": "lesson",
+                "title": "Surds",
+                "contentFile": "topics_math/index.html"
+            }
+        ]
+    },
+    {
+        "id": "ProportionalityAndRatios",
+        "title": "Proportionality and Ratios",
+        "items": [
+            {
+                "id": "20",
+                "type": "lesson",
+                "title": "Ratios and Perimeter",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "25",
+                "type": "lesson",
+                "title": "Direct Proportionality",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "26",
+                "type": "lesson",
+                "title": "Inverse Proportionality",
+                "contentFile": "topics_math/index.html"
+            }
+        ]
+    },
+    {
+        "id": "Combinatorics",
+        "title": "Combinatorics",
+        "items": [
+            {
+                "id": "27",
+                "type": "lesson",
+                "title": "Permutations and Combinations",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "28",
+                "type": "lesson",
+                "title": "Derangement Puzzle",
+                "contentFile": "topics_math/index.html"
+            }
+        ]
+    },
+    {
+        "id": "BossFights",
+        "title": "Boss Fights",
+        "items": [
+            {
+                "id": "29",
+                "type": "lesson",
+                "title": "Bossfight Section 1",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "30",
+                "type": "lesson",
+                "title": "Bossfight Section 2",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "31",
+                "type": "lesson",
+                "title": "Bossfight Section 3",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "32",
+                "type": "lesson",
+                "title": "Bossfight Section 4",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "33",
+                "type": "lesson",
+                "title": "Bossfight Section 5",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "34",
+                "type": "lesson",
+                "title": "Bossfight Section 6",
+                "contentFile": "topics_math/index.html"
+            }
+        ]
+    }
+]

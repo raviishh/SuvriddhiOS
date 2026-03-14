@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #EFEFEF;
+      display: flex;
+      justify-content: flex-start; /* Align to the left */
+      align-items: flex-start; /* Align to the top */
+      height: 100vh;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+    }
+
+    .calculator-container {
+      width: 90%;
+      max-width: 600px;
+      margin: 0 0;
+    }
+
+    .calculator {
+      width: 100%;
+      border: 1px solid #121212;
+      padding: 10px;
+      background-color: #121212;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 5px;
+    }
+
+    .display-container {
+      grid-column: span 6;
+    }
+
+    .input {
+      width: calc(100% - 20px);
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 20px;
+      background-color: #121212;
+      color: #EFEFEF;
+      border: none;
+      border-radius: 5px;
+      text-align: right;
+    }
+
+    .button {
+      padding: 15px;
+      font-size: 20px;
+      background-color: #121212;
+      color: #EFEFEF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator-container">
+    <div id="displayContainer" class="display-container">
+      <input type="text" id="display" class="input" readonly>
+    </div>
+    <div class="calculator">
+      <button class="button" onclick="clearDisplay()">C</button>
+      <button class="button" onclick="deleteLast()">←</button>
+      <button class="button" onclick="appendToDisplay('**')">^</button>
+      <button class="button" onclick="appendToDisplay('7')">7</button>
+      <button class="button" onclick="appendToDisplay('8')">8</button>
+      <button class="button" onclick="appendToDisplay('9')">9</button>
+      <button class="button" onclick="appendToDisplay('/')">÷</button>
+      <button class="button" onclick="appendToDisplay('*')">x</button>
+      <button class="button" onclick="appendToDisplay('(')">(</button>
+      <button class="button" onclick="appendToDisplay('4')">4</button>
+      <button class="button" onclick="appendToDisplay('5')">5</button>
+      <button class="button" onclick="appendToDisplay('6')">6</button>
+      <button class="button" onclick="appendToDisplay('+')">+</button>
+      <button class="button" onclick="appendToDisplay('-')">-</button>
+      <button class="button" onclick="appendToDisplay(')')">)</button>
+      <button class="button" onclick="appendToDisplay('1')">1</button>
+      <button class="button" onclick="appendToDisplay('2')">2</button>
+      <button class="button" onclick="appendToDisplay('3')">3</button>
+      <button class="button" onclick="calculate()">=</button>
+      <button class="button" onclick="appendToDisplay('Math.sin(')">sin</button>
+      <button class="button" onclick="appendToDisplay('Math.cos(')">cos</button>
+      <button class="button" onclick="appendToDisplay('Math.tan(')">tan</button>
+      <button class="button" onclick="appendToDisplay('0')">0</button>
+      <button class="button" onclick="appendToDisplay('.')">.</button>
+      <button class="button" onclick="appendToDisplay('Math.sqrt(')">sqrt</button>
+      <button class="button" onclick="appendToDisplay('Math.asin(')">asin</button>
+      <button class="button" onclick="appendToDisplay('Math.acos(')">acos</button>
+      <button class="button" onclick="appendToDisplay('Math.atan(')">atan</button>
+      <button class="button" onclick="appendToDisplay('Math.log(')">log</button>
+      <button class="button" onclick="appendToDisplay('Math.pow(')">^</button>
+      <button class="button" onclick="appendToDisplay('Math.PI')">π</button>
+      <button class="button" onclick="appendToDisplay('Math.E')">e</button>
+      <button class="button" onclick="switchMode()">Mode</button>
+    </div>
+  </div>
+
+  <script>
+    let mode = 'deg';
+
+    function appendToDisplay(value) {
+      document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+
+    function deleteLast() {
+      let displayValue = document.getElementById('display').value;
+      document.getElementById('display').value = displayValue.substring(0, displayValue.length - 1);
+    }
+
+    function calculate() {
+      let expression = document.getElementById('display').value;
+      try {
+        if (mode === 'deg') {
+          // Convert degrees to radians for trigonometric functions if mode is 'deg'
+          expression = expression.replace(/(sin|cos|tan|asin|acos|atan)\(/g, '$1(Math.PI/180*');
+        }
+        let result = eval(expression);
+        document.getElementById('display').value = Math.trunc(result*1000)/1000;
+      } catch (error) {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+
+    function switchMode() {
+      mode = mode === 'rad' ? 'deg' : 'rad';
+      document.getElementById('display').value = 'Mode: ' + mode;
+    }
+
+    document.addEventListener('keypress', function(event) {
+      const key = event.key;
+      if (key === 'Enter') {
+        calculate();
+      } else if (key === 'Delete' || key === 'Backspace') {
+        deleteLast();
+      } else if (key === 'Escape'){
+        clearDisplay();
+      } else if (key === '^') {
+      appendToDisplay('**');
+      }
+      else {
+        appendToDisplay(key);
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -9,5 +9,15 @@ export default defineConfig({
             "react-dom": "preact/compat",
         },
     },
-    plugins: [preact(), tailwindcss()],
+    plugins: [preact(), tailwindcss(), {
+        name: "unity-webgl-mime",
+        configureServer(server) {
+            server.middlewares.use((_req, res, next) => {
+                if (_req.url?.endsWith(".data")) {
+                    res.setHeader("Content-Type", "application/octet-stream");
+                }
+                next();
+            });
+        },
+    }],
 });
