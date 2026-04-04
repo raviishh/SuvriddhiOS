@@ -1,0 +1,4 @@
+config BR2_PACKAGE_RPI_CHROMIUM
+    bool "chromium"
+    help
+      Chromium browser prebuilt from Raspberry Pi OS repos.

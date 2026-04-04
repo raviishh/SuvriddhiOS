@@ -1,0 +1,134 @@
+#!/bin/sh
+
+# Colors yay!
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+is_online() {
+    if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
+        return 0 # True
+    else
+        return 1 # False
+    fi
+}
+
+start() {
+    clear
+    echo -e "${BLUE}====================================================${NC}"
+    echo -e "${GREEN}          Suvriddhi OS Networking Utility${NC}"
+    echo -e "${BLUE}====================================================${NC}"
+    
+    if is_online; then
+        echo "Status: ONLINE (Ethernet or existing WiFi detected)"
+        echo "You are already connected to the internet."
+    else
+        echo "Status: OFFLINE"
+        echo "Suvriddhi OS can run without wifi but it is"
+        echo "recommended to access a wider array of online sources."
+    fi
+    
+    echo -e "${BLUE}====================================================${NC}"
+    echo ""
+    printf "Do you want to use/change WIFI? (y/n): "
+    read -r CHOICE
+
+    if [ "$CHOICE" = "n" ] || [ "$CHOICE" = "N" ]; then
+        echo "Exiting utility..."
+        return 0
+    fi
+
+    echo -e "\nScanning for available networks... please wait."
+}
+
+scan_and_connect() {
+    MAP=$(iw dev wlan0 scan | grep SSID | cut -d' ' -f2- | sed '/^$/d' | sort -u)
+    
+    if [ -z "$MAP" ]; then
+        echo -e "${RED}No networks found. Is the WiFi antenna connected?${NC}"
+        return 0
+    fi
+
+    i=1
+    for ssid in $MAP; do
+        echo "$i) $ssid"
+        i=$((i+1))
+    done
+    
+    echo ""
+    echo "${GREEN}Wifi networks found!${NC}"
+    printf "Select a network number (or type 'manual'): "
+    read -r CHOICE
+
+    if [ "$CHOICE" = "manual" ]; then
+        printf "Enter SSID (WIFI Name): "
+        read -r SSID
+    else
+        SSID=$(echo "$MAP" | sed -n "${CHOICE}p")
+    fi
+
+    if [ -z "$SSID" ]; then
+        echo -e "${RED}Invalid selection.${NC}"
+        return 0
+    fi
+
+    printf "Enter Password for ${BLUE}$SSID${NC}: "
+    stty -echo
+    read -r PASSWORD
+    stty echo
+    echo ""
+
+    echo "Saving configuration..."
+    wpa_passphrase "$SSID" "$PASSWORD" > /etc/wpa_supplicant.conf
+    
+    echo "Connecting..."
+    killall -q wpa_supplicant udhcpc
+    wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+    
+    if udhcpc -i wlan0 -n -t 10; then
+        echo -e "\n${GREEN}Successfully connected to $SSID!${NC}"
+        ip addr show wlan0 | grep "inet "
+        return 1
+    else
+        echo -e "\n${RED}Connection failed. Check credentials or signal.${NC}"
+        return 0
+    fi
+}
+
+stop() {
+    killall wpa_supplicant udhcpc
+}
+
+
+case "$1" in
+    start|restart)
+        [ "$1" = "restart" ] && stop && sleep 1
+        if start; then
+            CONNECTED=false
+            while [ "$CONNECTED" = false ]; do
+                scan_and_connect
+                RET=$?
+                if [ $RET -eq 1 ]; then
+                    CONNECTED=true
+                else
+                    echo ""
+                    printf "${RED}Would you like to try again? (y/n): ${NC}"
+                    read -r RETRY
+                    if [ "$RETRY" != "y" ] && [ "$RETRY" != "Y" ]; then
+                        echo "Exiting WiFi utility..."
+                        break
+                    fi
+                    clear
+                    echo "Restarting scan..."
+                fi
+            done
+        fi
+        ;;
+    stop)
+        stop
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
