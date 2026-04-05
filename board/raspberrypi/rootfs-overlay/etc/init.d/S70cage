@@ -1,0 +1,52 @@
+#!/bin/sh
+
+start() {
+    export XDG_RUNTIME_DIR=/tmp/runtime-root
+    mkdir -p $XDG_RUNTIME_DIR
+
+    /root/server &
+    busybox httpd -h /root/www -p 8080 &
+
+    sleep 5
+
+    # Way too many ram optimizations for fun.
+    exec chromium-browser \
+        --start-fullscreen \
+        --noerrdialogs \
+        --disable-infobars \
+        --no-sandbox \
+        --disable-dev-shm-usage \
+        --disable-extensions \
+        --disable-sync \
+        --disable-background-networking \
+        --disable-default-apps \
+        --memory-pressure-off \
+        --max_old_space_size=256 \
+        --disable-gpu-shader-disk-cache \
+        --disk-cache-size=52428800 \
+        --process-per-site \
+        http://127.0.0.1:8080
+}
+
+stop () {
+    killall chromium-browser 2>/dev/null
+    killall httpd 2>/dev/null
+}
+
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+	sleep 1
+        start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
