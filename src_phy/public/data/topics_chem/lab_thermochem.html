@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Laboratory Techniques — Thermochemistry</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Laboratory Techniques</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 3 — Thermochemistry and Energy Changes
+            </h2>
+
+            <h2>Energy and Chemical Reactions</h2>
+            <p>
+                Every chemical reaction involves energy changes — bonds break
+                (requiring energy) and new bonds form (releasing energy). The
+                overall energy change determines whether a reaction releases or
+                absorbs heat.
+            </p>
+
+            <div class="law-box">
+                <h3>Exothermic vs Endothermic</h3>
+                <p>
+                    <strong>Exothermic:</strong> Reaction releases heat to
+                    surroundings. System loses energy. Temperature of
+                    surroundings increases. ΔH is negative (−).
+                </p>
+                <p>
+                    Examples: combustion, neutralization, oxidation of metals,
+                    respiration.
+                </p>
+                <p style="margin-top: 8px">
+                    <strong>Endothermic:</strong> Reaction absorbs heat from
+                    surroundings. System gains energy. Temperature of
+                    surroundings decreases. ΔH is positive (+).
+                </p>
+                <p>
+                    Examples: thermal decomposition, dissolving ammonium
+                    nitrate, photosynthesis.
+                </p>
+            </div>
+
+            <!-- SVG: Energy profiles -->
+            <svg
+                viewBox="0 0 580 180"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="580" height="180" fill="#0f0f1a" rx="10" />
+                <text
+                    x="290"
+                    y="16"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Energy Profiles — Exothermic (left) vs Endothermic (right)
+                </text>
+                <!-- Exothermic -->
+                <line
+                    x1="30"
+                    y1="155"
+                    x2="270"
+                    y2="155"
+                    stroke="#6b7280"
+                    stroke-width="1"
+                />
+                <line
+                    x1="30"
+                    y1="30"
+                    x2="30"
+                    y2="155"
+                    stroke="#6b7280"
+                    stroke-width="1"
+                />
+                <path
+                    d="M40 80 Q80 80 110 35 Q140 30 170 38 Q200 80 240 110"
+                    fill="none"
+                    stroke="#22c55e"
+                    stroke-width="2.5"
+                />
+                <!-- Reactants level -->
+                <line
+                    x1="30"
+                    y1="80"
+                    x2="65"
+                    y2="80"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                    stroke-dasharray="3,2"
+                />
+                <!-- Products level -->
+                <line
+                    x1="205"
+                    y1="110"
+                    x2="260"
+                    y2="110"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                    stroke-dasharray="3,2"
+                />
+                <!-- ΔH arrow -->
+                <line
+                    x1="255"
+                    y1="80"
+                    x2="255"
+                    y2="110"
+                    stroke="#fbbf24"
+                    stroke-width="1.5"
+                    marker-end="url(#ya2)"
+                />
+                <text
+                    x="258"
+                    y="98"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    ΔH −ve
+                </text>
+                <!-- Eₐ arrow -->
+                <line
+                    x1="110"
+                    y1="80"
+                    x2="110"
+                    y2="35"
+                    stroke="#ef4444"
+                    stroke-width="1"
+                    marker-end="url(#ra2)"
+                />
+                <text
+                    x="112"
+                    y="60"
+                    fill="#fca5a5"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    Eₐ
+                </text>
+                <text
+                    x="40"
+                    y="75"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    Reactants
+                </text>
+                <text
+                    x="190"
+                    y="127"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    Products
+                </text>
+                <text
+                    x="145"
+                    y="170"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    EXOTHERMIC — heat released
+                </text>
+                <defs>
+                    <marker
+                        id="ya2"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="3"
+                        refY="6"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L6,0 L3,8 z" fill="#fbbf24" />
+                    </marker>
+                    <marker
+                        id="ra2"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#ef4444" />
+                    </marker>
+                </defs>
+                <!-- Endothermic -->
+                <line
+                    x1="305"
+                    y1="155"
+                    x2="560"
+                    y2="155"
+                    stroke="#6b7280"
+                    stroke-width="1"
+                />
+                <line
+                    x1="305"
+                    y1="30"
+                    x2="305"
+                    y2="155"
+                    stroke="#6b7280"
+                    stroke-width="1"
+                />
+                <path
+                    d="M315 120 Q355 120 385 35 Q415 30 445 38 Q475 70 520 70"
+                    fill="none"
+                    stroke="#ef4444"
+                    stroke-width="2.5"
+                />
+                <!-- Reactants level -->
+                <line
+                    x1="305"
+                    y1="120"
+                    x2="340"
+                    y2="120"
+                    stroke="#ef4444"
+                    stroke-width="1.5"
+                    stroke-dasharray="3,2"
+                />
+                <!-- Products level -->
+                <line
+                    x1="480"
+                    y1="70"
+                    x2="540"
+                    y2="70"
+                    stroke="#ef4444"
+                    stroke-width="1.5"
+                    stroke-dasharray="3,2"
+                />
+                <!-- ΔH arrow -->
+                <line
+                    x1="535"
+                    y1="120"
+                    x2="535"
+                    y2="70"
+                    stroke="#fbbf24"
+                    stroke-width="1.5"
+                    marker-end="url(#ra2)"
+                />
+                <text
+                    x="538"
+                    y="98"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    ΔH +ve
+                </text>
+                <text
+                    x="315"
+                    y="115"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    Reactants
+                </text>
+                <text
+                    x="475"
+                    y="65"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    Products
+                </text>
+                <text
+                    x="430"
+                    y="170"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    ENDOTHERMIC — heat absorbed
+                </text>
+            </svg>
+
+            <h2>Measuring Enthalpy Changes — Calorimetry</h2>
+            <p>
+                The <strong>enthalpy change (ΔH)</strong> of a reaction is the
+                heat exchanged at constant pressure. In the lab, we measure it
+                by tracking the temperature change of a known mass of solution.
+            </p>
+
+            <div class="equation">
+                <p><strong>q = mcΔT</strong></p>
+                <p>q = heat energy transferred (J)</p>
+                <p>
+                    m = mass of solution (g) — usually assumed to be mass of
+                    water present
+                </p>
+                <p>c = specific heat capacity of water = 4.18 J g⁻¹ K⁻¹</p>
+                <p>ΔT = temperature change (°C or K, same magnitude)</p>
+                <p style="margin-top: 8px">
+                    ΔH (kJ/mol) = −q / n &nbsp;&nbsp; (negative because if
+                    solution heats up, reaction released energy)
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Enthalpy of Neutralization</h3>
+                <p>
+                    50 cm³ of 1.0 mol/dm³ HCl + 50 cm³ of 1.0 mol/dm³ NaOH mixed
+                    in polystyrene cup.
+                </p>
+                <p>Temperature rises from 20.0°C to 26.4°C. ΔT = 6.4°C</p>
+                <p>
+                    <strong>q</strong> = 100 × 4.18 × 6.4 = 2675 J = 2.675 kJ
+                    &nbsp; (m = 100 g total)
+                </p>
+                <p>
+                    <strong>n(HCl)</strong> = 0.050 × 1.0 = 0.050 mol &nbsp;
+                    (limiting reagent)
+                </p>
+                <p>
+                    <strong>ΔH</strong> = −2.675 / 0.050 =
+                    <strong>−53.5 kJ/mol</strong>
+                </p>
+                <p>
+                    Literature value: −57.1 kJ/mol. Difference due to heat loss
+                    to surroundings.
+                </p>
+                <p>
+                    <span class="highlight"
+                        >The negative sign confirms exothermic. The discrepancy
+                        with literature is expected — a polystyrene cup is not a
+                        perfect calorimeter. Sources of error: heat loss,
+                        density of solution assumed = 1 g/cm³, specific heat
+                        capacity assumed same as water.</span
+                    >
+                </p>
+            </div>
+
+            <h2>Hess's Law</h2>
+            <p>
+                The enthalpy change of a reaction is independent of the route
+                taken — only the initial and final states matter. This allows us
+                to calculate ΔH for reactions we can't measure directly.
+            </p>
+
+            <div class="law-box">
+                <h3>Hess's Law</h3>
+                <p>ΔH(overall) = ΔH₁ + ΔH₂ + ΔH₃ + ...</p>
+                <p>
+                    If you reverse a step, change the sign of ΔH. If you
+                    multiply a step by n, multiply ΔH by n.
+                </p>
+                <p style="margin-top: 8px">
+                    This is a consequence of the conservation of energy —
+                    enthalpy is a state function.
+                </p>
+            </div>
+
+            <div class="definition">
+                <p>
+                    <strong>Standard enthalpy of combustion (ΔHc°):</strong>
+                    Heat released when 1 mol of substance burns completely in
+                    excess O₂ under standard conditions. Always negative.
+                </p>
+                <p>
+                    <strong>Standard enthalpy of formation (ΔHf°):</strong> Heat
+                    change when 1 mol of compound is formed from its elements in
+                    standard states. Elements in standard state: ΔHf° = 0 by
+                    definition.
+                </p>
+                <p style="margin-top: 8px">
+                    <strong>Bond enthalpy:</strong> Energy needed to break 1 mol
+                    of a specific bond in the gas phase. All bond enthalpies are
+                    positive (breaking bonds always requires energy).
+                </p>
+                <p>ΔH(reaction) ≈ Σ(bonds broken) − Σ(bonds formed)</p>
+                <p>
+                    If more energy released forming bonds than breaking: ΔH
+                    negative → exothermic. ✓
+                </p>
+            </div>
+
+            <div class="note">
+                <p>
+                    <strong
+                        >Why bond enthalpy calculations are approximate:</strong
+                    >
+                    Bond enthalpies are average values across many different
+                    compounds. The actual energy of a C–H bond in methane
+                    differs slightly from a C–H bond in ethane. Using average
+                    values introduces error. ΔHf° and ΔHc° values from Hess's
+                    Law cycles are more accurate.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

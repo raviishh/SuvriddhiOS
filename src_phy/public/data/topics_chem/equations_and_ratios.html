@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stoichiometry — Equations and Mole Ratios</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Stoichiometry</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 2 — Balanced Equations and Mole Ratios
+            </h2>
+
+            <h2>What a Balanced Equation Actually Says</h2>
+            <p>
+                A chemical equation is more than just a description of what
+                reacts. The <strong>coefficients</strong> (the numbers in front
+                of each formula) represent exact <strong>mole ratios</strong>.
+                This is what makes stoichiometry calculations possible.
+            </p>
+
+            <div class="law-box">
+                <h3>Law of Conservation of Mass</h3>
+                <p>
+                    Atoms are neither created nor destroyed in a chemical
+                    reaction — they're only rearranged. This means the total
+                    mass of reactants must equal the total mass of products, and
+                    the number of each type of atom must be the same on both
+                    sides of a balanced equation.
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Reading a Balanced Equation</h3>
+                <p><strong>2H₂ + O₂ → 2H₂O</strong></p>
+                <p>This says:</p>
+                <p>
+                    • 2 moles of H₂ react with 1 mole of O₂ to produce 2 moles
+                    of H₂O
+                </p>
+                <p>• Mole ratio H₂ : O₂ : H₂O = <strong>2 : 1 : 2</strong></p>
+                <p>
+                    • If you have 4 mol H₂, you need 2 mol O₂ and produce 4 mol
+                    H₂O
+                </p>
+                <p>
+                    • If you have 0.5 mol O₂, you need 1 mol H₂ and produce 1
+                    mol H₂O
+                </p>
+                <p>
+                    <span class="highlight"
+                        >The coefficients scale linearly. You can multiply or
+                        divide the whole equation by any number and the ratios
+                        stay the same.</span
+                    >
+                </p>
+            </div>
+
+            <h2>Balancing Equations</h2>
+            <p>
+                To balance, adjust coefficients (never subscripts — changing
+                subscripts changes the substance) until atom counts match on
+                both sides.
+            </p>
+
+            <div class="definition">
+                <p><strong>Strategy:</strong></p>
+                <p>
+                    1. Balance elements that appear in only one compound on each
+                    side first.
+                </p>
+                <p>
+                    2. Balance polyatomic ions (SO₄²⁻, NO₃⁻) as units if they
+                    appear unchanged.
+                </p>
+                <p>3. Balance H and O last (they appear in many places).</p>
+                <p>
+                    4. Clear fractions by multiplying all coefficients by the
+                    LCM.
+                </p>
+            </div>
+
+            <!-- SVG: balancing example visual -->
+            <svg
+                viewBox="0 0 620 120"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="620" height="120" fill="#0f0f1a" rx="10" />
+                <text
+                    x="310"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Balancing: Fe + O₂ → Fe₂O₃
+                </text>
+                <!-- Unbalanced -->
+                <rect
+                    x="20"
+                    y="28"
+                    width="270"
+                    height="32"
+                    rx="5"
+                    fill="#3f0f0f"
+                    stroke="#ef4444"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="155"
+                    y="49"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="13"
+                    font-family="monospace"
+                >
+                    Fe + O₂ → Fe₂O₃
+                </text>
+                <text
+                    x="20"
+                    y="75"
+                    fill="#ef4444"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Fe: left=1, right=2 ✗ O: left=2, right=3 ✗
+                </text>
+                <text
+                    x="20"
+                    y="90"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    UNBALANCED
+                </text>
+                <!-- Balanced -->
+                <rect
+                    x="330"
+                    y="28"
+                    width="270"
+                    height="32"
+                    rx="5"
+                    fill="#0f2e1a"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="465"
+                    y="49"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="13"
+                    font-family="monospace"
+                >
+                    4Fe + 3O₂ → 2Fe₂O₃
+                </text>
+                <text
+                    x="330"
+                    y="75"
+                    fill="#22c55e"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Fe: left=4, right=4 ✓ O: left=6, right=6 ✓
+                </text>
+                <text
+                    x="330"
+                    y="90"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    BALANCED — mole ratio Fe:O₂:Fe₂O₃ = 4:3:2
+                </text>
+                <text
+                    x="305"
+                    y="50"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="18"
+                    font-family="monospace"
+                >
+                    →
+                </text>
+            </svg>
+
+            <h2>The Three-Step Stoichiometry Method</h2>
+            <p>
+                Every mass calculation in stoichiometry follows the same three
+                steps, no exceptions:
+            </p>
+
+            <div class="law-box">
+                <h3>Step 1 → Step 2 → Step 3</h3>
+                <p><strong>Step 1: Mass → Moles</strong> &nbsp; n = m / M</p>
+                <p>
+                    <strong>Step 2: Apply mole ratio</strong> &nbsp; from
+                    balanced equation
+                </p>
+                <p><strong>Step 3: Moles → Mass</strong> &nbsp; m = n × M</p>
+            </div>
+
+            <!-- SVG: 3 step flow -->
+            <svg
+                viewBox="0 0 620 80"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="620" height="80" fill="#0f0f1a" rx="10" />
+                <rect
+                    x="20"
+                    y="20"
+                    width="140"
+                    height="40"
+                    rx="6"
+                    fill="#312e81"
+                    stroke="#4f46e5"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="90"
+                    y="38"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Mass (g)
+                </text>
+                <text
+                    x="90"
+                    y="53"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    given
+                </text>
+                <line
+                    x1="160"
+                    y1="40"
+                    x2="220"
+                    y2="40"
+                    stroke="#4f46e5"
+                    stroke-width="1.5"
+                    marker-end="url(#bl)"
+                />
+                <text
+                    x="190"
+                    y="32"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    ÷ M
+                </text>
+                <defs>
+                    <marker
+                        id="bl"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#4f46e5" />
+                    </marker>
+                </defs>
+                <rect
+                    x="220"
+                    y="20"
+                    width="140"
+                    height="40"
+                    rx="6"
+                    fill="#1e3a5f"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="290"
+                    y="38"
+                    text-anchor="middle"
+                    fill="#bae6fd"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Moles (mol)
+                </text>
+                <text
+                    x="290"
+                    y="53"
+                    text-anchor="middle"
+                    fill="#38bdf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    × ratio
+                </text>
+                <line
+                    x1="360"
+                    y1="40"
+                    x2="420"
+                    y2="40"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                    marker-end="url(#bl2)"
+                />
+                <text
+                    x="390"
+                    y="32"
+                    text-anchor="middle"
+                    fill="#38bdf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    × ratio
+                </text>
+                <defs>
+                    <marker
+                        id="bl2"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#0ea5e9" />
+                    </marker>
+                </defs>
+                <rect
+                    x="420"
+                    y="20"
+                    width="140"
+                    height="40"
+                    rx="6"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="490"
+                    y="38"
+                    text-anchor="middle"
+                    fill="#bbf7d0"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Moles (mol)
+                </text>
+                <text
+                    x="490"
+                    y="53"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    × M for mass
+                </text>
+            </svg>
+
+            <div class="example">
+                <h3>Example: Mass of CO₂ from Burning Propane</h3>
+                <p><strong>C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</strong></p>
+                <p>
+                    How many grams of CO₂ are produced from 44 g of propane
+                    (C₃H₈)?
+                </p>
+                <p>
+                    <strong>Step 1:</strong> M(C₃H₈) = 3(12) + 8(1) = 44 g/mol
+                    &nbsp;→&nbsp; n(C₃H₈) = 44/44 = 1 mol
+                </p>
+                <p>
+                    <strong>Step 2:</strong> Ratio C₃H₈ : CO₂ = 1 : 3
+                    &nbsp;→&nbsp; n(CO₂) = 1 × 3 = 3 mol
+                </p>
+                <p>
+                    <strong>Step 3:</strong> M(CO₂) = 12 + 32 = 44 g/mol
+                    &nbsp;→&nbsp; m(CO₂) = 3 × 44 = <strong>132 g</strong>
+                </p>
+                <p>
+                    <span class="highlight"
+                        >Always write out all three steps. The mole ratio step
+                        is where most marks are — show which ratio you used and
+                        why.</span
+                    >
+                </p>
+            </div>
+
+            <div class="note">
+                <p>
+                    <strong>State symbols in equations:</strong> (s) = solid,
+                    (l) = liquid, (g) = gas, (aq) = aqueous (dissolved in
+                    water). These tell you the physical state and are required
+                    for full marks in many IB questions.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

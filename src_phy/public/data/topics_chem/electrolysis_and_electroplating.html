@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Redox — Applications</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Redox Reactions</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 3 — Real-World Applications
+            </h2>
+
+            <h2>Electrochemical Cells</h2>
+            <p>
+                A battery is a device that converts chemical energy into
+                electrical energy through a spontaneous redox reaction. The two
+                half-reactions are separated into different compartments —
+                <strong>electrodes</strong> — and electrons flow through an
+                external circuit from the anode to the cathode.
+            </p>
+
+            <div class="law-box">
+                <h3>Anode and Cathode</h3>
+                <p>
+                    <strong>Anode:</strong> Where oxidation occurs. Negative
+                    electrode in a galvanic cell (electrons leave from here).
+                </p>
+                <p>
+                    <strong>Cathode:</strong> Where reduction occurs. Positive
+                    electrode in a galvanic cell (electrons arrive here).
+                </p>
+                <p style="margin-top: 8px">
+                    Memory: Red Cat An Ox — <strong>Red</strong>uction at
+                    <strong>Cat</strong>hode, <strong>An</strong>ode is
+                    <strong>Ox</strong>idation.
+                </p>
+            </div>
+
+            <!-- SVG: electrochemical cell diagram -->
+            <svg
+                viewBox="0 0 600 220"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="600" height="220" fill="#0f0f1a" rx="10" />
+                <text
+                    x="300"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Zinc-Copper Galvanic Cell
+                </text>
+                <!-- Left half-cell (Zn) -->
+                <rect
+                    x="40"
+                    y="60"
+                    width="200"
+                    height="120"
+                    rx="5"
+                    fill="#1a2e1a"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="140"
+                    y="195"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    ZnSO₄ solution
+                </text>
+                <!-- Zn electrode -->
+                <rect
+                    x="120"
+                    y="35"
+                    width="20"
+                    height="100"
+                    rx="3"
+                    fill="#4b5563"
+                    stroke="#9ca3af"
+                    stroke-width="1"
+                />
+                <text
+                    x="130"
+                    y="30"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Zn
+                </text>
+                <text
+                    x="95"
+                    y="170"
+                    text-anchor="middle"
+                    fill="#ef4444"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    ANODE (−)
+                </text>
+                <text
+                    x="95"
+                    y="183"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    Zn → Zn²⁺ + 2e⁻
+                </text>
+                <!-- Right half-cell (Cu) -->
+                <rect
+                    x="360"
+                    y="60"
+                    width="200"
+                    height="120"
+                    rx="5"
+                    fill="#1a1a2e"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="460"
+                    y="195"
+                    text-anchor="middle"
+                    fill="#7dd3fc"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    CuSO₄ solution
+                </text>
+                <!-- Cu electrode -->
+                <rect
+                    x="460"
+                    y="35"
+                    width="20"
+                    height="100"
+                    rx="3"
+                    fill="#b45309"
+                    stroke="#fbbf24"
+                    stroke-width="1"
+                />
+                <text
+                    x="470"
+                    y="30"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Cu
+                </text>
+                <text
+                    x="505"
+                    y="170"
+                    text-anchor="middle"
+                    fill="#22c55e"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    CATHODE (+)
+                </text>
+                <text
+                    x="505"
+                    y="183"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    Cu²⁺ + 2e⁻ → Cu
+                </text>
+                <!-- External circuit -->
+                <line
+                    x1="130"
+                    y1="35"
+                    x2="130"
+                    y2="22"
+                    stroke="#9ca3af"
+                    stroke-width="2"
+                />
+                <line
+                    x1="130"
+                    y1="22"
+                    x2="470"
+                    y2="22"
+                    stroke="#9ca3af"
+                    stroke-width="2"
+                />
+                <line
+                    x1="470"
+                    y1="22"
+                    x2="470"
+                    y2="35"
+                    stroke="#9ca3af"
+                    stroke-width="2"
+                />
+                <!-- Electron flow arrow -->
+                <path
+                    d="M200 22 L350 22"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                    marker-end="url(#ea)"
+                />
+                <text
+                    x="275"
+                    y="16"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    e⁻ flow
+                </text>
+                <defs>
+                    <marker
+                        id="ea"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#ef4444" />
+                    </marker>
+                </defs>
+                <!-- Light bulb symbol -->
+                <circle
+                    cx="300"
+                    cy="22"
+                    r="10"
+                    fill="none"
+                    stroke="#fbbf24"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="300"
+                    y="27"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="10"
+                >
+                    💡
+                </text>
+                <!-- Salt bridge -->
+                <rect
+                    x="240"
+                    y="90"
+                    width="120"
+                    height="20"
+                    rx="5"
+                    fill="#374151"
+                    stroke="#6b7280"
+                    stroke-width="1"
+                />
+                <text
+                    x="300"
+                    y="104"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Salt Bridge
+                </text>
+                <text
+                    x="300"
+                    y="125"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    allows ion flow to
+                </text>
+                <text
+                    x="300"
+                    y="137"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    maintain neutrality
+                </text>
+            </svg>
+
+            <h2>Electroplating</h2>
+            <p>
+                Electroplating uses an external electrical supply
+                (non-spontaneous) to drive a redox reaction, depositing a thin
+                layer of metal onto an object.
+            </p>
+
+            <div class="definition">
+                <p>
+                    The object to be plated is the
+                    <strong>cathode</strong> (reduction occurs, metal deposits).
+                </p>
+                <p>
+                    The plating metal is the <strong>anode</strong> (oxidation
+                    occurs, anode dissolves into solution).
+                </p>
+                <p>
+                    The electrolyte solution contains ions of the plating metal.
+                </p>
+                <p style="margin-top: 8px">
+                    Example — chrome plating: Object (cathode) in CrO₃ solution.
+                    Cr⁶⁺ + 6e⁻ → Cr. Chromium metal deposits on the object,
+                    giving a shiny, corrosion-resistant coating.
+                </p>
+                <p>
+                    Used on: car bumpers, taps, cutlery, circuit boards,
+                    jewellery.
+                </p>
+            </div>
+
+            <h2>Corrosion — Redox in the Worst Way</h2>
+            <p>
+                Rusting is an electrochemical process. Iron acts as an anode in
+                small local cells on its surface, particularly where stresses or
+                impurities exist.
+            </p>
+
+            <div class="definition">
+                <p>
+                    Oxidation: Fe(s) → Fe²⁺(aq) + 2e⁻ &nbsp; (at the anode —
+                    iron dissolves)
+                </p>
+                <p>
+                    Reduction: O₂(g) + 2H₂O(l) + 4e⁻ → 4OH⁻(aq) &nbsp; (at the
+                    cathode)
+                </p>
+                <p>
+                    Fe²⁺ and OH⁻ combine and further oxidize to form Fe₂O₃·xH₂O
+                    (hydrated iron(III) oxide — rust).
+                </p>
+                <p style="margin-top: 8px">
+                    <strong>Conditions needed for rusting:</strong> Both oxygen
+                    AND water are required. Neither alone causes rust.
+                </p>
+            </div>
+
+            <div class="law-box">
+                <h3>Preventing Corrosion</h3>
+                <p>
+                    <strong>Physical barriers:</strong> Paint, oil, grease —
+                    prevent water and oxygen reaching iron.
+                </p>
+                <p>
+                    <strong>Galvanizing:</strong> Coating with zinc. Even when
+                    the coating scratches, zinc acts as a sacrificial anode — it
+                    oxidizes preferentially, protecting the iron.
+                </p>
+                <p>
+                    <strong>Alloying:</strong> Stainless steel (iron + chromium
+                    + nickel). Chromium forms Cr₂O₃ — a thin, protective oxide
+                    layer.
+                </p>
+                <p>
+                    <strong>Sacrificial protection:</strong> Attaching a more
+                    reactive metal (Mg, Zn) to the iron. The more reactive metal
+                    oxidizes instead of the iron.
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Why Does the Hull of a Ship Use Zinc Blocks?</h3>
+                <p>
+                    Steel ship hulls are in constant contact with oxygenated
+                    seawater — ideal rusting conditions. Zinc blocks are bolted
+                    to the hull. Zinc is higher in the reactivity series than
+                    iron, so it preferentially oxidizes:
+                </p>
+                <p>Zn → Zn²⁺ + 2e⁻ &nbsp; (zinc corrodes, iron is protected)</p>
+                <p>
+                    The zinc blocks are replaced periodically when they've
+                    corroded away. This is far cheaper than replacing the ship's
+                    hull.
+                </p>
+                <p>
+                    <span class="highlight"
+                        >Sacrificial protection is elegant: use the more
+                        reactive metal as the "victim" to protect the valuable
+                        structure. The same principle is used on pipelines, oil
+                        rigs, and bridges.</span
+                    >
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

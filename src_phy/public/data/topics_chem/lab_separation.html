@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Laboratory Techniques — Separation and Chromatography</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Laboratory Techniques</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 2 — Separation Techniques
+            </h2>
+
+            <h2>Choosing the Right Technique</h2>
+            <p>
+                Separation techniques work by exploiting differences in physical
+                properties between substances in a mixture. No new bonds are
+                broken — these are all physical processes. The key is matching
+                the technique to the property that differs between the
+                components.
+            </p>
+
+            <div class="definition">
+                <p>
+                    <strong>Filtration:</strong> Difference in particle size
+                    (solid vs dissolved). Insoluble solid stays on filter paper;
+                    solution passes through as filtrate.
+                </p>
+                <p>
+                    <strong>Evaporation:</strong> Difference in volatility.
+                    Solvent boils away, leaving dissolved solid.
+                </p>
+                <p>
+                    <strong>Distillation:</strong> Difference in boiling point.
+                    Component with lower BP evaporates first, condenses and is
+                    collected separately.
+                </p>
+                <p>
+                    <strong>Crystallization:</strong> Difference in solubility
+                    at different temperatures. Cool saturated solution → pure
+                    crystals form.
+                </p>
+                <p>
+                    <strong>Chromatography:</strong> Difference in how strongly
+                    components interact with stationary vs mobile phase.
+                </p>
+            </div>
+
+            <h2>Chromatography — Principle</h2>
+            <p>
+                All forms of chromatography work on the same principle: a
+                <strong>mobile phase</strong> carries the mixture through a
+                <strong>stationary phase</strong>. Components that interact more
+                strongly with the stationary phase move more slowly; those that
+                interact more with the mobile phase travel further.
+            </p>
+
+            <!-- SVG: Paper chromatography diagram -->
+            <svg
+                viewBox="0 0 500 240"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                    width: 85%;
+                    margin: 24px auto;
+                    display: block;
+                    border-radius: 10px;
+                "
+            >
+                <rect width="500" height="240" fill="#0f0f1a" rx="10" />
+                <text
+                    x="250"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Paper Chromatography
+                </text>
+                <!-- Beaker -->
+                <path
+                    d="M80 60 L60 220 L380 220 L360 60 Z"
+                    fill="none"
+                    stroke="#6b7280"
+                    stroke-width="2"
+                />
+                <!-- Solvent level -->
+                <line
+                    x1="68"
+                    y1="190"
+                    x2="372"
+                    y2="190"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                    stroke-dasharray="5,3"
+                />
+                <text
+                    x="400"
+                    y="194"
+                    fill="#38bdf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Solvent
+                </text>
+                <!-- Chromatography paper -->
+                <rect
+                    x="170"
+                    y="55"
+                    width="80"
+                    height="160"
+                    rx="2"
+                    fill="#fef3c7"
+                    opacity="0.15"
+                    stroke="#9ca3af"
+                    stroke-width="1.5"
+                />
+                <!-- Baseline -->
+                <line
+                    x1="170"
+                    y1="200"
+                    x2="250"
+                    y2="200"
+                    stroke="#9ca3af"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                />
+                <text
+                    x="260"
+                    y="204"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    baseline
+                </text>
+                <!-- Spots on baseline -->
+                <ellipse
+                    cx="190"
+                    cy="200"
+                    rx="6"
+                    ry="4"
+                    fill="#7c3aed"
+                    opacity="0.8"
+                />
+                <ellipse
+                    cx="215"
+                    cy="200"
+                    rx="6"
+                    ry="4"
+                    fill="#374151"
+                    opacity="0.8"
+                />
+                <!-- Spots after running -->
+                <!-- Component A (travels far) -->
+                <ellipse
+                    cx="190"
+                    cy="105"
+                    rx="7"
+                    ry="5"
+                    fill="#22c55e"
+                    opacity="0.9"
+                />
+                <text
+                    x="155"
+                    y="108"
+                    fill="#86efac"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    A
+                </text>
+                <!-- Component B (stays low) -->
+                <ellipse
+                    cx="215"
+                    cy="155"
+                    rx="7"
+                    ry="5"
+                    fill="#f97316"
+                    opacity="0.9"
+                />
+                <text
+                    x="232"
+                    y="158"
+                    fill="#fb923c"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    B
+                </text>
+                <!-- Solvent front -->
+                <line
+                    x1="170"
+                    y1="85"
+                    x2="250"
+                    y2="85"
+                    stroke="#fbbf24"
+                    stroke-width="1.5"
+                    stroke-dasharray="4,2"
+                />
+                <text
+                    x="258"
+                    y="89"
+                    fill="#fbbf24"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    solvent front
+                </text>
+                <!-- Rf labels -->
+                <line
+                    x1="140"
+                    y1="200"
+                    x2="140"
+                    y2="85"
+                    stroke="#6b7280"
+                    stroke-width="1"
+                />
+                <text
+                    x="115"
+                    y="145"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                    transform="rotate(-90,115,145)"
+                >
+                    total distance
+                </text>
+                <line
+                    x1="130"
+                    y1="200"
+                    x2="130"
+                    y2="105"
+                    stroke="#818cf8"
+                    stroke-width="1"
+                />
+                <text
+                    x="105"
+                    y="160"
+                    fill="#818cf8"
+                    font-size="7"
+                    font-family="monospace"
+                    transform="rotate(-90,105,160)"
+                >
+                    spot distance (A)
+                </text>
+                <!-- Paper clip at top -->
+                <line
+                    x1="205"
+                    y1="50"
+                    x2="205"
+                    y2="58"
+                    stroke="#9ca3af"
+                    stroke-width="2"
+                />
+                <text
+                    x="210"
+                    y="50"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    suspended
+                </text>
+            </svg>
+
+            <div class="equation">
+                <p><strong>Rf value (Retention factor):</strong></p>
+                <p>
+                    Rf = distance travelled by spot / distance travelled by
+                    solvent front
+                </p>
+                <p>
+                    Always between 0 and 1. Characteristic for a given compound
+                    under specific conditions (same solvent, same paper, same
+                    temperature).
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Calculating Rf</h3>
+                <p>Solvent front travels 12.0 cm. Compound X travels 8.4 cm.</p>
+                <p>Rf(X) = 8.4 / 12.0 = <strong>0.70</strong></p>
+                <p>
+                    If a known compound has Rf = 0.70 under the same conditions,
+                    compound X is likely the same substance.
+                </p>
+                <p>
+                    <span class="highlight"
+                        >Rf values are used for identification — like a
+                        fingerprint for a compound in that solvent system. Using
+                        multiple solvents gives more certainty (two-way
+                        chromatography).</span
+                    >
+                </p>
+            </div>
+
+            <h2>Types of Chromatography</h2>
+            <div class="definition">
+                <p>
+                    <strong>Paper chromatography:</strong> Stationary phase =
+                    water absorbed in paper. Mobile phase = organic solvent.
+                    Used for amino acids, plant pigments, food dyes.
+                </p>
+                <p>
+                    <strong>Thin-layer chromatography (TLC):</strong> Stationary
+                    phase = silica on aluminium plate. Faster than paper; used
+                    in organic synthesis to monitor reactions.
+                </p>
+                <p>
+                    <strong>Column chromatography:</strong> Large-scale
+                    separation. Sample moves through silica column with solvent.
+                    Different compounds elute (exit) at different times. Used to
+                    purify reaction products.
+                </p>
+                <p>
+                    <strong>Gas chromatography (GC):</strong> Mobile phase =
+                    inert gas. Sample is vaporized and carried through a column.
+                    Each compound has a characteristic retention time. Used for
+                    volatile organic compounds, breath analysis, food flavour
+                    analysis.
+                </p>
+                <p>
+                    <strong
+                        >HPLC (High-performance liquid chromatography):</strong
+                    >
+                    Solvent pumped at high pressure through fine column. Very
+                    high resolution. Used in pharmaceutical analysis, protein
+                    separation.
+                </p>
+            </div>
+
+            <h2>Crystallization</h2>
+            <p>
+                Used to obtain a pure solid from a solution containing
+                impurities.
+            </p>
+            <div class="definition">
+                <p>
+                    1. Dissolve impure solid in minimum hot solvent (usually
+                    water)
+                </p>
+                <p>2. Filter while hot to remove insoluble impurities</p>
+                <p>
+                    3. Allow to cool slowly — the pure compound crystallizes out
+                    (solubility decreases as temp drops)
+                </p>
+                <p>
+                    4. Filter off crystals; wash with cold solvent to remove
+                    soluble impurities
+                </p>
+                <p>5. Dry crystals (in oven or over silica gel)</p>
+                <p style="margin-top: 8px">
+                    Slow cooling = larger, purer crystals. Fast cooling = small,
+                    impure crystals. Temperature gradient drives the process.
+                </p>
+            </div>
+
+            <h2>Gravimetric Analysis</h2>
+            <p>
+                Determines the amount of a substance by converting it to an
+                insoluble product, isolating it, and weighing it precisely.
+            </p>
+            <div class="definition">
+                <p>Example: finding Cl⁻ in a sample.</p>
+                <p>
+                    Dissolve in water → add excess AgNO₃ → AgCl precipitate
+                    forms → filter → wash → dry → weigh
+                </p>
+                <p>
+                    From m(AgCl), calculate n(AgCl) → n(Cl⁻) → m(Cl⁻) → % Cl in
+                    original sample
+                </p>
+                <p style="margin-top: 8px">
+                    Relies on complete precipitation. Any dissolved AgCl (Ksp =
+                    1.8×10⁻¹⁰) is a source of error. Excess Ag⁺ pushes the
+                    equilibrium further right, minimizing dissolved AgCl.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

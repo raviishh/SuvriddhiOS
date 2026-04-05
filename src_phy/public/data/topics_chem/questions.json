@@ -1,0 +1,1780 @@
+{
+    "Quiz on Atomic Structure": [
+        {
+            "question": "What did Dalton incorrectly propose about atoms in 1803?",
+            "options": [
+                "That atoms contain electrons",
+                "That atoms are indivisible solid spheres",
+                "That atoms have a nucleus",
+                "That atoms can form ions"
+            ],
+            "answer": 1,
+            "explanation": "Dalton proposed atoms were indivisible solid spheres — the ultimate building block. This was later proven wrong when subatomic particles were discovered."
+        },
+        {
+            "question": "Which subatomic particle defines what element an atom is?",
+            "options": ["Neutron", "Electron", "Proton", "Nucleus"],
+            "answer": 2,
+            "explanation": "The number of protons (atomic number Z) uniquely identifies an element. All carbon atoms have exactly 6 protons — change that and you have a different element entirely."
+        },
+        {
+            "question": "An atom of phosphorus has Z = 15 and A = 31. How many neutrons does it have?",
+            "options": ["15", "16", "31", "46"],
+            "answer": 1,
+            "explanation": "Neutrons = A − Z = 31 − 15 = 16. The mass number is protons + neutrons, so subtracting the atomic number gives neutron count."
+        },
+        {
+            "question": "What is the charge and approximate mass of an electron?",
+            "options": [
+                "Charge: +1, Mass: 1 amu",
+                "Charge: 0, Mass: 1 amu",
+                "Charge: −1, Mass: negligible",
+                "Charge: −1, Mass: 1 amu"
+            ],
+            "answer": 2,
+            "explanation": "Electrons have charge −1 and a mass of ~1/1836 amu — so small it's ignored in calculations. Only protons and neutrons contribute meaningfully to atomic mass."
+        },
+        {
+            "question": "Isotopes of the same element always have the same:",
+            "options": [
+                "Mass number",
+                "Number of neutrons",
+                "Number of protons",
+                "Physical properties"
+            ],
+            "answer": 2,
+            "explanation": "Isotopes have the same atomic number (same protons) but different neutron counts, giving different mass numbers. They have identical chemical properties but slightly different physical properties."
+        },
+        {
+            "question": "Carbon-14 has 6 protons and a mass number of 14. How many neutrons does it have?",
+            "options": ["6", "7", "8", "14"],
+            "answer": 2,
+            "explanation": "Neutrons = A − Z = 14 − 6 = 8. Carbon-14 is a radioactive isotope used in carbon dating. All carbon isotopes have 6 protons."
+        },
+        {
+            "question": "Why is chlorine's relative atomic mass 35.5 rather than a whole number?",
+            "options": [
+                "Chlorine has an odd number of protons",
+                "It is a weighted average of its naturally occurring isotopes",
+                "Electrons contribute fractional mass",
+                "It has been rounded incorrectly"
+            ],
+            "answer": 1,
+            "explanation": "Chlorine exists as ³⁵Cl (75.77%) and ³⁷Cl (24.23%). The Ar = (35 × 0.7577) + (37 × 0.2423) = 35.5. It's a weighted average, not an actual atom."
+        },
+        {
+            "question": "A sodium atom loses one electron. What does it become?",
+            "options": [
+                "An anion with charge 1−",
+                "A cation with charge 1+",
+                "An isotope of sodium",
+                "A neutral atom of magnesium"
+            ],
+            "answer": 1,
+            "explanation": "Losing an electron removes negative charge, so the atom becomes positively charged: Na → Na⁺. It still has 11 protons but now only 10 electrons."
+        },
+        {
+            "question": "What is the maximum number of electrons in shell 2?",
+            "options": ["2", "4", "8", "18"],
+            "answer": 2,
+            "explanation": "Shell 1 holds max 2, shell 2 holds max 8, shell 3 holds max 8 (for Z ≤ 20). This is why Period 2 contains exactly 8 elements."
+        },
+        {
+            "question": "What is the electron configuration of sulfur (Z = 16)?",
+            "options": ["2, 8, 6", "2, 6, 8", "2, 8, 8", "2, 14"],
+            "answer": 0,
+            "explanation": "Fill shells in order: shell 1 = 2, shell 2 = 8, shell 3 = 6 (16 − 2 − 8 = 6). So sulfur is 2, 8, 6. It's in Group 16, Period 3."
+        },
+        {
+            "question": "An element has electron configuration 2, 8, 5. Which group and period is it in?",
+            "options": [
+                "Group 5, Period 3",
+                "Group 15, Period 3",
+                "Group 5, Period 2",
+                "Group 3, Period 15"
+            ],
+            "answer": 1,
+            "explanation": "3 shells → Period 3. 5 valence electrons → Group 15. This element is phosphorus (P, Z = 15)."
+        },
+        {
+            "question": "Why do isotopes of the same element have identical chemical properties?",
+            "options": [
+                "They have the same mass number",
+                "They have the same number of neutrons",
+                "They have the same electron configuration",
+                "They have the same density"
+            ],
+            "answer": 2,
+            "explanation": "Chemical behaviour is determined by electron configuration, specifically valence electrons. Isotopes have the same number of protons and therefore the same electrons and configuration — only neutron count differs."
+        },
+        {
+            "question": "What is the electron configuration of potassium (Z = 19)?",
+            "options": ["2, 8, 9", "2, 8, 8, 1", "2, 17", "2, 8, 1"],
+            "answer": 1,
+            "explanation": "Shell 1 = 2, Shell 2 = 8, Shell 3 = 8, Shell 4 = 1. Potassium has 4 shells because shell 3 fills to only 8 before starting shell 4 (for elements up to Z = 20)."
+        },
+        {
+            "question": "In a neutral atom of chlorine (Z = 17), how many electrons are there?",
+            "options": ["18", "35", "17", "16"],
+            "answer": 2,
+            "explanation": "In a neutral atom, electrons = protons = atomic number. Chlorine has Z = 17, so it has 17 electrons. Cl⁻ (the ion) has 18."
+        },
+        {
+            "question": "Which statement about neutrons is correct?",
+            "options": [
+                "They have a charge of +1",
+                "They are found in shells around the nucleus",
+                "They help hold the nucleus together and have no charge",
+                "They determine the chemical reactivity of an element"
+            ],
+            "answer": 2,
+            "explanation": "Neutrons are neutral (charge 0), found in the nucleus alongside protons. They contribute to mass and help hold the nucleus together via the strong nuclear force. Reactivity is determined by electron configuration, not neutrons."
+        }
+    ],
+
+    "Quiz on Chemical Bonding": [
+        {
+            "question": "What is the octet rule?",
+            "options": [
+                "Atoms always form 8 bonds",
+                "Atoms tend to achieve 8 electrons in their outermost shell",
+                "Only 8 elements can form bonds",
+                "Atoms with 8 protons are most stable"
+            ],
+            "answer": 1,
+            "explanation": "The octet rule states most atoms bond to achieve 8 electrons in their outer shell — the same as a noble gas. Hydrogen and helium are exceptions, being stable with 2."
+        },
+        {
+            "question": "Ionic bonding typically occurs between:",
+            "options": [
+                "Two non-metals",
+                "Two metals",
+                "A metal and a non-metal",
+                "A metal and a noble gas"
+            ],
+            "answer": 2,
+            "explanation": "Ionic bonding involves electron transfer, which happens between atoms with very different electronegativities — typically a metal (low EN, loses electrons) and a non-metal (high EN, gains electrons)."
+        },
+        {
+            "question": "In the formation of NaCl, which process occurs at sodium?",
+            "options": [
+                "Reduction — gains an electron",
+                "Oxidation — loses an electron",
+                "Sharing — donates one electron to a bond",
+                "Nothing — sodium is a spectator"
+            ],
+            "answer": 1,
+            "explanation": "Na → Na⁺ + e⁻. Sodium loses one electron (oxidation) to achieve the electron configuration of neon (2,8). The electron is transferred to chlorine."
+        },
+        {
+            "question": "Why do ionic compounds have high melting points?",
+            "options": [
+                "They have covalent bonds within the lattice",
+                "Strong electrostatic forces between oppositely charged ions require a lot of energy to overcome",
+                "The ions are very large",
+                "They contain metals which have high melting points"
+            ],
+            "answer": 1,
+            "explanation": "The ionic lattice is held together by strong electrostatic attractions acting in all directions between oppositely charged ions. Breaking the lattice requires a lot of energy — NaCl melts at 801°C."
+        },
+        {
+            "question": "Why does solid NaCl not conduct electricity, but molten NaCl does?",
+            "options": [
+                "Solid NaCl has no ions",
+                "Melting creates new ions",
+                "In solid form ions are fixed in place; in molten form they are free to move and carry charge",
+                "Solid NaCl absorbs electrons from the circuit"
+            ],
+            "answer": 2,
+            "explanation": "Electrical conductivity requires free-moving charged particles. In solid NaCl ions are locked in the lattice. When melted (or dissolved), ions are free to move — allowing current to flow."
+        },
+        {
+            "question": "MgO has a much higher melting point than NaCl. Why?",
+            "options": [
+                "MgO has a larger lattice",
+                "Mg²⁺ and O²⁻ have higher charges, creating stronger electrostatic forces",
+                "MgO has more ions per formula unit",
+                "Oxygen is heavier than chlorine"
+            ],
+            "answer": 1,
+            "explanation": "Higher ion charges → stronger attraction. Mg²⁺ and O²⁻ (charges of ±2) attract far more strongly than Na⁺ and Cl⁻ (charges of ±1). MgO melts at 2852°C vs NaCl at 801°C."
+        },
+        {
+            "question": "What is the correct formula for the ionic compound formed from Al³⁺ and O²⁻?",
+            "options": ["AlO", "Al₂O₃", "Al₃O₂", "AlO₃"],
+            "answer": 1,
+            "explanation": "The formula must be electrically neutral. 2 Al³⁺ gives 6+ charge; 3 O²⁻ gives 6− charge. They balance: Al₂O₃. You can also use the cross-multiply method: swap and simplify the charges."
+        },
+        {
+            "question": "A covalent bond involves:",
+            "options": [
+                "Transfer of electrons from one atom to another",
+                "A shared pair of electrons between two atoms",
+                "Delocalized electrons in a sea",
+                "Attraction between oppositely charged ions"
+            ],
+            "answer": 1,
+            "explanation": "Covalent bonds form when two atoms share a pair of electrons. Both nuclei attract the shared electrons, holding the atoms together. This is distinct from ionic bonding (transfer) and metallic bonding (delocalized sea)."
+        },
+        {
+            "question": "Which molecule contains a triple covalent bond?",
+            "options": ["H₂O", "CO₂", "N₂", "HCl"],
+            "answer": 2,
+            "explanation": "N₂ contains a triple bond (N≡N) — 3 shared pairs. Each nitrogen has 5 valence electrons; sharing 3 pairs gives both atoms a full octet. This makes N₂ extremely stable and unreactive."
+        },
+        {
+            "question": "What makes a covalent bond polar?",
+            "options": [
+                "One atom is a metal",
+                "The bond involves more than one pair of electrons",
+                "The two atoms have different electronegativities, so electrons are shared unequally",
+                "The molecule has an overall charge"
+            ],
+            "answer": 2,
+            "explanation": "When two atoms of different electronegativity share electrons, the more electronegative atom pulls the electrons closer — creating partial charges (δ⁺ and δ⁻). The bigger the EN difference, the more polar the bond."
+        },
+        {
+            "question": "In H–Cl, which atom carries the δ⁻ partial charge?",
+            "options": ["H", "Cl", "Both equally", "Neither — it is non-polar"],
+            "answer": 1,
+            "explanation": "Chlorine is much more electronegative than hydrogen, so it pulls the shared electrons closer to itself — making Cl δ⁻ and H δ⁺. The bond is polar covalent."
+        },
+        {
+            "question": "Simple molecular covalent compounds generally have low boiling points because:",
+            "options": [
+                "The covalent bonds within molecules are weak",
+                "The intermolecular forces between molecules are weak",
+                "They have low molar masses",
+                "They do not contain ions"
+            ],
+            "answer": 1,
+            "explanation": "The covalent bonds within molecules are actually strong — but the forces between molecules (intermolecular forces) are weak. It is these weak forces that are overcome during boiling, not the covalent bonds themselves."
+        },
+        {
+            "question": "Why does diamond have an extremely high melting point?",
+            "options": [
+                "It contains ionic bonds",
+                "It has a metallic structure",
+                "Every carbon atom is covalently bonded to 4 others in a giant 3D network — all bonds must be broken to melt it",
+                "It has very strong intermolecular forces"
+            ],
+            "answer": 2,
+            "explanation": "Diamond is a giant covalent structure. Each C is bonded to 4 others by strong covalent bonds throughout the entire structure. Melting requires breaking all these bonds, requiring enormous energy — MP > 3500°C."
+        },
+        {
+            "question": "What is the metallic bond?",
+            "options": [
+                "Covalent bonds between metal atoms",
+                "Electrostatic attraction between metal cations and delocalized electrons",
+                "Ionic bonds between positively and negatively charged metal atoms",
+                "Hydrogen bonds between metal atoms"
+            ],
+            "answer": 1,
+            "explanation": "In metals, valence electrons are released into a delocalized 'sea.' The metallic bond is the electrostatic attraction between the resulting positive metal cation lattice and this sea of free electrons."
+        },
+        {
+            "question": "Why are metals malleable?",
+            "options": [
+                "Metal ions can be broken apart easily",
+                "The electron sea allows layers of metal ions to slide past each other without breaking the bond",
+                "Metals have weak ionic bonds",
+                "Metal atoms are very small"
+            ],
+            "answer": 1,
+            "explanation": "Because the metallic bond is non-directional, layers of metal ions can slide past each other while the electron sea simply rearranges. This is why metals bend rather than shatter when struck — unlike ionic crystals."
+        },
+        {
+            "question": "Which property of metals is best explained by the electron sea model?",
+            "options": [
+                "High density",
+                "Electrical conductivity",
+                "Reactivity with water",
+                "Formation of alloys"
+            ],
+            "answer": 1,
+            "explanation": "Delocalized electrons can move freely through the lattice in response to a potential difference, carrying charge — explaining why metals conduct electricity in both solid and liquid states."
+        },
+        {
+            "question": "Which of the following conducts electricity in all states?",
+            "options": ["NaCl", "Diamond", "Copper", "Glucose"],
+            "answer": 2,
+            "explanation": "Copper is a metal with delocalized electrons that conduct electricity whether solid or liquid. NaCl only conducts when molten/dissolved. Diamond and glucose don't conduct at all."
+        },
+        {
+            "question": "Why do Group 1 metals have lower melting points than transition metals?",
+            "options": [
+                "Group 1 metals are less dense",
+                "Group 1 metals only have 1 valence electron contributing to the electron sea, giving a weaker metallic bond",
+                "Transition metals have ionic bonds",
+                "Group 1 metals have larger atoms"
+            ],
+            "answer": 1,
+            "explanation": "Metallic bond strength depends partly on the number of electrons contributed to the sea. Group 1 metals contribute only 1 valence electron — a weaker sea, weaker bond, lower melting point. Sodium melts at just 98°C."
+        },
+        {
+            "question": "Ionic compounds are described as hard but brittle. Why do they shatter when struck?",
+            "options": [
+                "The ions are too small to absorb impact",
+                "When layers shift, ions of like charge align and repel each other, breaking the lattice apart",
+                "The covalent bonds within the lattice break",
+                "The delocalized electrons escape"
+            ],
+            "answer": 1,
+            "explanation": "In an ionic lattice, each ion is surrounded by oppositely charged ions. When struck, a layer shifts — bringing like charges next to each other. The massive repulsion shatters the crystal. This is unlike metals where the electron sea prevents this."
+        },
+        {
+            "question": "Which bonding type and structure correctly describes silicon dioxide (SiO₂)?",
+            "options": [
+                "Simple molecular covalent — low melting point",
+                "Ionic — conducts when dissolved",
+                "Giant covalent — extremely high melting point, does not conduct",
+                "Metallic — conducts electricity"
+            ],
+            "answer": 2,
+            "explanation": "SiO₂ (quartz/sand) is a giant covalent structure like diamond. Every Si is bonded to 4 O atoms covalently in a giant network. It has an extremely high melting point (~1710°C) and does not conduct electricity."
+        }
+    ],
+
+    "Quiz on Stoichiometry": [
+        {
+            "question": "What is Avogadro's number?",
+            "options": [
+                "6.022 × 10²¹",
+                "6.022 × 10²³",
+                "6.022 × 10²⁵",
+                "3.14 × 10²³"
+            ],
+            "answer": 1,
+            "explanation": "Avogadro's number (Nₐ) = 6.022 × 10²³ particles per mole. It was chosen so that 1 mole of ¹²C has a mass of exactly 12 g, linking atomic mass units to grams."
+        },
+        {
+            "question": "What is the molar mass of H₂SO₄?",
+            "options": ["49 g/mol", "64 g/mol", "98 g/mol", "80 g/mol"],
+            "answer": 2,
+            "explanation": "H₂SO₄: 2(1) + 32 + 4(16) = 2 + 32 + 64 = 98 g/mol. Always sum all atoms — hydrogen, sulfur, and all four oxygens."
+        },
+        {
+            "question": "How many moles are in 36 g of water (H₂O)?",
+            "options": ["1 mol", "2 mol", "3 mol", "0.5 mol"],
+            "answer": 1,
+            "explanation": "M(H₂O) = 2(1) + 16 = 18 g/mol. n = m/M = 36/18 = 2 mol."
+        },
+        {
+            "question": "What mass of NaOH (M = 40 g/mol) is needed to make 250 cm³ of a 0.4 mol/dm³ solution?",
+            "options": ["2 g", "4 g", "8 g", "16 g"],
+            "answer": 1,
+            "explanation": "n = c × V = 0.4 × 0.250 = 0.1 mol. m = n × M = 0.1 × 40 = 4 g. Remember to convert cm³ to dm³ by dividing by 1000."
+        },
+        {
+            "question": "One mole of any ideal gas at STP occupies:",
+            "options": ["22.4 cm³", "24.0 dm³", "22.4 dm³", "1 dm³"],
+            "answer": 2,
+            "explanation": "At STP (0°C, 100 kPa), one mole of ideal gas occupies 22.4 dm³. At room temperature (~25°C) this increases to approximately 24.0 dm³/mol."
+        },
+        {
+            "question": "The concentration formula is c = n/V. If you have 0.05 mol dissolved in 200 cm³, what is the concentration?",
+            "options": [
+                "0.1 mol/dm³",
+                "0.25 mol/dm³",
+                "2.5 mol/dm³",
+                "0.025 mol/dm³"
+            ],
+            "answer": 1,
+            "explanation": "V = 200 cm³ = 0.200 dm³. c = n/V = 0.05/0.200 = 0.25 mol/dm³. Always convert cm³ to dm³ before substituting."
+        },
+        {
+            "question": "What does the Law of Conservation of Mass state?",
+            "options": [
+                "Mass is created during exothermic reactions",
+                "Atoms are only rearranged in reactions — total mass of reactants equals total mass of products",
+                "The mass of a product is always less than the reactants",
+                "Only solids obey conservation of mass"
+            ],
+            "answer": 1,
+            "explanation": "Atoms are neither created nor destroyed in chemical reactions — only rearranged. This means total mass of reactants = total mass of products, and every balanced equation must have equal atom counts on both sides."
+        },
+        {
+            "question": "In the equation 2H₂ + O₂ → 2H₂O, what is the mole ratio of H₂ to H₂O?",
+            "options": ["1:1", "2:1", "1:2", "2:2"],
+            "answer": 0,
+            "explanation": "The coefficients directly give the mole ratio. 2 moles H₂ produces 2 moles H₂O — ratio 2:2, which simplifies to 1:1."
+        },
+        {
+            "question": "When balancing equations, what should you never change?",
+            "options": [
+                "Coefficients",
+                "Subscripts within chemical formulas",
+                "The number of products",
+                "State symbols"
+            ],
+            "answer": 1,
+            "explanation": "Changing subscripts changes the substance itself (e.g. H₂O → H₂O₂ is a different compound). Only coefficients — the numbers in front of formulas — are adjusted when balancing."
+        },
+        {
+            "question": "How many moles of CO₂ are produced when 2 moles of C₃H₈ burn completely? (C₃H₈ + 5O₂ → 3CO₂ + 4H₂O)",
+            "options": ["2 mol", "3 mol", "6 mol", "8 mol"],
+            "answer": 2,
+            "explanation": "Mole ratio C₃H₈ : CO₂ = 1 : 3. So 2 mol C₃H₈ produces 2 × 3 = 6 mol CO₂. Always use the coefficients from the balanced equation."
+        },
+        {
+            "question": "What is the three-step method for stoichiometry calculations?",
+            "options": [
+                "Balance → React → Measure",
+                "Mass → Moles (÷M) → Apply ratio → Moles → Mass (×M)",
+                "Moles → Ratio → Concentration",
+                "Weigh → Filter → Evaporate"
+            ],
+            "answer": 1,
+            "explanation": "Step 1: Convert given mass to moles (÷ molar mass). Step 2: Use mole ratio from balanced equation. Step 3: Convert moles to desired quantity (× molar mass for mass). This works for every stoichiometry problem."
+        },
+        {
+            "question": "What is the limiting reagent?",
+            "options": [
+                "The most expensive reactant",
+                "The reactant present in the smallest mass",
+                "The reactant completely consumed first, which limits the amount of product formed",
+                "The reactant with the highest molar mass"
+            ],
+            "answer": 2,
+            "explanation": "The limiting reagent is the one that runs out first, stopping the reaction. It determines the maximum yield. The other reactant is in excess and some remains unused at the end."
+        },
+        {
+            "question": "To identify the limiting reagent, you divide moles of each reactant by its stoichiometric coefficient. Which reactant is limiting?",
+            "options": [
+                "The one with the largest result",
+                "The one with the smallest result",
+                "The one with the highest molar mass",
+                "The one added first"
+            ],
+            "answer": 1,
+            "explanation": "Dividing moles by coefficient gives you how many 'reaction units' each reactant can provide. The smallest result means that reactant runs out first — it's the limiting reagent."
+        },
+        {
+            "question": "5 g of H₂ (M=2) and 32 g of O₂ (M=32) react: 2H₂ + O₂ → 2H₂O. Which is the limiting reagent?",
+            "options": [
+                "H₂",
+                "O₂",
+                "Both are used equally",
+                "Neither — there is excess of both"
+            ],
+            "answer": 1,
+            "explanation": "n(H₂) = 5/2 = 2.5 mol → 2.5/2 = 1.25. n(O₂) = 32/32 = 1 mol → 1/1 = 1.0. O₂ has the smaller result (1.0 < 1.25), so O₂ is the limiting reagent."
+        },
+        {
+            "question": "Percentage yield = ?",
+            "options": [
+                "(Theoretical yield / Actual yield) × 100%",
+                "(Actual yield / Theoretical yield) × 100%",
+                "(Actual yield − Theoretical yield) × 100%",
+                "(Molar mass / Actual yield) × 100%"
+            ],
+            "answer": 1,
+            "explanation": "% yield = (actual/theoretical) × 100%. Actual yield is what you get in the lab; theoretical is the maximum calculated from stoichiometry. % yield is always ≤ 100%."
+        },
+        {
+            "question": "Why is the percentage yield of a reaction almost always less than 100%?",
+            "options": [
+                "The law of conservation of mass is not always obeyed",
+                "Reasons include incomplete reactions, side reactions, and product lost during collection",
+                "Molar masses are only approximate",
+                "The limiting reagent calculation always overestimates"
+            ],
+            "answer": 1,
+            "explanation": "Real experiments have losses: reversible reactions don't go to completion, side reactions waste reactants, and product is lost during filtering/transferring/crystallizing. A yield > 100% would violate conservation of mass."
+        },
+        {
+            "question": "A reaction has a theoretical yield of 8.0 g and an actual yield of 6.4 g. What is the percentage yield?",
+            "options": ["64%", "80%", "125%", "20%"],
+            "answer": 1,
+            "explanation": "% yield = (6.4/8.0) × 100% = 80%. This means 80% of the maximum possible product was actually collected — a reasonably good yield."
+        },
+        {
+            "question": "What does atom economy measure?",
+            "options": [
+                "How quickly a reaction proceeds",
+                "How much of the reactant mass ends up in the desired product vs byproducts",
+                "The percentage of atoms that react",
+                "The cost efficiency of using atoms"
+            ],
+            "answer": 1,
+            "explanation": "Atom economy = (molar mass of desired product / sum of molar masses of all products) × 100%. High atom economy means less waste — more of the reactant mass becomes useful product."
+        },
+        {
+            "question": "An addition reaction has what atom economy?",
+            "options": ["0%", "50%", "100%", "It depends on the reagents"],
+            "answer": 2,
+            "explanation": "In addition reactions (e.g. alkene + H₂ → alkane), all atoms from both reactants end up in the single product — there are no byproducts. This gives 100% atom economy, making addition reactions highly efficient."
+        },
+        {
+            "question": "What is the molar mass of CaCO₃ (Ca=40, C=12, O=16)?",
+            "options": ["68 g/mol", "84 g/mol", "100 g/mol", "116 g/mol"],
+            "answer": 2,
+            "explanation": "CaCO₃: Ca=40, C=12, 3×O=48. Total = 40+12+48 = 100 g/mol. Calcium carbonate is marble/limestone — its molar mass of 100 g/mol makes calculations conveniently round."
+        },
+        {
+            "question": "How many molecules are in 2 moles of CO₂?",
+            "options": [
+                "6.022 × 10²³",
+                "1.204 × 10²⁴",
+                "3.011 × 10²³",
+                "2.0 × 10²³"
+            ],
+            "answer": 1,
+            "explanation": "Number of molecules = n × Nₐ = 2 × 6.022 × 10²³ = 1.204 × 10²⁴ molecules. One mole always contains 6.022 × 10²³ particles — multiply by the number of moles."
+        },
+        {
+            "question": "What volume does 3 moles of gas occupy at STP?",
+            "options": ["22.4 dm³", "44.8 dm³", "67.2 dm³", "8.0 dm³"],
+            "answer": 2,
+            "explanation": "At STP, 1 mole of gas = 22.4 dm³. So 3 moles = 3 × 22.4 = 67.2 dm³. This applies to any ideal gas regardless of its identity."
+        },
+        {
+            "question": "In the equation N₂ + 3H₂ → 2NH₃, how many moles of H₂ are needed to produce 4 moles of NH₃?",
+            "options": ["3 mol", "4 mol", "6 mol", "8 mol"],
+            "answer": 2,
+            "explanation": "Mole ratio H₂ : NH₃ = 3 : 2. To produce 4 mol NH₃: n(H₂) = 4 × (3/2) = 6 mol. Always use the ratio from the balanced equation."
+        },
+        {
+            "question": "What does the state symbol (aq) mean in a chemical equation?",
+            "options": [
+                "The substance is a gas",
+                "The substance is aqueous — dissolved in water",
+                "The substance is at equilibrium",
+                "The substance is in liquid form"
+            ],
+            "answer": 1,
+            "explanation": "(aq) stands for aqueous — the substance is dissolved in water. State symbols: (s)=solid, (l)=liquid, (g)=gas, (aq)=aqueous. These are required for full marks in IB equations."
+        },
+        {
+            "question": "12 g of carbon (M=12) reacts with excess O₂: C + O₂ → CO₂. What mass of CO₂ is produced?",
+            "options": ["12 g", "22 g", "44 g", "32 g"],
+            "answer": 2,
+            "explanation": "Step 1: n(C) = 12/12 = 1 mol. Step 2: ratio C:CO₂ = 1:1, so n(CO₂) = 1 mol. Step 3: M(CO₂) = 44 g/mol, m(CO₂) = 1 × 44 = 44 g. The mole ratio is 1:1 so mass appears to increase — the extra mass comes from oxygen."
+        }
+    ],
+
+    "Quiz on Acids and Bases": [
+        {
+            "question": "According to Arrhenius theory, what does an acid produce when dissolved in water?",
+            "options": ["OH⁻ ions", "H⁺ ions", "Salt", "Water"],
+            "answer": 1,
+            "explanation": "Arrhenius defined an acid as a substance that produces H⁺ ions in water. For example: HCl(aq) → H⁺(aq) + Cl⁻(aq)."
+        },
+        {
+            "question": "What is the main limitation of Arrhenius theory?",
+            "options": [
+                "It only applies to strong acids",
+                "It requires water and cannot explain bases like NH₃ that produce no OH⁻",
+                "It only works at high temperatures",
+                "It cannot explain ionization"
+            ],
+            "answer": 1,
+            "explanation": "Arrhenius theory requires water. It cannot explain why NH₃ is basic (no OH⁻ group), nor reactions between dry gases like HCl and NH₃ that still produce a salt."
+        },
+        {
+            "question": "In Brønsted-Lowry theory, an acid is defined as:",
+            "options": [
+                "An OH⁻ producer",
+                "A proton donor",
+                "A proton acceptor",
+                "An electron pair donor"
+            ],
+            "answer": 1,
+            "explanation": "Brønsted-Lowry defines an acid as a proton (H⁺) donor. This works even without water — HCl donates H⁺ to NH₃ in the gas phase."
+        },
+        {
+            "question": "In the reaction HCl + NH₃ → NH₄⁺ + Cl⁻, what is the conjugate base of HCl?",
+            "options": ["NH₃", "NH₄⁺", "Cl⁻", "H⁺"],
+            "answer": 2,
+            "explanation": "When HCl donates its proton it becomes Cl⁻ — the conjugate base. Conjugate base = acid minus one H⁺."
+        },
+        {
+            "question": "Which of the following is a strong acid?",
+            "options": ["CH₃COOH", "HF", "H₂CO₃", "HNO₃"],
+            "answer": 3,
+            "explanation": "HNO₃ (nitric acid) is a strong acid — it ionizes almost completely in water. Acetic acid, hydrofluoric acid, and carbonic acid are all weak acids that only partially ionize."
+        },
+        {
+            "question": "What does 'acid strength' refer to?",
+            "options": [
+                "The concentration of the acid",
+                "How corrosive the acid is",
+                "The degree to which the acid ionizes in water",
+                "The molar mass of the acid"
+            ],
+            "answer": 2,
+            "explanation": "Strength refers only to the degree of ionization — not concentration or corrosiveness. A strong acid ionizes nearly completely; a weak acid partially. A concentrated weak acid can be more dangerous than a dilute strong acid."
+        },
+        {
+            "question": "Water can act as both an acid and a base. What term describes this property?",
+            "options": ["Neutral", "Amphoteric", "Ionic", "Buffering"],
+            "answer": 1,
+            "explanation": "Water is amphoteric — it can donate H⁺ (acting as an acid) or accept H⁺ (acting as a base) depending on what it reacts with. In NH₃ + H₂O → NH₄⁺ + OH⁻, water acts as an acid."
+        },
+        {
+            "question": "What is the net ionic equation for any neutralization reaction?",
+            "options": [
+                "Acid + Base → Salt + Water",
+                "H⁺ + OH⁻ → H₂O",
+                "Na⁺ + Cl⁻ → NaCl",
+                "H₂ + O → H₂O"
+            ],
+            "answer": 1,
+            "explanation": "Regardless of which acid and base are used, the core reaction is always H⁺(aq) + OH⁻(aq) → H₂O(l). The salt comes from the spectator ions."
+        },
+        {
+            "question": "What salt is formed when H₂SO₄ reacts with KOH?",
+            "options": [
+                "Potassium chloride",
+                "Potassium sulfate",
+                "Potassium hydroxide",
+                "Hydrogen sulfate"
+            ],
+            "answer": 1,
+            "explanation": "H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O. The salt is potassium sulfate — cation from the base (K⁺) and anion from the acid (SO₄²⁻)."
+        },
+        {
+            "question": "NH₄Cl solution has a pH below 7. Why?",
+            "options": [
+                "HCl is a strong acid",
+                "NH₄⁺ donates protons to water, making the solution acidic",
+                "Cl⁻ reacts with water to form HCl",
+                "Ammonium chloride decomposes in water"
+            ],
+            "answer": 1,
+            "explanation": "NH₄Cl comes from a strong acid (HCl) + weak base (NH₃). The NH₄⁺ ion hydrolyses: NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺, releasing H⁺ and making the solution acidic."
+        },
+        {
+            "question": "Which indicator is most suitable for a strong acid / weak base titration?",
+            "options": [
+                "Litmus",
+                "Phenolphthalein",
+                "Methyl orange",
+                "Universal indicator"
+            ],
+            "answer": 2,
+            "explanation": "Methyl orange changes colour at pH 3.1–4.4, which matches the equivalence point region of a strong acid/weak base titration. Phenolphthalein (pH 8.2–10) would change too late."
+        },
+        {
+            "question": "What gas is produced when zinc reacts with hydrochloric acid, and how is it tested?",
+            "options": [
+                "CO₂ — turns limewater milky",
+                "O₂ — relights a glowing splint",
+                "H₂ — burns with a squeaky pop",
+                "SO₂ — turns litmus red"
+            ],
+            "answer": 2,
+            "explanation": "Zn + 2HCl → ZnCl₂ + H₂. Acid + reactive metal always produces hydrogen gas. Test: a burning splint produces a squeaky pop as H₂ ignites."
+        },
+        {
+            "question": "What is pH defined as?",
+            "options": [
+                "The concentration of OH⁻ ions",
+                "−log₁₀[H⁺]",
+                "log₁₀[H⁺]",
+                "The ratio of acid to base"
+            ],
+            "answer": 1,
+            "explanation": "pH = −log₁₀[H⁺], where [H⁺] is in mol/dm³. The negative log means higher H⁺ concentration gives lower pH. It's logarithmic: each pH unit = 10× change in [H⁺]."
+        },
+        {
+            "question": "What is the pH of a solution with [H⁺] = 0.001 mol/dm³?",
+            "options": ["1", "2", "3", "4"],
+            "answer": 2,
+            "explanation": "[H⁺] = 0.001 = 10⁻³ mol/dm³. pH = −log(10⁻³) = 3. This is an acidic solution."
+        },
+        {
+            "question": "The pH scale is logarithmic. How much more acidic is pH 4 compared to pH 6?",
+            "options": ["2 times", "10 times", "100 times", "1000 times"],
+            "answer": 2,
+            "explanation": "Each pH unit represents a 10× difference in [H⁺]. pH 4 vs pH 6 = 2 units = 10² = 100 times more acidic. pH 4 has 100× more H⁺ ions than pH 6."
+        },
+        {
+            "question": "At 25°C, pure water has [H⁺] = [OH⁻] = 1×10⁻⁷ mol/dm³. What is its pH?",
+            "options": ["0", "7", "14", "−7"],
+            "answer": 1,
+            "explanation": "pH = −log(10⁻⁷) = 7. Pure water is neutral at 25°C because [H⁺] = [OH⁻]. This is the autoionization of water: H₂O ⇌ H⁺ + OH⁻."
+        },
+        {
+            "question": "If [H⁺] = 10⁻⁵ mol/dm³, what is [OH⁻] at 25°C? (Kw = 10⁻¹⁴)",
+            "options": [
+                "10⁻⁵ mol/dm³",
+                "10⁻⁹ mol/dm³",
+                "10⁻¹⁴ mol/dm³",
+                "10⁻⁷ mol/dm³"
+            ],
+            "answer": 1,
+            "explanation": "[OH⁻] = Kw / [H⁺] = 10⁻¹⁴ / 10⁻⁵ = 10⁻⁹ mol/dm³. The ionic product of water (Kw = [H⁺][OH⁻] = 10⁻¹⁴) always holds at 25°C."
+        },
+        {
+            "question": "Which method gives the most accurate pH measurement?",
+            "options": [
+                "Litmus paper",
+                "Universal indicator",
+                "pH meter",
+                "Phenolphthalein"
+            ],
+            "answer": 2,
+            "explanation": "A pH meter uses an electronic probe to give a precise numerical reading. Indicators give approximate values (±1 unit) based on colour matching. pH meters are accurate to ±0.01 pH units."
+        },
+        {
+            "question": "A 0.1 mol/dm³ HCl solution has what pH?",
+            "options": ["0", "1", "2", "7"],
+            "answer": 1,
+            "explanation": "HCl is a strong acid — fully ionized. [H⁺] = 0.1 mol/dm³ = 10⁻¹ mol/dm³. pH = −log(10⁻¹) = 1."
+        },
+        {
+            "question": "Blood has a pH of 7.35–7.45. What happens if blood pH falls below 7.35?",
+            "options": [
+                "Blood becomes neutral",
+                "Acidosis occurs — potentially life-threatening",
+                "Blood becomes more alkaline",
+                "Red blood cells dissolve"
+            ],
+            "answer": 1,
+            "explanation": "A blood pH below 7.35 is acidosis — a dangerous condition. The body maintains blood pH within a very narrow range using buffer systems. A change of 0.4 pH units either way can be life-threatening."
+        },
+        {
+            "question": "Phenolphthalein is colourless in acid and pink in alkali. At what pH range does it change?",
+            "options": ["3.1–4.4", "6–7", "8.2–10", "12–14"],
+            "answer": 2,
+            "explanation": "Phenolphthalein changes colour at pH 8.2–10, making it suitable for strong acid/strong base titrations. Methyl orange (3.1–4.4) is used for strong acid/weak base titrations."
+        },
+        {
+            "question": "What is produced when CaCO₃ reacts with HCl, and how is the gas tested?",
+            "options": [
+                "H₂ — squeaky pop",
+                "O₂ — relights glowing splint",
+                "CO₂ — turns limewater milky",
+                "HCl gas — acidic smell"
+            ],
+            "answer": 2,
+            "explanation": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂. Carbon dioxide is tested by bubbling through limewater (Ca(OH)₂) — it turns milky as CaCO₃ precipitate forms."
+        },
+        {
+            "question": "Sodium ethanoate (CH₃COONa) solution has a pH above 7. Why?",
+            "options": [
+                "Sodium is a metal",
+                "CH₃COO⁻ accepts protons from water, producing OH⁻",
+                "NaOH is formed when it dissolves",
+                "Ethanoate ions are strongly basic like OH⁻"
+            ],
+            "answer": 1,
+            "explanation": "CH₃COONa comes from weak acid (CH₃COOH) + strong base (NaOH). The ethanoate ion hydrolyses: CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻, releasing OH⁻ and making the solution basic."
+        }
+    ],
+
+    "Quiz on Redox Reactions": [
+        {
+            "question": "What does OIL RIG stand for?",
+            "options": [
+                "Oxidation Is Loss, Reduction Is Gain (of electrons)",
+                "Oxidation Involves Lithium, Reduction Involves Gold",
+                "Oxidation Is Less, Reduction Is Greater",
+                "Only In Labs, Reactions Involve Gases"
+            ],
+            "answer": 0,
+            "explanation": "OIL RIG: Oxidation Is Loss, Reduction Is Gain — of electrons. It's the single most important mnemonic in redox chemistry. Oxidation and reduction always occur simultaneously."
+        },
+        {
+            "question": "In the reaction Zn + Cu²⁺ → Zn²⁺ + Cu, which species is oxidized?",
+            "options": ["Cu²⁺", "Cu", "Zn²⁺", "Zn"],
+            "answer": 3,
+            "explanation": "Zn loses 2 electrons (Zn → Zn²⁺ + 2e⁻) — loss of electrons = oxidation. Cu²⁺ gains 2 electrons and is reduced. Zn is the reducing agent."
+        },
+        {
+            "question": "What is an oxidizing agent?",
+            "options": [
+                "A species that loses electrons and gets oxidized",
+                "A species that causes oxidation in another — it gains electrons and gets reduced",
+                "A species that produces oxygen",
+                "A species with a high oxidation state"
+            ],
+            "answer": 1,
+            "explanation": "An oxidizing agent causes oxidation in something else. To do this it accepts electrons itself — so it gets reduced. 'The oxidizing agent gets reduced' is the key phrase."
+        },
+        {
+            "question": "Which is the oxidation half-equation for the Zn/Cu²⁺ reaction?",
+            "options": [
+                "Cu²⁺ + 2e⁻ → Cu",
+                "Zn²⁺ + 2e⁻ → Zn",
+                "Zn → Zn²⁺ + 2e⁻",
+                "Cu → Cu²⁺ + 2e⁻"
+            ],
+            "answer": 2,
+            "explanation": "Oxidation = loss of electrons. Zn → Zn²⁺ + 2e⁻ shows zinc losing 2 electrons — this is the oxidation half-equation. The reduction half-equation is Cu²⁺ + 2e⁻ → Cu."
+        },
+        {
+            "question": "What is the oxidation state of sulfur in H₂SO₄?",
+            "options": ["+2", "+4", "+6", "+8"],
+            "answer": 2,
+            "explanation": "H: +1 × 2 = +2. O: −2 × 4 = −8. Sum must = 0: +2 + S + (−8) = 0 → S = +6. Sulfur is in its highest common oxidation state in H₂SO₄."
+        },
+        {
+            "question": "What is the oxidation state of manganese in KMnO₄?",
+            "options": ["+2", "+4", "+6", "+7"],
+            "answer": 3,
+            "explanation": "K = +1, O×4 = −8. Sum = 0: +1 + Mn − 8 = 0 → Mn = +7. KMnO₄ is a powerful oxidizing agent because Mn is in its highest oxidation state."
+        },
+        {
+            "question": "What is the oxidation state of chromium in Cr₂O₇²⁻?",
+            "options": ["+3", "+4", "+6", "+7"],
+            "answer": 2,
+            "explanation": "O × 7 = −14. Ion charge = −2. 2Cr − 14 = −2 → 2Cr = +12 → Cr = +6. K₂Cr₂O₇ (potassium dichromate) is orange and is a common oxidizing agent in lab reactions."
+        },
+        {
+            "question": "In the reaction 2Mg + O₂ → 2MgO, what happens to magnesium?",
+            "options": [
+                "It is reduced — gains electrons",
+                "It is oxidized — loses electrons",
+                "Its oxidation state stays the same",
+                "It acts as the oxidizing agent"
+            ],
+            "answer": 1,
+            "explanation": "Mg goes from 0 (pure element) to +2 (in MgO) — an increase in oxidation state = oxidation = loss of electrons. O₂ goes from 0 to −2, so oxygen is reduced and is the oxidizing agent."
+        },
+        {
+            "question": "Is the reaction NaOH + HCl → NaCl + H₂O a redox reaction?",
+            "options": [
+                "Yes — HCl is oxidized",
+                "Yes — Na is reduced",
+                "No — no oxidation states change",
+                "No — no electrons are present"
+            ],
+            "answer": 2,
+            "explanation": "Check all oxidation states: Na stays +1, O stays −2, H stays +1, Cl stays −1. No changes → NOT redox. This is a simple acid-base neutralization. Redox requires at least one oxidation state change."
+        },
+        {
+            "question": "What are the correct steps for balancing a half-equation?",
+            "options": [
+                "Balance charge → balance atoms → add water → add H⁺",
+                "Balance atoms (not H/O) → balance O with H₂O → balance H with H⁺ → balance charge with e⁻",
+                "Add electrons first → then balance atoms",
+                "Balance H first → then O → then charge"
+            ],
+            "answer": 1,
+            "explanation": "The correct order: 1) Balance non-H/O atoms. 2) Balance O by adding H₂O. 3) Balance H by adding H⁺. 4) Balance charge by adding e⁻. Then scale half-equations so electrons cancel when combined."
+        },
+        {
+            "question": "In a galvanic cell, where does oxidation occur?",
+            "options": ["Cathode", "Anode", "Salt bridge", "External circuit"],
+            "answer": 1,
+            "explanation": "Red Cat An Ox — Reduction at Cathode, Anode is Oxidation. The anode is the negative electrode in a galvanic cell. Electrons flow from anode (oxidation) through the external circuit to the cathode (reduction)."
+        },
+        {
+            "question": "What is the role of the salt bridge in an electrochemical cell?",
+            "options": [
+                "It carries electrons between the half-cells",
+                "It allows ion flow to maintain electrical neutrality in each half-cell",
+                "It stores electrical energy",
+                "It prevents the reaction from occurring too fast"
+            ],
+            "answer": 1,
+            "explanation": "The salt bridge allows ions (not electrons) to flow between half-cells to maintain charge neutrality. Without it, one half-cell would build up positive charge and the other negative, stopping the reaction."
+        },
+        {
+            "question": "In electroplating, the object being plated is connected as the:",
+            "options": [
+                "Anode — where oxidation occurs",
+                "Cathode — where reduction occurs",
+                "Salt bridge",
+                "Electrolyte"
+            ],
+            "answer": 1,
+            "explanation": "The object to be plated is the cathode. Metal ions from the solution are reduced at the cathode surface: M⁺ + e⁻ → M, depositing a thin metal layer. The anode (plating metal) dissolves to replenish ions."
+        },
+        {
+            "question": "What two conditions are both required for iron to rust?",
+            "options": [
+                "Heat and oxygen",
+                "Oxygen and water",
+                "Salt and heat",
+                "Water and carbon dioxide"
+            ],
+            "answer": 1,
+            "explanation": "Both oxygen AND water are required for rusting. Neither alone causes rust. Iron in dry air doesn't rust; iron submerged in oxygen-free water doesn't rust either. Both must be present simultaneously."
+        },
+        {
+            "question": "Why does galvanizing protect iron even after the zinc coating is scratched?",
+            "options": [
+                "Zinc fills the scratch automatically",
+                "Zinc is a better conductor than iron",
+                "Zinc is more reactive than iron, so it preferentially oxidizes — acting as a sacrificial anode",
+                "Zinc forms an insoluble oxide that seals the scratch"
+            ],
+            "answer": 2,
+            "explanation": "Zinc is higher in the reactivity series than iron. When scratched, zinc preferentially loses electrons (oxidizes) instead of the iron — protecting it. This is sacrificial protection / cathodic protection."
+        },
+        {
+            "question": "Transition metals can have variable oxidation states. What are the two common states of iron?",
+            "options": ["+1 and +2", "+2 and +3", "+3 and +4", "+1 and +3"],
+            "answer": 1,
+            "explanation": "Iron commonly exists as Fe²⁺ (ferrous, iron(II)) and Fe³⁺ (ferric, iron(III)). Fe²⁺ is oxidized to Fe³⁺ in reactions like the Fe²⁺/MnO₄⁻ titration. Variable oxidation states are a hallmark of transition metals."
+        },
+        {
+            "question": "What does disproportionation mean?",
+            "options": [
+                "A reaction where two different elements are both oxidized",
+                "A reaction where the same element is simultaneously oxidized and reduced",
+                "A reaction that occurs in two separate steps",
+                "A reaction where oxidation states are fractional"
+            ],
+            "answer": 1,
+            "explanation": "Disproportionation occurs when the same element is simultaneously oxidized and reduced. Example: 2H₂O₂ → 2H₂O + O₂. Oxygen goes from −1 to both −2 (reduced) and 0 (oxidized) in the same reaction."
+        },
+        {
+            "question": "In iron(III) chloride, FeCl₃, what is the oxidation state of iron?",
+            "options": ["+1", "+2", "+3", "+6"],
+            "answer": 2,
+            "explanation": "Cl = −1, and there are 3 Cl atoms: 3 × (−1) = −3. For the compound to be neutral: Fe + (−3) = 0 → Fe = +3. The Roman numeral III in the name confirms this directly."
+        },
+        {
+            "question": "KMnO₄ is purple in solution. What colour does it turn when it acts as an oxidizing agent in acidic solution?",
+            "options": ["Orange", "Blue", "Colourless", "Yellow"],
+            "answer": 2,
+            "explanation": "When KMnO₄ (Mn⁷⁺, purple) is reduced in acidic solution, Mn²⁺ forms — which is nearly colourless. This colour change from purple to colourless is used as its own endpoint indicator in redox titrations."
+        },
+        {
+            "question": "What is the overall cell reaction in a zinc-copper galvanic cell?",
+            "options": [
+                "Cu → Cu²⁺ + 2e⁻ and Zn²⁺ + 2e⁻ → Zn",
+                "Zn → Zn²⁺ + 2e⁻ and Cu²⁺ + 2e⁻ → Cu",
+                "Zn²⁺ + Cu → Zn + Cu²⁺",
+                "Both electrodes dissolve equally"
+            ],
+            "answer": 1,
+            "explanation": "At the anode: Zn → Zn²⁺ + 2e⁻ (oxidation). At the cathode: Cu²⁺ + 2e⁻ → Cu (reduction). Overall: Zn + Cu²⁺ → Zn²⁺ + Cu. Electrons flow through the external circuit from Zn to Cu electrode."
+        },
+        {
+            "question": "What is the oxidation state of oxygen in H₂O₂ (hydrogen peroxide)?",
+            "options": ["−2", "−1", "0", "+1"],
+            "answer": 1,
+            "explanation": "H = +1 × 2 = +2. Sum = 0: +2 + 2O = 0 → O = −1. In most compounds oxygen is −2, but in peroxides (O–O bond) it is −1. This makes H₂O₂ prone to disproportionation reactions."
+        },
+        {
+            "question": "Which of the following is NOT a method of preventing iron corrosion?",
+            "options": [
+                "Painting the iron surface",
+                "Galvanizing with zinc",
+                "Attaching a copper block to the iron",
+                "Making stainless steel alloy"
+            ],
+            "answer": 2,
+            "explanation": "Copper is LESS reactive than iron, so attaching copper would actually accelerate corrosion — iron becomes the anode and corrodes preferentially. Sacrificial protection requires a MORE reactive metal (like Zn or Mg)."
+        }
+    ],
+
+    "Quiz on States of Matter and Physical Changes": [
+        {
+            "question": "What changes when a substance changes state?",
+            "options": [
+                "Its chemical formula",
+                "The arrangement and energy of particles, not the chemical identity",
+                "The number of atoms in each molecule",
+                "Its atomic number"
+            ],
+            "answer": 1,
+            "explanation": "State changes are physical changes. Water is H₂O whether it's ice, liquid, or steam. What changes is how particles are arranged and how much energy they have — not the substance itself."
+        },
+        {
+            "question": "Which correctly describes particles in a solid?",
+            "options": [
+                "Far apart, moving freely in all directions",
+                "Close together, sliding past each other",
+                "Packed tightly in a lattice, vibrating about fixed positions",
+                "Close together with no movement at all"
+            ],
+            "answer": 2,
+            "explanation": "Solid particles are in a regular lattice, held by strong forces. They cannot move past each other — only vibrate about fixed positions. This gives solids their fixed shape and volume."
+        },
+        {
+            "question": "Why are gases compressible but solids and liquids are not?",
+            "options": [
+                "Gas particles are smaller",
+                "Gas particles are far apart with lots of empty space between them",
+                "Gas particles have less mass",
+                "Gas particles move faster"
+            ],
+            "answer": 1,
+            "explanation": "In a gas, particles are roughly 10× further apart than in a liquid — mostly empty space. This space can be reduced by applying pressure. Solids and liquids have particles already close together with no significant gaps."
+        },
+        {
+            "question": "What happens to temperature during a state change (e.g. melting)?",
+            "options": [
+                "Temperature rises rapidly",
+                "Temperature falls",
+                "Temperature stays constant while energy is used to overcome intermolecular forces",
+                "Temperature fluctuates randomly"
+            ],
+            "answer": 2,
+            "explanation": "During melting or boiling, added energy breaks intermolecular forces rather than increasing kinetic energy. Temperature stays flat on a heating curve during state changes — this is seen as the flat sections at 0°C and 100°C for water."
+        },
+        {
+            "question": "What is sublimation?",
+            "options": [
+                "Liquid turning directly into solid",
+                "Solid turning directly into gas without passing through liquid",
+                "Gas turning directly into solid",
+                "Rapid evaporation of a liquid"
+            ],
+            "answer": 1,
+            "explanation": "Sublimation is the direct transition from solid to gas. Dry ice (solid CO₂) is a classic example — it sublimes at room temperature, going straight to CO₂ gas without melting."
+        },
+        {
+            "question": "Diffusion occurs in gases and liquids but not solids. Why?",
+            "options": [
+                "Solid particles are too heavy to diffuse",
+                "Solid particles are locked in fixed positions and cannot move freely to mix",
+                "Solids have no empty space for particles to move into",
+                "Diffusion requires a liquid solvent"
+            ],
+            "answer": 1,
+            "explanation": "Diffusion requires particles to move from one place to another. In solids, particles are fixed in lattice positions and can only vibrate — they cannot migrate through the material. In liquids and gases, particles have enough freedom to spread and mix."
+        },
+        {
+            "question": "Which of the following is a physical change?",
+            "options": [
+                "Iron rusting",
+                "Wood burning",
+                "Sugar dissolving in water",
+                "Magnesium reacting with acid"
+            ],
+            "answer": 2,
+            "explanation": "Dissolving sugar in water is physical — the sugar molecules spread through the water but are unchanged chemically. Evaporate the water and sugar is recovered. Rusting, burning, and reacting with acid all form new substances — chemical changes."
+        },
+        {
+            "question": "Which observation most strongly suggests a chemical change has occurred?",
+            "options": [
+                "The substance changed colour",
+                "A precipitate formed AND gas was produced AND temperature changed",
+                "The substance dissolved",
+                "The substance melted"
+            ],
+            "answer": 1,
+            "explanation": "Multiple simultaneous signs — precipitate, gas, and temperature change — strongly indicate new substances formed. Single signs like colour change can occur in physical changes too (e.g. dissolving a coloured dye). Multiple signs together are most reliable."
+        },
+        {
+            "question": "What is the key difference between a compound and a mixture?",
+            "options": [
+                "Compounds contain more elements",
+                "In a compound, elements are chemically bonded in fixed ratios; in a mixture they are physically combined and retain individual properties",
+                "Mixtures can only contain two substances",
+                "Compounds cannot be separated"
+            ],
+            "answer": 1,
+            "explanation": "In a compound, elements are chemically bonded (NaCl, H₂O) — fixed ratio, new properties, separated only by chemical means. In a mixture, substances keep their own properties and can be separated physically (e.g. filtration, distillation)."
+        },
+        {
+            "question": "Which separation technique would best separate a mixture of ethanol and water?",
+            "options": [
+                "Filtration",
+                "Magnetism",
+                "Distillation",
+                "Chromatography"
+            ],
+            "answer": 2,
+            "explanation": "Ethanol (bp 78°C) and water (bp 100°C) have different boiling points. Distillation separates liquids by boiling the lower boiling point component first and collecting it as vapour. Filtration only separates insoluble solids from liquids."
+        },
+        {
+            "question": "Is cooking an egg a physical or chemical change? Why?",
+            "options": [
+                "Physical — because heat is applied",
+                "Physical — the egg changes shape but returns to normal on cooling",
+                "Chemical — proteins permanently denature and new bonds form; it cannot be reversed",
+                "Chemical — because water evaporates from the egg"
+            ],
+            "answer": 2,
+            "explanation": "Cooking an egg causes proteins to permanently unfold and cross-link — irreversible bond changes forming new structures. You cannot 'uncook' an egg. Irreversibility and formation of new substances = chemical change."
+        },
+        {
+            "question": "What is dynamic equilibrium?",
+            "options": [
+                "A reaction that has stopped completely",
+                "A state where forward and reverse reactions occur at the same rate, with constant concentrations",
+                "A reaction where only products are present",
+                "A reaction that oscillates between reactants and products"
+            ],
+            "answer": 1,
+            "explanation": "At dynamic equilibrium, both forward and reverse reactions continue to occur — but at equal rates. The concentrations of reactants and products remain constant (not necessarily equal). 'Dynamic' because reactions are still happening."
+        },
+        {
+            "question": "For the equilibrium N₂ + 3H₂ ⇌ 2NH₃ (exothermic), what happens if pressure is increased?",
+            "options": [
+                "Equilibrium shifts left — more N₂ and H₂ form",
+                "Equilibrium shifts right — more NH₃ forms",
+                "No change — pressure doesn't affect equilibrium",
+                "The reaction stops"
+            ],
+            "answer": 1,
+            "explanation": "Increasing pressure shifts equilibrium toward the side with fewer moles of gas. Left side: 1+3 = 4 mol gas. Right side: 2 mol gas. System shifts right to reduce pressure — producing more NH₃."
+        },
+        {
+            "question": "What is the ONLY factor that changes the value of Kc?",
+            "options": [
+                "Concentration of reactants",
+                "Pressure",
+                "Temperature",
+                "Adding a catalyst"
+            ],
+            "answer": 2,
+            "explanation": "Only temperature changes Kc. Changing concentration shifts the position of equilibrium but Kc stays the same. Pressure shifts the equilibrium for gases but doesn't change Kc. Catalysts speed up reaching equilibrium but don't shift it or change Kc."
+        },
+        {
+            "question": "Adding a catalyst to an equilibrium reaction will:",
+            "options": [
+                "Shift the equilibrium to the right",
+                "Increase the yield of products",
+                "Allow equilibrium to be reached faster without changing its position",
+                "Increase the value of Kc"
+            ],
+            "answer": 2,
+            "explanation": "A catalyst lowers activation energy for both forward and reverse reactions equally. It speeds up how quickly equilibrium is reached, but doesn't change the equilibrium position, yield, or Kc."
+        },
+        {
+            "question": "For N₂ + 3H₂ ⇌ 2NH₃ (ΔH = −92 kJ/mol), increasing temperature will:",
+            "options": [
+                "Increase NH₃ yield — more energy means faster reaction",
+                "Shift equilibrium left — less NH₃ forms, as the system absorbs heat by favouring the endothermic direction",
+                "Have no effect on equilibrium position",
+                "Increase Kc"
+            ],
+            "answer": 1,
+            "explanation": "The reaction is exothermic (ΔH < 0). Adding heat shifts equilibrium in the endothermic direction — leftward, decomposing NH₃ back into N₂ and H₂. Higher temperature = lower NH₃ yield. This is why the Haber process uses a compromise temperature."
+        },
+        {
+            "question": "In the Haber process (N₂ + 3H₂ ⇌ 2NH₃), why is a temperature of ~450°C used rather than a lower temperature that would give a higher yield?",
+            "options": [
+                "The iron catalyst only works above 450°C",
+                "Lower temperatures would cause the gases to liquefy",
+                "At lower temperatures the rate is too slow to be economically viable, even though yield would be higher",
+                "450°C is required to prevent N₂ from dissociating"
+            ],
+            "answer": 2,
+            "explanation": "Le Chatelier predicts lower temperature → higher NH₃ yield (exothermic reaction). But lower temperature also means slower rate. ~450°C is a compromise: acceptable yield (~15%) at a practical rate. Ammonia is also continuously removed to shift equilibrium right."
+        }
+    ],
+
+    "Quiz on Chemical Kinetics": [
+        {
+            "question": "What are the two conditions that must BOTH be met for a collision to be effective?",
+            "options": [
+                "Correct temperature and correct pressure",
+                "Sufficient energy (≥ activation energy) AND correct orientation",
+                "High concentration and high temperature",
+                "Particles must be the same size and charge"
+            ],
+            "answer": 1,
+            "explanation": "For a reaction to occur, colliding particles must have combined kinetic energy ≥ Eₐ (activation energy) AND be correctly oriented so reactive parts face each other. Missing either condition means no reaction."
+        },
+        {
+            "question": "What is activation energy?",
+            "options": [
+                "The energy released when products form",
+                "The minimum energy required for a collision to result in a reaction",
+                "The total energy of all particles in a sample",
+                "The energy needed to break all bonds in the reactants"
+            ],
+            "answer": 1,
+            "explanation": "Activation energy (Eₐ) is the minimum energy threshold that colliding particles must possess for the reaction to occur. Even if particles collide, they bounce off if their combined energy is below Eₐ."
+        },
+        {
+            "question": "On a Maxwell-Boltzmann distribution curve, what does the area to the right of Eₐ represent?",
+            "options": [
+                "The total number of particles",
+                "The average kinetic energy",
+                "The fraction of particles with enough energy to react",
+                "The activation energy of the reaction"
+            ],
+            "answer": 2,
+            "explanation": "The area under the curve to the right of Eₐ represents the proportion of particles with E ≥ Eₐ — the ones that can actually react when they collide with the right orientation. Increasing temperature increases this area dramatically."
+        },
+        {
+            "question": "A 10°C rise in temperature roughly doubles the rate of many reactions. Which Maxwell-Boltzmann effect mainly explains this?",
+            "options": [
+                "Particles move faster so collide more frequently",
+                "The fraction of particles exceeding Eₐ increases dramatically",
+                "Activation energy decreases at higher temperature",
+                "Particles become larger at higher temperature"
+            ],
+            "answer": 1,
+            "explanation": "While higher temperature does increase collision frequency slightly, the dominant effect is that many more particles now have energy ≥ Eₐ. The proportion of effective collisions increases exponentially with temperature (Arrhenius relationship)."
+        },
+        {
+            "question": "Increasing the concentration of a reactant increases rate because:",
+            "options": [
+                "Each particle has more energy",
+                "Activation energy decreases",
+                "There are more particles per unit volume, so collisions are more frequent",
+                "The proportion of effective collisions increases"
+            ],
+            "answer": 2,
+            "explanation": "Concentration increases collision frequency — more particles in the same space means more collisions per second. The energy of individual particles (and therefore the proportion of effective collisions) is unchanged. Only frequency changes."
+        },
+        {
+            "question": "Why does powdering a solid reactant increase the reaction rate?",
+            "options": [
+                "Powder has higher concentration",
+                "Smaller particles have more surface area exposed, giving more collision sites",
+                "Powder dissolves faster, changing its state",
+                "Powder has lower activation energy"
+            ],
+            "answer": 1,
+            "explanation": "Reactions between a solid and a liquid/gas occur only at the solid's surface. Smaller particles = more surface area exposed = more simultaneous collision sites = faster rate. Total yield is unchanged — just how quickly it's reached."
+        },
+        {
+            "question": "How does a catalyst increase reaction rate?",
+            "options": [
+                "It increases the temperature of the reaction",
+                "It provides an alternative pathway with lower activation energy",
+                "It increases the concentration of reactants",
+                "It is consumed in the reaction, releasing energy"
+            ],
+            "answer": 1,
+            "explanation": "A catalyst provides an alternative reaction mechanism with a lower Eₐ. More particles exceed this lower threshold → more effective collisions → faster rate. The catalyst is not consumed and ΔH of the reaction is unchanged."
+        },
+        {
+            "question": "Which statement about a catalyst is correct?",
+            "options": [
+                "It is permanently consumed in the reaction",
+                "It changes the enthalpy change (ΔH) of the reaction",
+                "It lowers activation energy and is regenerated at the end",
+                "It only works at high temperatures"
+            ],
+            "answer": 2,
+            "explanation": "Catalysts are not consumed — they participate in the reaction mechanism but are regenerated at the end. They lower Eₐ but don't change ΔH (the energy difference between reactants and products stays the same)."
+        },
+        {
+            "question": "On an energy profile diagram, what is the effect of adding a catalyst?",
+            "options": [
+                "The reactant energy level rises",
+                "The product energy level falls",
+                "The peak of the curve (transition state) is lower — Eₐ decreases",
+                "The curve shifts to the right"
+            ],
+            "answer": 2,
+            "explanation": "A catalyst lowers the activation energy — the peak of the energy profile curve drops. The reactant and product energy levels stay the same (ΔH unchanged). The alternative pathway has a lower energy barrier."
+        },
+        {
+            "question": "Iron is the catalyst in the Haber process. What type of catalyst is this?",
+            "options": [
+                "Homogeneous — same phase as reactants",
+                "Heterogeneous — different phase from reactants",
+                "Enzymatic — biological catalyst",
+                "Autocatalytic — product acts as catalyst"
+            ],
+            "answer": 1,
+            "explanation": "The Haber process uses solid iron catalyst with gaseous N₂ and H₂ reactants. Solid catalyst + gas reactants = different phases = heterogeneous catalysis. The reaction occurs at the solid surface, which is why surface area matters."
+        },
+        {
+            "question": "In the thiosulfate clock reaction, rate is measured as 1/time. Why?",
+            "options": [
+                "Because time is proportional to concentration",
+                "Because 1/time is proportional to rate when the same amount of product forms in each experiment",
+                "Because time squared gives the rate constant",
+                "Because 1/time cancels the units of concentration"
+            ],
+            "answer": 1,
+            "explanation": "The experiment times how long until the same visual endpoint (cross disappears) is reached — meaning the same amount of S has formed each time. Since the same product amount is produced, less time = faster rate. Therefore rate ∝ 1/time."
+        },
+        {
+            "question": "Why do enzymes stop working above ~40°C?",
+            "options": [
+                "The substrate concentration falls at high temperature",
+                "Activation energy increases at high temperature",
+                "The enzyme protein denatures — it unfolds and loses its active site shape",
+                "The reaction becomes endothermic at high temperature"
+            ],
+            "answer": 2,
+            "explanation": "Enzymes are proteins with a specific 3D active site shape. Above ~40°C, thermal energy breaks the hydrogen bonds holding the protein in shape — it denatures (unfolds). The active site is lost and the enzyme can no longer bind its substrate."
+        },
+        {
+            "question": "Which factor does NOT increase the rate of a reaction between marble chips and hydrochloric acid?",
+            "options": [
+                "Increasing HCl concentration",
+                "Using powdered marble instead of chips",
+                "Increasing temperature",
+                "Adding more marble chips after the reaction has finished"
+            ],
+            "answer": 3,
+            "explanation": "Adding more marble after the reaction is complete doesn't increase rate — HCl has been consumed (it's the limiting reagent or reaction is done). The other three (concentration, surface area, temperature) all increase collision frequency or proportion of effective collisions."
+        }
+    ],
+
+    "Quiz on Organic Chemistry": [
+        {
+            "question": "Why can carbon form so many compounds?",
+            "options": [
+                "Carbon is the lightest element",
+                "Carbon has 4 valence electrons, forms 4 bonds, can bond to itself (catenation), and form chains, branches, and rings",
+                "Carbon is the most abundant element on Earth",
+                "Carbon has the highest electronegativity"
+            ],
+            "answer": 1,
+            "explanation": "Carbon's uniqueness comes from: 4 valence electrons (4 covalent bonds), catenation (C-C bonds of any length), ability to form single/double/triple bonds, and ring structures. Together these give over 10 million organic compounds."
+        },
+        {
+            "question": "What is a functional group?",
+            "options": [
+                "The longest carbon chain in a molecule",
+                "A specific atom or group of atoms that determines a molecule's chemical reactivity",
+                "Any group of atoms containing oxygen",
+                "The carbon backbone of an organic molecule"
+            ],
+            "answer": 1,
+            "explanation": "A functional group is a specific atom or arrangement of atoms that reacts in a characteristic way regardless of chain length. The same functional group gives the same type of reaction — this is the key to predicting organic reactivity."
+        },
+        {
+            "question": "What is the general formula for alkanes?",
+            "options": ["CₙH₂ₙ", "CₙH₂ₙ₊₂", "CₙH₂ₙ₋₂", "CₙHₙ"],
+            "answer": 1,
+            "explanation": "Alkanes: CₙH₂ₙ₊₂. They are saturated hydrocarbons — every carbon has the maximum possible hydrogen atoms. Methane: CH₄, Ethane: C₂H₆, Propane: C₃H₈, Butane: C₄H₁₀."
+        },
+        {
+            "question": "What does 'saturated' mean in organic chemistry?",
+            "options": [
+                "The compound contains only one type of atom",
+                "Every carbon has the maximum number of hydrogen atoms — only single C-C bonds",
+                "The compound is dissolved in water",
+                "The compound has reacted completely"
+            ],
+            "answer": 1,
+            "explanation": "Saturated means every carbon is bonded to the maximum possible hydrogen atoms — achieved by having only single C-C bonds. No double or triple bonds exist. Alkanes are saturated. Alkenes (with C=C) are unsaturated."
+        },
+        {
+            "question": "Which alkane has the formula C₅H₁₂?",
+            "options": ["Butane", "Pentane", "Hexane", "Propane"],
+            "answer": 1,
+            "explanation": "Using CₙH₂ₙ₊₂: n=5 gives C₅H₁₂. Pentane (pent- = 5). The naming prefix sequence: meth(1), eth(2), prop(3), but(4), pent(5), hex(6), hept(7), oct(8)."
+        },
+        {
+            "question": "What is the product of COMPLETE combustion of any alkane?",
+            "options": ["CO and H₂O", "C and H₂O", "CO₂ and H₂O", "CO₂ and H₂"],
+            "answer": 2,
+            "explanation": "Complete combustion (excess O₂): all carbon → CO₂, all hydrogen → H₂O. Example: CH₄ + 2O₂ → CO₂ + 2H₂O. Incomplete combustion (limited O₂) produces toxic CO and/or soot (C)."
+        },
+        {
+            "question": "Why is carbon monoxide (CO) from incomplete combustion dangerous?",
+            "options": [
+                "It is corrosive to metals",
+                "It reacts with water to form acid rain",
+                "It binds to haemoglobin ~200× more strongly than O₂, preventing oxygen transport",
+                "It is highly explosive"
+            ],
+            "answer": 2,
+            "explanation": "CO binds irreversibly to haemoglobin (the red blood cell oxygen carrier) much more strongly than O₂. This prevents oxygen transport to cells, causing suffocation at the cellular level. Even small concentrations are lethal."
+        },
+        {
+            "question": "n-Butane and methylpropane both have formula C₄H₁₀. What are they called?",
+            "options": ["Isotopes", "Isomers", "Homologs", "Polymers"],
+            "answer": 1,
+            "explanation": "Structural isomers — same molecular formula (C₄H₁₀) but different structural arrangement. n-Butane is straight chain; methylpropane is branched. They have different boiling points: n-butane −1°C, methylpropane −12°C."
+        },
+        {
+            "question": "What is the general formula for alkenes?",
+            "options": ["CₙH₂ₙ₊₂", "CₙH₂ₙ", "CₙH₂ₙ₋₂", "CₙH₂ₙ₊₁"],
+            "answer": 1,
+            "explanation": "Alkenes: CₙH₂ₙ. They have one C=C double bond, which 'uses up' two hydrogens compared to alkanes. Ethene: C₂H₄, Propene: C₃H₆, But-1-ene and but-2-ene: both C₄H₈."
+        },
+        {
+            "question": "How do you test for the presence of a C=C double bond?",
+            "options": [
+                "Add limewater — turns milky if C=C present",
+                "Add bromine water — decolorizes if C=C present",
+                "Add universal indicator — turns red if C=C present",
+                "Add sodium — fizzes if C=C present"
+            ],
+            "answer": 1,
+            "explanation": "Bromine water (orange/brown) decolorizes (turns colourless) when added to an alkene — Br₂ adds across the C=C double bond. Alkanes don't react with Br₂ at room temperature, so no colour change occurs with them."
+        },
+        {
+            "question": "What type of reaction do alkenes undergo that alkanes do not?",
+            "options": [
+                "Combustion",
+                "Substitution",
+                "Addition",
+                "Decomposition"
+            ],
+            "answer": 2,
+            "explanation": "Alkenes undergo addition reactions — atoms add across the C=C double bond, breaking the π bond. Alkanes only react by substitution (with halogens under UV) or combustion. The reactive π bond is the key difference."
+        },
+        {
+            "question": "What are the conditions for the hydrogenation of ethene?",
+            "options": [
+                "Concentrated H₂SO₄, room temperature",
+                "Ni catalyst, ~150°C",
+                "Sunlight, room temperature",
+                "Fe catalyst, 450°C, 200 atm"
+            ],
+            "answer": 1,
+            "explanation": "Ethene + H₂ → ethane. Conditions: Ni catalyst, ~150°C. This addition reaction is used industrially to harden vegetable oils (margarine production). It has 100% atom economy — all atoms end up in the product."
+        },
+        {
+            "question": "What is the industrial method for making ethanol from ethene?",
+            "options": [
+                "Fermentation of glucose using yeast",
+                "Hydration: CH₂=CH₂ + H₂O → C₂H₅OH, using H₃PO₄ catalyst",
+                "Oxidation of methane",
+                "Reduction of ethanoic acid"
+            ],
+            "answer": 1,
+            "explanation": "Industrial hydration: C₂H₄ + H₂O → C₂H₅OH. Conditions: H₃PO₄ catalyst, 300°C, 60 atm (steam). This is fast, continuous, and gives high purity product. It uses ethene from crude oil cracking (non-renewable)."
+        },
+        {
+            "question": "What is the monomer for poly(ethene)?",
+            "options": [
+                "Ethane (C₂H₆)",
+                "Ethyne (C₂H₂)",
+                "Ethene (C₂H₄)",
+                "Methane (CH₄)"
+            ],
+            "answer": 2,
+            "explanation": "Poly(ethene) is made from ethene monomers: n(CH₂=CH₂) → -(CH₂-CH₂)ₙ-. The double bond opens during addition polymerization, linking monomers. No atoms are lost — 100% atom economy."
+        },
+        {
+            "question": "What is the functional group in an alcohol?",
+            "options": ["–COOH", "–NH₂", "–OH", "–COO–"],
+            "answer": 2,
+            "explanation": "Alcohols contain the hydroxyl group (–OH) bonded to a carbon atom. The –OH group is polar, forms hydrogen bonds, and is responsible for alcohol's high boiling point and water miscibility."
+        },
+        {
+            "question": "What happens when ethanol is oxidized by acidified K₂Cr₂O₇?",
+            "options": [
+                "Ethanol → ethene + water",
+                "Ethanol → ethanal (aldehyde), then → ethanoic acid (carboxylic acid)",
+                "Ethanol → ethane + CO₂",
+                "Ethanol → methanol + CO₂"
+            ],
+            "answer": 1,
+            "explanation": "Primary alcohols are oxidized in two steps: ethanol → ethanal (CH₃CHO, an aldehyde) → ethanoic acid (CH₃COOH). The orange K₂Cr₂O₇ turns green as Cr is reduced. Distilling quickly gives the aldehyde; refluxing gives the acid."
+        },
+        {
+            "question": "What type of alcohol CANNOT be oxidized by acidified K₂Cr₂O₇?",
+            "options": [
+                "Primary",
+                "Secondary",
+                "Tertiary",
+                "All alcohols can be oxidized"
+            ],
+            "answer": 2,
+            "explanation": "Tertiary alcohols cannot be oxidized — there is no hydrogen atom on the carbon bearing the –OH group. Primary alcohols → aldehydes → carboxylic acids. Secondary alcohols → ketones (no further oxidation). Tertiary → no reaction with K₂Cr₂O₇."
+        },
+        {
+            "question": "What is the dehydration product when ethanol is heated with concentrated H₂SO₄?",
+            "options": ["Ethane", "Ethanoic acid", "Ethene", "Diethyl ether"],
+            "answer": 2,
+            "explanation": "Dehydration removes water: C₂H₅OH → CH₂=CH₂ + H₂O. The –OH and a neighbouring H are eliminated. This is how ethene is produced from bio-ethanol. Conditions: conc. H₂SO₄ or Al₂O₃ catalyst, high temperature."
+        },
+        {
+            "question": "What are the two methods of producing ethanol and how do they differ?",
+            "options": [
+                "Both use yeast; one is faster",
+                "Fermentation (renewable, slow, batch, ~15% max) vs hydration of ethene (non-renewable, fast, continuous, high purity)",
+                "Both use catalysts; one is cheaper",
+                "Both use steam; one requires higher pressure"
+            ],
+            "answer": 1,
+            "explanation": "Fermentation: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ (yeast, ~35°C, renewable, batch, max ~15% alcohol). Hydration: C₂H₄ + H₂O → C₂H₅OH (H₃PO₄, 300°C, 60 atm, non-renewable crude oil, continuous, high purity)."
+        },
+        {
+            "question": "What functional group is present in carboxylic acids?",
+            "options": ["–OH only", "–COO–", "–COOH (carboxyl)", "–CO–"],
+            "answer": 2,
+            "explanation": "Carboxylic acids contain the –COOH (carboxyl) group — a carbonyl (C=O) and hydroxyl (–OH) on the same carbon. The C=O withdraws electron density, weakening the O–H bond and making carboxylic acids acidic (though weak)."
+        },
+        {
+            "question": "Ethanoic acid has a pH of ~2.9 at 0.1 mol/dm³. Why is this higher than HCl at the same concentration (pH=1)?",
+            "options": [
+                "Ethanoic acid has a larger molar mass",
+                "Ethanoic acid is a weak acid — only about 1% ionizes in water",
+                "Ethanoic acid contains more atoms per molecule",
+                "HCl reacts with the container"
+            ],
+            "answer": 1,
+            "explanation": "Ethanoic acid is a weak acid: CH₃COOH ⇌ CH₃COO⁻ + H⁺. Only ~1% ionizes, producing far fewer H⁺ ions than HCl (which is ~100% ionized) at the same concentration. Fewer H⁺ → higher pH."
+        },
+        {
+            "question": "Why are carboxylic acids more acidic than alcohols, even though both contain –OH?",
+            "options": [
+                "Carboxylic acids have longer carbon chains",
+                "The adjacent C=O group withdraws electron density from the O-H bond, making H easier to release; the carboxylate anion is also resonance-stabilized",
+                "Carboxylic acids contain more oxygen atoms",
+                "Alcohols have stronger O-H bonds due to different hybridization"
+            ],
+            "answer": 1,
+            "explanation": "In –COOH, the C=O pulls electron density away from the O–H bond, weakening it and making H⁺ easier to release. The resulting –COO⁻ is stabilized by resonance (negative charge delocalized over both oxygens). Alcohols have none of these stabilizing factors."
+        },
+        {
+            "question": "What is esterification?",
+            "options": [
+                "Breaking an ester into its components with water",
+                "The reaction of a carboxylic acid with an alcohol to form an ester and water",
+                "The oxidation of an alcohol to an aldehyde",
+                "The polymerization of alkene monomers"
+            ],
+            "answer": 1,
+            "explanation": "Esterification: carboxylic acid + alcohol ⇌ ester + water. Conditions: concentrated H₂SO₄ catalyst, heat. The reaction is reversible — use excess of one reactant or remove water to improve ester yield."
+        },
+        {
+            "question": "What is the name of the ester formed from ethanol and propanoic acid?",
+            "options": [
+                "Propyl ethanoate",
+                "Ethyl propanoate",
+                "Propyl methanoate",
+                "Ethyl ethanoate"
+            ],
+            "answer": 1,
+            "explanation": "Ester naming: alkyl group (from alcohol) + -anoate (from acid). Ethanol → ethyl. Propanoic acid → propanoate. Combined: ethyl propanoate. Formula: C₂H₅COOC₂H₅."
+        },
+        {
+            "question": "What is saponification?",
+            "options": [
+                "The fermentation of sugars to produce alcohol",
+                "Base hydrolysis of esters — used in soap-making; fats (esters) + NaOH → glycerol + fatty acid salts (soap)",
+                "The dehydration of alcohols to alkenes",
+                "The addition of H₂O to an alkene"
+            ],
+            "answer": 1,
+            "explanation": "Saponification is base (NaOH) hydrolysis of esters: ester + NaOH → carboxylate salt + alcohol. It's irreversible (unlike acid hydrolysis). Soap-making: triglyceride fats + NaOH → glycerol + fatty acid sodium salts (soap)."
+        },
+        {
+            "question": "What functional group do amines contain, and are they acidic or basic?",
+            "options": [
+                "–COOH — acidic",
+                "–NH₂ — basic (lone pair on N accepts protons)",
+                "–OH — neutral",
+                "–COO– — acidic"
+            ],
+            "answer": 1,
+            "explanation": "Amines contain –NH₂. The nitrogen has a lone pair that accepts protons (H⁺), making amines basic. CH₃NH₂ + H₂O ⇌ CH₃NH₃⁺ + OH⁻. They are related to ammonia (NH₃) — one or more H replaced by carbon groups."
+        },
+        {
+            "question": "What is the IUPAC name for CH₃CH₂CH₂OH?",
+            "options": ["Propan-2-ol", "Propan-1-ol", "Butanol", "Ethanol"],
+            "answer": 1,
+            "explanation": "3-carbon chain = prop-. Functional group –OH = -ol. OH is on carbon 1 (number from the end nearest the OH): propan-1-ol. If OH were on carbon 2: propan-2-ol."
+        },
+        {
+            "question": "What is a homologous series?",
+            "options": [
+                "A series of compounds with the same molecular formula",
+                "A family of compounds with the same functional group and general formula, each differing by CH₂",
+                "A series of reactions leading from one compound to another",
+                "A group of structural isomers"
+            ],
+            "answer": 1,
+            "explanation": "A homologous series is a family sharing the same functional group and general formula, consecutive members differing by –CH₂–. Members have similar chemical properties but gradually changing physical properties (BP increases with chain length)."
+        },
+        {
+            "question": "Why do branched alkanes have lower boiling points than straight-chain isomers?",
+            "options": [
+                "Branched alkanes have weaker covalent bonds",
+                "Branched shapes are more compact with less surface area contact between molecules, giving weaker London dispersion forces",
+                "Branched alkanes have lower molar masses",
+                "Branching introduces polar bonds"
+            ],
+            "answer": 1,
+            "explanation": "London (van der Waals) dispersion forces depend on surface area contact between molecules. Branched alkanes are more compact — less surface contact between molecules means weaker intermolecular forces and lower boiling points."
+        },
+        {
+            "question": "What reagent and colour change distinguishes an aldehyde from a ketone?",
+            "options": [
+                "Bromine water — decolorizes with aldehyde only",
+                "Tollens' reagent (Ag⁺ solution) — silver mirror forms with aldehyde, no reaction with ketone",
+                "Litmus — red with aldehyde, blue with ketone",
+                "Acidified K₂Cr₂O₇ — orange with both"
+            ],
+            "answer": 1,
+            "explanation": "Tollens' reagent: aldehyde reduces Ag⁺ → Ag (silver mirror on test tube). Ketone — no reaction. Also Fehling's solution: aldehyde reduces Cu²⁺ (blue) → Cu₂O (brick red precipitate). Ketones can't be further oxidized, so they don't react."
+        },
+        {
+            "question": "What is the product when ethene reacts with HBr?",
+            "options": [
+                "Bromoethene (vinyl bromide)",
+                "Bromoethane (C₂H₅Br)",
+                "1,2-dibromoethane",
+                "Ethanol"
+            ],
+            "answer": 1,
+            "explanation": "HBr adds across the C=C double bond: CH₂=CH₂ + HBr → CH₃CH₂Br (bromoethane). This is hydrohalogenation — H adds to one carbon, Br to the other. The double bond is broken and two new single bonds form."
+        },
+        {
+            "question": "What are positional isomers? Give an example.",
+            "options": [
+                "Compounds with the same functional group but different chain lengths",
+                "Compounds with the same molecular formula and functional group but in different positions on the chain",
+                "Compounds that are mirror images of each other",
+                "Compounds with different molecular formulas but similar properties"
+            ],
+            "answer": 1,
+            "explanation": "Positional isomers have the same formula and functional group but at different positions. Example: propan-1-ol (–OH on C1) vs propan-2-ol (–OH on C2), both C₃H₇OH. They have different boiling points and reactivity (2-ol can't be oxidized to a carboxylic acid)."
+        },
+        {
+            "question": "In fermentation, what is the maximum alcohol concentration that can be achieved?",
+            "options": ["5%", "10%", "15%", "95%"],
+            "answer": 2,
+            "explanation": "Yeast is killed by ethanol concentrations above ~15%. This limits fermentation to ~15% maximum alcohol. Industrial distillation is needed to concentrate further (e.g. spirits at 40%). The Haber-like compromise: enzyme activity vs product inhibition."
+        }
+    ],
+    "Quiz on Laboratory Techniques": [
+        {
+            "question": "Which physical property is exploited to separate substances using distillation?",
+            "options": [
+                "Particle size",
+                "Solubility in water",
+                "Boiling point",
+                "Volatility"
+            ],
+            "answer": 2,
+            "explanation": "Distillation relies on differences in boiling point. The component with the lower boiling point evaporates first, is condensed, and then collected."
+        },
+        {
+            "question": "What does the Rf value in chromatography represent, and what is its maximum possible value?",
+            "options": [
+                "The speed of the solvent; maximum value is 10",
+                "The ratio of distance traveled by the spot to the solvent front; maximum value is 1",
+                "The thickness of the stationary phase; maximum value is 0.5",
+                "The time taken for elution; maximum value is 100"
+            ],
+            "answer": 1,
+            "explanation": "The Retention factor (Rf) is the distance traveled by the spot divided by the distance traveled by the solvent front. Since the spot cannot travel further than the solvent, the value is always between 0 and 1."
+        },
+        {
+            "question": "Which type of chromatography uses an inert gas as the mobile phase?",
+            "options": [
+                "Thin-layer chromatography (TLC)",
+                "High-performance liquid chromatography (HPLC)",
+                "Gas chromatography (GC)",
+                "Paper chromatography"
+            ],
+            "answer": 2,
+            "explanation": "Gas chromatography (GC) uses an inert gas as the mobile phase to carry vaporized organic compounds through a column."
+        },
+        {
+            "question": "In crystallization, why is slow cooling preferred over fast cooling?",
+            "options": [
+                "It prevents the solvent from evaporating too quickly",
+                "It results in larger and purer crystals",
+                "It ensures all soluble impurities are trapped inside the crystals",
+                "It increases the solubility of the compound"
+            ],
+            "answer": 1,
+            "explanation": "Slow cooling allows the molecules to arrange themselves into a regular lattice, resulting in larger, purer crystals. Fast cooling often traps impurities and results in small crystals."
+        },
+        {
+            "question": "What is the primary goal of Gravimetric Analysis?",
+            "options": [
+                "To determine the boiling point of a liquid",
+                "To measure the pH of a solution during titration",
+                "To determine the amount of a substance by weighing an insoluble product",
+                "To identify the components of a dye using light"
+            ],
+            "answer": 2,
+            "explanation": "Gravimetric analysis involves converting a substance into an insoluble precipitate, which is then filtered, dried, and weighed precisely to calculate the original amount of the substance."
+        },
+        {
+            "question": "In a calorimetry experiment, if the temperature of the surroundings increases, the reaction is classified as:",
+            "options": [
+                "Endothermic with a positive ΔH",
+                "Exothermic with a positive ΔH",
+                "Endothermic with a negative ΔH",
+                "Exothermic with a negative ΔH"
+            ],
+            "answer": 3,
+            "explanation": "Exothermic reactions release heat to the surroundings, causing the temperature to rise. By convention, because the system loses energy, ΔH is negative."
+        },
+        {
+            "question": "Using the formula q = mcΔT, what does 'c' represent when calculating heat energy transferred in an aqueous solution?",
+            "options": [
+                "Concentration of the reactant",
+                "The speed of light",
+                "Specific heat capacity (usually of water, 4.18 J g⁻¹ K⁻¹)",
+                "The combustion constant"
+            ],
+            "answer": 2,
+            "explanation": "In calorimetry, 'c' is the specific heat capacity, which is the amount of energy required to raise the temperature of 1 gram of a substance by 1 degree Celsius (or Kelvin)."
+        },
+        {
+            "question": "According to Hess's Law, the enthalpy change of a reaction depends on:",
+            "options": [
+                "The number of steps in the mechanism",
+                "The route taken to reach the products",
+                "Only the initial and final states",
+                "The speed at which the reaction occurs"
+            ],
+            "answer": 2,
+            "explanation": "Hess's Law states that the total enthalpy change is independent of the route taken; it is a state function that only depends on the start and end points."
+        },
+        {
+            "question": "Why are enthalpy calculations based on 'Average Bond Enthalpies' often less accurate than those from Hess's Law cycles?",
+            "options": [
+                "Bond enthalpies are only measured at absolute zero",
+                "Bond enthalpies are average values across different compounds",
+                "Hess's Law ignores the conservation of energy",
+                "Bond enthalpies only apply to solids"
+            ],
+            "answer": 1,
+            "explanation": "Average bond enthalpies are generalized values. The actual energy of a specific bond (like C-H) varies slightly depending on the specific molecule it is in."
+        },
+        {
+            "question": "What is the 'equivalence point' in a titration?",
+            "options": [
+                "The moment the indicator changes color",
+                "When the volume in the burette equals the volume in the flask",
+                "The point where stoichiometrically equivalent amounts of reactants have reacted",
+                "When the pH of the solution reaches exactly 7.0"
+            ],
+            "answer": 2,
+            "explanation": "The equivalence point is the theoretical point where the moles of titrant and moles of analyte are in the exact ratio defined by the balanced chemical equation."
+        },
+        {
+            "question": "Which indicator is most suitable for a titration between a Strong Acid and a Weak Base?",
+            "options": [
+                "Phenolphthalein",
+                "Methyl orange",
+                "Universal indicator",
+                "Starch solution"
+            ],
+            "answer": 1,
+            "explanation": "For a strong acid + weak base titration, the equivalence point occurs at an acidic pH (~5). Methyl orange is suitable because its color change interval (3.1–4.4) is in the acidic range."
+        },
+        {
+            "question": "Why should a burette be rinsed with the standard solution before starting a titration?",
+            "options": [
+                "To ensure the burette is clean of any dust",
+                "To prevent the standard solution from being diluted by residual water",
+                "To lubricate the tap of the burette",
+                "To make the glass more transparent"
+            ],
+            "answer": 1,
+            "explanation": "If the burette is rinsed only with water, droplets remaining on the inside will dilute the standard solution, leading to an inaccurately high titre reading."
+        },
+        {
+            "question": "What are 'concordant results' in the context of titration?",
+            "options": [
+                "Results that match the literature value exactly",
+                "Titre volumes that are within 0.10 cm³ of each other",
+                "Results obtained by two different students",
+                "Calculations that have been checked for errors"
+            ],
+            "answer": 1,
+            "explanation": "Concordant results are multiple titration runs where the volumes are very close (typically within 0.10 cm³), ensuring the precision and reproducibility of the data."
+        },
+        {
+            "question": "When is a 'Back Titration' typically employed?",
+            "options": [
+                "When the reaction is too fast to measure",
+                "When the analyte is a highly concentrated strong acid",
+                "When the substance does not react directly or cleanly with a standard solution",
+                "When there is no indicator available"
+            ],
+            "answer": 2,
+            "explanation": "Back titration is used for substances that are insoluble (like limestone) or react too slowly. An excess of reagent is added, and the remaining unreacted reagent is then titrated."
+        },
+        {
+            "question": "In the titration of H₂SO₄ with NaOH, what is the mole ratio of Acid to Base?",
+            "options": ["1:1", "2:1", "1:2", "3:1"],
+            "answer": 2,
+            "explanation": "The balanced equation is H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O. Therefore, 1 mole of sulfuric acid reacts with 2 moles of sodium hydroxide (1:2 ratio)."
+        }
+    ]
+}

@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chemical Bonding — Covalent</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Chemical Bonding</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 2 — Covalent Bonding
+            </h2>
+
+            <h2>Sharing Instead of Transferring</h2>
+            <p>
+                When two non-metals bond, neither one has a strong enough pull
+                to completely steal electrons from the other. Instead, they
+                <strong>share</strong> electron pairs. Each atom contributes one
+                electron to a shared pair, and both atoms count those shared
+                electrons as their own. This is a covalent bond.
+            </p>
+
+            <div class="law-box">
+                <h3>Covalent Bond</h3>
+                <p>
+                    A covalent bond is a
+                    <strong>shared pair of electrons</strong> between two atoms.
+                    The bond forms because both nuclei attract the shared
+                    electrons, holding the atoms together. The more pairs
+                    shared, the stronger and shorter the bond.
+                </p>
+                <p style="margin-top: 8px">
+                    <strong>Single bond:</strong> 1 shared pair (e.g. H–H, H–Cl)
+                </p>
+                <p>
+                    <strong>Double bond:</strong> 2 shared pairs (e.g. O=O, C=O)
+                </p>
+                <p><strong>Triple bond:</strong> 3 shared pairs (e.g. N≡N)</p>
+            </div>
+
+            <!-- SVG: H2 covalent bond -->
+            <svg
+                viewBox="0 0 500 160"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 24px 0; border-radius: 10px"
+            >
+                <rect width="500" height="160" fill="#0f0f1a" rx="10" />
+                <text
+                    x="250"
+                    y="20"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="13"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    H₂ — Single Covalent Bond
+                </text>
+                <!-- H atoms -->
+                <circle
+                    cx="140"
+                    cy="90"
+                    r="35"
+                    fill="none"
+                    stroke="#4f46e5"
+                    stroke-width="1.5"
+                    stroke-dasharray="5,3"
+                />
+                <circle
+                    cx="140"
+                    cy="90"
+                    r="10"
+                    fill="#312e81"
+                    stroke="#818cf8"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="140"
+                    y="94"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="9"
+                    font-weight="bold"
+                >
+                    H
+                </text>
+                <circle
+                    cx="360"
+                    cy="90"
+                    r="35"
+                    fill="none"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                    stroke-dasharray="5,3"
+                />
+                <circle
+                    cx="360"
+                    cy="90"
+                    r="10"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="360"
+                    y="94"
+                    text-anchor="middle"
+                    fill="#bbf7d0"
+                    font-size="9"
+                    font-weight="bold"
+                >
+                    H
+                </text>
+                <!-- Shared electrons -->
+                <circle
+                    cx="220"
+                    cy="80"
+                    r="9"
+                    fill="#ef4444"
+                    stroke="#fca5a5"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="220"
+                    y="84"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="6"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <circle
+                    cx="280"
+                    cy="80"
+                    r="9"
+                    fill="#f97316"
+                    stroke="#fdba74"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="280"
+                    y="84"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="6"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <!-- Labels -->
+                <text
+                    x="250"
+                    y="125"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    shared pair — both electrons now "belong" to both H atoms
+                </text>
+                <text
+                    x="140"
+                    y="145"
+                    text-anchor="middle"
+                    fill="#4f46e5"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    H contributes 1e⁻
+                </text>
+                <text
+                    x="360"
+                    y="145"
+                    text-anchor="middle"
+                    fill="#22c55e"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    H contributes 1e⁻
+                </text>
+                <!-- Bond label -->
+                <line
+                    x1="150"
+                    y1="90"
+                    x2="350"
+                    y2="90"
+                    stroke="#fbbf24"
+                    stroke-width="2"
+                    stroke-dasharray="6,3"
+                    opacity="0.5"
+                />
+                <text
+                    x="250"
+                    y="108"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    H–H bond
+                </text>
+            </svg>
+
+            <h2>Lewis Dot Structures</h2>
+            <p>
+                Lewis (dot-and-cross) diagrams show the valence electrons of
+                each atom and how they're shared or kept as lone pairs. Each
+                line in a structural formula represents one shared pair (one
+                bond).
+            </p>
+
+            <!-- SVG: Dot structures of H2O and CO2 -->
+            <svg
+                viewBox="0 0 600 180"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="600" height="180" fill="#0f0f1a" rx="10" />
+                <text
+                    x="150"
+                    y="20"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    H₂O
+                </text>
+                <text
+                    x="430"
+                    y="20"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    CO₂
+                </text>
+
+                <!-- H2O diagram -->
+                <circle
+                    cx="150"
+                    cy="90"
+                    r="28"
+                    fill="#1e3a5f"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="150"
+                    y="94"
+                    text-anchor="middle"
+                    fill="#bae6fd"
+                    font-size="14"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    O
+                </text>
+                <circle
+                    cx="80"
+                    cy="130"
+                    r="16"
+                    fill="#312e81"
+                    stroke="#818cf8"
+                    stroke-width="1"
+                />
+                <text
+                    x="80"
+                    y="134"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    H
+                </text>
+                <circle
+                    cx="220"
+                    cy="130"
+                    r="16"
+                    fill="#312e81"
+                    stroke="#818cf8"
+                    stroke-width="1"
+                />
+                <text
+                    x="220"
+                    y="134"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    H
+                </text>
+                <!-- bonds -->
+                <line
+                    x1="122"
+                    y1="112"
+                    x2="96"
+                    y2="128"
+                    stroke="#86efac"
+                    stroke-width="2.5"
+                />
+                <line
+                    x1="178"
+                    y1="112"
+                    x2="204"
+                    y2="128"
+                    stroke="#86efac"
+                    stroke-width="2.5"
+                />
+                <!-- lone pairs on O -->
+                <text
+                    x="120"
+                    y="72"
+                    fill="#fbbf24"
+                    font-size="12"
+                    font-family="monospace"
+                >
+                    ••
+                </text>
+                <text
+                    x="166"
+                    y="72"
+                    fill="#fbbf24"
+                    font-size="12"
+                    font-family="monospace"
+                >
+                    ••
+                </text>
+                <text
+                    x="150"
+                    y="150"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    2 bonds + 2 lone pairs on O
+                </text>
+                <text
+                    x="150"
+                    y="165"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    O gets 8e⁻, each H gets 2e⁻ ✓
+                </text>
+
+                <!-- CO2 diagram -->
+                <circle
+                    cx="430"
+                    cy="90"
+                    r="28"
+                    fill="#1e3a5f"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="430"
+                    y="94"
+                    text-anchor="middle"
+                    fill="#bae6fd"
+                    font-size="14"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    C
+                </text>
+                <circle
+                    cx="340"
+                    cy="90"
+                    r="24"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="1"
+                />
+                <text
+                    x="340"
+                    y="94"
+                    text-anchor="middle"
+                    fill="#bbf7d0"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    O
+                </text>
+                <circle
+                    cx="520"
+                    cy="90"
+                    r="24"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="1"
+                />
+                <text
+                    x="520"
+                    y="94"
+                    text-anchor="middle"
+                    fill="#bbf7d0"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    O
+                </text>
+                <!-- double bonds -->
+                <line
+                    x1="368"
+                    y1="86"
+                    x2="402"
+                    y2="86"
+                    stroke="#86efac"
+                    stroke-width="2.5"
+                />
+                <line
+                    x1="368"
+                    y1="94"
+                    x2="402"
+                    y2="94"
+                    stroke="#86efac"
+                    stroke-width="2.5"
+                />
+                <line
+                    x1="458"
+                    y1="86"
+                    x2="492"
+                    y2="86"
+                    stroke="#86efac"
+                    stroke-width="2.5"
+                />
+                <line
+                    x1="458"
+                    y1="94"
+                    x2="492"
+                    y2="94"
+                    stroke="#86efac"
+                    stroke-width="2.5"
+                />
+                <!-- lone pairs on O's -->
+                <text
+                    x="314"
+                    y="82"
+                    fill="#fbbf24"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    ••
+                </text>
+                <text
+                    x="314"
+                    y="102"
+                    fill="#fbbf24"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    ••
+                </text>
+                <text
+                    x="528"
+                    y="82"
+                    fill="#fbbf24"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    ••
+                </text>
+                <text
+                    x="528"
+                    y="102"
+                    fill="#fbbf24"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    ••
+                </text>
+                <text
+                    x="430"
+                    y="150"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    O=C=O — two double bonds
+                </text>
+                <text
+                    x="430"
+                    y="165"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    C gets 8e⁻, each O gets 8e⁻ ✓
+                </text>
+            </svg>
+
+            <h2>Polar vs Non-Polar Covalent Bonds</h2>
+            <p>
+                Not all covalent bonds are equal. When two atoms of
+                <strong>different electronegativity</strong> share electrons,
+                the electrons are pulled more towards the more electronegative
+                atom. This creates an unequal bond — a
+                <strong>polar covalent bond</strong>.
+            </p>
+
+            <div class="definition">
+                <p>
+                    <strong>Non-polar covalent:</strong> Electrons shared
+                    equally. Same element (H–H, Cl–Cl) or similar
+                    electronegativity. No partial charges.
+                </p>
+                <p>
+                    <strong>Polar covalent:</strong> Electrons shared unequally.
+                    δ⁺ on the less electronegative atom, δ⁻ on the more
+                    electronegative atom.
+                </p>
+                <p>
+                    Example: H–Cl. Cl is more electronegative than H → electrons
+                    pulled towards Cl → Cl is δ⁻, H is δ⁺.
+                </p>
+                <p>
+                    <strong
+                        >If EN difference is large enough (&gt; ~1.8 on Pauling
+                        scale):</strong
+                    >
+                    effectively ionic — electron essentially transferred.
+                </p>
+            </div>
+
+            <!-- SVG: polarity spectrum -->
+            <svg
+                viewBox="0 0 600 80"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="600" height="80" fill="#0f0f1a" rx="10" />
+                <defs>
+                    <linearGradient
+                        id="polGrad"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="0%"
+                    >
+                        <stop
+                            offset="0%"
+                            style="stop-color: #4f46e5; stop-opacity: 1"
+                        />
+                        <stop
+                            offset="50%"
+                            style="stop-color: #7c3aed; stop-opacity: 1"
+                        />
+                        <stop
+                            offset="100%"
+                            style="stop-color: #dc2626; stop-opacity: 1"
+                        />
+                    </linearGradient>
+                </defs>
+                <rect
+                    x="40"
+                    y="30"
+                    width="520"
+                    height="20"
+                    rx="5"
+                    fill="url(#polGrad)"
+                />
+                <text
+                    x="40"
+                    y="22"
+                    fill="#a5b4fc"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Non-polar covalent
+                </text>
+                <text
+                    x="210"
+                    y="22"
+                    fill="#c084fc"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Polar covalent
+                </text>
+                <text
+                    x="460"
+                    y="22"
+                    fill="#fca5a5"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Ionic
+                </text>
+                <text
+                    x="100"
+                    y="65"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    H–H, Cl–Cl
+                </text>
+                <text
+                    x="300"
+                    y="65"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    H–Cl, H–O, C–O
+                </text>
+                <text
+                    x="510"
+                    y="65"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Na–Cl, Mg–O
+                </text>
+                <line
+                    x1="200"
+                    y1="28"
+                    x2="200"
+                    y2="52"
+                    stroke="white"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                    opacity="0.4"
+                />
+                <line
+                    x1="420"
+                    y1="28"
+                    x2="420"
+                    y2="52"
+                    stroke="white"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                    opacity="0.4"
+                />
+            </svg>
+
+            <h2>Properties of Covalent Compounds</h2>
+            <div class="definition">
+                <p>
+                    <strong>Simple molecular compounds</strong> (H₂O, CO₂, HCl):
+                </p>
+                <p>
+                    Low melting and boiling points — the covalent bonds
+                    <em>within</em> molecules are strong, but the forces
+                    <em>between</em> molecules (intermolecular forces) are weak.
+                    Little energy needed to separate the molecules.
+                </p>
+                <p>
+                    Usually poor conductors — no free ions or electrons (except
+                    when ionized in water).
+                </p>
+                <p>
+                    Can be polar or non-polar — affects solubility ("like
+                    dissolves like").
+                </p>
+                <p style="margin-top: 10px">
+                    <strong>Giant covalent structures</strong> (diamond, SiO₂):
+                </p>
+                <p>
+                    Every atom is covalently bonded to neighbours in a giant 3D
+                    network. Extremely high melting points. Very hard. Don't
+                    conduct (usually).
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Why Does Ice Float?</h3>
+                <p>
+                    Water molecules are polar (O is δ⁻, each H is δ⁺). In ice,
+                    molecules form hydrogen bonds in a hexagonal lattice that
+                    spaces them further apart than in liquid water — making ice
+                    less dense than liquid water. Ice floats.
+                </p>
+                <p>
+                    This is a direct consequence of polar covalent bonds
+                    creating partial charges, which then create hydrogen bonds
+                    between molecules.
+                </p>
+                <p>
+                    <span class="highlight"
+                        >From bond type → polarity → intermolecular forces →
+                        physical property. The chain of reasoning always runs in
+                        this direction.</span
+                    >
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

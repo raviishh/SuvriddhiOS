@@ -1,0 +1,170 @@
+* {
+    font-family: sans-serif;
+    --progress-width: 0;
+}
+body {
+    background-color: #121212;
+}
+
+.progress_outer {
+    height: 20px;
+    width: 50vw;
+    margin-left: 25vw;
+    margin-top: 25vh;
+    background-color: rgb(43, 42, 42);
+    border-radius: 10px;
+}
+
+.progress_inner {
+    height: 20px;
+    width: 0%;
+    background-color: white;
+    border-radius: 10px;
+    transition: width 0.6s ease;
+}
+
+.option {
+    border-style: solid;
+    transition:
+        background-color 0.4s ease,
+        border-color 0.4s ease;
+}
+
+#option1.correct,
+#option2.correct,
+#option3.correct,
+#option4.correct {
+    --main_color: rgb(84, 194, 0);
+    border-color: var(--main_color);
+    background-color: color-mix(in srgb, var(--main_color), transparent 80%);
+}
+
+#option1.wrong,
+#option2.wrong,
+#option3.wrong,
+#option4.wrong {
+    --main_color: rgb(255, 73, 73);
+    border-color: var(--main_color);
+    background-color: color-mix(in srgb, var(--main_color), transparent 80%);
+}
+
+#option1.faded,
+#option2.faded,
+#option3.faded,
+#option4.faded {
+    border-color: #333;
+    background-color: #121212;
+}
+
+.option.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.completion {
+    margin-top: -10vh;
+    opacity: 0;
+    text-align: center;
+    color: rgb(28, 207, 210);
+    transition: opacity 0.4s ease;
+}
+
+.completion.visible {
+    opacity: 1;
+}
+
+.question {
+    transition: opacity 0.4s ease;
+}
+
+.question.hidden {
+    opacity: 0;
+}
+
+.explanation,
+.next {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.explanation.visible,
+.next.visible {
+    opacity: 1;
+}
+
+.question {
+    width: 100%;
+    text-align: center;
+    margin-top: 5vh;
+    color: white;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.option {
+    width: 60vh;
+    height: 5vh;
+    border-radius: 50px;
+    color: white;
+}
+
+.next {
+    width: 60vh;
+    height: 5vh;
+    border-radius: 50px;
+    color: white;
+}
+
+#option1 {
+    --main_color: rgb(255, 73, 73);
+    border-color: var(--main_color);
+    border-width: 2px;
+    background-color: color-mix(in srgb, var(--main_color), transparent 80%);
+}
+
+#option2 {
+    --main_color: rgb(255, 179, 0);
+    border-color: var(--main_color);
+    border-width: 2px;
+    background-color: color-mix(in srgb, var(--main_color), transparent 80%);
+}
+
+#option3 {
+    --main_color: rgb(84, 194, 0);
+    border-color: var(--main_color);
+    border-width: 2px;
+    background-color: color-mix(in srgb, var(--main_color), transparent 80%);
+}
+
+#option4 {
+    --main_color: rgb(0, 142, 194);
+    border-color: var(--main_color);
+    border-width: 2px;
+    background-color: color-mix(in srgb, var(--main_color), transparent 80%);
+}
+
+.explanation {
+    opacity: 0;
+    width: 50vw;
+    margin: auto;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-top: -2vh;
+    color: white;
+    border-left: 3px solid white;
+    background-color: color-mix(in srgb, white, transparent 90%);
+}
+
+#next {
+    border-style: solid;
+    margin-top: 5vh;
+    --main_color: rgb(18, 18, 18);
+    border-color: #333;
+    border-width: 2px;
+    background-color: color-mix(in srgb, var(--main_color), transparent 80%);
+}

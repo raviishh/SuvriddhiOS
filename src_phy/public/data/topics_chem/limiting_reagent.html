@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stoichiometry — Limiting Reagent and Yield</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Stoichiometry</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 3 — Limiting Reagent and Percentage Yield
+            </h2>
+
+            <h2>When Reactants Run Out</h2>
+            <p>
+                In real chemistry, you rarely mix reactants in perfect
+                stoichiometric ratios. One reactant runs out before the other —
+                and once it's gone, the reaction stops, no matter how much of
+                the other reactant remains. The reactant that runs out first is
+                the <strong>limiting reagent</strong>.
+            </p>
+
+            <div class="law-box">
+                <h3>The Limiting Reagent</h3>
+                <p>
+                    The limiting reagent is the reactant that is
+                    <strong>completely consumed</strong> first. It determines
+                    the maximum amount of product that can form. The other
+                    reactant is in excess — some is left over at the end.
+                </p>
+            </div>
+
+            <!-- SVG: car analogy for limiting reagent -->
+            <svg
+                viewBox="0 0 600 130"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="600" height="130" fill="#0f0f1a" rx="10" />
+                <text
+                    x="300"
+                    y="20"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Limiting Reagent — The Analogy
+                </text>
+                <!-- 2H2 + O2 → 2H2O -->
+                <text
+                    x="60"
+                    y="45"
+                    text-anchor="middle"
+                    fill="#7dd3fc"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    H₂ molecules: 6
+                </text>
+                <text
+                    x="60"
+                    y="62"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    O₂ molecules: 4
+                </text>
+                <text
+                    x="60"
+                    y="79"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Ratio needed: 2:1
+                </text>
+                <!-- boxes -->
+                <rect
+                    x="150"
+                    y="35"
+                    width="300"
+                    height="60"
+                    rx="6"
+                    fill="#1a1a2e"
+                    stroke="#4f46e5"
+                    stroke-width="1"
+                />
+                <text
+                    x="300"
+                    y="58"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    Can make: 3 pairs (uses 6H₂ + 3O₂)
+                </text>
+                <text
+                    x="300"
+                    y="76"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    H₂ = limiting (all used up)
+                </text>
+                <text
+                    x="300"
+                    y="90"
+                    text-anchor="middle"
+                    fill="#f97316"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    O₂ = excess (1 molecule left over)
+                </text>
+                <!-- result -->
+                <text
+                    x="530"
+                    y="60"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    3 H₂O
+                </text>
+                <text
+                    x="530"
+                    y="76"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    formed
+                </text>
+                <line
+                    x1="450"
+                    y1="65"
+                    x2="490"
+                    y2="65"
+                    stroke="#fbbf24"
+                    stroke-width="1.5"
+                    stroke-dasharray="3,2"
+                />
+                <text
+                    x="300"
+                    y="115"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    2H₂ + O₂ → 2H₂O &nbsp; (ratio 2:1:2)
+                </text>
+            </svg>
+
+            <h2>Finding the Limiting Reagent</h2>
+            <div class="definition">
+                <p>
+                    <strong
+                        >Method: Calculate moles needed vs moles
+                        available</strong
+                    >
+                </p>
+                <p>1. Convert all given masses to moles.</p>
+                <p>2. Divide each by its stoichiometric coefficient.</p>
+                <p>
+                    3. The reactant with the <strong>smallest result</strong> is
+                    the limiting reagent.
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Finding the Limiting Reagent</h3>
+                <p>
+                    10 g of H₂ and 60 g of O₂ are mixed. &nbsp; 2H₂ + O₂ → 2H₂O
+                </p>
+                <p>
+                    <strong>Moles:</strong> n(H₂) = 10/2 = 5 mol
+                    &nbsp;&nbsp;&nbsp; n(O₂) = 60/32 = 1.875 mol
+                </p>
+                <p>
+                    <strong>Divide by coefficient:</strong> H₂: 5/2 = 2.5
+                    &nbsp;&nbsp;&nbsp; O₂: 1.875/1 = 1.875
+                </p>
+                <p><strong>Smaller value = limiting reagent: O₂</strong></p>
+                <p>n(H₂O) = 2 × n(O₂) = 2 × 1.875 = 3.75 mol</p>
+                <p>m(H₂O) = 3.75 × 18 = <strong>67.5 g</strong></p>
+                <p>
+                    H₂ remaining = 5 − (2 × 1.875) = 5 − 3.75 =
+                    <strong>1.25 mol H₂ left over</strong>
+                </p>
+                <p>
+                    <span class="highlight"
+                        >Once you identify the limiting reagent, ALL subsequent
+                        calculations are based on the moles of the limiting
+                        reagent only. Ignore the excess.</span
+                    >
+                </p>
+            </div>
+
+            <h2>Theoretical Yield vs Actual Yield</h2>
+            <p>
+                Stoichiometry gives you the <strong>theoretical yield</strong> —
+                the maximum possible amount of product based on the limiting
+                reagent. In practice, you almost always get less.
+            </p>
+
+            <div class="definition">
+                <p>
+                    <strong>Theoretical yield:</strong> The maximum mass of
+                    product calculated from the stoichiometry. Assumes 100% of
+                    limiting reagent converts to product.
+                </p>
+                <p style="margin-top: 8px">
+                    <strong>Actual yield:</strong> The mass of product actually
+                    obtained in the experiment.
+                </p>
+                <p style="margin-top: 8px">
+                    <strong
+                        >Percentage yield = (Actual yield / Theoretical yield) ×
+                        100%</strong
+                    >
+                </p>
+            </div>
+
+            <div class="note">
+                <p>
+                    <strong>Why is % yield always &lt;100%?</strong> Several
+                    reasons:
+                </p>
+                <p>
+                    • Reaction may not go to completion (reversible reactions
+                    reach equilibrium)
+                </p>
+                <p>• Side reactions produce unwanted products</p>
+                <p>
+                    • Product is lost during transfer, filtration, or
+                    crystallization
+                </p>
+                <p>
+                    • Impure reactants mean fewer effective moles than
+                    calculated
+                </p>
+                <p>
+                    Percentage yield &gt;100% would violate conservation of mass
+                    — impossible in a real experiment (and means you made an
+                    error).
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Percentage Yield of Aspirin</h3>
+                <p>
+                    Theoretical yield calculated from stoichiometry: 5.40 g of
+                    aspirin.
+                </p>
+                <p>
+                    Actual yield after filtering, drying, and weighing: 4.21 g.
+                </p>
+                <p>% yield = (4.21 / 5.40) × 100 = <strong>78.0%</strong></p>
+                <p>
+                    <span class="highlight"
+                        >A yield of 78% is quite good for an undergraduate
+                        synthesis. Industrial processes are optimized to push
+                        yields as high as possible — even a 1% improvement on a
+                        million-tonne scale saves enormous amounts of money and
+                        reduces waste.</span
+                    >
+                </p>
+            </div>
+
+            <h2>Atom Economy</h2>
+            <p>
+                Percentage yield measures how much product you actually got.
+                <strong>Atom economy</strong> measures how efficiently the
+                reaction uses its atoms — how much of the reactant mass ends up
+                in the desired product rather than in byproducts.
+            </p>
+
+            <div class="equation">
+                <p>
+                    <strong
+                        >% Atom economy = (Molar mass of desired product / Sum
+                        of molar masses of all products) × 100%</strong
+                    >
+                </p>
+            </div>
+
+            <div class="definition">
+                <p>
+                    High atom economy = most atoms end up in the useful product
+                    = less waste = greener chemistry.
+                </p>
+                <p>
+                    Addition reactions (like alkene + H₂ → alkane) have 100%
+                    atom economy — all atoms end up in the product.
+                </p>
+                <p>
+                    Substitution reactions produce byproducts, lowering atom
+                    economy.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

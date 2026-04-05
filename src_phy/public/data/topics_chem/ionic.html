@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chemical Bonding — Ionic</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Chemical Bonding</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 1 — Ionic Bonding
+            </h2>
+
+            <h2>Why Do Atoms Bond At All?</h2>
+            <p>
+                Isolated atoms are generally in a higher energy state than
+                bonded atoms. Bonding releases energy and produces a more stable
+                arrangement. The driving force behind all chemical bonding is
+                the same: atoms rearranging their electrons to reach a lower
+                energy, more stable configuration — usually resembling the
+                nearest noble gas.
+            </p>
+
+            <div class="law-box">
+                <h3>The Octet Rule</h3>
+                <p>
+                    Most atoms bond in ways that give them
+                    <strong>8 electrons in their outermost shell</strong> — a
+                    full, stable octet. Hydrogen and helium are exceptions
+                    (stable with 2). This rule explains the vast majority of
+                    bonding for Period 2 and 3 elements.
+                </p>
+                <p style="margin-top: 8px">
+                    Exceptions exist (e.g. PCl₅ with 10 electrons around P, BF₃
+                    with only 6 around B), but for IB SL the octet rule holds in
+                    most cases you'll encounter.
+                </p>
+            </div>
+
+            <h2>What Is Ionic Bonding?</h2>
+            <p>
+                Ionic bonding occurs when one atom
+                <strong>transfers</strong> one or more electrons to another
+                atom. This happens between atoms with very different
+                electronegativities — typically a
+                <strong>metal and a non-metal</strong>. The metal loses
+                electrons to become a positive ion (cation); the non-metal gains
+                them to become a negative ion (anion). The resulting opposite
+                charges attract each other strongly.
+            </p>
+
+            <!-- SVG: Electron transfer NaCl -->
+            <svg
+                viewBox="0 0 620 200"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 24px 0; border-radius: 10px"
+            >
+                <rect width="620" height="200" fill="#0f0f1a" rx="10" />
+                <text
+                    x="310"
+                    y="20"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="13"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Electron Transfer: Na + Cl → Na⁺ + Cl⁻
+                </text>
+                <!-- Na atom -->
+                <circle
+                    cx="100"
+                    cy="110"
+                    r="45"
+                    fill="none"
+                    stroke="#4f46e5"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                    opacity="0.5"
+                />
+                <circle
+                    cx="100"
+                    cy="110"
+                    r="28"
+                    fill="none"
+                    stroke="#0ea5e9"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                    opacity="0.5"
+                />
+                <circle
+                    cx="100"
+                    cy="110"
+                    r="14"
+                    fill="#312e81"
+                    stroke="#818cf8"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="100"
+                    y="114"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="9"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Na
+                </text>
+                <!-- Na shell electrons (simplified) -->
+                <circle
+                    cx="100"
+                    cy="65"
+                    r="7"
+                    fill="#ef4444"
+                    stroke="#fca5a5"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="100"
+                    y="69"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="6"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <text
+                    x="100"
+                    y="165"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    Na (2,8,1)
+                </text>
+
+                <!-- Arrow -->
+                <path
+                    d="M155 95 Q260 40 340 95"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                    fill="none"
+                    marker-end="url(#redArr)"
+                />
+                <text
+                    x="250"
+                    y="58"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    1 electron
+                </text>
+                <text
+                    x="250"
+                    y="70"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    transferred →
+                </text>
+                <defs>
+                    <marker
+                        id="redArr"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#ef4444" />
+                    </marker>
+                </defs>
+
+                <!-- Cl atom -->
+                <circle
+                    cx="400"
+                    cy="110"
+                    r="45"
+                    fill="none"
+                    stroke="#22c55e"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                    opacity="0.5"
+                />
+                <circle
+                    cx="400"
+                    cy="110"
+                    r="28"
+                    fill="none"
+                    stroke="#0ea5e9"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                    opacity="0.5"
+                />
+                <circle
+                    cx="400"
+                    cy="110"
+                    r="14"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="400"
+                    y="114"
+                    text-anchor="middle"
+                    fill="#bbf7d0"
+                    font-size="9"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Cl
+                </text>
+                <!-- Cl has 7 electrons in outer shell, gains 1 -->
+                <text
+                    x="400"
+                    y="165"
+                    text-anchor="middle"
+                    fill="#22c55e"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    Cl (2,8,7)
+                </text>
+
+                <!-- Result -->
+                <text
+                    x="530"
+                    y="90"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="20"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Na⁺
+                </text>
+                <text
+                    x="530"
+                    y="115"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    (2,8) ← like Ne
+                </text>
+                <text
+                    x="530"
+                    y="140"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="20"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Cl⁻
+                </text>
+                <text
+                    x="530"
+                    y="162"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    (2,8,8) ← like Ar
+                </text>
+                <text
+                    x="490"
+                    y="78"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    →
+                </text>
+            </svg>
+
+            <div class="definition">
+                <p>Na → Na⁺ + e⁻ &nbsp;&nbsp; (oxidation — loses electron)</p>
+                <p>
+                    Cl + e⁻ → Cl⁻ &nbsp;&nbsp;&nbsp; (reduction — gains
+                    electron)
+                </p>
+                <p>
+                    Na⁺ + Cl⁻ → NaCl &nbsp; (ionic bond — electrostatic
+                    attraction)
+                </p>
+            </div>
+
+            <h2>The Ionic Lattice</h2>
+            <p>
+                Ionic compounds don't exist as individual pairs of ions. They
+                form giant 3D structures called <strong>ionic lattices</strong>,
+                where each ion is surrounded by several ions of opposite charge.
+                In NaCl, each Na⁺ is surrounded by 6 Cl⁻ ions, and each Cl⁻ by 6
+                Na⁺ — a 6:6 coordination.
+            </p>
+
+            <!-- SVG: NaCl lattice -->
+            <svg
+                viewBox="0 0 400 200"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                    width: 80%;
+                    margin: 20px auto;
+                    display: block;
+                    border-radius: 10px;
+                "
+            >
+                <rect width="400" height="200" fill="#0f0f1a" rx="10" />
+                <text
+                    x="200"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    NaCl Ionic Lattice (2D slice)
+                </text>
+                <!-- Grid of alternating ions -->
+                <!-- Row 1 -->
+                <circle cx="60" cy="60" r="18" fill="#fbbf24" opacity="0.8" />
+                <text
+                    x="60"
+                    y="65"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Na⁺
+                </text>
+                <circle cx="120" cy="60" r="22" fill="#86efac" opacity="0.7" />
+                <text
+                    x="120"
+                    y="65"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Cl⁻
+                </text>
+                <circle cx="180" cy="60" r="18" fill="#fbbf24" opacity="0.8" />
+                <text
+                    x="180"
+                    y="65"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Na⁺
+                </text>
+                <circle cx="240" cy="60" r="22" fill="#86efac" opacity="0.7" />
+                <text
+                    x="240"
+                    y="65"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Cl⁻
+                </text>
+                <circle cx="300" cy="60" r="18" fill="#fbbf24" opacity="0.8" />
+                <text
+                    x="300"
+                    y="65"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Na⁺
+                </text>
+                <circle cx="360" cy="60" r="22" fill="#86efac" opacity="0.7" />
+                <text
+                    x="360"
+                    y="65"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Cl⁻
+                </text>
+                <!-- Row 2 -->
+                <circle cx="60" cy="130" r="22" fill="#86efac" opacity="0.7" />
+                <text
+                    x="60"
+                    y="135"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Cl⁻
+                </text>
+                <circle cx="120" cy="130" r="18" fill="#fbbf24" opacity="0.8" />
+                <text
+                    x="120"
+                    y="135"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Na⁺
+                </text>
+                <circle cx="180" cy="130" r="22" fill="#86efac" opacity="0.7" />
+                <text
+                    x="180"
+                    y="135"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Cl⁻
+                </text>
+                <circle cx="240" cy="130" r="18" fill="#fbbf24" opacity="0.8" />
+                <text
+                    x="240"
+                    y="135"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Na⁺
+                </text>
+                <circle cx="300" cy="130" r="22" fill="#86efac" opacity="0.7" />
+                <text
+                    x="300"
+                    y="135"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Cl⁻
+                </text>
+                <circle cx="360" cy="130" r="18" fill="#fbbf24" opacity="0.8" />
+                <text
+                    x="360"
+                    y="135"
+                    text-anchor="middle"
+                    fill="#1a1a2e"
+                    font-size="10"
+                    font-weight="bold"
+                >
+                    Na⁺
+                </text>
+                <!-- Legend -->
+                <circle cx="100" cy="178" r="8" fill="#fbbf24" />
+                <text
+                    x="115"
+                    y="182"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Na⁺ (smaller)
+                </text>
+                <circle cx="220" cy="178" r="10" fill="#86efac" />
+                <text
+                    x="237"
+                    y="182"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Cl⁻ (larger — gained e⁻)
+                </text>
+            </svg>
+
+            <h2>Properties of Ionic Compounds</h2>
+
+            <div class="definition">
+                <p>
+                    <strong>High melting and boiling points:</strong> The ionic
+                    lattice is held together by strong electrostatic forces
+                    acting in all directions. A lot of energy is needed to
+                    overcome them. NaCl melts at 801°C.
+                </p>
+                <p>
+                    <strong>Hard but brittle:</strong> The lattice is rigid.
+                    When struck, layers shift — ions of like charge align and
+                    repel, shattering the crystal.
+                </p>
+                <p>
+                    <strong
+                        >Conduct electricity when molten or dissolved:</strong
+                    >
+                    In the solid state, ions are locked in place. When melted or
+                    dissolved, ions are free to move and carry charge. Solid
+                    ionic compounds do NOT conduct.
+                </p>
+                <p>
+                    <strong>Often soluble in water:</strong> Water molecules
+                    (polar) are attracted to the ions and pull them away from
+                    the lattice — dissolving it.
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Magnesium Oxide (MgO)</h3>
+                <p>Mg is in Group 2 → loses 2 electrons → Mg²⁺</p>
+                <p>O is in Group 16 → gains 2 electrons → O²⁻</p>
+                <p>
+                    Mg²⁺ and O²⁻ have charges of ±2, so the attraction is twice
+                    as strong as Na⁺/Cl⁻.
+                </p>
+                <p>MgO melting point: 2852°C — far higher than NaCl (801°C).</p>
+                <p>
+                    <span class="highlight"
+                        >Higher ion charges → stronger lattice forces → higher
+                        melting point. This is why MgO is used in furnace
+                        linings.</span
+                    >
+                </p>
+            </div>
+
+            <div class="note">
+                <p>
+                    <strong>Working out ionic formula:</strong> The formula must
+                    be electrically neutral overall. Al³⁺ and O²⁻: need 2 Al³⁺
+                    and 3 O²⁻ to balance (total charge 6+ and 6−). Formula =
+                    Al₂O₃.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

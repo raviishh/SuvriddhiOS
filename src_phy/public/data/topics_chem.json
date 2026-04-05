@@ -1,0 +1,284 @@
+[
+    {
+        "id": "atomic_structure",
+        "title": "Atomic Structure",
+        "items": [
+            {
+                "id": "atomic_1",
+                "type": "lesson",
+                "title": "Introduction to Atomic Structure",
+                "contentFile": "topics_chem/atomic_1.html"
+            },
+            {
+                "id": "atomic_2",
+                "type": "lesson",
+                "title": "Atomic Structure Concepts",
+                "contentFile": "topics_chem/atomic_2.html"
+            },
+            {
+                "id": "atomic_structure_quiz",
+                "type": "lesson",
+                "title": "Atomic Structure Quiz",
+                "contentFile": "topics_chem/atomic_structure_quiz.html"
+            }
+        ]
+    },
+    {
+        "id": "chemical_bonding",
+        "title": "Chemical Bonding",
+        "items": [
+            {
+                "id": "ionic",
+                "type": "lesson",
+                "title": "Ionic Bonding",
+                "contentFile": "topics_chem/ionic.html"
+            },
+            {
+                "id": "covalent",
+                "type": "lesson",
+                "title": "Covalent Bonding",
+                "contentFile": "topics_chem/covalent.html"
+            },
+            {
+                "id": "metallic",
+                "type": "lesson",
+                "title": "Metallic Bonding",
+                "contentFile": "topics_chem/metallic.html"
+            },
+            {
+                "id": "chemical_bonding_quiz",
+                "type": "lesson",
+                "title": "Chemical Bonding Quiz",
+                "contentFile": "topics_chem/chemical_bonding_quiz.html"
+            }
+        ]
+    },
+    {
+        "id": "stoichiometry",
+        "title": "Stoichiometry",
+        "items": [
+            {
+                "id": "mole",
+                "type": "lesson",
+                "title": "The Mole Concept",
+                "contentFile": "topics_chem/mole.html"
+            },
+            {
+                "id": "equations_and_ratios",
+                "type": "lesson",
+                "title": "Chemical Equations and Ratios",
+                "contentFile": "topics_chem/equations_and_ratios.html"
+            },
+            {
+                "id": "limiting_reagent",
+                "type": "lesson",
+                "title": "Limiting Reagents",
+                "contentFile": "topics_chem/limiting_reagent.html"
+            },
+            {
+                "id": "stoichiometry_quiz",
+                "type": "lesson",
+                "title": "Stoichiometry Quiz",
+                "contentFile": "topics_chem/stoichiometry_quiz.html"
+            }
+        ]
+    },
+    {
+        "id": "acids_bases",
+        "title": "Acids and Bases",
+        "items": [
+            {
+                "id": "acids_and_bases1",
+                "type": "lesson",
+                "title": "Introduction to Acids and Bases",
+                "contentFile": "topics_chem/acids_and_bases1.html"
+            },
+            {
+                "id": "acids_and_bases2",
+                "type": "lesson",
+                "title": "Acids and Bases Reactions",
+                "contentFile": "topics_chem/acids_and_bases2.html"
+            },
+            {
+                "id": "ph",
+                "type": "lesson",
+                "title": "The pH Scale",
+                "contentFile": "topics_chem/ph.html"
+            },
+            {
+                "id": "acids_and_bases_quiz",
+                "type": "lesson",
+                "title": "Acids and Bases Quiz",
+                "contentFile": "topics_chem/acids_and_bases_quiz.html"
+            }
+        ]
+    },
+    {
+        "id": "redox_electrochemistry",
+        "title": "Redox and Electrochemistry",
+        "items": [
+            {
+                "id": "redox_intro",
+                "type": "lesson",
+                "title": "Introduction to Redox Reactions",
+                "contentFile": "topics_chem/redox_intro.html"
+            },
+            {
+                "id": "electrolysis_and_electroplating",
+                "type": "lesson",
+                "title": "Electrolysis and Electroplating",
+                "contentFile": "topics_chem/electrolysis_and_electroplating.html"
+            },
+            {
+                "id": "oxidation_states",
+                "type": "lesson",
+                "title": "Oxidation States",
+                "contentFile": "topics_chem/oxidation_states.html"
+            },
+            {
+                "id": "redox_quiz",
+                "type": "lesson",
+                "title": "Redox and Electrochemistry Quiz",
+                "contentFile": "topics_chem/redox_quiz.html"
+            }
+        ]
+    },
+    {
+        "id": "physical_chemistry",
+        "title": "Physical Chemistry",
+        "items": [
+            {
+                "id": "states_of_matter",
+                "type": "lesson",
+                "title": "States of Matter",
+                "contentFile": "topics_chem/states_of_matter.html"
+            },
+            {
+                "id": "physical_chemical",
+                "type": "lesson",
+                "title": "Physical and Chemical Changes",
+                "contentFile": "topics_chem/physical_chemical.html"
+            },
+            {
+                "id": "equilibrium",
+                "type": "lesson",
+                "title": "Chemical Equilibrium",
+                "contentFile": "topics_chem/equilibrium.html"
+            },
+            {
+                "id": "physical_chem_quiz",
+                "type": "lesson",
+                "title": "Physical Chemistry Quiz",
+                "contentFile": "topics_chem/physical_chem_quiz.html"
+            }
+        ]
+    },
+    {
+        "id": "chemical_kinetics",
+        "title": "Chemical Kinetics",
+        "items": [
+            {
+                "id": "kinetics_rates",
+                "type": "lesson",
+                "title": "Reaction Rates",
+                "contentFile": "topics_chem/kinetics_rates.html"
+            },
+            {
+                "id": "kinetics_factors",
+                "type": "lesson",
+                "title": "Factors Affecting Reaction Rates",
+                "contentFile": "topics_chem/kinetics_factors.html"
+            },
+            {
+                "id": "kinetics_quiz",
+                "type": "lesson",
+                "title": "Chemical Kinetics Quiz",
+                "contentFile": "topics_chem/kinetics_quiz.html"
+            }
+        ]
+    },
+    {
+        "id": "organic_chemistry",
+        "title": "Organic Chemistry",
+        "items": [
+            {
+                "id": "organic_intro",
+                "type": "lesson",
+                "title": "Introduction to Organic Chemistry",
+                "contentFile": "topics_chem/organic_intro.html"
+            },
+            {
+                "id": "organic_functional_groups",
+                "type": "lesson",
+                "title": "Functional Groups",
+                "contentFile": "topics_chem/organic_functional_groups.html"
+            },
+            {
+                "id": "organic_alkanes",
+                "type": "lesson",
+                "title": "Alkanes",
+                "contentFile": "topics_chem/organic_alkanes.html"
+            },
+            {
+                "id": "organic_alkenes",
+                "type": "lesson",
+                "title": "Alkenes",
+                "contentFile": "topics_chem/organic_alkenes.html"
+            },
+            {
+                "id": "organic_alcohols",
+                "type": "lesson",
+                "title": "Alcohols",
+                "contentFile": "topics_chem/organic_alcohols.html"
+            },
+            {
+                "id": "organic_carboxylic",
+                "type": "lesson",
+                "title": "Carboxylic Acids",
+                "contentFile": "topics_chem/organic_carboxylic.html"
+            },
+            {
+                "id": "organic_esters",
+                "type": "lesson",
+                "title": "Esters",
+                "contentFile": "topics_chem/organic_esters.html"
+            },
+            {
+                "id": "organic_quiz",
+                "type": "lesson",
+                "title": "Organic Chemistry Quiz",
+                "contentFile": "topics_chem/organic_quiz.html"
+            }
+        ]
+    },
+    {
+        "id": "laboratory_techniques",
+        "title": "Laboratory Techniques",
+        "items": [
+            {
+                "id": "lab_separation",
+                "type": "lesson",
+                "title": "Separation Techniques",
+                "contentFile": "topics_chem/lab_separation.html"
+            },
+            {
+                "id": "lab_titration",
+                "type": "lesson",
+                "title": "Titration",
+                "contentFile": "topics_chem/lab_titration.html"
+            },
+            {
+                "id": "lab_thermochem",
+                "type": "lesson",
+                "title": "Thermochemistry Lab",
+                "contentFile": "topics_chem/lab_thermochem.html"
+            },
+            {
+                "id": "lab_techniques_quiz",
+                "type": "lesson",
+                "title": "Laboratory Techniques Quiz",
+                "contentFile": "topics_chem/lab_techniques_quiz.html"
+            }
+        ]
+    }
+]

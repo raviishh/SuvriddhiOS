@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>States of Matter</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>States of Matter</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Matter and Its Nature — Part 1
+            </h2>
+
+            <h2>What Actually Is a "State"?</h2>
+            <p>
+                When we say matter exists in different "states," we're really
+                describing how the particles inside it are arranged and how much
+                freedom they have to move. The chemical identity of the
+                substance doesn't change at all — water is H₂O whether it's ice,
+                liquid, or steam. What changes is the amount of energy the
+                particles have and how strongly they're attracted to each other.
+            </p>
+            <p>
+                There are three common states:
+                <strong>solid, liquid, and gas</strong>. A fourth state — plasma
+                — exists at extreme temperatures (like in stars), but we won't
+                go there for now.
+            </p>
+
+            <!-- SVG: particle arrangement in 3 states -->
+            <svg
+                viewBox="0 0 660 200"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 24px 0; border-radius: 10px"
+            >
+                <rect width="660" height="200" fill="#0f0f1a" rx="10" />
+                <!-- Solid box -->
+                <rect
+                    x="20"
+                    y="30"
+                    width="180"
+                    height="140"
+                    rx="8"
+                    fill="#1a1a2e"
+                    stroke="#4f46e5"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="110"
+                    y="22"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="13"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    SOLID
+                </text>
+                <!-- solid particles - tight grid -->
+                <circle cx="55" cy="65" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="95" cy="65" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="135" cy="65" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="165" cy="65" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="55" cy="105" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="95" cy="105" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="135" cy="105" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="165" cy="105" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="55" cy="145" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="95" cy="145" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="135" cy="145" r="14" fill="#4f46e5" opacity="0.8" />
+                <circle cx="165" cy="145" r="14" fill="#4f46e5" opacity="0.8" />
+                <!-- small vibration arrows -->
+                <text
+                    x="55"
+                    y="68"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    ↕
+                </text>
+                <text
+                    x="95"
+                    y="68"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    ↕
+                </text>
+
+                <!-- Liquid box -->
+                <rect
+                    x="240"
+                    y="30"
+                    width="180"
+                    height="140"
+                    rx="8"
+                    fill="#1a1a2e"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="330"
+                    y="22"
+                    text-anchor="middle"
+                    fill="#38bdf8"
+                    font-size="13"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    LIQUID
+                </text>
+                <!-- liquid particles - close but irregular -->
+                <circle cx="270" cy="70" r="14" fill="#0ea5e9" opacity="0.75" />
+                <circle cx="305" cy="58" r="14" fill="#0ea5e9" opacity="0.75" />
+                <circle cx="342" cy="72" r="14" fill="#0ea5e9" opacity="0.75" />
+                <circle cx="378" cy="60" r="14" fill="#0ea5e9" opacity="0.75" />
+                <circle
+                    cx="262"
+                    cy="108"
+                    r="14"
+                    fill="#0ea5e9"
+                    opacity="0.75"
+                />
+                <circle cx="298" cy="98" r="14" fill="#0ea5e9" opacity="0.75" />
+                <circle
+                    cx="335"
+                    cy="112"
+                    r="14"
+                    fill="#0ea5e9"
+                    opacity="0.75"
+                />
+                <circle
+                    cx="370"
+                    cy="100"
+                    r="14"
+                    fill="#0ea5e9"
+                    opacity="0.75"
+                />
+                <circle
+                    cx="278"
+                    cy="148"
+                    r="14"
+                    fill="#0ea5e9"
+                    opacity="0.75"
+                />
+                <circle
+                    cx="316"
+                    cy="140"
+                    r="14"
+                    fill="#0ea5e9"
+                    opacity="0.75"
+                />
+                <circle
+                    cx="355"
+                    cy="152"
+                    r="14"
+                    fill="#0ea5e9"
+                    opacity="0.75"
+                />
+                <!-- flow arrow -->
+                <path
+                    d="M270 130 Q310 120 350 135"
+                    stroke="white"
+                    stroke-width="1"
+                    fill="none"
+                    stroke-dasharray="3,2"
+                />
+
+                <!-- Gas box -->
+                <rect
+                    x="460"
+                    y="30"
+                    width="180"
+                    height="140"
+                    rx="8"
+                    fill="#1a1a2e"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="550"
+                    y="22"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="13"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    GAS
+                </text>
+                <!-- gas particles - spread out with motion lines -->
+                <circle cx="490" cy="55" r="10" fill="#22c55e" opacity="0.8" />
+                <circle cx="560" cy="70" r="10" fill="#22c55e" opacity="0.8" />
+                <circle cx="530" cy="110" r="10" fill="#22c55e" opacity="0.8" />
+                <circle cx="480" cy="145" r="10" fill="#22c55e" opacity="0.8" />
+                <circle cx="615" cy="130" r="10" fill="#22c55e" opacity="0.8" />
+                <circle cx="600" cy="55" r="10" fill="#22c55e" opacity="0.8" />
+                <!-- motion lines -->
+                <line
+                    x1="500"
+                    y1="55"
+                    x2="520"
+                    y2="45"
+                    stroke="#86efac"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                />
+                <line
+                    x1="570"
+                    y1="70"
+                    x2="590"
+                    y2="80"
+                    stroke="#86efac"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                />
+                <line
+                    x1="540"
+                    y1="110"
+                    x2="555"
+                    y2="100"
+                    stroke="#86efac"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                />
+                <line
+                    x1="490"
+                    y1="145"
+                    x2="505"
+                    y2="158"
+                    stroke="#86efac"
+                    stroke-width="1"
+                    stroke-dasharray="3,2"
+                />
+            </svg>
+
+            <h2>Solids</h2>
+            <p>
+                In a solid, particles are packed tightly together in a regular
+                arrangement — a lattice. They're held in place by strong forces
+                of attraction and can only
+                <strong>vibrate about fixed positions</strong>. They can't move
+                past each other.
+            </p>
+            <div class="definition">
+                <p>
+                    <strong>Fixed shape ✓</strong> — particles locked in place
+                </p>
+                <p>
+                    <strong>Fixed volume ✓</strong> — particles can't be pushed
+                    together (nearly incompressible)
+                </p>
+                <p>
+                    <strong>Cannot flow ✓</strong> — no freedom to move past
+                    each other
+                </p>
+                <p><strong>High density</strong> — particles packed tightly</p>
+            </div>
+            <p>
+                The vibration of particles in a solid increases with
+                temperature. Heat up a solid enough, and eventually those
+                vibrations overcome the forces holding particles in their fixed
+                positions — the solid melts.
+            </p>
+
+            <h2>Liquids</h2>
+            <p>
+                In a liquid, particles are still close together (similar density
+                to a solid) but the forces between them are weaker. Particles
+                can <strong>slide past each other</strong>, which is why liquids
+                flow. They're not free to move around completely — they still
+                attract each other — but they have enough energy to change
+                positions.
+            </p>
+            <div class="definition">
+                <p>
+                    <strong>No fixed shape ✓</strong> — takes the shape of its
+                    container
+                </p>
+                <p>
+                    <strong>Fixed volume ✓</strong> — particles still close
+                    together, barely compressible
+                </p>
+                <p>
+                    <strong>Can flow ✓</strong> — particles slide past each
+                    other
+                </p>
+                <p><strong>High density</strong> (similar to solid)</p>
+            </div>
+
+            <h2>Gases</h2>
+            <p>
+                In a gas, particles have so much energy they've completely
+                broken free from each other. They move
+                <strong>rapidly in all directions</strong>, filling whatever
+                container they're in. The average distance between gas particles
+                is roughly 10× larger than in a liquid — mostly empty space.
+            </p>
+            <div class="definition">
+                <p><strong>No fixed shape ✓</strong> — fills container</p>
+                <p>
+                    <strong>No fixed volume ✓</strong> — expands to fill any
+                    space
+                </p>
+                <p>
+                    <strong>Compressible ✓</strong> — lots of empty space
+                    between particles
+                </p>
+                <p><strong>Low density</strong> — particles far apart</p>
+            </div>
+
+            <h2>State Changes</h2>
+            <p>
+                Heating gives particles more kinetic energy. At certain
+                temperatures, enough energy has been added that particles can
+                overcome the forces holding them in their current state — a
+                state change occurs.
+            </p>
+
+            <!-- SVG: State change diagram -->
+            <svg
+                viewBox="0 0 640 130"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="640" height="130" fill="#0f0f1a" rx="10" />
+                <!-- State boxes -->
+                <rect
+                    x="30"
+                    y="40"
+                    width="120"
+                    height="50"
+                    rx="8"
+                    fill="#312e81"
+                    stroke="#4f46e5"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="90"
+                    y="70"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="14"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    SOLID
+                </text>
+                <rect
+                    x="260"
+                    y="40"
+                    width="120"
+                    height="50"
+                    rx="8"
+                    fill="#0c4a6e"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="320"
+                    y="70"
+                    text-anchor="middle"
+                    fill="#bae6fd"
+                    font-size="14"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    LIQUID
+                </text>
+                <rect
+                    x="490"
+                    y="40"
+                    width="120"
+                    height="50"
+                    rx="8"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="550"
+                    y="70"
+                    text-anchor="middle"
+                    fill="#bbf7d0"
+                    font-size="14"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    GAS
+                </text>
+                <!-- Arrows: heating -->
+                <path
+                    d="M155 58 L255 58"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                    marker-end="url(#arr)"
+                />
+                <path
+                    d="M385 58 L485 58"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                    marker-end="url(#arr)"
+                />
+                <text
+                    x="205"
+                    y="50"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Melting
+                </text>
+                <text
+                    x="205"
+                    y="76"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    (heat added)
+                </text>
+                <text
+                    x="435"
+                    y="50"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Boiling/Evap.
+                </text>
+                <text
+                    x="435"
+                    y="76"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    (heat added)
+                </text>
+                <!-- Arrows: cooling -->
+                <path
+                    d="M255 80 L155 80"
+                    stroke="#38bdf8"
+                    stroke-width="2"
+                    marker-end="url(#arr2)"
+                />
+                <path
+                    d="M485 80 L385 80"
+                    stroke="#38bdf8"
+                    stroke-width="2"
+                    marker-end="url(#arr2)"
+                />
+                <text
+                    x="205"
+                    y="108"
+                    text-anchor="middle"
+                    fill="#7dd3fc"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Freezing
+                </text>
+                <text
+                    x="435"
+                    y="108"
+                    text-anchor="middle"
+                    fill="#7dd3fc"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Condensing
+                </text>
+                <defs>
+                    <marker
+                        id="arr"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#ef4444" />
+                    </marker>
+                    <marker
+                        id="arr2"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#38bdf8" />
+                    </marker>
+                </defs>
+                <!-- sublimation arrow -->
+                <path
+                    d="M90 38 Q320 -10 550 38"
+                    stroke="#a855f7"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-dasharray="5,3"
+                    marker-end="url(#arr3)"
+                />
+                <text
+                    x="320"
+                    y="14"
+                    text-anchor="middle"
+                    fill="#c084fc"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Sublimation (solid → gas directly, e.g. dry ice)
+                </text>
+                <defs>
+                    <marker
+                        id="arr3"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#a855f7" />
+                    </marker>
+                </defs>
+            </svg>
+
+            <div class="note">
+                <p>
+                    <strong>State changes are physical changes</strong> — no new
+                    substance is formed. The chemical formula stays identical.
+                    Ice, water, and steam are all H₂O. This means state changes
+                    are always reversible.
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Heating Curve for Water</h3>
+                <p>
+                    As you heat ice from −20°C to 120°C, temperature rises
+                    steadily — but then
+                    <strong>flatlines at 0°C and again at 100°C</strong>.
+                </p>
+                <p>
+                    At 0°C (melting point): all added energy goes into breaking
+                    the bonds holding the ice lattice together, not into raising
+                    temperature. Temperature stays flat until all the ice has
+                    melted.
+                </p>
+                <p>
+                    At 100°C (boiling point): all energy goes into separating
+                    liquid water particles into gas.
+                </p>
+                <p>
+                    <span class="highlight"
+                        >The flat sections on a heating curve are where state
+                        changes happen. During a state change, temperature
+                        doesn't rise even though heat is being added.</span
+                    >
+                </p>
+            </div>
+
+            <h2>Diffusion</h2>
+            <p>
+                Diffusion is the gradual mixing of particles due to random
+                motion. It happens in liquids and gases — not solids (particles
+                can't move). The rate of diffusion is faster in gases (particles
+                move more freely) and increases with temperature.
+            </p>
+            <div class="definition">
+                <p>
+                    A drop of ink in water gradually spreads throughout the
+                    glass — that's diffusion. Opening a perfume bottle causes
+                    scent molecules to gradually spread through the room. Both
+                    happen because particles are in constant random motion and
+                    naturally mix over time.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

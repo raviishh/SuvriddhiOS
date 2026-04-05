@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chemical Kinetics — Collision Theory</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Chemical Kinetics</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 1 — Collision Theory and Reaction Rates
+            </h2>
+
+            <h2>How Fast Is Fast?</h2>
+            <p>
+                Chemical reactions happen at wildly different speeds. Explosions
+                are complete in microseconds. Rusting takes years. Radioactive
+                decay of some isotopes takes billions of years. Chemical
+                kinetics is the study of why, and what we can do about it.
+            </p>
+
+            <div class="definition">
+                <p>
+                    <strong>Rate of reaction:</strong> The change in
+                    concentration of a reactant or product per unit time.
+                </p>
+                <p>
+                    Rate = Δ[concentration] / Δtime &nbsp;&nbsp; units: mol dm⁻³
+                    s⁻¹
+                </p>
+                <p>
+                    Rate decreases over time as reactants are consumed (unless
+                    it's a zero-order reaction).
+                </p>
+            </div>
+
+            <h2>Collision Theory</h2>
+            <p>
+                For a chemical reaction to occur, reactant particles must
+                collide. But not just any collision will do — two conditions
+                must be met simultaneously:
+            </p>
+
+            <div class="law-box">
+                <h3>Conditions for an Effective Collision</h3>
+                <p>
+                    <strong>1. Sufficient energy:</strong> The combined kinetic
+                    energy of the colliding particles must be ≥ the activation
+                    energy (Eₐ). If the collision is too gentle, particles just
+                    bounce off.
+                </p>
+                <p style="margin-top: 8px">
+                    <strong>2. Correct orientation:</strong> The reactive parts
+                    of the molecules must be facing each other at the moment of
+                    collision. A collision with the wrong geometry won't produce
+                    a reaction even if the energy is sufficient.
+                </p>
+            </div>
+
+            <!-- SVG: effective vs ineffective collision -->
+            <svg
+                viewBox="0 0 600 160"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="600" height="160" fill="#0f0f1a" rx="10" />
+                <text
+                    x="150"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Effective Collision ✓
+                </text>
+                <text
+                    x="450"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Ineffective Collision ✗
+                </text>
+                <!-- Effective -->
+                <circle
+                    cx="90"
+                    cy="80"
+                    r="22"
+                    fill="#312e81"
+                    stroke="#818cf8"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="90"
+                    y="85"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    A
+                </text>
+                <line
+                    x1="112"
+                    y1="80"
+                    x2="138"
+                    y2="80"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                    marker-end="url(#r1)"
+                />
+                <circle
+                    cx="160"
+                    cy="80"
+                    r="22"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="160"
+                    y="85"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    B
+                </text>
+                <text
+                    x="125"
+                    y="68"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    E≥Eₐ
+                </text>
+                <text
+                    x="125"
+                    y="115"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    → Reaction occurs
+                </text>
+                <text
+                    x="125"
+                    y="130"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    Head-on, enough energy
+                </text>
+                <!-- Arrow to product -->
+                <text
+                    x="200"
+                    y="84"
+                    fill="#fbbf24"
+                    font-size="16"
+                    font-family="monospace"
+                >
+                    →
+                </text>
+                <circle
+                    cx="240"
+                    cy="80"
+                    r="26"
+                    fill="#7c2d12"
+                    stroke="#f97316"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="240"
+                    y="85"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    AB
+                </text>
+                <!-- Ineffective - wrong angle -->
+                <circle
+                    cx="380"
+                    cy="65"
+                    r="22"
+                    fill="#312e81"
+                    stroke="#818cf8"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="380"
+                    y="70"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    A
+                </text>
+                <line
+                    x1="388"
+                    y1="82"
+                    x2="420"
+                    y2="100"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                    marker-end="url(#r1)"
+                />
+                <circle
+                    cx="440"
+                    cy="110"
+                    r="22"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="440"
+                    y="115"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    B
+                </text>
+                <text
+                    x="430"
+                    y="55"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Wrong orientation
+                </text>
+                <text
+                    x="430"
+                    y="145"
+                    text-anchor="middle"
+                    fill="#ef4444"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    → Bounce off, no reaction
+                </text>
+                <defs>
+                    <marker
+                        id="r1"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#ef4444" />
+                    </marker>
+                </defs>
+                <!-- divider -->
+                <line
+                    x1="300"
+                    y1="25"
+                    x2="300"
+                    y2="150"
+                    stroke="#374151"
+                    stroke-width="1"
+                    stroke-dasharray="4,3"
+                />
+            </svg>
+
+            <h2>Activation Energy and Maxwell-Boltzmann Distribution</h2>
+            <p>
+                Not all particles in a sample have the same energy — they have a
+                <strong>distribution</strong> of energies. The Maxwell-Boltzmann
+                distribution shows how many particles have each energy level at
+                a given temperature.
+            </p>
+
+            <!-- SVG: Maxwell-Boltzmann distribution -->
+            <svg
+                viewBox="0 0 580 200"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="580" height="200" fill="#0f0f1a" rx="10" />
+                <text
+                    x="290"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Maxwell–Boltzmann Distribution
+                </text>
+                <!-- axes -->
+                <line
+                    x1="50"
+                    y1="170"
+                    x2="540"
+                    y2="170"
+                    stroke="#6b7280"
+                    stroke-width="1.5"
+                />
+                <line
+                    x1="50"
+                    y1="30"
+                    x2="50"
+                    y2="170"
+                    stroke="#6b7280"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="290"
+                    y="190"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Energy →
+                </text>
+                <text
+                    x="20"
+                    y="100"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                    transform="rotate(-90,20,100)"
+                >
+                    No. of particles
+                </text>
+                <!-- T1 curve (lower temp) -->
+                <path
+                    d="M50 168 Q120 168 160 80 Q200 30 250 50 Q310 70 370 130 Q430 155 540 168"
+                    fill="none"
+                    stroke="#4f46e5"
+                    stroke-width="2.5"
+                />
+                <!-- T2 curve (higher temp - flatter, shifted right) -->
+                <path
+                    d="M50 168 Q130 168 180 100 Q230 50 290 60 Q360 75 430 130 Q490 155 540 168"
+                    fill="none"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                    stroke-dasharray="6,3"
+                />
+                <!-- Eₐ line -->
+                <line
+                    x1="350"
+                    y1="30"
+                    x2="350"
+                    y2="170"
+                    stroke="#fbbf24"
+                    stroke-width="1.5"
+                    stroke-dasharray="5,3"
+                />
+                <text
+                    x="352"
+                    y="25"
+                    fill="#fbbf24"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Eₐ
+                </text>
+                <!-- Shaded area beyond Ea -->
+                <text
+                    x="430"
+                    y="100"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Particles with
+                </text>
+                <text
+                    x="430"
+                    y="112"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    E ≥ Eₐ can react
+                </text>
+                <!-- Legend -->
+                <line
+                    x1="60"
+                    y1="145"
+                    x2="95"
+                    y2="145"
+                    stroke="#4f46e5"
+                    stroke-width="2"
+                />
+                <text
+                    x="100"
+                    y="149"
+                    fill="#818cf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Lower temp (T₁)
+                </text>
+                <line
+                    x1="60"
+                    y1="160"
+                    x2="95"
+                    y2="160"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                    stroke-dasharray="6,3"
+                />
+                <text
+                    x="100"
+                    y="164"
+                    fill="#fca5a5"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Higher temp (T₂) — more particles have E≥Eₐ
+                </text>
+            </svg>
+
+            <div class="note">
+                <p>
+                    <strong
+                        >Key features of the Maxwell-Boltzmann curve:</strong
+                    >
+                </p>
+                <p>• Starts at origin (no particles with zero energy)</p>
+                <p>
+                    • Rises to a peak (most probable energy), then falls
+                    asymptotically
+                </p>
+                <p>
+                    • Never touches the x-axis on the right (small fraction
+                    always has very high energy)
+                </p>
+                <p>
+                    • The area under the curve to the right of Eₐ = fraction of
+                    particles that can react
+                </p>
+                <p>
+                    • At higher temperature: curve flattens and shifts right —
+                    more particles exceed Eₐ
+                </p>
+            </div>
+
+            <h2>Measuring Rate of Reaction</h2>
+            <div class="definition">
+                <p>
+                    <strong>Gas produced:</strong> Collect in a syringe and
+                    measure volume over time. CaCO₃ + HCl → CO₂ collected.
+                </p>
+                <p>
+                    <strong>Mass lost:</strong> Put on balance, record mass as
+                    gas escapes. CaCO₃ + HCl, mass decreases as CO₂ is released.
+                </p>
+                <p>
+                    <strong>Colour change:</strong> Use colorimetry or visual
+                    observation. Na₂S₂O₃ + HCl produces sulfur — solution goes
+                    cloudy. Time until cross underneath is obscured (clock
+                    reaction).
+                </p>
+                <p>
+                    <strong>pH change:</strong> Monitor with pH meter for
+                    reactions involving H⁺ or OH⁻.
+                </p>
+                <p>
+                    <strong>Conductance:</strong> If ionic concentration
+                    changes, electrical conductivity changes.
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: The Thiosulfate Clock Reaction</h3>
+                <p>
+                    Na₂S₂O₃(aq) + 2HCl(aq) → 2NaCl(aq) + SO₂(g) + S(s) + H₂O(l)
+                </p>
+                <p>
+                    Sulfur forms a white precipitate that makes the solution
+                    cloudy. A cross on paper under the flask disappears when
+                    enough S has formed.
+                </p>
+                <p>Measure: time for cross to disappear. Rate ∝ 1/time.</p>
+                <p>
+                    Vary: concentration of Na₂S₂O₃ or temperature to investigate
+                    effects on rate.
+                </p>
+                <p>
+                    <span class="highlight"
+                        >1/time is proportional to rate only if you're comparing
+                        when the same amount of product has formed each time —
+                        which this experiment does. It's a classic IB
+                        practical.</span
+                    >
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

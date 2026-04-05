@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Atomic Structure — Nucleus and Subatomic Particles</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Atomic Structure</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 1 — The Nucleus and Subatomic Particles
+            </h2>
+
+            <h2>The Atom Isn't What Dalton Thought</h2>
+            <p>
+                John Dalton proposed in 1803 that atoms were indivisible solid
+                spheres — the ultimate building block of matter. That turned out
+                to be wrong. By the early 20th century, experiments had shown
+                that atoms have internal structure: a tiny, dense, positively
+                charged nucleus surrounded by negatively charged electrons in a
+                vast amount of empty space.
+            </p>
+            <p>
+                If an atom were scaled up to the size of a football stadium, the
+                nucleus would be a marble at the centre. Everything else would
+                be empty space, with electrons somewhere in the stands.
+            </p>
+
+            <!-- SVG: Atom model diagram -->
+            <svg
+                viewBox="0 0 500 280"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 24px 0; border-radius: 10px"
+            >
+                <rect width="500" height="280" fill="#0f0f1a" rx="10" />
+                <!-- electron orbits -->
+                <ellipse
+                    cx="250"
+                    cy="140"
+                    rx="200"
+                    ry="60"
+                    fill="none"
+                    stroke="#4f46e5"
+                    stroke-width="1"
+                    stroke-dasharray="4,3"
+                    opacity="0.5"
+                />
+                <ellipse
+                    cx="250"
+                    cy="140"
+                    rx="130"
+                    ry="40"
+                    fill="none"
+                    stroke="#4f46e5"
+                    stroke-width="1"
+                    stroke-dasharray="4,3"
+                    opacity="0.5"
+                    transform="rotate(60,250,140)"
+                />
+                <ellipse
+                    cx="250"
+                    cy="140"
+                    rx="130"
+                    ry="40"
+                    fill="none"
+                    stroke="#4f46e5"
+                    stroke-width="1"
+                    stroke-dasharray="4,3"
+                    opacity="0.5"
+                    transform="rotate(-60,250,140)"
+                />
+                <!-- nucleus -->
+                <circle
+                    cx="250"
+                    cy="140"
+                    r="30"
+                    fill="#312e81"
+                    stroke="#818cf8"
+                    stroke-width="2"
+                />
+                <text
+                    x="250"
+                    y="135"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="10"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Nucleus
+                </text>
+                <text
+                    x="250"
+                    y="150"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    p⁺ + n⁰
+                </text>
+                <!-- electrons -->
+                <circle
+                    cx="450"
+                    cy="140"
+                    r="10"
+                    fill="#7c3aed"
+                    stroke="#c4b5fd"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="450"
+                    y="144"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="8"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <circle
+                    cx="80"
+                    cy="110"
+                    r="10"
+                    fill="#7c3aed"
+                    stroke="#c4b5fd"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="80"
+                    y="114"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="8"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <circle
+                    cx="360"
+                    cy="80"
+                    r="10"
+                    fill="#7c3aed"
+                    stroke="#c4b5fd"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="360"
+                    y="84"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="8"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <circle
+                    cx="150"
+                    cy="185"
+                    r="10"
+                    fill="#7c3aed"
+                    stroke="#c4b5fd"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="150"
+                    y="189"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="8"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <!-- labels -->
+                <line
+                    x1="280"
+                    y1="130"
+                    x2="330"
+                    y2="95"
+                    stroke="#818cf8"
+                    stroke-width="1"
+                />
+                <text
+                    x="335"
+                    y="92"
+                    fill="#818cf8"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Protons (+)
+                </text>
+                <text
+                    x="335"
+                    y="105"
+                    fill="#818cf8"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Neutrons (0)
+                </text>
+                <line
+                    x1="460"
+                    y1="135"
+                    x2="490"
+                    y2="110"
+                    stroke="#c4b5fd"
+                    stroke-width="1"
+                />
+                <text
+                    x="395"
+                    y="55"
+                    fill="#c4b5fd"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Electrons (−)
+                </text>
+                <text
+                    x="395"
+                    y="67"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    in shells around
+                </text>
+                <text
+                    x="395"
+                    y="79"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    the nucleus
+                </text>
+                <!-- scale note -->
+                <text
+                    x="250"
+                    y="250"
+                    text-anchor="middle"
+                    fill="#4b5563"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Note: nucleus is vastly smaller than shown.
+                </text>
+                <text
+                    x="250"
+                    y="265"
+                    text-anchor="middle"
+                    fill="#4b5563"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    An atom is ~99.99% empty space.
+                </text>
+            </svg>
+
+            <h2>The Three Subatomic Particles</h2>
+
+            <div class="law-box">
+                <h3>Protons</h3>
+                <p>
+                    <strong>Charge:</strong> +1 &nbsp;&nbsp;
+                    <strong>Mass:</strong> 1 amu &nbsp;&nbsp;
+                    <strong>Location:</strong> Nucleus
+                </p>
+                <p style="margin-top: 8px">
+                    The number of protons defines what element an atom is. All
+                    carbon atoms have 6 protons — always. If you change the
+                    proton count, you have a different element. This number is
+                    called the <strong>atomic number (Z)</strong>.
+                </p>
+            </div>
+
+            <div class="law-box">
+                <h3>Neutrons</h3>
+                <p>
+                    <strong>Charge:</strong> 0 &nbsp;&nbsp;
+                    <strong>Mass:</strong> 1 amu &nbsp;&nbsp;
+                    <strong>Location:</strong> Nucleus
+                </p>
+                <p style="margin-top: 8px">
+                    Neutrons have no charge. They contribute to the atom's mass
+                    and help hold the nucleus together (nuclear strong force).
+                    Because they're neutral, varying neutron count doesn't
+                    change the element's chemical identity — but it does change
+                    the mass number.
+                </p>
+            </div>
+
+            <div class="law-box">
+                <h3>Electrons</h3>
+                <p>
+                    <strong>Charge:</strong> −1 &nbsp;&nbsp;
+                    <strong>Mass:</strong> ~1/1836 amu (negligible) &nbsp;&nbsp;
+                    <strong>Location:</strong> Shells around nucleus
+                </p>
+                <p style="margin-top: 8px">
+                    Electrons are tiny — their mass is so small it's ignored in
+                    most calculations. In a <strong>neutral atom</strong>, the
+                    number of electrons equals the number of protons, so charges
+                    cancel. Electrons in the outer shell (valence electrons) are
+                    responsible for all chemical bonding and reactivity.
+                </p>
+            </div>
+
+            <div class="equation">
+                <p><strong>Atomic Number (Z)</strong> = number of protons</p>
+                <p><strong>Mass Number (A)</strong> = protons + neutrons</p>
+                <p><strong>Neutrons</strong> = A − Z</p>
+                <p>
+                    In a neutral atom: <strong>electrons = protons = Z</strong>
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Chlorine-35</h3>
+                <p>Chlorine has Z = 17, A = 35.</p>
+                <p>Protons = 17, Neutrons = 35 − 17 = 18, Electrons = 17</p>
+                <p>
+                    Written in nuclide notation: ³⁵₁₇Cl (mass number on top,
+                    atomic number on bottom)
+                </p>
+                <p>
+                    <span class="highlight"
+                        >The subscript (17) is actually redundant — if you know
+                        the symbol is Cl, you know Z = 17. But it's useful for
+                        clarity in nuclear equations.</span
+                    >
+                </p>
+            </div>
+
+            <h2>Isotopes</h2>
+            <p>
+                Atoms of the same element always have the same number of protons
+                — but they can have different numbers of neutrons. These
+                variants are called <strong>isotopes</strong>.
+            </p>
+
+            <div class="definition">
+                <p>
+                    Isotopes are atoms of the same element with the
+                    <strong>same atomic number</strong> but
+                    <strong>different mass numbers</strong> (different neutron
+                    counts).
+                </p>
+                <p>
+                    They have identical chemical properties (same electron
+                    configuration, same valence electrons) but slightly
+                    different physical properties (different mass, density, rate
+                    of diffusion).
+                </p>
+            </div>
+
+            <!-- SVG: Isotopes of hydrogen -->
+            <svg
+                viewBox="0 0 500 180"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="500" height="180" fill="#0f0f1a" rx="10" />
+                <text
+                    x="250"
+                    y="20"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="13"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Isotopes of Hydrogen
+                </text>
+                <!-- Protium -->
+                <circle
+                    cx="85"
+                    cy="90"
+                    r="30"
+                    fill="#312e81"
+                    stroke="#4f46e5"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="85"
+                    y="87"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    1p⁺
+                </text>
+                <text
+                    x="85"
+                    y="100"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    0n
+                </text>
+                <circle
+                    cx="125"
+                    cy="68"
+                    r="10"
+                    fill="#7c3aed"
+                    stroke="#c4b5fd"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="125"
+                    y="72"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="8"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <text
+                    x="85"
+                    y="140"
+                    text-anchor="middle"
+                    fill="#a5b4fc"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    ¹H
+                </text>
+                <text
+                    x="85"
+                    y="155"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Protium
+                </text>
+                <text
+                    x="85"
+                    y="168"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    99.98% of H
+                </text>
+                <!-- Deuterium -->
+                <circle
+                    cx="250"
+                    cy="90"
+                    r="30"
+                    fill="#1e3a5f"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="250"
+                    y="87"
+                    text-anchor="middle"
+                    fill="#bae6fd"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    1p⁺ 1n
+                </text>
+                <circle
+                    cx="290"
+                    cy="68"
+                    r="10"
+                    fill="#7c3aed"
+                    stroke="#c4b5fd"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="290"
+                    y="72"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="8"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <text
+                    x="250"
+                    y="140"
+                    text-anchor="middle"
+                    fill="#7dd3fc"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    ²H
+                </text>
+                <text
+                    x="250"
+                    y="155"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Deuterium
+                </text>
+                <text
+                    x="250"
+                    y="168"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Used in heavy water
+                </text>
+                <!-- Tritium -->
+                <circle
+                    cx="415"
+                    cy="90"
+                    r="30"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="415"
+                    y="87"
+                    text-anchor="middle"
+                    fill="#bbf7d0"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    1p⁺ 2n
+                </text>
+                <circle
+                    cx="455"
+                    cy="68"
+                    r="10"
+                    fill="#7c3aed"
+                    stroke="#c4b5fd"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="455"
+                    y="72"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="8"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <text
+                    x="415"
+                    y="140"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    ³H
+                </text>
+                <text
+                    x="415"
+                    y="155"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    Tritium
+                </text>
+                <text
+                    x="415"
+                    y="168"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Radioactive
+                </text>
+            </svg>
+
+            <h2>Relative Atomic Mass</h2>
+            <p>
+                Because most elements exist as a mix of isotopes, the atomic
+                mass shown on the periodic table is a
+                <strong>weighted average</strong> of all naturally occurring
+                isotopes, weighted by their abundance.
+            </p>
+
+            <div class="equation">
+                <p>
+                    <strong
+                        >Relative Atomic Mass (Aᵣ) = Σ (isotope mass ×
+                        fractional abundance)</strong
+                    >
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Relative Atomic Mass of Chlorine</h3>
+                <p>Chlorine exists as two isotopes:</p>
+                <p>³⁵Cl: mass = 35, abundance = 75.77%</p>
+                <p>³⁷Cl: mass = 37, abundance = 24.23%</p>
+                <p>
+                    Aᵣ = (35 × 0.7577) + (37 × 0.2423) = 26.52 + 8.97 =
+                    <strong>35.5</strong>
+                </p>
+                <p>
+                    <span class="highlight"
+                        >This is why chlorine's mass on the periodic table is
+                        35.5 — not a whole number. It's a weighted average, not
+                        an actual atom.</span
+                    >
+                </p>
+            </div>
+
+            <h2>Ions</h2>
+            <p>
+                Neutral atoms have equal numbers of protons and electrons. If an
+                atom gains or loses electrons, it becomes a charged particle —
+                an <strong>ion</strong>.
+            </p>
+            <div class="definition">
+                <p>
+                    <strong>Cation (+):</strong> Loses electrons. Protons &gt;
+                    electrons. Metals typically form cations.<br />
+                    Na (11p, 11e) → Na⁺ (11p, 10e)
+                </p>
+                <p style="margin-top: 8px">
+                    <strong>Anion (−):</strong> Gains electrons. Electrons &gt;
+                    protons. Non-metals typically form anions.<br />
+                    Cl (17p, 17e) → Cl⁻ (17p, 18e)
+                </p>
+            </div>
+            <div class="note">
+                <p>
+                    <strong
+                        >The number of protons never changes when forming an
+                        ion</strong
+                    >
+                    — only electrons are gained or lost. Changing the proton
+                    count would mean becoming a different element entirely
+                    (which requires nuclear reactions, not chemistry).
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

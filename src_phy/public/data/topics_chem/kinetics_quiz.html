@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Quiz on Chemical Kinetics</title>
+        <link rel="stylesheet" href="common_quiz_styles.css" />
+    </head>
+    <body>
+        <div class="progress_outer">
+            <div class="progress_inner"></div>
+        </div>
+        <div class="questioncontainer">
+            <h1 class="question">Question goes here</h1>
+        </div>
+
+        <div class="options">
+            <button
+                type="button"
+                class="option"
+                id="option1"
+                onclick="handleAnswer(0)"
+            >
+                Option 1
+            </button>
+            <button
+                type="button"
+                class="option"
+                id="option2"
+                onclick="handleAnswer(1)"
+            >
+                Option 2
+            </button>
+            <button
+                type="button"
+                class="option"
+                id="option3"
+                onclick="handleAnswer(2)"
+            >
+                Option 3
+            </button>
+            <button
+                type="button"
+                class="option"
+                id="option4"
+                onclick="handleAnswer(3)"
+            >
+                Option 4
+            </button>
+        </div>
+
+        <div class="completion" id="completion">
+            <h1>Quiz Complete!</h1>
+            <p id="score">You got X/5 correct</p>
+        </div>
+
+        <div class="explanation" id="explanation">Explanation goes here</div>
+        <div class="options">
+            <button
+                type="button"
+                class="next"
+                id="next"
+                onclick="onNextButtonClick()"
+            >
+                Next question
+            </button>
+        </div>
+        <script src="quiz_behaviour.js"></script>
+    </body>
+</html>

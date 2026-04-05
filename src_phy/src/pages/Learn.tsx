@@ -13,9 +13,12 @@ export default function Learn() {
 
     // Load topics
     useEffect(() => {
-        fetch(
-            `/data/${subject === "Math" ? "topics_math.json" : "topics.json"}`,
-        )
+        let path = `/data/topics`;
+        if (subject != "Physics") {
+            path += subject === "Math" ? "_math" : "_chem";
+        }
+        path += ".json";
+        fetch(path)
             .then((r) => r.json())
             .then((t: Topic[]) => setTopics(t))
             .catch(() => setTopics([]));

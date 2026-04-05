@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Redox Reactions — Introduction</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Redox Reactions</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 1 — Oxidation, Reduction, and Electron Transfer
+            </h2>
+
+            <h2>What Is a Redox Reaction?</h2>
+            <p>
+                Redox reactions involve the
+                <strong>transfer of electrons</strong> from one species to
+                another. They are everywhere: the batteries powering your
+                devices, the rusting of iron, cellular respiration,
+                photosynthesis, and the extraction of metals from their ores.
+                Understanding redox is understanding how energy flows at the
+                atomic level.
+            </p>
+
+            <div class="law-box">
+                <h3>OIL RIG — The Rule You'll Never Forget</h3>
+                <p style="font-size: 1.3em; text-align: center; margin: 10px 0">
+                    <strong>O</strong>xidation <strong>I</strong>s
+                    <strong>L</strong>oss &nbsp;&nbsp;
+                    <strong>R</strong>eduction <strong>I</strong>s
+                    <strong>G</strong>ain
+                </p>
+                <p>(of electrons)</p>
+                <p style="margin-top: 10px">
+                    Oxidation and reduction
+                    <strong>always occur together</strong>. You cannot have one
+                    without the other — if one species loses electrons, another
+                    must gain them. A reaction involving both is called a redox
+                    reaction.
+                </p>
+            </div>
+
+            <div class="definition">
+                <p>
+                    <strong>Oxidation:</strong> Loss of electrons. The species
+                    losing electrons is <em>oxidized</em>.
+                </p>
+                <p>
+                    <strong>Reduction:</strong> Gain of electrons. The species
+                    gaining electrons is <em>reduced</em>.
+                </p>
+                <p style="margin-top: 8px">
+                    <strong>Oxidizing agent:</strong> The species that causes
+                    oxidation in something else. It gains electrons itself — so
+                    it is reduced.
+                </p>
+                <p>
+                    <strong>Reducing agent:</strong> The species that causes
+                    reduction in something else. It loses electrons itself — so
+                    it is oxidized.
+                </p>
+                <p style="margin-top: 8px">
+                    <em
+                        >"The oxidizing agent gets reduced. The reducing agent
+                        gets oxidized."</em
+                    >
+                    — easy to confuse, but makes logical sense.
+                </p>
+            </div>
+
+            <!-- SVG: Zn + Cu2+ electron transfer -->
+            <svg
+                viewBox="0 0 620 200"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 24px 0; border-radius: 10px"
+            >
+                <rect width="620" height="200" fill="#0f0f1a" rx="10" />
+                <text
+                    x="310"
+                    y="20"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="13"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)
+                </text>
+                <!-- Zn atom -->
+                <circle
+                    cx="110"
+                    cy="110"
+                    r="45"
+                    fill="#312e81"
+                    stroke="#818cf8"
+                    stroke-width="2"
+                />
+                <text
+                    x="110"
+                    y="107"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="14"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Zn
+                </text>
+                <text
+                    x="110"
+                    y="124"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    neutral
+                </text>
+                <!-- 2 electrons leaving Zn -->
+                <circle
+                    cx="190"
+                    cy="75"
+                    r="10"
+                    fill="#ef4444"
+                    stroke="#fca5a5"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="190"
+                    y="79"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="9"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <circle
+                    cx="215"
+                    cy="95"
+                    r="10"
+                    fill="#ef4444"
+                    stroke="#fca5a5"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="215"
+                    y="99"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="9"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    e⁻
+                </text>
+                <!-- Arrow for electrons -->
+                <path
+                    d="M220 80 Q340 30 450 80"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                    fill="none"
+                    marker-end="url(#ra)"
+                />
+                <text
+                    x="340"
+                    y="35"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    2e⁻ transferred
+                </text>
+                <defs>
+                    <marker
+                        id="ra"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#ef4444" />
+                    </marker>
+                </defs>
+                <!-- Cu2+ ion -->
+                <circle
+                    cx="510"
+                    cy="110"
+                    r="45"
+                    fill="#14532d"
+                    stroke="#22c55e"
+                    stroke-width="2"
+                />
+                <text
+                    x="510"
+                    y="107"
+                    text-anchor="middle"
+                    fill="#bbf7d0"
+                    font-size="14"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Cu²⁺
+                </text>
+                <text
+                    x="510"
+                    y="124"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    in solution
+                </text>
+                <!-- Labels below -->
+                <text
+                    x="110"
+                    y="170"
+                    text-anchor="middle"
+                    fill="#ef4444"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    OXIDIZED
+                </text>
+                <text
+                    x="110"
+                    y="185"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Zn → Zn²⁺ + 2e⁻
+                </text>
+                <text
+                    x="110"
+                    y="198"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    (reducing agent)
+                </text>
+                <text
+                    x="510"
+                    y="170"
+                    text-anchor="middle"
+                    fill="#22c55e"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    REDUCED
+                </text>
+                <text
+                    x="510"
+                    y="185"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Cu²⁺ + 2e⁻ → Cu
+                </text>
+                <text
+                    x="510"
+                    y="198"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    (oxidizing agent)
+                </text>
+            </svg>
+
+            <h2>Half-Equations</h2>
+            <p>
+                Any redox reaction can be split into two
+                <strong>half-equations</strong> — one for the oxidation, one for
+                the reduction. This makes it easier to see exactly what's
+                happening to electrons.
+            </p>
+
+            <div class="definition">
+                <p>
+                    <strong>Oxidation half-equation:</strong> Zn(s) → Zn²⁺(aq) +
+                    2e⁻
+                </p>
+                <p>
+                    <strong>Reduction half-equation:</strong> Cu²⁺(aq) + 2e⁻ →
+                    Cu(s)
+                </p>
+                <p style="margin-top: 8px">
+                    Adding the two half-equations (and cancelling the 2e⁻ on
+                    both sides):
+                </p>
+                <p>
+                    Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s) &nbsp; ← overall ionic
+                    equation
+                </p>
+            </div>
+
+            <div class="note">
+                <p><strong>Balancing half-equations:</strong></p>
+                <p>1. Balance atoms (not H and O first).</p>
+                <p>2. Balance O by adding H₂O.</p>
+                <p>3. Balance H by adding H⁺.</p>
+                <p>4. Balance charge by adding e⁻.</p>
+                <p>
+                    Then multiply each half-equation so the electrons cancel
+                    when added together.
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: MnO₄⁻ + Fe²⁺ in Acid Solution</h3>
+                <p>
+                    <strong>Reduction:</strong> MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O
+                </p>
+                <p>
+                    <strong>Oxidation:</strong> Fe²⁺ → Fe³⁺ + e⁻ &nbsp; (×5 to
+                    match electrons)
+                </p>
+                <p>
+                    <strong>Combined:</strong> MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 4H₂O
+                    + 5Fe³⁺
+                </p>
+                <p>
+                    MnO₄⁻ is the oxidizing agent (gets reduced from Mn⁷⁺ to
+                    Mn²⁺).
+                </p>
+                <p>Fe²⁺ is the reducing agent (gets oxidized to Fe³⁺).</p>
+                <p>
+                    <span class="highlight"
+                        >Potassium permanganate (KMnO₄) is one of the most
+                        powerful and commonly used oxidizing agents in chemistry
+                        — its deep purple colour disappearing as Mn⁷⁺ becomes
+                        colourless Mn²⁺ is used as its own indicator in
+                        titrations.</span
+                    >
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chemical Equilibrium</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Chemical Equilibrium</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Dynamic Equilibrium and Le Chatelier's Principle
+            </h2>
+
+            <h2>Not All Reactions Go to Completion</h2>
+            <p>
+                Some reactions are irreversible — they go essentially to
+                completion (like burning wood). But many reactions are
+                <strong>reversible</strong>: as products form, they can react
+                with each other to regenerate the original reactants. Over time,
+                the rates of the forward and reverse reactions become equal, and
+                the system reaches <strong>dynamic equilibrium</strong>.
+            </p>
+
+            <div class="law-box">
+                <h3>Dynamic Equilibrium</h3>
+                <p>
+                    At equilibrium, both the forward and reverse reactions are
+                    still occurring — but at the <strong>same rate</strong>. As
+                    a result, the concentrations of reactants and products
+                    remain constant over time.
+                </p>
+                <p style="margin-top: 8px">
+                    "Dynamic" because the reactions are still happening.
+                    "Equilibrium" because there's no net change in
+                    concentrations.
+                </p>
+                <p style="margin-top: 8px">
+                    Shown with a double arrow: A + B ⇌ C + D
+                </p>
+            </div>
+
+            <!-- SVG: equilibrium diagram showing rates equalizing -->
+            <svg
+                viewBox="0 0 560 180"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="560" height="180" fill="#0f0f1a" rx="10" />
+                <text
+                    x="280"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Rates Over Time — Approaching Equilibrium
+                </text>
+                <!-- axes -->
+                <line
+                    x1="50"
+                    y1="155"
+                    x2="520"
+                    y2="155"
+                    stroke="#6b7280"
+                    stroke-width="1.5"
+                />
+                <line
+                    x1="50"
+                    y1="30"
+                    x2="50"
+                    y2="155"
+                    stroke="#6b7280"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="285"
+                    y="172"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Time →
+                </text>
+                <text
+                    x="18"
+                    y="100"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                    transform="rotate(-90,18,100)"
+                >
+                    Rate
+                </text>
+                <!-- Forward rate: starts high, falls -->
+                <path
+                    d="M55 40 Q120 42 200 80 Q300 100 520 100"
+                    fill="none"
+                    stroke="#4f46e5"
+                    stroke-width="2.5"
+                />
+                <!-- Reverse rate: starts zero, rises -->
+                <path
+                    d="M55 155 Q120 150 200 120 Q300 105 520 100"
+                    fill="none"
+                    stroke="#ef4444"
+                    stroke-width="2.5"
+                />
+                <!-- Equilibrium line -->
+                <line
+                    x1="310"
+                    y1="30"
+                    x2="310"
+                    y2="155"
+                    stroke="#fbbf24"
+                    stroke-width="1.5"
+                    stroke-dasharray="5,3"
+                />
+                <text
+                    x="315"
+                    y="25"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Equilibrium reached
+                </text>
+                <!-- legend -->
+                <line
+                    x1="55"
+                    y1="168"
+                    x2="90"
+                    y2="168"
+                    stroke="#4f46e5"
+                    stroke-width="2"
+                />
+                <text
+                    x="94"
+                    y="172"
+                    fill="#818cf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Forward rate (decreases)
+                </text>
+                <line
+                    x1="270"
+                    y1="168"
+                    x2="305"
+                    y2="168"
+                    stroke="#ef4444"
+                    stroke-width="2"
+                />
+                <text
+                    x="310"
+                    y="172"
+                    fill="#fca5a5"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Reverse rate (increases)
+                </text>
+            </svg>
+
+            <h2>The Equilibrium Constant (Kc)</h2>
+            <p>For any equilibrium: aA + bB ⇌ cC + dD</p>
+            <div class="equation">
+                <p><strong>Kc = [C]ᶜ[D]ᵈ / [A]ᵃ[B]ᵇ</strong></p>
+                <p>
+                    Products over reactants, each raised to stoichiometric
+                    coefficients.
+                </p>
+                <p>
+                    Kc is constant at a given temperature. Changing
+                    concentration, pressure doesn't change Kc — only temperature
+                    does.
+                </p>
+                <p>
+                    Kc &gt;&gt; 1: equilibrium favors products. &nbsp; Kc
+                    &lt;&lt; 1: equilibrium favors reactants.
+                </p>
+            </div>
+
+            <h2>Le Chatelier's Principle</h2>
+            <p>
+                If a system at equilibrium is disturbed, it shifts to
+                <strong>oppose the disturbance</strong> and restore equilibrium.
+                This is one of the most powerful predictive tools in chemistry.
+            </p>
+
+            <div class="definition">
+                <p>
+                    <strong>Increase [reactant]:</strong> System shifts right
+                    (toward products) to use up the added reactant.
+                </p>
+                <p>
+                    <strong>Decrease [product]:</strong> System shifts right to
+                    replace the removed product.
+                </p>
+                <p>
+                    <strong>Increase pressure (gases):</strong> System shifts
+                    toward the side with fewer moles of gas.
+                </p>
+                <p>
+                    <strong>Decrease pressure:</strong> System shifts toward the
+                    side with more moles of gas.
+                </p>
+                <p>
+                    <strong>Increase temperature:</strong> System shifts in the
+                    endothermic direction (absorbs the added heat).
+                </p>
+                <p>
+                    <strong>Decrease temperature:</strong> System shifts in the
+                    exothermic direction.
+                </p>
+                <p>
+                    <strong>Add catalyst:</strong> Reaches equilibrium faster —
+                    does NOT shift the position of equilibrium. Kc unchanged.
+                </p>
+            </div>
+
+            <!-- SVG: Le Chatelier summary table -->
+            <svg
+                viewBox="0 0 580 190"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="580" height="190" fill="#0f0f1a" rx="10" />
+                <text
+                    x="290"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Le Chatelier — Quick Reference
+                </text>
+                <!-- headers -->
+                <rect
+                    x="10"
+                    y="25"
+                    width="195"
+                    height="22"
+                    rx="3"
+                    fill="#1e1b4b"
+                />
+                <text
+                    x="107"
+                    y="40"
+                    text-anchor="middle"
+                    fill="#a5b4fc"
+                    font-size="10"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Change
+                </text>
+                <rect
+                    x="210"
+                    y="25"
+                    width="175"
+                    height="22"
+                    rx="3"
+                    fill="#14532d"
+                />
+                <text
+                    x="297"
+                    y="40"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="10"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Shift direction
+                </text>
+                <rect
+                    x="390"
+                    y="25"
+                    width="180"
+                    height="22"
+                    rx="3"
+                    fill="#1c0a2e"
+                />
+                <text
+                    x="480"
+                    y="40"
+                    text-anchor="middle"
+                    fill="#c084fc"
+                    font-size="10"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Kc changes?
+                </text>
+                <!-- rows -->
+                <text
+                    x="107"
+                    y="63"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    ↑ [reactant]
+                </text>
+                <text
+                    x="297"
+                    y="63"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    → Right
+                </text>
+                <text
+                    x="480"
+                    y="63"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    No
+                </text>
+                <text
+                    x="107"
+                    y="83"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    ↑ pressure (gas)
+                </text>
+                <text
+                    x="297"
+                    y="83"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    → Fewer moles gas
+                </text>
+                <text
+                    x="480"
+                    y="83"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    No
+                </text>
+                <text
+                    x="107"
+                    y="103"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    ↑ temperature
+                </text>
+                <text
+                    x="297"
+                    y="103"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    → Endothermic direction
+                </text>
+                <text
+                    x="480"
+                    y="103"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    YES
+                </text>
+                <text
+                    x="107"
+                    y="123"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Add catalyst
+                </text>
+                <text
+                    x="297"
+                    y="123"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    No shift
+                </text>
+                <text
+                    x="480"
+                    y="123"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    No
+                </text>
+                <!-- gridlines -->
+                <line
+                    x1="10"
+                    y1="70"
+                    x2="570"
+                    y2="70"
+                    stroke="#374151"
+                    stroke-width="0.5"
+                />
+                <line
+                    x1="10"
+                    y1="90"
+                    x2="570"
+                    y2="90"
+                    stroke="#374151"
+                    stroke-width="0.5"
+                />
+                <line
+                    x1="10"
+                    y1="110"
+                    x2="570"
+                    y2="110"
+                    stroke="#374151"
+                    stroke-width="0.5"
+                />
+                <line
+                    x1="205"
+                    y1="25"
+                    x2="205"
+                    y2="135"
+                    stroke="#374151"
+                    stroke-width="0.5"
+                />
+                <line
+                    x1="385"
+                    y1="25"
+                    x2="385"
+                    y2="135"
+                    stroke="#374151"
+                    stroke-width="0.5"
+                />
+                <text
+                    x="290"
+                    y="160"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Only temperature changes Kc. Everything else shifts position
+                    without changing Kc.
+                </text>
+            </svg>
+
+            <div class="example">
+                <h3>Case Study: The Haber Process</h3>
+                <p>
+                    <strong
+                        >N₂(g) + 3H₂(g) ⇌ 2NH₃(g) &nbsp; ΔH = −92 kJ mol⁻¹
+                        (exothermic)</strong
+                    >
+                </p>
+                <p>
+                    <strong>Pressure:</strong> Left side: 4 mol gas. Right side:
+                    2 mol gas. High pressure (200 atm) → shifts right → more
+                    NH₃. ✓
+                </p>
+                <p>
+                    <strong>Temperature:</strong> Reaction is exothermic. Low
+                    temp favors NH₃ (shifts right). But rate is too slow at low
+                    temp — needs a catalyst.
+                </p>
+                <p>
+                    <strong>Compromise:</strong> ~450°C with iron catalyst.
+                    Gives acceptable yield (~15% NH₃) at a practical rate. NH₃
+                    is continuously removed to shift equilibrium right.
+                </p>
+                <p>
+                    <span class="highlight"
+                        >The Haber process is a perfect example of industrial
+                        compromise: you can't have maximum yield AND maximum
+                        rate simultaneously. The chosen conditions balance
+                        economics, rate, and yield.</span
+                    >
+                </p>
+            </div>
+
+            <div class="note">
+                <p>
+                    <strong>Kc vs Kp:</strong> For gas-phase equilibria, the
+                    equilibrium constant can be expressed in terms of partial
+                    pressures (Kp) instead of concentrations. At IB SL you
+                    mainly use Kc, but know that Kp exists and is related to Kc
+                    by Kp = Kc(RT)^Δn.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

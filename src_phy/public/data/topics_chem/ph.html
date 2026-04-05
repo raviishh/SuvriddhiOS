@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Acids and Bases — pH Scale</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Acids and Bases</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 3 — The pH Scale
+            </h2>
+
+            <h2>Measuring Acidity</h2>
+            <p>
+                The pH scale is a way to express the concentration of H⁺ ions in
+                a solution on a manageable scale. Without it, you'd have to
+                write numbers like 0.00001 mol/dm³ all the time.
+            </p>
+
+            <div class="law-box">
+                <h3>pH Definition</h3>
+                <p style="font-size: 1.2em; text-align: center; margin: 10px 0">
+                    <strong>pH = −log₁₀[H⁺]</strong>
+                </p>
+                <p>
+                    [H⁺] is in mol/dm³. The negative log means: higher H⁺
+                    concentration → lower pH.
+                </p>
+                <p style="margin-top: 8px">
+                    The scale is <strong>logarithmic</strong>: a change of 1 pH
+                    unit represents a 10× change in H⁺ concentration. pH 3 is 10
+                    times more acidic than pH 4, and 100 times more acidic than
+                    pH 5.
+                </p>
+            </div>
+
+            <!-- SVG: pH scale -->
+            <svg
+                viewBox="0 0 640 140"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 24px 0; border-radius: 10px"
+            >
+                <rect width="640" height="140" fill="#0f0f1a" rx="10" />
+                <text
+                    x="320"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    The pH Scale
+                </text>
+                <!-- gradient bar -->
+                <defs>
+                    <linearGradient
+                        id="phGrad"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="0%"
+                    >
+                        <stop offset="0%" style="stop-color: #dc2626" />
+                        <stop offset="20%" style="stop-color: #f97316" />
+                        <stop offset="40%" style="stop-color: #eab308" />
+                        <stop offset="50%" style="stop-color: #22c55e" />
+                        <stop offset="70%" style="stop-color: #0ea5e9" />
+                        <stop offset="100%" style="stop-color: #7c3aed" />
+                    </linearGradient>
+                </defs>
+                <rect
+                    x="25"
+                    y="30"
+                    width="590"
+                    height="30"
+                    rx="5"
+                    fill="url(#phGrad)"
+                />
+                <!-- pH numbers -->
+                <text
+                    x="25"
+                    y="78"
+                    fill="#fca5a5"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    0
+                </text>
+                <text
+                    x="72"
+                    y="78"
+                    fill="#fca5a5"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    1
+                </text>
+                <text
+                    x="120"
+                    y="78"
+                    fill="#fb923c"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    2
+                </text>
+                <text
+                    x="168"
+                    y="78"
+                    fill="#fb923c"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    3
+                </text>
+                <text
+                    x="216"
+                    y="78"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    4
+                </text>
+                <text
+                    x="264"
+                    y="78"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    5
+                </text>
+                <text
+                    x="312"
+                    y="78"
+                    fill="#a3e635"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    6
+                </text>
+                <text
+                    x="315"
+                    y="94"
+                    fill="#a3e635"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    |
+                </text>
+                <text
+                    x="364"
+                    y="78"
+                    fill="#22c55e"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    7
+                </text>
+                <text
+                    x="360"
+                    y="94"
+                    fill="#22c55e"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    ▲
+                </text>
+                <text
+                    x="340"
+                    y="108"
+                    fill="#22c55e"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    NEUTRAL
+                </text>
+                <text
+                    x="412"
+                    y="78"
+                    fill="#38bdf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    8
+                </text>
+                <text
+                    x="460"
+                    y="78"
+                    fill="#38bdf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    9
+                </text>
+                <text
+                    x="505"
+                    y="78"
+                    fill="#818cf8"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    10
+                </text>
+                <text
+                    x="550"
+                    y="78"
+                    fill="#a78bfa"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    11
+                </text>
+                <text
+                    x="595"
+                    y="78"
+                    fill="#c084fc"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    12
+                </text>
+                <!-- Examples -->
+                <text
+                    x="72"
+                    y="125"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    stomach
+                </text>
+                <text
+                    x="72"
+                    y="135"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    acid
+                </text>
+                <text
+                    x="192"
+                    y="125"
+                    text-anchor="middle"
+                    fill="#fb923c"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    vinegar
+                </text>
+                <text
+                    x="312"
+                    y="125"
+                    text-anchor="middle"
+                    fill="#a3e635"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    rain water
+                </text>
+                <text
+                    x="460"
+                    y="125"
+                    text-anchor="middle"
+                    fill="#38bdf8"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    sea water
+                </text>
+                <text
+                    x="595"
+                    y="125"
+                    text-anchor="middle"
+                    fill="#c084fc"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    bleach
+                </text>
+                <!-- Acid/Alkali labels -->
+                <text
+                    x="140"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#ef4444"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    ← ACIDIC
+                </text>
+                <text
+                    x="500"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="10"
+                    font-family="monospace"
+                >
+                    ALKALINE →
+                </text>
+            </svg>
+
+            <div class="equation">
+                <p><strong>pH → [H⁺]:</strong> &nbsp; [H⁺] = 10⁻ᵖᴴ</p>
+                <p><strong>[H⁺] → pH:</strong> &nbsp; pH = −log₁₀[H⁺]</p>
+                <p style="margin-top: 8px">
+                    Example: [H⁺] = 0.01 mol/dm³ = 10⁻² → pH = 2
+                </p>
+                <p>Example: [H⁺] = 1×10⁻⁸ mol/dm³ → pH = 8</p>
+            </div>
+
+            <h2>Autoionization of Water</h2>
+            <p>
+                Pure water is not entirely un-ionized. A tiny fraction of water
+                molecules transfer protons to each other:
+            </p>
+            <div class="definition">
+                <p>H₂O(l) ⇌ H⁺(aq) + OH⁻(aq)</p>
+                <p>At 25°C: [H⁺] = [OH⁻] = 1×10⁻⁷ mol/dm³</p>
+                <p>pH = −log(10⁻⁷) = <strong>7</strong> → neutral</p>
+                <p style="margin-top: 8px">
+                    The product [H⁺][OH⁻] = Kw = 1×10⁻¹⁴ mol²/dm⁶ at 25°C (the
+                    ionic product of water).
+                </p>
+                <p>
+                    This means: if [H⁺] goes up (more acidic), [OH⁻] must go
+                    down proportionally, and vice versa.
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Finding [H⁺] and [OH⁻] from pH</h3>
+                <p>A solution has pH = 3.</p>
+                <p>[H⁺] = 10⁻³ = <strong>1×10⁻³ mol/dm³</strong></p>
+                <p>
+                    [OH⁻] = Kw / [H⁺] = 10⁻¹⁴ / 10⁻³ =
+                    <strong>10⁻¹¹ mol/dm³</strong>
+                </p>
+                <p>Solution is acidic (pH &lt; 7). ✓</p>
+                <p>
+                    <span class="highlight"
+                        >For strong acids: [H⁺] = concentration of acid (fully
+                        ionized). 0.01 mol/dm³ HCl → [H⁺] = 0.01 → pH = 2. For
+                        weak acids, [H⁺] &lt; concentration (partial ionization
+                        only).</span
+                    >
+                </p>
+            </div>
+
+            <h2>Measuring pH</h2>
+            <div class="definition">
+                <p>
+                    <strong>Universal indicator:</strong> A mixture of
+                    indicators that gives a range of colours across the pH
+                    scale. Good for estimating pH to ±1 unit. Colour chart is
+                    provided and matched visually.
+                </p>
+                <p>
+                    <strong>pH meter:</strong> Electronic probe that gives a
+                    precise numerical pH reading. Much more accurate than
+                    indicators.
+                </p>
+                <p>
+                    <strong>Specific indicators:</strong> Litmus,
+                    phenolphthalein, methyl orange — each has a narrow pH range
+                    where it changes colour. Used in titrations where you need a
+                    sharp endpoint.
+                </p>
+            </div>
+
+            <div class="note">
+                <p>
+                    <strong>pH of common substances:</strong> Stomach acid
+                    ~1.5–3.5, lemon juice ~2, cola ~2.5, coffee ~5, pure water
+                    7, blood ~7.4, baking soda ~8.3, ammonia solution ~11,
+                    bleach ~12.5, NaOH ~13–14.
+                </p>
+                <p>
+                    Blood is maintained between pH 7.35–7.45 by buffer systems —
+                    a change of 0.4 units either way is life-threatening.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

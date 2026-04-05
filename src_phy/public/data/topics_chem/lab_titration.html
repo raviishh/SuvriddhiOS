@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Laboratory Techniques — Titration</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Laboratory Techniques</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 1 — Titration
+            </h2>
+
+            <h2>What Is Titration?</h2>
+            <p>
+                Titration is a quantitative technique for finding the
+                concentration of an unknown solution by reacting it with a
+                standard solution (known concentration) until the reaction is
+                exactly complete. The point at which stoichiometrically
+                equivalent amounts have reacted is called the
+                <strong>equivalence point</strong>.
+            </p>
+
+            <div class="definition">
+                <p>
+                    <strong>Standard solution:</strong> A solution of precisely
+                    known concentration, used as the reference.
+                </p>
+                <p>
+                    <strong>Titre:</strong> The volume of standard solution
+                    needed to reach the end point.
+                </p>
+                <p>
+                    <strong>End point:</strong> The point detected
+                    experimentally (e.g. indicator colour change). Ideally
+                    coincides with the equivalence point.
+                </p>
+            </div>
+
+            <!-- SVG: titration setup diagram -->
+            <svg
+                viewBox="0 0 500 260"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                    width: 85%;
+                    margin: 24px auto;
+                    display: block;
+                    border-radius: 10px;
+                "
+            >
+                <rect width="500" height="260" fill="#0f0f1a" rx="10" />
+                <text
+                    x="250"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Acid-Base Titration Setup
+                </text>
+                <!-- Burette -->
+                <rect
+                    x="215"
+                    y="25"
+                    width="24"
+                    height="140"
+                    rx="3"
+                    fill="none"
+                    stroke="#9ca3af"
+                    stroke-width="2"
+                />
+                <rect
+                    x="216"
+                    y="26"
+                    width="22"
+                    height="50"
+                    rx="2"
+                    fill="#1e3a5f"
+                    opacity="0.8"
+                />
+                <text
+                    x="227"
+                    y="50"
+                    text-anchor="middle"
+                    fill="#7dd3fc"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    NaOH
+                </text>
+                <text
+                    x="227"
+                    y="63"
+                    text-anchor="middle"
+                    fill="#7dd3fc"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    (standard)
+                </text>
+                <!-- Tap -->
+                <rect
+                    x="208"
+                    y="158"
+                    width="38"
+                    height="10"
+                    rx="3"
+                    fill="#6b7280"
+                />
+                <text
+                    x="258"
+                    y="167"
+                    fill="#9ca3af"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    ← stopcock
+                </text>
+                <!-- Dropper tip -->
+                <line
+                    x1="227"
+                    y1="168"
+                    x2="227"
+                    y2="190"
+                    stroke="#9ca3af"
+                    stroke-width="1.5"
+                />
+                <!-- Conical flask -->
+                <path
+                    d="M180 195 L160 250 L300 250 L280 195 Z"
+                    fill="none"
+                    stroke="#9ca3af"
+                    stroke-width="2"
+                />
+                <path
+                    d="M215 195 L215 210 L180 248 L300 248 L265 210 L265 195 Z"
+                    fill="#1a3a1a"
+                    opacity="0.6"
+                />
+                <text
+                    x="240"
+                    y="235"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    HCl(aq)
+                </text>
+                <text
+                    x="240"
+                    y="248"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    + indicator
+                </text>
+                <!-- Clamp stand (simplified) -->
+                <line
+                    x1="350"
+                    y1="15"
+                    x2="350"
+                    y2="255"
+                    stroke="#4b5563"
+                    stroke-width="4"
+                />
+                <line
+                    x1="227"
+                    y1="22"
+                    x2="350"
+                    y2="22"
+                    stroke="#4b5563"
+                    stroke-width="3"
+                />
+                <!-- Scale markings on burette -->
+                <text
+                    x="200"
+                    y="35"
+                    fill="#6b7280"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    0
+                </text>
+                <text
+                    x="200"
+                    y="55"
+                    fill="#6b7280"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    5
+                </text>
+                <text
+                    x="196"
+                    y="75"
+                    fill="#6b7280"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    10
+                </text>
+                <text
+                    x="196"
+                    y="95"
+                    fill="#6b7280"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    15
+                </text>
+                <text
+                    x="196"
+                    y="115"
+                    fill="#6b7280"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    20
+                </text>
+                <text
+                    x="196"
+                    y="135"
+                    fill="#6b7280"
+                    font-size="7"
+                    font-family="monospace"
+                >
+                    25
+                </text>
+                <!-- Labels -->
+                <text
+                    x="110"
+                    y="35"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Burette
+                </text>
+                <text
+                    x="110"
+                    y="48"
+                    fill="#6b7280"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    (graduated 0–50 cm³)
+                </text>
+                <line
+                    x1="160"
+                    y1="40"
+                    x2="210"
+                    y2="40"
+                    stroke="#4b5563"
+                    stroke-width="0.5"
+                    stroke-dasharray="3,2"
+                />
+                <text
+                    x="110"
+                    y="190"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Conical flask
+                </text>
+                <line
+                    x1="175"
+                    y1="190"
+                    x2="200"
+                    y2="210"
+                    stroke="#4b5563"
+                    stroke-width="0.5"
+                    stroke-dasharray="3,2"
+                />
+                <!-- Drop falling -->
+                <ellipse
+                    cx="227"
+                    cy="192"
+                    rx="3"
+                    ry="4"
+                    fill="#7dd3fc"
+                    opacity="0.8"
+                />
+            </svg>
+
+            <h2>The Titration Procedure</h2>
+            <div class="definition">
+                <p>
+                    1. Rinse burette with standard solution; fill and record
+                    initial reading (to 2 decimal places, e.g. 0.00 cm³)
+                </p>
+                <p>
+                    2. Pipette a fixed volume of unknown solution into conical
+                    flask (e.g. 25.00 cm³ using volumetric pipette)
+                </p>
+                <p>3. Add 2–3 drops of appropriate indicator</p>
+                <p>
+                    4. Add standard solution slowly from burette, swirling
+                    continuously
+                </p>
+                <p>
+                    5. Near end point, add dropwise — a single drop changes the
+                    colour permanently
+                </p>
+                <p>6. Record final burette reading; titre = final − initial</p>
+                <p>
+                    7. Repeat until concordant results (within 0.10 cm³ of each
+                    other)
+                </p>
+                <p>8. Average the concordant titres</p>
+            </div>
+
+            <div class="note">
+                <p>
+                    <strong>Why concordant results?</strong> A single reading
+                    may have a random error (air bubble in tip, overshoot).
+                    Concordant results show reproducibility and allow random
+                    errors to be averaged out. Systematic errors (wrong
+                    indicator, calibration) would still affect all readings
+                    equally.
+                </p>
+            </div>
+
+            <h2>Choosing the Right Indicator</h2>
+            <div class="definition">
+                <p>
+                    <strong>Strong acid + Strong base</strong> (e.g. HCl +
+                    NaOH): pH jumps sharply at equivalence point (pH 3→11).
+                    Either phenolphthalein or methyl orange works.
+                </p>
+                <p>
+                    <strong>Strong acid + Weak base</strong> (e.g. HCl + NH₃):
+                    equivalence point ~pH 5. Use methyl orange (changes
+                    3.1–4.4).
+                </p>
+                <p>
+                    <strong>Weak acid + Strong base</strong> (e.g. CH₃COOH +
+                    NaOH): equivalence point ~pH 9. Use phenolphthalein (changes
+                    8.2–10).
+                </p>
+                <p>
+                    <strong>Weak acid + Weak base:</strong> No sharp end point —
+                    cannot be titrated reliably with a simple indicator.
+                </p>
+            </div>
+
+            <h2>Titration Calculation</h2>
+            <div class="equation">
+                <p><strong>n = c × V</strong> &nbsp; (V in dm³)</p>
+                <p>
+                    Use mole ratio from balanced equation to link moles of
+                    standard → moles of unknown.
+                </p>
+                <p>Then c(unknown) = n / V(unknown)</p>
+            </div>
+
+            <div class="example">
+                <h3>Example: Finding Concentration of Sulfuric Acid</h3>
+                <p>
+                    25.0 cm³ of H₂SO₄ is titrated with 0.100 mol/dm³ NaOH.
+                    Average titre = 23.60 cm³.
+                </p>
+                <p><strong>Equation:</strong> H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O</p>
+                <p>
+                    <strong>n(NaOH)</strong> = 0.100 × 0.02360 = 2.360 × 10⁻³
+                    mol
+                </p>
+                <p>
+                    <strong>n(H₂SO₄)</strong> = 2.360×10⁻³ / 2 = 1.180 × 10⁻³
+                    mol &nbsp; (ratio 1:2)
+                </p>
+                <p>
+                    <strong>c(H₂SO₄)</strong> = 1.180×10⁻³ / 0.0250 =
+                    <strong>0.0472 mol/dm³</strong>
+                </p>
+                <p>
+                    <span class="highlight"
+                        >Note the 1:2 ratio — this is the most common
+                        mark-losing step. Always write the equation and identify
+                        the mole ratio before calculating.</span
+                    >
+                </p>
+            </div>
+
+            <h2>Back Titration</h2>
+            <p>
+                Used when the substance being analyzed doesn't react directly or
+                cleanly with a standard solution. An excess of reagent is added,
+                and the leftover is titrated.
+            </p>
+            <div class="definition">
+                <p>Example: Finding % CaCO₃ in limestone.</p>
+                <p>
+                    Add excess HCl (known moles) to the limestone. CaCO₃ reacts,
+                    leaving unused HCl.
+                </p>
+                <p>
+                    Titrate the excess HCl with NaOH → find moles of excess HCl.
+                </p>
+                <p>Moles CaCO₃ = moles HCl added − moles HCl excess.</p>
+            </div>
+        </div>
+    </body>
+</html>

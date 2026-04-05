@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stoichiometry — The Mole</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Stoichiometry</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 1 — The Mole
+            </h2>
+
+            <h2>The Counting Problem</h2>
+            <p>
+                A single atom of carbon has a mass of about 2 × 10⁻²³ g. You
+                can't weigh that on any lab scale. Chemists needed a way to
+                count atoms in bulk — a unit that bridges the atomic scale and
+                the real-world scale. That unit is the <strong>mole</strong>.
+            </p>
+
+            <div class="law-box">
+                <h3>Avogadro's Number</h3>
+                <p>
+                    One mole = <strong>6.022 × 10²³</strong> particles (atoms,
+                    molecules, ions — whatever the entity is).
+                </p>
+                <p style="margin-top: 8px">
+                    This number (Nₐ) was chosen so that 1 mole of ¹²C atoms has
+                    a mass of exactly 12 g. This links atomic mass units (amu)
+                    to grams in a practical way.
+                </p>
+                <p style="margin-top: 8px">
+                    6.022 × 10²³ is unimaginably large. A mole of grains of sand
+                    would cover Earth's land surface to a depth of several
+                    kilometres.
+                </p>
+            </div>
+
+            <h2>Molar Mass</h2>
+            <p>
+                The <strong>molar mass</strong> of a substance is the mass of
+                one mole of it, in g/mol. Numerically it equals the relative
+                atomic/molecular mass from the periodic table.
+            </p>
+
+            <div class="equation">
+                <p><strong>Working out molar mass:</strong></p>
+                <p>
+                    For an element: M = Aᵣ in g/mol. &nbsp; Carbon: M = 12 g/mol
+                </p>
+                <p>
+                    For a compound: sum all atoms. &nbsp; H₂O: 2(1) + 16 =
+                    <strong>18 g/mol</strong>
+                </p>
+                <p>NaCl: 23 + 35.5 = <strong>58.5 g/mol</strong></p>
+                <p>H₂SO₄: 2(1) + 32 + 4(16) = <strong>98 g/mol</strong></p>
+            </div>
+
+            <div class="definition">
+                <p style="font-size: 1.3em; text-align: center; margin: 12px 0">
+                    <strong>n = m / M</strong>
+                </p>
+                <p>n = amount (mol), m = mass (g), M = molar mass (g/mol)</p>
+                <p>
+                    Rearranges to: &nbsp; <strong>m = n × M</strong> &nbsp; or
+                    &nbsp; <strong>M = m / n</strong>
+                </p>
+            </div>
+
+            <!-- SVG: mole triangle -->
+            <svg
+                viewBox="0 0 400 170"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                    width: 65%;
+                    margin: 20px auto;
+                    display: block;
+                    border-radius: 10px;
+                "
+            >
+                <rect width="400" height="170" fill="#0f0f1a" rx="10" />
+                <polygon
+                    points="200,18 45,148 355,148"
+                    fill="#1e1b4b"
+                    stroke="#4f46e5"
+                    stroke-width="2"
+                />
+                <line
+                    x1="200"
+                    y1="18"
+                    x2="200"
+                    y2="148"
+                    stroke="#4f46e5"
+                    stroke-width="1.5"
+                    stroke-dasharray="5,3"
+                />
+                <text
+                    x="200"
+                    y="105"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="28"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    m
+                </text>
+                <text
+                    x="112"
+                    y="150"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="24"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    n
+                </text>
+                <text
+                    x="295"
+                    y="150"
+                    text-anchor="middle"
+                    fill="#7dd3fc"
+                    font-size="24"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    M
+                </text>
+                <text
+                    x="200"
+                    y="13"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Cover what you want — rest is the formula
+                </text>
+                <text
+                    x="60"
+                    y="163"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    n = m/M
+                </text>
+                <text
+                    x="170"
+                    y="163"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    m = n×M
+                </text>
+                <text
+                    x="295"
+                    y="163"
+                    fill="#9ca3af"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    M = m/n
+                </text>
+            </svg>
+
+            <div class="example">
+                <h3>Example: Moles in 49 g of H₂SO₄</h3>
+                <p>M(H₂SO₄) = 2(1) + 32 + 4(16) = 98 g/mol</p>
+                <p>n = 49 / 98 = <strong>0.5 mol</strong></p>
+                <p>
+                    Number of molecules = 0.5 × 6.022 × 10²³ =
+                    <strong>3.011 × 10²³</strong>
+                </p>
+                <p>
+                    <span class="highlight"
+                        >The mole links mass (something you can weigh) to
+                        particle count (what you need for chemical ratios). It's
+                        the central conversion in all stoichiometry.</span
+                    >
+                </p>
+            </div>
+
+            <h2>Molar Volume of Gases</h2>
+            <p>
+                At standard temperature and pressure (STP: 0°C, 100 kPa), one
+                mole of any ideal gas occupies <strong>22.4 dm³</strong>. At
+                room temperature (~25°C), use <strong>24.0 dm³/mol</strong>.
+            </p>
+            <div class="definition">
+                <p><strong>n = V / Vₘ</strong></p>
+                <p>
+                    V = volume in dm³, Vₘ = molar volume (22.4 or 24.0 dm³/mol)
+                </p>
+            </div>
+            <div class="note">
+                <p>
+                    1 dm³ = 1 litre = 1000 cm³. This molar volume applies to all
+                    ideal gases regardless of what the gas is — same number of
+                    moles always takes the same volume at the same conditions.
+                </p>
+            </div>
+
+            <h2>Concentration of Solutions</h2>
+            <div class="equation">
+                <p><strong>c = n / V</strong></p>
+                <p>c = concentration (mol/dm³), n = moles, V = volume in dm³</p>
+                <p>Convert cm³ → dm³ by ÷ 1000. &nbsp; 250 cm³ = 0.250 dm³</p>
+            </div>
+            <div class="example">
+                <h3>Example: Making 500 cm³ of 0.2 mol/dm³ NaOH</h3>
+                <p>n = c × V = 0.2 × 0.500 = 0.1 mol</p>
+                <p>m = n × M = 0.1 × 40 = <strong>4.0 g of NaOH</strong></p>
+                <p>
+                    <span class="highlight"
+                        >Dissolve 4.0 g NaOH and make up to exactly 500 cm³ in a
+                        volumetric flask.</span
+                    >
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

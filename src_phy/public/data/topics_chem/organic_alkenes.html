@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Organic Chemistry — Alkenes</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Organic Chemistry</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 3 — Alkenes
+            </h2>
+
+            <h2>The Double Bond Changes Everything</h2>
+            <p>
+                Alkenes contain at least one <strong>C=C double bond</strong>.
+                This makes them fundamentally more reactive than alkanes. The
+                double bond consists of a strong sigma (σ) bond and a weaker pi
+                (π) bond — the π bond sits above and below the C–C axis, and its
+                electrons are more exposed and easier to attack.
+            </p>
+
+            <div class="equation">
+                <p><strong>General formula: CₙH₂ₙ</strong></p>
+                <p>
+                    Ethene: C₂H₄ &nbsp;&nbsp; Propene: C₃H₆ &nbsp;&nbsp;
+                    But-1-ene: C₄H₈ &nbsp;&nbsp; But-2-ene: C₄H₈
+                </p>
+            </div>
+
+            <!-- SVG: ethene structure showing double bond -->
+            <svg
+                viewBox="0 0 500 160"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                    width: 90%;
+                    margin: 20px auto;
+                    display: block;
+                    border-radius: 10px;
+                "
+            >
+                <rect width="500" height="160" fill="#0f0f1a" rx="10" />
+                <text
+                    x="250"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Ethene (C₂H₄) — the C=C Double Bond
+                </text>
+                <!-- C atoms -->
+                <circle
+                    cx="185"
+                    cy="90"
+                    r="22"
+                    fill="#1e1b4b"
+                    stroke="#4f46e5"
+                    stroke-width="2"
+                />
+                <text
+                    x="185"
+                    y="95"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="13"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    C
+                </text>
+                <circle
+                    cx="315"
+                    cy="90"
+                    r="22"
+                    fill="#1e1b4b"
+                    stroke="#4f46e5"
+                    stroke-width="2"
+                />
+                <text
+                    x="315"
+                    y="95"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="13"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    C
+                </text>
+                <!-- Double bond lines -->
+                <line
+                    x1="207"
+                    y1="85"
+                    x2="293"
+                    y2="85"
+                    stroke="#fbbf24"
+                    stroke-width="2.5"
+                />
+                <line
+                    x1="207"
+                    y1="95"
+                    x2="293"
+                    y2="95"
+                    stroke="#f97316"
+                    stroke-width="2.5"
+                />
+                <text
+                    x="250"
+                    y="77"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    σ bond
+                </text>
+                <text
+                    x="250"
+                    y="108"
+                    text-anchor="middle"
+                    fill="#f97316"
+                    font-size="8"
+                    font-family="monospace"
+                >
+                    π bond (reactive)
+                </text>
+                <!-- H atoms -->
+                <line
+                    x1="163"
+                    y1="78"
+                    x2="143"
+                    y2="62"
+                    stroke="#86efac"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="137"
+                    y="59"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="12"
+                    font-family="monospace"
+                >
+                    H
+                </text>
+                <line
+                    x1="163"
+                    y1="102"
+                    x2="143"
+                    y2="118"
+                    stroke="#86efac"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="137"
+                    y="128"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="12"
+                    font-family="monospace"
+                >
+                    H
+                </text>
+                <line
+                    x1="337"
+                    y1="78"
+                    x2="357"
+                    y2="62"
+                    stroke="#86efac"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="363"
+                    y="59"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="12"
+                    font-family="monospace"
+                >
+                    H
+                </text>
+                <line
+                    x1="337"
+                    y1="102"
+                    x2="357"
+                    y2="118"
+                    stroke="#86efac"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="363"
+                    y="128"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="12"
+                    font-family="monospace"
+                >
+                    H
+                </text>
+                <!-- Flat geometry note -->
+                <text
+                    x="250"
+                    y="148"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    All 6 atoms are in the same plane — ethene is flat (trigonal
+                    planar around each C)
+                </text>
+            </svg>
+
+            <h2>Addition Reactions</h2>
+            <p>
+                The π bond is the reactive site. Electrophiles (electron-poor
+                species) are attracted to the electron-rich double bond and add
+                across it, breaking the π bond and forming two new single bonds.
+                The product is always a saturated compound (no more double
+                bond).
+            </p>
+
+            <div class="law-box">
+                <h3>Hydrogenation (H₂ addition)</h3>
+                <p>C₂H₄ + H₂ → C₂H₆ &nbsp;&nbsp; (ethene → ethane)</p>
+                <p>Conditions: Ni catalyst, ~150°C</p>
+                <p>
+                    Used industrially to convert unsaturated vegetable oils into
+                    saturated fats (margarine production). Atom economy = 100%.
+                </p>
+            </div>
+
+            <div class="law-box">
+                <h3>Halogenation (Br₂ or Cl₂ addition)</h3>
+                <p>C₂H₄ + Br₂ → CH₂BrCH₂Br &nbsp;&nbsp; (1,2-dibromoethane)</p>
+                <p>
+                    Orange/brown bromine water decolorizes — used as a
+                    <strong>test for C=C double bonds</strong>.
+                </p>
+                <p>
+                    No catalyst needed. Alkanes don't react with Br₂ at room
+                    temperature (no color change) — this distinguishes them from
+                    alkenes.
+                </p>
+            </div>
+
+            <div class="law-box">
+                <h3>Hydration (H₂O addition)</h3>
+                <p>C₂H₄ + H₂O → C₂H₅OH &nbsp;&nbsp; (ethanol)</p>
+                <p>Conditions: H₃PO₄ catalyst, 300°C, 60 atm (steam)</p>
+                <p>
+                    Industrial method for making ethanol. Reversible reaction —
+                    equilibrium favors ethanol at lower temperatures but
+                    reaction is too slow; compromise conditions used.
+                </p>
+            </div>
+
+            <div class="law-box">
+                <h3>Hydrohalogenation (HBr or HCl addition)</h3>
+                <p>C₂H₄ + HBr → CH₃CH₂Br &nbsp;&nbsp; (bromoethane)</p>
+                <p>
+                    For unsymmetrical alkenes (propene etc.), Markovnikov's rule
+                    applies: H adds to the carbon that already has more H atoms.
+                    The halogen goes to the more substituted carbon.
+                </p>
+            </div>
+
+            <!-- SVG: addition reaction mechanism overview -->
+            <svg
+                viewBox="0 0 600 100"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="600" height="100" fill="#0f0f1a" rx="10" />
+                <text
+                    x="300"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Bromine Water Test — Visual Result
+                </text>
+                <!-- Before: Br2 orange -->
+                <rect
+                    x="30"
+                    y="30"
+                    width="120"
+                    height="50"
+                    rx="6"
+                    fill="#7c2d12"
+                    stroke="#f97316"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="90"
+                    y="55"
+                    text-anchor="middle"
+                    fill="#fed7aa"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    Br₂(aq)
+                </text>
+                <text
+                    x="90"
+                    y="72"
+                    text-anchor="middle"
+                    fill="#fb923c"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    orange/brown
+                </text>
+                <!-- Plus alkene -->
+                <text
+                    x="175"
+                    y="60"
+                    text-anchor="middle"
+                    fill="#9ca3af"
+                    font-size="18"
+                    font-family="monospace"
+                >
+                    +
+                </text>
+                <rect
+                    x="200"
+                    y="30"
+                    width="120"
+                    height="50"
+                    rx="6"
+                    fill="#1e3a5f"
+                    stroke="#0ea5e9"
+                    stroke-width="1.5"
+                />
+                <text
+                    x="260"
+                    y="55"
+                    text-anchor="middle"
+                    fill="#bae6fd"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    Alkene
+                </text>
+                <!-- Arrow -->
+                <text
+                    x="345"
+                    y="60"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="18"
+                    font-family="monospace"
+                >
+                    →
+                </text>
+                <!-- After: colorless -->
+                <rect
+                    x="375"
+                    y="30"
+                    width="200"
+                    height="50"
+                    rx="6"
+                    fill="#0f0f1a"
+                    stroke="#22c55e"
+                    stroke-width="2"
+                />
+                <text
+                    x="475"
+                    y="52"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    Colourless solution
+                </text>
+                <text
+                    x="475"
+                    y="68"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Br₂ reacted with C=C — positive test
+                </text>
+            </svg>
+
+            <h2>Polymerization</h2>
+            <p>
+                Alkenes can link together in long chains through
+                <strong>addition polymerization</strong>. Each monomer's double
+                bond opens and forms bonds with the next monomer. No atoms are
+                lost — everything ends up in the polymer.
+            </p>
+
+            <div class="definition">
+                <p>
+                    n(CH₂=CH₂) → −(CH₂–CH₂)ₙ− &nbsp;&nbsp; poly(ethene) /
+                    polyethylene (PE)
+                </p>
+                <p>
+                    n(CH₂=CHCH₃) → −(CH₂–CHCH₃)ₙ− &nbsp;&nbsp; poly(propene) /
+                    polypropylene (PP)
+                </p>
+                <p>
+                    n(CH₂=CHCl) → −(CH₂–CHCl)ₙ− &nbsp;&nbsp; poly(chloroethene)
+                    / PVC
+                </p>
+                <p style="margin-top: 8px">
+                    Properties of the polymer depend on monomer, branching, and
+                    cross-linking. LDPE (low density) is branched and flexible;
+                    HDPE (high density) is linear and rigid.
+                </p>
+            </div>
+
+            <div class="example">
+                <h3>Alkene vs Alkane — Quick Comparison</h3>
+                <p>
+                    <strong>Test with Br₂(aq):</strong> Alkene decolorizes
+                    (reacts). Alkane — no change.
+                </p>
+                <p>
+                    <strong>Test with KMnO₄(aq):</strong> Alkene decolorizes
+                    purple permanganate (gets oxidized). Alkane — no change.
+                </p>
+                <p>
+                    <strong>Combustion:</strong> Both burn, but alkenes produce
+                    sootier flames (higher C:H ratio).
+                </p>
+                <p>
+                    <span class="highlight"
+                        >The C=C is the source of all alkene reactivity. Every
+                        addition reaction follows the same logic: something adds
+                        across the double bond, breaking the π bond and making
+                        two new σ bonds.</span
+                    >
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

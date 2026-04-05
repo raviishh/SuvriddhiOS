@@ -723,12 +723,12 @@
                 "title": "Pandas Basics",
                 "contentFile": "topics_py/ecosystems/pandas.html"
             },
-            {
-                "id": "eco_matplotlib",
-                "type": "lesson",
-                "title": "Matplotlib",
-                "contentFile": "topics_py/ecosystems/matplotlib.html"
-            },
+            # {
+            #    "id": "eco_matplotlib",
+            #    "type": "lesson",
+            #    "title": "Matplotlib",
+            #    "contentFile": "topics_py/ecosystems/matplotlib.html"
+            #},
             {
                 "id": "eco_packaging",
                 "type": "lesson",

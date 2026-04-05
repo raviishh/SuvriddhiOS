@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Acids and Bases — Theories</title>
+        <link
+            rel="stylesheet"
+            href="/data/topics/PDFContent/commonstyles.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Acids and Bases</h1>
+            <h2
+                style="
+                    color: var(--accent-secondary, #a78bfa);
+                    margin-top: 4px;
+                    font-size: 1.1em;
+                    font-weight: 400;
+                "
+            >
+                Part 1 — Defining Acids and Bases
+            </h2>
+
+            <h2>The Challenge of Definition</h2>
+            <p>
+                What makes something an acid? Sour taste? Corrodes metals? Turns
+                litmus red? These are properties, not explanations. Chemists
+                needed a definition based on what acids and bases actually
+                <em>do</em> at the molecular level. Three definitions have been
+                developed, each more general than the last.
+            </p>
+
+            <div class="law-box">
+                <h3>Arrhenius Theory (1887)</h3>
+                <p>
+                    <strong>Acid:</strong> Produces H⁺ ions when dissolved in
+                    water.
+                </p>
+                <p>HCl(aq) → H⁺(aq) + Cl⁻(aq)</p>
+                <p style="margin-top: 8px">
+                    <strong>Base:</strong> Produces OH⁻ ions when dissolved in
+                    water.
+                </p>
+                <p>NaOH(aq) → Na⁺(aq) + OH⁻(aq)</p>
+                <p style="margin-top: 8px">
+                    <em
+                        >Limitation: requires water. Cannot explain why NH₃ is
+                        basic (it has no OH⁻), or why reactions between dry HCl
+                        gas and dry NH₃ gas produce NH₄Cl.</em
+                    >
+                </p>
+            </div>
+
+            <div class="law-box">
+                <h3>Brønsted–Lowry Theory (1923)</h3>
+                <p><strong>Acid:</strong> A proton (H⁺) donor.</p>
+                <p><strong>Base:</strong> A proton (H⁺) acceptor.</p>
+                <p style="margin-top: 8px">
+                    This works without water. Example:
+                </p>
+                <p>HCl + NH₃ → NH₄⁺ + Cl⁻</p>
+                <p>HCl donates H⁺ (acid). NH₃ accepts H⁺ (base).</p>
+                <p style="margin-top: 8px">
+                    The concept of
+                    <strong>conjugate acid-base pairs</strong> emerges: when an
+                    acid donates H⁺, it becomes a conjugate base; when a base
+                    accepts H⁺, it becomes a conjugate acid.
+                </p>
+            </div>
+
+            <!-- SVG: Conjugate pairs diagram -->
+            <svg
+                viewBox="0 0 600 130"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="600" height="130" fill="#0f0f1a" rx="10" />
+                <text
+                    x="300"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="12"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Conjugate Acid–Base Pairs: HCl + NH₃ ⇌ NH₄⁺ + Cl⁻
+                </text>
+                <!-- equation -->
+                <text
+                    x="300"
+                    y="55"
+                    text-anchor="middle"
+                    fill="#c7d2fe"
+                    font-size="14"
+                    font-family="monospace"
+                >
+                    HCl &nbsp; + &nbsp; NH₃ &nbsp; ⇌ &nbsp; NH₄⁺ &nbsp; + &nbsp;
+                    Cl⁻
+                </text>
+                <!-- Pair 1: HCl / Cl- -->
+                <path
+                    d="M75 62 Q75 95 370 95"
+                    stroke="#ef4444"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-dasharray="5,3"
+                />
+                <text
+                    x="220"
+                    y="110"
+                    text-anchor="middle"
+                    fill="#fca5a5"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Conjugate pair 1: HCl (acid) / Cl⁻ (conj. base)
+                </text>
+                <!-- Pair 2: NH3 / NH4+ -->
+                <path
+                    d="M185 62 Q185 80 310 80"
+                    stroke="#22c55e"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-dasharray="5,3"
+                />
+                <text
+                    x="380"
+                    y="112"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    Conjugate pair 2: NH₄⁺ (conj. acid) / NH₃ (base)
+                </text>
+                <!-- H+ transfer arrow -->
+                <path
+                    d="M120 48 Q250 25 300 48"
+                    stroke="#fbbf24"
+                    stroke-width="1.5"
+                    fill="none"
+                    marker-end="url(#ya)"
+                />
+                <text
+                    x="215"
+                    y="30"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    H⁺ transferred →
+                </text>
+                <defs>
+                    <marker
+                        id="ya"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="6"
+                        refY="3"
+                        orient="auto"
+                    >
+                        <path d="M0,0 L0,6 L8,3 z" fill="#fbbf24" />
+                    </marker>
+                </defs>
+            </svg>
+
+            <h2>Strong vs Weak Acids and Bases</h2>
+            <p>
+                Not all acids donate protons with equal ease. The
+                <strong>strength</strong> of an acid refers to how completely it
+                ionizes in water — not to its concentration or corrosiveness.
+            </p>
+
+            <div class="definition">
+                <p>
+                    <strong>Strong acid:</strong> Ionizes (almost) completely in
+                    water. Essentially no HX molecules remain — all H⁺ and X⁻.
+                </p>
+                <p>Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄, HClO₄</p>
+                <p>
+                    HCl → H⁺ + Cl⁻ &nbsp;&nbsp; (one-way arrow — goes to
+                    completion)
+                </p>
+                <p style="margin-top: 10px">
+                    <strong>Weak acid:</strong> Partially ionizes. An
+                    equilibrium is established with most molecules remaining
+                    un-ionized.
+                </p>
+                <p>Weak acids: CH₃COOH (acetic acid), HF, H₂CO₃, H₃PO₄</p>
+                <p>
+                    CH₃COOH ⇌ H⁺ + CH₃COO⁻ &nbsp;&nbsp; (double arrow —
+                    equilibrium)
+                </p>
+                <p style="margin-top: 10px">
+                    <strong>Strong base:</strong> Fully ionizes. NaOH, KOH,
+                    Ca(OH)₂.
+                </p>
+                <p>
+                    <strong>Weak base:</strong> Partially ionizes. NH₃(aq) + H₂O
+                    ⇌ NH₄⁺ + OH⁻
+                </p>
+            </div>
+
+            <!-- SVG: strong vs weak acid ionization -->
+            <svg
+                viewBox="0 0 600 120"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; margin: 20px 0; border-radius: 10px"
+            >
+                <rect width="600" height="120" fill="#0f0f1a" rx="10" />
+                <text
+                    x="150"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Strong Acid (HCl)
+                </text>
+                <text
+                    x="450"
+                    y="18"
+                    text-anchor="middle"
+                    fill="#818cf8"
+                    font-size="11"
+                    font-family="monospace"
+                    font-weight="bold"
+                >
+                    Weak Acid (CH₃COOH)
+                </text>
+                <!-- Strong: mostly ions -->
+                <text
+                    x="150"
+                    y="45"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    H⁺ Cl⁻ H⁺ Cl⁻ H⁺ Cl⁻
+                </text>
+                <text
+                    x="150"
+                    y="62"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    H⁺ Cl⁻ H⁺ Cl⁻ H⁺ Cl⁻
+                </text>
+                <text
+                    x="150"
+                    y="79"
+                    text-anchor="middle"
+                    fill="#86efac"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    H⁺ Cl⁻ H⁺ Cl⁻ H⁺ Cl⁻
+                </text>
+                <text
+                    x="150"
+                    y="100"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    ~100% ionized → very acidic
+                </text>
+                <!-- Weak: mostly molecules -->
+                <text
+                    x="450"
+                    y="45"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    HA HA HA H⁺ A⁻ HA
+                </text>
+                <text
+                    x="450"
+                    y="62"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    HA H⁺ A⁻ HA HA HA
+                </text>
+                <text
+                    x="450"
+                    y="79"
+                    text-anchor="middle"
+                    fill="#fbbf24"
+                    font-size="11"
+                    font-family="monospace"
+                >
+                    HA HA H⁺ A⁻ HA HA
+                </text>
+                <text
+                    x="450"
+                    y="100"
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                    font-family="monospace"
+                >
+                    ~1% ionized → less acidic at same concentration
+                </text>
+                <!-- divider -->
+                <line
+                    x1="300"
+                    y1="25"
+                    x2="300"
+                    y2="110"
+                    stroke="#374151"
+                    stroke-width="1"
+                    stroke-dasharray="4,3"
+                />
+            </svg>
+
+            <div class="note">
+                <p>
+                    <strong>Concentration ≠ Strength:</strong> A concentrated
+                    weak acid can have more H⁺ ions than a dilute strong acid.
+                    "Strong" and "weak" refer only to the degree of ionization,
+                    not the amount dissolved.
+                </p>
+            </div>
+
+            <h2>Properties of Acids</h2>
+            <div class="definition">
+                <p>
+                    • Sour taste (e.g. lemon juice — citric acid; vinegar —
+                    acetic acid)
+                </p>
+                <p>
+                    • Turn blue litmus red; turn universal indicator
+                    red/orange/yellow
+                </p>
+                <p>
+                    • React with reactive metals to produce H₂ gas: &nbsp; Mg +
+                    2HCl → MgCl₂ + H₂
+                </p>
+                <p>
+                    • React with metal carbonates to produce CO₂: &nbsp; CaCO₃ +
+                    2HCl → CaCl₂ + H₂O + CO₂
+                </p>
+                <p>• React with bases in neutralization reactions</p>
+                <p>• Corrosive — handle with care</p>
+            </div>
+
+            <h2>Properties of Bases</h2>
+            <div class="definition">
+                <p>
+                    • Bitter taste; slippery/soapy feel (due to saponification
+                    of skin oils)
+                </p>
+                <p>
+                    • Turn red litmus blue; turn universal indicator blue/purple
+                </p>
+                <p>• React with acids (neutralization)</p>
+                <p>• Caustic (alkalis like NaOH can burn skin)</p>
+                <p>
+                    • Soluble bases are called alkalis (NaOH, KOH, NH₃ solution)
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
