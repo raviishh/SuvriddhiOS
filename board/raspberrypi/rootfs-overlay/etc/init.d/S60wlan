@@ -19,7 +19,6 @@ start() {
     echo -e "${BLUE}====================================================${NC}"
     echo -e "${GREEN}          Suvriddhi OS Networking Utility${NC}"
     echo -e "${BLUE}====================================================${NC}"
-    
     if is_online; then
         echo "Status: ONLINE (Ethernet or existing WiFi detected)"
         echo "You are already connected to the internet."
@@ -28,7 +27,6 @@ start() {
         echo "Suvriddhi OS can run without wifi but it is"
         echo "recommended to access a wider array of online sources."
     fi
-    
     echo -e "${BLUE}====================================================${NC}"
     echo ""
     printf "Do you want to use/change WIFI? (y/n): "
@@ -44,7 +42,6 @@ start() {
 
 scan_and_connect() {
     MAP=$(iw dev wlan0 scan | grep SSID | cut -d' ' -f2- | sed '/^$/d' | sort -u)
-    
     if [ -z "$MAP" ]; then
         echo -e "${RED}No networks found. Is the WiFi antenna connected?${NC}"
         return 0
@@ -55,7 +52,6 @@ scan_and_connect() {
         echo "$i) $ssid"
         i=$((i+1))
     done
-    
     echo ""
     echo "${GREEN}Wifi networks found!${NC}"
     printf "Select a network number (or type 'manual'): "
@@ -81,11 +77,9 @@ scan_and_connect() {
 
     echo "Saving configuration..."
     wpa_passphrase "$SSID" "$PASSWORD" > /etc/wpa_supplicant.conf
-    
     echo "Connecting..."
     killall -q wpa_supplicant udhcpc
     wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
-    
     if udhcpc -i wlan0 -n -t 10; then
         echo -e "\n${GREEN}Successfully connected to $SSID!${NC}"
         ip addr show wlan0 | grep "inet "
