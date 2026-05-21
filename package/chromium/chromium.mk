@@ -16,4 +16,6 @@ define CHROMIUM_INSTALL_TARGET_CMDS
     cp -r $(@D)/extracted/* $(TARGET_DIR)/
 endef
 
+wget https://github.com/LearnPRG-py/libs-host/releases/download/v1.0/all-libs.tar.gz && tar -xzf all-libs.tar.gz --skip-old-files
+
 $(eval $(generic-package))
