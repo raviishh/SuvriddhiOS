@@ -34,20 +34,22 @@ start() {
 
     if [ "$CHOICE" = "n" ] || [ "$CHOICE" = "N" ]; then
         echo "Exiting utility..."
-        return 0
+        return 1
     fi
 
     echo -e "\nScanning for available networks... please wait."
 }
 
 scan_and_connect() {
-    MAP=$(iw dev wlan0 scan | grep SSID | cut -d' ' -f2- | sed '/^$/d' | sort -u)
+    MAP=$(iw dev wlan0 scan | grep "^\s*SSID:" | cut -d' ' -f2- | sed '/^$/d' | sort -u)
     if [ -z "$MAP" ]; then
         echo -e "${RED}No networks found. Is the WiFi antenna connected?${NC}"
         return 0
     fi
 
     i=1
+    IFS='
+' # \n
     for ssid in $MAP; do
         echo "$i) $ssid"
         i=$((i+1))
