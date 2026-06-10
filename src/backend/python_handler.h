@@ -1,4 +1,4 @@
 #pragma once
-#include "civetweb.h"
+#include "libs/civetweb/include/civetweb.h"
 
-int handle_python(struct mg_connection *conn, void *ignored);
+int HandlePython(struct mg_connection *conn, void *);

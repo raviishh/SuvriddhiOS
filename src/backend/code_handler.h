@@ -1,7 +1,15 @@
 #pragma once
-#include "civetweb.h"
+
+#ifndef CODE_HANDLER_H
+#define CODE_HANDLER_H
+
+#include "libs/civetweb/include/civetweb.h"
 #include <string>
 
-int handle_save(struct mg_connection *conn, void *cbdata);
-int handle_load(struct mg_connection *conn, void *cbdata);
-int handle_list(struct mg_connection *conn, void *cbdata);
+struct CodeHandler {
+	static int HandleSave(struct mg_connection *conn, void *);
+	static int HandleLoad(struct mg_connection *conn, void *);
+	static int HandleList(struct mg_connection *conn, void *);
+};
+
+#endif // CODE_HANDLER_H
