@@ -1,4 +1,4 @@
 #pragma once
-#include "civetweb.h"
+#include "libs/civetweb/include/civetweb.h"
 
-int handle_run(struct mg_connection *conn, void *ignored);
+int HandleRun(struct mg_connection *conn, void *);
