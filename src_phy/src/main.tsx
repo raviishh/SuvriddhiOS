@@ -15,6 +15,7 @@ import Settings from "./pages/Settings";
 import Notes from "./components/study_zone/Notes";
 import FlashcardApp from "./components/study_zone/Flashcard";
 import LearnPage from "./components/study_zone/pdf_thing";
+import WiFi from "./components/settings/wifi";
 
 const router = createBrowserRouter([
     { path: "/", element: <Home /> },
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
     { path: "/study/notes", element: <Notes /> },
     { path: "/study/flashcards", element: <FlashcardApp /> },
     { path: "/study/books", element: <LearnPage /> },
+    { path: "settings/wifi", element: <WiFi />},
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

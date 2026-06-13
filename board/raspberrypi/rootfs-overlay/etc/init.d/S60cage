@@ -1,0 +1,50 @@
+#!/bin/sh
+
+start() {
+    export XDG_RUNTIME_DIR=/tmp/runtime-root
+    export CHROME_DATA_DIR=/tmp/runtime-chromium
+    mkdir -p $XDG_RUNTIME_DIR $CHROME_DATA_DIR
+    chmod 0700 $XDG_RUNTIME_DIR $CHROME_DATA_DIR
+    export LD_LIBRARY_PATH=/usr/lib/chromium-browser:$LD_LIBRARY_PATH
+
+    /root/server & 
+    busybox httpd -h /root/www -p 8080 &
+
+    sleep 5
+
+    exec cage -- /usr/lib/chromium-browser/chromium-browser \
+        --start-fullscreen \
+        --noerrdialogs \
+        --disable-infobars \
+        --no-sandbox \
+        --ozone-platform=wayland \
+        --user-data-dir=$CHROME_DATA_DIR \
+        --disable-dev-shm-usage \
+        --single-process \
+        --disable-gpu \
+        --disable-software-rasterizer \
+        --disable-extensions \
+        --disable-background-networking \
+        --disable-sync \
+        --disable-translate \
+        --disable-background-timer-throttling \
+        --disable-backgrounding-occluded-windows \
+        --disable-renderer-backgrounding \
+        --disable-hang-monitor \
+        --num-raster-threads=4 \
+        --js-flags="--max-old-space-size=256" \
+        http://127.0.0.1:8080
+}
+
+stop() {
+    killall chromium-browser 2>/dev/null
+    killall httpd 2>/dev/null
+    killall cage 2>/dev/null
+}
+
+case "$1" in
+    start) start ;;
+    stop) stop ;;
+    restart) stop; sleep 1; start ;;
+    *) echo "Usage: $0 {start|stop|restart}"; exit 1 ;;
+esac

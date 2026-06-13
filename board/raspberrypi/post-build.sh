@@ -8,12 +8,28 @@ set -e
 
 # Write scripts here
 
-cd ${TARGET_DIR}/../../src
+cd ${TARGET_DIR}/../../home
 npm install
 npm run build
-rm -rf ${TARGET_DIR}/root/www/*
-mv dist/* ${TARGET_DIR}/root/www
-cd backend
+rm -rf ${TARGET_DIR}/root/www/
+mkdir -p ${TARGET_DIR}/root/www/
+mv dist/* ${TARGET_DIR}/root/www/
+
+cd ../src_cs
+npm install
+npm run build
+rm -rf ${TARGET_DIR}/root/www/build/
+mkdir -p ${TARGET_DIR}/root/www/build/
+mv dist/* ${TARGET_DIR}/root/www/build/
+
+cd ../src_phy
+npm install
+npm run build
+rm -rf ${TARGET_DIR}/root/www/learn/
+mkdir -p ${TARGET_DIR}/root/www/learn/
+mv dist/* ${TARGET_DIR}/root/www/learn/
+
+cd ../src_cs/backend
 
 ARCH=$(uname -m)
 
@@ -22,7 +38,7 @@ if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
     SYSROOT="${TARGET_DIR}/../host/aarch64-buildroot-linux-gnu/sysroot"
     
     g++ main.cpp compile_handler.cpp run_handler.cpp utils.cpp \
-    code_handler.cpp python_handler.cpp \
+    code_handler.cpp python_handler.cpp wlan_handler.cpp \
         --sysroot="$SYSROOT" \
         -lcivetweb \
         -o "${TARGET_DIR}/root/server" \
@@ -40,6 +56,7 @@ else
         utils.cpp \
         code_handler.cpp \
         python_handler.cpp \
+        wlan_handler.cpp \
         -lcivetweb \
         -o "${TARGET_DIR}/root/server" \
         -I "$SYSROOT/usr/include" \

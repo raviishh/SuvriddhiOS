@@ -20,21 +20,21 @@ jobs:
 
             - name: Install dependencies
               run: |
-                  cd src_phy
+                  cd src_cs
                   npm ci
 
             - name: Build
               run: |
-                  cd src_phy
+                  cd src_cs
                   npm run build
 
             - name: Check vulnerabilities
               run: |
-                  cd src_phy
+                  cd src_cs
                   npm audit --audit-level=critical
 
             # If we decide to add tests later
             # - name: Run tests
             #   run: |
-            #     cd src_phy
+            #     cd src
             #     npm test
