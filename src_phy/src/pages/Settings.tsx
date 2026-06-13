@@ -1,4 +1,4 @@
-import { Wifi, Home } from "lucide-preact";
+import { Wifi, Home } from "lucide-react";
 
 export default function Settings() {
     return (
