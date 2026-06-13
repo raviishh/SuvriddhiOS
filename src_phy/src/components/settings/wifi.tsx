@@ -3,14 +3,29 @@ import { useState } from "react";
 export default function WifiSetup() {
     const [ssid, setSsid] = useState("");
     const [pass, setPass] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleConnect = async () => {
-        await fetch("http://localhost:8080/api/wifi", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ ssid, password: pass }),
-        });
-        window.location.href = "/";
+        setLoading(true);
+        setError("");
+        try {
+            const res = await fetch("http://localhost:8080/api/wifi", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ssid, pass }),
+            });
+            const data = await res.json();
+            if (data.success) {
+                window.location.href = "/";
+            } else {
+                setError(data.error || "Unknown error");
+            }
+        } catch {
+            setError("Failed to reach backend");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -29,14 +44,17 @@ export default function WifiSetup() {
             <input
                 className="bg-[#181818] text-white border border-gray-600 p-2 rounded w-128 placeholder-gray-500"
                 placeholder="Enter WPA Passphrase (WiFi password)"
+                type="password"
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
             />
+            {error && <p className="text-red-400 text-sm">{error}</p>}
             <button
-                className="bg-blue-600 px-6 py-2 rounded text-white hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 px-6 py-2 rounded text-white hover:bg-blue-700 transition-colors disabled:opacity-50"
                 onClick={handleConnect}
+                disabled={loading}
             >
-                Connect
+                {loading ? "Connecting..." : "Connect"}
             </button>
         </div>
     );
