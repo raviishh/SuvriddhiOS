@@ -1,4 +1,6 @@
-#pragma once
+#ifndef UTILS_H
+#define UTILS_H
+
 #include <string>
 
 std::string generate_token(int len);
@@ -7,3 +9,5 @@ std::string read_file(const std::string &path);
 void write_file(const std::string &path, const std::string &data);
 std::string sanitize_filename(const std::string &name);
 void send_response(struct mg_connection *conn, const std::string &out);
+
+#endif // UTILS_H
