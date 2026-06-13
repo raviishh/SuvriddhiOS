@@ -20,17 +20,17 @@ jobs:
 
             - name: Install dependencies
               run: |
-                  cd src
+                  cd src_cs
                   npm ci
 
             - name: Build
               run: |
-                  cd src
+                  cd src_cs
                   npm run build
 
             - name: Check vulnerabilities
               run: |
-                  cd src
+                  cd src_cs
                   npm audit --audit-level=critical
 
             # If we decide to add tests later

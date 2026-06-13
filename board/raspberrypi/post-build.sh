@@ -8,12 +8,28 @@ set -e
 
 # Write scripts here
 
-cd ${TARGET_DIR}/../../src
+cd ${TARGET_DIR}/../../home
 npm install
 npm run build
-rm -rf ${TARGET_DIR}/root/www/*
-mv dist/* ${TARGET_DIR}/root/www
-cd backend
+rm -rf ${TARGET_DIR}/root/www/
+mkdir -p ${TARGET_DIR}/root/www/
+mv dist/* ${TARGET_DIR}/root/www/
+
+cd ../src_cs
+npm install
+npm run build
+rm -rf ${TARGET_DIR}/root/www/build/
+mkdir -p ${TARGET_DIR}/root/www/build/
+mv dist/* ${TARGET_DIR}/root/www/build/
+
+cd ../src_phy
+npm install
+npm run build
+rm -rf ${TARGET_DIR}/root/www/learn/
+mkdir -p ${TARGET_DIR}/root/www/learn/
+mv dist/* ${TARGET_DIR}/root/www/learn/
+
+cd ../src_cs/backend
 
 ARCH=$(uname -m)
 
