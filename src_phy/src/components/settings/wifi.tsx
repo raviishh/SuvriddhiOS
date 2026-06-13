@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Home } from "lucide-react";
 
 export default function WifiSetup() {
     const [ssid, setSsid] = useState("");
@@ -56,6 +57,13 @@ export default function WifiSetup() {
             >
                 {loading ? "Connecting..." : "Connect"}
             </button>
+            <a
+                href="/"
+                className="fixed bottom-6 left-6 text-slate-200 hover:text-white rounded-lg p-2.5 flex items-center justify-center"
+                aria-label="Home"
+            >
+                <Home size={18} />
+            </a>
         </div>
     );
 }
