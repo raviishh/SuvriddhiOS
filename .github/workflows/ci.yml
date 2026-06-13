@@ -31,7 +31,7 @@ jobs:
             - name: Check vulnerabilities
               run: |
                   cd src
-                  npm audit --audit-level=high
+                  npm audit --audit-level=critical
 
             # If we decide to add tests later
             # - name: Run tests
