@@ -121,3 +121,9 @@ td {
 tr:nth-child(even) {
     background: #1a1f2e;
 }
+body {
+    background-color: rgb(21, 21, 21);
+    color: #e2e8f0;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
