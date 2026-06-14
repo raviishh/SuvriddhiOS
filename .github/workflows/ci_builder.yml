@@ -1,0 +1,86 @@
+name: CI_Builder
+
+# this file creates the final suvriddhi release for updates
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 22
+
+            - name: Install dependencies (Physics)
+              run: |
+                  cd src_phy
+                  npm ci
+
+            - name: Install dependencies (CS)
+              run: |
+                  cd src_cs
+                  npm ci
+
+            - name: Install dependencies (Home)
+              run: |
+                  cd home
+                  npm ci
+
+            - name: Make release directory structure
+              run: |
+                  mkdir /release
+                  mkdir /release/code
+                  mkdir /release/science
+
+            - name: Build Physics
+              run: |
+                  cd src_phy
+                  npm run build
+                  cp -r dist/. /release/science/
+
+            - name: Audit Physics
+              run: |
+                  cd src_phy
+                  npm audit --audit-level=critical
+
+            - name: Build CS
+              run: |
+                  cd src_cs
+                  npm run build
+                  cp -r dist/. /release/code/
+
+            - name: Audit CS
+              run: |
+                  cd src_cs
+                  npm audit --audit-level=critical
+
+            - name: Build Home
+              run: |
+                  cd home
+                  npm run build
+                  cp -r dist/. /release/
+
+            - name: Audit Home
+              run: |
+                  cd home
+                  npm audit --audit-level=critical
+            
+            - name: Compress out directory
+              run: |
+                  cd /release
+                  zip -r /suvriddhi.zip .
+
+            - name: Create GitHub Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: build-${{ github.run_number }}
+                  name: Build ${{ github.run_number }}
+                  files: /suvriddhi.zip
+                  token: ${{ secrets.GITHUB_TOKEN }}
