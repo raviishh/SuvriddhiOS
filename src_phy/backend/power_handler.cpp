@@ -23,7 +23,7 @@ int handle_power(struct mg_connection *conn, void *)
 	} else if (command == "shutdown") {
 		system("poweroff");
 	} else if (command == "sleep") {
-		system("echo mem > /sys/power/state");
+		// TODO: add support for sleep at some point.
 	}
 
 	return 200;
