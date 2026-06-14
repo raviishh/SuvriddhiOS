@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ -d /root/www_new ]; then
+    mv /root/www /root/www.old
+    mv /root/www_new /root/www
+fi
