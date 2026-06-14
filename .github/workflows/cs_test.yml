@@ -1,4 +1,4 @@
-name: CI
+name: CS_Tests
 
 # this file runs automated tests to see if the React builds, along with other code auditing and formatting checks.
 on:
