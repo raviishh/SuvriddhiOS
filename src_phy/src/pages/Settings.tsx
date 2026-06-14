@@ -1,7 +1,6 @@
-import { Wifi, Home, Moon, Power, RotateCcw } from "lucide-react";
+import { Wifi, Home, Power, RotateCcw } from "lucide-react";
 
 export default function Settings() {
-
     const handlePower = async (cmd: string) => {
         await fetch("http://localhost:8080/api/power", {
             method: "POST",
@@ -23,9 +22,13 @@ export default function Settings() {
                 >
                     <div className="flex items-center gap-3">
                         <Wifi className="w-5 h-5 text-slate-400 group-hover:text-blue-400 transition-colors" />
-                        <span className="text-slate-200 group-hover:text-white font-medium">Wi-Fi</span>
+                        <span className="text-slate-200 group-hover:text-white font-medium">
+                            Wi-Fi
+                        </span>
                     </div>
-                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">Configure network &rarr;</span>
+                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">
+                        Configure network &rarr;
+                    </span>
                 </button>
 
                 <button
@@ -34,9 +37,13 @@ export default function Settings() {
                 >
                     <div className="flex items-center gap-3">
                         <RotateCcw className="w-5 h-5 text-slate-400 group-hover:text-blue-400 transition-colors" />
-                        <span className="text-slate-200 group-hover:text-white font-medium">Restart</span>
+                        <span className="text-slate-200 group-hover:text-white font-medium">
+                            Restart
+                        </span>
                     </div>
-                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">Reboot system &rarr;</span>
+                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">
+                        Reboot system &rarr;
+                    </span>
                 </button>
 
                 <button
@@ -45,9 +52,13 @@ export default function Settings() {
                 >
                     <div className="flex items-center gap-3">
                         <Power className="w-5 h-5 text-slate-400 group-hover:text-red-400 transition-colors" />
-                        <span className="text-slate-200 group-hover:text-white font-medium">Shutdown</span>
+                        <span className="text-slate-200 group-hover:text-white font-medium">
+                            Shutdown
+                        </span>
                     </div>
-                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">Power off &rarr;</span>
+                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">
+                        Power off &rarr;
+                    </span>
                 </button>
             </div>
 
