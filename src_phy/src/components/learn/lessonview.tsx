@@ -54,7 +54,7 @@ function UnityPhysicsLesson({ contentFile }: { contentFile: string }) {
             <Unity
                 unityProvider={unityProvider}
                 style={{
-                    width: "720px",
+                    width: "80%",
                     aspectRatio: "16 / 9",
                     margin: "0 auto",
                 }}
@@ -105,7 +105,7 @@ function UnityMathLesson({ levelId }: { levelId: string }) {
             <Unity
                 unityProvider={unityProvider}
                 style={{
-                    width: "720px",
+                    width: "80%",
                     aspectRatio: "16 / 9",
                     margin: "0 auto",
                 }}

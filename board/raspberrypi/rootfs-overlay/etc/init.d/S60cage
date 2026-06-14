@@ -23,7 +23,7 @@ start() {
         --single-process \
         --disable-gpu \
         --disable-software-rasterizer \
-        --disable-extensions \
+        --extensions \
         --disable-background-networking \
         --disable-sync \
         --disable-translate \
@@ -32,6 +32,8 @@ start() {
         --disable-renderer-backgrounding \
         --disable-hang-monitor \
         --num-raster-threads=4 \
+        --enable-webgl \
+        --use-gl=swiftshader \
         --js-flags="--max-old-space-size=256" \
         http://127.0.0.1:8080
 }
