@@ -5,8 +5,10 @@
 #include "run_handler.h"
 #include "code_handler.h"
 #include "wlan_handler.h"
+#include "power_handler.h"
 #include <filesystem>
 #include "constants.h"
+
 #include <iostream>
 #include "python_handler.h"
 
@@ -31,10 +33,9 @@ int main()
 	mg_set_request_handler(ctx, "/api/list", handle_list, nullptr);
 	mg_set_request_handler(ctx, "/api/python", handle_python, nullptr);
 	mg_set_request_handler(ctx, "/api/wlan", handle_wlan, nullptr);
+	mg_set_request_handler(ctx, "/api/power", handle_power, nullptr);
 
 	pause();
-
 	mg_stop(ctx);
-
 	return 0;
 }

@@ -1,14 +1,21 @@
-import { Wifi, Home } from "lucide-preact";
+import { Wifi, Home, Moon, Power, RotateCcw } from "lucide-react";
 
 export default function Settings() {
+
+    const handlePower = async (cmd: string) => {
+        await fetch("http://localhost:8080/api/power", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ cmd }),
+        });
+    };
+
     return (
         <div className="p-10 max-w-2xl mx-auto text-white font-sans mb-16">
-            {/* Page Title */}
             <h1 className="text-2xl font-semibold mb-6 pb-2 border-b border-slate-800">
                 Settings
             </h1>
 
-            {/* Settings Options List */}
             <div className="flex flex-col divide-y divide-slate-800">
                 <button
                     onClick={() => (window.location.href = "/settings/wifi")}
@@ -16,14 +23,31 @@ export default function Settings() {
                 >
                     <div className="flex items-center gap-3">
                         <Wifi className="w-5 h-5 text-slate-400 group-hover:text-blue-400 transition-colors" />
-                        <span className="text-slate-200 group-hover:text-white font-medium">
-                            Wi-Fi
-                        </span>
+                        <span className="text-slate-200 group-hover:text-white font-medium">Wi-Fi</span>
                     </div>
+                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">Configure network →</span>
+                </button>
 
-                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">
-                        Configure network &rarr;
-                    </span>
+                <button
+                    onClick={() => handlePower("restart")}
+                    className="flex items-center justify-between py-4 hover:bg-slate-900/50 px-2 rounded-lg transition-colors group text-left"
+                >
+                    <div className="flex items-center gap-3">
+                        <RotateCcw className="w-5 h-5 text-slate-400 group-hover:text-blue-400 transition-colors" />
+                        <span className="text-slate-200 group-hover:text-white font-medium">Restart</span>
+                    </div>
+                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">Reboot system →</span>
+                </button>
+
+                <button
+                    onClick={() => handlePower("shutdown")}
+                    className="flex items-center justify-between py-4 hover:bg-slate-900/50 px-2 rounded-lg transition-colors group text-left"
+                >
+                    <div className="flex items-center gap-3">
+                        <Power className="w-5 h-5 text-slate-400 group-hover:text-red-400 transition-colors" />
+                        <span className="text-slate-200 group-hover:text-white font-medium">Shutdown</span>
+                    </div>
+                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">Power off →</span>
                 </button>
             </div>
 
