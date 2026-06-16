@@ -9,6 +9,8 @@ on:
 jobs:
     build-and-test:
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
 
         steps:
             - uses: actions/checkout@v3
@@ -82,5 +84,5 @@ jobs:
               with:
                   tag_name: build-${{ github.run_number }}
                   name: Build ${{ github.run_number }}
-                  files: $GITHUB_WORKSPACE/suvriddhi.zip
+                  files: suvriddhi.zip
                   token: ${{ secrets.GITHUB_TOKEN }}
