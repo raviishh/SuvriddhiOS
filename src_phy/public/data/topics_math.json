@@ -74,6 +74,18 @@
                 "type": "lesson",
                 "title": "Probability Tree Puzzle",
                 "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "27",
+                "type": "lesson",
+                "title": "Permutations and Combinations",
+                "contentFile": "topics_math/index.html"
+            },
+            {
+                "id": "28",
+                "type": "lesson",
+                "title": "Derangement Puzzle",
+                "contentFile": "topics_math/index.html"
             }
         ]
     },
@@ -211,24 +223,6 @@
                 "id": "24",
                 "type": "lesson",
                 "title": "Inverse Proportionality",
-                "contentFile": "topics_math/index.html"
-            }
-        ]
-    },
-    {
-        "id": "Combinatorics",
-        "title": "Combinatorics",
-        "items": [
-            {
-                "id": "27",
-                "type": "lesson",
-                "title": "Permutations and Combinations",
-                "contentFile": "topics_math/index.html"
-            },
-            {
-                "id": "28",
-                "type": "lesson",
-                "title": "Derangement Puzzle",
                 "contentFile": "topics_math/index.html"
             }
         ]

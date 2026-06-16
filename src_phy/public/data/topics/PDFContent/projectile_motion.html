@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projectile Motion - Study Guide</title>
+        <link rel="stylesheet" href="/data/topics/PDFContent/commonstyles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Projectile Motion</h1>
+
+            <h2>Basic Definition</h2>
+
+            <p>
+                Projectile motion describes the motion of an object launched into the air
+                and subject only to the force of <strong>gravity</strong>. The path followed
+                is called a <strong>trajectory</strong>, and it takes the shape of a parabola.
+            </p>
+
+            <div class="definition">
+                <p><strong>Projectile:</strong> Any object that is given an initial velocity and then
+                follows a path determined entirely by gravity (and air resistance, if considered).
+                Examples include a thrown ball, a fired bullet, or a launched rocket in free flight.</p>
+            </div>
+
+            <h2>Key Principle: Independence of Motion</h2>
+
+            <p>
+                The most important idea in projectile motion is that horizontal and vertical
+                motion are completely <strong>independent</strong> of each other.
+            </p>
+
+            <div class="concept-box">
+                <h3>Horizontal vs Vertical Components</h3>
+                <p>
+                    <strong>Horizontal:</strong> No force acts horizontally (ignoring air resistance),
+                    so horizontal velocity remains <em>constant</em> throughout the flight.
+                </p>
+                <p style="margin-top: 10px">
+                    <strong>Vertical:</strong> Gravity acts downward at g = 9.8 m/s², so vertical
+                    velocity changes continuously — the object decelerates going up and accelerates
+                    coming down.
+                </p>
+                <p style="margin-top: 10px">
+                    <strong>Example:</strong> Drop a ball and throw a ball horizontally at the same
+                    instant from the same height. Both hit the ground at the same time, because
+                    vertical motion is identical for both.
+                </p>
+            </div>
+
+            <h2>Equations of Motion</h2>
+
+            <div class="equation">
+                <p><strong>Horizontal Motion (constant velocity):</strong></p>
+                <p>x = v<sub>x</sub> t</p>
+                <p style="margin-top: 15px; font-size: 0.9em">Where:</p>
+                <ul style="list-style: none; padding-left: 0; font-size: 0.9em">
+                    <li>x = horizontal displacement</li>
+                    <li>v<sub>x</sub> = horizontal velocity = v<sub>0</sub> cos(θ)</li>
+                    <li>t = time</li>
+                </ul>
+            </div>
+
+            <div class="equation">
+                <p><strong>Vertical Motion (uniform acceleration due to gravity):</strong></p>
+                <p>y = v<sub>y</sub> t − ½ g t²</p>
+                <p>v<sub>y,final</sub> = v<sub>y</sub> − g t</p>
+                <p style="margin-top: 15px; font-size: 0.9em">Where:</p>
+                <ul style="list-style: none; padding-left: 0; font-size: 0.9em">
+                    <li>y = vertical displacement</li>
+                    <li>v<sub>y</sub> = initial vertical velocity = v<sub>0</sub> sin(θ)</li>
+                    <li>g = acceleration due to gravity = 9.8 m/s²</li>
+                    <li>t = time</li>
+                </ul>
+            </div>
+
+            <h2>Key Derived Quantities</h2>
+
+            <div class="equation">
+                <p><strong>Time of Flight:</strong></p>
+                <p>T = 2 v<sub>0</sub> sin(θ) / g</p>
+                <p style="margin-top: 10px; font-size: 0.9em">
+                    The total time the projectile spends in the air. It is twice the time to reach
+                    maximum height, since the trajectory is symmetric.
+                </p>
+            </div>
+
+            <div class="equation">
+                <p><strong>Maximum Height:</strong></p>
+                <p>H = v<sub>0</sub>² sin²(θ) / (2g)</p>
+                <p style="margin-top: 10px; font-size: 0.9em">
+                    Reached when vertical velocity = 0. Found by setting v<sub>y,final</sub> = 0
+                    and solving for t, then substituting into the vertical displacement equation.
+                </p>
+            </div>
+
+            <div class="equation">
+                <p><strong>Horizontal Range:</strong></p>
+                <p>R = v<sub>0</sub>² sin(2θ) / g</p>
+                <p style="margin-top: 10px; font-size: 0.9em">
+                    The total horizontal distance covered. Maximum range occurs at θ = 45°,
+                    since sin(2 × 45°) = sin(90°) = 1.
+                </p>
+            </div>
+
+            <div class="law-box">
+                <h3>Angle Symmetry</h3>
+                <p>
+                    Complementary launch angles (e.g. 30° and 60°) produce the same horizontal range.
+                    This is because sin(2θ) = sin(180° − 2θ), so sin(2 × 30°) = sin(2 × 60°) = sin(60°).
+                </p>
+            </div>
+
+            <h2>Example</h2>
+
+            <div class="example">
+                <h3>Example: Ball Launched at 30 m/s at 45°</h3>
+                <p>A ball is launched at v<sub>0</sub> = 30 m/s at θ = 45°. Find range, max height, and time of flight.</p>
+
+                <p><strong>Solution:</strong></p>
+                <p>v<sub>x</sub> = 30 cos(45°) ≈ 21.2 m/s</p>
+                <p>v<sub>y</sub> = 30 sin(45°) ≈ 21.2 m/s</p>
+                <p>T = 2 × 21.2 / 9.8 ≈ <strong>4.33 s</strong></p>
+                <p>H = 21.2² / (2 × 9.8) ≈ <strong>22.9 m</strong></p>
+                <p>R = 30² × sin(90°) / 9.8 ≈ <strong>91.8 m</strong></p>
+
+                <p><span class="highlight">At 45°, the range is maximised at approximately 91.8 m.</span></p>
+            </div>
+
+            <div class="note">
+                <p>
+                    <strong>Key Insight:</strong> All projectile motion problems reduce to two
+                    separate 1D kinematics problems — one horizontal (constant velocity) and one
+                    vertical (constant acceleration). The link between them is always time t.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

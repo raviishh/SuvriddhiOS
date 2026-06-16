@@ -208,12 +208,6 @@
                 "contentFile": "topics_chem/organic_intro.html"
             },
             {
-                "id": "organic_functional_groups",
-                "type": "lesson",
-                "title": "Functional Groups",
-                "contentFile": "topics_chem/organic_functional_groups.html"
-            },
-            {
                 "id": "organic_alkanes",
                 "type": "lesson",
                 "title": "Alkanes",
@@ -224,6 +218,12 @@
                 "type": "lesson",
                 "title": "Alkenes",
                 "contentFile": "topics_chem/organic_alkenes.html"
+            },
+            {
+                "id": "organic_functional_groups",
+                "type": "lesson",
+                "title": "Functional Groups",
+                "contentFile": "topics_chem/organic_functional_groups.html"
             },
             {
                 "id": "organic_alcohols",
