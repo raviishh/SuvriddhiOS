@@ -1,4 +1,4 @@
-import { Wifi, Home, Power, RotateCcw } from "lucide-react";
+import { Wifi, Home, Power, RotateCcw, RefreshCw, History } from "lucide-react";
 import { useState } from "react";
 
 export default function Settings() {
@@ -28,6 +28,17 @@ export default function Settings() {
             // if res.ok we never get here — device rebooted
         } catch {
             // fetch threw — likely device rebooted mid-request, ignore
+        }
+    };
+
+    const handleRollback = async () => {
+        try {
+            await fetch("http://localhost:8080/api/rollback", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+            });
+        } catch {
+            // rebooted
         }
     };
 
@@ -88,13 +99,28 @@ export default function Settings() {
                     className="flex items-center justify-between py-4 hover:bg-slate-900/50 px-2 rounded-lg transition-colors group text-left"
                 >
                     <div className="flex items-center gap-3">
-                        <Power className="w-5 h-5 text-slate-400 group-hover:text-red-400 transition-colors" />
+                        <RefreshCw className="w-5 h-5 text-slate-400 group-hover:text-red-400 transition-colors" />
                         <span className="text-slate-200 group-hover:text-white font-medium">
                             Update
                         </span>
                     </div>
                     <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">
                         Continue to Update &rarr;
+                    </span>
+                </button>
+
+                <button
+                    onClick={() => handleRollback()}
+                    className="flex items-center justify-between py-4 hover:bg-slate-900/50 px-2 rounded-lg transition-colors group text-left"
+                >
+                    <div className="flex items-center gap-3">
+                        <History className="w-5 h-5 text-slate-400 group-hover:text-red-400 transition-colors" />
+                        <span className="text-slate-200 group-hover:text-white font-medium">
+                            Rollback (Undo) Update
+                        </span>
+                    </div>
+                    <span className="text-slate-500 group-hover:text-slate-300 text-sm transition-colors">
+                        Continue to Rollback &rarr;
                     </span>
                 </button>
 
