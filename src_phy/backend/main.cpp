@@ -6,12 +6,12 @@
 #include "code_handler.h"
 #include "wlan_handler.h"
 #include "power_handler.h"
-#include "updates_handler.h"
 #include <filesystem>
 #include "constants.h"
-
 #include <iostream>
 #include "python_handler.h"
+#include "updates_handler.h"
+#include "rollback_handler.h"
 
 int main()
 {
@@ -36,6 +36,7 @@ int main()
 	mg_set_request_handler(ctx, "/api/wlan", handle_wlan, nullptr);
 	mg_set_request_handler(ctx, "/api/power", handle_power, nullptr);
 	mg_set_request_handler(ctx, "/api/updates", handle_update, nullptr);
+	mg_set_request_handler(ctx, "/api/rollback", handle_rollback, nullptr);
 
 	pause();
 	mg_stop(ctx);

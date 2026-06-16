@@ -39,7 +39,7 @@ if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
     
     g++ main.cpp compile_handler.cpp run_handler.cpp utils.cpp \
     code_handler.cpp python_handler.cpp wlan_handler.cpp power_handler.cpp \
-    updates_handler.cpp \
+    updates_handler.cpp rollback_handler.cpp \
         --sysroot="$SYSROOT" \
         -lcivetweb \
         -o "${TARGET_DIR}/root/server" \
@@ -60,6 +60,7 @@ else
         wlan_handler.cpp \
         power_handler.cpp \
         updates_handler.cpp \
+        rollback_handler.cpp \
         -lcivetweb \
         -o "${TARGET_DIR}/root/server" \
         -I "$SYSROOT/usr/include" \
