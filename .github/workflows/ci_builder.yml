@@ -35,15 +35,15 @@ jobs:
 
             - name: Make release directory structure
               run: |
-                  mkdir /release
-                  mkdir /release/code
-                  mkdir /release/science
+                  mkdir $GITHUB_WORKSPACE/release
+                  mkdir $GITHUB_WORKSPACE/release/code
+                  mkdir $GITHUB_WORKSPACE/release/science
 
             - name: Build Physics
               run: |
                   cd src_phy
                   npm run build
-                  cp -r dist/. /release/science/
+                  cp -r dist/. $GITHUB_WORKSPACE/release/science/
 
             - name: Audit Physics
               run: |
@@ -54,7 +54,7 @@ jobs:
               run: |
                   cd src_cs
                   npm run build
-                  cp -r dist/. /release/code/
+                  cp -r dist/. $GITHUB_WORKSPACE/release/code/
 
             - name: Audit CS
               run: |
@@ -65,7 +65,7 @@ jobs:
               run: |
                   cd home
                   npm run build
-                  cp -r dist/. /release/
+                  cp -r dist/. $GITHUB_WORKSPACE/release/
 
             - name: Audit Home
               run: |
@@ -74,13 +74,13 @@ jobs:
             
             - name: Compress out directory
               run: |
-                  cd /release
-                  zip -r /suvriddhi.zip .
+                  cd $GITHUB_WORKSPACE/release
+                  zip -r $GITHUB_WORKSPACE/suvriddhi.zip .
 
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v1
               with:
                   tag_name: build-${{ github.run_number }}
                   name: Build ${{ github.run_number }}
-                  files: /suvriddhi.zip
+                  files: $GITHUB_WORKSPACE/suvriddhi.zip
                   token: ${{ secrets.GITHUB_TOKEN }}
