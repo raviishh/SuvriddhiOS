@@ -9,11 +9,12 @@ start() {
 
     /root/server & 
     busybox httpd -h /root/www -p 8080 &
+    busybox httpd -h /root/www/build -p 8081 &
+    busybox httpd -h /root/www/learn -p 8082 &
 
     sleep 5
 
     exec cage -- /usr/lib/chromium-browser/chromium-browser \
-        --start-fullscreen \
         --noerrdialogs \
         --disable-infobars \
         --no-sandbox \
