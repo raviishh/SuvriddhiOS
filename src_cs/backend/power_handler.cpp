@@ -19,12 +19,18 @@ int handle_power(struct mg_connection *conn, void *)
 	std::string command = req["cmd"];
 
 	if (command == "restart") {
-		system("reboot");
+		system("(sleep 2 && reboot) &");
 	} else if (command == "shutdown") {
-		system("poweroff");
+		system("(sleep 2 && poweroff) &");
 	} else if (command == "sleep") {
 		// TODO: add support for sleep at some point.
 	}
+
+	mg_printf(conn,
+              "HTTP/1.1 200 OK\r\n"
+              "Content-Type: application/json\r\n"
+              "Connection: close\r\n\r\n"
+              "{\"status\":\"rebooting\"}");
 
 	return 200;
 }
