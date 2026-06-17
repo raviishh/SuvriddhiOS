@@ -5,6 +5,29 @@
 set -u
 set -e
 
+echo "Checking WiFi firmware..."
+
+FIRMWARE_DIR="${TARGET_DIR}/lib/firmware/brcm"
+mkdir -p "$FIRMWARE_DIR"
+
+BASE_URL="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/brcm"
+
+FILES="
+brcmfmac43455-sdio.bin
+brcmfmac43455-sdio.clm_blob
+brcmfmac43455-sdio.txt
+"
+
+for f in $FILES; do
+    if [ ! -f "$FIRMWARE_DIR/$f" ]; then
+        echo "Fetching $f..."
+        wget -q --show-progress \
+            "$BASE_URL/$f" \
+            -O "$FIRMWARE_DIR/$f" || echo "WARN: failed to fetch $f"
+    fi
+done
+
+echo "WiFi firmware fallback complete."
 
 # Write scripts here
 
