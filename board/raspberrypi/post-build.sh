@@ -8,6 +8,11 @@ set -e
 
 # Write scripts here
 
+cd ${TARGET_DIR}/../../src_phy/public/pdfs
+wget https://github.com/LearnPRG-py/SuvriddhiBooks/releases/download/book/drive-download-20260617T081439Z-3-001.zip
+unzip drive-download-20260617T081439Z-3-001.zip "*" -d .
+rm drive-download-20260617T081439Z-3-001.zip
+
 cd ${TARGET_DIR}/../../home
 npm install
 npm run build
