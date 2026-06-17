@@ -24,16 +24,13 @@ export interface ExerciseItem extends BaseItem {
     tests: Test[];
 }
 
-
 export type TopicItem = LessonItem | ExerciseItem;
-
 
 export interface Topic {
     id: string;
     title: string;
     items: TopicItem[];
 }
-
 
 export interface ActiveItem {
     topicId: string;

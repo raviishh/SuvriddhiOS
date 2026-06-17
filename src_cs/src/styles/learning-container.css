@@ -1,101 +1,522 @@
+/* ============================================================
+   learning-container.css
+   Styles for HTML content files loaded into .learning-container
+   via dangerouslySetInnerHTML in LessonView / ExerciseView.
+
+   All selectors are scoped under .learning-container so nothing
+   leaks into the rest of the app.
+
+   HOW TO USE IN HTML FILES:
+   - Wrap everything in <div class="lesson-content"> (lessons)
+     or <div class="exercise-content"> (exercises)
+   - Use the component classes below freely inside those wrappers
+   - See each section header for the exact class names to use
+   ============================================================ */
+
 .learning-container {
-  .lesson-content h1 {
-    font-size: 2.05rem;
-    margin-bottom: 0.25rem;
-    color: var(--color-foreground);
-    text-align: center; /* merged: center version wins */
-  }
-  
-  .lesson-content h2 {
-    font-size: 1.25rem;
-    margin-top: 1.6rem;
-    margin-bottom: 0.6rem;
-    color: var(--color-primary);
-  }
-  
-  .lesson-content p {
-    line-height: 1.7;
-    margin-bottom: 0.9rem;
-    color: var(--color-card-foreground);
-  }
-  
-  .lead {
-    color: var(--color-muted-foreground);
-    margin-top: 0;
-    margin-bottom: 1.2rem;
-    text-align: left;
-  }
-  
-  /* Callout Box */
-  .callout {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
-    border-left: 4px solid var(--color-primary);
-    padding: 12px;
-    border-radius: 8px;
-    margin: 12px 0;
-    color: var(--color-card-foreground);
-  }
+    /* ==========================================================
+     BASE PROSE — shared by lesson-content and exercise-content
+     Headings, paragraphs, lead text, lists, inline code, hr
+     ========================================================== */
 
-  /* Code Blocks */
-  .code-block {
-    background: var(--color-card);
-    border: 1px solid var(--color-border);
-    padding: 12px;
-    border-radius: 10px;
-    overflow: auto;
-    font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
-    font-size: 0.95rem;
-    line-height: 1.45;
-    color: #e6e6e6;
-    margin: 12px 0;
-  }
-  
-  .code-block pre {
-    margin: 0;
-    white-space: pre;
-  }
-  
-  .inline-code {
-    background: rgba(255,255,255,0.03);
-    padding: 2px 6px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 0.95em;
-  }
-  
-  /* Steps Boxes */
-  .steps {
-    display: grid;
-    gap: 10px;
-    margin: 12px 0;
-  }
-  
-  .step {
-    background: rgba(255,255,255,0.02);
-    border: 1px dashed rgba(255,255,255,0.02);
-    padding: 10px;
-    border-radius: 8px;
-  }
-  
-  /* Example Output */
-  .output {
-    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.18));
-    border-radius: 8px;
-    padding: 10px;
-    font-family: inherit;
-    color: #bfe8c9;
-    border: 1px solid rgba(0,0,0,0.4);
-    margin-top: 8px;
-  }
-
-    /* Divider */
-  hr {
-      border: none;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
-      margin: 18px 0;
+    .lesson-content h1,
+    .exercise-content h1 {
+        /* Main page title — large, centered */
+        font-size: 2.05rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        color: var(--color-foreground);
+        text-align: center;
     }
-}
+
+    .lesson-content h2,
+    .exercise-content h2 {
+        /* Section heading — accented with primary color */
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.6rem;
+        margin-bottom: 0.6rem;
+        color: var(--color-primary);
+    }
+
+    .lesson-content h3,
+    .exercise-content h3 {
+        /* Sub-section heading */
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-top: 1.2rem;
+        margin-bottom: 0.4rem;
+        color: var(--color-foreground);
+    }
+
+    .lesson-content p,
+    .exercise-content p {
+        /* Body text */
+        line-height: 1.7;
+        margin-bottom: 0.9rem;
+        color: var(--color-card-foreground);
+    }
+
+    .lesson-content ul,
+    .exercise-content ul {
+        /* Unordered list — bullet style */
+        list-style: disc;
+        padding-left: 1.4rem;
+        margin-bottom: 0.9rem;
+        color: var(--color-card-foreground);
+        line-height: 1.7;
+    }
+
+    .lesson-content ol,
+    .exercise-content ol {
+        /* Ordered list — numbered steps */
+        list-style: decimal;
+        padding-left: 1.4rem;
+        margin-bottom: 0.9rem;
+        color: var(--color-card-foreground);
+        line-height: 1.7;
+    }
+
+    .lesson-content li,
+    .exercise-content li {
+        margin-bottom: 0.3rem;
+    }
+
+    .lead {
+        /* Subtitle / intro paragraph — muted, slightly larger */
+        color: var(--color-muted-foreground);
+        font-size: 1.05rem;
+        margin-top: 0;
+        margin-bottom: 1.2rem;
+        text-align: left;
+    }
+
+    .inline-code {
+        /* Inline code span — use inside <p> */
+        background: rgba(255, 255, 255, 0.06);
+        padding: 2px 6px;
+        border-radius: 6px;
+        font-family:
+            "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+        font-size: 0.9em;
+        color: var(--color-primary);
+    }
+
+    hr {
+        /* Section divider */
+        border: none;
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.06),
+            transparent
+        );
+        margin: 18px 0;
+    }
+
+    /* ==========================================================
+     CALLOUT BOXES
+     Usage: <div class="callout callout--tip"> or --info / --warn / --danger
+     Always put an icon span first: <span class="callout-icon">💡</span>
+     ========================================================== */
+
+    .callout {
+        /* Base callout — left-border card with icon + text */
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        border-left: 4px solid var(--color-primary);
+        background: linear-gradient(
+            90deg,
+            rgba(142, 124, 195, 0.07),
+            transparent
+        );
+        padding: 12px 14px;
+        border-radius: 8px;
+        margin: 12px 0;
+        color: var(--color-card-foreground);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .callout--tip {
+        /* Green — pro tips, best practice */
+        border-color: rgb(74, 180, 120);
+        background: linear-gradient(
+            90deg,
+            rgba(74, 180, 120, 0.08),
+            transparent
+        );
+    }
+
+    .callout--info {
+        /* Blue — neutral informational note */
+        border-color: rgb(88, 166, 255);
+        background: linear-gradient(
+            90deg,
+            rgba(88, 166, 255, 0.08),
+            transparent
+        );
+    }
+
+    .callout--warn {
+        /* Yellow — caution, common mistake */
+        border-color: rgb(210, 153, 34);
+        background: linear-gradient(
+            90deg,
+            rgba(210, 153, 34, 0.08),
+            transparent
+        );
+    }
+
+    .callout--danger {
+        /* Red — error, critical note */
+        border-color: rgb(248, 81, 73);
+        background: linear-gradient(
+            90deg,
+            rgba(248, 81, 73, 0.08),
+            transparent
+        );
+    }
+
+    .callout-icon {
+        /* Emoji or symbol icon — shrink-proof, aligned to first line */
+        flex-shrink: 0;
+        font-size: 1.1em;
+        line-height: 1.5;
+    }
+
+    .callout-title {
+        /* Optional bold label above callout body text */
+        display: block;
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 3px;
+        opacity: 0.75;
+    }
+
+    /* ==========================================================
+     CODE BLOCKS
+     Static display-only code (not the editor).
+     Usage: <div class="code-block"><pre>...</pre></div>
+     For language label: add data-lang="python" to .code-block
+     ========================================================== */
+
+    .code-block {
+        /* Fenced code block with optional language label */
+        position: relative;
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        padding: 12px 14px;
+        border-radius: 10px;
+        overflow: auto;
+        font-family:
+            "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+        font-size: 0.93rem;
+        line-height: 1.55;
+        color: #e6e6e6;
+        margin: 12px 0;
+    }
+
+    .code-block pre {
+        margin: 0;
+        white-space: pre;
+    }
+
+    .code-block[data-lang]::before {
+        /* Language badge in top-right corner e.g. data-lang="python" */
+        content: attr(data-lang);
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-muted-foreground);
+        opacity: 0.6;
+        font-family: inherit;
+    }
+
+    /* Python syntax highlight helpers — add these classes to spans inside pre */
+    .tok-kw {
+        color: #c792ea;
+    } /* keywords: def, for, if */
+    .tok-fn {
+        color: #82aaff;
+    } /* function names */
+    .tok-str {
+        color: #c3e88d;
+    } /* strings */
+    .tok-num {
+        color: #f78c6c;
+    } /* numbers */
+    .tok-cmt {
+        color: #546e7a;
+        font-style: italic;
+    } /* comments */
+    .tok-builtin {
+        color: #ffcb6b;
+    } /* built-ins: print, len, range */
+
+    /* ==========================================================
+     EXAMPLE OUTPUT
+     Usage: <div class="output">Hello, World!</div>
+     For error output: <div class="output output--error">...</div>
+     ========================================================== */
+
+    .output {
+        /* Terminal-style output display */
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.2)
+        );
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-family: "Fira Code", ui-monospace, monospace;
+        font-size: 0.9rem;
+        color: #bfe8c9;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        margin-top: 8px;
+        white-space: pre-wrap;
+    }
+
+    .output--error {
+        /* Red variant for error output examples */
+        color: rgb(248, 130, 120);
+    }
+
+    .output-label {
+        /* Small "Output:" label above an .output block */
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--color-muted-foreground);
+        margin-bottom: 4px;
+        display: block;
+    }
+
+    /* ==========================================================
+     STEPS / NUMBERED WALKTHROUGH
+     Usage:
+       <div class="steps">
+         <div class="step"><span class="step-num">1</span> ...</div>
+       </div>
+     ========================================================== */
+
+    .steps {
+        /* Wrapper for an ordered sequence of step cards */
+        display: grid;
+        gap: 10px;
+        margin: 12px 0;
+    }
+
+    .step {
+        /* Individual step card */
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 12px 14px;
+        border-radius: 8px;
+        line-height: 1.6;
+        color: var(--color-card-foreground);
+        font-size: 0.95rem;
+    }
+
+    .step-num {
+        /* Circled step number — flex-shrink so it never wraps */
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--color-primary-muted);
+        color: var(--color-primary-foreground);
+        font-size: 0.75rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1px;
+    }
+
+    /* ==========================================================
+     COMPARISON TABLE
+     Usage: <table class="compare-table"><thead>...<tbody>...
+     ========================================================== */
+
+    .compare-table {
+        /* Two-column comparison or data table */
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+        margin: 12px 0;
+    }
+
+    .compare-table th {
+        background: rgba(142, 124, 195, 0.12);
+        color: var(--color-primary);
+        padding: 8px 12px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .compare-table td {
+        padding: 8px 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        color: var(--color-card-foreground);
+        line-height: 1.5;
+    }
+
+    .compare-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .compare-table tr:hover td {
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* ==========================================================
+     QUIZ / KNOWLEDGE CHECK  (static HTML version)
+     Usage:
+       <div class="quiz-block">
+         <p class="quiz-question">What does print() do?</p>
+         <ul class="quiz-options">
+           <li class="quiz-opt" data-correct="true">Outputs to console</li>
+           <li class="quiz-opt">Stores a value</li>
+         </ul>
+       </div>
+     Note: interactive quiz logic lives in DrillTemplate / TestTemplate.
+     This is for simple embedded check-yourself questions in HTML files.
+     ========================================================== */
+
+    .quiz-block {
+        /* Self-contained inline quiz card */
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+        padding: 16px;
+        margin: 16px 0;
+    }
+
+    .quiz-question {
+        /* The question prompt */
+        font-weight: 600;
+        color: var(--color-foreground);
+        margin-bottom: 10px;
+        font-size: 0.97rem;
+        line-height: 1.5;
+    }
+
+    .quiz-options {
+        /* Answer list — no bullets */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 6px;
+    }
+
+    .quiz-opt {
+        /* Individual answer choice */
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: 1px solid var(--color-border);
+        background: rgba(255, 255, 255, 0.02);
+        cursor: pointer;
+        font-size: 0.92rem;
+        color: var(--color-card-foreground);
+        transition:
+            border-color 0.15s,
+            background 0.15s;
+    }
+
+    .quiz-opt:hover {
+        border-color: var(--color-primary-muted);
+        background: rgba(142, 124, 195, 0.08);
+    }
+
+    .quiz-opt[data-correct="true"][data-revealed="true"] {
+        border-color: rgb(74, 180, 120);
+        background: rgba(74, 180, 120, 0.1);
+        color: rgb(180, 240, 200);
+    }
+
+    .quiz-opt[data-wrong="true"][data-revealed="true"] {
+        border-color: rgb(248, 81, 73);
+        background: rgba(248, 81, 73, 0.08);
+    }
+
+    /* ==========================================================
+     EXERCISE-SPECIFIC — instruction blocks used in exercise HTML files
+     ========================================================== */
+
+    .exercise-content h1 {
+        /* Exercise titles are left-aligned, not centered */
+        text-align: left;
+        font-size: 1.7rem;
+    }
+
+    .task-block {
+        /* The main "your task" instruction card */
+        background: rgba(142, 124, 195, 0.07);
+        border: 1px solid rgba(142, 124, 195, 0.25);
+        border-radius: 10px;
+        padding: 16px 18px;
+        margin: 12px 0;
+        color: var(--color-card-foreground);
+        line-height: 1.7;
+    }
+
+    .task-block h3 {
+        /* "Your Task" label */
+        color: var(--color-primary);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        margin: 0 0 8px;
+    }
+
+    .constraint-list {
+        /* Bullet list of constraints / requirements */
+        list-style: none;
+        padding: 0;
+        margin: 8px 0 0;
+        display: grid;
+        gap: 5px;
+    }
+
+    .constraint-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.92rem;
+        color: var(--color-card-foreground);
+    }
+
+    .constraint-list li::before {
+        /* Checkmark bullet */
+        content: "›";
+        color: var(--color-primary);
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+
+    .expected-output {
+        /* Shows what correct output looks like */
+        margin-top: 12px;
+    }
+
+    .expected-output .output-label {
+        color: rgb(74, 180, 120);
+    }
+} /* end .learning-container */
