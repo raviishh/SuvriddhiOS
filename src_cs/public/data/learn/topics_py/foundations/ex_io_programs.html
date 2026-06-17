@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Exercise — Input & Output</title>
+        <link rel="stylesheet" href="common.css" />
+        <style>
+            body {
+                margin: 0;
+                font-family:
+                    Inter,
+                    ui-sans-serif,
+                    system-ui,
+                    -apple-system,
+                    "Segoe UI",
+                    Roboto,
+                    "Helvetica Neue",
+                    Arial;
+                color: var(--color-card-foreground);
+                background: var(--color-background);
+            }
+
+            .exercise-page {
+                padding: 24px;
+                max-width: 95%;
+                margin: 0 auto;
+            }
+
+            .exercise-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: var(--color-primary);
+                background: var(--color-primary-soft, rgba(99, 102, 241, 0.08));
+                border: 1px solid
+                    var(--color-primary-border, rgba(99, 102, 241, 0.2));
+                border-radius: 20px;
+                padding: 4px 12px;
+                margin-bottom: 16px;
+            }
+
+            .exercise-badge::before {
+                content: "";
+                display: inline-block;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: var(--color-primary);
+            }
+
+            h1 {
+                font-size: 1.9em;
+                font-weight: 700;
+                margin: 0 0 0.4em;
+                line-height: 1.2;
+            }
+
+            .lead {
+                font-size: 1.05em;
+                color: var(--color-muted-foreground, #666);
+                margin-bottom: 2em;
+                line-height: 1.65;
+            }
+
+            .section-label {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--color-muted-foreground, #888);
+                margin-bottom: 10px;
+            }
+
+            .objective-card {
+                background: var(--color-card, #fff);
+                border: 1px solid var(--color-border, #e5e7eb);
+                border-left: 4px solid var(--color-primary);
+                border-radius: 8px;
+                padding: 16px 20px;
+                margin-bottom: 24px;
+            }
+
+            .objective-card p {
+                margin: 0;
+                line-height: 1.65;
+            }
+
+            .task-list {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 28px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .task-list li {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                background: var(--color-card, #fff);
+                border: 1px solid var(--color-border, #e5e7eb);
+                border-radius: 10px;
+                padding: 14px 16px;
+                font-size: 0.97em;
+                line-height: 1.6;
+            }
+
+            .task-num {
+                flex-shrink: 0;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background: var(--color-primary);
+                color: #fff;
+                font-size: 12px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 1px;
+            }
+
+            .code-block {
+                background: var(--color-code-bg, #1e1e2e);
+                color: var(--color-code-fg, #cdd6f4);
+                border-radius: 10px;
+                padding: 18px 20px;
+                font-family:
+                    "Fira Code", "Cascadia Code", "Consolas", monospace;
+                font-size: 0.9em;
+                line-height: 1.7;
+                overflow-x: auto;
+                margin-bottom: 8px;
+            }
+
+            .code-block pre {
+                margin: 0;
+                white-space: pre;
+            }
+
+            .code-caption {
+                font-size: 12px;
+                color: var(--color-muted-foreground, #888);
+                margin-bottom: 24px;
+                padding-left: 4px;
+            }
+
+            .callout {
+                display: flex;
+                gap: 12px;
+                background: var(--color-callout-bg, #fffbeb);
+                border: 1px solid var(--color-callout-border, #fcd34d);
+                border-radius: 10px;
+                padding: 14px 16px;
+                margin-bottom: 24px;
+                font-size: 0.95em;
+                line-height: 1.65;
+            }
+
+            .callout-icon {
+                font-size: 18px;
+                flex-shrink: 0;
+                margin-top: 1px;
+            }
+
+            .callout-label {
+                font-weight: 700;
+                color: var(--color-primary);
+                margin-bottom: 4px;
+            }
+
+            .callout.tip {
+                background: var(--color-tip-bg, #eff6ff);
+                border-color: var(--color-tip-border, #93c5fd);
+            }
+
+            .callout.success {
+                background: var(--color-success-bg, #f0fdf4);
+                border-color: var(--color-success-border, #86efac);
+            }
+
+            .callout.danger {
+                background: #fff5f5;
+                border-color: #fca5a5;
+            }
+
+            .output-block {
+                background: var(--color-output-bg, #0d1117);
+                color: #7ee787;
+                border-radius: 10px;
+                padding: 14px 18px;
+                font-family:
+                    "Fira Code", "Cascadia Code", "Consolas", monospace;
+                font-size: 0.9em;
+                line-height: 1.7;
+                margin-bottom: 8px;
+                border-left: 3px solid #2ea043;
+            }
+
+            .output-user {
+                color: #58a6ff;
+            }
+
+            .output-label {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: #2ea043;
+                margin-bottom: 8px;
+            }
+
+            .challenge-section {
+                border: 1px dashed var(--color-border, #e5e7eb);
+                border-radius: 10px;
+                padding: 20px;
+                margin-bottom: 28px;
+            }
+
+            .challenge-section h3 {
+                margin: 0 0 12px;
+                font-size: 1em;
+                font-weight: 700;
+            }
+
+            .challenge-list {
+                padding-left: 20px;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                font-size: 0.95em;
+                line-height: 1.65;
+            }
+
+            .inline-code {
+                background: var(--color-inline-code-bg, rgba(0, 0, 0, 0.06));
+                color: var(--color-inline-code-fg, #d14);
+                font-family:
+                    "Fira Code", "Cascadia Code", "Consolas", monospace;
+                font-size: 0.88em;
+                border-radius: 4px;
+                padding: 1px 6px;
+            }
+
+            hr {
+                border: none;
+                border-top: 1px solid var(--color-border, #e5e7eb);
+                margin: 28px 0;
+            }
+
+            .concepts-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-bottom: 28px;
+            }
+
+            .concept-pill {
+                font-size: 12px;
+                font-weight: 600;
+                background: var(--color-secondary, #f3f4f6);
+                color: var(--color-secondary-foreground, #374151);
+                border-radius: 20px;
+                padding: 4px 12px;
+                border: 1px solid var(--color-border, #e5e7eb);
+            }
+
+            .two-col {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                margin-bottom: 24px;
+            }
+
+            @media (max-width: 600px) {
+                .two-col {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .mini-card {
+                background: var(--color-card, #fff);
+                border: 1px solid var(--color-border, #e5e7eb);
+                border-radius: 10px;
+                padding: 14px 16px;
+                font-size: 0.93em;
+                line-height: 1.6;
+            }
+
+            .mini-card-title {
+                font-weight: 700;
+                font-size: 0.88em;
+                color: var(--color-primary);
+                margin-bottom: 6px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+        </style>
+    </head>
+    <body>
+        <article class="exercise-page">
+            <div class="exercise-badge">
+                Exercise 2 &nbsp;·&nbsp; Foundations
+            </div>
+
+            <h1>Input &amp; Output</h1>
+            <p class="lead">
+                Programs that can listen and respond are far more useful. In
+                this exercise you will build a short interactive Python program
+                that takes information from the user, processes it, and prints a
+                clear result.
+            </p>
+
+            <div class="section-label">Concepts practised</div>
+            <div class="concepts-row">
+                <span class="concept-pill">input()</span>
+                <span class="concept-pill">print()</span>
+                <span class="concept-pill">type conversion</span>
+                <span class="concept-pill">f-strings</span>
+                <span class="concept-pill">variables</span>
+            </div>
+
+            <hr />
+
+            <div class="section-label">Objective</div>
+            <div class="objective-card">
+                <p>
+                    Write a program that asks the user for their name and age,
+                    then prints a personalised message that includes their name
+                    and tells them how old they will be next year.
+                </p>
+            </div>
+
+            <div class="section-label">Tasks</div>
+            <ul class="task-list">
+                <li>
+                    <span class="task-num">1</span>
+                    <span
+                        >Use <span class="inline-code">input()</span> to ask the
+                        user: <strong>What is your name?</strong> Store the
+                        result in a variable called
+                        <span class="inline-code">name</span>.</span
+                    >
+                </li>
+                <li>
+                    <span class="task-num">2</span>
+                    <span
+                        >Use <span class="inline-code">input()</span> to ask:
+                        <strong>How old are you?</strong> Store the result in a
+                        variable called <span class="inline-code">age</span>.
+                        Convert it to an integer using
+                        <span class="inline-code">int()</span>.</span
+                    >
+                </li>
+                <li>
+                    <span class="task-num">3</span>
+                    <span
+                        >Calculate next year's age by adding 1 to
+                        <span class="inline-code">age</span>. Store it in a
+                        variable called
+                        <span class="inline-code">next_age</span>.</span
+                    >
+                </li>
+                <li>
+                    <span class="task-num">4</span>
+                    <span
+                        >Use an f-string to print:
+                        <strong
+                            >Hello, [name]! You are [age] years old. Next year
+                            you will be [next_age].</strong
+                        ></span
+                    >
+                </li>
+            </ul>
+
+            <hr />
+
+            <div class="section-label">Quick reference</div>
+            <div class="two-col">
+                <div class="mini-card">
+                    <div class="mini-card-title">Getting input</div>
+                    <span class="inline-code">x = input("Ask something: ")</span
+                    ><br /><br />
+                    Always returns a <strong>string</strong>, even if the user
+                    types a number.
+                </div>
+                <div class="mini-card">
+                    <div class="mini-card-title">Converting types</div>
+                    <span class="inline-code">int(x)</span> → whole number<br />
+                    <span class="inline-code">float(x)</span> → decimal<br />
+                    <span class="inline-code">str(x)</span> → text
+                </div>
+                <div class="mini-card">
+                    <div class="mini-card-title">f-strings</div>
+                    <span class="inline-code">f"Hello, {name}!"</span
+                    ><br /><br />
+                    Put an <strong>f</strong> before the quote, then use
+                    <span class="inline-code">{variable}</span> inside.
+                </div>
+                <div class="mini-card">
+                    <div class="mini-card-title">Printing</div>
+                    <span class="inline-code">print("text")</span><br />
+                    <span class="inline-code">print(variable)</span><br />
+                    <span class="inline-code">print(f"Hi {name}")</span>
+                </div>
+            </div>
+
+            <div class="section-label">Starter code</div>
+            <div class="code-block">
+                <pre><code># greeting.py
+
+# Task 1 — ask for the user's name
+name = input("What is your name? ")
+
+# Task 2 — ask for their age and convert it
+age = int(input("How old are you? "))
+
+# Task 3 — calculate next year's age
+next_age = ___
+
+# Task 4 — print the result using an f-string
+print(f"___")</code></pre>
+            </div>
+            <p class="code-caption">
+                Replace the <span class="inline-code">___</span> blanks with
+                your code.
+            </p>
+
+            <div class="section-label">Example run</div>
+            <div class="output-label">Terminal</div>
+            <div class="output-block">
+                What is your name? <span class="output-user">Aarav</span><br />
+                How old are you? <span class="output-user">15</span><br />
+                Hello, Aarav! You are 15 years old. Next year you will be 16.
+            </div>
+            <p class="code-caption" style="margin-bottom: 28px">
+                <span style="color: #58a6ff">Blue text</span> shows what the
+                user types. Your output will match whatever the user enters.
+            </p>
+
+            <hr />
+
+            <div class="callout danger">
+                <div class="callout-icon">⚠️</div>
+                <div>
+                    <div class="callout-label">
+                        Watch out — input() always gives you a string
+                    </div>
+                    If you try to do
+                    <span class="inline-code">age + 1</span> without converting
+                    first, Python will raise a
+                    <span class="inline-code">TypeError</span>. You cannot add a
+                    number to a string. Always convert with
+                    <span class="inline-code">int()</span> or
+                    <span class="inline-code">float()</span> before doing maths.
+                </div>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-icon">💡</div>
+                <div>
+                    <div class="callout-label">
+                        Combining input and conversion in one step
+                    </div>
+                    Instead of two lines, you can write
+                    <span class="inline-code"
+                        >age = int(input("How old are you? "))</span
+                    >
+                    — the inner call runs first and its result is immediately
+                    converted.
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="challenge-section">
+                <h3>🏆 Bonus challenges</h3>
+                <ul class="challenge-list">
+                    <li>
+                        Ask for a third piece of information — the user's
+                        favourite subject — and include it in the printed
+                        message.
+                    </li>
+                    <li>
+                        Ask for two numbers and print their sum, difference, and
+                        product, each on its own line using f-strings.
+                    </li>
+                    <li>
+                        Ask for a decimal number (like a price) using
+                        <span class="inline-code">float()</span> and print it
+                        formatted to two decimal places with
+                        <span class="inline-code">{value:.2f}</span> inside an
+                        f-string.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="callout success">
+                <div class="callout-icon">✅</div>
+                <div>
+                    <div class="callout-label">
+                        You've completed this exercise when...
+                    </div>
+                    Running your program prompts for a name and age, and prints
+                    a correctly formatted message using both values — without
+                    any errors.
+                </div>
+            </div>
+        </article>
+    </body>
+</html>

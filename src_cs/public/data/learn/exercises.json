@@ -1,0 +1,2006 @@
+{
+    "_readme": "Each key matches the 'id' field in topics.json. checkMode: 'exact' (trim+compare), 'contains' (output must include all strings in expectedOutput array), 'regex' (match pattern). Stretch tasks are tagged with 'difficulty': 'stretch'.",
+
+    "found_ex_hello_world": {
+        "id": "found_ex_hello_world",
+        "title": "Hello World Variants & Variable Juggling",
+        "lead": "Get comfortable with print() and variables by producing specific outputs.",
+        "starterCode": "# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "hw_1",
+                "title": "Part 1 — Hello, World!",
+                "background": "The print() function outputs text to the console. Pass it a string — text wrapped in quotes — and Python displays it.",
+                "backgroundCode": "print(\"Hello, World!\")",
+                "backgroundCodeOutput": "Hello, World!",
+                "instructions": [
+                    "Print exactly: Hello, World!",
+                    "Print exactly: I am learning Python."
+                ],
+                "expectedOutput": "Hello, World!\nI am learning Python.",
+                "checkMode": "exact",
+                "hints": [
+                    "Call print() once for each line — each call starts a new line automatically.",
+                    "Watch capitalisation and punctuation — commas, exclamation marks, and periods all count.",
+                    "Strings can use single quotes or double quotes interchangeably: print('Hello') and print(\"Hello\") both work.",
+                    "If you see a SyntaxError, check that every opening quote has a matching closing quote."
+                ],
+                "warnings": [
+                    "The checker is case-sensitive and whitespace-sensitive.",
+                    "Do not add extra blank lines between the two print() calls — they won't affect output, but get into the habit of clean code."
+                ]
+            },
+            {
+                "taskId": "hw_2",
+                "title": "Part 2 — Variable Juggling",
+                "background": "Variables store values. You can reassign a variable to a new value at any point, and Python will use the latest value.",
+                "backgroundCode": "x = 10\nx = 20\nprint(x)",
+                "backgroundCodeOutput": "20",
+                "instructions": [
+                    "Create a variable called language and set it to \"Python\".",
+                    "Create a variable called version and set it to 3.",
+                    "Print: I love Python 3",
+                    "Then reassign version to 4.",
+                    "Print: I love Python 4"
+                ],
+                "expectedOutput": "I love Python 3\nI love Python 4",
+                "checkMode": "exact",
+                "hints": [
+                    "Use an f-string: f\"I love {language} {version}\"",
+                    "Reassign version = 4 before the second print.",
+                    "f-strings evaluate the variable at the moment print() is called — so reassigning version before the second print will automatically give you the new value.",
+                    "You only need to define language once; only version changes."
+                ],
+                "warnings": [
+                    "No extra spaces or punctuation — match the expected output exactly.",
+                    "version is an integer (3), not a string (\"3\") — f-strings handle the conversion for you automatically."
+                ]
+            },
+            {
+                "taskId": "hw_stretch",
+                "title": "Stretch — Multi-Variable Swap",
+                "difficulty": "stretch",
+                "background": "Python allows you to swap two variables in a single line using tuple unpacking: a, b = b, a. No temporary variable needed.",
+                "backgroundCode": "a = 'hello'\nb = 'world'\na, b = b, a\nprint(a, b)  # world hello",
+                "backgroundCodeOutput": "world hello",
+                "instructions": [
+                    "Create three variables: first = 'alpha', second = 'beta', third = 'gamma'.",
+                    "Using only one line of code (tuple unpacking), rotate them so first gets second's value, second gets third's value, and third gets first's value.",
+                    "Print all three on one line separated by spaces.",
+                    "Expected output: beta gamma alpha"
+                ],
+                "expectedOutput": "beta gamma alpha",
+                "checkMode": "exact",
+                "hints": [
+                    "Tuple unpacking: first, second, third = second, third, first",
+                    "The right-hand side is evaluated completely before any assignment happens — Python captures the original values first.",
+                    "This is a three-way rotation, not a two-way swap."
+                ],
+                "warnings": [
+                    "Do not use a temporary variable — the point is to do it in one assignment line.",
+                    "Order matters: first, second, third = second, third, first is correct; reversing the order gives a different rotation."
+                ]
+            }
+        ]
+    },
+
+    "found_ex_io_programs": {
+        "id": "found_ex_io_programs",
+        "title": "I/O Mini-Programs (Calculator, Greeter)",
+        "lead": "Use input() and print() together to build small interactive programs.",
+        "starterCode": "# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "io_1",
+                "title": "Part 1 — Greeter",
+                "background": "input() reads a line of text the user types and returns it as a string. You can store it in a variable and use it immediately.",
+                "backgroundCode": "name = input(\"What is your name? \")\nprint(f\"Hello, {name}!\")",
+                "backgroundCodeOutput": "What is your name? Alice\nHello, Alice!",
+                "instructions": [
+                    "Ask the user for their name using input().",
+                    "Ask the user for their city using input().",
+                    "Print: Hello, [name]! You live in [city]."
+                ],
+                "expectedOutput": "Hello, Alice! You live in Paris.",
+                "checkMode": "contains",
+                "hints": [
+                    "Store each input() call in its own variable.",
+                    "Build the output with an f-string.",
+                    "The prompt string you pass to input() is optional but good practice — it tells the user what to type.",
+                    "input() always returns a string, even if the user types a number."
+                ],
+                "warnings": [
+                    "The test will supply sample inputs — don't hard-code values.",
+                    "Match the punctuation exactly: comma after the name, exclamation mark, then 'You live in'."
+                ]
+            },
+            {
+                "taskId": "io_2",
+                "title": "Part 2 — Simple Calculator",
+                "background": "input() always returns a string. To do maths you must convert it: int() for whole numbers, float() for decimals.",
+                "backgroundCode": "a = int(input(\"Enter a number: \"))\nb = int(input(\"Enter another: \"))\nprint(a + b)",
+                "backgroundCodeOutput": "Enter a number: 5\nEnter another: 3\n8",
+                "instructions": [
+                    "Ask the user for two numbers (use int() to convert each).",
+                    "Print their sum on one line: Sum: [result]",
+                    "Print their product on the next line: Product: [result]"
+                ],
+                "expectedOutput": "Sum: 8\nProduct: 15",
+                "checkMode": "contains",
+                "hints": [
+                    "Wrap input() inside int(): a = int(input(\"First number: \"))",
+                    "Use * for multiplication.",
+                    "Both conversions must happen before you do any arithmetic — you can't add strings.",
+                    "If you get a ValueError, check that int() is wrapping the entire input() call."
+                ],
+                "warnings": [
+                    "Labels must match exactly: 'Sum: ' and 'Product: ' with a capital letter and a space after the colon.",
+                    "Using float() instead of int() will produce 8.0 and 15.0 — the checker expects plain integers."
+                ]
+            },
+            {
+                "taskId": "io_stretch",
+                "title": "Stretch — Temperature Converter",
+                "difficulty": "stretch",
+                "background": "Real-world programs often need to branch based on user input. Combine input(), float conversion, and conditionals to handle multiple conversion directions.",
+                "backgroundCode": "# Celsius to Fahrenheit: F = C * 9/5 + 32\n# Fahrenheit to Celsius: C = (F - 32) * 5/9",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Ask the user to enter a temperature value (convert to float).",
+                    "Ask the user to enter the unit: C or F.",
+                    "If C, convert to Fahrenheit and print: [value]C = [result]F",
+                    "If F, convert to Celsius and print: [value]F = [result]C",
+                    "Round both the input and result to 1 decimal place in the output.",
+                    "Test with 100C (should give 100.0C = 212.0F) and 32F (should give 32.0F = 0.0C)."
+                ],
+                "expectedOutput": "100.0C = 212.0F",
+                "checkMode": "contains",
+                "hints": [
+                    "Use unit = input(...).strip().upper() to handle lowercase input gracefully.",
+                    "round(value, 1) rounds to one decimal place.",
+                    "Use an if/elif block to branch on the unit.",
+                    "f\"{round(val, 1)}C = {round(result, 1)}F\" formats the output cleanly."
+                ],
+                "warnings": [
+                    "Don't forget .strip() on the unit input — a trailing space will break the comparison.",
+                    "The formula uses integer division with Python 3 — 9/5 gives 1.8, not 1 (which it would in Python 2)."
+                ]
+            }
+        ]
+    },
+
+    "types_ex_coercion": {
+        "id": "types_ex_coercion",
+        "title": "Type Coercion Puzzles",
+        "lead": "Predict and verify what Python does when types meet each other.",
+        "starterCode": "# Solve each puzzle by writing the expression or conversion\n",
+        "tasks": [
+            {
+                "taskId": "coerce_1",
+                "title": "Part 1 — Explicit Conversion",
+                "background": "int(), float(), and str() convert values between types. int(3.9) truncates (gives 3), not rounds.",
+                "backgroundCode": "print(int(3.9))   # 3\nprint(float(7))   # 7.0\nprint(str(42))    # '42'",
+                "backgroundCodeOutput": "3\n7.0\n42",
+                "instructions": [
+                    "Convert the float 9.99 to an int and print it.",
+                    "Convert the integer 100 to a float and print it.",
+                    "Convert the integer 7 to a string, concatenate \" wonders\", and print it."
+                ],
+                "expectedOutput": "9\n100.0\n7 wonders",
+                "checkMode": "exact",
+                "hints": [
+                    "int(9.99) truncates toward zero.",
+                    "String concatenation requires both sides to be strings: str(7) + \" wonders\"",
+                    "float(100) adds a decimal point: 100.0",
+                    "You cannot concatenate an int and a string directly — Python will raise a TypeError."
+                ],
+                "warnings": [
+                    "int() truncates, it does not round — int(9.99) is 9, not 10.",
+                    "int(-3.9) is -3, not -4 — truncation always moves toward zero."
+                ]
+            },
+            {
+                "taskId": "coerce_2",
+                "title": "Part 2 — Mixed-Type Arithmetic",
+                "background": "Python automatically promotes int to float when you mix them in arithmetic. Adding a bool to an int also works — True is 1, False is 0.",
+                "backgroundCode": "print(3 + 1.0)      # 4.0\nprint(True + 5)     # 6\nprint(False + 10)   # 10",
+                "backgroundCodeOutput": "4.0\n6\n10",
+                "instructions": [
+                    "Print the result of 5 + 2.0",
+                    "Print the result of True + True + False",
+                    "Print the type of (5 + 2.0) using type()"
+                ],
+                "expectedOutput": "7.0\n2\n<class 'float'>",
+                "checkMode": "exact",
+                "hints": [
+                    "int + float → float automatically.",
+                    "type() returns the type object; print it directly.",
+                    "True == 1 and False == 0 in arithmetic contexts — this is guaranteed by the Python spec.",
+                    "Wrap the expression in type(): type(5 + 2.0)"
+                ],
+                "warnings": [
+                    "Print the type object itself, not a string description like 'float'.",
+                    "type(5 + 2.0) gives <class 'float'>, not <class 'int'> — the int is promoted."
+                ]
+            },
+            {
+                "taskId": "coerce_stretch",
+                "title": "Stretch — Safe String-to-Number Pipeline",
+                "difficulty": "stretch",
+                "background": "int() and float() raise ValueError for invalid strings. A robust pipeline checks the string first or catches the exception.",
+                "backgroundCode": "def safe_int(s):\n    try:\n        return int(s)\n    except ValueError:\n        return None",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write a function coerce_number(s) that tries to convert string s to int first, then float, and returns None if neither works.",
+                    "coerce_number('42') → 42 (int)",
+                    "coerce_number('3.14') → 3.14 (float)",
+                    "coerce_number('hello') → None",
+                    "Print the type and value for each of the three test cases.",
+                    "Expected output (three lines): <class 'int'> 42 / <class 'float'> 3.14 / <class 'NoneType'> None"
+                ],
+                "expectedOutput": "<class 'int'> 42\n<class 'float'> 3.14\n<class 'NoneType'> None",
+                "checkMode": "exact",
+                "hints": [
+                    "Nest two try/except blocks: try int() first, then float() in the except, then return None in the second except.",
+                    "type(None) is <class 'NoneType'>.",
+                    "print(type(result), result) produces the correct format in one call."
+                ],
+                "warnings": [
+                    "int('3.14') raises ValueError — you cannot skip the float step.",
+                    "Return the converted value, not a string representation of it."
+                ]
+            }
+        ]
+    },
+
+    "types_ex_strings": {
+        "id": "types_ex_strings",
+        "title": "String Manipulation Challenges",
+        "lead": "Practise f-strings, slicing, and common string methods.",
+        "starterCode": "sentence = \"the quick brown fox\"\n# Work with this sentence below\n",
+        "tasks": [
+            {
+                "taskId": "str_1",
+                "title": "Part 1 — Slicing",
+                "background": "Strings are sequences. s[start:stop:step] extracts a slice. Negative indices count from the end.",
+                "backgroundCode": "s = \"Hello, World!\"\nprint(s[0:5])    # Hello\nprint(s[-6:])    # World!\nprint(s[::-1])   # !dlroW ,olleH",
+                "backgroundCodeOutput": "Hello\nWorld!\n!dlroW ,olleH",
+                "instructions": [
+                    "Using sentence = \"the quick brown fox\", print just the word \"quick\" using a slice.",
+                    "Print sentence reversed using a slice.",
+                    "Print every other character of sentence starting from index 0."
+                ],
+                "expectedOutput": "quick\nxof nworb kciuq eht\nte ujbonfx",
+                "checkMode": "exact",
+                "hints": [
+                    "\"quick\" starts at index 4 and ends before index 9.",
+                    "Reverse with [::-1].",
+                    "Every other character: [::2]",
+                    "To find the right indices, count characters from zero: t=0, h=1, e=2, (space)=3, q=4 ...",
+                    "s[4:9] extracts characters at positions 4, 5, 6, 7, 8 — stop index is exclusive."
+                ],
+                "warnings": [
+                    "Slicing is zero-indexed — count characters carefully.",
+                    "The step -1 in [::-1] works on the full string — you do not need to specify start or stop."
+                ]
+            },
+            {
+                "taskId": "str_2",
+                "title": "Part 2 — Methods & f-strings",
+                "background": "String methods return new strings — they do not modify the original. Chain them freely.",
+                "backgroundCode": "s = \"  hello world  \"\nprint(s.strip().title())   # Hello World\nprint(s.strip().replace(\"world\", \"Python\"))  # hello Python",
+                "backgroundCodeOutput": "Hello World\nhello Python",
+                "instructions": [
+                    "Take sentence = \"the quick brown fox\".",
+                    "Print it in UPPER CASE.",
+                    "Print it in Title Case.",
+                    "Replace \"fox\" with \"cat\" and print.",
+                    "Print the number of times the letter 'o' appears."
+                ],
+                "expectedOutput": "THE QUICK BROWN FOX\nThe Quick Brown Fox\nthe quick brown cat\n2",
+                "checkMode": "exact",
+                "hints": [
+                    ".upper(), .title(), .replace(), .count() are all you need.",
+                    ".count('o') counts non-overlapping occurrences.",
+                    "Methods do not modify sentence in place — sentence remains unchanged after each call.",
+                    "You can call methods on the string literal directly or on the variable — both work."
+                ],
+                "warnings": [
+                    "Methods are case-sensitive — .Count() does not exist.",
+                    ".title() capitalises the first letter of every word, including small prepositions — that's expected here."
+                ]
+            },
+            {
+                "taskId": "str_stretch",
+                "title": "Stretch — Caesar Cipher",
+                "difficulty": "stretch",
+                "background": "A Caesar cipher shifts each letter by a fixed number of positions in the alphabet, wrapping around from z back to a. Non-letter characters are left unchanged.",
+                "backgroundCode": "# ord('a') = 97, chr(97) = 'a'\n# Shift 'a' by 3: ord('a') - 97 = 0; (0 + 3) % 26 = 3; chr(3 + 97) = 'd'",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write caesar(text, shift) that encodes text using a Caesar cipher.",
+                    "Preserve case: uppercase letters shift within uppercase, lowercase within lowercase.",
+                    "Leave spaces, digits, and punctuation unchanged.",
+                    "caesar('Hello, World!', 3) → 'Khoor, Zruog!'",
+                    "Print the result of caesar('Hello, World!', 3)."
+                ],
+                "expectedOutput": "Khoor, Zruog!",
+                "checkMode": "exact",
+                "hints": [
+                    "Loop over each character with a for loop.",
+                    "Use c.isalpha() to check if a character is a letter.",
+                    "Use c.isupper() to branch between uppercase and lowercase shifting.",
+                    "For uppercase: chr((ord(c) - ord('A') + shift) % 26 + ord('A'))",
+                    "For lowercase: chr((ord(c) - ord('a') + shift) % 26 + ord('a'))",
+                    "Build the result with a list and ''.join() for efficiency."
+                ],
+                "warnings": [
+                    "% 26 handles the wrap-around — 'x' shifted by 3 should give 'a', not a character outside the alphabet.",
+                    "Do not shift non-letter characters — append them unchanged."
+                ]
+            }
+        ]
+    },
+
+    "types_ex_mutation": {
+        "id": "types_ex_mutation",
+        "title": "Spot the Mutation Bug",
+        "lead": "Identify and fix bugs caused by unexpected mutation and shared references.",
+        "starterCode": "# Buggy code — read carefully, then fix it\noriginal = [1, 2, 3]\ncopy = original\ncopy.append(4)\nprint(\"original:\", original)\nprint(\"copy:\", copy)\n",
+        "tasks": [
+            {
+                "taskId": "mut_1",
+                "title": "Part 1 — Fix the Shared Reference",
+                "background": "Assigning a list to a new variable does NOT copy it — both names point to the same object. Use list() or [:] to make a real copy.",
+                "backgroundCode": "a = [1, 2, 3]\nb = a          # same object!\nb.append(4)\nprint(a)       # [1, 2, 3, 4]  ← surprise!",
+                "backgroundCodeOutput": "[1, 2, 3, 4]",
+                "instructions": [
+                    "Fix the starter code so that appending 4 to copy does NOT affect original.",
+                    "After your fix, original should still print [1, 2, 3] and copy should print [1, 2, 3, 4]."
+                ],
+                "expectedOutput": "original: [1, 2, 3]\ncopy: [1, 2, 3, 4]",
+                "checkMode": "exact",
+                "hints": [
+                    "Use copy = original[:] or copy = list(original).",
+                    "Do not use copy = original — that just creates another name for the same list.",
+                    "You can verify they are different objects with: print(original is copy) — it should print False after the fix.",
+                    "copy.copy() from the copy module also works: import copy; c = copy.copy(original)"
+                ],
+                "warnings": [
+                    "Both lines must be printed in the exact format shown.",
+                    "copy = original[:] creates a shallow copy — nested lists inside would still be shared. For this exercise the list is flat, so [:] is sufficient."
+                ]
+            },
+            {
+                "taskId": "mut_2",
+                "title": "Part 2 — Immutable Strings",
+                "background": "Strings are immutable — methods like .replace() return a new string rather than modifying the original.",
+                "backgroundCode": "word = \"hello\"\nword.upper()     # does nothing to word!\nprint(word)      # still 'hello'",
+                "backgroundCodeOutput": "hello",
+                "instructions": [
+                    "Start with greeting = \"hello world\".",
+                    "Convert it to upper case and store the result in shouted.",
+                    "Print greeting (unchanged) and then print shouted."
+                ],
+                "expectedOutput": "hello world\nHELLO WORLD",
+                "checkMode": "exact",
+                "hints": [
+                    "shouted = greeting.upper()  — remember to capture the return value.",
+                    "Do not reassign greeting.",
+                    "If you just write greeting.upper() without assigning it, the result is discarded.",
+                    "This pattern — capturing the return value of a method — is the correct way to work with all immutable types."
+                ],
+                "warnings": [
+                    "greeting must remain lowercase in the output — do not reassign it.",
+                    "Print greeting first, then shouted — order matters for the checker."
+                ]
+            },
+            {
+                "taskId": "mut_stretch",
+                "title": "Stretch — Deep Copy Trap",
+                "difficulty": "stretch",
+                "background": "A shallow copy duplicates the outer list but not any nested lists inside it. Use copy.deepcopy() when you need full independence at every level.",
+                "backgroundCode": "import copy\nnested = [[1, 2], [3, 4]]\nshallow = nested[:]\nshallow[0].append(99)\nprint(nested)   # [[1, 2, 99], [3, 4]] ← the inner list is still shared!",
+                "backgroundCodeOutput": "[[1, 2, 99], [3, 4]]",
+                "instructions": [
+                    "Start with matrix = [[1, 2], [3, 4]].",
+                    "Create a shallow copy called shallow using [:].",
+                    "Create a deep copy called deep using copy.deepcopy().",
+                    "Append 99 to shallow[0] and append 88 to deep[1].",
+                    "Print matrix, shallow, and deep — one per line.",
+                    "Expected: matrix is [[1,2,99],[3,4]], shallow is [[1,2,99],[3,4]], deep is [[1,2],[3,4,88]]."
+                ],
+                "expectedOutput": "[[1, 2, 99], [3, 4]]\n[[1, 2, 99], [3, 4]]\n[[1, 2], [3, 4, 88]]",
+                "checkMode": "exact",
+                "hints": [
+                    "import copy at the top.",
+                    "deep = copy.deepcopy(matrix) creates a fully independent copy.",
+                    "Appending to shallow[0] modifies the inner list, which matrix still references.",
+                    "Appending to deep[1] only affects deep — its inner lists are independent copies."
+                ],
+                "warnings": [
+                    "shallow = matrix[:] copies the outer list only — inner list objects are still the same.",
+                    "Print each list on its own line — the checker matches line by line."
+                ]
+            }
+        ]
+    },
+
+    "control_ex_fizzbuzz": {
+        "id": "control_ex_fizzbuzz",
+        "title": "FizzBuzz Variations",
+        "lead": "Classic conditional + loop logic — with a twist.",
+        "starterCode": "# Print numbers 1 to 20 applying the FizzBuzz rules\n",
+        "tasks": [
+            {
+                "taskId": "fb_1",
+                "title": "Classic FizzBuzz (1–20)",
+                "background": "For each number 1–20: print Fizz if divisible by 3, Buzz if divisible by 5, FizzBuzz if both, otherwise print the number.",
+                "backgroundCode": "for n in range(1, 6):\n    if n % 15 == 0:\n        print(\"FizzBuzz\")\n    elif n % 3 == 0:\n        print(\"Fizz\")\n    elif n % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(n)",
+                "backgroundCodeOutput": "1\n2\nFizz\n4\nBuzz",
+                "instructions": [
+                    "Print FizzBuzz for numbers 1 through 20 following the rules above."
+                ],
+                "expectedOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz",
+                "checkMode": "exact",
+                "hints": [
+                    "Check divisibility by 15 (or both 3 and 5) FIRST, before checking 3 or 5 individually.",
+                    "Use the % (modulo) operator: n % 3 == 0 means n is divisible by 3.",
+                    "An alternative to checking n % 15 is: if n % 3 == 0 and n % 5 == 0 — both are equivalent.",
+                    "range(1, 21) gives 1 through 20 inclusive — range(1, 20) would stop at 19."
+                ],
+                "warnings": [
+                    "Order matters — if you check % 3 before % 15 you'll print Fizz instead of FizzBuzz for 15.",
+                    "Each number/word must be on its own line — do not use end=' ' here."
+                ]
+            },
+            {
+                "taskId": "fb_2",
+                "title": "FizzBuzz Sum",
+                "background": "You can accumulate results while looping by maintaining a running variable outside the loop.",
+                "backgroundCode": "total = 0\nfor n in range(1, 6):\n    total += n\nprint(total)  # 15",
+                "backgroundCodeOutput": "15",
+                "instructions": [
+                    "Sum all numbers from 1 to 100 that are NOT divisible by 3 or 5.",
+                    "Print just the final sum."
+                ],
+                "expectedOutput": "2418",
+                "checkMode": "exact",
+                "hints": [
+                    "Only add n to the total when n % 3 != 0 and n % 5 != 0.",
+                    "Use range(1, 101) to include 100.",
+                    "Alternatively: total = sum(n for n in range(1, 101) if n % 3 != 0 and n % 5 != 0)",
+                    "Initialise total = 0 before the loop."
+                ],
+                "warnings": [
+                    "Print only the number — no labels.",
+                    "range(1, 100) stops at 99 — use range(1, 101) to include 100."
+                ]
+            },
+            {
+                "taskId": "fb_stretch",
+                "title": "Stretch — Generalised FizzBuzz",
+                "difficulty": "stretch",
+                "background": "A generalised FizzBuzz accepts any number of (divisor, word) pairs and builds the output string dynamically. This eliminates hard-coded conditionals entirely.",
+                "backgroundCode": "# pairs = [(3, 'Fizz'), (5, 'Buzz'), (7, 'Bazz')]\n# 21 → FizzBazz (divisible by 3 and 7)\n# 35 → BuzzBazz (divisible by 5 and 7)\n# 105 → FizzBuzzBazz (divisible by 3, 5, and 7)",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write fizzbuzz(n, pairs) where pairs is a list of (divisor, word) tuples.",
+                    "For each number 1 to n, build the output string by concatenating the word for each matching divisor.",
+                    "If no divisor matches, use the number itself.",
+                    "Call fizzbuzz(20, [(3, 'Fizz'), (5, 'Buzz')]) and print each result — it must match classic FizzBuzz output.",
+                    "Then call fizzbuzz(15, [(3, 'Fizz'), (5, 'Buzz'), (7, 'Bazz')]) and print — verify 14 prints FizzBazz."
+                ],
+                "expectedOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz",
+                "checkMode": "contains",
+                "hints": [
+                    "Build result = '' then loop over pairs: if n % div == 0: result += word",
+                    "After the loop: print(result if result else n)",
+                    "This pattern scales to any number of rules without adding more if/elif branches."
+                ],
+                "warnings": [
+                    "The pairs must be checked in order — the order they appear in the list controls the output string.",
+                    "Do not use a hard-coded 15 or any product — derive matches purely from the pairs list."
+                ]
+            }
+        ]
+    },
+
+    "control_ex_loop_logic": {
+        "id": "control_ex_loop_logic",
+        "title": "Loop Logic Puzzles",
+        "lead": "Master break, continue, and nested loops through targeted puzzles.",
+        "starterCode": "# Solve each puzzle below\n",
+        "tasks": [
+            {
+                "taskId": "loop_1",
+                "title": "Part 1 — First Even over 10",
+                "background": "break exits a loop immediately. Use it to stop as soon as you find what you're looking for.",
+                "backgroundCode": "for n in range(100):\n    if n > 50:\n        break\nprint(\"Stopped at:\", n)",
+                "backgroundCodeOutput": "Stopped at: 51",
+                "instructions": [
+                    "Loop through numbers starting at 1.",
+                    "Find and print the first number greater than 10 that is also even.",
+                    "Stop the loop immediately after printing it."
+                ],
+                "expectedOutput": "12",
+                "checkMode": "exact",
+                "hints": [
+                    "Use a while loop or for loop with range().",
+                    "Check n > 10 and n % 2 == 0.",
+                    "Put print() before break so the value is displayed before the loop exits.",
+                    "range(1, 100) is wide enough — you only need to reach 12."
+                ],
+                "warnings": [
+                    "Print only the number, nothing else.",
+                    "The break must come after the print — otherwise you stop before outputting anything."
+                ]
+            },
+            {
+                "taskId": "loop_2",
+                "title": "Part 2 — Skip Multiples of 3",
+                "background": "continue skips the rest of the current loop body and jumps to the next iteration.",
+                "backgroundCode": "for n in range(1, 6):\n    if n == 3:\n        continue\n    print(n)",
+                "backgroundCodeOutput": "1\n2\n4\n5",
+                "instructions": [
+                    "Print all numbers from 1 to 15, skipping any multiple of 3."
+                ],
+                "expectedOutput": "1\n2\n4\n5\n7\n8\n10\n11\n13\n14",
+                "checkMode": "exact",
+                "hints": [
+                    "Use continue inside the loop when n % 3 == 0.",
+                    "continue does not exit the loop — it just skips to the next number.",
+                    "An alternative: use an if statement that only prints when n % 3 != 0 — both approaches are valid."
+                ],
+                "warnings": [
+                    "range(1, 16) includes 15, which is a multiple of 3 — it should be skipped.",
+                    "Numbers 3, 6, 9, 12, 15 should not appear in the output."
+                ]
+            },
+            {
+                "taskId": "loop_3",
+                "title": "Part 3 — Multiplication Table",
+                "background": "Nested loops let you iterate over two dimensions. The outer loop controls the row, the inner loop controls the column.",
+                "backgroundCode": "for i in range(1, 3):\n    for j in range(1, 3):\n        print(i * j, end=\" \")\n    print()",
+                "backgroundCodeOutput": "1 2 \n2 4 ",
+                "instructions": [
+                    "Print the multiplication table for 3 and 4 (rows) × 1 to 5 (columns).",
+                    "Each row on its own line, values separated by spaces."
+                ],
+                "expectedOutput": "3 6 9 12 15 \n4 8 12 16 20 ",
+                "checkMode": "exact",
+                "hints": [
+                    "Outer loop: for i in [3, 4]",
+                    "Inner loop: for j in range(1, 6)",
+                    "print(i * j, end=\" \") then print() at the end of each row.",
+                    "print() with no arguments outputs a newline — it resets the cursor to the next line after each row."
+                ],
+                "warnings": [
+                    "There is a trailing space after the last number on each row — match it exactly.",
+                    "for i in [3, 4] is cleaner than range(3, 5) here — use whichever is clearer to you."
+                ]
+            },
+            {
+                "taskId": "loop_stretch",
+                "title": "Stretch — Spiral Number Grid",
+                "difficulty": "stretch",
+                "background": "Nested loops can generate 2D grids. Combined with string formatting, you can produce aligned tabular output.",
+                "backgroundCode": "# Target for a 4×4 grid starting at 1:\n#  1  2  3  4\n#  5  6  7  8\n#  9 10 11 12\n# 13 14 15 16",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Print an N×N grid of numbers starting at 1, filling left-to-right, top-to-bottom.",
+                    "Use N = 4.",
+                    "Right-align each number in a field wide enough for N*N (e.g. 2 characters for N=4).",
+                    "Separate columns with a single space."
+                ],
+                "expectedOutput": " 1  2  3  4\n 5  6  7  8\n 9 10 11 12\n13 14 15 16",
+                "checkMode": "exact",
+                "hints": [
+                    "width = len(str(N * N)) gives the correct field width.",
+                    "Use f\"{num:{width}}\" to right-align a number in a field of width characters.",
+                    "Build each row as a list of formatted strings, then ' '.join() them.",
+                    "Outer loop: row in range(N), inner loop: col in range(N), num = row * N + col + 1"
+                ],
+                "warnings": [
+                    "Right-alignment means numbers line up on the right — ' 1' not '1 '.",
+                    "Columns are separated by a single space — do not add extra padding between columns."
+                ]
+            }
+        ]
+    },
+
+    "control_ex_pattern_matching": {
+        "id": "control_ex_pattern_matching",
+        "title": "Pattern Matching Practice",
+        "lead": "Use Python 3.10+ match/case to handle structured data cleanly.",
+        "starterCode": "# Use match/case to solve each task\n",
+        "tasks": [
+            {
+                "taskId": "pm_1",
+                "title": "Part 1 — HTTP Status Classifier",
+                "background": "match/case works like a supercharged switch. The wildcard case _ matches anything not caught above.",
+                "backgroundCode": "status = 404\nmatch status:\n    case 200:\n        print(\"OK\")\n    case 404:\n        print(\"Not Found\")\n    case _:\n        print(\"Unknown\")",
+                "backgroundCodeOutput": "Not Found",
+                "instructions": [
+                    "Write a match statement for a variable code.",
+                    "200 → print OK",
+                    "301 → print Moved Permanently",
+                    "404 → print Not Found",
+                    "500 → print Internal Server Error",
+                    "Anything else → print Unknown Status",
+                    "Test it with code = 301."
+                ],
+                "expectedOutput": "Moved Permanently",
+                "checkMode": "exact",
+                "hints": [
+                    "Each case: value: is a branch.",
+                    "Put case _: last as the catch-all.",
+                    "There is no fall-through in Python's match — only the first matching case runs.",
+                    "The match subject (code) is evaluated once, then compared to each case in order."
+                ],
+                "warnings": [
+                    "Python 3.10+ required for match/case.",
+                    "case _ must be the last branch — if placed earlier it will catch everything and skip later cases."
+                ]
+            },
+            {
+                "taskId": "pm_2",
+                "title": "Part 2 — Command Dispatcher",
+                "background": "match can match strings and even destructure sequences (lists/tuples).",
+                "backgroundCode": "command = [\"go\", \"north\"]\nmatch command:\n    case [\"go\", direction]:\n        print(f\"Moving {direction}\")\n    case [\"quit\"]:\n        print(\"Goodbye\")",
+                "backgroundCodeOutput": "Moving north",
+                "instructions": [
+                    "Create command = [\"go\", \"south\"].",
+                    "Match on: [\"go\", direction] → Moving [direction]",
+                    "Match on: [\"pick\", item] → Picking up [item]",
+                    "Match on: [\"quit\"] → Goodbye",
+                    "Default → Unknown command"
+                ],
+                "expectedOutput": "Moving south",
+                "checkMode": "exact",
+                "hints": [
+                    "Sequence patterns unpack automatically — direction captures the second element.",
+                    "Test a few values by changing command to verify all branches work.",
+                    "The capture variable (direction, item) can be any valid Python name — it binds to whatever is in that position.",
+                    "case [\"quit\"] matches a list with exactly one element 'quit'."
+                ],
+                "warnings": [
+                    "case [\"go\", direction] only matches a two-element list starting with 'go' — a three-element list would fall through to the default.",
+                    "Literal string patterns are case-sensitive: 'Go' would not match 'go'."
+                ]
+            },
+            {
+                "taskId": "pm_stretch",
+                "title": "Stretch — Nested Pattern Matching",
+                "difficulty": "stretch",
+                "background": "match/case can destructure nested structures such as dicts and tuples, and can apply guard clauses with if.",
+                "backgroundCode": "# Guard clause example:\n# case [\"go\", direction] if direction in (\"north\", \"south\", \"east\", \"west\"):\n#     print(f\"Valid move: {direction}\")",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Extend the command dispatcher to handle a dict-based command format.",
+                    "command = {'action': 'go', 'direction': 'north'} → Moving north",
+                    "command = {'action': 'pick', 'item': 'sword'} → Picking up sword",
+                    "Add a guard: only accept directions in ('north', 'south', 'east', 'west'); anything else → Invalid direction.",
+                    "Test with {'action': 'go', 'direction': 'up'} — should print Invalid direction."
+                ],
+                "expectedOutput": "Invalid direction",
+                "checkMode": "exact",
+                "hints": [
+                    "Dict patterns: case {'action': 'go', 'direction': direction}:",
+                    "Add a guard: case {'action': 'go', 'direction': direction} if direction in ('north', 'south', 'east', 'west'):",
+                    "Put the guarded case before a more general 'go' case that handles the invalid direction."
+                ],
+                "warnings": [
+                    "Dict patterns match if the dict contains at least those keys — extra keys are ignored.",
+                    "Guard conditions (if ...) are evaluated only if the structural pattern matches first."
+                ]
+            }
+        ]
+    },
+
+    "func_ex_refactoring": {
+        "id": "func_ex_refactoring",
+        "title": "Function Refactoring Drills",
+        "lead": "Take flat, repetitive code and refactor it into clean, reusable functions.",
+        "starterCode": "# Refactor the code below into functions\n# Original flat code:\nprint(2 ** 2)\nprint(3 ** 2)\nprint(4 ** 2)\n",
+        "tasks": [
+            {
+                "taskId": "ref_1",
+                "title": "Part 1 — Extract a Function",
+                "background": "A function groups reusable logic behind a name. Use def, give it parameters, and return the result.",
+                "backgroundCode": "def square(n):\n    return n ** 2\n\nprint(square(5))  # 25",
+                "backgroundCodeOutput": "25",
+                "instructions": [
+                    "Write a function square(n) that returns n squared.",
+                    "Call it for 2, 3, and 4 and print each result on its own line."
+                ],
+                "expectedOutput": "4\n9\n16",
+                "checkMode": "exact",
+                "hints": [
+                    "def square(n): return n ** 2",
+                    "Call print(square(2)) etc.",
+                    "The function must return the value, not print it — the caller decides what to do with the result.",
+                    "** is the exponentiation operator in Python: 2 ** 2 = 4."
+                ],
+                "warnings": [
+                    "Do not print inside the function — return the value and let the caller print.",
+                    "square(n) should work for any n, not just 2, 3, and 4."
+                ]
+            },
+            {
+                "taskId": "ref_2",
+                "title": "Part 2 — Default Parameters",
+                "background": "Parameters can have default values, making them optional at call time.",
+                "backgroundCode": "def greet(name, greeting=\"Hello\"):\n    return f\"{greeting}, {name}!\"\n\nprint(greet(\"Alice\"))          # Hello, Alice!\nprint(greet(\"Bob\", \"Hi\"))     # Hi, Bob!",
+                "backgroundCodeOutput": "Hello, Alice!\nHi, Bob!",
+                "instructions": [
+                    "Write a function power(base, exponent=2) that returns base ** exponent.",
+                    "Call power(3) and print the result.",
+                    "Call power(2, 10) and print the result."
+                ],
+                "expectedOutput": "9\n1024",
+                "checkMode": "exact",
+                "hints": [
+                    "def power(base, exponent=2): return base ** exponent",
+                    "power(3) uses the default exponent of 2.",
+                    "Default parameters must come after non-default parameters in the signature.",
+                    "power(2, 10) passes 2 as base and 10 as exponent — 2**10 = 1024."
+                ],
+                "warnings": [
+                    "Default parameters are evaluated once at function definition time — don't use mutable objects (like lists) as defaults.",
+                    "power(3) means power(3, 2) — the default silently fills in the missing argument."
+                ]
+            },
+            {
+                "taskId": "ref_stretch",
+                "title": "Stretch — Memoisation with a Closure",
+                "difficulty": "stretch",
+                "background": "A closure captures variables from its enclosing scope. This lets you build a memoised function: results are cached in a dict so repeated calls skip recomputation.",
+                "backgroundCode": "def make_memoised(fn):\n    cache = {}\n    def wrapper(n):\n        if n not in cache:\n            cache[n] = fn(n)\n        return cache[n]\n    return wrapper",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write make_memoised(fn) as shown above.",
+                    "Apply it to a slow_square(n) function that prints 'computing [n]' and returns n ** 2.",
+                    "Call memoised_square = make_memoised(slow_square).",
+                    "Call memoised_square(4) twice and memoised_square(5) once.",
+                    "Expected: 'computing 4' appears once (not twice), 'computing 5' appears once, and all three calls return the correct result."
+                ],
+                "expectedOutput": "computing 4\n16\n16\ncomputing 5\n25",
+                "checkMode": "exact",
+                "hints": [
+                    "The cache dict lives inside make_memoised and is captured by wrapper — it persists between calls.",
+                    "The first call to memoised_square(4) misses the cache and calls slow_square(4).",
+                    "The second call to memoised_square(4) hits the cache and returns 16 without calling slow_square again.",
+                    "Print the return value of each call to memoised_square."
+                ],
+                "warnings": [
+                    "slow_square should print 'computing N' then return n ** 2 — print inside the function, not in the caller.",
+                    "The closure shares one cache dict across all calls to the same memoised_square — don't recreate it on every call."
+                ]
+            }
+        ]
+    },
+
+    "func_ex_recursion": {
+        "id": "func_ex_recursion",
+        "title": "Recursive Challenges",
+        "lead": "Implement factorial, Fibonacci, and a list-flattener using recursion.",
+        "starterCode": "# Implement each function recursively\n",
+        "tasks": [
+            {
+                "taskId": "rec_1",
+                "title": "Part 1 — Factorial",
+                "background": "A recursive function calls itself with a smaller input. Every recursive function needs a base case to stop.",
+                "backgroundCode": "def countdown(n):\n    if n == 0:        # base case\n        print(\"Go!\")\n    else:\n        print(n)\n        countdown(n - 1)\n\ncountdown(3)",
+                "backgroundCodeOutput": "3\n2\n1\nGo!",
+                "instructions": [
+                    "Write factorial(n) recursively.",
+                    "factorial(0) and factorial(1) should both return 1.",
+                    "Print factorial(5) and factorial(10)."
+                ],
+                "expectedOutput": "120\n3628800",
+                "checkMode": "exact",
+                "hints": [
+                    "Base case: if n <= 1: return 1",
+                    "Recursive case: return n * factorial(n - 1)",
+                    "Trace it mentally: factorial(3) = 3 * factorial(2) = 3 * 2 * factorial(1) = 3 * 2 * 1 = 6.",
+                    "Python's default recursion limit is 1000 — fine for n=10, but factorial(1000) would hit it."
+                ],
+                "warnings": [
+                    "Do not use a loop — the solution must be recursive.",
+                    "factorial(0) must return 1 by mathematical convention — do not return 0."
+                ]
+            },
+            {
+                "taskId": "rec_2",
+                "title": "Part 2 — Fibonacci",
+                "background": "Fibonacci: fib(0)=0, fib(1)=1, fib(n)=fib(n-1)+fib(n-2). This is naturally recursive but slow for large n — fine for small values here.",
+                "backgroundCode": "# fib(6) = 0,1,1,2,3,5,8  → 8",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write fib(n) recursively.",
+                    "Print fib(0) through fib(7), one per line."
+                ],
+                "expectedOutput": "0\n1\n1\n2\n3\n5\n8\n13",
+                "checkMode": "exact",
+                "hints": [
+                    "Base cases: if n == 0: return 0; if n == 1: return 1",
+                    "Recursive case: return fib(n-1) + fib(n-2)",
+                    "fib(n) makes exponentially many calls — fib(30) takes noticeably longer. This is intentional; the next stretch goal addresses it.",
+                    "Use a for loop calling fib(i) for i in range(8) to print all 8 values."
+                ],
+                "warnings": [
+                    "fib(0) is 0 and fib(1) is 1 — both must be explicit base cases, not just one.",
+                    "Do not confuse the index with the value: fib(7) = 13, not 7."
+                ]
+            },
+            {
+                "taskId": "rec_3",
+                "title": "Part 3 — Flatten a Nested List",
+                "background": "Recursion shines when the depth of nesting is unknown. Check if each item is itself a list, and if so, recurse into it.",
+                "backgroundCode": "nested = [1, [2, [3, 4]], 5]\n# Should produce: [1, 2, 3, 4, 5]",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write flatten(lst) that returns a flat list from an arbitrarily nested list.",
+                    "Print flatten([1, [2, [3, 4]], 5]).",
+                    "Print flatten([[1, 2], [3, [4, [5]]]])."
+                ],
+                "expectedOutput": "[1, 2, 3, 4, 5]\n[1, 2, 3, 4, 5]",
+                "checkMode": "exact",
+                "hints": [
+                    "Loop through each item. If isinstance(item, list), extend with flatten(item). Otherwise append item.",
+                    "Start with result = [] and return it at the end.",
+                    "isinstance(item, list) is safer than type(item) == list because it also catches subclasses.",
+                    "extend() adds all items from an iterable; append() adds one item — use extend with the recursive result."
+                ],
+                "warnings": [
+                    "Do not use sum([[...], [...]], []) as a shortcut — it is O(n²) and considered unreadable.",
+                    "The function must handle arbitrary depth — do not hard-code a maximum level."
+                ]
+            },
+            {
+                "taskId": "rec_stretch",
+                "title": "Stretch — Memoised Fibonacci",
+                "difficulty": "stretch",
+                "background": "Naive recursive Fibonacci recomputes the same values exponentially. Storing results in a dict (memoisation) turns it into O(n).",
+                "backgroundCode": "memo = {}\ndef fib_memo(n):\n    if n in memo:\n        return memo[n]\n    # ... compute and store",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Implement fib_fast(n) using a memo dict (either passed in or module-level).",
+                    "Print fib_fast(35) — it should return instantly whereas naive fib(35) would take seconds.",
+                    "Also print the number of unique subproblems solved: len(memo) after the call.",
+                    "Expected: 9227465 and 36."
+                ],
+                "expectedOutput": "9227465\n36",
+                "checkMode": "exact",
+                "hints": [
+                    "Check the cache at the top of the function before recursing.",
+                    "Store the result in memo before returning it.",
+                    "A module-level dict persists between calls to fib_fast — that's intentional.",
+                    "len(memo) after fib_fast(35) should be 36 (values for n=0 through n=35)."
+                ],
+                "warnings": [
+                    "Pre-seed memo = {0: 0, 1: 1} or handle the base cases with if n <= 1 before the cache lookup.",
+                    "If you use a decorator (@functools.lru_cache) that's valid Python, but implement the dict approach manually first so you understand what the decorator is doing."
+                ]
+            }
+        ]
+    },
+
+    "ds_ex_comprehensions": {
+        "id": "ds_ex_comprehensions",
+        "title": "List & Dict Comprehension Drills",
+        "lead": "Rewrite loops as comprehensions and gain fluency with filtering.",
+        "starterCode": "numbers = list(range(1, 21))\n# Work with this list below\n",
+        "tasks": [
+            {
+                "taskId": "comp_1",
+                "title": "Part 1 — List Comprehensions",
+                "background": "[expr for item in iterable if condition] creates a new list. The if part is optional.",
+                "backgroundCode": "squares = [x**2 for x in range(1, 6)]\nprint(squares)  # [1, 4, 9, 16, 25]",
+                "backgroundCodeOutput": "[1, 4, 9, 16, 25]",
+                "instructions": [
+                    "Using numbers (1–20), create and print a list of all even numbers.",
+                    "Create and print a list of squares of odd numbers only.",
+                    "Create and print a list of strings: ['1 is odd', '2 is even', ...] for 1–5."
+                ],
+                "expectedOutput": "[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]\n[1, 9, 25, 49, 81, 121, 169, 225, 289, 361]\n['1 is odd', '2 is even', '3 is odd', '4 is even', '5 is odd']",
+                "checkMode": "exact",
+                "hints": [
+                    "Even: [n for n in numbers if n % 2 == 0]",
+                    "Odd squares: [n**2 for n in numbers if n % 2 != 0]",
+                    "Use a ternary in the expression: f\"{n} is {'even' if n % 2 == 0 else 'odd'}\"",
+                    "For the string list use range(1, 6) directly — numbers goes up to 20 but you only need 1–5 here."
+                ],
+                "warnings": [
+                    "The third list uses range(1, 6), not all of numbers — read the instructions carefully.",
+                    "Ternary syntax: value_if_true if condition else value_if_false — the condition sits in the middle."
+                ]
+            },
+            {
+                "taskId": "comp_2",
+                "title": "Part 2 — Dict Comprehensions",
+                "background": "{key: value for item in iterable} builds a dictionary in one expression.",
+                "backgroundCode": "words = [\"cat\", \"dog\", \"elephant\"]\nlengths = {w: len(w) for w in words}\nprint(lengths)  # {'cat': 3, 'dog': 3, 'elephant': 8}",
+                "backgroundCodeOutput": "{'cat': 3, 'dog': 3, 'elephant': 8}",
+                "instructions": [
+                    "Create a dict mapping each number 1–5 to its cube.",
+                    "Print the dict."
+                ],
+                "expectedOutput": "{1: 1, 2: 8, 3: 27, 4: 64, 5: 125}",
+                "checkMode": "exact",
+                "hints": [
+                    "{n: n**3 for n in range(1, 6)}",
+                    "n**3 is n cubed: 2**3 = 8, 3**3 = 27.",
+                    "Dict comprehensions are identical in structure to list comprehensions but use {} and have a key: value expression."
+                ],
+                "warnings": [
+                    "Dicts maintain insertion order in Python 3.7+ — print output should match the expected order.",
+                    "range(1, 6) gives 1, 2, 3, 4, 5 — range(1, 5) would stop at 4."
+                ]
+            },
+            {
+                "taskId": "comp_stretch",
+                "title": "Stretch — Nested Comprehension Matrix",
+                "difficulty": "stretch",
+                "background": "Comprehensions can be nested. A list comprehension whose expression is itself a list comprehension produces a 2D structure.",
+                "backgroundCode": "# 3×3 identity matrix via nested comprehension:\n# [[1 if i == j else 0 for j in range(3)] for i in range(3)]\n# → [[1,0,0],[0,1,0],[0,0,1]]",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Using a single nested list comprehension (no for loops), create a 5×5 multiplication table as a list of lists.",
+                    "table[i][j] should equal (i+1) * (j+1) for i, j in 0..4.",
+                    "Print each row on its own line.",
+                    "First row: [1, 2, 3, 4, 5]; last row: [5, 10, 15, 20, 25]."
+                ],
+                "expectedOutput": "[1, 2, 3, 4, 5]\n[2, 4, 6, 8, 10]\n[3, 6, 9, 12, 15]\n[4, 8, 12, 16, 20]\n[5, 10, 15, 20, 25]",
+                "checkMode": "exact",
+                "hints": [
+                    "Outer comprehension: [... for i in range(5)]",
+                    "Inner comprehension: [(i+1)*(j+1) for j in range(5)]",
+                    "Combined: [[(i+1)*(j+1) for j in range(5)] for i in range(5)]",
+                    "To print each row: for row in table: print(row)"
+                ],
+                "warnings": [
+                    "The outer comprehension produces the rows; the inner produces the columns — keep the order consistent.",
+                    "table[0][0] should be 1 (1×1), table[4][4] should be 25 (5×5)."
+                ]
+            }
+        ]
+    },
+
+    "ds_ex_transformation": {
+        "id": "ds_ex_transformation",
+        "title": "Data Structure Transformation Challenges",
+        "lead": "Convert between lists, tuples, sets, and dicts to solve real-shaped problems.",
+        "starterCode": "data = [(\"Alice\", 85), (\"Bob\", 92), (\"Alice\", 78), (\"Bob\", 88), (\"Carol\", 95)]\n",
+        "tasks": [
+            {
+                "taskId": "trans_1",
+                "title": "Part 1 — Group Scores by Name",
+                "background": "Dicts with list values are a common pattern for grouping. Check if the key exists first, or use dict.setdefault().",
+                "backgroundCode": "grouped = {}\nfor name, score in data:\n    grouped.setdefault(name, []).append(score)\nprint(grouped)",
+                "backgroundCodeOutput": "{'Alice': [85, 78], 'Bob': [92, 88], 'Carol': [95]}",
+                "instructions": [
+                    "Using data above, build a dict mapping each name to a list of their scores.",
+                    "Print the dict."
+                ],
+                "expectedOutput": "{'Alice': [85, 78], 'Bob': [92, 88], 'Carol': [95]}",
+                "checkMode": "exact",
+                "hints": [
+                    "Use grouped.setdefault(name, []).append(score).",
+                    "Iterate over the list of tuples with for name, score in data.",
+                    "setdefault(key, default) returns the existing value if the key exists, otherwise inserts default and returns it.",
+                    "An alternative: if name not in grouped: grouped[name] = []; grouped[name].append(score)"
+                ],
+                "warnings": [
+                    "The order of names in the output dict follows insertion order (Python 3.7+) — Alice appears first because she appears first in data.",
+                    "Do not sort the output — match the expected order exactly."
+                ]
+            },
+            {
+                "taskId": "trans_2",
+                "title": "Part 2 — Average per Person",
+                "background": "Once you have grouped data, computing aggregates (sum, average) per group is straightforward.",
+                "backgroundCode": "scores = [85, 78]\navg = sum(scores) / len(scores)\nprint(avg)  # 81.5",
+                "backgroundCodeOutput": "81.5",
+                "instructions": [
+                    "From the grouped dict, create a new dict mapping each name to their average score (rounded to 1 decimal place).",
+                    "Print it."
+                ],
+                "expectedOutput": "{'Alice': 81.5, 'Bob': 90.0, 'Carol': 95.0}",
+                "checkMode": "exact",
+                "hints": [
+                    "Use a dict comprehension: {name: round(sum(scores)/len(scores), 1) for name, scores in grouped.items()}",
+                    "round(value, 1) rounds to one decimal place.",
+                    "sum([95]) / len([95]) = 95.0 — a single-element list still works correctly.",
+                    ".items() returns (key, value) pairs — unpack them in the comprehension."
+                ],
+                "warnings": [
+                    "Carol's average is 95.0, not 95 — round() preserves the float.",
+                    "Build grouped first (from Part 1) before computing averages."
+                ]
+            },
+            {
+                "taskId": "trans_stretch",
+                "title": "Stretch — Ranking & Sorting",
+                "difficulty": "stretch",
+                "background": "sorted() with a key function lets you sort by any attribute. Combined with enumerate(), you can produce ranked output.",
+                "backgroundCode": "# Sort a dict by value descending:\n# sorted(d.items(), key=lambda x: x[1], reverse=True)",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Using the averages dict from Part 2, produce a ranked leaderboard.",
+                    "Sort names by average score descending.",
+                    "Print each entry as: #[rank] [name]: [average]",
+                    "Expected:\n#1 Carol: 95.0\n#2 Bob: 90.0\n#3 Alice: 81.5"
+                ],
+                "expectedOutput": "#1 Carol: 95.0\n#2 Bob: 90.0\n#3 Alice: 81.5",
+                "checkMode": "exact",
+                "hints": [
+                    "sorted(averages.items(), key=lambda x: x[1], reverse=True) gives [(name, avg), ...] in descending order.",
+                    "Use enumerate(sorted_items, start=1) to get 1-based ranks.",
+                    "f\"#{rank} {name}: {avg}\" formats the output."
+                ],
+                "warnings": [
+                    "rank starts at 1, not 0 — use enumerate(..., start=1).",
+                    "Ties are not present in this data, but in general sorted() is stable — equal items keep their original order."
+                ]
+            }
+        ]
+    },
+
+    "ds_ex_frequency": {
+        "id": "ds_ex_frequency",
+        "title": "Frequency Counter & Deduplication",
+        "lead": "Count occurrences and remove duplicates — two of the most common real-world data tasks.",
+        "starterCode": "words = [\"apple\", \"banana\", \"apple\", \"cherry\", \"banana\", \"apple\", \"date\"]\n",
+        "tasks": [
+            {
+                "taskId": "freq_1",
+                "title": "Part 1 — Word Frequency",
+                "background": "A frequency counter is a dict where keys are items and values are counts. dict.get(key, 0) returns 0 if the key is missing.",
+                "backgroundCode": "freq = {}\nfor item in items:\n    freq[item] = freq.get(item, 0) + 1",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Count how many times each word appears in words.",
+                    "Print the frequency dict.",
+                    "Print the most common word and its count."
+                ],
+                "expectedOutput": "{'apple': 3, 'banana': 2, 'cherry': 1, 'date': 1}\napple: 3",
+                "checkMode": "exact",
+                "hints": [
+                    "freq[word] = freq.get(word, 0) + 1",
+                    "max(freq, key=freq.get) gives the key with the highest value.",
+                    "collections.Counter(words) does this in one line — implement it manually first, then compare.",
+                    "f\"{most_common}: {freq[most_common]}\" formats the second output line."
+                ],
+                "warnings": [
+                    "The dict must be printed before the most common word — order matters.",
+                    "If there were a tie, max() would return one arbitrarily — no tie-breaking needed here."
+                ]
+            },
+            {
+                "taskId": "freq_2",
+                "title": "Part 2 — Deduplication with Order Preserved",
+                "background": "set() removes duplicates but loses order. To deduplicate while preserving insertion order, use a dict (Python 3.7+ maintains insertion order).",
+                "backgroundCode": "seen = {}\nfor item in items:\n    seen[item] = True\ndeduped = list(seen.keys())",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Produce a deduplicated version of words preserving original order.",
+                    "Print the result."
+                ],
+                "expectedOutput": "['apple', 'banana', 'cherry', 'date']",
+                "checkMode": "exact",
+                "hints": [
+                    "dict.fromkeys(words) creates a dict with each word as a key (values are None) — then list() it.",
+                    "Or iterate and track seen items in a regular dict.",
+                    "list(dict.fromkeys(words)) is idiomatic Python for order-preserving deduplication.",
+                    "Verify: len(deduped) should be 4."
+                ],
+                "warnings": [
+                    "Do not use set() — it does not preserve order.",
+                    "The output must be a list, not a dict or a dict_keys view."
+                ]
+            },
+            {
+                "taskId": "freq_stretch",
+                "title": "Stretch — Top-N with Ties",
+                "difficulty": "stretch",
+                "background": "collections.Counter has a most_common(n) method, but implementing it yourself teaches sorting and tie-handling.",
+                "backgroundCode": "# Target: top 2 most frequent words, ties broken alphabetically\n# apple: 3, banana: 2 → apple and banana",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Using the frequency dict from Part 1, write top_n(freq, n) that returns the top-n words by frequency.",
+                    "Break ties alphabetically (ascending).",
+                    "Print top_n(freq, 2).",
+                    "Expected: ['apple', 'banana']"
+                ],
+                "expectedOutput": "['apple', 'banana']",
+                "checkMode": "exact",
+                "hints": [
+                    "Sort by (-count, word) to get highest count first and alphabetical order for ties.",
+                    "sorted(freq.items(), key=lambda x: (-x[1], x[0]))",
+                    "Slice the sorted list: [:n] to get the top n.",
+                    "Return only the words, not the counts: [word for word, _ in sorted_items[:n]]"
+                ],
+                "warnings": [
+                    "Negating the count (-x[1]) sorts descending by count while keeping the sort ascending for the word.",
+                    "cherry and date both have count 1 — they are tied; alphabetically cherry < date, so cherry ranks higher among the tail."
+                ]
+            }
+        ]
+    },
+
+    "err_ex_handling": {
+        "id": "err_ex_handling",
+        "title": "Exception Handling Drills",
+        "lead": "Wrap risky operations in try/except and handle errors gracefully.",
+        "starterCode": "# Add exception handling to each snippet below\n",
+        "tasks": [
+            {
+                "taskId": "exc_1",
+                "title": "Part 1 — Safe Division",
+                "background": "Dividing by zero raises ZeroDivisionError. Wrap it in try/except to handle it without crashing.",
+                "backgroundCode": "try:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero\")",
+                "backgroundCodeOutput": "Cannot divide by zero",
+                "instructions": [
+                    "Write a function safe_divide(a, b) that returns a / b.",
+                    "If b is 0, return the string \"Error: division by zero\".",
+                    "Print safe_divide(10, 2) and safe_divide(5, 0)."
+                ],
+                "expectedOutput": "5.0\nError: division by zero",
+                "checkMode": "exact",
+                "hints": [
+                    "Use try/except ZeroDivisionError inside the function.",
+                    "Return the error string, don't print it inside the function.",
+                    "10 / 2 returns 5.0 (float division) — that is correct.",
+                    "You could also check if b == 0 before dividing, but using try/except is more Pythonic (EAFP: Easier to Ask Forgiveness than Permission)."
+                ],
+                "warnings": [
+                    "Return the error string — don't raise, don't print from inside the function.",
+                    "The result of 10 / 2 is 5.0, not 5 — Python 3 always returns float for /."
+                ]
+            },
+            {
+                "taskId": "exc_2",
+                "title": "Part 2 — finally Always Runs",
+                "background": "The finally block executes whether or not an exception occurred — useful for cleanup.",
+                "backgroundCode": "try:\n    x = int(\"abc\")\nexcept ValueError:\n    print(\"Bad value\")\nfinally:\n    print(\"Done\")",
+                "backgroundCodeOutput": "Bad value\nDone",
+                "instructions": [
+                    "Write code that tries to convert the string \"123abc\" to int.",
+                    "Catch the ValueError and print: Conversion failed.",
+                    "In a finally block, print: Attempted conversion."
+                ],
+                "expectedOutput": "Conversion failed.\nAttempted conversion.",
+                "checkMode": "exact",
+                "hints": [
+                    "int(\"123abc\") raises ValueError.",
+                    "finally runs no matter what.",
+                    "The finally block runs even when there is no exception — try passing '123' to see it succeed, then check finally still runs.",
+                    "You can also use the else clause: try/except/else/finally — else runs only when no exception occurred."
+                ],
+                "warnings": [
+                    "Include the period at the end of both printed lines.",
+                    "finally is not the same as else — else only runs on success, finally always runs."
+                ]
+            },
+            {
+                "taskId": "exc_stretch",
+                "title": "Stretch — Custom Exception Hierarchy",
+                "difficulty": "stretch",
+                "background": "Custom exceptions let you communicate domain-specific errors clearly. They should inherit from Exception (or a more specific built-in) and optionally carry extra data.",
+                "backgroundCode": "class AppError(Exception):\n    pass\n\nclass ValidationError(AppError):\n    def __init__(self, field, message):\n        self.field = field\n        super().__init__(f\"{field}: {message}\")",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Define a base class AppError(Exception).",
+                    "Define ValidationError(AppError) with field and message attributes.",
+                    "Define NotFoundError(AppError) with resource and id_ attributes.",
+                    "Write validate_age(age) that raises ValidationError('age', 'must be positive') if age <= 0.",
+                    "Write find_user(id_) that raises NotFoundError('user', id_) if id_ not in {1, 2, 3}.",
+                    "Call both with invalid inputs, catch each with except AppError as e and print str(e)."
+                ],
+                "expectedOutput": "age: must be positive\nuser: 99",
+                "checkMode": "exact",
+                "hints": [
+                    "super().__init__(message) passes the message to the base Exception so str(e) works.",
+                    "For NotFoundError: super().__init__(f\"{resource}: {id_}\")",
+                    "except AppError catches both ValidationError and NotFoundError because of inheritance.",
+                    "Catch them in two separate try/except blocks to print each error independently."
+                ],
+                "warnings": [
+                    "Do not catch Exception directly — catching AppError is more precise.",
+                    "str(e) returns the message passed to __init__ via super() — make sure you call super().__init__."
+                ]
+            }
+        ]
+    },
+
+    "err_ex_debug": {
+        "id": "err_ex_debug",
+        "title": "Debug the Broken Program",
+        "lead": "Read buggy code, identify the error, and fix it.",
+        "starterCode": "# Broken code — find and fix the bugs\ndef calculate_average(numbers):\n    total = 0\n    for n in numbers:\n        total = total + n\n    return total / len(numbers)\n\nresult = calculate_average([])\nprint(result)\n",
+        "tasks": [
+            {
+                "taskId": "dbg_1",
+                "title": "Part 1 — Fix the ZeroDivisionError",
+                "background": "The function crashes when passed an empty list because len([]) is 0. Guard against edge cases.",
+                "backgroundCode": "# calculate_average([]) → ZeroDivisionError: division by zero",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Fix calculate_average() so it returns 0 when passed an empty list.",
+                    "It should still work correctly for non-empty lists.",
+                    "Print calculate_average([]) and calculate_average([10, 20, 30])."
+                ],
+                "expectedOutput": "0\n20.0",
+                "checkMode": "exact",
+                "hints": [
+                    "Add an early return: if not numbers: return 0",
+                    "Or check len(numbers) == 0.",
+                    "if not numbers is idiomatic Python — an empty list is falsy.",
+                    "The average of [10, 20, 30] is (10+20+30)/3 = 60/3 = 20.0."
+                ],
+                "warnings": [
+                    "Return 0 (integer), not 0.0 — the checker expects '0' on the first line.",
+                    "Do not change the logic for non-empty lists — only guard the empty case."
+                ]
+            },
+            {
+                "taskId": "dbg_2",
+                "title": "Part 2 — Off-by-One in a Loop",
+                "background": "range(n) goes from 0 to n-1. range(1, n) goes from 1 to n-1. Use range(1, n+1) to include n.",
+                "backgroundCode": "# This prints 0 1 2 3 4 — missing 5!\nfor i in range(5):\n    print(i)",
+                "backgroundCodeOutput": "0 1 2 3 4",
+                "instructions": [
+                    "Fix the code so it prints numbers 1 through 5 inclusive, one per line."
+                ],
+                "expectedOutput": "1\n2\n3\n4\n5",
+                "checkMode": "exact",
+                "hints": [
+                    "range(1, 6) starts at 1 and stops before 6.",
+                    "A common pattern: range(1, n+1) when you want 1 through n inclusive.",
+                    "Remember: range's stop is exclusive — range(1, 6) gives 1, 2, 3, 4, 5."
+                ],
+                "warnings": [
+                    "range(5) gives 0, 1, 2, 3, 4 — starting at 0, stopping before 5.",
+                    "Do not hardcode the numbers — use range."
+                ]
+            },
+            {
+                "taskId": "dbg_stretch",
+                "title": "Stretch — Multi-Bug Hunt",
+                "difficulty": "stretch",
+                "background": "Real bugs are rarely alone. This snippet has three distinct bugs — a logic error, a type error, and a name error. Find and fix all three.",
+                "backgroundCode": "def word_count(text):\n    words = text.split(\" \")\n    counts = {}\n    for Word in words:\n        counts[word] = counts.get(word, 0) + 1\n    return counts\n\ndef most_frequent(counts)\n    return max(counts, key=counts.get)\n\nresult = word_count('the cat sat on the mat the cat')\nprint(most_frequent(result))\nprint(lenn(result))",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Fix all bugs in the snippet above.",
+                    "word_count should return {'the': 3, 'cat': 2, 'sat': 1, 'on': 1, 'mat': 1}.",
+                    "most_frequent should return 'the'.",
+                    "The final print should output the number of unique words: 5.",
+                    "Print most_frequent(result) then len(result)."
+                ],
+                "expectedOutput": "the\n5",
+                "checkMode": "exact",
+                "hints": [
+                    "Bug 1 (NameError): the loop variable is capitalised as Word, but used as word — Python names are case-sensitive.",
+                    "Bug 2 (SyntaxError): the def line for most_frequent is missing a colon at the end.",
+                    "Bug 3 (NameError): lenn is not a function — the built-in is len.",
+                    "After fixing: run mentally — word_count produces the dict, most_frequent returns 'the', len returns 5."
+                ],
+                "warnings": [
+                    "Fix all three bugs — the program must run to completion without any errors.",
+                    "Do not change the logic, only fix the bugs — the algorithm is correct once the syntax/name errors are resolved."
+                ]
+            }
+        ]
+    },
+
+    "oop_ex_model_system": {
+        "id": "oop_ex_model_system",
+        "title": "Model a Real-World System in Classes",
+        "lead": "Design and implement a small class hierarchy for a library book system.",
+        "starterCode": "# Define your classes below\n",
+        "tasks": [
+            {
+                "taskId": "oop_1",
+                "title": "Part 1 — Book Class",
+                "background": "__init__ sets up instance variables. Methods operate on self — the specific instance.",
+                "backgroundCode": "class Dog:\n    def __init__(self, name, breed):\n        self.name = name\n        self.breed = breed\n\n    def bark(self):\n        return f\"{self.name} says: Woof!\"\n\ndog = Dog(\"Rex\", \"Labrador\")\nprint(dog.bark())",
+                "backgroundCodeOutput": "Rex says: Woof!",
+                "instructions": [
+                    "Create a class Book with attributes: title, author, pages.",
+                    "Add a method summary() that returns: '[title] by [author] ([pages] pages)'.",
+                    "Create a Book and print its summary()."
+                ],
+                "expectedOutput": "Python Crash Course by Eric Matthes (544 pages)",
+                "checkMode": "exact",
+                "hints": [
+                    "def __init__(self, title, author, pages):",
+                    "def summary(self): return f'{self.title} by {self.author} ({self.pages} pages)'",
+                    "The method must return the string, not print it — the caller prints it.",
+                    "self is the first parameter of every instance method — it refers to the specific Book object."
+                ],
+                "warnings": [
+                    "Use the exact title/author/pages shown in the expected output.",
+                    "pages is an integer in __init__ — the f-string will format it correctly as a number."
+                ]
+            },
+            {
+                "taskId": "oop_2",
+                "title": "Part 2 — Library Class",
+                "background": "One class can hold a collection of instances of another class — a composition pattern.",
+                "backgroundCode": "class Shelf:\n    def __init__(self):\n        self.books = []\n\n    def add(self, book):\n        self.books.append(book)",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Create a Library class with an empty list of books.",
+                    "Add an add_book(book) method that appends a Book.",
+                    "Add a list_books() method that prints each book's summary() on its own line.",
+                    "Add 2 books and call list_books()."
+                ],
+                "expectedOutput": "Python Crash Course by Eric Matthes (544 pages)\nClean Code by Robert C. Martin (431 pages)",
+                "checkMode": "exact",
+                "hints": [
+                    "self.books = [] in __init__.",
+                    "Iterate with for book in self.books: print(book.summary())",
+                    "list_books() uses print() internally — it doesn't need to return anything.",
+                    "Create the Library, add both Book objects, then call library.list_books()."
+                ],
+                "warnings": [
+                    "Books must appear in the order they were added — do not sort them.",
+                    "Call book.summary() to get the string — do not duplicate the formatting logic in Library."
+                ]
+            },
+            {
+                "taskId": "oop_stretch",
+                "title": "Stretch — Borrowing System",
+                "difficulty": "stretch",
+                "background": "Add state to Book and behaviour to Library to model a real borrowing system. Track whether each book is checked out and who has it.",
+                "backgroundCode": "# Book gains: is_checked_out (bool), borrower (str or None)\n# Library gains: checkout(title, borrower) and return_book(title)",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Add is_checked_out = False and borrower = None to Book.__init__.",
+                    "Add checkout(borrower) and return_book() methods to Book.",
+                    "Add checkout(title, borrower) to Library that finds the book by title and checks it out; raise ValueError if not found or already checked out.",
+                    "Add return_book(title) to Library similarly.",
+                    "Add available_books() that prints only books not currently checked out.",
+                    "Demonstrate: add two books, check out one, print available_books() — only the unchecked book should appear."
+                ],
+                "expectedOutput": "Clean Code by Robert C. Martin (431 pages)",
+                "checkMode": "contains",
+                "hints": [
+                    "Book.checkout(borrower): if self.is_checked_out: raise ValueError; self.is_checked_out = True; self.borrower = borrower",
+                    "Book.return_book(): self.is_checked_out = False; self.borrower = None",
+                    "Library.checkout: use next((b for b in self.books if b.title == title), None) to find the book.",
+                    "available_books: filter with if not book.is_checked_out"
+                ],
+                "warnings": [
+                    "Raise ValueError, don't print an error — let the caller decide how to handle it.",
+                    "The borrower attribute should reset to None when a book is returned."
+                ]
+            }
+        ]
+    },
+
+    "oop_ex_dunder": {
+        "id": "oop_ex_dunder",
+        "title": "Dunder Method Implementation Drills",
+        "lead": "Make custom classes behave like built-in types by implementing __str__, __len__, __add__, and __eq__.",
+        "starterCode": "class Vector:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n",
+        "tasks": [
+            {
+                "taskId": "dunder_1",
+                "title": "Part 1 — __str__ and __repr__",
+                "background": "__str__ controls what print() shows. __repr__ is for developers (shown in the REPL and repr()).",
+                "backgroundCode": "class Point:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f\"Point({self.x}, {self.y})\"\n\nprint(Point(3, 4))  # Point(3, 4)",
+                "backgroundCodeOutput": "Point(3, 4)",
+                "instructions": [
+                    "Add __str__ to Vector so print(Vector(1, 2)) outputs: Vector(1, 2)",
+                    "Add __repr__ so repr(Vector(1, 2)) outputs: Vector(x=1, y=2)"
+                ],
+                "expectedOutput": "Vector(1, 2)\nVector(x=1, y=2)",
+                "checkMode": "exact",
+                "hints": [
+                    "def __str__(self): return f'Vector({self.x}, {self.y})'",
+                    "def __repr__(self): return f'Vector(x={self.x}, y={self.y})'",
+                    "If __str__ is not defined, Python falls back to __repr__ — define both explicitly here.",
+                    "print() calls __str__; repr() calls __repr__."
+                ],
+                "warnings": [
+                    "The formats differ: __str__ uses Vector(1, 2) and __repr__ uses Vector(x=1, y=2) — do not mix them up.",
+                    "print(v) calls __str__; print(repr(v)) calls __repr__ then prints the resulting string."
+                ]
+            },
+            {
+                "taskId": "dunder_2",
+                "title": "Part 2 — __add__ and __eq__",
+                "background": "__add__ lets you use + between instances. __eq__ lets you use ==.",
+                "backgroundCode": "class Money:\n    def __add__(self, other):\n        return Money(self.amount + other.amount)\n\n    def __eq__(self, other):\n        return self.amount == other.amount",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Add __add__ to Vector so Vector(1,2) + Vector(3,4) returns Vector(4,6).",
+                    "Add __eq__ so Vector(1,2) == Vector(1,2) returns True.",
+                    "Print Vector(1,2) + Vector(3,4) and print(Vector(1,2) == Vector(1,2))."
+                ],
+                "expectedOutput": "Vector(4, 6)\nTrue",
+                "checkMode": "exact",
+                "hints": [
+                    "def __add__(self, other): return Vector(self.x + other.x, self.y + other.y)",
+                    "def __eq__(self, other): return self.x == other.x and self.y == other.y",
+                    "__add__ must return a new Vector — do not modify self in place.",
+                    "print(Vector(1,2) + Vector(3,4)) calls __add__ then __str__ on the result."
+                ],
+                "warnings": [
+                    "Vector(4, 6) is printed using __str__ — make sure Part 1's __str__ is still present.",
+                    "__eq__ should return True or False — do not return 1 or 0."
+                ]
+            },
+            {
+                "taskId": "dunder_stretch",
+                "title": "Stretch — Full Vector Arithmetic",
+                "difficulty": "stretch",
+                "background": "A complete Vector class also supports subtraction, scalar multiplication, magnitude, and hashing. Implementing __hash__ alongside __eq__ makes Vectors usable in sets and dict keys.",
+                "backgroundCode": "import math\n# magnitude = math.sqrt(x**2 + y**2)\n# __mul__ for scalar: Vector(1,2) * 3 → Vector(3,6)\n# __rmul__ for reverse: 3 * Vector(1,2) → same result",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Add __sub__: Vector(5,6) - Vector(1,2) → Vector(4,4).",
+                    "Add __mul__(self, scalar) and __rmul__(self, scalar) for scalar multiplication.",
+                    "Add magnitude(self) that returns math.sqrt(x**2 + y**2), rounded to 4 decimal places.",
+                    "Add __hash__ so Vectors can be used in sets: return hash((self.x, self.y)).",
+                    "Demonstrate: print subtraction, scalar multiply, magnitude, and that {Vector(1,2), Vector(1,2)} has length 1."
+                ],
+                "expectedOutput": "Vector(4, 4)\nVector(3, 6)\n2.2361\n1",
+                "checkMode": "exact",
+                "hints": [
+                    "__sub__: return Vector(self.x - other.x, self.y - other.y)",
+                    "__mul__(self, scalar): return Vector(self.x * scalar, self.y * scalar)",
+                    "__rmul__ = __mul__ is valid — assign it directly on the class.",
+                    "__hash__: return hash((self.x, self.y)) — tuples are hashable.",
+                    "len({Vector(1,2), Vector(1,2)}) relies on both __eq__ and __hash__ being consistent."
+                ],
+                "warnings": [
+                    "If __eq__ is defined without __hash__, Python sets __hash__ to None — making the object unhashable. Always define both together.",
+                    "magnitude of Vector(1,2) = sqrt(5) ≈ 2.2361 — use round(..., 4)."
+                ]
+            }
+        ]
+    },
+
+    "oop_ex_inheritance": {
+        "id": "oop_ex_inheritance",
+        "title": "Inheritance Hierarchy Design",
+        "lead": "Build a shape hierarchy using inheritance and method overriding.",
+        "starterCode": "import math\n\nclass Shape:\n    def area(self):\n        return 0\n\n    def describe(self):\n        return f\"I am a {type(self).__name__} with area {self.area():.2f}\"\n",
+        "tasks": [
+            {
+                "taskId": "inh_1",
+                "title": "Part 1 — Circle and Rectangle",
+                "background": "A subclass inherits all methods from its parent. Override a method by redefining it in the subclass.",
+                "backgroundCode": "class Animal:\n    def speak(self):\n        return \"...\"\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof!\"\n\nprint(Dog().speak())  # Woof!",
+                "backgroundCodeOutput": "Woof!",
+                "instructions": [
+                    "Create Circle(Shape) with radius, overriding area() to return math.pi * radius ** 2.",
+                    "Create Rectangle(Shape) with width and height, overriding area() to return width * height.",
+                    "Print describe() for Circle(5) and Rectangle(4, 6)."
+                ],
+                "expectedOutput": "I am a Circle with area 78.54\nI am a Rectangle with area 24.00",
+                "checkMode": "exact",
+                "hints": [
+                    "class Circle(Shape): def __init__(self, radius): self.radius = radius",
+                    "def area(self): return math.pi * self.radius ** 2",
+                    "describe() is already defined on Shape — you get it for free.",
+                    "type(self).__name__ returns the class name as a string — 'Circle' or 'Rectangle'."
+                ],
+                "warnings": [
+                    "area is formatted to 2 decimal places inside describe() — do not reformat it.",
+                    "Do not override describe() — the whole point is that it is inherited and still works correctly."
+                ]
+            },
+            {
+                "taskId": "inh_stretch",
+                "title": "Stretch — Triangle and Polymorphic Area Sum",
+                "difficulty": "stretch",
+                "background": "Polymorphism lets you treat objects of different subclasses uniformly. A list of Shapes can be iterated and area() called on each without knowing the specific type.",
+                "backgroundCode": "# Heron's formula for triangle area:\n# s = (a + b + c) / 2\n# area = math.sqrt(s * (s-a) * (s-b) * (s-c))",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Create Triangle(Shape) with sides a, b, c, implementing area() using Heron's formula.",
+                    "Create a list of shapes: [Circle(3), Rectangle(4, 5), Triangle(3, 4, 5)].",
+                    "Print describe() for each.",
+                    "Print the total area of all shapes, rounded to 2 decimal places: 'Total area: [value]'."
+                ],
+                "expectedOutput": "I am a Circle with area 28.27\nI am a Rectangle with area 20.00\nI am a Triangle with area 6.00\nTotal area: 54.27",
+                "checkMode": "exact",
+                "hints": [
+                    "s = (a + b + c) / 2; return math.sqrt(s * (s-a) * (s-b) * (s-c))",
+                    "Total: sum(s.area() for s in shapes)",
+                    "f\"Total area: {round(total, 2)}\" formats the final line.",
+                    "A 3-4-5 triangle has area 6.0 — you can verify this manually."
+                ],
+                "warnings": [
+                    "round(total, 2) may show 54.27 — floating-point arithmetic; use round() rather than :.2f for the total to get an exact value for the checker.",
+                    "Do not hard-code the total — compute it by summing the areas."
+                ]
+            }
+        ]
+    },
+
+    "int_ex_iterator_generator": {
+        "id": "int_ex_iterator_generator",
+        "title": "Write Your Own Iterator & Generator",
+        "lead": "Implement the iterator protocol from scratch, then simplify it with yield.",
+        "starterCode": "# Part 1: Iterator class\n# Part 2: Generator function\n",
+        "tasks": [
+            {
+                "taskId": "iter_1",
+                "title": "Part 1 — Counter Iterator",
+                "background": "An iterator implements __iter__ (returns self) and __next__ (returns the next value or raises StopIteration).",
+                "backgroundCode": "class Counter:\n    def __init__(self, limit):\n        self.limit = limit\n        self.current = 0\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.current >= self.limit:\n            raise StopIteration\n        self.current += 1\n        return self.current\n\nfor n in Counter(3):\n    print(n)",
+                "backgroundCodeOutput": "1\n2\n3",
+                "instructions": [
+                    "Build a class EvenCounter(start, stop) that iterates over even numbers from start to stop (inclusive).",
+                    "Use it in a for loop and print each value."
+                ],
+                "expectedOutput": "2\n4\n6\n8\n10",
+                "checkMode": "exact",
+                "hints": [
+                    "Skip to the next even number in __init__ if start is odd.",
+                    "In __next__, advance by 2 each time.",
+                    "Raise StopIteration when self.current > self.stop.",
+                    "if start % 2 != 0: start += 1 — snap to the next even number."
+                ],
+                "warnings": [
+                    "Use EvenCounter(1, 10) to produce the expected output.",
+                    "__iter__ must return self — this makes the iterator also iterable, allowing use in for loops."
+                ]
+            },
+            {
+                "taskId": "iter_2",
+                "title": "Part 2 — Generator Version",
+                "background": "A generator function uses yield to lazily produce values — it's the same idea as an iterator, written in far fewer lines.",
+                "backgroundCode": "def countdown(n):\n    while n > 0:\n        yield n\n        n -= 1\n\nfor v in countdown(3):\n    print(v)",
+                "backgroundCodeOutput": "3\n2\n1",
+                "instructions": [
+                    "Rewrite EvenCounter as a generator function even_range(start, stop).",
+                    "It should yield the same values as Part 1.",
+                    "Print all yielded values in a for loop."
+                ],
+                "expectedOutput": "2\n4\n6\n8\n10",
+                "checkMode": "exact",
+                "hints": [
+                    "Start current at start if even, else start + 1.",
+                    "while current <= stop: yield current; current += 2",
+                    "A generator function is any function that contains yield — calling it returns a generator object.",
+                    "The function body pauses at each yield and resumes from there on the next iteration."
+                ],
+                "warnings": [
+                    "Call even_range(1, 10) to match the expected output.",
+                    "Do not use return inside the generator loop — just let the while condition end the iteration."
+                ]
+            },
+            {
+                "taskId": "iter_stretch",
+                "title": "Stretch — Infinite Generator with take()",
+                "difficulty": "stretch",
+                "background": "Generators can be infinite — they never raise StopIteration on their own. A separate take(n, gen) helper consumes only the first n values.",
+                "backgroundCode": "def naturals():\n    n = 1\n    while True:\n        yield n\n        n += 1",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write an infinite generator fibonacci_gen() that yields Fibonacci numbers indefinitely.",
+                    "Write take(n, gen) that returns the first n values from a generator as a list.",
+                    "Print take(10, fibonacci_gen()).",
+                    "Expected: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]"
+                ],
+                "expectedOutput": "[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]",
+                "checkMode": "exact",
+                "hints": [
+                    "fibonacci_gen: a, b = 0, 1; while True: yield a; a, b = b, a + b",
+                    "take: return [next(gen) for _ in range(n)]",
+                    "The generator never raises StopIteration — take() must stop it by only consuming n values.",
+                    "itertools.islice(gen, n) does the same thing as take — implement take manually first."
+                ],
+                "warnings": [
+                    "Do not add a StopIteration inside fibonacci_gen — it should truly be infinite.",
+                    "Call fibonacci_gen() fresh each time — a generator is exhausted after use."
+                ]
+            }
+        ]
+    },
+
+    "int_ex_decorators": {
+        "id": "int_ex_decorators",
+        "title": "Build and Stack Decorators",
+        "lead": "Write decorators that add timing, logging, and validation to functions.",
+        "starterCode": "import time\n\n# Write your decorators below\n",
+        "tasks": [
+            {
+                "taskId": "dec_1",
+                "title": "Part 1 — Timer Decorator",
+                "background": "A decorator is a function that takes a function and returns a new function. Use functools.wraps to preserve the original function's metadata.",
+                "backgroundCode": "import functools\n\ndef my_decorator(func):\n    @functools.wraps(func)\n    def wrapper(*args, **kwargs):\n        print(\"Before\")\n        result = func(*args, **kwargs)\n        print(\"After\")\n        return result\n    return wrapper\n\n@my_decorator\ndef say_hi():\n    print(\"Hi!\")",
+                "backgroundCodeOutput": "Before\nHi!\nAfter",
+                "instructions": [
+                    "Write a @timer decorator that prints how long a function takes to run in seconds, formatted to 4 decimal places.",
+                    "Apply it to a function slow_add(a, b) that sleeps 0.1 seconds then returns a + b.",
+                    "Print the return value too."
+                ],
+                "expectedOutput": "slow_add took 0.1",
+                "checkMode": "contains",
+                "hints": [
+                    "start = time.time() before calling func; elapsed = time.time() - start after.",
+                    "print(f\"{func.__name__} took {elapsed:.4f}s\")",
+                    "Use @functools.wraps(func) on wrapper to preserve __name__ and __doc__.",
+                    "The return value of the decorated function must still be returned from wrapper."
+                ],
+                "warnings": [
+                    "The exact time will vary — the checker looks for 'slow_add took 0.1' as a substring.",
+                    "Do not forget to return result from wrapper — otherwise slow_add(...) returns None."
+                ]
+            },
+            {
+                "taskId": "dec_stretch",
+                "title": "Stretch — Retry Decorator",
+                "difficulty": "stretch",
+                "background": "A retry decorator calls the wrapped function again if it raises an exception, up to a maximum number of attempts. This is common in network and I/O code.",
+                "backgroundCode": "# Usage:\n# @retry(times=3)\n# def flaky(): ...",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write a decorator factory retry(times=3) that retries the function up to times attempts if it raises an exception.",
+                    "On each failure, print: 'Attempt [n] failed: [error]'.",
+                    "If all attempts fail, re-raise the last exception.",
+                    "Test with a function that fails the first two calls (use a counter) then succeeds on the third.",
+                    "Print the successful return value."
+                ],
+                "expectedOutput": "Attempt 1 failed",
+                "checkMode": "contains",
+                "hints": [
+                    "retry(times) returns a decorator; the decorator returns a wrapper — so there are three levels of nesting.",
+                    "Use a for loop with range(times) inside wrapper.",
+                    "Catch all exceptions with except Exception as e; print the attempt number and error.",
+                    "After the loop, raise the last exception: raise e",
+                    "A counter can be simulated with a list: calls = [0]; inside the function calls[0] += 1; if calls[0] < 3: raise RuntimeError(...)"
+                ],
+                "warnings": [
+                    "@retry(times=3) is a decorator factory — it is called with parentheses, unlike @timer.",
+                    "Re-raise after all attempts so the caller can still handle the error if needed."
+                ]
+            }
+        ]
+    },
+
+    "int_ex_regex": {
+        "id": "int_ex_regex",
+        "title": "Regex Pattern Challenges",
+        "lead": "Extract, validate, and transform strings using Python's re module.",
+        "starterCode": "import re\n\ntext = \"Contact us at support@example.com or sales@company.org for help.\"\n",
+        "tasks": [
+            {
+                "taskId": "regex_1",
+                "title": "Part 1 — Extract Emails",
+                "background": "re.findall(pattern, string) returns all non-overlapping matches as a list.",
+                "backgroundCode": "import re\nresult = re.findall(r'\\d+', 'There are 3 cats and 12 dogs')\nprint(result)  # ['3', '12']",
+                "backgroundCodeOutput": "['3', '12']",
+                "instructions": [
+                    "From text, extract all email addresses.",
+                    "Print the list."
+                ],
+                "expectedOutput": "['support@example.com', 'sales@company.org']",
+                "checkMode": "exact",
+                "hints": [
+                    "Email pattern: r'[\\w.-]+@[\\w.-]+'",
+                    "re.findall(pattern, text)",
+                    "\\w matches word characters (letters, digits, underscore); . and - are included explicitly.",
+                    "The + quantifier means 'one or more' — both sides of @ need at least one character."
+                ],
+                "warnings": [
+                    "Raw strings (r'...') are essential for regex — without the r prefix, \\ would need to be escaped as \\\\.",
+                    "The pattern does not validate the TLD length — it just matches the shape, which is sufficient here."
+                ]
+            },
+            {
+                "taskId": "regex_2",
+                "title": "Part 2 — Validate a Phone Number",
+                "background": "re.match() checks at the start of the string; re.fullmatch() checks the entire string.",
+                "backgroundCode": "pattern = r'\\d{3}-\\d{4}'\nprint(bool(re.match(pattern, '123-4567')))  # True",
+                "backgroundCodeOutput": "True",
+                "instructions": [
+                    "Write a function is_valid_phone(number) that returns True if number matches the pattern: 3 digits, a hyphen, 3 digits, a hyphen, 4 digits (e.g. 555-123-4567).",
+                    "Print is_valid_phone('555-123-4567') and is_valid_phone('5551234567')."
+                ],
+                "expectedOutput": "True\nFalse",
+                "checkMode": "exact",
+                "hints": [
+                    "Pattern: r'^\\d{3}-\\d{3}-\\d{4}$'",
+                    "return bool(re.fullmatch(pattern, number))",
+                    "\\d{3} matches exactly 3 digits; \\d{4} matches exactly 4 digits.",
+                    "re.fullmatch() anchors both ends — the entire string must match, not just part of it."
+                ],
+                "warnings": [
+                    "re.match() would pass '555-123-4567extra' because it only checks the start — use re.fullmatch() or add $ anchor.",
+                    "The hyphens are literal characters — no escaping needed."
+                ]
+            },
+            {
+                "taskId": "regex_stretch",
+                "title": "Stretch — Named Groups & Substitution",
+                "difficulty": "stretch",
+                "background": "Named groups (?P<name>...) let you extract sub-parts of a match by name. re.sub() replaces matches with a new string, which can reference groups.",
+                "backgroundCode": "# Named group:\n# m = re.search(r'(?P<year>\\d{4})-(?P<month>\\d{2})', '2024-03')\n# m.group('year')  # '2024'\n\n# re.sub with back-reference:\n# re.sub(r'(\\d+)', r'[\\1]', 'abc 42 def')  # 'abc [42] def'",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Given log_line = '2024-03-15 ERROR Something went wrong', parse it using a pattern with named groups: date, level, message.",
+                    "Print each group on its own line: date, level, message.",
+                    "Then use re.sub to redact all digits in log_line, replacing each digit with '*'.",
+                    "Print the redacted line."
+                ],
+                "expectedOutput": "2024-03-15\nERROR\nSomething went wrong\n****-**-** ERROR Something went wrong",
+                "checkMode": "exact",
+                "hints": [
+                    "Pattern: r'(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<level>\\w+) (?P<message>.+)'",
+                    "m = re.search(pattern, log_line); m.group('date'), m.group('level'), m.group('message')",
+                    "re.sub(r'\\d', '*', log_line) replaces each digit with a single '*'."
+                ],
+                "warnings": [
+                    ".+ is greedy and will capture everything after the level, including trailing whitespace — strip() if needed.",
+                    "Named groups use (?P<name>...) syntax — not the same as non-capturing (?:...)."
+                ]
+            }
+        ]
+    },
+
+    "test_ex_bank_account": {
+        "id": "test_ex_bank_account",
+        "title": "Write Tests for the Bank Account Project",
+        "lead": "Write pytest tests covering normal behaviour and edge cases.",
+        "starterCode": "# Assume BankAccount is already imported\n# class BankAccount:\n#     def __init__(self, balance=0): self.balance = balance\n#     def deposit(self, amount): self.balance += amount\n#     def withdraw(self, amount):\n#         if amount > self.balance: raise ValueError(\"Insufficient funds\")\n#         self.balance -= amount\n\nimport pytest\n\n# Write your tests below\n",
+        "tasks": [
+            {
+                "taskId": "test_1",
+                "title": "Part 1 — Happy-Path Tests",
+                "background": "A pytest test is a function whose name starts with test_. Use assert to check expected values.",
+                "backgroundCode": "def test_addition():\n    assert 1 + 1 == 2\n\ndef test_string_upper():\n    assert 'hello'.upper() == 'HELLO'",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write test_deposit() — deposit 100, assert balance is 100.",
+                    "Write test_withdraw() — deposit 200, withdraw 50, assert balance is 150.",
+                    "Write test_initial_balance() — assert default balance is 0."
+                ],
+                "expectedOutput": "3 passed",
+                "checkMode": "contains",
+                "hints": [
+                    "account = BankAccount() creates a fresh account each test.",
+                    "assert account.balance == expected_value",
+                    "Each test function is independent — a fresh BankAccount() in every test prevents state from leaking.",
+                    "pytest discovers functions starting with test_ automatically — no registration needed."
+                ],
+                "warnings": [
+                    "Each test function must be independent — create a new BankAccount inside each one.",
+                    "Assert the final balance, not an intermediate state — one assert per test is fine."
+                ]
+            },
+            {
+                "taskId": "test_2",
+                "title": "Part 2 — Edge Cases with pytest.raises",
+                "background": "pytest.raises(ExceptionType) asserts that a block of code raises the expected exception.",
+                "backgroundCode": "def test_bad_input():\n    with pytest.raises(ValueError):\n        int(\"not a number\")",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write test_overdraft() — assert that withdrawing more than the balance raises ValueError."
+                ],
+                "expectedOutput": "1 passed",
+                "checkMode": "contains",
+                "hints": [
+                    "with pytest.raises(ValueError): account.withdraw(amount_greater_than_balance)",
+                    "You can also capture the exception info: with pytest.raises(ValueError) as exc_info: ... and then check str(exc_info.value).",
+                    "The test passes only if the ValueError is raised — if no exception is raised, the test fails."
+                ],
+                "warnings": [
+                    "The withdrawal amount must exceed the balance — don't accidentally set the balance higher than the withdrawal.",
+                    "pytest.raises is a context manager — the risky code must be inside the with block."
+                ]
+            },
+            {
+                "taskId": "test_stretch",
+                "title": "Stretch — Parametrised Tests",
+                "difficulty": "stretch",
+                "background": "@pytest.mark.parametrize runs a test function multiple times with different inputs, keeping your test suite DRY.",
+                "backgroundCode": "@pytest.mark.parametrize('a, b, expected', [\n    (1, 2, 3),\n    (0, 0, 0),\n    (-1, 1, 0),\n])\ndef test_add(a, b, expected):\n    assert add(a, b) == expected",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write a parametrised test test_deposit_amounts that tests depositing 0, 50, and 1000.",
+                    "Each case should assert the resulting balance equals the deposited amount (starting from 0).",
+                    "Write a second parametrised test test_withdraw_valid that tests valid withdrawals from a 500-balance account: withdraw 100 (balance 400), 0 (balance 500), 500 (balance 0).",
+                    "All 6 parametrised cases must pass."
+                ],
+                "expectedOutput": "6 passed",
+                "checkMode": "contains",
+                "hints": [
+                    "@pytest.mark.parametrize('amount, expected', [(0, 0), (50, 50), (1000, 1000)])",
+                    "For withdrawal: create BankAccount(500) inside the test to start with a known balance.",
+                    "Each parametrised case is a separate test run — they are isolated.",
+                    "Parametrize decorator goes directly above the test function definition."
+                ],
+                "warnings": [
+                    "Do not use a module-level account — create a fresh one inside each parametrised test body.",
+                    "Depositing 0 should leave balance at 0 — test this edge case explicitly."
+                ]
+            }
+        ]
+    },
+
+    "test_ex_tdd_kata": {
+        "id": "test_ex_tdd_kata",
+        "title": "TDD Kata — Red → Green → Refactor",
+        "lead": "Write the test first, watch it fail, then write the minimum code to pass.",
+        "starterCode": "import pytest\n\n# Step 1: Write a failing test for add(a, b)\n# Step 2: Implement add()\n# Step 3: Refactor\n",
+        "tasks": [
+            {
+                "taskId": "tdd_1",
+                "title": "String Calculator Kata",
+                "background": "TDD cycle: write a failing test (Red), make it pass with minimal code (Green), then improve the code (Refactor).",
+                "backgroundCode": "# Red\ndef test_add_empty_string():\n    assert add(\"\") == 0\n\n# Green (minimal)\ndef add(s):\n    return 0",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Implement add(s) that: returns 0 for empty string, returns the number for a single number string ('5' → 5), returns the sum for comma-separated numbers ('1,2,3' → 6).",
+                    "Write a test for each case before implementing it.",
+                    "All tests must pass."
+                ],
+                "expectedOutput": "3 passed",
+                "checkMode": "contains",
+                "hints": [
+                    "For empty string: return 0",
+                    "For non-empty: return sum(int(n) for n in s.split(','))",
+                    "The single-number case is automatically handled by split(',') — '5'.split(',') gives ['5'].",
+                    "Follow the TDD cycle strictly: write test → see it fail → write code → see it pass."
+                ],
+                "warnings": [
+                    "Write each test before writing the implementation code — that's the kata discipline.",
+                    "s.split(',') on an empty string gives [''] — handle the empty string case before splitting."
+                ]
+            },
+            {
+                "taskId": "tdd_stretch",
+                "title": "Stretch — Extend the Kata: Newline Delimiter",
+                "difficulty": "stretch",
+                "background": "TDD encourages incrementally extending behaviour. Each new rule gets a test first.",
+                "backgroundCode": "# New rules:\n# '1\\n2,3' → 6  (newlines are also valid delimiters)\n# '//;\\n1;2;3' → 6  (custom delimiter specified in first line)",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Extend add(s) to support newlines as an additional delimiter alongside commas.",
+                    "Further extend it to support a custom delimiter: if s starts with '//', the next character is the delimiter and numbers follow after a newline.",
+                    "Write a test for each new case before implementing it.",
+                    "All tests (original 3 + at least 2 new) must pass."
+                ],
+                "expectedOutput": "5 passed",
+                "checkMode": "contains",
+                "hints": [
+                    "For newline support: replace newlines with commas before splitting: s.replace('\\n', ',')",
+                    "For custom delimiter: if s.startswith('//'): delimiter = s[2]; s = s[s.index('\\n')+1:]",
+                    "Then split on the delimiter and sum.",
+                    "re.split(r'[,\\n]', s) handles both delimiters in one call."
+                ],
+                "warnings": [
+                    "The custom delimiter line ('//;') must be stripped before processing the numbers.",
+                    "Test '1\\n2,3' (should give 6) and '//;\\n1;2' (should give 3) before implementing them."
+                ]
+            }
+        ]
+    },
+
+    "perf_ex_profile_optimize": {
+        "id": "perf_ex_profile_optimize",
+        "title": "Profile and Optimize a Slow Script",
+        "lead": "Identify bottlenecks with timeit and replace O(n²) logic with O(n) alternatives.",
+        "starterCode": "import timeit\n\n# Slow version\ndef has_duplicates_slow(lst):\n    for i in range(len(lst)):\n        for j in range(i + 1, len(lst)):\n            if lst[i] == lst[j]:\n                return True\n    return False\n\n# Write a faster version below\n",
+        "tasks": [
+            {
+                "taskId": "perf_1",
+                "title": "Part 1 — Faster Duplicate Check",
+                "background": "Checking membership in a set is O(1). Building the set is O(n). That makes a set-based duplicate check O(n) — much better than the O(n²) nested loop.",
+                "backgroundCode": "def has_duplicates_fast(lst):\n    return len(lst) != len(set(lst))",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write has_duplicates_fast(lst) using a set.",
+                    "Assert it gives the same results as the slow version for [1,2,3], [1,2,1], and [].",
+                    "Print True and False to confirm."
+                ],
+                "expectedOutput": "True\nFalse",
+                "checkMode": "exact",
+                "hints": [
+                    "len(lst) != len(set(lst)) is True only when there are duplicates.",
+                    "Test with [1, 2, 1] (True) and [1, 2, 3] (False).",
+                    "An empty list has no duplicates — len([]) == len(set([])) == 0, so False is correct.",
+                    "set() discards duplicates — if the lengths differ, at least one duplicate existed."
+                ],
+                "warnings": [
+                    "Print True first (for [1,2,1]) and False second (for [1,2,3]) — order matters.",
+                    "The fast version must return a bool, not a set or length."
+                ]
+            },
+            {
+                "taskId": "perf_stretch",
+                "title": "Stretch — Benchmark with timeit",
+                "difficulty": "stretch",
+                "background": "timeit.timeit(stmt, number) runs stmt n times and returns total seconds. Comparing both versions on a large input quantifies the speedup.",
+                "backgroundCode": "import timeit\nt = timeit.timeit('has_duplicates_slow(lst)', globals=globals(), number=100)",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Create test_list = list(range(1000)) (no duplicates — worst case for the slow version).",
+                    "Use timeit.timeit to time has_duplicates_slow(test_list) and has_duplicates_fast(test_list), each for 100 repetitions.",
+                    "Print the speedup factor: slow_time / fast_time, rounded to 1 decimal place.",
+                    "Print: 'Fast is Nx faster' where N is the rounded speedup."
+                ],
+                "expectedOutput": "Fast is",
+                "checkMode": "contains",
+                "hints": [
+                    "timeit.timeit(lambda: has_duplicates_slow(test_list), number=100) is cleaner than using globals().",
+                    "speedup = slow_time / fast_time",
+                    "f'Fast is {round(speedup, 1)}x faster'",
+                    "On most machines the fast version is 50–200x faster for n=1000."
+                ],
+                "warnings": [
+                    "number=100 is enough — using 10000 on the slow version will take a long time.",
+                    "The exact speedup depends on your machine — the checker only looks for 'Fast is' as a prefix."
+                ]
+            }
+        ]
+    },
+
+    "perf_ex_memory_footprint": {
+        "id": "perf_ex_memory_footprint",
+        "title": "Memory Footprint Comparison",
+        "lead": "Compare memory usage of lists vs generators using sys.getsizeof.",
+        "starterCode": "import sys\n\n# Compare memory of a list vs a generator for 1,000,000 numbers\n",
+        "tasks": [
+            {
+                "taskId": "mem_1",
+                "title": "List vs Generator Memory",
+                "background": "A list materialises all values in memory. A generator produces values lazily — it only holds state, not data. For large sequences the difference is dramatic.",
+                "backgroundCode": "import sys\n\nmy_list = [x for x in range(1000)]\nmy_gen = (x for x in range(1000))\n\nprint(sys.getsizeof(my_list))  # ~8856\nprint(sys.getsizeof(my_gen))   # ~104",
+                "backgroundCodeOutput": "8856\n104",
+                "instructions": [
+                    "Create a list comprehension for range(1_000_000) and a generator expression for the same.",
+                    "Print the size of each using sys.getsizeof.",
+                    "Print which one is larger: 'List is larger' or 'Generator is larger'."
+                ],
+                "expectedOutput": "List is larger",
+                "checkMode": "contains",
+                "hints": [
+                    "my_list = [x for x in range(1_000_000)]",
+                    "my_gen = (x for x in range(1_000_000))",
+                    "Compare sys.getsizeof(my_list) > sys.getsizeof(my_gen)",
+                    "sys.getsizeof only measures the container itself, not the objects inside — for a list of ints the container alone is already ~8MB."
+                ],
+                "warnings": [
+                    "The generator object is tiny (around 104–120 bytes) regardless of range size — it stores only a reference to the iterator state.",
+                    "Do not consume the generator before measuring — iterating it changes its state."
+                ]
+            },
+            {
+                "taskId": "mem_stretch",
+                "title": "Stretch — Chunked Processing",
+                "difficulty": "stretch",
+                "background": "When data is too large to fit in memory, process it in chunks using a generator. This keeps memory usage constant regardless of total data size.",
+                "backgroundCode": "def chunked(iterable, size):\n    chunk = []\n    for item in iterable:\n        chunk.append(item)\n        if len(chunk) == size:\n            yield chunk\n            chunk = []\n    if chunk:\n        yield chunk",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Implement chunked(iterable, size) as shown above.",
+                    "Use it to process range(1, 16) in chunks of 4, printing each chunk.",
+                    "Then compute the sum of each chunk and print a running total after each chunk.",
+                    "Final running total should be 120."
+                ],
+                "expectedOutput": "[1, 2, 3, 4]\n[5, 6, 7, 8]\n[9, 10, 11, 12]\n[13, 14, 15]\n120",
+                "checkMode": "contains",
+                "hints": [
+                    "The last chunk may be smaller than size — the if chunk: yield chunk handles it.",
+                    "running_total = 0; for chunk in chunked(range(1,16), 4): print(chunk); running_total += sum(chunk)",
+                    "After the loop: print(running_total)"
+                ],
+                "warnings": [
+                    "range(1, 16) includes 15 — you should see a final chunk of [13, 14, 15].",
+                    "Print each chunk before adding to the running total — order matters."
+                ]
+            }
+        ]
+    }
+}

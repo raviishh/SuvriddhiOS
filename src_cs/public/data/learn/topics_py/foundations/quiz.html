@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Quiz — Python Foundations</title>
+        <link rel="stylesheet" href="common.css" />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family:
+                    Inter,
+                    ui-sans-serif,
+                    system-ui,
+                    -apple-system,
+                    "Segoe UI",
+                    Roboto,
+                    "Helvetica Neue",
+                    Arial;
+                color: var(--color-card-foreground, #111);
+                background: var(--color-background, #f9f9f9);
+                min-height: 100vh;
+            }
+
+            /* ── Layout ── */
+            .quiz-shell {
+                max-width: 680px;
+                margin: 0 auto;
+                padding: 32px 24px 64px;
+            }
+
+            /* ── Header ── */
+            .quiz-header {
+                text-align: center;
+                margin-bottom: 36px;
+            }
+
+            .quiz-chapter-tag {
+                display: inline-block;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--color-primary, #6366f1);
+                background: var(--color-primary-soft, rgba(99, 102, 241, 0.08));
+                border: 1px solid
+                    var(--color-primary-border, rgba(99, 102, 241, 0.22));
+                border-radius: 20px;
+                padding: 4px 14px;
+                margin-bottom: 14px;
+            }
+
+            .quiz-header h1 {
+                font-size: 2em;
+                font-weight: 800;
+                margin: 0 0 10px;
+                letter-spacing: -0.02em;
+            }
+
+            .quiz-header p {
+                color: var(--color-muted-foreground, #6b7280);
+                font-size: 1em;
+                margin: 0 0 20px;
+                line-height: 1.6;
+            }
+
+            .quiz-meta {
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+                font-size: 13px;
+                color: var(--color-muted-foreground, #9ca3af);
+            }
+
+            .quiz-meta span {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .quiz-meta .dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--color-primary, #6366f1);
+                flex-shrink: 0;
+            }
+
+            /* ── Progress bar ── */
+            .progress-wrap {
+                background: var(--color-border, #e5e7eb);
+                border-radius: 99px;
+                height: 6px;
+                margin-bottom: 32px;
+                overflow: hidden;
+            }
+
+            .progress-bar {
+                height: 100%;
+                background: var(--color-primary, #6366f1);
+                border-radius: 99px;
+                transition: width 0.35s ease;
+                width: 0%;
+            }
+
+            .progress-label {
+                font-size: 12px;
+                color: var(--color-muted-foreground, #9ca3af);
+                text-align: right;
+                margin-bottom: 8px;
+            }
+
+            /* ── Question card ── */
+            .question-card {
+                background: var(--color-card, #fff);
+                border: 1px solid var(--color-border, #e5e7eb);
+                border-radius: 14px;
+                padding: 24px 24px 20px;
+                margin-bottom: 16px;
+                display: none;
+            }
+
+            .question-card.active {
+                display: block;
+            }
+
+            .q-number {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.09em;
+                text-transform: uppercase;
+                color: var(--color-primary, #6366f1);
+                margin-bottom: 10px;
+            }
+
+            .q-text {
+                font-size: 1.07em;
+                font-weight: 600;
+                line-height: 1.55;
+                margin-bottom: 18px;
+                color: var(--color-card-foreground, #111);
+            }
+
+            .q-code {
+                background: var(--color-code-bg, #1e1e2e);
+                color: var(--color-code-fg, #cdd6f4);
+                border-radius: 8px;
+                padding: 12px 14px;
+                font-family:
+                    "Fira Code", "Cascadia Code", "Consolas", monospace;
+                font-size: 0.88em;
+                line-height: 1.65;
+                margin-bottom: 18px;
+                overflow-x: auto;
+            }
+
+            .q-code pre {
+                margin: 0;
+                white-space: pre;
+            }
+
+            /* ── Options ── */
+            .options-list {
+                display: flex;
+                flex-direction: column;
+                gap: 9px;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .option-btn {
+                display: flex;
+                align-items: flex-start;
+                gap: 11px;
+                width: 100%;
+                text-align: left;
+                background: var(--color-background, #f9fafb);
+                border: 1.5px solid var(--color-border, #e5e7eb);
+                border-radius: 10px;
+                padding: 12px 14px;
+                cursor: pointer;
+                font-size: 0.95em;
+                line-height: 1.55;
+                color: var(--color-card-foreground, #111);
+                font-family: inherit;
+                transition:
+                    border-color 0.15s,
+                    background 0.15s;
+            }
+
+            .option-btn:hover:not(:disabled) {
+                border-color: var(--color-primary, #6366f1);
+                background: var(--color-primary-soft, rgba(99, 102, 241, 0.05));
+            }
+
+            .option-btn:disabled {
+                cursor: default;
+            }
+
+            .option-key {
+                flex-shrink: 0;
+                width: 22px;
+                height: 22px;
+                border-radius: 6px;
+                background: var(--color-border, #e5e7eb);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 11px;
+                font-weight: 700;
+                color: var(--color-muted-foreground, #6b7280);
+                margin-top: 1px;
+                transition:
+                    background 0.15s,
+                    color 0.15s;
+            }
+
+            /* correct / wrong states */
+            .option-btn.correct {
+                border-color: #16a34a;
+                background: #f0fdf4;
+                color: #14532d;
+            }
+            .option-btn.correct .option-key {
+                background: #16a34a;
+                color: #fff;
+            }
+
+            .option-btn.wrong {
+                border-color: #dc2626;
+                background: #fff5f5;
+                color: #7f1d1d;
+            }
+            .option-btn.wrong .option-key {
+                background: #dc2626;
+                color: #fff;
+            }
+
+            .option-btn.dimmed {
+                opacity: 0.45;
+            }
+
+            /* ── Feedback ── */
+            .feedback {
+                display: none;
+                margin-top: 14px;
+                border-radius: 9px;
+                padding: 12px 14px;
+                font-size: 0.9em;
+                line-height: 1.6;
+            }
+
+            .feedback.show {
+                display: block;
+            }
+
+            .feedback.correct-fb {
+                background: #f0fdf4;
+                border: 1px solid #bbf7d0;
+                color: #14532d;
+            }
+
+            .feedback.wrong-fb {
+                background: #fff5f5;
+                border: 1px solid #fecaca;
+                color: #7f1d1d;
+            }
+
+            .feedback strong {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            .inline-code {
+                background: rgba(0, 0, 0, 0.07);
+                color: inherit;
+                font-family:
+                    "Fira Code", "Cascadia Code", "Consolas", monospace;
+                font-size: 0.87em;
+                border-radius: 4px;
+                padding: 1px 5px;
+            }
+
+            /* ── Nav buttons ── */
+            .q-nav {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 18px;
+            }
+
+            .btn-next {
+                display: none;
+                background: var(--color-primary, #6366f1);
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 22px;
+                font-size: 0.9em;
+                font-weight: 600;
+                cursor: pointer;
+                font-family: inherit;
+                transition: opacity 0.15s;
+            }
+
+            .btn-next:hover {
+                opacity: 0.88;
+            }
+            .btn-next.show {
+                display: inline-block;
+            }
+
+            /* ── Results ── */
+            .results-card {
+                display: none;
+                background: var(--color-card, #fff);
+                border: 1px solid var(--color-border, #e5e7eb);
+                border-radius: 16px;
+                padding: 36px 28px;
+                text-align: center;
+            }
+
+            .results-card.show {
+                display: block;
+            }
+
+            .score-ring {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background: conic-gradient(
+                    var(--color-primary, #6366f1) 0%,
+                    transparent 0%
+                );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 20px;
+                position: relative;
+            }
+
+            .score-ring-inner {
+                width: 78px;
+                height: 78px;
+                border-radius: 50%;
+                background: var(--color-card, #fff);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .score-number {
+                font-size: 1.6em;
+                font-weight: 800;
+                color: var(--color-primary, #6366f1);
+                line-height: 1;
+            }
+
+            .score-total {
+                font-size: 11px;
+                color: var(--color-muted-foreground, #9ca3af);
+                margin-top: 2px;
+            }
+
+            .results-title {
+                font-size: 1.4em;
+                font-weight: 700;
+                margin: 0 0 8px;
+            }
+
+            .results-msg {
+                color: var(--color-muted-foreground, #6b7280);
+                font-size: 0.97em;
+                line-height: 1.6;
+                margin-bottom: 24px;
+            }
+
+            .results-breakdown {
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+                margin-bottom: 28px;
+                font-size: 0.9em;
+            }
+
+            .breakdown-item {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+            }
+
+            .breakdown-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                flex-shrink: 0;
+            }
+
+            .breakdown-dot.correct {
+                background: #16a34a;
+            }
+            .breakdown-dot.wrong {
+                background: #dc2626;
+            }
+
+            .btn-retry {
+                background: var(--color-primary, #6366f1);
+                color: #fff;
+                border: none;
+                border-radius: 9px;
+                padding: 12px 28px;
+                font-size: 0.97em;
+                font-weight: 600;
+                cursor: pointer;
+                font-family: inherit;
+                transition: opacity 0.15s;
+            }
+
+            .btn-retry:hover {
+                opacity: 0.88;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="quiz-shell">
+            <!-- Header -->
+            <div class="quiz-header">
+                <div class="quiz-chapter-tag">
+                    Chapter 1 &nbsp;·&nbsp; Foundations
+                </div>
+                <h1>Knowledge Check</h1>
+                <p>
+                    Test what you've learned about Python syntax, variables,
+                    input &amp; output, and the execution model.
+                </p>
+                <div class="quiz-meta">
+                    <span><span class="dot"></span>10 questions</span>
+                    <span><span class="dot"></span>Multiple choice</span>
+                    <span><span class="dot"></span>Instant feedback</span>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="progress-label" id="progress-label">
+                Question 1 of 10
+            </div>
+            <div class="progress-wrap">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <!-- Questions -->
+
+            <!-- Q1 -->
+            <div class="question-card active" data-q="0">
+                <div class="q-number">Question 1</div>
+                <div class="q-text">
+                    Which of the following correctly prints text to the screen
+                    in Python?
+                </div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span
+                            ><span>echo("Hello, World!")</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">B</span
+                            ><span>print("Hello, World!")</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">C</span
+                            ><span>display "Hello, World!"</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span
+                            ><span>write("Hello, World!")</span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-0"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-0"
+                        onclick="nextQuestion(0)"
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question-card" data-q="1">
+                <div class="q-number">Question 2</div>
+                <div class="q-text">What will this code print?</div>
+                <div class="q-code">
+                    <pre>
+x = 5
+x = 10
+print(x)</pre
+                    >
+                </div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span><span>5</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">B</span><span>10</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">C</span><span>5 10</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span
+                            ><span>An error</span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-1"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-1"
+                        onclick="nextQuestion(1)"
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question-card" data-q="2">
+                <div class="q-number">Question 3</div>
+                <div class="q-text">In Python, indentation is used to:</div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span
+                            ><span
+                                >Make code look prettier, but it has no effect
+                                on how it runs</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">B</span
+                            ><span
+                                >Mark comments that Python should ignore</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">C</span
+                            ><span
+                                >Define which lines belong to a code block</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span
+                            ><span
+                                >Separate statements, like a semicolon in other
+                                languages</span
+                            >
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-2"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-2"
+                        onclick="nextQuestion(2)"
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question-card" data-q="3">
+                <div class="q-number">Question 4</div>
+                <div class="q-text">
+                    What does <code class="inline-code">input()</code> always
+                    return, regardless of what the user types?
+                </div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span
+                            ><span>An integer</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">B</span
+                            ><span>A float</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">C</span
+                            ><span>A string</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span
+                            ><span>A boolean</span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-3"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-3"
+                        onclick="nextQuestion(3)"
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question-card" data-q="4">
+                <div class="q-number">Question 5</div>
+                <div class="q-text">
+                    Which variable name is <strong>invalid</strong> in Python?
+                </div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span
+                            ><span>user_name</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">B</span><span>score2</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">C</span><span>2score</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span><span>_total</span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-4"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-4"
+                        onclick="nextQuestion(4)"
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="question-card" data-q="5">
+                <div class="q-number">Question 6</div>
+                <div class="q-text">What will this code output?</div>
+                <div class="q-code">
+                    <pre>
+name = "Riya"
+score = 95
+print(f"{name} scored {score} marks.")</pre
+                    >
+                </div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span
+                            ><span>{name} scored {score} marks.</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">B</span
+                            ><span>Riya scored 95 marks.</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">C</span
+                            ><span>name scored score marks.</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span
+                            ><span
+                                >An error — you cannot mix strings and numbers
+                                in an f-string</span
+                            >
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-5"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-5"
+                        onclick="nextQuestion(5)"
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="question-card" data-q="6">
+                <div class="q-number">Question 7</div>
+                <div class="q-text">
+                    In what order does Python run the lines in a program by
+                    default?
+                </div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span
+                            ><span
+                                >It runs all function definitions first, then
+                                the rest</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">B</span
+                            ><span>Top to bottom, one line at a time</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">C</span
+                            ><span
+                                >It evaluates all expressions before running any
+                                statements</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span
+                            ><span
+                                >In the order that variables are first
+                                used</span
+                            >
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-6"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-6"
+                        onclick="nextQuestion(6)"
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="question-card" data-q="7">
+                <div class="q-number">Question 8</div>
+                <div class="q-text">
+                    What is the value of
+                    <code class="inline-code">a</code> after this line runs?
+                </div>
+                <div class="q-code"><pre>a = 2 + 3 * 4</pre></div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span><span>20</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">B</span><span>14</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">C</span><span>12</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span><span>24</span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-7"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-7"
+                        onclick="nextQuestion(7)"
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="question-card" data-q="8">
+                <div class="q-number">Question 9</div>
+                <div class="q-text">
+                    Which of these best describes what Python's Zen means by
+                    <em>"Explicit is better than implicit"</em>?
+                </div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span
+                            ><span
+                                >Code should always have long, detailed variable
+                                names</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">B</span
+                            ><span
+                                >Python should automatically figure out what you
+                                mean, without you having to type much</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">C</span
+                            ><span
+                                >Code should be clear about what it does, rather
+                                than relying on hidden behaviour</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span
+                            ><span
+                                >Every line of code must have a comment
+                                explaining it</span
+                            >
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-8"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-8"
+                        onclick="nextQuestion(8)"
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="question-card" data-q="9">
+                <div class="q-number">Question 10</div>
+                <div class="q-text">
+                    What happens when Python encounters an error during
+                    execution?
+                </div>
+                <ul class="options-list">
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">A</span
+                            ><span
+                                >It skips the error and continues running the
+                                rest of the program</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">B</span
+                            ><span
+                                >It asks the user to fix the error and then
+                                continues</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="true">
+                            <span class="option-key">C</span
+                            ><span
+                                >It stops immediately and displays an error
+                                message</span
+                            >
+                        </button>
+                    </li>
+                    <li>
+                        <button class="option-btn" data-correct="false">
+                            <span class="option-key">D</span
+                            ><span
+                                >It restarts the program from the
+                                beginning</span
+                            >
+                        </button>
+                    </li>
+                </ul>
+                <div class="feedback" id="fb-9"></div>
+                <div class="q-nav">
+                    <button
+                        class="btn-next"
+                        id="next-9"
+                        onclick="showResults()"
+                    >
+                        See results →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="results-card" id="results-card">
+                <div class="score-ring" id="score-ring">
+                    <div class="score-ring-inner">
+                        <div class="score-number" id="score-display">0</div>
+                        <div class="score-total">out of 10</div>
+                    </div>
+                </div>
+                <h2 class="results-title" id="results-title">Well done!</h2>
+                <p class="results-msg" id="results-msg"></p>
+                <div class="results-breakdown">
+                    <div class="breakdown-item">
+                        <span class="breakdown-dot correct"></span
+                        ><span id="correct-count">0 correct</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-dot wrong"></span
+                        ><span id="wrong-count">0 incorrect</span>
+                    </div>
+                </div>
+                <button class="btn-retry" onclick="restartQuiz()">
+                    Try again
+                </button>
+            </div>
+        </div>
+
+        <script>
+            const feedbackData = [
+                {
+                    correct:
+                        "Correct! <code class='inline-code'>print()</code> is Python's built-in function for displaying output. You must use parentheses and put the text in quotes.",
+                    wrong: "Not quite. In Python, the function for displaying output is <code class='inline-code'>print()</code>. Other languages use commands like <code class='inline-code'>echo</code> or <code class='inline-code'>cout</code>, but Python uses <code class='inline-code'>print()</code>.",
+                },
+                {
+                    correct:
+                        "Correct! When you reassign a variable, the old value is replaced. After <code class='inline-code'>x = 10</code>, the variable <code class='inline-code'>x</code> holds 10, so that's what gets printed.",
+                    wrong: "Not quite. Variables in Python can be reassigned. The second assignment <code class='inline-code'>x = 10</code> replaces the first value. Only the most recent value — 10 — is printed.",
+                },
+                {
+                    correct:
+                        "Correct! Indentation defines blocks of code in Python. Lines that are indented more belong to the block above the colon. This is unique to Python — it's required, not optional.",
+                    wrong: "Not quite. Indentation in Python is not decorative — it's structural. It tells Python which lines belong to a block (like an <code class='inline-code'>if</code> statement or a function). Incorrect indentation causes errors.",
+                },
+                {
+                    correct:
+                        "Correct! <code class='inline-code'>input()</code> always returns a string, even if the user types a number. You must convert it using <code class='inline-code'>int()</code> or <code class='inline-code'>float()</code> if you want to do maths with it.",
+                    wrong: "Not quite. <code class='inline-code'>input()</code> always returns a <strong>string</strong>. This is a very common source of bugs — if you need a number, you must convert it: <code class='inline-code'>int(input(...))</code>.",
+                },
+                {
+                    correct:
+                        "Correct! Variable names in Python cannot start with a digit. <code class='inline-code'>2score</code> is invalid. They must start with a letter or underscore.",
+                    wrong: "Not quite. The invalid name is <code class='inline-code'>2score</code> — Python variable names cannot begin with a number. <code class='inline-code'>user_name</code>, <code class='inline-code'>score2</code>, and <code class='inline-code'>_total</code> are all valid.",
+                },
+                {
+                    correct:
+                        "Correct! An f-string replaces <code class='inline-code'>{variable}</code> placeholders with their actual values. The output is the formatted sentence with the real values substituted in.",
+                    wrong: "Not quite. F-strings work by replacing anything inside <code class='inline-code'>{}</code> with the actual value of that variable. The output would be <strong>Riya scored 95 marks.</strong>",
+                },
+                {
+                    correct:
+                        "Correct! Python executes code top to bottom, one line at a time, unless a control statement (like <code class='inline-code'>if</code>, a loop, or a function call) changes that flow.",
+                    wrong: "Not quite. Python's default execution model is simple: it runs line by line from top to bottom. Control structures and function calls are the only things that change this order.",
+                },
+                {
+                    correct:
+                        "Correct! Python follows standard operator precedence — multiplication happens before addition. So 3 × 4 = 12 first, then 2 + 12 = 14.",
+                    wrong: "Not quite. Python uses standard mathematical operator precedence. Multiplication (<code class='inline-code'>*</code>) happens before addition (<code class='inline-code'>+</code>), so the calculation is: 3 × 4 = 12, then 2 + 12 = <strong>14</strong>.",
+                },
+                {
+                    correct:
+                        "Correct! Being explicit means writing code that clearly states its intent. Relying on hidden or automatic behaviour can make code confusing and hard to debug.",
+                    wrong: 'Not quite. "Explicit is better than implicit" means your code should clearly state what it\'s doing. Avoid tricks or shortcuts that hide the real behaviour from someone reading your code.',
+                },
+                {
+                    correct:
+                        "Correct! When Python hits an error, it stops immediately and shows an error message telling you what went wrong and where. Any code after the error does not run.",
+                    wrong: "Not quite. Python does not skip errors or continue past them. It stops immediately and displays an error message. That's why you'll often see output up to the point of the error, but nothing after it.",
+                },
+            ];
+
+            let score = 0;
+            let currentQ = 0;
+            const totalQ = 10;
+            let answered = new Array(totalQ).fill(false);
+
+            function handleAnswer(btn, qIndex) {
+                if (answered[qIndex]) return;
+                answered[qIndex] = true;
+
+                const isCorrect = btn.dataset.correct === "true";
+                if (isCorrect) {
+                    score++;
+                    btn.classList.add("correct");
+                } else {
+                    btn.classList.add("wrong");
+                }
+
+                const card = document.querySelector(`[data-q="${qIndex}"]`);
+                const allBtns = card.querySelectorAll(".option-btn");
+
+                allBtns.forEach((b) => {
+                    b.disabled = true;
+                    if (b !== btn) {
+                        if (b.dataset.correct === "true") {
+                            b.classList.add("correct");
+                        } else {
+                            b.classList.add("dimmed");
+                        }
+                    }
+                });
+
+                const fb = document.getElementById(`fb-${qIndex}`);
+                fb.innerHTML = isCorrect
+                    ? `<strong>✓ Correct!</strong> ${feedbackData[qIndex].correct}`
+                    : `<strong>✗ Not quite.</strong> ${feedbackData[qIndex].wrong}`;
+                fb.className = `feedback show ${isCorrect ? "correct-fb" : "wrong-fb"}`;
+
+                const nextBtn = document.getElementById(`next-${qIndex}`);
+                nextBtn.classList.add("show");
+
+                updateProgress(qIndex + 1);
+            }
+
+            function nextQuestion(current) {
+                const currentCard = document.querySelector(
+                    `[data-q="${current}"]`,
+                );
+                currentCard.classList.remove("active");
+                const next = current + 1;
+                const nextCard = document.querySelector(`[data-q="${next}"]`);
+                if (nextCard) {
+                    nextCard.classList.add("active");
+                    currentQ = next;
+                }
+                updateProgress(next + 1);
+            }
+
+            function updateProgress(step) {
+                const clamped = Math.min(step, totalQ);
+                document.getElementById("progress-bar").style.width =
+                    (clamped / totalQ) * 100 + "%";
+                document.getElementById("progress-label").textContent =
+                    `Question ${clamped} of ${totalQ}`;
+            }
+
+            function showResults() {
+                document
+                    .querySelector(`[data-q="9"]`)
+                    .classList.remove("active");
+                const rc = document.getElementById("results-card");
+                rc.classList.add("show");
+
+                document.getElementById("score-display").textContent = score;
+                document.getElementById("correct-count").textContent =
+                    `${score} correct`;
+                document.getElementById("wrong-count").textContent =
+                    `${totalQ - score} incorrect`;
+
+                const pct = score / totalQ;
+                const deg = Math.round(pct * 360);
+                document.getElementById("score-ring").style.background =
+                    `conic-gradient(var(--color-primary, #6366f1) ${deg}deg, var(--color-border, #e5e7eb) ${deg}deg)`;
+
+                let title, msg;
+                if (score === 10) {
+                    title = "Perfect score!";
+                    msg =
+                        "Outstanding — you've mastered every concept in this chapter. You're ready to move on to the next one.";
+                } else if (score >= 8) {
+                    title = "Great work!";
+                    msg =
+                        "You have a solid understanding of Python fundamentals. Review the questions you missed, then move forward.";
+                } else if (score >= 6) {
+                    title = "Good effort!";
+                    msg =
+                        "You're getting there. A few concepts need a bit more practice — go back and re-read the lessons for any questions you missed.";
+                } else {
+                    title = "Keep going!";
+                    msg =
+                        "The foundations take time to sink in. Re-read the lessons at your own pace and try the quiz again — it will click.";
+                }
+                document.getElementById("results-title").textContent = title;
+                document.getElementById("results-msg").textContent = msg;
+                document.getElementById("progress-bar").style.width = "100%";
+                document.getElementById("progress-label").textContent =
+                    "Complete";
+            }
+
+            function restartQuiz() {
+                score = 0;
+                currentQ = 0;
+                answered = new Array(totalQ).fill(false);
+
+                document
+                    .getElementById("results-card")
+                    .classList.remove("show");
+                document.getElementById("progress-bar").style.width = "0%";
+                document.getElementById("progress-label").textContent =
+                    "Question 1 of 10";
+
+                document
+                    .querySelectorAll(".question-card")
+                    .forEach((card, i) => {
+                        card.classList.remove("active");
+                        card.querySelectorAll(".option-btn").forEach((btn) => {
+                            btn.disabled = false;
+                            btn.classList.remove("correct", "wrong", "dimmed");
+                        });
+                        const fb = document.getElementById(`fb-${i}`);
+                        if (fb) {
+                            fb.className = "feedback";
+                            fb.innerHTML = "";
+                        }
+                        const nb = document.getElementById(`next-${i}`);
+                        if (nb) nb.classList.remove("show");
+                    });
+
+                document.querySelector("[data-q='0']").classList.add("active");
+            }
+
+            document.querySelectorAll(".option-btn").forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    const card = this.closest(".question-card");
+                    const qIndex = parseInt(card.dataset.q);
+                    handleAnswer(this, qIndex);
+                });
+            });
+        </script>
+    </body>
+</html>

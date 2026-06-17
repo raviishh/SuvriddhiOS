@@ -3,51 +3,466 @@
 /* Defining standard color-scheme for entire app */
 
 @theme {
+    --font-display: "OpenSans", sans-serif;
 
-  --font-display: 'OpenSans', sans-serif;
-
-  --color-background: rgb(21, 21, 21);
-  --color-foreground: rgb(242, 242, 242);
-  --color-card: rgb(31, 31, 31);
-  --color-card-foreground: rgb(242, 242, 242);
-  --color-primary: rgb(142, 124, 195);
-  --color-primary-muted: rgb(112, 94, 165);
-  --color-primary-foreground: rgb(242, 242, 242);
-  --color-secondary: rgb(51, 51, 51);
-  --color-secondary-foreground: rgb(242, 242, 242);
-  --color-muted: rgb(64, 64, 64);
-  --color-muted-foreground: rgb(166, 166, 166);
-  --color-border: rgb(51, 51, 51);
+    --color-background: rgb(21, 21, 21);
+    --color-foreground: rgb(242, 242, 242);
+    --color-card: rgb(31, 31, 31);
+    --color-card-foreground: rgb(242, 242, 242);
+    --color-primary: rgb(142, 124, 195);
+    --color-primary-muted: rgb(112, 94, 165);
+    --color-primary-foreground: rgb(242, 242, 242);
+    --color-secondary: rgb(51, 51, 51);
+    --color-secondary-foreground: rgb(242, 242, 242);
+    --color-muted: rgb(64, 64, 64);
+    --color-muted-foreground: rgb(166, 166, 166);
+    --color-border: rgb(51, 51, 51);
 }
 
 @layer base {
-  body {
-    @apply bg-background text-foreground;
-  }
+    body {
+        @apply bg-background text-foreground;
+    }
 
-  /* button and a elements don't have cursor: pointer as default */
-  button, a {
-    @apply cursor-pointer;
-  }
+    /* button and a elements don't have cursor: pointer as default */
+    button,
+    a {
+        @apply cursor-pointer;
+    }
 }
 
 @layer components {
+    /* For components/home/menucards.tsx */
+    .menu-card {
+        @apply relative overflow-hidden rounded-lg border border-border bg-card p-6 transition-all duration-300 cursor-pointer hover:border-primary hover:shadow-lg hover:shadow-primary/20;
+    }
 
-  /* For components/home/menucards.tsx */
-  .menu-card {
-    @apply relative overflow-hidden rounded-lg border border-border bg-card p-6 transition-all duration-300 cursor-pointer hover:border-primary hover:shadow-lg hover:shadow-primary/20;
-  }
+    .menu-card::before {
+        content: "";
+        @apply absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity duration-300;
+    }
 
-  .menu-card::before {
-    content: "";
-    @apply absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity duration-300;
-  }
+    .menu-card:hover::before {
+        @apply opacity-100;
+    }
 
-  .menu-card:hover::before {
-    @apply opacity-100;
-  }
-
-  .menu-card-content {
-    @apply relative z-10;
-  }
+    .menu-card-content {
+        @apply relative z-10;
+    }
 }
+
+/* ============================================================
+   ADD THIS TO THE BOTTOM OF index.css
+   Course UI chrome — editor frame, output panel, sidebar items,
+   badges, and progress elements.
+
+   Uses your existing @theme tokens so everything stays consistent.
+   No new color values are introduced — only your defined vars.
+   ============================================================ */
+
+@layer components {
+    /* ──────────────────────────────────────────────────────────
+     SIDEBAR ITEM STATES
+     Applied to clickable items in the learn sidebar.
+     Modifies existing sidebar item elements.
+     ────────────────────────────────────────────────────────── */
+
+    .sidebar-item {
+        /* Base sidebar topic item */
+        @apply flex items-center gap-2 px-3 py-2 rounded-md text-sm
+           text-muted-foreground cursor-pointer transition-colors duration-150;
+    }
+
+    .sidebar-item:hover {
+        @apply bg-secondary text-foreground;
+    }
+
+    .sidebar-item--active {
+        /* Currently selected item */
+        @apply bg-secondary text-primary font-medium;
+    }
+
+    .sidebar-item--complete {
+        /* Completed item — faint checkmark tint */
+        @apply text-muted-foreground;
+    }
+
+    .sidebar-item__icon {
+        /* Type icon (lesson / exercise / drill / test) */
+        @apply w-4 h-4 flex-shrink-0 opacity-60;
+    }
+
+    .sidebar-item--active .sidebar-item__icon {
+        @apply opacity-100;
+    }
+
+    .sidebar-section-title {
+        /* Topic group heading in sidebar */
+        @apply px-3 pt-4 pb-1 text-xs font-semibold uppercase tracking-widest
+           text-muted-foreground select-none;
+    }
+
+    /* ──────────────────────────────────────────────────────────
+     CONTENT TYPE BADGE
+     Small pill shown in lesson/exercise headers.
+     Usage: <span class="type-badge type-badge--lesson">Lesson</span>
+     ────────────────────────────────────────────────────────── */
+
+    .type-badge {
+        /* Base pill */
+        @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs
+           font-semibold uppercase tracking-wider;
+    }
+
+    .type-badge--lesson {
+        /* Green — reading content */
+        background: rgba(74, 180, 120, 0.12);
+        color: rgb(74, 180, 120);
+    }
+
+    .type-badge--exercise {
+        /* Primary purple — coding task */
+        background: rgba(142, 124, 195, 0.15);
+        color: var(--color-primary);
+    }
+
+    .type-badge--drill {
+        /* Blue — rapid-fire questions */
+        background: rgba(88, 166, 255, 0.12);
+        color: rgb(88, 166, 255);
+    }
+
+    .type-badge--test {
+        /* Red — formal assessment */
+        background: rgba(248, 81, 73, 0.12);
+        color: rgb(248, 81, 73);
+    }
+
+    /* ──────────────────────────────────────────────────────────
+     STATUS BADGE
+     Completion / result chips.
+     Usage: <span class="status-badge status-badge--pass">Passed</span>
+     ────────────────────────────────────────────────────────── */
+
+    .status-badge {
+        @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full
+           text-xs font-semibold;
+    }
+
+    .status-badge--pass {
+        background: rgba(74, 180, 120, 0.12);
+        color: rgb(74, 180, 120);
+    }
+    .status-badge--fail {
+        background: rgba(248, 81, 73, 0.12);
+        color: rgb(248, 81, 73);
+    }
+    .status-badge--complete {
+        background: rgba(74, 180, 120, 0.12);
+        color: rgb(74, 180, 120);
+    }
+    .status-badge--locked {
+        @apply bg-secondary text-muted-foreground;
+    }
+    .status-badge--active {
+        background: rgba(88, 166, 255, 0.12);
+        color: rgb(88, 166, 255);
+    }
+
+    /* ──────────────────────────────────────────────────────────
+     EDITOR FRAME
+     Wraps AceEditor with a toolbar (filename tab + run button).
+     The AceEditor itself goes inside .editor-frame__body.
+
+     Usage in ExerciseView:
+       <div class="editor-frame">
+         <div class="editor-frame__toolbar">
+           <span class="editor-frame__tab">
+             <span class="editor-frame__dot"></span>
+             main.py
+           </span>
+           <button class="btn-run">▶ Run</button>
+         </div>
+         <div class="editor-frame__body">
+           <AceEditor ... />
+         </div>
+       </div>
+
+     Note: your existing ExerciseView wraps AceEditor in
+       <div class="border border-border rounded-lg overflow-hidden shadow-sm bg-card">
+     You can either replace that div with .editor-frame, or just
+     add .editor-frame__toolbar above it and keep the existing wrapper.
+     ────────────────────────────────────────────────────────── */
+
+    .editor-frame {
+        /* Outer frame — matches your existing card style */
+        @apply border border-border rounded-lg overflow-hidden shadow-sm bg-card;
+    }
+
+    .editor-frame__toolbar {
+        /* Top bar: filename tab + action buttons */
+        @apply flex items-center justify-between px-4 h-10
+           border-b border-border bg-card;
+    }
+
+    .editor-frame__tab {
+        /* Filename pill with colored language dot */
+        @apply flex items-center gap-2 text-xs text-muted-foreground font-mono;
+    }
+
+    .editor-frame__dot {
+        /* Language indicator dot (green = Python, blue = C) */
+        @apply w-2 h-2 rounded-full bg-primary flex-shrink-0;
+    }
+
+    .editor-frame__dot--python {
+        background: rgb(74, 180, 120);
+    }
+    .editor-frame__dot--c {
+        background: rgb(88, 166, 255);
+    }
+
+    .editor-frame__body {
+        /* AceEditor lives here — no extra styling needed,
+       AceEditor fills this naturally */
+        @apply overflow-hidden;
+    }
+
+    /* ──────────────────────────────────────────────────────────
+     RUN BUTTON
+     Your existing run button uses ad-hoc Tailwind classes.
+     This makes it a reusable component class.
+     ────────────────────────────────────────────────────────── */
+
+    .btn-run {
+        @apply flex items-center gap-1.5 px-3 py-1 rounded text-xs font-bold
+           bg-primary-muted text-primary-foreground
+           transition-opacity duration-150;
+    }
+
+    .btn-run:hover {
+        @apply opacity-80;
+    }
+    .btn-run:disabled {
+        @apply opacity-40 cursor-not-allowed;
+    }
+
+    .btn-run__icon {
+        /* ▶ triangle — slightly smaller than text */
+        font-size: 0.7em;
+    }
+
+    /* ──────────────────────────────────────────────────────────
+     OUTPUT PANEL
+     Displays stdout / test results below the editor.
+     Replaces / wraps your existing <OutputFeedback> component
+     for cases where you want raw output display.
+
+     Usage:
+       <div class="output-panel">
+         <div class="output-panel__header">
+           <span>Output</span>
+           <button class="output-panel__clear">Clear</button>
+         </div>
+         <pre class="output-panel__body">...</pre>
+       </div>
+     ────────────────────────────────────────────────────────── */
+
+    .output-panel {
+        @apply mt-3 rounded-lg border border-border overflow-hidden;
+        background: rgb(14, 17, 22);
+    }
+
+    .output-panel__header {
+        /* "Output" label row */
+        @apply flex items-center justify-between px-4 py-1.5
+           border-b border-border text-xs text-muted-foreground uppercase
+           tracking-wider;
+    }
+
+    .output-panel__clear {
+        /* Clear button */
+        @apply text-xs text-muted-foreground transition-colors duration-150;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .output-panel__clear:hover {
+        @apply text-foreground;
+    }
+
+    .output-panel__body {
+        /* Scrollable output text area */
+        @apply px-4 py-3 text-sm font-mono min-h-16 max-h-52 overflow-y-auto
+           whitespace-pre-wrap leading-relaxed;
+        color: rgb(191, 232, 201); /* matches existing .output color */
+    }
+
+    .output-panel__body--empty {
+        /* Placeholder state — no output yet */
+        @apply text-muted-foreground italic;
+        color: unset;
+    }
+
+    .output-panel__body--error {
+        color: rgb(248, 130, 120);
+    }
+
+    .output-panel__body--success {
+        color: rgb(74, 180, 120);
+    }
+
+    /* ──────────────────────────────────────────────────────────
+     HINT SYSTEM
+     Progressive hint reveal for exercises.
+
+     Usage:
+       <div class="hint-list">
+         <p class="hint-list__label">Need a hint?</p>
+         <div class="hint-item" data-open="false">
+           <button class="hint-item__trigger">Hint 1</button>
+           <div class="hint-item__body">...</div>
+         </div>
+       </div>
+
+     Toggle data-open="true" with JS to reveal.
+     ────────────────────────────────────────────────────────── */
+
+    .hint-list {
+        @apply flex flex-col gap-2 mt-4;
+    }
+
+    .hint-list__label {
+        @apply text-xs uppercase tracking-wider text-muted-foreground;
+    }
+
+    .hint-item {
+        @apply rounded-lg border border-border overflow-hidden;
+        border-left-width: 3px;
+        border-left-color: var(--color-border);
+        transition: border-color 0.2s;
+    }
+
+    .hint-item[data-open="true"] {
+        border-left-color: rgb(210, 153, 34);
+        background: rgba(210, 153, 34, 0.05);
+    }
+
+    .hint-item__trigger {
+        /* Click-to-reveal button */
+        @apply w-full flex items-center justify-between px-4 py-2.5
+           text-sm text-muted-foreground transition-colors duration-150;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .hint-item__trigger:hover {
+        @apply text-foreground;
+    }
+
+    .hint-item__chevron {
+        transition: transform 0.2s;
+        flex-shrink: 0;
+    }
+
+    .hint-item[data-open="true"] .hint-item__chevron {
+        transform: rotate(180deg);
+    }
+
+    .hint-item__body {
+        /* Hidden until data-open="true" */
+        @apply px-4 pb-3 text-sm leading-relaxed;
+        color: var(--color-card-foreground);
+        display: none;
+    }
+
+    .hint-item[data-open="true"] .hint-item__body {
+        display: block;
+    }
+
+    .hint-item__show-btn {
+        /* "Show next hint" button */
+        @apply self-start px-3 py-1.5 rounded border border-border text-xs
+           text-muted-foreground transition-colors duration-150;
+        background: none;
+        cursor: pointer;
+    }
+
+    .hint-item__show-btn:hover {
+        @apply border-primary text-primary;
+        background: rgba(142, 124, 195, 0.08);
+    }
+
+    .hint-item__show-btn:disabled {
+        @apply opacity-40 cursor-not-allowed;
+    }
+
+    /* ──────────────────────────────────────────────────────────
+     PROGRESS BAR
+     Thin progress indicator for drills and tests.
+     Set --pct custom property to drive the fill width.
+
+     Usage:
+       <div class="course-progress" role="progressbar">
+         <div class="course-progress__fill" style="--pct: 60%"></div>
+       </div>
+     ────────────────────────────────────────────────────────── */
+
+    .course-progress {
+        @apply w-full h-0.5 rounded-full overflow-hidden;
+        background: var(--color-border);
+    }
+
+    .course-progress__fill {
+        height: 100%;
+        width: var(--pct, 0%);
+        background: var(--color-primary);
+        border-radius: 9999px;
+        transition: width 0.4s ease;
+    }
+
+    /* ──────────────────────────────────────────────────────────
+     DRILL TIMER BAR
+     Countdown bar that changes color as time runs low.
+     Width is driven by JS: el.style.width = pct + '%'
+     ────────────────────────────────────────────────────────── */
+
+    .drill-timer {
+        @apply w-full h-1 rounded-full overflow-hidden;
+        background: var(--color-border);
+    }
+
+    .drill-timer__fill {
+        height: 100%;
+        border-radius: 9999px;
+        background: rgb(74, 180, 120);
+        transition:
+            width 1s linear,
+            background 0.3s;
+    }
+
+    .drill-timer__fill--warn {
+        background: rgb(210, 153, 34);
+    }
+    .drill-timer__fill--danger {
+        background: rgb(248, 81, 73);
+    }
+
+    /* ──────────────────────────────────────────────────────────
+     META ROW
+     Small info chips: time estimate, difficulty, points.
+     ────────────────────────────────────────────────────────── */
+
+    .meta-row {
+        @apply flex flex-wrap gap-2;
+    }
+
+    .meta-chip {
+        @apply flex items-center gap-1 px-2.5 py-1 rounded text-xs
+           border border-border bg-card text-muted-foreground;
+    }
+} /* end @layer components */

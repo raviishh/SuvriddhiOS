@@ -1,0 +1,90 @@
+<!-- ============================================================
+     EXERCISE CONTENT TEMPLATE
+     File location: /public/data/learn/<exercise-id>.html
+     Loaded by ExerciseView.tsx via fetch() into .learning-container
+
+     This file only contains the DESCRIPTION / INSTRUCTIONS.
+     The editor, run button, and output are rendered by ExerciseView.
+     Do NOT put editor markup here.
+
+     HOW TO USE:
+     - Copy this file, rename it, fill in the content
+     - Do NOT include <html>, <head>, <body> tags
+     - The .exercise-content wrapper is required
+     ============================================================ -->
+
+<div class="exercise-content">
+    <!-- ── TITLE ─────────────────────────────────────────────── -->
+    <h1>Print a Greeting</h1>
+    <p class="lead">
+        Use variables and an f-string to output a personalised message.
+    </p>
+
+    <hr />
+
+    <!-- ── BRIEF CONTEXT (optional) ─────────────────────────── -->
+    <h2>Background</h2>
+    <p>
+        F-strings let you embed variable values directly inside a string. Prefix
+        the string with <span class="inline-code">f</span> and wrap variable
+        names in curly braces.
+    </p>
+
+    <div class="code-block" data-lang="python">
+        <pre>name = <span class="tok-str">"Alice"</span>
+<span class="tok-builtin">print</span>(<span class="tok-str">f"Hello, <span class="tok-builtin">{name}</span>!"</span>)</pre>
+    </div>
+
+    <span class="output-label">Output</span>
+    <div class="output">Hello, Alice!</div>
+
+    <hr />
+
+    <!-- ── TASK BLOCK ────────────────────────────────────────── -->
+    <div class="task-block">
+        <h3>Your Task</h3>
+        <p>Write a program that does all of the following:</p>
+        <ul class="constraint-list">
+            <li>
+                Create a variable <span class="inline-code">name</span> set to
+                your name.
+            </li>
+            <li>
+                Create a variable <span class="inline-code">age</span> set to
+                your age as an integer.
+            </li>
+            <li>
+                Print exactly:
+                <span class="inline-code"
+                    >Hello, I'm [name] and I'm [age] years old.</span
+                >
+            </li>
+        </ul>
+
+        <!-- Expected output block -->
+        <div class="expected-output">
+            <span class="output-label">Expected Output</span>
+            <div class="output">Hello, I'm Alice and I'm 30 years old.</div>
+        </div>
+    </div>
+
+    <!-- ── HINTS (optional — shown via HintSystem in ExerciseView) ── -->
+    <!-- If your ExerciseView renders hints from topics.json, delete  -->
+    <!-- this section. If you render hints from HTML, keep it.        -->
+    <div class="callout callout--info" style="margin-top: 16px">
+        <span class="callout-icon">ℹ️</span>
+        <div>
+            Use the <span class="inline-code">f"..."</span> prefix and
+            <span class="inline-code">{variable}</span> inside the string.
+        </div>
+    </div>
+
+    <div class="callout callout--warn">
+        <span class="callout-icon">⚠️</span>
+        <div>
+            Watch punctuation — the test checks your output character for
+            character, including the period at the end.
+        </div>
+    </div>
+</div>
+<!-- end .exercise-content -->
