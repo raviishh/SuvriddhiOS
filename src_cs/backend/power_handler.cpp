@@ -26,11 +26,7 @@ int handle_power(struct mg_connection *conn, void *)
 		// TODO: add support for sleep at some point.
 	}
 
-	mg_printf(conn,
-              "HTTP/1.1 200 OK\r\n"
-              "Content-Type: application/json\r\n"
-              "Connection: close\r\n\r\n"
-              "{\"status\":\"rebooting\"}");
+	send_response(conn, "{}");
 
 	return 200;
 }
