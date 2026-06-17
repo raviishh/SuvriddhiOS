@@ -1,7 +1,9 @@
 import { Wifi, Home, Power, RotateCcw, RefreshCw, History } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function Settings() {
+    const navigate = useNavigate();
     const [status, setStatus] = useState<"idle" | "updating" | "error">("idle");
     const [errorMsg, setErrorMsg] = useState("");
     const handlePower = async (cmd: string) => {
@@ -50,7 +52,7 @@ export default function Settings() {
 
             <div className="flex flex-col divide-y divide-slate-800">
                 <button
-                    onClick={() => (window.location.href = "/settings/wifi")}
+                    onClick={() => navigate("/settings/wifi")}
                     className="flex items-center justify-between py-4 hover:bg-slate-900/50 px-2 rounded-lg transition-colors group text-left"
                 >
                     <div className="flex items-center gap-3">
