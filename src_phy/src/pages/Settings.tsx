@@ -7,7 +7,7 @@ export default function Settings() {
     const [status, setStatus] = useState<"idle" | "updating" | "error">("idle");
     const [errorMsg, setErrorMsg] = useState("");
     const handlePower = async (cmd: string) => {
-        await fetch("http://localhost:8080/api/power", {
+        await fetch("http://localhost:8000/api/power", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ cmd }),
@@ -17,7 +17,7 @@ export default function Settings() {
     const handleUpdate = async () => {
         setStatus("updating");
         try {
-            const res = await fetch("http://localhost:8080/api/updates", {
+            const res = await fetch("http://localhost:8000/api/updates", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({}),
@@ -35,7 +35,7 @@ export default function Settings() {
 
     const handleRollback = async () => {
         try {
-            await fetch("http://localhost:8080/api/rollback", {
+            await fetch("http://localhost:8000/api/rollback", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
             });
