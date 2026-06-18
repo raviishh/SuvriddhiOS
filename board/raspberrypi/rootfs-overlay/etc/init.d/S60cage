@@ -12,7 +12,7 @@ start() {
     if [ -f /etc/wpa_supplicant.conf ] && grep -q "ssid" /etc/wpa_supplicant.conf; then
         wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf 2>/dev/null || true
         udhcpc -i wlan0 2>/dev/null || true
-        ntpdate pool.ntp.org 2>/dev/null || true
+        ntpd -g -q -p pool.ntp.org 2>/dev/null || true
     else
         echo "No WiFi config found, skipping network setup"
     fi

@@ -45,7 +45,7 @@ int handle_wlan(struct mg_connection *conn, void *)
     std::string save_cmd =
         "wpa_passphrase '" + ssid + "' '" + passphrase + "' >> /etc/wpa_supplicant.conf";
     system(save_cmd.c_str());
-    system("ntpdate pool.ntp.org");
+    system("ntpd -g -q -p pool.ntp.org");
     return send_response(conn,
         json{{"success", true}, {"error", ""}}.dump()), 200;
 }
