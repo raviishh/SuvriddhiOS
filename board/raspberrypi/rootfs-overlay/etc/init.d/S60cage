@@ -7,6 +7,16 @@ start() {
     chmod 0700 $XDG_RUNTIME_DIR $CHROME_DATA_DIR
     export LD_LIBRARY_PATH=/usr/lib/chromium-browser:$LD_LIBRARY_PATH
 
+    echo "Starting network setup..."
+    ip link set wlan0 up 2>/dev/null || true
+    if [ -f /etc/wpa_supplicant.conf ]; then
+        wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf 2>/dev/null || true
+        udhcpc -i wlan0 2>/dev/null || true
+        ntpdate pool.ntp.org 2>/dev/null || true
+    else
+        echo "No WiFi config found, skipping network setup"
+    fi
+
     /root/server & 
     busybox httpd -h /root/www -p 8080 &
     busybox httpd -h /root/www/build -p 8081 &
