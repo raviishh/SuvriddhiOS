@@ -6,28 +6,24 @@ set -u
 set -e
 
 echo "Checking WiFi firmware..."
+echo "Installing BCM43455 firmware..."
 
 FIRMWARE_DIR="${TARGET_DIR}/lib/firmware/brcm"
+
 mkdir -p "$FIRMWARE_DIR"
 
-BASE_URL="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/brcm"
+wget -O "$FIRMWARE_DIR/brcmfmac43455-sdio.bin" \
+    "https://raw.githubusercontent.com/RPi-Distro/firmware-nonfree/master/brcm/brcmfmac43455-sdio.bin"
 
-FILES="
-brcmfmac43455-sdio.bin
-brcmfmac43455-sdio.clm_blob
-brcmfmac43455-sdio.txt
-"
+wget -O "$FIRMWARE_DIR/brcmfmac43455-sdio.clm_blob" \
+    "https://raw.githubusercontent.com/RPi-Distro/firmware-nonfree/master/brcm/brcmfmac43455-sdio.clm_blob"
 
-for f in $FILES; do
-    if [ ! -f "$FIRMWARE_DIR/$f" ]; then
-        echo "Fetching $f..."
-        wget -q --show-progress \
-            "$BASE_URL/$f" \
-            -O "$FIRMWARE_DIR/$f" || echo "WARN: failed to fetch $f"
-    fi
-done
+wget -O "$FIRMWARE_DIR/brcmfmac43455-sdio.txt" \
+    "https://raw.githubusercontent.com/RPi-Distro/firmware-nonfree/master/brcm/brcmfmac43455-sdio.txt"
 
-echo "WiFi firmware fallback complete."
+echo "BCM43455 firmware installed."
+
+ls -lh "$FIRMWARE_DIR"/brcmfmac43455-sdio.*
 
 # Write scripts here
 
