@@ -1,0 +1,23 @@
+#!/bin/sh
+SWAP_PATH="/root/swapfile" 
+
+case "$1" in
+  start)
+    if [ ! -f "$SWAP_PATH" ]; then
+      echo "First boot: Instantly allocating 2GB swap file..."
+      fallocate -l 2147483648 "$SWAP_PATH"
+      chmod 0600 "$SWAP_PATH"
+      mkswap "$SWAP_PATH"
+    fi
+
+    echo "Enabling swap space..."
+    swapon "$SWAP_PATH"
+    ;;
+  stop)
+    echo "Disabling swap space..."
+    swapoff "$SWAP_PATH"
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+esac
