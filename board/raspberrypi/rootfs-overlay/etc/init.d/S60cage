@@ -48,19 +48,7 @@ start() {
         --enable-gpu-rasterization \
         --enable-zero-copy \
         --use-gl=egl \
-        # -----------------------------------------------------------------
-        # SOFTWARE RENDERING FALLBACK
-        # -----------------------------------------------------------------
-        # To test software mode instead:
-        # 1. Add a trailing backslash to the --use-gl=egl line above
-        # 2. Comment out the 6 hardware flags directly above this note
-        # 3. Uncomment the lines below:
-        # --disable-gpu \
-        # --use-gl=swiftshader \
-        # --num-raster-threads=2 \
-        # --disable-composited-antialiasing \
-        # --disable-canvas-aa \
-        # --audio-buffer-size=4096 \
+        --user-agent="Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36" \
         http://127.0.0.1:8080
 }
 
