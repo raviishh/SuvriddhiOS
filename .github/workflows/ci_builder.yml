@@ -20,13 +20,6 @@ jobs:
               with:
                   node-version: 22
 
-            - name: Install books
-              run: |
-                  cd src_phy/public/pdfs
-                  wget https://github.com/LearnPRG-py/SuvriddhiBooks/releases/download/book/drive-download-20260617T081439Z-3-001.zip
-                  unzip drive-download-20260617T081439Z-3-001.zip "*" -d .
-                  rm drive-download-20260617T081439Z-3-001.zip
-
             - name: Install dependencies (Physics)
               run: |
                   cd src_phy

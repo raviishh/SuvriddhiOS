@@ -2,5 +2,7 @@
 
 if [ -d /root/www_new ]; then
     mv /root/www /root/www.old
+    mkdir /root/www_new/learn/pdfs
+    mv /root/www.old/learn/pdfs /root/www_new/learn/pdfs
     mv /root/www_new /root/www
 fi
