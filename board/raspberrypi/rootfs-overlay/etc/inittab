@@ -29,11 +29,11 @@ null::sysinit:/bin/ln -sf /proc/self/fd/2 /dev/stderr
 ::sysinit:/etc/init.d/rcS
 
 # Remove getty for final version, add for debug.
-# ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100 # GENERIC_SERIAL
-# tty1::respawn:/sbin/getty -L  tty1 0 vt100 # HDMI console
+ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100 # GENERIC_SERIAL
+tty1::respawn:/sbin/getty -L  tty1 0 vt100 # HDMI console
 
 # Add code to restart cage/cog on crash using respawn
-::respawn:/etc/init.d/S60cage restart
+# ::respawn:/etc/init.d/S60cage restart
 
 # Stuff to do for the 3-finger salute
 #::ctrlaltdel:/sbin/reboot
