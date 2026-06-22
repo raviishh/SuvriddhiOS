@@ -78,7 +78,7 @@ jobs:
             - name: Add init.d directory
               run: |
                   cd board/raspberrypi/rootfs-overlay/etc
-                  cp * $GITHUB_WORKSPACE/release/etc
+                  cp -r * $GITHUB_WORKSPACE/release/etc
 
             - name: Compress out directory
               run: |

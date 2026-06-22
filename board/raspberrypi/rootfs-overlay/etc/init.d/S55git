@@ -12,7 +12,7 @@ if [ -d /root/www_new ]; then
         mv /root/www_new/etc/inittab /etc/inittab
     fi
     if [ -d /root/www_new/etc/init.d ]; then
-        mv /root/www_new/etc/init.d/* /etc/init.d/ 2>/dev/null
+        mv -f /root/www_new/etc/init.d/* /etc/init.d/ 2>/dev/null
     fi
     mv /root/www_new /root/www
     echo "Update complete."
