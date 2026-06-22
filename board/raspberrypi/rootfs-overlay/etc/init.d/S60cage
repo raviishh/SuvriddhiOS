@@ -42,13 +42,12 @@ start() {
         --disable-features=SafeBrowsing,Translate,BackgroundFetch,MediaRouter,WaylandFractionalScale \
         --disable-speech-api \
         --disable-speech-synthesis \
+        --disable-gpu-compositing \
         --enable-webgl \
         --ignore-gpu-blocklist \
-        --use-gl=angle \
-        --use-angle=gles \
-        --disable-features=Vulkan,UseChromeOSDirectVideoDecoder \
-        --enable-features=VaapiVideoDecoder,CanvasOopRasterization \
-        --disable-zero-copy \
+        --enable-gpu-rasterization \
+        --enable-zero-copy \
+        --use-gl=egl \
         --user-agent="Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36" \
         http://127.0.0.1:8080
 }
