@@ -13533,12 +13533,8 @@ function unityFramework(Module) {
     function _glGetVertexAttribiv(index, pname, params) {
         emscriptenWebGLGetVertexAttrib(index, pname, params, 5);
     }
-    function _glInvalidateFramebuffer(target, numAttachments, attachments) {
-        var list = tempFixedLengthArray[numAttachments];
-        for (var i = 0; i < numAttachments; i++) {
-            list[i] = HEAP32[(attachments + i * 4) >> 2];
-        }
-        GLctx["invalidateFramebuffer"](target, list);
+        function _glInvalidateFramebuffer(target, numAttachments, attachments) {
+        // NO-OP
     }
     function _glIsEnabled(x0) {
         return GLctx["isEnabled"](x0);
