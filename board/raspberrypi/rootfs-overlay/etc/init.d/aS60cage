@@ -35,22 +35,20 @@ start() {
         --disable-background-networking \
         --disable-sync \
         --disable-translate \
-        --renderer-process-limit=1 \
+        --renderer-process-limit=2 \
         --process-per-site \
         --js-flags="--max-old-space-size=256" \
         --purge-memory-after-idle \
-        --disable-features=SafeBrowsing,Translate,BackgroundFetch,MediaRouter,WaylandFractionalScale \
+        --disable-features=SafeBrowsing,Translate,BackgroundFetch,MediaRouter,WaylandFractionalScale,Vulkan,UseChromeOSDirectVideoDecoder \
         --disable-speech-api \
         --disable-speech-synthesis \
         --enable-webgl \
         --ignore-gpu-blocklist \
-        --use-gl=angle \
-        --use-angle=gles \
-        --disable-features=Vulkan,UseChromeOSDirectVideoDecoder \
-        --enable-features=VaapiVideoDecoder,CanvasOopRasterization \
-        --disable-native-gpu-memory-buffers \
-        --disable-gpu-memory-buffer-compositor-resources \
+        --disable-gpu-compositing \
+        --enable-features=VaapiVideoDecoder \
         --user-agent="Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36" \
+        --enable-accelerated-video-decode \
+        --num-raster-threads=2 \
         http://127.0.0.1:8080
 }
 
