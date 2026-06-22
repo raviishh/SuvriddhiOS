@@ -40,6 +40,7 @@ jobs:
                   mkdir $GITHUB_WORKSPACE/release
                   mkdir $GITHUB_WORKSPACE/release/build
                   mkdir $GITHUB_WORKSPACE/release/learn
+                  mkdir $GITHUB_WORKSPACE/release/etc
 
             - name: Build Physics
               run: |
@@ -73,7 +74,12 @@ jobs:
               run: |
                   cd home
                   npm audit --audit-level=critical
-            
+
+            - name: Add init.d directory
+              run: |
+                  cd board/raspberrypi/rootfs-overlay/etc
+                  cp * $GITHUB_WORKSPACE/release/etc
+
             - name: Compress out directory
               run: |
                   cd $GITHUB_WORKSPACE/release

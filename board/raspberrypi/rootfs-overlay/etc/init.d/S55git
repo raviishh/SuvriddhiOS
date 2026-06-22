@@ -1,8 +1,19 @@
 #!/bin/sh
 
 if [ -d /root/www_new ]; then
+    echo "Applying update..."
+    rm -rf /root/www.old
     mv /root/www /root/www.old
-    mkdir /root/www_new/learn/pdfs
-    mv /root/www.old/learn/pdfs /root/www_new/learn/pdfs
+    mkdir -p /root/www_new/learn/pdfs
+    if [ -d /root/www.old/learn/pdfs ]; then
+        mv /root/www.old/learn/pdfs /root/www_new/learn/pdfs
+    fi
+    if [ -f /root/www_new/etc/inittab ]; then
+        mv /root/www_new/etc/inittab /etc/inittab
+    fi
+    if [ -d /root/www_new/etc/init.d ]; then
+        mv /root/www_new/etc/init.d/* /etc/init.d/ 2>/dev/null
+    fi
     mv /root/www_new /root/www
+    echo "Update complete."
 fi

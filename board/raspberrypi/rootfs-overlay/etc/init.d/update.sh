@@ -1,5 +1,5 @@
 #!/bin/sh
-curl --max-time 240 -L -k -o /tmp/suvriddhi.zip https://github.com/raviishh/SuvriddhiOS/releases/latest/download/suvriddhi.zip
+curl --max-time 600 -L -k -o /tmp/suvriddhi.zip https://github.com/raviishh/SuvriddhiOS/releases/latest/download/suvriddhi.zip
 if [ $? -ne 0 ]; then
   echo "Download failed, aborting update"
   exit 1
