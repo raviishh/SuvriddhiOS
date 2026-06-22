@@ -24,33 +24,30 @@ start() {
 
     sleep 5
 
-    exec cage -- /usr/lib/chromium-browser/chromium-browser \
-        --noerrdialogs \
-        --disable-infobars \
-        --no-sandbox \
-        --ozone-platform=wayland \
-        --user-data-dir=$CHROME_DATA_DIR \
-        --disable-dev-shm-usage \
-        --disable-extensions \
-        --disable-background-networking \
-        --disable-sync \
-        --disable-translate \
-        --renderer-process-limit=1 \
-        --process-per-site \
-        --js-flags="--max-old-space-size=256" \
-        --purge-memory-after-idle \
-        --disable-features=SafeBrowsing,Translate,BackgroundFetch,MediaRouter,WaylandFractionalScale \
-        --disable-speech-api \
-        --disable-speech-synthesis \
-        --enable-webgl \
-        --ignore-gpu-blocklist \
-        --use-gl=angle \
-        --use-angle=gles \
-        --disable-features=Vulkan,UseChromeOSDirectVideoDecoder \
-        --enable-features=VaapiVideoDecoder,CanvasOopRasterization \
-        --disable-zero-copy \
-        --user-agent="Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36" \
-        http://127.0.0.1:8080
+exec cage -- /usr/lib/chromium-browser/chromium-browser \
+    --noerrdialogs \
+    --disable-infobars \
+    --no-sandbox \
+    --ozone-platform=wayland \
+    --user-data-dir=$CHROME_DATA_DIR \
+    --disable-dev-shm-usage \
+    --disable-extensions \
+    --disable-background-networking \
+    --disable-sync \
+    --disable-translate \
+    --js-flags="--max-old-space-size=256" \
+    --purge-memory-after-idle \
+    --disable-features=SafeBrowsing,Translate,BackgroundFetch,MediaRouter,WaylandFractionalScale,Vulkan,UseChromeOSDirectVideoDecoder,CanvasOopRasterization \
+    --disable-speech-api \
+    --disable-speech-synthesis \
+    --enable-webgl \
+    --ignore-gpu-blocklist \
+    --use-gl=egl \
+    --enable-features=VaapiVideoDecoder \
+    --disable-zero-copy \
+    --disable-gpu-rasterization \
+    --user-agent="Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36" \
+    http://127.0.0.1:8080
 }
 
 stop() {
