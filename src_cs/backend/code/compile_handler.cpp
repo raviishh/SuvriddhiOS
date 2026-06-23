@@ -9,7 +9,7 @@ using json = nlohmann::json;
 
 int handle_compile(struct mg_connection *conn, void *)
 {
-	json GetJsonReq(struct mg_connection *conn);
+	json req = GetJsonReq(struct mg_connection *conn);
 	std::string code = req["code"];
 	std::string token = generate_token(16);
 	std::string path_root = "/tmp/" + token;

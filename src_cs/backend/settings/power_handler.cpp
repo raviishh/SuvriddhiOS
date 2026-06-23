@@ -10,14 +10,8 @@ using json = nlohmann::json;
 
 int handle_power(struct mg_connection *conn, void *)
 {
-	char buf[8192];
-	int req_bytes = mg_read(conn, buf, sizeof(buf));
-
-	std::string body(buf, req_bytes);
-	json req = json::parse(body);
-
+	json req = GetJsonReq(struct mg_connection *conn);
 	std::string command = req["cmd"];
-
 	if (command == "restart") {
 		system("(sleep 2 && reboot) &");
 	} else if (command == "shutdown") {
@@ -25,8 +19,6 @@ int handle_power(struct mg_connection *conn, void *)
 	} else if (command == "sleep") {
 		// TODO: add support for sleep at some point.
 	}
-
 	send_response(conn, "{}");
-
 	return 200;
 }
