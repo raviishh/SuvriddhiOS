@@ -2,7 +2,7 @@
 
 start() {
     export XDG_RUNTIME_DIR=/tmp/runtime-root
-    export CHROME_DATA_DIR=/tmp/runtime-chromium
+    export CHROME_DATA_DIR=/root/chromium-data
     mkdir -p $XDG_RUNTIME_DIR $CHROME_DATA_DIR
     chmod 0700 $XDG_RUNTIME_DIR $CHROME_DATA_DIR
     export LD_LIBRARY_PATH=/usr/lib/chromium-browser:$LD_LIBRARY_PATH
