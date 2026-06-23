@@ -24,6 +24,7 @@ jobs:
 
             - name: Check formatting
               run: |
+                  cd src_cs/backend
                   make format
                   if [ -n "$(git status --porcelain)" ]; then
                     exit 1
