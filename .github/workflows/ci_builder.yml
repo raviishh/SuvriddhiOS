@@ -21,9 +21,9 @@ jobs:
                   node-version: 22
 
             - name: Install linux deps
-             run: |
-                sudo apt-get update
-                sudo apt-get install -y build-essential libcivetweb-dev clang-format
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y build-essential libcivetweb-dev clang-format
 
             - name: Install dependencies (Physics)
               run: |
