@@ -6,6 +6,9 @@
 #include <filesystem>
 #include "constants.h"
 #include <civetweb.h>
+#include <vector>
+
+using json = nlohmann::json;
 
 std::string generate_token(int len)
 {
@@ -49,14 +52,10 @@ std::string sanitize_filename(const std::string &name)
 		if (isalnum(c) || c == '.' || c == '_' || c == '-')
 			clean += c;
 	}
-
 	if (!clean.empty())
 		return clean;
-
-	int num_of_files = std::distance(std::filesystem::directory_iterator(SAVE_DIR), std::filesystem::directory_iterator{});
-
+	int num_of_files = std::distance(std::filesystem::directory_iterator(kSaveDir), std::filesystem::directory_iterator{});
 	std::string filename = "untitled" + std::to_string(num_of_files) + ".c";
-
 	return filename;
 }
 
@@ -70,4 +69,15 @@ void send_response(struct mg_connection *conn, const std::string &out)
 		  "Access-Control-Allow-Headers: Content-Type\r\n"
 		  "Content-Length: %zu\r\n\r\n%s",
 		  out.size(), out.c_str());
+}
+
+json GetJsonReq(struct mg_connection *conn) {
+	std::vector<char> buf(8192);
+	int req_bytes;
+	while ((buf.back() == '\0') && buf.size() <= kMaxProgramSize) {
+		req_bytes = mg_read(conn, buf.data(), buf.size());
+		buf.resize(std::min(buf.size() * 2, kMaxProgramSize));
+	}
+	std::string body(buf, req_bytes);
+	return json::parse(body);
 }
