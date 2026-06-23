@@ -15,8 +15,8 @@
 
 int main()
 {
-	if (!std::filesystem::is_directory(SAVE_DIR)) {
-		std::cout << "SAVE_DIR doesn't exist" << std::endl;
+	if (!std::filesystem::is_directory(kSaveDir)) {
+		std::cout << "kSaveDir doesn't exist" << std::endl;
 		return 0;
 	}
 
