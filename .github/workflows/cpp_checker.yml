@@ -18,6 +18,7 @@ jobs:
 
             - name: Compile and check
               run: |
+                  cd src_cs/backend
                   make clean
                   make all
 
