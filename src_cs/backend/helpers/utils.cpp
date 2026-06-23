@@ -3,14 +3,12 @@
 #include <random>
 #include <sstream>
 #include <sys/stat.h>
-#include <filesystem>
-#include "constants.h"
-#include <civetweb.h>
+
 #include <vector>
 
 using json = nlohmann::json;
 
-std::string generate_token(int len)
+std::string GenerateToken(int len)
 {
 	static const char chars[] = "abcdefghijklmnopqrstuvwxyz0123456789";
 	std::random_device rd;
@@ -22,13 +20,13 @@ std::string generate_token(int len)
 	return token;
 }
 
-bool file_exists(const std::string &path)
+bool FileExists(const std::string &path)
 {
 	struct stat buffer;
 	return (stat(path.c_str(), &buffer) == 0);
 }
 
-std::string read_file(const std::string &path)
+std::string ReadFile(const std::string &path)
 {
 	std::ifstream in(path);
 	if (!in.is_open())
@@ -38,14 +36,14 @@ std::string read_file(const std::string &path)
 	return ss.str();
 }
 
-void write_file(const std::string &path, const std::string &data)
+void WriteFile(const std::string &path, const std::string &data)
 {
 	std::ofstream out(path);
 	out << data;
 	out.close();
 }
 
-std::string sanitize_filename(const std::string &name)
+std::string SanitizeFilename(const std::string &name)
 {
 	std::string clean;
 	for (char c : name) {
@@ -59,7 +57,7 @@ std::string sanitize_filename(const std::string &name)
 	return filename;
 }
 
-void send_response(struct mg_connection *conn, const std::string &out)
+void SendResponse(struct mg_connection *conn, const std::string &out)
 {
 	mg_printf(conn,
 		  "HTTP/1.1 200 OK\r\n"
@@ -71,13 +69,14 @@ void send_response(struct mg_connection *conn, const std::string &out)
 		  out.size(), out.c_str());
 }
 
-json GetJsonReq(struct mg_connection *conn) {
+json GetJsonReq(struct mg_connection *conn)
+{
 	std::vector<char> buf(8192);
 	int req_bytes;
 	while ((buf.back() == '\0') && buf.size() <= kMaxProgramSize) {
 		req_bytes = mg_read(conn, buf.data(), buf.size());
 		buf.resize(std::min(buf.size() * 2, kMaxProgramSize));
 	}
-	std::string body(buf, req_bytes);
+	std::string body(buf.data(), req_bytes);
 	return json::parse(body);
 }

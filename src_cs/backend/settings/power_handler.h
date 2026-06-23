@@ -1,7 +1,7 @@
 #ifndef POWER_HANDLER_H
 #define POWER_HANDLER_H
 
-#include <civetweb.h>
+#include "../helpers/common.h"
 
 int handle_power(struct mg_connection *conn, void *);
 

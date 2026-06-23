@@ -1,17 +1,16 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include <string>
-#include "json.hpp"
+#include "common.h"
 
 using json = nlohmann::json;
 
-std::string generate_token(int len);
-bool file_exists(const std::string &path);
-std::string read_file(const std::string &path);
-void write_file(const std::string &path, const std::string &data);
-std::string sanitize_filename(const std::string &name);
-void send_response(struct mg_connection *conn, const std::string &out);
+std::string GenerateToken(int len);
+bool FileExists(const std::string &path);
+std::string ReadFile(const std::string &path);
+void WriteFile(const std::string &path, const std::string &data);
+std::string SanitizeFilename(const std::string &name);
+void SendResponse(struct mg_connection *conn, const std::string &out);
 json GetJsonReq(struct mg_connection *conn);
 
 #endif // UTILS_H
