@@ -8,7 +8,7 @@ on:
 
 jobs:
     build-and-test:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest-arm64
         permissions:
             contents: write
 
@@ -19,6 +19,11 @@ jobs:
               uses: actions/setup-node@v3
               with:
                   node-version: 22
+
+            - name: Install linux deps
+                        run: |
+                            sudo apt-get update
+                            sudo apt-get install -y build-essential libcivetweb-dev clang-format
 
             - name: Install dependencies (Physics)
               run: |
@@ -79,6 +84,12 @@ jobs:
               run: |
                   cd board/raspberrypi/rootfs-overlay/etc
                   cp -r * $GITHUB_WORKSPACE/release/etc
+
+            - name: Add compiled backend
+              run: |
+                  cd src_cs/backend
+                  make
+                  cp server $GITHUB_WORKSPACE/release/
 
             - name: Compress out directory
               run: |
