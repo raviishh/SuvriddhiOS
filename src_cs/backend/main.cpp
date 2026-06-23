@@ -1,17 +1,17 @@
 #include <civetweb.h>
-#include "compile_handler.h"
+#include "code/compile_handler.h"
 #include <cstring>
 #include <unistd.h>
-#include "run_handler.h"
-#include "code_handler.h"
-#include "wlan_handler.h"
-#include "power_handler.h"
+#include "code/run_handler.h"
+#include "code/code_handler.h"
+#include "settings/wlan_handler.h"
+#include "settings/power_handler.h"
 #include <filesystem>
-#include "constants.h"
+#include "helpers/common.h"
 #include <iostream>
-#include "python_handler.h"
-#include "updates_handler.h"
-#include "rollback_handler.h"
+#include "code/python_handler.h"
+#include "settings/updates_handler.h"
+#include "settings/rollback_handler.h"
 
 int main()
 {
@@ -27,12 +27,12 @@ int main()
 
 	mg_context *ctx = mg_start(&callbacks, nullptr, options);
 
-	mg_set_request_handler(ctx, "/api/compile", handle_compile, nullptr);
-	mg_set_request_handler(ctx, "/api/run", handle_run, nullptr);
-	mg_set_request_handler(ctx, "/api/save", handle_save, nullptr);
-	mg_set_request_handler(ctx, "/api/load", handle_load, nullptr);
-	mg_set_request_handler(ctx, "/api/list", handle_list, nullptr);
-	mg_set_request_handler(ctx, "/api/python", handle_python, nullptr);
+	mg_set_request_handler(ctx, "/api/compile", HandleCompile, nullptr);
+	mg_set_request_handler(ctx, "/api/run", HandleRun, nullptr);
+	mg_set_request_handler(ctx, "/api/save", HandleSave, nullptr);
+	mg_set_request_handler(ctx, "/api/load", HandleLoad, nullptr);
+	mg_set_request_handler(ctx, "/api/list", HandleList, nullptr);
+	mg_set_request_handler(ctx, "/api/python", HandlePython, nullptr);
 	mg_set_request_handler(ctx, "/api/wlan", handle_wlan, nullptr);
 	mg_set_request_handler(ctx, "/api/power", handle_power, nullptr);
 	mg_set_request_handler(ctx, "/api/updates", handle_update, nullptr);

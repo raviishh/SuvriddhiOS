@@ -1,8 +1,8 @@
 #ifndef COMPILE_HANDLER_H
 #define COMPILE_HANDLER_H
 
-#include "civetweb.h"
+#include "../helpers/common.h"
 
-int handle_compile(struct mg_connection *conn, void *ignored);
+int HandleCompile(struct mg_connection *conn, void *ignored);
 
 #endif // COMPILE_HANDLER_H

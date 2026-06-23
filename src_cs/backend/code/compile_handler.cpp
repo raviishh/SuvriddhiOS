@@ -1,26 +1,23 @@
 #include "compile_handler.h"
-#include "utils.h"
-#include "json.hpp"
-#include <fstream>
-#include <iostream>
+
 #include <cstdlib>
 
 using json = nlohmann::json;
 
-int handle_compile(struct mg_connection *conn, void *)
+int HandleCompile(struct mg_connection *conn, void *)
 {
-	json req = GetJsonReq(struct mg_connection *conn);
+	json req = GetJsonReq(conn);
 	std::string code = req["code"];
-	std::string token = generate_token(16);
+	std::string token = GenerateToken(16);
 	std::string path_root = "/tmp/" + token;
-	write_file(path_root + ".c", code);
+	WriteFile(path_root + ".c", code);
 
-	std::string compileCmd = "gcc -std=c11 -O2 " + srcPath + " -o " + outPath + " 2>"+path_root+ ".log";
+	std::string compileCmd = "gcc -std=c11 -O2 " + path_root + ".c -o " + path_root + " 2>"+path_root+ ".log";
 	int ret = std::system(compileCmd.c_str());
 
 	json res;
 	res["token"] = (ret = 0) ?  token : nullptr;
-	res["error"] = (ret = 0) ? nullptr : read_file(path_root + ".log");
-	send_response(conn, res.dump());
+	res["error"] = (ret = 0) ? nullptr : ReadFile(path_root + ".log");
+	SendResponse(conn, res.dump());
 	return 200;
 }

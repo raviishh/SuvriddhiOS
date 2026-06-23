@@ -1,8 +1,8 @@
 #ifndef PYTHON_HANDLER_H
 #define PYTHON_HANDLER_H
 
-#include "civetweb.h"
+#include "../helpers/common.h"
 
-int handle_python(struct mg_connection *conn, void *ignored);
+int HandlePython(struct mg_connection *conn, void *ignored);
 
 #endif // PYTHON_HANDLER_H
