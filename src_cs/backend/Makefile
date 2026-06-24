@@ -4,6 +4,17 @@ LDFLAGS  := -lcivetweb
 TARGET   := server
 BUILD_DIR := build
 
+EXTRA_CXXFLAGS :=
+EXTRA_LDFLAGS  :=
+CXXFLAGS += $(EXTRA_CXXFLAGS)
+LDFLAGS  += $(EXTRA_LDFLAGS)
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+    CXXFLAGS += -I/usr/local/include
+    LDFLAGS  += -L/usr/local/lib
+endif
+
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
     CXXFLAGS += -I/usr/local/include

@@ -55,38 +55,23 @@ mv dist/* ${TARGET_DIR}/root/www/learn/
 
 cd ../src_cs/backend
 
-ARCH=$(uname -m)
-
+SYSROOT="${TARGET_DIR}/../host/aarch64-buildroot-linux-gnu/sysroot"
+ARCH="$(uname -m)"
 if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
-    echo "Suvriddhi: Native build detected ($ARCH)"
-    SYSROOT="${TARGET_DIR}/../host/aarch64-buildroot-linux-gnu/sysroot"
-    
-    g++ main.cpp compile_handler.cpp run_handler.cpp utils.cpp \
-    code_handler.cpp python_handler.cpp wlan_handler.cpp power_handler.cpp \
-    updates_handler.cpp rollback_handler.cpp \
-        --sysroot="$SYSROOT" \
-        -lcivetweb \
-        -o "${TARGET_DIR}/root/server" \
-        -I "$SYSROOT/usr/include" \
-        -L "$SYSROOT/usr/lib"
+    echo "Suvriddhi: native build ($ARCH)"
+    MAKE_CXX="g++"
 else
-    echo "Suvriddhi: Cross-build detected ($ARCH)"
-    CROSS_CPP="${TARGET_DIR}/../host/bin/aarch64-linux-g++"
-    SYSROOT="${TARGET_DIR}/../host/aarch64-buildroot-linux-gnu/sysroot"
-
-    "$CROSS_CPP" \
-        main.cpp \
-        compile_handler.cpp \
-        run_handler.cpp \
-        utils.cpp \
-        code_handler.cpp \
-        python_handler.cpp \
-        wlan_handler.cpp \
-        power_handler.cpp \
-        updates_handler.cpp \
-        rollback_handler.cpp \
-        -lcivetweb \
-        -o "${TARGET_DIR}/root/server" \
-        -I "$SYSROOT/usr/include" \
-        -L "$SYSROOT/usr/lib"
+    echo "Suvriddhi: cross build ($ARCH)"
+    MAKE_CXX="${TARGET_DIR}/../host/bin/aarch64-linux-g++"
 fi
+
+MAKE_EXTRA_CXXFLAGS="-I$SYSROOT/usr/include"
+MAKE_EXTRA_LDFLAGS="-L$SYSROOT/usr/lib"
+
+make clean
+make \
+    CXX="$MAKE_CXX" \
+    EXTRA_CXXFLAGS="$MAKE_EXTRA_CXXFLAGS" \
+    EXTRA_LDFLAGS="$MAKE_EXTRA_LDFLAGS"
+
+cp server "${TARGET_DIR}/root/server"
