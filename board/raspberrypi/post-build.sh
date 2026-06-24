@@ -65,8 +65,8 @@ else
     MAKE_CXX="${TARGET_DIR}/../host/bin/aarch64-linux-g++"
 fi
 
-MAKE_EXTRA_CXXFLAGS="-I$SYSROOT/usr/include"
-MAKE_EXTRA_LDFLAGS="-L$SYSROOT/usr/lib"
+MAKE_EXTRA_CXXFLAGS="--sysroot=$SYSROOT -I$SYSROOT/usr/include"
+MAKE_EXTRA_LDFLAGS="--sysroot=$SYSROOT -L$SYSROOT/usr/lib"
 
 make clean
 make \
