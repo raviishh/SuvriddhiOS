@@ -158,42 +158,45 @@ export default function LearnPage() {
     const books = [
         {
             name: "Chemistry: Atoms First 2e",
-            path: "/pdfs/ChemistryAtomsFirst2e-WEB.pdf",
+            path: "/pdfs/pdfs/ChemistryAtomsFirst2e-WEB.pdf",
         },
-        { name: "Chemistry 2e", path: "/pdfs/Chemistry2e-WEB.pdf" },
-        { name: "Physics", path: "/pdfs/Physics-WEB_Sab7RrQ.pdf" },
+        { name: "Chemistry 2e", path: "/pdfs/pdfs/Chemistry2e-WEB.pdf" },
+        { name: "Physics", path: "/pdfs/pdfs/Physics-WEB_Sab7RrQ.pdf" },
         {
             name: "College Physics for AP Courses 2e",
-            path: "/pdfs/College_Physics_for_AP_Courses_2e-WEB_DkhNbxV.pdf",
+            path: "/pdfs/pdfs/College_Physics_for_AP_Courses_2e-WEB_DkhNbxV.pdf",
         },
         {
             name: "College Physics 2e",
-            path: "/pdfs/College_Physics_2e-WEB_7Zesafu.pdf",
+            path: "/pdfs/pdfs/College_Physics_2e-WEB_7Zesafu.pdf",
         },
-        { name: "Precalculus 2e", path: "/pdfs/Precalculus_2e-WEB.pdf" },
-        { name: "Prealgebra 2e", path: "/pdfs/Prealgebra2e-WEB_0qbw93r.pdf" },
+        { name: "Precalculus 2e", path: "/pdfs/pdfs/Precalculus_2e-WEB.pdf" },
+        {
+            name: "Prealgebra 2e",
+            path: "/pdfs/pdfs/Prealgebra2e-WEB_0qbw93r.pdf",
+        },
         {
             name: "Intermediate Algebra 2e",
-            path: "/pdfs/IntermediateAlgebra2e-WEB_RlpFLLx.pdf",
+            path: "/pdfs/pdfs/IntermediateAlgebra2e-WEB_RlpFLLx.pdf",
         },
         {
             name: "Elementary Algebra 2e",
-            path: "/pdfs/ElementaryAlgebra2e-WEB_3zxfu3Z.pdf",
+            path: "/pdfs/pdfs/ElementaryAlgebra2e-WEB_3zxfu3Z.pdf",
         },
         {
             name: "College Algebra Corequisite Support 2e",
-            path: "/pdfs/College-Algebra-Corequisite-Support-2e-WEB.pdf",
+            path: "/pdfs/pdfs/College-Algebra-Corequisite-Support-2e-WEB.pdf",
         },
         {
             name: "College Algebra 2e",
-            path: "/pdfs/College-Algebra-2e-WEB.pdf",
+            path: "/pdfs/pdfs/College-Algebra-2e-WEB.pdf",
         },
         {
             name: "Algebra and Trigonometry 2e",
-            path: "/pdfs/Algebra-and-Trigonometry-2e-WEB.pdf",
+            path: "/pdfs/pdfs/Algebra-and-Trigonometry-2e-WEB.pdf",
         },
-        { name: "Algebra 1", path: "/pdfs/Algebra_1_-_WEB-2.pdf" },
-        { name: "Statistics", path: "/pdfs/Statistics-WEB.pdf" },
+        { name: "Algebra 1", path: "/pdfs/pdfs/Algebra_1_-_WEB-2.pdf" },
+        { name: "Statistics", path: "/pdfs/pdfs/Statistics-WEB.pdf" },
     ];
 
     function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
