@@ -8,6 +8,5 @@
 #include "utils.h"
 
 constexpr char kSaveDir[] = "/root/codes";
-constexpr size_t kMaxProgramSize = 1024 * 1024; // 1 MiB
 
 #endif // HELPERS_COMMON_H_

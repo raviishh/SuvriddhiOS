@@ -71,17 +71,8 @@ void SendResponse(struct mg_connection *conn, const std::string &out)
 
 json GetJsonReq(struct mg_connection *conn)
 {
-	std::vector<char> buf(8192);
-	size_t total_read = 0;
-	int n;
-	while ((n = mg_read(conn, buf.data() + total_read, buf.size() - total_read)) > 0) {
-		total_read += static_cast<size_t>(n);
-		if (total_read == buf.size()) {
-			if (buf.size() >= kMaxProgramSize)
-				break;
-			buf.resize(std::min(buf.size() * 2, kMaxProgramSize));
-		}
-	}
-	std::string body(buf.data(), total_read);
-	return json::parse(body);
+    char buf[8192];
+    int req_bytes = mg_read(conn, buf, sizeof(buf));
+    std::string body(buf, req_bytes);
+    return json::parse(body);
 }
