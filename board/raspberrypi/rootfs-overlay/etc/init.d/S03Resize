@@ -1,0 +1,51 @@
+#!/bin/sh
+
+TARGET_DEV="/dev/mmcblk0"
+TARGET_PART="${TARGET_DEV}p2"
+PART_FLAG="/etc/.partition_resized"
+FS_FLAG="/etc/.filesystem_resized"
+
+case "$1" in
+    start)
+        # Phase 1: Resize the partition
+        if [ ! -f "$PART_FLAG" ]; then
+            echo "Resizing partition table..."
+            fdisk "$TARGET_DEV" <<EOF
+d
+2
+n
+p
+2
+65537
+
+w
+EOF
+            touch "$PART_FLAG"
+            sync
+            echo "Rebooting to apply new partition size..."
+            reboot -f
+        fi
+
+        # Phase 2: Resize the filesystem
+        if [ ! -f "$FS_FLAG" ]; then
+            echo "Expanding filesystem to fill partition..."
+            if command -v resize2fs >/dev/null; then
+                resize2fs "$TARGET_PART"
+                touch "$FS_FLAG"
+                echo "Filesystem expansion complete."
+            else
+                echo "ERROR: resize2fs not found!"
+            fi
+        fi
+        ;;
+    stop)
+        ;;
+    restart)
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0
