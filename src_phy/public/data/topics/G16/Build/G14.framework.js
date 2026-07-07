@@ -11659,7 +11659,7 @@ function unityFramework(Module) {
     function _glGetVertexAttribiv(index, pname, params) {
         emscriptenWebGLGetVertexAttrib(index, pname, params, 5);
     }
-        function _glInvalidateFramebuffer(target, numAttachments, attachments) {
+    function _glInvalidateFramebuffer(target, numAttachments, attachments) {
         // NO-OP
     }
     function _glIsEnabled(x0) {
