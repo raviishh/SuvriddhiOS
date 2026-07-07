@@ -71,7 +71,8 @@ void SendResponse(struct mg_connection *conn, const std::string &out)
 
 json GetJsonReq(struct mg_connection *conn)
 {
-    char buf[8192];
+	// TODO, make this bigger eventually.
+    char buf[4096];
     int req_bytes = mg_read(conn, buf, sizeof(buf));
     std::string body(buf, req_bytes);
     return json::parse(body);
