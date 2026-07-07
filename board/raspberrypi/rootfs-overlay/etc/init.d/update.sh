@@ -12,4 +12,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+pkill chromium
+pkill cage
+sleep 1
 reboot

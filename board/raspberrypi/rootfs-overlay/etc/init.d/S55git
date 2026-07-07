@@ -14,7 +14,7 @@ if [ -d /root/www_new ]; then
     if [ -d /root/www_new/etc/init.d ]; then
         mv -f /root/www_new/etc/init.d/* /etc/init.d/ 2>/dev/null
     fi
-    if [ -f /root/www_new/server]; then
+    if [ -f /root/www_new/server ]; then
         mv /root/www_new/server /root/server
     fi
     mv /root/www_new /root/www
