@@ -71,8 +71,9 @@ void SendResponse(struct mg_connection *conn, const std::string &out)
 
 json GetJsonReq(struct mg_connection *conn)
 {
-	std::vector<char> buf(16384);
-	int req_bytes = mg_read(conn, buf.data(), buf.size());
-	std::string body(buf.data(), req_bytes);
-	return json::parse(body);
+	// TODO, make this bigger eventually.
+    char buf[4096];
+    int req_bytes = mg_read(conn, buf, sizeof(buf));
+    std::string body(buf, req_bytes);
+    return json::parse(body);
 }
