@@ -53,7 +53,6 @@ function UnityPhysicsLesson({ contentFile }: { contentFile: string }) {
             <div style={{ height: "30px" }} />
             <Unity
                 unityProvider={unityProvider}
-                devicePixelRatio={1.5}
                 style={{
                     width: "720px",
                     aspectRatio: "16 / 9",
@@ -105,7 +104,6 @@ function UnityMathLesson({ levelId }: { levelId: string }) {
             <div style={{ height: "30px" }} />
             <Unity
                 unityProvider={unityProvider}
-                devicePixelRatio={1.5}
                 style={{
                     width: "720px",
                     aspectRatio: "16 / 9",
