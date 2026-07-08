@@ -6,7 +6,7 @@ using json = nlohmann::json;
 
 int handle_update(struct mg_connection *conn, void *)
 {
-	int exit_code = system("/etc/init.d/update.sh");
+	int exit_code = system("/etc/init.d/update.sh &");
 	std::string error = "";
 	switch (exit_code) {
 	case 1:
@@ -22,7 +22,7 @@ int handle_update(struct mg_connection *conn, void *)
 		error = "Failed to restart!";
 		break;
 	default:
-		error = "Unknown error! Please try again.";
+		error = "Update has successfully started! You may continue using suvriddhi OS and wait until the restart in ~10 minutes. If the restart doesn't happen, the system will update the next time SuvriddhiOS Reboots.";
 	}
 
 	json res = { { "error", error } };
