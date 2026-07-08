@@ -6,7 +6,7 @@ using json = nlohmann::json;
 
 int handle_update(struct mg_connection *conn, void *)
 {
-	int exit_code = system("/etc/init.d/update.sh &");
+	int exit_code = system("/etc/init.d/update.sh");
 	std::string error = "";
 	switch (exit_code) {
 	case 1:
