@@ -602,8 +602,16 @@
                 "type": "quiz",
                 "title": "Quiz: Error Handling Knowledge Check",
                 "contentFile": "topics_py/error_handling/quiz.html"
+                "id": "err_quiz",
+                "type": "quiz",
+                "title": "Quiz: Error Handling Knowledge Check",
+                "contentFile": "topics_py/error_handling/quiz.html"
             },
             {
+                "id": "err_project_contact_book_v2",
+                "type": "project",
+                "title": "Mini-Project: Upgrade Contact Book with File Persistence & Error Handling",
+                "contentFile": "topics_py/error_handling/project_contact_book_v2.html"
                 "id": "err_project_contact_book_v2",
                 "type": "project",
                 "title": "Mini-Project: Upgrade Contact Book with File Persistence & Error Handling",

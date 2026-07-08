@@ -1,94 +1,176 @@
 <div class="exercise-content">
-  <h2>Hello World Variants &amp; Variable Juggling</h2>
-  <p class="exercise-lead">Get comfortable with print() and variables by producing specific outputs.</p>
+    <h2>Hello World Variants &amp; Variable Juggling</h2>
+    <p class="exercise-lead">
+        Get comfortable with print() and variables by producing specific
+        outputs.
+    </p>
 
-  <section class="exercise-task" id="hw_1">
-  <h3>Part 1 — Hello, World! </h3>
-  <p class="task-background">The print() function outputs text to the console. Pass it a string — text wrapped in quotes — and Python displays it.</p>
-  <pre class="code-block"><code>print(&quot;Hello, World!&quot;)</code></pre>
-  <div class="code-output-label">Output:</div><pre class="code-output"><code>Hello, World!</code></pre>
-  <div class="task-instructions"><h4>What to do</h4><ul>
-  <li>Print exactly: Hello, World!</li>
-  <li>Print exactly: I am learning Python.</li>
-</ul></div>
-  <div class="task-warnings">
-  <h4>Watch out for</h4>
-  <ul>
-  <li>The checker is case-sensitive and whitespace-sensitive.</li>
-  <li>Do not add extra blank lines between the two print() calls — they won&#39;t affect output, but get into the habit of clean code.</li>
-</ul>
-</div>
-  <details class="task-hints">
-  <summary>Hints (4)</summary>
-  <ul>
-  <li>Call print() once for each line — each call starts a new line automatically.</li>
-  <li>Watch capitalisation and punctuation — commas, exclamation marks, and periods all count.</li>
-  <li>Strings can use single quotes or double quotes interchangeably: print(&#39;Hello&#39;) and print(&quot;Hello&quot;) both work.</li>
-  <li>If you see a SyntaxError, check that every opening quote has a matching closing quote.</li>
-</ul>
-</details>
-</section>
+    <section class="exercise-task" id="hw_1">
+        <h3>Part 1 — Hello, World!</h3>
+        <p class="task-background">
+            The print() function outputs text to the console. Pass it a string —
+            text wrapped in quotes — and Python displays it.
+        </p>
+        <pre
+            class="code-block"
+        ><code>print(&quot;Hello, World!&quot;)</code></pre>
+        <div class="code-output-label">Output:</div>
+        <pre class="code-output"><code>Hello, World!</code></pre>
+        <div class="task-instructions">
+            <h4>What to do</h4>
+            <ul>
+                <li>Print exactly: Hello, World!</li>
+                <li>Print exactly: I am learning Python.</li>
+            </ul>
+        </div>
+        <div class="task-warnings">
+            <h4>Watch out for</h4>
+            <ul>
+                <li>The checker is case-sensitive and whitespace-sensitive.</li>
+                <li>
+                    Do not add extra blank lines between the two print() calls —
+                    they won&#39;t affect output, but get into the habit of
+                    clean code.
+                </li>
+            </ul>
+        </div>
+        <details class="task-hints">
+            <summary>Hints (4)</summary>
+            <ul>
+                <li>
+                    Call print() once for each line — each call starts a new
+                    line automatically.
+                </li>
+                <li>
+                    Watch capitalisation and punctuation — commas, exclamation
+                    marks, and periods all count.
+                </li>
+                <li>
+                    Strings can use single quotes or double quotes
+                    interchangeably: print(&#39;Hello&#39;) and
+                    print(&quot;Hello&quot;) both work.
+                </li>
+                <li>
+                    If you see a SyntaxError, check that every opening quote has
+                    a matching closing quote.
+                </li>
+            </ul>
+        </details>
+    </section>
 
-<section class="exercise-task" id="hw_2">
-  <h3>Part 2 — Variable Juggling </h3>
-  <p class="task-background">Variables store values. You can reassign a variable to a new value at any point, and Python will use the latest value.</p>
-  <pre class="code-block"><code>x = 10
+    <section class="exercise-task" id="hw_2">
+        <h3>Part 2 — Variable Juggling</h3>
+        <p class="task-background">
+            Variables store values. You can reassign a variable to a new value
+            at any point, and Python will use the latest value.
+        </p>
+        <pre class="code-block"><code>x = 10
 x = 20
 print(x)</code></pre>
-  <div class="code-output-label">Output:</div><pre class="code-output"><code>20</code></pre>
-  <div class="task-instructions"><h4>What to do</h4><ul>
-  <li>Create a variable called language and set it to &quot;Python&quot;.</li>
-  <li>Create a variable called version and set it to 3.</li>
-  <li>Print: I love Python 3</li>
-  <li>Then reassign version to 4.</li>
-  <li>Print: I love Python 4</li>
-</ul></div>
-  <div class="task-warnings">
-  <h4>Watch out for</h4>
-  <ul>
-  <li>No extra spaces or punctuation — match the expected output exactly.</li>
-  <li>version is an integer (3), not a string (&quot;3&quot;) — f-strings handle the conversion for you automatically.</li>
-</ul>
-</div>
-  <details class="task-hints">
-  <summary>Hints (4)</summary>
-  <ul>
-  <li>Use an f-string: f&quot;I love {language} {version}&quot;</li>
-  <li>Reassign version = 4 before the second print.</li>
-  <li>f-strings evaluate the variable at the moment print() is called — so reassigning version before the second print will automatically give you the new value.</li>
-  <li>You only need to define language once; only version changes.</li>
-</ul>
-</details>
-</section>
+        <div class="code-output-label">Output:</div>
+        <pre class="code-output"><code>20</code></pre>
+        <div class="task-instructions">
+            <h4>What to do</h4>
+            <ul>
+                <li>
+                    Create a variable called language and set it to
+                    &quot;Python&quot;.
+                </li>
+                <li>Create a variable called version and set it to 3.</li>
+                <li>Print: I love Python 3</li>
+                <li>Then reassign version to 4.</li>
+                <li>Print: I love Python 4</li>
+            </ul>
+        </div>
+        <div class="task-warnings">
+            <h4>Watch out for</h4>
+            <ul>
+                <li>
+                    No extra spaces or punctuation — match the expected output
+                    exactly.
+                </li>
+                <li>
+                    version is an integer (3), not a string (&quot;3&quot;) —
+                    f-strings handle the conversion for you automatically.
+                </li>
+            </ul>
+        </div>
+        <details class="task-hints">
+            <summary>Hints (4)</summary>
+            <ul>
+                <li>
+                    Use an f-string: f&quot;I love {language} {version}&quot;
+                </li>
+                <li>Reassign version = 4 before the second print.</li>
+                <li>
+                    f-strings evaluate the variable at the moment print() is
+                    called — so reassigning version before the second print will
+                    automatically give you the new value.
+                </li>
+                <li>
+                    You only need to define language once; only version changes.
+                </li>
+            </ul>
+        </details>
+    </section>
 
-<section class="exercise-task" id="hw_stretch">
-  <h3>Stretch — Multi-Variable Swap <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
-  <p class="task-background">Python allows you to swap two variables in a single line using tuple unpacking: a, b = b, a. No temporary variable needed.</p>
-  <pre class="code-block"><code>a = &#39;hello&#39;
+    <section class="exercise-task" id="hw_stretch">
+        <h3>
+            Stretch — Multi-Variable Swap
+            <span class="difficulty-badge difficulty-stretch">stretch</span>
+        </h3>
+        <p class="task-background">
+            Python allows you to swap two variables in a single line using tuple
+            unpacking: a, b = b, a. No temporary variable needed.
+        </p>
+        <pre class="code-block"><code>a = &#39;hello&#39;
 b = &#39;world&#39;
 a, b = b, a
 print(a, b)  # world hello</code></pre>
-  <div class="code-output-label">Output:</div><pre class="code-output"><code>world hello</code></pre>
-  <div class="task-instructions"><h4>What to do</h4><ul>
-  <li>Create three variables: first = &#39;alpha&#39;, second = &#39;beta&#39;, third = &#39;gamma&#39;.</li>
-  <li>Using only one line of code (tuple unpacking), rotate them so first gets second&#39;s value, second gets third&#39;s value, and third gets first&#39;s value.</li>
-  <li>Print all three on one line separated by spaces.</li>
-  <li>Expected output: beta gamma alpha</li>
-</ul></div>
-  <div class="task-warnings">
-  <h4>Watch out for</h4>
-  <ul>
-  <li>Do not use a temporary variable — the point is to do it in one assignment line.</li>
-  <li>Order matters: first, second, third = second, third, first is correct; reversing the order gives a different rotation.</li>
-</ul>
-</div>
-  <details class="task-hints">
-  <summary>Hints (3)</summary>
-  <ul>
-  <li>Tuple unpacking: first, second, third = second, third, first</li>
-  <li>The right-hand side is evaluated completely before any assignment happens — Python captures the original values first.</li>
-  <li>This is a three-way rotation, not a two-way swap.</li>
-</ul>
-</details>
-</section>
+        <div class="code-output-label">Output:</div>
+        <pre class="code-output"><code>world hello</code></pre>
+        <div class="task-instructions">
+            <h4>What to do</h4>
+            <ul>
+                <li>
+                    Create three variables: first = &#39;alpha&#39;, second =
+                    &#39;beta&#39;, third = &#39;gamma&#39;.
+                </li>
+                <li>
+                    Using only one line of code (tuple unpacking), rotate them
+                    so first gets second&#39;s value, second gets third&#39;s
+                    value, and third gets first&#39;s value.
+                </li>
+                <li>Print all three on one line separated by spaces.</li>
+                <li>Expected output: beta gamma alpha</li>
+            </ul>
+        </div>
+        <div class="task-warnings">
+            <h4>Watch out for</h4>
+            <ul>
+                <li>
+                    Do not use a temporary variable — the point is to do it in
+                    one assignment line.
+                </li>
+                <li>
+                    Order matters: first, second, third = second, third, first
+                    is correct; reversing the order gives a different rotation.
+                </li>
+            </ul>
+        </div>
+        <details class="task-hints">
+            <summary>Hints (3)</summary>
+            <ul>
+                <li>
+                    Tuple unpacking: first, second, third = second, third, first
+                </li>
+                <li>
+                    The right-hand side is evaluated completely before any
+                    assignment happens — Python captures the original values
+                    first.
+                </li>
+                <li>This is a three-way rotation, not a two-way swap.</li>
+            </ul>
+        </details>
+    </section>
 </div>
