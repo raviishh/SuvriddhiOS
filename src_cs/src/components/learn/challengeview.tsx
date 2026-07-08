@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { ExerciseItem } from "../../types/learningitems";
+import type { ChallengeItem } from "../../types/learningitems";
 import { useStore } from "../../store/useStore";
 import OutputFeedback from "../common/outputfeedback";
 
@@ -9,7 +9,7 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/ext-language_tools";
 
-interface ExerciseData {
+interface ChallengeData {
     id: string;
     title: string;
     lead: string;
@@ -28,24 +28,25 @@ interface ExerciseData {
 }
 
 interface Props {
-    item: ExerciseItem;
-    exercise: ExerciseData;
+    item: ChallengeItem;
+    challenge: ChallengeData;
     onMarkComplete: () => void;
 }
 
-export default function ExerciseView({
+export default function ChallengeView({
     item,
-    exercise,
+    challenge,
     onMarkComplete,
 }: Props) {
-    const { language, getDraftForExercise, saveDraftForExercise } = useStore();
+    const { language, getDraftForChallenge, saveDraftForChallenge } =
+        useStore();
 
-    const task = exercise.tasks[0];
+    const task = challenge.tasks[0];
 
     const descriptionHtml = useMemo(
         () => `
-        <h1>${exercise.title}</h1>
-        <p>${exercise.lead}</p>
+        <h1>${challenge.title}</h1>
+        <p>${challenge.lead}</p>
 
         <h2>${task.title}</h2>
         <p>${task.background}</p>
@@ -73,10 +74,10 @@ export default function ExerciseView({
             ${task.warnings.map((i) => `<li>${i}</li>`).join("")}
         </ul>
     `,
-        [exercise],
+        [challenge],
     );
 
-    const [code, setCode] = useState(exercise.starterCode);
+    const [code, setCode] = useState(challenge.starterCode);
     const [output, setOutput] = useState<string | null>(null);
     const [running, setRunning] = useState(false);
     const [draftLoaded, setDraftLoaded] = useState(false);
@@ -85,20 +86,20 @@ export default function ExerciseView({
     const editorRef = useRef<AceEditor>(null);
 
     useEffect(() => {
-        const draft = getDraftForExercise(item.id);
+        const draft = getDraftForChallenge(item.id);
 
         if (draft) {
             setCode(draft);
         } else {
-            setCode(exercise.starterCode);
+            setCode(challenge.starterCode);
         }
 
         setDraftLoaded(true);
-    }, [item.id, exercise]);
+    }, [item.id, challenge]);
 
     useEffect(() => {
         if (draftLoaded) {
-            saveDraftForExercise(item.id, code);
+            saveDraftForChallenge(item.id, code);
         }
     }, [code, draftLoaded]);
 
@@ -217,7 +218,7 @@ export default function ExerciseView({
                     </button>
 
                     <button
-                        onClick={() => setCode(exercise.starterCode)}
+                        onClick={() => setCode(challenge.starterCode)}
                         className="px-4 py-2 border rounded"
                     >
                         Reset

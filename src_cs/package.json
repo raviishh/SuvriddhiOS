@@ -7,7 +7,9 @@
         "dev": "vite",
         "build": "vite build",
         "lint": "eslint .",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "generate:exercises": "node scripts/generate_exercises.cjs --topics public/data/learn/topics_py.json --exercises public/data/learn/exercises.json --outDir public/data/learn --topicsOut public/data/learn/topics_py.json",
+        "generate:challenges": "node scripts/generate_challenges.cjs --topics public/data/learn/topics_py.json --challenges public/data/learn/challenges.json --outDir public/data/learn --topicsOut public/data/learn/topics_py.json"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.15",

@@ -1,0 +1,71 @@
+<div class="exercise-content">
+  <h2>Inheritance Hierarchy Design</h2>
+  <p class="exercise-lead">Build a shape hierarchy using inheritance and method overriding.</p>
+
+  <section class="exercise-task" id="inh_1">
+  <h3>Part 1 — Circle and Rectangle </h3>
+  <p class="task-background">A subclass inherits all methods from its parent. Override a method by redefining it in the subclass.</p>
+  <pre class="code-block"><code>class Animal:
+    def speak(self):
+        return &quot;...&quot;
+
+class Dog(Animal):
+    def speak(self):
+        return &quot;Woof!&quot;
+
+print(Dog().speak())  # Woof!</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Woof!</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create Circle(Shape) with radius, overriding area() to return math.pi * radius ** 2.</li>
+  <li>Create Rectangle(Shape) with width and height, overriding area() to return width * height.</li>
+  <li>Print describe() for Circle(5) and Rectangle(4, 6).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>area is formatted to 2 decimal places inside describe() — do not reformat it.</li>
+  <li>Do not override describe() — the whole point is that it is inherited and still works correctly.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>class Circle(Shape): def __init__(self, radius): self.radius = radius</li>
+  <li>def area(self): return math.pi * self.radius ** 2</li>
+  <li>describe() is already defined on Shape — you get it for free.</li>
+  <li>type(self).__name__ returns the class name as a string — &#39;Circle&#39; or &#39;Rectangle&#39;.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="inh_stretch">
+  <h3>Stretch — Triangle and Polymorphic Area Sum <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Polymorphism lets you treat objects of different subclasses uniformly. A list of Shapes can be iterated and area() called on each without knowing the specific type.</p>
+  <pre class="code-block"><code># Heron&#39;s formula for triangle area:
+# s = (a + b + c) / 2
+# area = math.sqrt(s * (s-a) * (s-b) * (s-c))</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create Triangle(Shape) with sides a, b, c, implementing area() using Heron&#39;s formula.</li>
+  <li>Create a list of shapes: [Circle(3), Rectangle(4, 5), Triangle(3, 4, 5)].</li>
+  <li>Print describe() for each.</li>
+  <li>Print the total area of all shapes, rounded to 2 decimal places: &#39;Total area: [value]&#39;.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>round(total, 2) may show 54.27 — floating-point arithmetic; use round() rather than :.2f for the total to get an exact value for the checker.</li>
+  <li>Do not hard-code the total — compute it by summing the areas.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>s = (a + b + c) / 2; return math.sqrt(s * (s-a) * (s-b) * (s-c))</li>
+  <li>Total: sum(s.area() for s in shapes)</li>
+  <li>f&quot;Total area: {round(total, 2)}&quot; formats the final line.</li>
+  <li>A 3-4-5 triangle has area 6.0 — you can verify this manually.</li>
+</ul>
+</details>
+</section>
+</div>

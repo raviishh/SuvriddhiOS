@@ -1,0 +1,75 @@
+<div class="exercise-content">
+  <h2>Memory Footprint Comparison</h2>
+  <p class="exercise-lead">Compare memory usage of lists vs generators using sys.getsizeof.</p>
+
+  <section class="exercise-task" id="mem_1">
+  <h3>List vs Generator Memory </h3>
+  <p class="task-background">A list materialises all values in memory. A generator produces values lazily — it only holds state, not data. For large sequences the difference is dramatic.</p>
+  <pre class="code-block"><code>import sys
+
+my_list = [x for x in range(1000)]
+my_gen = (x for x in range(1000))
+
+print(sys.getsizeof(my_list))  # ~8856
+print(sys.getsizeof(my_gen))   # ~104</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>8856
+104</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create a list comprehension for range(1_000_000) and a generator expression for the same.</li>
+  <li>Print the size of each using sys.getsizeof.</li>
+  <li>Print which one is larger: &#39;List is larger&#39; or &#39;Generator is larger&#39;.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The generator object is tiny (around 104–120 bytes) regardless of range size — it stores only a reference to the iterator state.</li>
+  <li>Do not consume the generator before measuring — iterating it changes its state.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>my_list = [x for x in range(1_000_000)]</li>
+  <li>my_gen = (x for x in range(1_000_000))</li>
+  <li>Compare sys.getsizeof(my_list) &gt; sys.getsizeof(my_gen)</li>
+  <li>sys.getsizeof only measures the container itself, not the objects inside — for a list of ints the container alone is already ~8MB.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="mem_stretch">
+  <h3>Stretch — Chunked Processing <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">When data is too large to fit in memory, process it in chunks using a generator. This keeps memory usage constant regardless of total data size.</p>
+  <pre class="code-block"><code>def chunked(iterable, size):
+    chunk = []
+    for item in iterable:
+        chunk.append(item)
+        if len(chunk) == size:
+            yield chunk
+            chunk = []
+    if chunk:
+        yield chunk</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Implement chunked(iterable, size) as shown above.</li>
+  <li>Use it to process range(1, 16) in chunks of 4, printing each chunk.</li>
+  <li>Then compute the sum of each chunk and print a running total after each chunk.</li>
+  <li>Final running total should be 120.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>range(1, 16) includes 15 — you should see a final chunk of [13, 14, 15].</li>
+  <li>Print each chunk before adding to the running total — order matters.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>The last chunk may be smaller than size — the if chunk: yield chunk handles it.</li>
+  <li>running_total = 0; for chunk in chunked(range(1,16), 4): print(chunk); running_total += sum(chunk)</li>
+  <li>After the loop: print(running_total)</li>
+</ul>
+</details>
+</section>
+</div>

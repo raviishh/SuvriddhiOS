@@ -1,0 +1,106 @@
+<div class="exercise-content">
+  <h2>Dunder Method Implementation Drills</h2>
+  <p class="exercise-lead">Make custom classes behave like built-in types by implementing __str__, __len__, __add__, and __eq__.</p>
+
+  <section class="exercise-task" id="dunder_1">
+  <h3>Part 1 — __str__ and __repr__ </h3>
+  <p class="task-background">__str__ controls what print() shows. __repr__ is for developers (shown in the REPL and repr()).</p>
+  <pre class="code-block"><code>class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f&quot;Point({self.x}, {self.y})&quot;
+
+print(Point(3, 4))  # Point(3, 4)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Point(3, 4)</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Add __str__ to Vector so print(Vector(1, 2)) outputs: Vector(1, 2)</li>
+  <li>Add __repr__ so repr(Vector(1, 2)) outputs: Vector(x=1, y=2)</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The formats differ: __str__ uses Vector(1, 2) and __repr__ uses Vector(x=1, y=2) — do not mix them up.</li>
+  <li>print(v) calls __str__; print(repr(v)) calls __repr__ then prints the resulting string.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>def __str__(self): return f&#39;Vector({self.x}, {self.y})&#39;</li>
+  <li>def __repr__(self): return f&#39;Vector(x={self.x}, y={self.y})&#39;</li>
+  <li>If __str__ is not defined, Python falls back to __repr__ — define both explicitly here.</li>
+  <li>print() calls __str__; repr() calls __repr__.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="dunder_2">
+  <h3>Part 2 — __add__ and __eq__ </h3>
+  <p class="task-background">__add__ lets you use + between instances. __eq__ lets you use ==.</p>
+  <pre class="code-block"><code>class Money:
+    def __add__(self, other):
+        return Money(self.amount + other.amount)
+
+    def __eq__(self, other):
+        return self.amount == other.amount</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Add __add__ to Vector so Vector(1,2) + Vector(3,4) returns Vector(4,6).</li>
+  <li>Add __eq__ so Vector(1,2) == Vector(1,2) returns True.</li>
+  <li>Print Vector(1,2) + Vector(3,4) and print(Vector(1,2) == Vector(1,2)).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Vector(4, 6) is printed using __str__ — make sure Part 1&#39;s __str__ is still present.</li>
+  <li>__eq__ should return True or False — do not return 1 or 0.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>def __add__(self, other): return Vector(self.x + other.x, self.y + other.y)</li>
+  <li>def __eq__(self, other): return self.x == other.x and self.y == other.y</li>
+  <li>__add__ must return a new Vector — do not modify self in place.</li>
+  <li>print(Vector(1,2) + Vector(3,4)) calls __add__ then __str__ on the result.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="dunder_stretch">
+  <h3>Stretch — Full Vector Arithmetic <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A complete Vector class also supports subtraction, scalar multiplication, magnitude, and hashing. Implementing __hash__ alongside __eq__ makes Vectors usable in sets and dict keys.</p>
+  <pre class="code-block"><code>import math
+# magnitude = math.sqrt(x**2 + y**2)
+# __mul__ for scalar: Vector(1,2) * 3 → Vector(3,6)
+# __rmul__ for reverse: 3 * Vector(1,2) → same result</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Add __sub__: Vector(5,6) - Vector(1,2) → Vector(4,4).</li>
+  <li>Add __mul__(self, scalar) and __rmul__(self, scalar) for scalar multiplication.</li>
+  <li>Add magnitude(self) that returns math.sqrt(x**2 + y**2), rounded to 4 decimal places.</li>
+  <li>Add __hash__ so Vectors can be used in sets: return hash((self.x, self.y)).</li>
+  <li>Demonstrate: print subtraction, scalar multiply, magnitude, and that {Vector(1,2), Vector(1,2)} has length 1.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>If __eq__ is defined without __hash__, Python sets __hash__ to None — making the object unhashable. Always define both together.</li>
+  <li>magnitude of Vector(1,2) = sqrt(5) ≈ 2.2361 — use round(..., 4).</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (5)</summary>
+  <ul>
+  <li>__sub__: return Vector(self.x - other.x, self.y - other.y)</li>
+  <li>__mul__(self, scalar): return Vector(self.x * scalar, self.y * scalar)</li>
+  <li>__rmul__ = __mul__ is valid — assign it directly on the class.</li>
+  <li>__hash__: return hash((self.x, self.y)) — tuples are hashable.</li>
+  <li>len({Vector(1,2), Vector(1,2)}) relies on both __eq__ and __hash__ being consistent.</li>
+</ul>
+</details>
+</section>
+</div>

@@ -1,0 +1,130 @@
+<div class="exercise-content">
+  <h2>Loop Logic Puzzles</h2>
+  <p class="exercise-lead">Master break, continue, and nested loops through targeted puzzles.</p>
+
+  <section class="exercise-task" id="loop_1">
+  <h3>Part 1 — First Even over 10 </h3>
+  <p class="task-background">break exits a loop immediately. Use it to stop as soon as you find what you&#39;re looking for.</p>
+  <pre class="code-block"><code>for n in range(100):
+    if n &gt; 50:
+        break
+print(&quot;Stopped at:&quot;, n)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Stopped at: 51</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Loop through numbers starting at 1.</li>
+  <li>Find and print the first number greater than 10 that is also even.</li>
+  <li>Stop the loop immediately after printing it.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Print only the number, nothing else.</li>
+  <li>The break must come after the print — otherwise you stop before outputting anything.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use a while loop or for loop with range().</li>
+  <li>Check n &gt; 10 and n % 2 == 0.</li>
+  <li>Put print() before break so the value is displayed before the loop exits.</li>
+  <li>range(1, 100) is wide enough — you only need to reach 12.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="loop_2">
+  <h3>Part 2 — Skip Multiples of 3 </h3>
+  <p class="task-background">continue skips the rest of the current loop body and jumps to the next iteration.</p>
+  <pre class="code-block"><code>for n in range(1, 6):
+    if n == 3:
+        continue
+    print(n)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>1
+2
+4
+5</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Print all numbers from 1 to 15, skipping any multiple of 3.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>range(1, 16) includes 15, which is a multiple of 3 — it should be skipped.</li>
+  <li>Numbers 3, 6, 9, 12, 15 should not appear in the output.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>Use continue inside the loop when n % 3 == 0.</li>
+  <li>continue does not exit the loop — it just skips to the next number.</li>
+  <li>An alternative: use an if statement that only prints when n % 3 != 0 — both approaches are valid.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="loop_3">
+  <h3>Part 3 — Multiplication Table </h3>
+  <p class="task-background">Nested loops let you iterate over two dimensions. The outer loop controls the row, the inner loop controls the column.</p>
+  <pre class="code-block"><code>for i in range(1, 3):
+    for j in range(1, 3):
+        print(i * j, end=&quot; &quot;)
+    print()</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>1 2 
+2 4 </code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Print the multiplication table for 3 and 4 (rows) × 1 to 5 (columns).</li>
+  <li>Each row on its own line, values separated by spaces.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>There is a trailing space after the last number on each row — match it exactly.</li>
+  <li>for i in [3, 4] is cleaner than range(3, 5) here — use whichever is clearer to you.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Outer loop: for i in [3, 4]</li>
+  <li>Inner loop: for j in range(1, 6)</li>
+  <li>print(i * j, end=&quot; &quot;) then print() at the end of each row.</li>
+  <li>print() with no arguments outputs a newline — it resets the cursor to the next line after each row.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="loop_stretch">
+  <h3>Stretch — Spiral Number Grid <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Nested loops can generate 2D grids. Combined with string formatting, you can produce aligned tabular output.</p>
+  <pre class="code-block"><code># Target for a 4×4 grid starting at 1:
+#  1  2  3  4
+#  5  6  7  8
+#  9 10 11 12
+# 13 14 15 16</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Print an N×N grid of numbers starting at 1, filling left-to-right, top-to-bottom.</li>
+  <li>Use N = 4.</li>
+  <li>Right-align each number in a field wide enough for N*N (e.g. 2 characters for N=4).</li>
+  <li>Separate columns with a single space.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Right-alignment means numbers line up on the right — &#39; 1&#39; not &#39;1 &#39;.</li>
+  <li>Columns are separated by a single space — do not add extra padding between columns.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>width = len(str(N * N)) gives the correct field width.</li>
+  <li>Use f&quot;{num:{width}}&quot; to right-align a number in a field of width characters.</li>
+  <li>Build each row as a list of formatted strings, then &#39; &#39;.join() them.</li>
+  <li>Outer loop: row in range(N), inner loop: col in range(N), num = row * N + col + 1</li>
+</ul>
+</details>
+</section>
+</div>

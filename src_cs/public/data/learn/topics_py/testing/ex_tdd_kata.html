@@ -1,0 +1,69 @@
+<div class="exercise-content">
+  <h2>TDD Kata — Red → Green → Refactor</h2>
+  <p class="exercise-lead">Write the test first, watch it fail, then write the minimum code to pass.</p>
+
+  <section class="exercise-task" id="tdd_1">
+  <h3>String Calculator Kata </h3>
+  <p class="task-background">TDD cycle: write a failing test (Red), make it pass with minimal code (Green), then improve the code (Refactor).</p>
+  <pre class="code-block"><code># Red
+def test_add_empty_string():
+    assert add(&quot;&quot;) == 0
+
+# Green (minimal)
+def add(s):
+    return 0</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Implement add(s) that: returns 0 for empty string, returns the number for a single number string (&#39;5&#39; → 5), returns the sum for comma-separated numbers (&#39;1,2,3&#39; → 6).</li>
+  <li>Write a test for each case before implementing it.</li>
+  <li>All tests must pass.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Write each test before writing the implementation code — that&#39;s the kata discipline.</li>
+  <li>s.split(&#39;,&#39;) on an empty string gives [&#39;&#39;] — handle the empty string case before splitting.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>For empty string: return 0</li>
+  <li>For non-empty: return sum(int(n) for n in s.split(&#39;,&#39;))</li>
+  <li>The single-number case is automatically handled by split(&#39;,&#39;) — &#39;5&#39;.split(&#39;,&#39;) gives [&#39;5&#39;].</li>
+  <li>Follow the TDD cycle strictly: write test → see it fail → write code → see it pass.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="tdd_stretch">
+  <h3>Stretch — Extend the Kata: Newline Delimiter <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">TDD encourages incrementally extending behaviour. Each new rule gets a test first.</p>
+  <pre class="code-block"><code># New rules:
+# &#39;1\n2,3&#39; → 6  (newlines are also valid delimiters)
+# &#39;//;\n1;2;3&#39; → 6  (custom delimiter specified in first line)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Extend add(s) to support newlines as an additional delimiter alongside commas.</li>
+  <li>Further extend it to support a custom delimiter: if s starts with &#39;//&#39;, the next character is the delimiter and numbers follow after a newline.</li>
+  <li>Write a test for each new case before implementing it.</li>
+  <li>All tests (original 3 + at least 2 new) must pass.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The custom delimiter line (&#39;//;&#39;) must be stripped before processing the numbers.</li>
+  <li>Test &#39;1\n2,3&#39; (should give 6) and &#39;//;\n1;2&#39; (should give 3) before implementing them.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>For newline support: replace newlines with commas before splitting: s.replace(&#39;\n&#39;, &#39;,&#39;)</li>
+  <li>For custom delimiter: if s.startswith(&#39;//&#39;): delimiter = s[2]; s = s[s.index(&#39;\n&#39;)+1:]</li>
+  <li>Then split on the delimiter and sum.</li>
+  <li>re.split(r&#39;[,\n]&#39;, s) handles both delimiters in one call.</li>
+</ul>
+</details>
+</section>
+</div>

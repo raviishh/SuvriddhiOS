@@ -1,0 +1,92 @@
+<div class="exercise-content">
+  <h2>List &amp; Dict Comprehension Drills</h2>
+  <p class="exercise-lead">Rewrite loops as comprehensions and gain fluency with filtering.</p>
+
+  <section class="exercise-task" id="comp_1">
+  <h3>Part 1 — List Comprehensions </h3>
+  <p class="task-background">[expr for item in iterable if condition] creates a new list. The if part is optional.</p>
+  <pre class="code-block"><code>squares = [x**2 for x in range(1, 6)]
+print(squares)  # [1, 4, 9, 16, 25]</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>[1, 4, 9, 16, 25]</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using numbers (1–20), create and print a list of all even numbers.</li>
+  <li>Create and print a list of squares of odd numbers only.</li>
+  <li>Create and print a list of strings: [&#39;1 is odd&#39;, &#39;2 is even&#39;, ...] for 1–5.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The third list uses range(1, 6), not all of numbers — read the instructions carefully.</li>
+  <li>Ternary syntax: value_if_true if condition else value_if_false — the condition sits in the middle.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Even: [n for n in numbers if n % 2 == 0]</li>
+  <li>Odd squares: [n**2 for n in numbers if n % 2 != 0]</li>
+  <li>Use a ternary in the expression: f&quot;{n} is {&#39;even&#39; if n % 2 == 0 else &#39;odd&#39;}&quot;</li>
+  <li>For the string list use range(1, 6) directly — numbers goes up to 20 but you only need 1–5 here.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="comp_2">
+  <h3>Part 2 — Dict Comprehensions </h3>
+  <p class="task-background">{key: value for item in iterable} builds a dictionary in one expression.</p>
+  <pre class="code-block"><code>words = [&quot;cat&quot;, &quot;dog&quot;, &quot;elephant&quot;]
+lengths = {w: len(w) for w in words}
+print(lengths)  # {&#39;cat&#39;: 3, &#39;dog&#39;: 3, &#39;elephant&#39;: 8}</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>{&#39;cat&#39;: 3, &#39;dog&#39;: 3, &#39;elephant&#39;: 8}</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create a dict mapping each number 1–5 to its cube.</li>
+  <li>Print the dict.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Dicts maintain insertion order in Python 3.7+ — print output should match the expected order.</li>
+  <li>range(1, 6) gives 1, 2, 3, 4, 5 — range(1, 5) would stop at 4.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>{n: n**3 for n in range(1, 6)}</li>
+  <li>n**3 is n cubed: 2**3 = 8, 3**3 = 27.</li>
+  <li>Dict comprehensions are identical in structure to list comprehensions but use {} and have a key: value expression.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="comp_stretch">
+  <h3>Stretch — Nested Comprehension Matrix <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Comprehensions can be nested. A list comprehension whose expression is itself a list comprehension produces a 2D structure.</p>
+  <pre class="code-block"><code># 3×3 identity matrix via nested comprehension:
+# [[1 if i == j else 0 for j in range(3)] for i in range(3)]
+# → [[1,0,0],[0,1,0],[0,0,1]]</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using a single nested list comprehension (no for loops), create a 5×5 multiplication table as a list of lists.</li>
+  <li>table[i][j] should equal (i+1) * (j+1) for i, j in 0..4.</li>
+  <li>Print each row on its own line.</li>
+  <li>First row: [1, 2, 3, 4, 5]; last row: [5, 10, 15, 20, 25].</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The outer comprehension produces the rows; the inner produces the columns — keep the order consistent.</li>
+  <li>table[0][0] should be 1 (1×1), table[4][4] should be 25 (5×5).</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Outer comprehension: [... for i in range(5)]</li>
+  <li>Inner comprehension: [(i+1)*(j+1) for j in range(5)]</li>
+  <li>Combined: [[(i+1)*(j+1) for j in range(5)] for i in range(5)]</li>
+  <li>To print each row: for row in table: print(row)</li>
+</ul>
+</details>
+</section>
+</div>

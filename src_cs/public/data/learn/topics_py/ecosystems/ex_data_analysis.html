@@ -1,0 +1,96 @@
+<div class="exercise-content">
+  <h2>Data Analysis on a Sample Dataset</h2>
+  <p class="exercise-lead">Use pandas-style thinking (and pandas itself, if available) to explore, clean, and summarise tabular data.</p>
+
+  <section class="exercise-task" id="data_1">
+  <h3>Part 1 — Group-By Aggregation </h3>
+  <p class="task-background">pandas.DataFrame(data).groupby(&#39;dept&#39;)[&#39;salary&#39;].mean() computes the average salary per department. The same result can be built manually with a dict of running sums and counts.</p>
+  <pre class="code-block"><code>import pandas as pd
+df = pd.DataFrame(data)
+print(df.groupby(&quot;dept&quot;)[&quot;salary&quot;].mean())</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>dept
+Engineering    99333.333333
+Sales          60000.000000
+Name: salary, dtype: float64</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using data above, compute the average salary per department.</li>
+  <li>Print each department and its average salary rounded to 2 decimal places, sorted alphabetically by department name, one per line as &#39;dept: average&#39;.</li>
+  <li>Print the department with the highest average salary.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>60000.0 prints with a trailing .0 since it&#39;s a float average — don&#39;t convert it to an int.</li>
+  <li>Sort departments alphabetically for the printed lines, but the final &#39;highest average&#39; line is not sorted — it&#39;s just the single winning department name.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>If using pandas: df.groupby(&#39;dept&#39;)[&#39;salary&#39;].mean().round(2)</li>
+  <li>Without pandas: build a dict of {dept: [salaries]} using setdefault, then compute averages manually.</li>
+  <li>(95000 + 105000 + 98000) / 3 = 99333.333... which rounds to 99333.33.</li>
+  <li>Compare the computed averages to find the department with the highest mean.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="data_2">
+  <h3>Part 2 — Handling Missing and Outlier Values </h3>
+  <p class="task-background">Real datasets have gaps. A common cleaning step is dropping or imputing missing values before aggregating, so they don&#39;t silently skew results.</p>
+  <pre class="code-block"><code>raw = [10, None, 20, 15, None, 1000]
+cleaned = [x for x in raw if x is not None]
+print(cleaned)  # [10, 20, 15, 1000]</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>[10, 20, 15, 1000]</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Given scores = [88, 92, None, 79, 45, None, 91, 500], first remove all None values.</li>
+  <li>Then remove outliers: any value more than 2x the median of the cleaned list (this correctly flags 500 as an outlier given the other values).</li>
+  <li>Print the final cleaned list (order preserved).</li>
+  <li>Print the mean of the final cleaned list, rounded to 2 decimal places.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Compute the median BEFORE removing outliers (using the None-free list), not after — the outlier threshold must be based on the original spread of legitimate values.</li>
+  <li>The final list must preserve the ORIGINAL order from scores (minus the removed None and the outlier), not the sorted order used internally to compute the median.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>First pass: no_none = [x for x in scores if x is not None] → [88, 92, 79, 45, 91, 500]</li>
+  <li>Compute the median of no_none using sorted values and picking the middle (or averaging the two middle values for an even-length list).</li>
+  <li>Filter: [x for x in no_none if x &lt;= 2 * median]</li>
+  <li>sorted([88, 92, 79, 45, 91, 500]) = [45, 79, 88, 91, 92, 500], median of 6 items = (79+91)/2? No — length 6, so median = average of the 3rd and 4th sorted values: (88+91)/2 = 89.5, and 2*89.5 = 179, correctly excluding 500.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="data_stretch">
+  <h3>Stretch — Pivot-Style Cross-Tabulation <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A pivot table cross-tabulates two categorical dimensions with an aggregated value — for example, total sales by region AND product category simultaneously.</p>
+  <pre class="code-block"><code># pandas: df.pivot_table(index=&#39;region&#39;, columns=&#39;category&#39;, values=&#39;amount&#39;, aggfunc=&#39;sum&#39;)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Given sales = [{&#39;region&#39;: &#39;East&#39;, &#39;category&#39;: &#39;A&#39;, &#39;amount&#39;: 100}, {&#39;region&#39;: &#39;East&#39;, &#39;category&#39;: &#39;B&#39;, &#39;amount&#39;: 50}, {&#39;region&#39;: &#39;West&#39;, &#39;category&#39;: &#39;A&#39;, &#39;amount&#39;: 200}, {&#39;region&#39;: &#39;West&#39;, &#39;category&#39;: &#39;B&#39;, &#39;amount&#39;: 75}, {&#39;region&#39;: &#39;East&#39;, &#39;category&#39;: &#39;A&#39;, &#39;amount&#39;: 30}], build a nested dict pivot[region][category] = total_amount.</li>
+  <li>Print the pivot dict with regions and categories both sorted alphabetically at each level.</li>
+  <li>Print the grand total across all entries.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Build the sorted-key version only for printing — don&#39;t let sorting logic interfere with the accumulation step, which should happen before any sorting.</li>
+  <li>The grand total must equal the sum of ALL original &#39;amount&#39; values, which serves as a good sanity check against your pivot&#39;s own totals.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>pivot = {}; for row in sales: pivot.setdefault(row[&#39;region&#39;], {}); pivot[row[&#39;region&#39;]][row[&#39;category&#39;]] = pivot[row[&#39;region&#39;]].get(row[&#39;category&#39;], 0) + row[&#39;amount&#39;]</li>
+  <li>To print with sorted keys at both levels: {r: {c: pivot[r][c] for c in sorted(pivot[r])} for r in sorted(pivot)}</li>
+  <li>East&#39;s category A total: 100 + 30 = 130.</li>
+  <li>Grand total: sum of every &#39;amount&#39; value across all rows in sales = 100+50+200+75+30 = 455.</li>
+</ul>
+</details>
+</section>
+</div>

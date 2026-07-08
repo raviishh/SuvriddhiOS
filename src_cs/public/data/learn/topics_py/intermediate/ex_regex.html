@@ -1,0 +1,94 @@
+<div class="exercise-content">
+  <h2>Regex Pattern Challenges</h2>
+  <p class="exercise-lead">Extract, validate, and transform strings using Python&#39;s re module.</p>
+
+  <section class="exercise-task" id="regex_1">
+  <h3>Part 1 — Extract Emails </h3>
+  <p class="task-background">re.findall(pattern, string) returns all non-overlapping matches as a list.</p>
+  <pre class="code-block"><code>import re
+result = re.findall(r&#39;\d+&#39;, &#39;There are 3 cats and 12 dogs&#39;)
+print(result)  # [&#39;3&#39;, &#39;12&#39;]</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>[&#39;3&#39;, &#39;12&#39;]</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>From text, extract all email addresses.</li>
+  <li>Print the list.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Raw strings (r&#39;...&#39;) are essential for regex — without the r prefix, \ would need to be escaped as \\.</li>
+  <li>The pattern does not validate the TLD length — it just matches the shape, which is sufficient here.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Email pattern: r&#39;[\w.-]+@[\w.-]+&#39;</li>
+  <li>re.findall(pattern, text)</li>
+  <li>\w matches word characters (letters, digits, underscore); . and - are included explicitly.</li>
+  <li>The + quantifier means &#39;one or more&#39; — both sides of @ need at least one character.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="regex_2">
+  <h3>Part 2 — Validate a Phone Number </h3>
+  <p class="task-background">re.match() checks at the start of the string; re.fullmatch() checks the entire string.</p>
+  <pre class="code-block"><code>pattern = r&#39;\d{3}-\d{4}&#39;
+print(bool(re.match(pattern, &#39;123-4567&#39;)))  # True</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>True</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a function is_valid_phone(number) that returns True if number matches the pattern: 3 digits, a hyphen, 3 digits, a hyphen, 4 digits (e.g. 555-123-4567).</li>
+  <li>Print is_valid_phone(&#39;555-123-4567&#39;) and is_valid_phone(&#39;5551234567&#39;).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>re.match() would pass &#39;555-123-4567extra&#39; because it only checks the start — use re.fullmatch() or add $ anchor.</li>
+  <li>The hyphens are literal characters — no escaping needed.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Pattern: r&#39;^\d{3}-\d{3}-\d{4}$&#39;</li>
+  <li>return bool(re.fullmatch(pattern, number))</li>
+  <li>\d{3} matches exactly 3 digits; \d{4} matches exactly 4 digits.</li>
+  <li>re.fullmatch() anchors both ends — the entire string must match, not just part of it.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="regex_stretch">
+  <h3>Stretch — Named Groups &amp; Substitution <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Named groups (?P&lt;name&gt;...) let you extract sub-parts of a match by name. re.sub() replaces matches with a new string, which can reference groups.</p>
+  <pre class="code-block"><code># Named group:
+# m = re.search(r&#39;(?P&lt;year&gt;\d{4})-(?P&lt;month&gt;\d{2})&#39;, &#39;2024-03&#39;)
+# m.group(&#39;year&#39;)  # &#39;2024&#39;
+
+# re.sub with back-reference:
+# re.sub(r&#39;(\d+)&#39;, r&#39;[\1]&#39;, &#39;abc 42 def&#39;)  # &#39;abc [42] def&#39;</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Given log_line = &#39;2024-03-15 ERROR Something went wrong&#39;, parse it using a pattern with named groups: date, level, message.</li>
+  <li>Print each group on its own line: date, level, message.</li>
+  <li>Then use re.sub to redact all digits in log_line, replacing each digit with &#39;*&#39;.</li>
+  <li>Print the redacted line.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>.+ is greedy and will capture everything after the level, including trailing whitespace — strip() if needed.</li>
+  <li>Named groups use (?P&lt;name&gt;...) syntax — not the same as non-capturing (?:...).</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>Pattern: r&#39;(?P&lt;date&gt;\d{4}-\d{2}-\d{2}) (?P&lt;level&gt;\w+) (?P&lt;message&gt;.+)&#39;</li>
+  <li>m = re.search(pattern, log_line); m.group(&#39;date&#39;), m.group(&#39;level&#39;), m.group(&#39;message&#39;)</li>
+  <li>re.sub(r&#39;\d&#39;, &#39;*&#39;, log_line) replaces each digit with a single &#39;*&#39;.</li>
+</ul>
+</details>
+</section>
+</div>

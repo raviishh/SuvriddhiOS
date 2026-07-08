@@ -1,0 +1,120 @@
+<div class="exercise-content">
+  <h2>Thread vs Process Benchmarking</h2>
+  <p class="exercise-lead">Compare threading and multiprocessing on CPU-bound vs I/O-bound work, and see the GIL&#39;s effect firsthand.</p>
+
+  <section class="exercise-task" id="conc_1">
+  <h3>Part 1 — Spawning and Joining Threads </h3>
+  <p class="task-background">threading.Thread(target=fn, args=(...)) creates a thread; .start() begins it, .join() waits for it to finish.</p>
+  <pre class="code-block"><code>import threading
+
+def worker(n):
+    print(f&quot;Worker {n} done&quot;)
+
+threads = [threading.Thread(target=worker, args=(i,)) for i in range(3)]
+for t in threads:
+    t.start()
+for t in threads:
+    t.join()</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Worker 0 done
+Worker 1 done
+Worker 2 done</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a function accumulate(results, index, value) that stores value into results[index].</li>
+  <li>Create a shared list results = [0, 0, 0, 0].</li>
+  <li>Spawn 4 threads, each calling accumulate with a different index and value = index ** 2.</li>
+  <li>Start all threads, join them all, then print results.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Thread execution order is not guaranteed, but since each thread writes to its own index, the final result is deterministic regardless of order.</li>
+  <li>Do not sort or modify results after threads finish — print it in the natural index order [0,1,2,3].</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>results = [0, 0, 0, 0] is a shared mutable list all threads can write into.</li>
+  <li>threading.Thread(target=accumulate, args=(results, i, i**2))</li>
+  <li>Always start() all threads first, then join() all of them — joining immediately after starting each one would serialise the work.</li>
+  <li>Because each thread writes to a distinct index, there&#39;s no race condition here even though the list is shared.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="conc_2">
+  <h3>Part 2 — A Race Condition and Its Fix </h3>
+  <p class="task-background">The GIL protects individual bytecode operations, but &#39;x += 1&#39; is not atomic — it&#39;s a read, a modify, and a write. Multiple threads can interleave these steps and lose updates. A Lock prevents this.</p>
+  <pre class="code-block"><code>import threading
+counter = 0
+lock = threading.Lock()
+
+def increment():
+    global counter
+    with lock:
+        counter += 1</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write increment_unsafe() that increments a global counter (starting at 0) by 1, called from 10 threads each incrementing 1000 times, WITHOUT a lock.</li>
+  <li>Print the counter value after all threads join (it may or may not equal 10000 due to the race condition — that&#39;s expected and fine to report as-is).</li>
+  <li>Reset the counter to 0, then repeat using a threading.Lock() around the increment.</li>
+  <li>Print the final locked counter value: it must be exactly 10000.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The unsafe counter&#39;s final value is not deterministic — do not hard-code an expected number for it; just print whatever it computes.</li>
+  <li>Make sure to actually reset counter to 0 before the locked run, or your total will be inflated by leftover value from the unsafe run.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use &#39;global counter&#39; inside each function to modify the module-level variable.</li>
+  <li>with lock: counter += 1 ensures only one thread modifies counter at a time.</li>
+  <li>10 threads x 1000 increments = 10000 total increments expected.</li>
+  <li>The unsafe version&#39;s printed value is informational only — the checker looks for &#39;10000&#39; appearing somewhere in the output, which the locked version guarantees.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="conc_stretch">
+  <h3>Stretch — CPU-Bound Multiprocessing Speedup <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">For CPU-bound work, threads don&#39;t help because of the GIL — only one thread runs Python bytecode at a time. multiprocessing.Pool sidesteps this by using separate processes, each with its own GIL.</p>
+  <pre class="code-block"><code>from multiprocessing import Pool
+
+def is_prime(n):
+    if n &lt; 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+with Pool(4) as p:
+    results = p.map(is_prime, range(2, 20))</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write is_prime(n) as shown above.</li>
+  <li>Using multiprocessing.Pool(processes=4), compute is_prime for every number from 100000 to 100050 (inclusive range of 51 numbers).</li>
+  <li>Print the list of numbers in that range that are prime.</li>
+  <li>Print the count of primes found.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>multiprocessing.Pool has real process-startup overhead — for very small workloads, threads or even sequential code can outperform it.</li>
+  <li>Each worker process gets a COPY of shared state — modifying a global inside a worker will not be visible in the parent process.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>with Pool(processes=4) as pool: results = pool.map(is_prime, range(100000, 100051))</li>
+  <li>Zip the range with the results to filter: [n for n, prime in zip(range(100000, 100051), results) if prime]</li>
+  <li>On some platforms (notably Windows and when run as a script), multiprocessing code must be guarded by if __name__ == &#39;__main__&#39;: — mention this even if your environment doesn&#39;t strictly require it here.</li>
+  <li>The exact prime list in [100000, 100050] can be verified independently — there are 3 primes in that range.</li>
+</ul>
+</details>
+</section>
+</div>

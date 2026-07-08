@@ -1,6 +1,4 @@
 {
-    "_readme": "Each key matches the 'id' field in topics.json. checkMode: 'exact' (trim+compare), 'contains' (output must include all strings in expectedOutput array), 'regex' (match pattern). Stretch tasks are tagged with 'difficulty': 'stretch'.",
-
     "found_ex_hello_world": {
         "id": "found_ex_hello_world",
         "title": "Hello World Variants & Variable Juggling",
@@ -10,6 +8,7 @@
             {
                 "taskId": "hw_1",
                 "title": "Part 1 — Hello, World!",
+                "difficulty": null,
                 "background": "The print() function outputs text to the console. Pass it a string — text wrapped in quotes — and Python displays it.",
                 "backgroundCode": "print(\"Hello, World!\")",
                 "backgroundCodeOutput": "Hello, World!",
@@ -33,6 +32,7 @@
             {
                 "taskId": "hw_2",
                 "title": "Part 2 — Variable Juggling",
+                "difficulty": null,
                 "background": "Variables store values. You can reassign a variable to a new value at any point, and Python will use the latest value.",
                 "backgroundCode": "x = 10\nx = 20\nprint(x)",
                 "backgroundCodeOutput": "20",
@@ -83,7 +83,6 @@
             }
         ]
     },
-
     "found_ex_io_programs": {
         "id": "found_ex_io_programs",
         "title": "I/O Mini-Programs (Calculator, Greeter)",
@@ -93,6 +92,7 @@
             {
                 "taskId": "io_1",
                 "title": "Part 1 — Greeter",
+                "difficulty": null,
                 "background": "input() reads a line of text the user types and returns it as a string. You can store it in a variable and use it immediately.",
                 "backgroundCode": "name = input(\"What is your name? \")\nprint(f\"Hello, {name}!\")",
                 "backgroundCodeOutput": "What is your name? Alice\nHello, Alice!",
@@ -117,6 +117,7 @@
             {
                 "taskId": "io_2",
                 "title": "Part 2 — Simple Calculator",
+                "difficulty": null,
                 "background": "input() always returns a string. To do maths you must convert it: int() for whole numbers, float() for decimals.",
                 "backgroundCode": "a = int(input(\"Enter a number: \"))\nb = int(input(\"Enter another: \"))\nprint(a + b)",
                 "backgroundCodeOutput": "Enter a number: 5\nEnter another: 3\n8",
@@ -168,7 +169,6 @@
             }
         ]
     },
-
     "types_ex_coercion": {
         "id": "types_ex_coercion",
         "title": "Type Coercion Puzzles",
@@ -178,6 +178,7 @@
             {
                 "taskId": "coerce_1",
                 "title": "Part 1 — Explicit Conversion",
+                "difficulty": null,
                 "background": "int(), float(), and str() convert values between types. int(3.9) truncates (gives 3), not rounds.",
                 "backgroundCode": "print(int(3.9))   # 3\nprint(float(7))   # 7.0\nprint(str(42))    # '42'",
                 "backgroundCodeOutput": "3\n7.0\n42",
@@ -202,6 +203,7 @@
             {
                 "taskId": "coerce_2",
                 "title": "Part 2 — Mixed-Type Arithmetic",
+                "difficulty": null,
                 "background": "Python automatically promotes int to float when you mix them in arithmetic. Adding a bool to an int also works — True is 1, False is 0.",
                 "backgroundCode": "print(3 + 1.0)      # 4.0\nprint(True + 5)     # 6\nprint(False + 10)   # 10",
                 "backgroundCodeOutput": "4.0\n6\n10",
@@ -252,7 +254,6 @@
             }
         ]
     },
-
     "types_ex_strings": {
         "id": "types_ex_strings",
         "title": "String Manipulation Challenges",
@@ -262,6 +263,7 @@
             {
                 "taskId": "str_1",
                 "title": "Part 1 — Slicing",
+                "difficulty": null,
                 "background": "Strings are sequences. s[start:stop:step] extracts a slice. Negative indices count from the end.",
                 "backgroundCode": "s = \"Hello, World!\"\nprint(s[0:5])    # Hello\nprint(s[-6:])    # World!\nprint(s[::-1])   # !dlroW ,olleH",
                 "backgroundCodeOutput": "Hello\nWorld!\n!dlroW ,olleH",
@@ -287,6 +289,7 @@
             {
                 "taskId": "str_2",
                 "title": "Part 2 — Methods & f-strings",
+                "difficulty": null,
                 "background": "String methods return new strings — they do not modify the original. Chain them freely.",
                 "backgroundCode": "s = \"  hello world  \"\nprint(s.strip().title())   # Hello World\nprint(s.strip().replace(\"world\", \"Python\"))  # hello Python",
                 "backgroundCodeOutput": "Hello World\nhello Python",
@@ -341,7 +344,6 @@
             }
         ]
     },
-
     "types_ex_mutation": {
         "id": "types_ex_mutation",
         "title": "Spot the Mutation Bug",
@@ -351,6 +353,7 @@
             {
                 "taskId": "mut_1",
                 "title": "Part 1 — Fix the Shared Reference",
+                "difficulty": null,
                 "background": "Assigning a list to a new variable does NOT copy it — both names point to the same object. Use list() or [:] to make a real copy.",
                 "backgroundCode": "a = [1, 2, 3]\nb = a          # same object!\nb.append(4)\nprint(a)       # [1, 2, 3, 4]  ← surprise!",
                 "backgroundCodeOutput": "[1, 2, 3, 4]",
@@ -374,6 +377,7 @@
             {
                 "taskId": "mut_2",
                 "title": "Part 2 — Immutable Strings",
+                "difficulty": null,
                 "background": "Strings are immutable — methods like .replace() return a new string rather than modifying the original.",
                 "backgroundCode": "word = \"hello\"\nword.upper()     # does nothing to word!\nprint(word)      # still 'hello'",
                 "backgroundCodeOutput": "hello",
@@ -425,7 +429,6 @@
             }
         ]
     },
-
     "control_ex_fizzbuzz": {
         "id": "control_ex_fizzbuzz",
         "title": "FizzBuzz Variations",
@@ -435,6 +438,7 @@
             {
                 "taskId": "fb_1",
                 "title": "Classic FizzBuzz (1–20)",
+                "difficulty": null,
                 "background": "For each number 1–20: print Fizz if divisible by 3, Buzz if divisible by 5, FizzBuzz if both, otherwise print the number.",
                 "backgroundCode": "for n in range(1, 6):\n    if n % 15 == 0:\n        print(\"FizzBuzz\")\n    elif n % 3 == 0:\n        print(\"Fizz\")\n    elif n % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(n)",
                 "backgroundCodeOutput": "1\n2\nFizz\n4\nBuzz",
@@ -457,6 +461,7 @@
             {
                 "taskId": "fb_2",
                 "title": "FizzBuzz Sum",
+                "difficulty": null,
                 "background": "You can accumulate results while looping by maintaining a running variable outside the loop.",
                 "backgroundCode": "total = 0\nfor n in range(1, 6):\n    total += n\nprint(total)  # 15",
                 "backgroundCodeOutput": "15",
@@ -505,7 +510,6 @@
             }
         ]
     },
-
     "control_ex_loop_logic": {
         "id": "control_ex_loop_logic",
         "title": "Loop Logic Puzzles",
@@ -515,6 +519,7 @@
             {
                 "taskId": "loop_1",
                 "title": "Part 1 — First Even over 10",
+                "difficulty": null,
                 "background": "break exits a loop immediately. Use it to stop as soon as you find what you're looking for.",
                 "backgroundCode": "for n in range(100):\n    if n > 50:\n        break\nprint(\"Stopped at:\", n)",
                 "backgroundCodeOutput": "Stopped at: 51",
@@ -539,6 +544,7 @@
             {
                 "taskId": "loop_2",
                 "title": "Part 2 — Skip Multiples of 3",
+                "difficulty": null,
                 "background": "continue skips the rest of the current loop body and jumps to the next iteration.",
                 "backgroundCode": "for n in range(1, 6):\n    if n == 3:\n        continue\n    print(n)",
                 "backgroundCodeOutput": "1\n2\n4\n5",
@@ -560,6 +566,7 @@
             {
                 "taskId": "loop_3",
                 "title": "Part 3 — Multiplication Table",
+                "difficulty": null,
                 "background": "Nested loops let you iterate over two dimensions. The outer loop controls the row, the inner loop controls the column.",
                 "backgroundCode": "for i in range(1, 3):\n    for j in range(1, 3):\n        print(i * j, end=\" \")\n    print()",
                 "backgroundCodeOutput": "1 2 \n2 4 ",
@@ -608,7 +615,6 @@
             }
         ]
     },
-
     "control_ex_pattern_matching": {
         "id": "control_ex_pattern_matching",
         "title": "Pattern Matching Practice",
@@ -618,6 +624,7 @@
             {
                 "taskId": "pm_1",
                 "title": "Part 1 — HTTP Status Classifier",
+                "difficulty": null,
                 "background": "match/case works like a supercharged switch. The wildcard case _ matches anything not caught above.",
                 "backgroundCode": "status = 404\nmatch status:\n    case 200:\n        print(\"OK\")\n    case 404:\n        print(\"Not Found\")\n    case _:\n        print(\"Unknown\")",
                 "backgroundCodeOutput": "Not Found",
@@ -646,6 +653,7 @@
             {
                 "taskId": "pm_2",
                 "title": "Part 2 — Command Dispatcher",
+                "difficulty": null,
                 "background": "match can match strings and even destructure sequences (lists/tuples).",
                 "backgroundCode": "command = [\"go\", \"north\"]\nmatch command:\n    case [\"go\", direction]:\n        print(f\"Moving {direction}\")\n    case [\"quit\"]:\n        print(\"Goodbye\")",
                 "backgroundCodeOutput": "Moving north",
@@ -697,7 +705,6 @@
             }
         ]
     },
-
     "func_ex_refactoring": {
         "id": "func_ex_refactoring",
         "title": "Function Refactoring Drills",
@@ -707,6 +714,7 @@
             {
                 "taskId": "ref_1",
                 "title": "Part 1 — Extract a Function",
+                "difficulty": null,
                 "background": "A function groups reusable logic behind a name. Use def, give it parameters, and return the result.",
                 "backgroundCode": "def square(n):\n    return n ** 2\n\nprint(square(5))  # 25",
                 "backgroundCodeOutput": "25",
@@ -730,6 +738,7 @@
             {
                 "taskId": "ref_2",
                 "title": "Part 2 — Default Parameters",
+                "difficulty": null,
                 "background": "Parameters can have default values, making them optional at call time.",
                 "backgroundCode": "def greet(name, greeting=\"Hello\"):\n    return f\"{greeting}, {name}!\"\n\nprint(greet(\"Alice\"))          # Hello, Alice!\nprint(greet(\"Bob\", \"Hi\"))     # Hi, Bob!",
                 "backgroundCodeOutput": "Hello, Alice!\nHi, Bob!",
@@ -780,7 +789,6 @@
             }
         ]
     },
-
     "func_ex_recursion": {
         "id": "func_ex_recursion",
         "title": "Recursive Challenges",
@@ -790,6 +798,7 @@
             {
                 "taskId": "rec_1",
                 "title": "Part 1 — Factorial",
+                "difficulty": null,
                 "background": "A recursive function calls itself with a smaller input. Every recursive function needs a base case to stop.",
                 "backgroundCode": "def countdown(n):\n    if n == 0:        # base case\n        print(\"Go!\")\n    else:\n        print(n)\n        countdown(n - 1)\n\ncountdown(3)",
                 "backgroundCodeOutput": "3\n2\n1\nGo!",
@@ -814,6 +823,7 @@
             {
                 "taskId": "rec_2",
                 "title": "Part 2 — Fibonacci",
+                "difficulty": null,
                 "background": "Fibonacci: fib(0)=0, fib(1)=1, fib(n)=fib(n-1)+fib(n-2). This is naturally recursive but slow for large n — fine for small values here.",
                 "backgroundCode": "# fib(6) = 0,1,1,2,3,5,8  → 8",
                 "backgroundCodeOutput": "",
@@ -837,6 +847,7 @@
             {
                 "taskId": "rec_3",
                 "title": "Part 3 — Flatten a Nested List",
+                "difficulty": null,
                 "background": "Recursion shines when the depth of nesting is unknown. Check if each item is itself a list, and if so, recurse into it.",
                 "backgroundCode": "nested = [1, [2, [3, 4]], 5]\n# Should produce: [1, 2, 3, 4, 5]",
                 "backgroundCodeOutput": "",
@@ -886,7 +897,6 @@
             }
         ]
     },
-
     "ds_ex_comprehensions": {
         "id": "ds_ex_comprehensions",
         "title": "List & Dict Comprehension Drills",
@@ -896,6 +906,7 @@
             {
                 "taskId": "comp_1",
                 "title": "Part 1 — List Comprehensions",
+                "difficulty": null,
                 "background": "[expr for item in iterable if condition] creates a new list. The if part is optional.",
                 "backgroundCode": "squares = [x**2 for x in range(1, 6)]\nprint(squares)  # [1, 4, 9, 16, 25]",
                 "backgroundCodeOutput": "[1, 4, 9, 16, 25]",
@@ -920,6 +931,7 @@
             {
                 "taskId": "comp_2",
                 "title": "Part 2 — Dict Comprehensions",
+                "difficulty": null,
                 "background": "{key: value for item in iterable} builds a dictionary in one expression.",
                 "backgroundCode": "words = [\"cat\", \"dog\", \"elephant\"]\nlengths = {w: len(w) for w in words}\nprint(lengths)  # {'cat': 3, 'dog': 3, 'elephant': 8}",
                 "backgroundCodeOutput": "{'cat': 3, 'dog': 3, 'elephant': 8}",
@@ -967,7 +979,6 @@
             }
         ]
     },
-
     "ds_ex_transformation": {
         "id": "ds_ex_transformation",
         "title": "Data Structure Transformation Challenges",
@@ -977,6 +988,7 @@
             {
                 "taskId": "trans_1",
                 "title": "Part 1 — Group Scores by Name",
+                "difficulty": null,
                 "background": "Dicts with list values are a common pattern for grouping. Check if the key exists first, or use dict.setdefault().",
                 "backgroundCode": "grouped = {}\nfor name, score in data:\n    grouped.setdefault(name, []).append(score)\nprint(grouped)",
                 "backgroundCodeOutput": "{'Alice': [85, 78], 'Bob': [92, 88], 'Carol': [95]}",
@@ -1000,6 +1012,7 @@
             {
                 "taskId": "trans_2",
                 "title": "Part 2 — Average per Person",
+                "difficulty": null,
                 "background": "Once you have grouped data, computing aggregates (sum, average) per group is straightforward.",
                 "backgroundCode": "scores = [85, 78]\navg = sum(scores) / len(scores)\nprint(avg)  # 81.5",
                 "backgroundCodeOutput": "81.5",
@@ -1047,7 +1060,6 @@
             }
         ]
     },
-
     "ds_ex_frequency": {
         "id": "ds_ex_frequency",
         "title": "Frequency Counter & Deduplication",
@@ -1057,6 +1069,7 @@
             {
                 "taskId": "freq_1",
                 "title": "Part 1 — Word Frequency",
+                "difficulty": null,
                 "background": "A frequency counter is a dict where keys are items and values are counts. dict.get(key, 0) returns 0 if the key is missing.",
                 "backgroundCode": "freq = {}\nfor item in items:\n    freq[item] = freq.get(item, 0) + 1",
                 "backgroundCodeOutput": "",
@@ -1081,6 +1094,7 @@
             {
                 "taskId": "freq_2",
                 "title": "Part 2 — Deduplication with Order Preserved",
+                "difficulty": null,
                 "background": "set() removes duplicates but loses order. To deduplicate while preserving insertion order, use a dict (Python 3.7+ maintains insertion order).",
                 "backgroundCode": "seen = {}\nfor item in items:\n    seen[item] = True\ndeduped = list(seen.keys())",
                 "backgroundCodeOutput": "",
@@ -1129,7 +1143,6 @@
             }
         ]
     },
-
     "err_ex_handling": {
         "id": "err_ex_handling",
         "title": "Exception Handling Drills",
@@ -1139,6 +1152,7 @@
             {
                 "taskId": "exc_1",
                 "title": "Part 1 — Safe Division",
+                "difficulty": null,
                 "background": "Dividing by zero raises ZeroDivisionError. Wrap it in try/except to handle it without crashing.",
                 "backgroundCode": "try:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero\")",
                 "backgroundCodeOutput": "Cannot divide by zero",
@@ -1163,6 +1177,7 @@
             {
                 "taskId": "exc_2",
                 "title": "Part 2 — finally Always Runs",
+                "difficulty": null,
                 "background": "The finally block executes whether or not an exception occurred — useful for cleanup.",
                 "backgroundCode": "try:\n    x = int(\"abc\")\nexcept ValueError:\n    print(\"Bad value\")\nfinally:\n    print(\"Done\")",
                 "backgroundCodeOutput": "Bad value\nDone",
@@ -1214,7 +1229,6 @@
             }
         ]
     },
-
     "err_ex_debug": {
         "id": "err_ex_debug",
         "title": "Debug the Broken Program",
@@ -1224,6 +1238,7 @@
             {
                 "taskId": "dbg_1",
                 "title": "Part 1 — Fix the ZeroDivisionError",
+                "difficulty": null,
                 "background": "The function crashes when passed an empty list because len([]) is 0. Guard against edge cases.",
                 "backgroundCode": "# calculate_average([]) → ZeroDivisionError: division by zero",
                 "backgroundCodeOutput": "",
@@ -1248,9 +1263,10 @@
             {
                 "taskId": "dbg_2",
                 "title": "Part 2 — Off-by-One in a Loop",
+                "difficulty": null,
                 "background": "range(n) goes from 0 to n-1. range(1, n) goes from 1 to n-1. Use range(1, n+1) to include n.",
-                "backgroundCode": "# This prints 0 1 2 3 4 — missing 5!\nfor i in range(5):\n    print(i)",
-                "backgroundCodeOutput": "0 1 2 3 4",
+                "backgroundCode": "# This prints 0 through 4 on separate lines — missing 5!\nfor i in range(5):\n    print(i)",
+                "backgroundCodeOutput": "0\n1\n2\n3\n4",
                 "instructions": [
                     "Fix the code so it prints numbers 1 through 5 inclusive, one per line."
                 ],
@@ -1295,7 +1311,6 @@
             }
         ]
     },
-
     "oop_ex_model_system": {
         "id": "oop_ex_model_system",
         "title": "Model a Real-World System in Classes",
@@ -1305,6 +1320,7 @@
             {
                 "taskId": "oop_1",
                 "title": "Part 1 — Book Class",
+                "difficulty": null,
                 "background": "__init__ sets up instance variables. Methods operate on self — the specific instance.",
                 "backgroundCode": "class Dog:\n    def __init__(self, name, breed):\n        self.name = name\n        self.breed = breed\n\n    def bark(self):\n        return f\"{self.name} says: Woof!\"\n\ndog = Dog(\"Rex\", \"Labrador\")\nprint(dog.bark())",
                 "backgroundCodeOutput": "Rex says: Woof!",
@@ -1329,6 +1345,7 @@
             {
                 "taskId": "oop_2",
                 "title": "Part 2 — Library Class",
+                "difficulty": null,
                 "background": "One class can hold a collection of instances of another class — a composition pattern.",
                 "backgroundCode": "class Shelf:\n    def __init__(self):\n        self.books = []\n\n    def add(self, book):\n        self.books.append(book)",
                 "backgroundCodeOutput": "",
@@ -1381,7 +1398,6 @@
             }
         ]
     },
-
     "oop_ex_dunder": {
         "id": "oop_ex_dunder",
         "title": "Dunder Method Implementation Drills",
@@ -1391,6 +1407,7 @@
             {
                 "taskId": "dunder_1",
                 "title": "Part 1 — __str__ and __repr__",
+                "difficulty": null,
                 "background": "__str__ controls what print() shows. __repr__ is for developers (shown in the REPL and repr()).",
                 "backgroundCode": "class Point:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f\"Point({self.x}, {self.y})\"\n\nprint(Point(3, 4))  # Point(3, 4)",
                 "backgroundCodeOutput": "Point(3, 4)",
@@ -1414,6 +1431,7 @@
             {
                 "taskId": "dunder_2",
                 "title": "Part 2 — __add__ and __eq__",
+                "difficulty": null,
                 "background": "__add__ lets you use + between instances. __eq__ lets you use ==.",
                 "backgroundCode": "class Money:\n    def __add__(self, other):\n        return Money(self.amount + other.amount)\n\n    def __eq__(self, other):\n        return self.amount == other.amount",
                 "backgroundCodeOutput": "",
@@ -1465,7 +1483,6 @@
             }
         ]
     },
-
     "oop_ex_inheritance": {
         "id": "oop_ex_inheritance",
         "title": "Inheritance Hierarchy Design",
@@ -1475,6 +1492,7 @@
             {
                 "taskId": "inh_1",
                 "title": "Part 1 — Circle and Rectangle",
+                "difficulty": null,
                 "background": "A subclass inherits all methods from its parent. Override a method by redefining it in the subclass.",
                 "backgroundCode": "class Animal:\n    def speak(self):\n        return \"...\"\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof!\"\n\nprint(Dog().speak())  # Woof!",
                 "backgroundCodeOutput": "Woof!",
@@ -1524,7 +1542,6 @@
             }
         ]
     },
-
     "int_ex_iterator_generator": {
         "id": "int_ex_iterator_generator",
         "title": "Write Your Own Iterator & Generator",
@@ -1534,6 +1551,7 @@
             {
                 "taskId": "iter_1",
                 "title": "Part 1 — Counter Iterator",
+                "difficulty": null,
                 "background": "An iterator implements __iter__ (returns self) and __next__ (returns the next value or raises StopIteration).",
                 "backgroundCode": "class Counter:\n    def __init__(self, limit):\n        self.limit = limit\n        self.current = 0\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.current >= self.limit:\n            raise StopIteration\n        self.current += 1\n        return self.current\n\nfor n in Counter(3):\n    print(n)",
                 "backgroundCodeOutput": "1\n2\n3",
@@ -1557,6 +1575,7 @@
             {
                 "taskId": "iter_2",
                 "title": "Part 2 — Generator Version",
+                "difficulty": null,
                 "background": "A generator function uses yield to lazily produce values — it's the same idea as an iterator, written in far fewer lines.",
                 "backgroundCode": "def countdown(n):\n    while n > 0:\n        yield n\n        n -= 1\n\nfor v in countdown(3):\n    print(v)",
                 "backgroundCodeOutput": "3\n2\n1",
@@ -1606,7 +1625,6 @@
             }
         ]
     },
-
     "int_ex_decorators": {
         "id": "int_ex_decorators",
         "title": "Build and Stack Decorators",
@@ -1616,6 +1634,7 @@
             {
                 "taskId": "dec_1",
                 "title": "Part 1 — Timer Decorator",
+                "difficulty": null,
                 "background": "A decorator is a function that takes a function and returns a new function. Use functools.wraps to preserve the original function's metadata.",
                 "backgroundCode": "import functools\n\ndef my_decorator(func):\n    @functools.wraps(func)\n    def wrapper(*args, **kwargs):\n        print(\"Before\")\n        result = func(*args, **kwargs)\n        print(\"After\")\n        return result\n    return wrapper\n\n@my_decorator\ndef say_hi():\n    print(\"Hi!\")",
                 "backgroundCodeOutput": "Before\nHi!\nAfter",
@@ -1667,7 +1686,6 @@
             }
         ]
     },
-
     "int_ex_regex": {
         "id": "int_ex_regex",
         "title": "Regex Pattern Challenges",
@@ -1677,6 +1695,7 @@
             {
                 "taskId": "regex_1",
                 "title": "Part 1 — Extract Emails",
+                "difficulty": null,
                 "background": "re.findall(pattern, string) returns all non-overlapping matches as a list.",
                 "backgroundCode": "import re\nresult = re.findall(r'\\d+', 'There are 3 cats and 12 dogs')\nprint(result)  # ['3', '12']",
                 "backgroundCodeOutput": "['3', '12']",
@@ -1700,6 +1719,7 @@
             {
                 "taskId": "regex_2",
                 "title": "Part 2 — Validate a Phone Number",
+                "difficulty": null,
                 "background": "re.match() checks at the start of the string; re.fullmatch() checks the entire string.",
                 "backgroundCode": "pattern = r'\\d{3}-\\d{4}'\nprint(bool(re.match(pattern, '123-4567')))  # True",
                 "backgroundCodeOutput": "True",
@@ -1747,7 +1767,6 @@
             }
         ]
     },
-
     "test_ex_bank_account": {
         "id": "test_ex_bank_account",
         "title": "Write Tests for the Bank Account Project",
@@ -1757,6 +1776,7 @@
             {
                 "taskId": "test_1",
                 "title": "Part 1 — Happy-Path Tests",
+                "difficulty": null,
                 "background": "A pytest test is a function whose name starts with test_. Use assert to check expected values.",
                 "backgroundCode": "def test_addition():\n    assert 1 + 1 == 2\n\ndef test_string_upper():\n    assert 'hello'.upper() == 'HELLO'",
                 "backgroundCodeOutput": "",
@@ -1781,6 +1801,7 @@
             {
                 "taskId": "test_2",
                 "title": "Part 2 — Edge Cases with pytest.raises",
+                "difficulty": null,
                 "background": "pytest.raises(ExceptionType) asserts that a block of code raises the expected exception.",
                 "backgroundCode": "def test_bad_input():\n    with pytest.raises(ValueError):\n        int(\"not a number\")",
                 "backgroundCodeOutput": "",
@@ -1827,7 +1848,6 @@
             }
         ]
     },
-
     "test_ex_tdd_kata": {
         "id": "test_ex_tdd_kata",
         "title": "TDD Kata — Red → Green → Refactor",
@@ -1837,6 +1857,7 @@
             {
                 "taskId": "tdd_1",
                 "title": "String Calculator Kata",
+                "difficulty": null,
                 "background": "TDD cycle: write a failing test (Red), make it pass with minimal code (Green), then improve the code (Refactor).",
                 "backgroundCode": "# Red\ndef test_add_empty_string():\n    assert add(\"\") == 0\n\n# Green (minimal)\ndef add(s):\n    return 0",
                 "backgroundCodeOutput": "",
@@ -1886,7 +1907,6 @@
             }
         ]
     },
-
     "perf_ex_profile_optimize": {
         "id": "perf_ex_profile_optimize",
         "title": "Profile and Optimize a Slow Script",
@@ -1896,6 +1916,7 @@
             {
                 "taskId": "perf_1",
                 "title": "Part 1 — Faster Duplicate Check",
+                "difficulty": null,
                 "background": "Checking membership in a set is O(1). Building the set is O(n). That makes a set-based duplicate check O(n) — much better than the O(n²) nested loop.",
                 "backgroundCode": "def has_duplicates_fast(lst):\n    return len(lst) != len(set(lst))",
                 "backgroundCodeOutput": "",
@@ -1945,7 +1966,6 @@
             }
         ]
     },
-
     "perf_ex_memory_footprint": {
         "id": "perf_ex_memory_footprint",
         "title": "Memory Footprint Comparison",
@@ -1955,6 +1975,7 @@
             {
                 "taskId": "mem_1",
                 "title": "List vs Generator Memory",
+                "difficulty": null,
                 "background": "A list materialises all values in memory. A generator produces values lazily — it only holds state, not data. For large sequences the difference is dramatic.",
                 "backgroundCode": "import sys\n\nmy_list = [x for x in range(1000)]\nmy_gen = (x for x in range(1000))\n\nprint(sys.getsizeof(my_list))  # ~8856\nprint(sys.getsizeof(my_gen))   # ~104",
                 "backgroundCodeOutput": "8856\n104",
@@ -1999,6 +2020,1684 @@
                 "warnings": [
                     "range(1, 16) includes 15 — you should see a final chunk of [13, 14, 15].",
                     "Print each chunk before adding to the running total — order matters."
+                ]
+            }
+        ]
+    },
+    "file_ex_parser": {
+        "id": "file_ex_parser",
+        "title": "File Parser Challenges",
+        "lead": "Read, parse, and extract structured information from plain text files.",
+        "starterCode": "# Write your code below\n# Assume a file 'log.txt' exists in the working directory for parts that need it\n",
+        "tasks": [
+            {
+                "taskId": "parse_1",
+                "title": "Part 1 — Line Counting & Filtering",
+                "difficulty": null,
+                "background": "open(path) returns a file object you can iterate line by line. Always use a 'with' block so the file closes automatically.",
+                "backgroundCode": "with open(\"notes.txt\") as f:\n    lines = f.readlines()\nprint(len(lines))",
+                "backgroundCodeOutput": "5",
+                "instructions": [
+                    "Given the multi-line string data = \"apple\\nbanana\\n\\ncherry\\ndate\\n\\n\\n\", split it into lines using .splitlines().",
+                    "Print the total number of non-empty lines.",
+                    "Print only the non-empty lines, one per line."
+                ],
+                "expectedOutput": "3\napple\nbanana\ncherry\ndate",
+                "checkMode": "contains",
+                "hints": [
+                    "data.splitlines() avoids trailing newline characters, unlike readlines().",
+                    "Filter with: [line for line in lines if line.strip()]",
+                    "len() of the filtered list gives the non-empty count.",
+                    "An empty string is falsy, so 'if line.strip()' skips blank lines including ones with only whitespace."
+                ],
+                "warnings": [
+                    "This task works on an in-memory string, not an actual file — no need to open() anything here.",
+                    "Blank lines with just whitespace (e.g. '   ') should also be treated as empty."
+                ]
+            },
+            {
+                "taskId": "parse_2",
+                "title": "Part 2 — Structured Log Extraction",
+                "difficulty": null,
+                "background": "Real log files have a predictable shape per line. Splitting on whitespace or a delimiter lets you pull out fields.",
+                "backgroundCode": "line = \"2024-01-15 ERROR Disk full\"\nparts = line.split(\" \", 2)\nprint(parts)  # ['2024-01-15', 'ERROR', 'Disk full']",
+                "backgroundCodeOutput": "['2024-01-15', 'ERROR', 'Disk full']",
+                "instructions": [
+                    "Given log_data = \"2024-01-15 INFO Server started\\n2024-01-15 ERROR Disk full\\n2024-01-16 INFO Backup complete\\n2024-01-16 ERROR Connection lost\\n2024-01-16 ERROR Timeout\", split it into lines.",
+                    "Count how many lines contain the level ERROR.",
+                    "Print: 'ERROR count: [n]'",
+                    "Print each ERROR line's message only (the text after the level), one per line."
+                ],
+                "expectedOutput": "ERROR count: 3\nDisk full\nConnection lost\nTimeout",
+                "checkMode": "exact",
+                "hints": [
+                    "Use line.split(\" \", 2) to split into exactly 3 parts: date, level, message.",
+                    "Check parts[1] == 'ERROR' to filter.",
+                    "The maxsplit argument (the '2' in split(' ', 2)) prevents the message itself from being split further.",
+                    "Build a list of ERROR messages first, then print the count followed by each message."
+                ],
+                "warnings": [
+                    "Without maxsplit, a message containing spaces (like 'Disk full') would be split into extra parts.",
+                    "Print the count line first, then the messages in their original order."
+                ]
+            },
+            {
+                "taskId": "parse_stretch",
+                "title": "Stretch — Word Frequency Across a Multi-Line Document",
+                "difficulty": "stretch",
+                "background": "Parsing real documents usually means normalising case and punctuation before counting, otherwise 'Word' and 'word,' are treated as different tokens.",
+                "backgroundCode": "import string\ntext = \"The cat. The dog! The cat?\"\nclean = text.translate(str.maketrans('', '', string.punctuation)).lower()\nprint(clean.split())",
+                "backgroundCodeOutput": "['the', 'cat', 'the', 'dog', 'the', 'cat']",
+                "instructions": [
+                    "Given document = \"Python is great. Python is fun! Is Python easy? Python, yes.\", normalise it by removing punctuation and lowercasing.",
+                    "Count the frequency of each word.",
+                    "Print the top 3 most frequent words with their counts, sorted by count descending then alphabetically for ties, one per line as 'word: count'.",
+                    "Expected: python: 4, is: 3, great: 1 (or another word tied at 1, resolved alphabetically)."
+                ],
+                "expectedOutput": "python: 4\nis: 3",
+                "checkMode": "contains",
+                "hints": [
+                    "Use str.maketrans('', '', string.punctuation) with .translate() to strip punctuation.",
+                    "Sort with sorted(freq.items(), key=lambda x: (-x[1], x[0])).",
+                    "Slice the sorted list to get the top 3.",
+                    "Remember to .lower() before splitting so 'Python' and 'python' count as the same word."
+                ],
+                "warnings": [
+                    "Do not use regex here — string.punctuation and str.translate are sufficient and simpler.",
+                    "Ties among lower-frequency words should break alphabetically, matching Python's stable sort behaviour when you sort by (-count, word)."
+                ]
+            }
+        ]
+    },
+    "file_ex_csv_json": {
+        "id": "file_ex_csv_json",
+        "title": "CSV & JSON Read/Write Drills",
+        "lead": "Practice round-tripping structured data through the csv and json modules.",
+        "starterCode": "import csv\nimport json\n\n# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "csvjson_1",
+                "title": "Part 1 — Writing and Reading CSV",
+                "difficulty": null,
+                "background": "csv.writer writes rows as lists. csv.DictWriter writes rows as dicts, using a header row of fieldnames.",
+                "backgroundCode": "import csv, io\nbuf = io.StringIO()\nwriter = csv.writer(buf)\nwriter.writerow([\"name\", \"age\"])\nwriter.writerow([\"Alice\", 30])\nprint(buf.getvalue())",
+                "backgroundCodeOutput": "name,age\r\nAlice,30\r\n",
+                "instructions": [
+                    "Using io.StringIO() as an in-memory file, write a CSV with header ['name', 'score'] and rows [('Alice', 85), ('Bob', 92), ('Carol', 78)] using csv.writer.",
+                    "Then read it back using csv.reader, skipping the header.",
+                    "Print each data row as a tuple: ('Alice', '85') etc.",
+                    "Print the sum of all scores converted to int: 255."
+                ],
+                "expectedOutput": "('Alice', '85')\n('Bob', '92')\n('Carol', '78')\n255",
+                "checkMode": "exact",
+                "hints": [
+                    "Use io.StringIO() to avoid touching the real filesystem, then buf.seek(0) before reading it back.",
+                    "csv.reader yields lists — convert with tuple(row) to match the expected format.",
+                    "next(reader) consumes and discards the header row.",
+                    "CSV always returns strings — convert with int(row[1]) before summing."
+                ],
+                "warnings": [
+                    "Remember to call buf.seek(0) after writing and before reading — the cursor is at the end after writing.",
+                    "Values read from CSV are always strings, even numbers like '85' — sum them only after converting to int."
+                ]
+            },
+            {
+                "taskId": "csvjson_2",
+                "title": "Part 2 — JSON Serialization Round-Trip",
+                "difficulty": null,
+                "background": "json.dumps() converts a Python object to a JSON string; json.loads() converts it back. Only JSON-compatible types (dict, list, str, int, float, bool, None) can be serialised directly.",
+                "backgroundCode": "import json\ndata = {\"name\": \"Alice\", \"active\": True}\ns = json.dumps(data)\nprint(s)  # '{\"name\": \"Alice\", \"active\": true}'\nback = json.loads(s)\nprint(back == data)  # True",
+                "backgroundCodeOutput": "{\"name\": \"Alice\", \"active\": true}\nTrue",
+                "instructions": [
+                    "Create a dict: student = {'name': 'Dana', 'grades': [88, 92, 79], 'passed': True}.",
+                    "Serialise it to a JSON string with json.dumps(), using indent=2.",
+                    "Print the JSON string.",
+                    "Deserialise it back and print the average of grades, rounded to 2 decimal places."
+                ],
+                "expectedOutput": "86.33",
+                "checkMode": "contains",
+                "hints": [
+                    "json.dumps(student, indent=2) produces pretty-printed, human-readable JSON.",
+                    "json.loads(json_string) reconstructs the original dict (with the same structure).",
+                    "average = round(sum(grades) / len(grades), 2)",
+                    "(88 + 92 + 79) / 3 = 259 / 3 ≈ 86.33"
+                ],
+                "warnings": [
+                    "json.dumps() converts True/False to lowercase true/false in the JSON text, but json.loads() converts them back to Python's True/False.",
+                    "Don't forget to round the average — the raw float will have many more decimal digits."
+                ]
+            },
+            {
+                "taskId": "csvjson_stretch",
+                "title": "Stretch — CSV to Nested JSON Pipeline",
+                "difficulty": "stretch",
+                "background": "A common real-world task is converting flat tabular data (CSV) into a nested structure (JSON) grouped by a key — for example, grouping purchases by customer.",
+                "backgroundCode": "# CSV rows: customer,item,price\n# alice,book,12.99\n# alice,pen,1.50\n# bob,book,12.99\n# Target JSON:\n# {\"alice\": [{\"item\": \"book\", \"price\": 12.99}, {\"item\": \"pen\", \"price\": 1.5}], \"bob\": [...]}",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Using csv.DictReader on the in-memory CSV text: 'customer,item,price\\nalice,book,12.99\\nalice,pen,1.50\\nbob,book,12.99\\nbob,pen,1.50\\nbob,pencil,0.50\\n', group rows by customer into a dict of lists.",
+                    "Each list entry should be a dict with keys 'item' and 'price' (price converted to float).",
+                    "Serialise the resulting dict to a JSON string with json.dumps(sort_keys=True).",
+                    "Print the total spent by bob, rounded to 2 decimal places: 14.99."
+                ],
+                "expectedOutput": "14.99",
+                "checkMode": "contains",
+                "hints": [
+                    "csv.DictReader(io.StringIO(csv_text)) gives you an iterable of dicts with keys matching the header row.",
+                    "Use grouped.setdefault(row['customer'], []).append({'item': row['item'], 'price': float(row['price'])}).",
+                    "Sum bob's prices with sum(entry['price'] for entry in grouped['bob']).",
+                    "json.dumps(grouped, sort_keys=True) is only needed to demonstrate serialisation — the final printed value is the numeric total."
+                ],
+                "warnings": [
+                    "Prices arrive as strings from CSV — always convert to float before summing or storing.",
+                    "12.99 + 1.50 + 0.50 = 14.99 — verify your rounding doesn't introduce floating-point artefacts like 14.989999999999998; round() fixes this for display."
+                ]
+            }
+        ]
+    },
+    "mod_ex_refactor_package": {
+        "id": "mod_ex_refactor_package",
+        "title": "Refactor a Script into a Package",
+        "lead": "Simulate splitting a single flat script into logically separated modules using in-memory module objects.",
+        "starterCode": "# Since this environment runs a single file, we'll simulate modules\n# using Python's module system dynamically via types.ModuleType\nimport types\n",
+        "tasks": [
+            {
+                "taskId": "pkg_1",
+                "title": "Part 1 — Separating Concerns",
+                "difficulty": null,
+                "background": "Splitting code into modules means grouping related functions together and importing what you need. A module is just a namespace — you can build one dynamically to demonstrate the concept.",
+                "backgroundCode": "import types\nmathutils = types.ModuleType(\"mathutils\")\nexec(\"def square(n): return n * n\", mathutils.__dict__)\nprint(mathutils.square(4))",
+                "backgroundCodeOutput": "16",
+                "instructions": [
+                    "Create a module object named 'shapes' containing two functions: area_circle(r) returning 3.14159 * r ** 2, and area_square(s) returning s ** 2.",
+                    "Create a second module object named 'formatting' containing one function: money(x) returning f'${x:.2f}'.",
+                    "Using both modules together, print formatting.money(shapes.area_circle(3)) and formatting.money(shapes.area_square(4))."
+                ],
+                "expectedOutput": "$28.27\n$16.00",
+                "checkMode": "exact",
+                "hints": [
+                    "Use types.ModuleType('name') then exec(code_string, module.__dict__) to define functions inside it, simulating a real module file.",
+                    "3.14159 * 3 ** 2 = 28.27311 which rounds to 28.27 under :.2f formatting.",
+                    "This mirrors how, in a real project, shapes.py and formatting.py would each be separate files imported with 'import shapes'.",
+                    "Access functions via moduleobj.function_name(...), exactly like a real imported module."
+                ],
+                "warnings": [
+                    "In a real project you would create actual .py files and use 'from shapes import area_circle' — this exercise simulates that boundary in a single file.",
+                    "Keep the rounding to 2 decimal places via the :.2f format spec, not manual round()."
+                ]
+            },
+            {
+                "taskId": "pkg_2",
+                "title": "Part 2 — Avoiding Circular Imports",
+                "difficulty": null,
+                "background": "Circular imports happen when module A imports module B and module B imports module A. The fix is usually to move the shared logic into a third module, or to import inside a function rather than at the top of the file.",
+                "backgroundCode": "# BAD (circular):\n# a.py: from b import helper\n# b.py: from a import CONFIG\n#\n# GOOD: move CONFIG to a shared config.py that both import from",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Explain, by writing it as a printed multi-line string, why the following would cause a circular import: module 'orders' needs a function from 'inventory', and 'inventory' needs a constant from 'orders'.",
+                    "Then simulate the fix: create a 'shared' module containing TAX_RATE = 0.08.",
+                    "Create an 'orders' module that imports TAX_RATE from shared and defines total_with_tax(amount) returning amount * (1 + TAX_RATE).",
+                    "Print orders.total_with_tax(100), rounded to 2 decimal places."
+                ],
+                "expectedOutput": "108.0",
+                "checkMode": "contains",
+                "hints": [
+                    "For the explanation, a short printed paragraph is fine — the checker looks for the numeric result at the end, not exact wording.",
+                    "shared.TAX_RATE is a plain module attribute — access it as shared.TAX_RATE inside orders' exec'd code, or capture it in the module dict before exec.",
+                    "100 * 1.08 = 108.0",
+                    "The key lesson: extracting the shared value breaks the cycle because neither module depends on the other anymore."
+                ],
+                "warnings": [
+                    "The explanation text is not strictly checked — focus your effort on getting the simulated module structure and final number correct.",
+                    "Do not have 'orders' and a hypothetical 'inventory' module import from each other in your simulation — that defeats the purpose of the exercise."
+                ]
+            },
+            {
+                "taskId": "pkg_stretch",
+                "title": "Stretch — Package with __init__ Re-exports",
+                "difficulty": "stretch",
+                "background": "A package's __init__.py commonly re-exports selected names from submodules so users can write 'from mypackage import thing' instead of reaching into submodules directly.",
+                "backgroundCode": "# mypackage/__init__.py\n# from .shapes import area_circle\n# from .formatting import money\n#\n# usage: from mypackage import area_circle, money",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Simulate a package 'geometry' with two submodules ('shapes' and 'formatting', reusing Part 1's definitions).",
+                    "Simulate an __init__-style re-export: create a top-level module 'geometry' whose namespace includes area_circle, area_square, and money pulled directly from the submodules (i.e. geometry.area_circle should work without going through geometry.shapes).",
+                    "Print geometry.money(geometry.area_circle(5)).",
+                    "Print a sorted list of the public names available directly on 'geometry' (just the three function names)."
+                ],
+                "expectedOutput": "$78.54\n['area_circle', 'area_square', 'money']",
+                "checkMode": "exact",
+                "hints": [
+                    "After building shapes and formatting modules, assign geometry.area_circle = shapes.area_circle etc., directly on the geometry module's __dict__ — this is exactly what a real __init__.py's import statements accomplish.",
+                    "3.14159 * 5 ** 2 = 78.53975, formatted to 2 decimals as 78.54.",
+                    "sorted(['area_circle', 'area_square', 'money']) gives the alphabetical order shown.",
+                    "This pattern is why you can 'from requests import get' instead of 'from requests.api import get'."
+                ],
+                "warnings": [
+                    "Only include the three re-exported names in the final printed list — not any internal helpers.",
+                    "The list must be printed with Python's default list repr, e.g. ['area_circle', 'area_square', 'money']."
+                ]
+            }
+        ]
+    },
+    "mod_ex_venv_setup": {
+        "id": "mod_ex_venv_setup",
+        "title": "Set Up a Project with venv & requirements.txt",
+        "lead": "Practice the reasoning and file formats behind virtual environments and dependency pinning, without needing a real terminal.",
+        "starterCode": "# This exercise is about reasoning through venv/pip concepts and\n# generating the correct file contents as strings.\n",
+        "tasks": [
+            {
+                "taskId": "venv_1",
+                "title": "Part 1 — Writing a requirements.txt",
+                "difficulty": null,
+                "background": "requirements.txt lists a project's dependencies, one per line, optionally pinned to exact versions with ==.",
+                "backgroundCode": "requirements = \"\"\"requests==2.31.0\nflask==3.0.0\n\"\"\"\nprint(requirements.strip())",
+                "backgroundCodeOutput": "requests==2.31.0\nflask==3.0.0",
+                "instructions": [
+                    "Given a project that uses requests version 2.31.0, pandas version 2.1.4, and pytest version 7.4.3 (dev-only), build the exact text content of a requirements.txt file with each package pinned using ==, one per line, in alphabetical order by package name.",
+                    "Print the resulting string."
+                ],
+                "expectedOutput": "pandas==2.1.4\npytest==7.4.3\nrequests==2.31.0",
+                "checkMode": "exact",
+                "hints": [
+                    "Build a list of tuples [('requests', '2.31.0'), ('pandas', '2.1.4'), ('pytest', '7.4.3')], sort it by name, then format each as f'{name}=={version}'.",
+                    "'\\n'.join(lines) produces the final file content, one dependency per line.",
+                    "Alphabetical order: pandas, pytest, requests.",
+                    "In real projects, dev-only dependencies like pytest are sometimes split into a separate requirements-dev.txt, but this exercise keeps them together for simplicity."
+                ],
+                "warnings": [
+                    "Do not add a trailing blank line to the printed output — the checker compares exact text.",
+                    "Match the version strings exactly as given, including all digits."
+                ]
+            },
+            {
+                "taskId": "venv_2",
+                "title": "Part 2 — Diagnosing a venv Problem",
+                "difficulty": null,
+                "background": "A very common beginner bug: installing a package with pip while the virtual environment isn't activated, so the package installs globally rather than into the project's isolated environment.",
+                "backgroundCode": "# Symptom: 'pip install requests' succeeds, but 'import requests' still\n# raises ModuleNotFoundError inside the project's venv.\n# Likely cause: the venv was never activated before running pip.",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write a function diagnose(venv_active, package_installed_globally, import_error) that returns the most likely cause as a short string, given these three booleans.",
+                    "If venv_active is False and package_installed_globally is True and import_error is True: return 'venv not activated — package installed globally instead'.",
+                    "If venv_active is True and import_error is True and package_installed_globally is False: return 'package not installed in this venv — run pip install again'.",
+                    "Otherwise return 'no obvious issue detected'.",
+                    "Test diagnose(False, True, True), diagnose(True, False, True), and diagnose(True, True, False), printing each result."
+                ],
+                "expectedOutput": "venv not activated — package installed globally instead\npackage not installed in this venv — run pip install again\nno obvious issue detected",
+                "checkMode": "exact",
+                "hints": [
+                    "This is a straightforward if/elif/else chain over the three boolean inputs.",
+                    "Order your conditions to check the most specific combinations first.",
+                    "The exact returned strings must match char-for-char, including the em dash and punctuation.",
+                    "diagnose(True, True, False) means the venv is active, the package IS installed, and there's no import error — hence 'no obvious issue detected'."
+                ],
+                "warnings": [
+                    "Copy the return strings exactly — the checker is exact-match, including the — character (em dash, not a hyphen).",
+                    "Test all three calls in the order given so the printed lines match the expected output order."
+                ]
+            },
+            {
+                "taskId": "venv_stretch",
+                "title": "Stretch — Dependency Conflict Resolver",
+                "difficulty": "stretch",
+                "background": "When two packages require incompatible version ranges of a shared dependency, pip (or a human) must find a version satisfying both, or report that none exists.",
+                "backgroundCode": "# package_a needs shared>=2.0,<3.0\n# package_b needs shared>=2.5,<4.0\n# Overlap: [2.5, 3.0) — any version in that range satisfies both.",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write a function resolve(range_a, range_b) where each range is a tuple (min_inclusive, max_exclusive), and it returns the overlapping range as a tuple, or None if there is no overlap.",
+                    "resolve((2.0, 3.0), (2.5, 4.0)) → (2.5, 3.0)",
+                    "resolve((1.0, 2.0), (2.0, 3.0)) → None (no overlap since the first range's max is exclusive and equals the second's min)",
+                    "resolve((1.0, 5.0), (2.0, 3.0)) → (2.0, 3.0)",
+                    "Print all three results."
+                ],
+                "expectedOutput": "(2.5, 3.0)\nNone\n(2.0, 3.0)",
+                "checkMode": "exact",
+                "hints": [
+                    "overlap_min = max(range_a[0], range_b[0]); overlap_max = min(range_a[1], range_b[1])",
+                    "If overlap_min >= overlap_max, there is no valid overlapping range — return None.",
+                    "Otherwise return (overlap_min, overlap_max) as a tuple.",
+                    "This models exactly what pip's dependency resolver does at a conceptual level, just simplified to single ranges."
+                ],
+                "warnings": [
+                    "Since the max in each range is exclusive, an overlap_min equal to overlap_max means zero width — treat that as no overlap (return None), not a valid single-point range.",
+                    "Print None (the Python object), not the string 'None', for the second case — print(None) naturally shows 'None' as text, which is fine."
+                ]
+            }
+        ]
+    },
+    "conc_ex_thread_vs_process": {
+        "id": "conc_ex_thread_vs_process",
+        "title": "Thread vs Process Benchmarking",
+        "lead": "Compare threading and multiprocessing on CPU-bound vs I/O-bound work, and see the GIL's effect firsthand.",
+        "starterCode": "import threading\nimport multiprocessing\nimport time\n",
+        "tasks": [
+            {
+                "taskId": "conc_1",
+                "title": "Part 1 — Spawning and Joining Threads",
+                "difficulty": null,
+                "background": "threading.Thread(target=fn, args=(...)) creates a thread; .start() begins it, .join() waits for it to finish.",
+                "backgroundCode": "import threading\n\ndef worker(n):\n    print(f\"Worker {n} done\")\n\nthreads = [threading.Thread(target=worker, args=(i,)) for i in range(3)]\nfor t in threads:\n    t.start()\nfor t in threads:\n    t.join()",
+                "backgroundCodeOutput": "Worker 0 done\nWorker 1 done\nWorker 2 done",
+                "instructions": [
+                    "Write a function accumulate(results, index, value) that stores value into results[index].",
+                    "Create a shared list results = [0, 0, 0, 0].",
+                    "Spawn 4 threads, each calling accumulate with a different index and value = index ** 2.",
+                    "Start all threads, join them all, then print results."
+                ],
+                "expectedOutput": "[0, 1, 4, 9]",
+                "checkMode": "exact",
+                "hints": [
+                    "results = [0, 0, 0, 0] is a shared mutable list all threads can write into.",
+                    "threading.Thread(target=accumulate, args=(results, i, i**2))",
+                    "Always start() all threads first, then join() all of them — joining immediately after starting each one would serialise the work.",
+                    "Because each thread writes to a distinct index, there's no race condition here even though the list is shared."
+                ],
+                "warnings": [
+                    "Thread execution order is not guaranteed, but since each thread writes to its own index, the final result is deterministic regardless of order.",
+                    "Do not sort or modify results after threads finish — print it in the natural index order [0,1,2,3]."
+                ]
+            },
+            {
+                "taskId": "conc_2",
+                "title": "Part 2 — A Race Condition and Its Fix",
+                "difficulty": null,
+                "background": "The GIL protects individual bytecode operations, but 'x += 1' is not atomic — it's a read, a modify, and a write. Multiple threads can interleave these steps and lose updates. A Lock prevents this.",
+                "backgroundCode": "import threading\ncounter = 0\nlock = threading.Lock()\n\ndef increment():\n    global counter\n    with lock:\n        counter += 1",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write increment_unsafe() that increments a global counter (starting at 0) by 1, called from 10 threads each incrementing 1000 times, WITHOUT a lock.",
+                    "Print the counter value after all threads join (it may or may not equal 10000 due to the race condition — that's expected and fine to report as-is).",
+                    "Reset the counter to 0, then repeat using a threading.Lock() around the increment.",
+                    "Print the final locked counter value: it must be exactly 10000."
+                ],
+                "expectedOutput": "10000",
+                "checkMode": "contains",
+                "hints": [
+                    "Use 'global counter' inside each function to modify the module-level variable.",
+                    "with lock: counter += 1 ensures only one thread modifies counter at a time.",
+                    "10 threads x 1000 increments = 10000 total increments expected.",
+                    "The unsafe version's printed value is informational only — the checker looks for '10000' appearing somewhere in the output, which the locked version guarantees."
+                ],
+                "warnings": [
+                    "The unsafe counter's final value is not deterministic — do not hard-code an expected number for it; just print whatever it computes.",
+                    "Make sure to actually reset counter to 0 before the locked run, or your total will be inflated by leftover value from the unsafe run."
+                ]
+            },
+            {
+                "taskId": "conc_stretch",
+                "title": "Stretch — CPU-Bound Multiprocessing Speedup",
+                "difficulty": "stretch",
+                "background": "For CPU-bound work, threads don't help because of the GIL — only one thread runs Python bytecode at a time. multiprocessing.Pool sidesteps this by using separate processes, each with its own GIL.",
+                "backgroundCode": "from multiprocessing import Pool\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nwith Pool(4) as p:\n    results = p.map(is_prime, range(2, 20))",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write is_prime(n) as shown above.",
+                    "Using multiprocessing.Pool(processes=4), compute is_prime for every number from 100000 to 100050 (inclusive range of 51 numbers).",
+                    "Print the list of numbers in that range that are prime.",
+                    "Print the count of primes found."
+                ],
+                "expectedOutput": "[100003, 100019, 100043]",
+                "checkMode": "contains",
+                "hints": [
+                    "with Pool(processes=4) as pool: results = pool.map(is_prime, range(100000, 100051))",
+                    "Zip the range with the results to filter: [n for n, prime in zip(range(100000, 100051), results) if prime]",
+                    "On some platforms (notably Windows and when run as a script), multiprocessing code must be guarded by if __name__ == '__main__': — mention this even if your environment doesn't strictly require it here.",
+                    "The exact prime list in [100000, 100050] can be verified independently — there are 3 primes in that range."
+                ],
+                "warnings": [
+                    "multiprocessing.Pool has real process-startup overhead — for very small workloads, threads or even sequential code can outperform it.",
+                    "Each worker process gets a COPY of shared state — modifying a global inside a worker will not be visible in the parent process."
+                ]
+            }
+        ]
+    },
+    "conc_ex_async_fetch": {
+        "id": "conc_ex_async_fetch",
+        "title": "Async Fetch Simulator",
+        "lead": "Simulate concurrent I/O-bound requests using asyncio, without needing real network access.",
+        "starterCode": "import asyncio\nimport time\n",
+        "tasks": [
+            {
+                "taskId": "async_1",
+                "title": "Part 1 — Sequential vs Concurrent Awaits",
+                "difficulty": null,
+                "background": "await pauses a coroutine without blocking the whole program. asyncio.gather() runs multiple coroutines concurrently and waits for all of them.",
+                "backgroundCode": "import asyncio\n\nasync def fetch(name, delay):\n    await asyncio.sleep(delay)\n    return f\"{name} done\"\n\nasync def main():\n    result = await fetch(\"A\", 0.1)\n    print(result)\n\nasyncio.run(main())",
+                "backgroundCodeOutput": "A done",
+                "instructions": [
+                    "Write an async function fetch(name, delay) that awaits asyncio.sleep(delay) then returns f'{name} done'.",
+                    "Write an async main() that awaits fetch('A', 0.2), fetch('B', 0.2), and fetch('C', 0.2) SEQUENTIALLY (one after another with separate await statements), timing the total with time.time().",
+                    "Print 'Sequential total >= 0.6' if the elapsed time is at least 0.6 seconds (allow a small margin), else print the elapsed time directly.",
+                    "Run it with asyncio.run(main())."
+                ],
+                "expectedOutput": "Sequential total >= 0.6",
+                "checkMode": "contains",
+                "hints": [
+                    "Sequential awaiting means: r1 = await fetch(...); r2 = await fetch(...); r3 = await fetch(...) — each one waits for the previous to finish.",
+                    "Three 0.2-second sleeps done sequentially take roughly 0.6 seconds total.",
+                    "Use start = time.time() before and elapsed = time.time() - start after all three awaits.",
+                    "A small margin (e.g. elapsed >= 0.55) protects against minor timing jitter in different environments."
+                ],
+                "warnings": [
+                    "Do not use asyncio.gather() in this part — the point is to observe sequential (additive) timing first.",
+                    "Timing-based checks can be slightly flaky on slow machines — the check allows some tolerance below the exact 0.6s figure."
+                ]
+            },
+            {
+                "taskId": "async_2",
+                "title": "Part 2 — Concurrent Fetching with gather()",
+                "difficulty": null,
+                "background": "asyncio.gather(*coroutines) schedules all of them to run concurrently, so the total time is closer to the longest single task rather than the sum of all of them.",
+                "backgroundCode": "async def main():\n    results = await asyncio.gather(fetch(\"A\", 0.2), fetch(\"B\", 0.2), fetch(\"C\", 0.2))\n    print(results)",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Reuse fetch(name, delay) from Part 1.",
+                    "Write main() that awaits asyncio.gather(fetch('A', 0.2), fetch('B', 0.2), fetch('C', 0.2)) and times the total.",
+                    "Print the list of results.",
+                    "Print 'Concurrent total < 0.4' if elapsed is under 0.4 seconds, else print the elapsed time."
+                ],
+                "expectedOutput": "['A done', 'B done', 'C done']\nConcurrent total < 0.4",
+                "checkMode": "exact",
+                "hints": [
+                    "asyncio.gather() preserves the order of results matching the order of the coroutines passed in, regardless of which finishes first.",
+                    "Because all three sleeps run concurrently, the whole gather takes about 0.2 seconds, not 0.6.",
+                    "Print the results list exactly as returned by gather — it will be ['A done', 'B done', 'C done'].",
+                    "0.4 seconds gives comfortable margin above the expected ~0.2s concurrent runtime."
+                ],
+                "warnings": [
+                    "gather() does not guarantee execution order, only result order — 'B' might actually finish before 'A' internally, but results[0] is still A's result.",
+                    "This part must show a clear speedup versus Part 1 — if your total is still close to 0.6s, you're likely still awaiting sequentially somewhere."
+                ]
+            },
+            {
+                "taskId": "async_stretch",
+                "title": "Stretch — Bounded Concurrency with a Semaphore",
+                "difficulty": "stretch",
+                "background": "Unbounded concurrency can overwhelm a real server. asyncio.Semaphore(n) limits how many coroutines run a critical section at once, simulating a connection pool or rate limit.",
+                "backgroundCode": "sem = asyncio.Semaphore(2)\n\nasync def limited_fetch(name, delay):\n    async with sem:\n        await asyncio.sleep(delay)\n        return name",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Create asyncio.Semaphore(2) to allow at most 2 concurrent fetches.",
+                    "Write limited_fetch(name, delay) that acquires the semaphore, sleeps for delay, then returns name.",
+                    "Launch 6 fetches, each with delay=0.1, using asyncio.gather() wrapped around limited_fetch for names 'A' through 'F'.",
+                    "With max concurrency 2 and 6 tasks of 0.1s each, the total time should be roughly 0.3 seconds (3 batches of 2).",
+                    "Print 'Bounded total >= 0.25' if elapsed is at least 0.25 seconds (proving the semaphore is actually limiting concurrency), else print the elapsed value."
+                ],
+                "expectedOutput": "Bounded total >= 0.25",
+                "checkMode": "contains",
+                "hints": [
+                    "async with sem: acquires and releases the semaphore automatically, even if an exception occurs inside the block.",
+                    "6 tasks / 2 concurrent slots = 3 sequential batches, each taking ~0.1s, totalling ~0.3s.",
+                    "Without the semaphore, all 6 would run concurrently and finish in ~0.1s total — the semaphore is what forces the extra time.",
+                    "Create the Semaphore inside the same event loop as the coroutines that use it (i.e. inside main(), or ensure it's created after asyncio.run starts) to avoid loop-binding issues."
+                ],
+                "warnings": [
+                    "Creating an asyncio.Semaphore() outside of a running event loop can raise errors on some Python versions — construct it inside your async main() function to be safe.",
+                    "The 0.25s threshold leaves margin below the expected ~0.3s while still clearly exceeding the ~0.1s unbounded case, proving the semaphore had an effect."
+                ]
+            }
+        ]
+    },
+    "sys_ex_file_organiser": {
+        "id": "sys_ex_file_organiser",
+        "title": "Build a File Organiser Script",
+        "lead": "Simulate scanning a folder of mixed files and sorting them into subfolders by type — using an in-memory model of the filesystem.",
+        "starterCode": "# We simulate a directory listing as a list of filenames instead of\n# touching the real filesystem, so the exercise runs anywhere.\nfilenames = [\n    \"report.pdf\", \"photo1.jpg\", \"notes.txt\", \"photo2.png\",\n    \"archive.zip\", \"invoice.pdf\", \"README.md\", \"data.csv\"\n]\n",
+        "tasks": [
+            {
+                "taskId": "org_1",
+                "title": "Part 1 — Categorise by Extension",
+                "difficulty": null,
+                "background": "os.path.splitext(path) splits a filename into (root, extension). The extension includes the leading dot.",
+                "backgroundCode": "import os\nroot, ext = os.path.splitext(\"photo.jpg\")\nprint(root, ext)  # photo .jpg",
+                "backgroundCodeOutput": "photo .jpg",
+                "instructions": [
+                    "Using filenames above, build a dict mapping each file extension (without the dot, lowercase) to a list of filenames with that extension.",
+                    "Print the dict, with extensions sorted alphabetically as keys.",
+                    "Print the total number of distinct extensions found."
+                ],
+                "expectedOutput": "{'csv': ['data.csv'], 'jpg': ['photo1.jpg'], 'md': ['README.md'], 'pdf': ['report.pdf', 'invoice.pdf'], 'png': ['photo2.png'], 'txt': ['notes.txt'], 'zip': ['archive.zip']}\n7",
+                "checkMode": "exact",
+                "hints": [
+                    "os.path.splitext(name) returns (root, ext); strip the leading dot with ext[1:] and lowercase it.",
+                    "Build the dict with grouped.setdefault(ext, []).append(name), iterating filenames in their original order so pdf's list keeps report.pdf before invoice.pdf.",
+                    "To print keys sorted alphabetically while preserving insertion order for values, build a new dict: {k: grouped[k] for k in sorted(grouped)}.",
+                    "len(grouped) gives the number of distinct extensions."
+                ],
+                "warnings": [
+                    "Print the dict with sorted keys but original (insertion) order within each list — do not sort the filenames themselves.",
+                    "Extensions must be lowercased even if a real filename used uppercase, e.g. '.JPG' should count as 'jpg'."
+                ]
+            },
+            {
+                "taskId": "org_2",
+                "title": "Part 2 — Simulated Move Plan",
+                "difficulty": null,
+                "background": "A real organiser would call shutil.move(src, dest_folder). Here we simulate that by producing a plan (a list of source→destination pairs) without touching disk.",
+                "backgroundCode": "CATEGORY_MAP = {\n    \"pdf\": \"Documents\", \"txt\": \"Documents\", \"md\": \"Documents\", \"csv\": \"Documents\",\n    \"jpg\": \"Images\", \"png\": \"Images\",\n    \"zip\": \"Archives\"\n}",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Using CATEGORY_MAP above and filenames from the starter code, build a move plan: a list of tuples (filename, target_folder), where target_folder comes from CATEGORY_MAP based on the file's extension.",
+                    "If an extension isn't in CATEGORY_MAP, use 'Misc' as the target folder.",
+                    "Print each plan entry as 'filename -> target_folder/', one per line, preserving the original filenames order.",
+                    "Print the total count of files planned for the 'Documents' folder."
+                ],
+                "expectedOutput": "report.pdf -> Documents/\nphoto1.jpg -> Images/\nnotes.txt -> Documents/\nphoto2.png -> Images/\narchive.zip -> Archives/\ninvoice.pdf -> Documents/\nREADME.md -> Documents/\ndata.csv -> Documents/\n5",
+                "checkMode": "exact",
+                "hints": [
+                    "Get the extension the same way as Part 1: os.path.splitext(name)[1][1:].lower()",
+                    "Use CATEGORY_MAP.get(ext, 'Misc') to default unmapped extensions to 'Misc'.",
+                    "f'{name} -> {folder}/' formats each plan line.",
+                    "Count Documents entries with sum(1 for _, folder in plan if folder == 'Documents')."
+                ],
+                "warnings": [
+                    "Preserve the exact order from the original filenames list — do not group or sort them for this part.",
+                    "The trailing slash in the printed target folder ('Documents/') is required and part of the exact match."
+                ]
+            },
+            {
+                "taskId": "org_stretch",
+                "title": "Stretch — Duplicate Detection by Simulated Content Hash",
+                "difficulty": "stretch",
+                "background": "Real duplicate-file finders hash file contents (e.g. with hashlib.sha256) rather than comparing names, since two differently-named files can have identical content.",
+                "backgroundCode": "import hashlib\ndata = b\"hello world\"\nprint(hashlib.sha256(data).hexdigest()[:8])",
+                "backgroundCodeOutput": "b94d27b9",
+                "instructions": [
+                    "Given file_contents = {'a.txt': 'hello', 'b.txt': 'world', 'c.txt': 'hello', 'd.txt': 'hello', 'e.txt': 'world'} (simulating file contents as strings instead of reading real files), compute the SHA-256 hash of each file's content (encode as utf-8 first).",
+                    "Group filenames by identical hash.",
+                    "Print only the groups that contain more than one file (i.e. actual duplicates), sorted by the first filename in each group, each group's filenames also sorted.",
+                    "Expected: [['a.txt', 'c.txt', 'd.txt'], ['b.txt', 'e.txt']]"
+                ],
+                "expectedOutput": "[['a.txt', 'c.txt', 'd.txt'], ['b.txt', 'e.txt']]",
+                "checkMode": "exact",
+                "hints": [
+                    "hashlib.sha256(content.encode('utf-8')).hexdigest() gives a stable hash string per unique content.",
+                    "Group with a dict: hash_groups.setdefault(hash_value, []).append(filename).",
+                    "Filter to groups where len(group) > 1, then sort each group's filenames and sort the list of groups by their first element.",
+                    "Two files with identical content will always produce identical hashes — this is deterministic, unlike comparing by filename or size alone."
+                ],
+                "warnings": [
+                    "Always encode strings to bytes before hashing — hashlib functions require bytes, not str, and will raise a TypeError otherwise.",
+                    "Sort both the outer list of groups and the filenames within each group for a deterministic, checker-friendly output."
+                ]
+            }
+        ]
+    },
+    "sys_ex_subprocess_pipeline": {
+        "id": "sys_ex_subprocess_pipeline",
+        "title": "Subprocess Pipeline Challenge",
+        "lead": "Use the subprocess module to run shell commands, capture output, and chain commands like a pipeline.",
+        "starterCode": "import subprocess\n",
+        "tasks": [
+            {
+                "taskId": "sub_1",
+                "title": "Part 1 — Running a Command and Capturing Output",
+                "difficulty": null,
+                "background": "subprocess.run(args, capture_output=True, text=True) runs a command and gives you a CompletedProcess with .stdout, .stderr, and .returncode.",
+                "backgroundCode": "import subprocess\nresult = subprocess.run([\"echo\", \"hello\"], capture_output=True, text=True)\nprint(result.stdout.strip())\nprint(result.returncode)",
+                "backgroundCodeOutput": "hello\n0",
+                "instructions": [
+                    "Run the command ['python3', '-c', 'print(2 + 2)'] using subprocess.run with capture_output=True and text=True.",
+                    "Print the stripped stdout.",
+                    "Print the return code."
+                ],
+                "expectedOutput": "4\n0",
+                "checkMode": "exact",
+                "hints": [
+                    "subprocess.run(['python3', '-c', 'print(2 + 2)'], capture_output=True, text=True)",
+                    "result.stdout includes a trailing newline — use .strip() before printing.",
+                    "A returncode of 0 conventionally means the command succeeded; non-zero means an error occurred.",
+                    "text=True decodes stdout/stderr as strings instead of raw bytes."
+                ],
+                "warnings": [
+                    "If 'python3' isn't the correct interpreter name in your environment, adjust it accordingly (e.g. 'python') — the concept is what matters.",
+                    "Always pass args as a list, not a single shell string, unless you explicitly set shell=True (which has security implications with untrusted input)."
+                ]
+            },
+            {
+                "taskId": "sub_2",
+                "title": "Part 2 — Handling Failures Gracefully",
+                "difficulty": null,
+                "background": "check=True makes subprocess.run() raise CalledProcessError on a non-zero exit code, which you can catch just like any other exception.",
+                "backgroundCode": "import subprocess\ntry:\n    subprocess.run([\"python3\", \"-c\", \"import sys; sys.exit(1)\"], check=True)\nexcept subprocess.CalledProcessError as e:\n    print(f\"Failed with code {e.returncode}\")",
+                "backgroundCodeOutput": "Failed with code 1",
+                "instructions": [
+                    "Write run_safely(cmd) that runs cmd with subprocess.run(cmd, capture_output=True, text=True, check=True) inside a try/except.",
+                    "On success, return the stripped stdout.",
+                    "On subprocess.CalledProcessError, return f'ERROR (code {e.returncode})'.",
+                    "Call run_safely(['python3', '-c', 'print(\"ok\")']) and run_safely(['python3', '-c', 'import sys; sys.exit(3)']), printing both results."
+                ],
+                "expectedOutput": "ok\nERROR (code 3)",
+                "checkMode": "exact",
+                "hints": [
+                    "check=True is what causes a non-zero exit to raise CalledProcessError — without it, you'd need to check result.returncode manually.",
+                    "e.returncode on the caught exception gives you the exact exit code the subprocess reported.",
+                    "Remember to .strip() the successful stdout before returning it.",
+                    "Each call to run_safely is independent — the second call's failure does not affect the first call's already-returned result."
+                ],
+                "warnings": [
+                    "Catch subprocess.CalledProcessError specifically, not a bare except — you want to let unrelated errors (like a missing interpreter) surface normally.",
+                    "The f-string format 'ERROR (code {e.returncode})' must match exactly, including the parentheses."
+                ]
+            },
+            {
+                "taskId": "sub_stretch",
+                "title": "Stretch — Chaining Two Commands (Simulated Pipe)",
+                "difficulty": "stretch",
+                "background": "A shell pipeline like 'cmd1 | cmd2' feeds cmd1's stdout into cmd2's stdin. subprocess lets you do this manually by passing one process's output as the next one's input.",
+                "backgroundCode": "# Shell equivalent: echo \"b\\na\\nc\" | sort\np1 = subprocess.run([\"echo\", \"b\\na\\nc\"], capture_output=True, text=True)\np2 = subprocess.run([\"sort\"], input=p1.stdout, capture_output=True, text=True)\nprint(p2.stdout)",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write pipeline(cmd1, cmd2) that runs cmd1, captures its stdout, then feeds that stdout as the 'input' argument to cmd2, returning cmd2's stripped stdout.",
+                    "Test it with cmd1 = ['python3', '-c', 'print(\"3\\\\n1\\\\n2\")'] and cmd2 = ['sort'].",
+                    "Print the result — it should show the numbers sorted: 1, 2, 3 each on their own line."
+                ],
+                "expectedOutput": "1\n2\n3",
+                "checkMode": "exact",
+                "hints": [
+                    "step1 = subprocess.run(cmd1, capture_output=True, text=True); step2 = subprocess.run(cmd2, input=step1.stdout, capture_output=True, text=True)",
+                    "The 'input' parameter feeds a string directly into the subprocess's stdin — no need to manage pipes manually.",
+                    "return step2.stdout.strip()",
+                    "This is functionally identical to shell piping (cmd1 | cmd2) but expressed in pure Python without shell=True."
+                ],
+                "warnings": [
+                    "Do not use shell=True with string concatenation to build this pipeline — passing untrusted or dynamic strings to a shell is a command-injection risk; the input= approach avoids that entirely.",
+                    "'sort' must be available on the system running this — if unavailable, the underlying concept (feeding one process's output into another's input) is still what's being tested."
+                ]
+            }
+        ]
+    },
+    "app_ex_argparse": {
+        "id": "app_ex_argparse",
+        "title": "Add argparse to an Existing Project",
+        "lead": "Turn a hardcoded script into a flexible CLI tool using the argparse module.",
+        "starterCode": "import argparse\n",
+        "tasks": [
+            {
+                "taskId": "argp_1",
+                "title": "Part 1 — Positional and Optional Arguments",
+                "difficulty": null,
+                "background": "argparse.ArgumentParser() builds a parser. add_argument() defines positional args (no dashes) and optional flags (with -- prefix).",
+                "backgroundCode": "parser = argparse.ArgumentParser()\nparser.add_argument(\"name\")\nparser.add_argument(\"--shout\", action=\"store_true\")\nargs = parser.parse_args([\"Alice\", \"--shout\"])\nprint(args.name, args.shout)",
+                "backgroundCodeOutput": "Alice True",
+                "instructions": [
+                    "Build a parser with a required positional argument 'filename' and an optional flag '--verbose' (action='store_true').",
+                    "Also add an optional argument '--count' with type=int and default=1.",
+                    "Parse the simulated arguments ['data.txt', '--verbose', '--count', '5'].",
+                    "Print args.filename, args.verbose, and args.count on separate lines."
+                ],
+                "expectedOutput": "data.txt\nTrue\n5",
+                "checkMode": "exact",
+                "hints": [
+                    "parser.add_argument('filename') with no dashes makes it required and positional.",
+                    "parser.add_argument('--count', type=int, default=1) ensures args.count is an int, not a string.",
+                    "parser.parse_args(['data.txt', '--verbose', '--count', '5']) simulates command-line input without needing sys.argv.",
+                    "action='store_true' means the flag's presence sets the attribute to True; its absence leaves it False."
+                ],
+                "warnings": [
+                    "Always pass a list to parse_args() in this simulated environment — normally argparse reads sys.argv automatically, but explicit lists make testing deterministic.",
+                    "Without type=int, args.count would be the string '5', not the integer 5 — print(args.count) would look the same but int-specific operations would fail."
+                ]
+            },
+            {
+                "taskId": "argp_2",
+                "title": "Part 2 — Subcommands",
+                "difficulty": null,
+                "background": "add_subparsers() lets a single CLI tool support multiple subcommands (like 'git commit' vs 'git push'), each with its own arguments.",
+                "backgroundCode": "parser = argparse.ArgumentParser()\nsub = parser.add_subparsers(dest=\"command\")\nadd_p = sub.add_parser(\"add\")\nadd_p.add_argument(\"x\", type=int)\nadd_p.add_argument(\"y\", type=int)\nargs = parser.parse_args([\"add\", \"2\", \"3\"])\nprint(args.command, args.x + args.y)",
+                "backgroundCodeOutput": "add 5",
+                "instructions": [
+                    "Build a parser with subcommands 'greet' and 'add'.",
+                    "'greet' takes one positional argument 'name'.",
+                    "'add' takes two positional integer arguments 'x' and 'y'.",
+                    "Parse ['greet', 'World'] and print f'Hello, {args.name}!'.",
+                    "Parse ['add', '10', '20'] (using a freshly created parser or re-parsing) and print the sum."
+                ],
+                "expectedOutput": "Hello, World!\n30",
+                "checkMode": "exact",
+                "hints": [
+                    "sub = parser.add_subparsers(dest='command') then sub.add_parser('greet').add_argument('name').",
+                    "args.command tells you which subcommand was used, useful for dispatching to different functions.",
+                    "You can reuse the same parser object for both parse_args() calls — subparsers don't retain state between calls.",
+                    "For the 'add' subcommand, remember both x and y need type=int so you can sum them directly."
+                ],
+                "warnings": [
+                    "Each subcommand's arguments are isolated — 'name' only exists on args when the 'greet' subcommand was used.",
+                    "Print exactly 'Hello, World!' with the exclamation mark, matching the f-string format given."
+                ]
+            },
+            {
+                "taskId": "argp_stretch",
+                "title": "Stretch — Validation and Custom Error Messages",
+                "difficulty": "stretch",
+                "background": "argparse's type= parameter can be any callable, including a custom validation function that raises argparse.ArgumentTypeError with a helpful message.",
+                "backgroundCode": "def positive_int(value):\n    ivalue = int(value)\n    if ivalue <= 0:\n        raise argparse.ArgumentTypeError(f\"{value} is not a positive integer\")\n    return ivalue",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write the positive_int(value) validator shown above.",
+                    "Build a parser with one argument '--workers' using type=positive_int and default=1.",
+                    "Parse ['--workers', '4'] and print args.workers.",
+                    "Then attempt to parse ['--workers', '-2'] wrapped in a try/except catching SystemExit (argparse calls sys.exit() on validation errors), printing 'Rejected invalid value' if it was caught."
+                ],
+                "expectedOutput": "4\nRejected invalid value",
+                "checkMode": "exact",
+                "hints": [
+                    "argparse.parse_args() calls sys.exit(2) internally when a type validator raises ArgumentTypeError — catch SystemExit to prevent the whole program from exiting during this exercise.",
+                    "You'll likely want to suppress the default error message argparse prints to stderr; redirecting or ignoring it is fine for this exercise — only the two required print lines are checked.",
+                    "Build a fresh parser (or reuse the same one) for both parse attempts since parsers are stateless between calls.",
+                    "positive_int must both convert to int AND validate positivity — do both steps in the same function."
+                ],
+                "warnings": [
+                    "argparse's default behaviour on a validation failure is to print usage info to stderr and call sys.exit(2) — this is normal and expected; your job is just to catch the SystemExit so the exercise script itself doesn't crash.",
+                    "Do not catch generic Exception here — SystemExit does not inherit from Exception, so you need 'except SystemExit' specifically."
+                ]
+            }
+        ]
+    },
+    "app_ex_consume_api": {
+        "id": "app_ex_consume_api",
+        "title": "Consume a Public API and Store Results",
+        "lead": "Simulate calling a JSON API, parsing the response, and persisting selected fields — without needing live network access.",
+        "starterCode": "import json\n\n# We simulate the API response as a Python dict instead of making\n# a real network call, so this exercise runs anywhere.\n",
+        "tasks": [
+            {
+                "taskId": "api_1",
+                "title": "Part 1 — Parsing a JSON API Response",
+                "difficulty": null,
+                "background": "requests.get(url).json() would normally give you a dict parsed from the response body. Here we start from that already-parsed dict to focus on extraction logic.",
+                "backgroundCode": "response = {\"status\": \"ok\", \"data\": {\"temp_c\": 21.5, \"humidity\": 60}}\nif response[\"status\"] == \"ok\":\n    print(response[\"data\"][\"temp_c\"])",
+                "backgroundCodeOutput": "21.5",
+                "instructions": [
+                    "Given api_response = {'status': 'ok', 'results': [{'id': 1, 'name': 'Widget', 'price': 9.99}, {'id': 2, 'name': 'Gadget', 'price': 19.99}, {'id': 3, 'name': 'Gizmo', 'price': 14.5}]}, extract the 'results' list.",
+                    "Print the total value of all items: sum of price, printed rounded to 2 decimal places.",
+                    "Print the name of the most expensive item."
+                ],
+                "expectedOutput": "44.48\nGadget",
+                "checkMode": "exact",
+                "hints": [
+                    "results = api_response['results']",
+                    "total = round(sum(item['price'] for item in results), 2)",
+                    "max(results, key=lambda item: item['price'])['name'] gives the most expensive item's name.",
+                    "9.99 + 19.99 + 14.5 = 44.48"
+                ],
+                "warnings": [
+                    "Always check the 'status' field (or equivalent) before trusting a real API's data — this simulated example assumes status is already 'ok'.",
+                    "Round only for display — don't round intermediate values before further calculations, or you can accumulate small errors."
+                ]
+            },
+            {
+                "taskId": "api_2",
+                "title": "Part 2 — Handling Errors and Missing Fields",
+                "difficulty": null,
+                "background": "Real APIs sometimes return error statuses or omit expected fields. Defensive code checks before accessing, using .get() with defaults rather than direct indexing.",
+                "backgroundCode": "response = {\"status\": \"error\", \"message\": \"Not found\"}\nif response.get(\"status\") != \"ok\":\n    print(f\"API error: {response.get('message', 'unknown error')}\")",
+                "backgroundCodeOutput": "API error: Not found",
+                "instructions": [
+                    "Write fetch_price(item) that returns item['price'] if 'price' is a key in item, otherwise returns None (use .get() rather than raising).",
+                    "Given items = [{'name': 'A', 'price': 5}, {'name': 'B'}, {'name': 'C', 'price': 12}], compute the sum of prices, treating missing prices as 0.",
+                    "Print the total.",
+                    "Print a list of names for items missing a price, in original order."
+                ],
+                "expectedOutput": "17\n['B']",
+                "checkMode": "exact",
+                "hints": [
+                    "def fetch_price(item): return item.get('price')",
+                    "total = sum(fetch_price(item) or 0 for item in items) — treating a None (missing price) as 0.",
+                    "missing = [item['name'] for item in items if fetch_price(item) is None]",
+                    "5 + 0 + 12 = 17"
+                ],
+                "warnings": [
+                    "Using 'or 0' works here because a legitimate price is never falsy in this dataset, but be cautious with 'or' when 0 itself could be a valid, meaningful value elsewhere.",
+                    "Check for None explicitly with 'is None' when identifying missing items, not with a falsy check, for the same reason."
+                ]
+            },
+            {
+                "taskId": "api_stretch",
+                "title": "Stretch — Caching Simulated Requests to Avoid Repeat Calls",
+                "difficulty": "stretch",
+                "background": "Real API clients often cache responses to avoid redundant network calls, especially for rate-limited APIs. A simple in-memory dict keyed by request parameters works well for short-lived scripts.",
+                "backgroundCode": "cache = {}\ndef get_cached(key, compute_fn):\n    if key not in cache:\n        cache[key] = compute_fn()\n    return cache[key]",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Simulate an expensive API call with call_count = [0] (a mutable list used as a counter) and a function simulate_api_call(city) that increments call_count[0] and returns a fixed dict like {'city': city, 'temp': 20 + len(city)}.",
+                    "Write get_weather(city) that uses a module-level cache dict keyed by city name, calling simulate_api_call only on a cache miss.",
+                    "Call get_weather('Paris') three times and get_weather('Tokyo') twice.",
+                    "Print call_count[0] — it should be 2 (one real call per unique city, not per call).",
+                    "Print the temp for 'Paris': 25."
+                ],
+                "expectedOutput": "2\n25",
+                "checkMode": "exact",
+                "hints": [
+                    "cache.setdefault(city, simulate_api_call(city)) has a subtle bug: it evaluates simulate_api_call(city) every time regardless of whether the key exists. Use an explicit if city not in cache: cache[city] = simulate_api_call(city) instead.",
+                    "call_count[0] increments only inside simulate_api_call — if your cache works correctly, it increments exactly once per unique city.",
+                    "'Paris' has 5 letters, so temp = 20 + 5 = 25.",
+                    "Calling get_weather('Paris') a second and third time should hit the cache and NOT call simulate_api_call again."
+                ],
+                "warnings": [
+                    "Watch out for the setdefault() trap mentioned in the hints — it's a common source of bugs when the default value itself has side effects (like an API call).",
+                    "call_count must be a mutable container (like a one-element list) if you want to increment it inside a nested function without needing a 'nonlocal' or 'global' declaration."
+                ]
+            }
+        ]
+    },
+    "eco_ex_data_analysis": {
+        "id": "eco_ex_data_analysis",
+        "title": "Data Analysis on a Sample Dataset",
+        "lead": "Use pandas-style thinking (and pandas itself, if available) to explore, clean, and summarise tabular data.",
+        "starterCode": "# If pandas is unavailable in your environment, solve this using plain\n# Python dicts/lists — the logic is what matters.\ndata = [\n    {\"name\": \"Alice\", \"dept\": \"Engineering\", \"salary\": 95000},\n    {\"name\": \"Bob\", \"dept\": \"Sales\", \"salary\": 62000},\n    {\"name\": \"Carol\", \"dept\": \"Engineering\", \"salary\": 105000},\n    {\"name\": \"Dave\", \"dept\": \"Sales\", \"salary\": 58000},\n    {\"name\": \"Eve\", \"dept\": \"Engineering\", \"salary\": 98000}\n]\n",
+        "tasks": [
+            {
+                "taskId": "data_1",
+                "title": "Part 1 — Group-By Aggregation",
+                "difficulty": null,
+                "background": "pandas.DataFrame(data).groupby('dept')['salary'].mean() computes the average salary per department. The same result can be built manually with a dict of running sums and counts.",
+                "backgroundCode": "import pandas as pd\ndf = pd.DataFrame(data)\nprint(df.groupby(\"dept\")[\"salary\"].mean())",
+                "backgroundCodeOutput": "dept\nEngineering    99333.333333\nSales          60000.000000\nName: salary, dtype: float64",
+                "instructions": [
+                    "Using data above, compute the average salary per department.",
+                    "Print each department and its average salary rounded to 2 decimal places, sorted alphabetically by department name, one per line as 'dept: average'.",
+                    "Print the department with the highest average salary."
+                ],
+                "expectedOutput": "Engineering: 99333.33\nSales: 60000.0\nEngineering",
+                "checkMode": "exact",
+                "hints": [
+                    "If using pandas: df.groupby('dept')['salary'].mean().round(2)",
+                    "Without pandas: build a dict of {dept: [salaries]} using setdefault, then compute averages manually.",
+                    "(95000 + 105000 + 98000) / 3 = 99333.333... which rounds to 99333.33.",
+                    "Compare the computed averages to find the department with the highest mean."
+                ],
+                "warnings": [
+                    "60000.0 prints with a trailing .0 since it's a float average — don't convert it to an int.",
+                    "Sort departments alphabetically for the printed lines, but the final 'highest average' line is not sorted — it's just the single winning department name."
+                ]
+            },
+            {
+                "taskId": "data_2",
+                "title": "Part 2 — Handling Missing and Outlier Values",
+                "difficulty": null,
+                "background": "Real datasets have gaps. A common cleaning step is dropping or imputing missing values before aggregating, so they don't silently skew results.",
+                "backgroundCode": "raw = [10, None, 20, 15, None, 1000]\ncleaned = [x for x in raw if x is not None]\nprint(cleaned)  # [10, 20, 15, 1000]",
+                "backgroundCodeOutput": "[10, 20, 15, 1000]",
+                "instructions": [
+                    "Given scores = [88, 92, None, 79, 45, None, 91, 500], first remove all None values.",
+                    "Then remove outliers: any value more than 2x the median of the cleaned list (this correctly flags 500 as an outlier given the other values).",
+                    "Print the final cleaned list (order preserved).",
+                    "Print the mean of the final cleaned list, rounded to 2 decimal places."
+                ],
+                "expectedOutput": "[88, 92, 79, 45, 91]\n79.0",
+                "checkMode": "exact",
+                "hints": [
+                    "First pass: no_none = [x for x in scores if x is not None] → [88, 92, 79, 45, 91, 500]",
+                    "Compute the median of no_none using sorted values and picking the middle (or averaging the two middle values for an even-length list).",
+                    "Filter: [x for x in no_none if x <= 2 * median]",
+                    "sorted([88, 92, 79, 45, 91, 500]) = [45, 79, 88, 91, 92, 500], median of 6 items = (79+91)/2? No — length 6, so median = average of the 3rd and 4th sorted values: (88+91)/2 = 89.5, and 2*89.5 = 179, correctly excluding 500."
+                ],
+                "warnings": [
+                    "Compute the median BEFORE removing outliers (using the None-free list), not after — the outlier threshold must be based on the original spread of legitimate values.",
+                    "The final list must preserve the ORIGINAL order from scores (minus the removed None and the outlier), not the sorted order used internally to compute the median."
+                ]
+            },
+            {
+                "taskId": "data_stretch",
+                "title": "Stretch — Pivot-Style Cross-Tabulation",
+                "difficulty": "stretch",
+                "background": "A pivot table cross-tabulates two categorical dimensions with an aggregated value — for example, total sales by region AND product category simultaneously.",
+                "backgroundCode": "# pandas: df.pivot_table(index='region', columns='category', values='amount', aggfunc='sum')",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Given sales = [{'region': 'East', 'category': 'A', 'amount': 100}, {'region': 'East', 'category': 'B', 'amount': 50}, {'region': 'West', 'category': 'A', 'amount': 200}, {'region': 'West', 'category': 'B', 'amount': 75}, {'region': 'East', 'category': 'A', 'amount': 30}], build a nested dict pivot[region][category] = total_amount.",
+                    "Print the pivot dict with regions and categories both sorted alphabetically at each level.",
+                    "Print the grand total across all entries."
+                ],
+                "expectedOutput": "{'East': {'A': 130, 'B': 50}, 'West': {'A': 200, 'B': 75}}\n455",
+                "checkMode": "exact",
+                "hints": [
+                    "pivot = {}; for row in sales: pivot.setdefault(row['region'], {}); pivot[row['region']][row['category']] = pivot[row['region']].get(row['category'], 0) + row['amount']",
+                    "To print with sorted keys at both levels: {r: {c: pivot[r][c] for c in sorted(pivot[r])} for r in sorted(pivot)}",
+                    "East's category A total: 100 + 30 = 130.",
+                    "Grand total: sum of every 'amount' value across all rows in sales = 100+50+200+75+30 = 455."
+                ],
+                "warnings": [
+                    "Build the sorted-key version only for printing — don't let sorting logic interfere with the accumulation step, which should happen before any sorting.",
+                    "The grand total must equal the sum of ALL original 'amount' values, which serves as a good sanity check against your pivot's own totals."
+                ]
+            }
+        ]
+    },
+    "eco_ex_plot_dataset": {
+        "id": "eco_ex_plot_dataset",
+        "title": "Plot & Interpret a Dataset",
+        "lead": "Practice choosing the right chart type and computing the summary statistics a chart would visualise, even without rendering an actual image.",
+        "starterCode": "# We compute the numbers a chart would show, since this environment\n# focuses on the underlying data logic rather than rendering images.\nmonthly_sales = [120, 135, 128, 150, 170, 165, 180, 190, 175, 160, 140, 200]\n",
+        "tasks": [
+            {
+                "taskId": "plot_1",
+                "title": "Part 1 — Summary Statistics for a Line Chart",
+                "difficulty": null,
+                "background": "Before plotting a trend line, you typically compute the min, max, and overall change to understand the shape of the data. matplotlib.pyplot.plot(x, y) would draw this as a line, but the numbers behind it are what matter first.",
+                "backgroundCode": "data = [10, 15, 12, 20]\nprint(max(data), min(data), data[-1] - data[0])  # 20 10 10",
+                "backgroundCodeOutput": "20 10 10",
+                "instructions": [
+                    "Using monthly_sales (12 values, one per month, January first), find the month with the highest sales (1-indexed) and the value.",
+                    "Find the month with the lowest sales (1-indexed) and the value.",
+                    "Print: 'Peak: month [n] ([value])'",
+                    "Print: 'Trough: month [n] ([value])'",
+                    "Print the net change from January to December: 'Net change: [value]'"
+                ],
+                "expectedOutput": "Peak: month 12 (200)\nTrough: month 1 (120)\nNet change: 80",
+                "checkMode": "exact",
+                "hints": [
+                    "Use monthly_sales.index(max(monthly_sales)) + 1 to get the 1-indexed peak month.",
+                    "Similarly for the trough using min().",
+                    "Net change: monthly_sales[-1] - monthly_sales[0]",
+                    "This is exactly the data a line chart's y-axis annotations would highlight."
+                ],
+                "warnings": [
+                    "Months are 1-indexed in the output (January = month 1), but list indices are 0-indexed — remember the +1 adjustment.",
+                    "index() returns the FIRST matching index — fine here since there are no duplicate max/min values in this dataset."
+                ]
+            },
+            {
+                "taskId": "plot_2",
+                "title": "Part 2 — Binning for a Histogram",
+                "difficulty": null,
+                "background": "A histogram groups continuous data into bins and counts how many values fall in each. matplotlib.pyplot.hist(data, bins=n) does this automatically, but understanding the binning logic helps you interpret (or debug) the resulting chart.",
+                "backgroundCode": "values = [5, 12, 15, 22, 28, 33, 8]\nbin_size = 10\nbins = {}\nfor v in values:\n    b = (v // bin_size) * bin_size\n    bins[b] = bins.get(b, 0) + 1\nprint(sorted(bins.items()))",
+                "backgroundCodeOutput": "[(0, 2), (10, 2), (20, 2), (30, 1)]",
+                "instructions": [
+                    "Using monthly_sales, create bins of width 25 starting at 100 (i.e. bins are [100,125), [125,150), [150,175), [175,200), [200,225)).",
+                    "Count how many months fall into each bin.",
+                    "Print the bin counts as a sorted list of tuples (bin_start, count), including any empty bins in the range with count 0."
+                ],
+                "expectedOutput": "[(100, 1), (125, 3), (150, 3), (175, 4), (200, 1)]",
+                "checkMode": "exact",
+                "hints": [
+                    "bin_start = 100 + ((v - 100) // 25) * 25 assigns each value to the correct bin floor.",
+                    "Initialise all 5 expected bins to 0 first: bins = {100: 0, 125: 0, 150: 0, 175: 0, 200: 0}, then increment as you iterate.",
+                    "This ensures empty bins still appear in the final sorted output, matching what a real histogram would show as a zero-height bar.",
+                    "200 falls into the [200, 225) bin on its own since it's the maximum value in the data."
+                ],
+                "warnings": [
+                    "Without pre-initialising all expected bins, an empty bin would simply be missing from the dict rather than showing a 0 count — make sure to seed them explicitly.",
+                    "Double-check boundary values like 150 and 175 fall into the correct bin ([150,175) not [125,150), and [175,200) not [150,175))."
+                ]
+            },
+            {
+                "taskId": "plot_stretch",
+                "title": "Stretch — Moving Average Smoothing",
+                "difficulty": "stretch",
+                "background": "A moving average smooths a noisy line chart by averaging each point with its neighbours, making the underlying trend easier to see — a very common technique before plotting time-series data.",
+                "backgroundCode": "# 3-point moving average for [1, 2, 3, 4, 5]:\n# point 2 (index 1): avg(1,2,3) = 2.0\n# point 3 (index 2): avg(2,3,4) = 3.0\n# edges (index 0 and 4) have fewer neighbours and are often left out or handled specially",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "Write moving_average(data, window) that computes a centered moving average, only for indices that have a FULL window available on both sides (i.e. skip the edges rather than padding them).",
+                    "For window=3, the result for monthly_sales should have exactly 10 values (skipping the first and last month).",
+                    "Print the moving average list, with each value rounded to 2 decimal places.",
+                    "Print how much smoother it is: the difference between max(monthly_sales) - min(monthly_sales) and max(smoothed) - min(smoothed), rounded to 2 decimal places (should be positive, showing reduced range)."
+                ],
+                "expectedOutput": "10\npositive",
+                "checkMode": "contains",
+                "hints": [
+                    "For window=3 centered on index i, average data[i-1], data[i], data[i+1] — valid for i from 1 to len(data)-2 inclusive.",
+                    "len(monthly_sales) - 2 = 10 valid centered points for a window of 3.",
+                    "range_original = max(monthly_sales) - min(monthly_sales); range_smoothed = max(smoothed) - min(smoothed); the difference should be positive since smoothing narrows the range.",
+                    "This exercise's checker looks for '10' (the count) and the word 'positive' somewhere in your printed output — print your own descriptive line confirming the range shrank, alongside the required numeric list."
+                ],
+                "warnings": [
+                    "A centered window requires an odd window size to have equal neighbours on both sides — window=3 is used here specifically because it divides evenly around each center point.",
+                    "Don't pad the edges with partial windows for this task — the instructions specifically ask you to skip indices without a full window, which is why the result has exactly 10 (not 12) values."
+                ]
+            }
+        ]
+    },
+    "found_ex_execution_trace": {
+        "id": "found_ex_execution_trace",
+        "title": "Trace the Execution Model",
+        "lead": "Predict how Python reads and runs a script top-to-bottom before you ever hit run.",
+        "starterCode": "# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "trace_1",
+                "title": "Part 1 — Predict, Then Print",
+                "difficulty": null,
+                "background": "Python executes statements in order, one line at a time, and a variable's value at any point is whatever it was most recently assigned.",
+                "backgroundCode": "a = 5\nb = a + 2\na = 10\nprint(b)",
+                "backgroundCodeOutput": "7",
+                "instructions": [
+                    "Write out (as comments) your predicted output for this snippet before running it: count = 1\\ncount = count + 1\\ndoubled = count * 2\\ncount = 100\\nprint(doubled)",
+                    "Then write the actual runnable code and print(doubled) to confirm your prediction."
+                ],
+                "expectedOutput": "4",
+                "checkMode": "exact",
+                "hints": [
+                    "doubled is computed and stored BEFORE count is reassigned to 100 — later reassignment doesn't retroactively change it.",
+                    "Walk through the lines strictly in order, updating your mental table of variable values as you go."
+                ],
+                "warnings": [
+                    "A common mistake is assuming variables are 'linked' — they are not. doubled holds a copied value, not a reference to count."
+                ]
+            },
+            {
+                "taskId": "trace_2",
+                "title": "Part 2 — Top-Level vs Function Body",
+                "difficulty": null,
+                "background": "Code inside a function body doesn't run when the function is defined — only when it's called. The Python execution model separates 'reading/compiling' definitions from 'executing' them.",
+                "backgroundCode": "def greet():\n    print(\"Inside function\")\n\nprint(\"Before call\")\ngreet()\nprint(\"After call\")",
+                "backgroundCodeOutput": "Before call\nInside function\nAfter call",
+                "instructions": [
+                    "Define a function called countdown that prints 3, 2, 1, then \"Go!\" (each on its own line).",
+                    "Print \"Setup complete\" BEFORE defining or calling the function.",
+                    "Call countdown() only after printing \"Setup complete\".",
+                    "Print \"Done\" after the call."
+                ],
+                "expectedOutput": "Setup complete\n3\n2\n1\nGo!\nDone",
+                "checkMode": "exact",
+                "hints": [
+                    "Defining a function with def just registers it — nothing inside runs until you call it with countdown().",
+                    "Order your print(\"Setup complete\") statement before the call, not before the def — defining early is fine."
+                ],
+                "warnings": [
+                    "Don't call countdown() before Setup complete has printed — the checker verifies exact line order."
+                ]
+            },
+            {
+                "taskId": "trace_3",
+                "title": "Part 3 — The Zen, Applied",
+                "difficulty": null,
+                "background": "The Zen of Python favors explicit, readable code over clever one-liners that obscure execution order.",
+                "backgroundCode": "# Less readable\nx=1;y=2;print(x+y)\n\n# More Pythonic\nx = 1\ny = 2\ntotal = x + y\nprint(total)",
+                "backgroundCodeOutput": "3\n3",
+                "instructions": [
+                    "Take this cramped line: r=10;a=3.14159*r*r;print(a) and rewrite it as clear, separate statements with meaningful variable names (radius, area).",
+                    "Print the final area value."
+                ],
+                "expectedOutput": "314.159",
+                "checkMode": "exact",
+                "hints": [
+                    "Use radius = 10 and area = 3.14159 * radius * radius on separate lines.",
+                    "print(area) should be its own final line."
+                ],
+                "warnings": [
+                    "Keep the numeric result identical — this is about readability, not changing the calculation."
+                ]
+            }
+        ]
+    },
+    "func_ex_lambda_scope": {
+        "id": "func_ex_lambda_scope",
+        "title": "Lambda, Scope & Docstring Drills",
+        "lead": "Combine lambdas, LEGB scoping rules, and proper docstrings in small, realistic snippets.",
+        "starterCode": "# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "lam_1",
+                "title": "Part 1 — Lambda as a Sort Key",
+                "difficulty": null,
+                "background": "Lambdas are small anonymous functions, often used inline as a key= argument for sorting.",
+                "backgroundCode": "words = [\"kiwi\", \"fig\", \"banana\"]\nwords.sort(key=lambda w: len(w))\nprint(words)",
+                "backgroundCodeOutput": "['fig', 'kiwi', 'banana']",
+                "instructions": [
+                    "Given people = [(\"Ana\", 34), (\"Bo\", 21), (\"Cy\", 28)], sort this list by age using a lambda as the sort key.",
+                    "Print the sorted list."
+                ],
+                "expectedOutput": "[('Bo', 21), ('Cy', 28), ('Ana', 34)]",
+                "checkMode": "exact",
+                "hints": [
+                    "Use people.sort(key=lambda p: p[1]) to sort by the second tuple element.",
+                    "sort() mutates the list in place and returns None — print the list itself afterward, not the return value."
+                ],
+                "warnings": [
+                    "Don't write print(people.sort(...)) — that prints None."
+                ]
+            },
+            {
+                "taskId": "lam_2",
+                "title": "Part 2 — Scope Detective (LEGB)",
+                "difficulty": null,
+                "background": "Python looks up names using the LEGB rule: Local, Enclosing, Global, Built-in. A local variable shadows a global one of the same name inside its function.",
+                "backgroundCode": "value = \"global\"\n\ndef show():\n    value = \"local\"\n    print(value)\n\nshow()\nprint(value)",
+                "backgroundCodeOutput": "local\nglobal",
+                "instructions": [
+                    "Write a global variable counter = 0.",
+                    "Write a function bump() that creates its OWN local variable counter = 100 and prints it (do not use the global keyword).",
+                    "Call bump(), then print the global counter afterward to show it is unaffected."
+                ],
+                "expectedOutput": "100\n0",
+                "checkMode": "exact",
+                "hints": [
+                    "Assigning to counter inside bump() creates a new local variable — it does not touch the global one.",
+                    "This is the core LEGB lesson: local assignment shadows, it doesn't overwrite, the outer scope."
+                ],
+                "warnings": [
+                    "If you use the global keyword here, the output will differ — this task specifically wants the shadowing behavior."
+                ]
+            },
+            {
+                "taskId": "lam_3",
+                "title": "Part 3 — Document a Function Properly",
+                "difficulty": null,
+                "background": "A docstring is a triple-quoted string right under a function's def line describing what it does, its parameters, and its return value.",
+                "backgroundCode": "def add(a, b):\n    \"\"\"Return the sum of a and b.\"\"\"\n    return a + b\n\nprint(add.__doc__)",
+                "backgroundCodeOutput": "Return the sum of a and b.",
+                "instructions": [
+                    "Write a function circle_area(radius) that returns 3.14159 * radius ** 2.",
+                    "Give it a one-line docstring describing what it returns.",
+                    "Print circle_area.__doc__ on one line, then print circle_area(4) on the next line."
+                ],
+                "expectedOutput": "Return the area of a circle given its radius.\n50.27424",
+                "checkMode": "exact",
+                "hints": [
+                    "The docstring text is checked exactly — use precisely: \"Return the area of a circle given its radius.\"",
+                    "3.14159 * 4 ** 2 = 50.27424."
+                ],
+                "warnings": [
+                    "Remember ** has higher precedence than * — radius ** 2 is squared before multiplying by 3.14159."
+                ]
+            }
+        ]
+    },
+    "ds_ex_choosing_structures": {
+        "id": "ds_ex_choosing_structures",
+        "title": "Pick the Right Structure & Estimate Complexity",
+        "lead": "Practice choosing between list, set, and dict based on the operation you need, and reason about time complexity.",
+        "starterCode": "# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "choose_1",
+                "title": "Part 1 — Deduplicate Fast",
+                "difficulty": null,
+                "background": "Checking membership in a set is O(1) on average, versus O(n) for a list — sets are the right tool for fast membership tests and deduplication.",
+                "backgroundCode": "nums = [1, 2, 2, 3, 3, 3]\nunique = set(nums)\nprint(sorted(unique))",
+                "backgroundCodeOutput": "[1, 2, 3]",
+                "instructions": [
+                    "Given tags = [\"py\", \"web\", \"py\", \"data\", \"web\", \"py\"], use a set to find the unique tags.",
+                    "Print the unique tags sorted alphabetically as a list."
+                ],
+                "expectedOutput": "['data', 'py', 'web']",
+                "checkMode": "exact",
+                "hints": [
+                    "set(tags) removes duplicates; sorted() then returns a sorted list from that set.",
+                    "Print the result of sorted(set(tags)) directly."
+                ],
+                "warnings": [
+                    "Sets are unordered — always sort before printing if order matters for the check."
+                ]
+            },
+            {
+                "taskId": "choose_2",
+                "title": "Part 2 — Lookup Table vs Linear Scan",
+                "difficulty": null,
+                "background": "Looking up a value by key in a dict is O(1) on average; searching for a matching item in a list of tuples is O(n) because you must check each one.",
+                "backgroundCode": "prices = {\"apple\": 2, \"pear\": 3}\nprint(prices[\"pear\"])",
+                "backgroundCodeOutput": "3",
+                "instructions": [
+                    "Given records as a list of tuples: [(\"u1\", \"Ana\"), (\"u2\", \"Bo\"), (\"u3\", \"Cy\")], convert it into a dict mapping id to name.",
+                    "Print the name for key 'u2' using the dict (not by scanning the list)."
+                ],
+                "expectedOutput": "Bo",
+                "checkMode": "exact",
+                "hints": [
+                    "dict(records) converts a list of 2-tuples directly into a dictionary.",
+                    "Then print(lookup['u2'])."
+                ],
+                "warnings": [
+                    "The point of this exercise is avoiding a for-loop scan — use the dict's O(1) key access instead."
+                ]
+            },
+            {
+                "taskId": "choose_3",
+                "title": "Part 3 — Justify Your Choice",
+                "difficulty": null,
+                "background": "Choosing a data structure is a design decision, not just a syntax choice — it should match the operations you'll perform most often.",
+                "backgroundCode": "# No code needed — this is a written reasoning task.",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "As a comment, explain in 1-2 sentences why you would use a set (not a list) to track which user IDs have already been processed in a loop that runs thousands of times.",
+                    "Then print the string \"set\" as your final answer."
+                ],
+                "expectedOutput": "set",
+                "checkMode": "exact",
+                "hints": [
+                    "Focus your reasoning on membership-check speed: 'in' on a set is O(1) average vs O(n) for a list.",
+                    "The printed answer just needs to be the exact word: set"
+                ],
+                "warnings": [
+                    "This task grades the printed output only — the comment is for your own understanding but won't be checked."
+                ]
+            }
+        ]
+    },
+    "file_ex_pathlib_pipeline": {
+        "id": "file_ex_pathlib_pipeline",
+        "title": "pathlib Batch-Processing Pipeline",
+        "lead": "Use pathlib alongside CSV and JSON skills to build a small multi-step file pipeline.",
+        "starterCode": "from pathlib import Path\n# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "path_1",
+                "title": "Part 1 — Build Paths, Not Strings",
+                "difficulty": null,
+                "background": "pathlib.Path objects let you join paths with / instead of manually concatenating strings, and expose properties like .name, .suffix, and .stem.",
+                "backgroundCode": "from pathlib import Path\np = Path(\"data\") / \"reports\" / \"summary.csv\"\nprint(p)\nprint(p.suffix)",
+                "backgroundCodeOutput": "data/reports/summary.csv\n.csv",
+                "instructions": [
+                    "Build a Path for logs/2026/july/output.json using the / operator, starting from Path('logs').",
+                    "Print the full path, then print just the .stem (filename without extension)."
+                ],
+                "expectedOutput": "logs/2026/july/output.json\noutput",
+                "checkMode": "exact",
+                "hints": [
+                    "Chain / like: Path('logs') / '2026' / 'july' / 'output.json'.",
+                    ".stem strips the suffix; .name would keep it."
+                ],
+                "warnings": [
+                    "On Windows the separator renders as backslash — this exercise assumes POSIX-style output as shown."
+                ]
+            },
+            {
+                "taskId": "path_2",
+                "title": "Part 2 — Simulate Reading Several Records",
+                "difficulty": null,
+                "background": "In a real pipeline you'd glob a directory for matching files; here we simulate that by processing an in-memory list of 'file-like' CSV row strings and converting them to structured data.",
+                "backgroundCode": "rows = [\"id,score\", \"1,88\", \"2,95\"]\nheader, *data = rows\nfor row in data:\n    print(row.split(\",\"))",
+                "backgroundCodeOutput": "['1', '88']\n['2', '95']",
+                "instructions": [
+                    "Given rows = [\"name,dept\", \"Ana,Eng\", \"Bo,Sales\", \"Cy,Eng\"], parse the data rows (skip the header) into a list of dicts with keys 'name' and 'dept'.",
+                    "Print the resulting list of dicts."
+                ],
+                "expectedOutput": "[{'name': 'Ana', 'dept': 'Eng'}, {'name': 'Bo', 'dept': 'Sales'}, {'name': 'Cy', 'dept': 'Eng'}]",
+                "checkMode": "exact",
+                "hints": [
+                    "Use header, *data = rows to split off the header row, then split(',') each data row.",
+                    "Build each dict as {'name': parts[0], 'dept': parts[1]}."
+                ],
+                "warnings": [
+                    "Preserve the original row order in your output list."
+                ]
+            },
+            {
+                "taskId": "path_3",
+                "title": "Part 3 — Serialize the Result as JSON",
+                "difficulty": null,
+                "background": "Once you have structured Python data, json.dumps() turns it into a JSON-formatted string ready to write to disk.",
+                "backgroundCode": "import json\ndata = {\"a\": 1}\nprint(json.dumps(data))",
+                "backgroundCodeOutput": "{\"a\": 1}",
+                "instructions": [
+                    "Take the list of dicts from Part 2 (Ana/Eng, Bo/Sales, Cy/Eng) and convert it to a JSON string using json.dumps().",
+                    "Print the JSON string."
+                ],
+                "expectedOutput": "[{\"name\": \"Ana\", \"dept\": \"Eng\"}, {\"name\": \"Bo\", \"dept\": \"Sales\"}, {\"name\": \"Cy\", \"dept\": \"Eng\"}]",
+                "checkMode": "exact",
+                "hints": [
+                    "import json, then json.dumps(your_list_of_dicts).",
+                    "json.dumps uses double quotes by default, matching the expected output exactly."
+                ],
+                "warnings": [
+                    "Don't add indent= — the default compact output is what's being checked here."
+                ]
+            }
+        ]
+    },
+    "err_ex_custom_logging": {
+        "id": "err_ex_custom_logging",
+        "title": "Custom Exceptions with Logging",
+        "lead": "Design your own exception type and pair it with the logging module for real diagnostic output.",
+        "starterCode": "import logging\n# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "custlog_1",
+                "title": "Part 1 — Define a Custom Exception",
+                "difficulty": null,
+                "background": "Custom exceptions subclass Exception (or a built-in subclass) and let you raise domain-specific errors that are easy to catch selectively.",
+                "backgroundCode": "class NegativeValueError(Exception):\n    pass\n\ntry:\n    raise NegativeValueError(\"value was negative\")\nexcept NegativeValueError as e:\n    print(f\"Caught: {e}\")",
+                "backgroundCodeOutput": "Caught: value was negative",
+                "instructions": [
+                    "Define a custom exception InsufficientFundsError(Exception).",
+                    "Write a function withdraw(balance, amount) that raises InsufficientFundsError(\"Not enough funds\") if amount > balance, otherwise returns balance - amount.",
+                    "Call withdraw(50, 100) inside a try/except that catches InsufficientFundsError and prints f\"Caught: {e}\"."
+                ],
+                "expectedOutput": "Caught: Not enough funds",
+                "checkMode": "exact",
+                "hints": [
+                    "class InsufficientFundsError(Exception): pass is enough to define it.",
+                    "raise InsufficientFundsError(\"Not enough funds\") inside the if-branch."
+                ],
+                "warnings": [
+                    "Make sure the except clause names InsufficientFundsError specifically, not a bare except."
+                ]
+            },
+            {
+                "taskId": "custlog_2",
+                "title": "Part 2 — Log Instead of Just Printing",
+                "difficulty": null,
+                "background": "The logging module lets you record errors with severity levels (INFO, WARNING, ERROR) instead of relying on print statements, which is standard practice in real applications.",
+                "backgroundCode": "import logging\nlogging.basicConfig(level=logging.INFO, format=\"%(levelname)s:%(message)s\")\nlogging.info(\"Starting up\")",
+                "backgroundCodeOutput": "INFO:Starting up",
+                "instructions": [
+                    "Configure logging with logging.basicConfig(level=logging.WARNING, format=\"%(levelname)s:%(message)s\").",
+                    "In the except block from Part 1, replace the print with logging.error(f\"Withdrawal failed: {e}\") instead.",
+                    "Also call logging.info(\"Attempting withdrawal\") once before the try block (this should NOT appear in output, since level is WARNING)."
+                ],
+                "expectedOutput": "ERROR:Withdrawal failed: Not enough funds",
+                "checkMode": "exact",
+                "hints": [
+                    "Setting level=logging.WARNING means INFO-level messages are suppressed but ERROR-level messages still show.",
+                    "logging.error(...) uses the same %(levelname)s:%(message)s format as configured."
+                ],
+                "warnings": [
+                    "If your output includes the INFO line, your basicConfig level is set too low — it must be WARNING or higher."
+                ]
+            },
+            {
+                "taskId": "custlog_3",
+                "title": "Part 3 — Chain Custom Exceptions with a Cause",
+                "difficulty": null,
+                "background": "You can preserve the original error context by raising a new exception 'from' the caught one, which is good defensive-programming practice for translating low-level errors into domain-specific ones.",
+                "backgroundCode": "try:\n    int(\"abc\")\nexcept ValueError as e:\n    raise RuntimeError(\"conversion failed\") from e",
+                "backgroundCodeOutput": "Traceback (most recent call last)... RuntimeError: conversion failed",
+                "instructions": [
+                    "Write a function parse_amount(text) that tries int(text) and, if it raises ValueError, raises InsufficientFundsError(\"invalid amount\") from the original error.",
+                    "Call parse_amount(\"abc\") inside a try/except InsufficientFundsError that prints f\"Caught: {e}\"."
+                ],
+                "expectedOutput": "Caught: invalid amount",
+                "checkMode": "exact",
+                "hints": [
+                    "Use: except ValueError as e: raise InsufficientFundsError(\"invalid amount\") from e",
+                    "The outer try/except only needs to catch InsufficientFundsError, since that's what actually propagates."
+                ],
+                "warnings": [
+                    "Don't swallow the original ValueError silently — using 'from e' keeps the traceback chain, which the exercise is testing conceptually even though only the final message is checked."
+                ]
+            }
+        ]
+    },
+    "oop_ex_dataclass_enum": {
+        "id": "oop_ex_dataclass_enum",
+        "title": "Dataclasses & Enums in Practice",
+        "lead": "Replace verbose boilerplate classes with dataclasses and represent fixed categories with enums.",
+        "starterCode": "from dataclasses import dataclass\nfrom enum import Enum\n# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "dc_1",
+                "title": "Part 1 — From Manual __init__ to @dataclass",
+                "difficulty": null,
+                "background": "@dataclass automatically generates __init__, __repr__, and __eq__ for you based on the class's annotated fields, removing boilerplate.",
+                "backgroundCode": "from dataclasses import dataclass\n\n@dataclass\nclass Point:\n    x: int\n    y: int\n\np = Point(1, 2)\nprint(p)",
+                "backgroundCodeOutput": "Point(x=1, y=2)",
+                "instructions": [
+                    "Define a dataclass Book with fields title (str), author (str), and year (int).",
+                    "Create book1 = Book(\"Dune\", \"Herbert\", 1965) and print it directly (using its auto-generated __repr__)."
+                ],
+                "expectedOutput": "Book(title='Dune', author='Herbert', year=1965)",
+                "checkMode": "exact",
+                "hints": [
+                    "Use @dataclass above class Book, and annotate each field with its type on its own line.",
+                    "print(book1) alone is enough — the dataclass __repr__ formats it for you."
+                ],
+                "warnings": [
+                    "Don't write your own __init__ or __repr__ — the point of this task is to let @dataclass generate them."
+                ]
+            },
+            {
+                "taskId": "dc_2",
+                "title": "Part 2 — Free Equality Comparison",
+                "difficulty": null,
+                "background": "Dataclasses generate __eq__ automatically, comparing all fields — two instances with identical field values are considered equal, unlike plain classes.",
+                "backgroundCode": "from dataclasses import dataclass\n\n@dataclass\nclass Point:\n    x: int\n    y: int\n\nprint(Point(1,2) == Point(1,2))",
+                "backgroundCodeOutput": "True",
+                "instructions": [
+                    "Using the Book dataclass from Part 1, create book2 = Book(\"Dune\", \"Herbert\", 1965) (identical fields to book1).",
+                    "Print book1 == book2."
+                ],
+                "expectedOutput": "True",
+                "checkMode": "exact",
+                "hints": [
+                    "This works purely because @dataclass auto-generates field-by-field equality — no manual __eq__ needed.",
+                    "Just compare with == directly, same as any built-in type."
+                ],
+                "warnings": [
+                    "This would print False on a plain class without @dataclass, since default equality checks identity, not field values."
+                ]
+            },
+            {
+                "taskId": "dc_3",
+                "title": "Part 3 — Fixed Categories with Enum",
+                "difficulty": null,
+                "background": "Enums represent a fixed, named set of related constants — safer and more readable than using raw strings like 'fiction' or 'nonfiction' scattered through your code.",
+                "backgroundCode": "from enum import Enum\n\nclass Status(Enum):\n    ACTIVE = 1\n    INACTIVE = 2\n\nprint(Status.ACTIVE)\nprint(Status.ACTIVE.name, Status.ACTIVE.value)",
+                "backgroundCodeOutput": "Status.ACTIVE\nACTIVE 1",
+                "instructions": [
+                    "Define an Enum Genre with members FICTION, NONFICTION, and POETRY (values 1, 2, 3 respectively).",
+                    "Add a field genre: Genre to the Book dataclass (redefine it with all four fields: title, author, year, genre).",
+                    "Create book3 = Book(\"Dune\", \"Herbert\", 1965, Genre.FICTION) and print book3.genre.name."
+                ],
+                "expectedOutput": "FICTION",
+                "checkMode": "exact",
+                "hints": [
+                    "class Genre(Enum): FICTION = 1 / NONFICTION = 2 / POETRY = 3, each on its own line.",
+                    "book3.genre.name accesses the enum member's name as a string."
+                ],
+                "warnings": [
+                    "Make sure the redefined Book dataclass includes genre as its fourth annotated field, in order, or the constructor call will fail."
+                ]
+            }
+        ]
+    },
+    "mod_ex_pyproject_setup": {
+        "id": "mod_ex_pyproject_setup",
+        "title": "Configure a Package with pyproject.toml",
+        "lead": "Practice writing and reasoning about a pyproject.toml file and dependency declarations, since this can't be 'run' the way a script can — it's about getting the structure right.",
+        "starterCode": "# This exercise is about writing configuration text, not runnable code.\n",
+        "tasks": [
+            {
+                "taskId": "pyp_1",
+                "title": "Part 1 — Write a Minimal pyproject.toml",
+                "difficulty": null,
+                "background": "pyproject.toml is the modern standard for declaring a Python package's metadata and build system, replacing the old setup.py approach.",
+                "backgroundCode": "[project]\nname = \"example-pkg\"\nversion = \"0.1.0\"",
+                "backgroundCodeOutput": "(This is a config file — there is no runtime output.)",
+                "instructions": [
+                    "As a multi-line string variable called pyproject_text, write the [build-system] table specifying requires = [\"setuptools>=61.0\"] and build-backend = \"setuptools.build_meta\".",
+                    "Below it, add a [project] table with name = \"weather-cli\", version = \"1.0.0\", and requires-python = \">=3.10\".",
+                    "Print pyproject_text."
+                ],
+                "expectedOutput": "[build-system]\nrequires = [\"setuptools>=61.0\"]\nbuild-backend = \"setuptools.build_meta\"\n\n[project]\nname = \"weather-cli\"\nversion = \"1.0.0\"\nrequires-python = \">=3.10\"",
+                "checkMode": "exact",
+                "hints": [
+                    "Use triple-quoted strings in Python to build the multi-line TOML text, matching the section order and blank line shown.",
+                    "TOML keys inside [project] don't need quotes; only string values do."
+                ],
+                "warnings": [
+                    "Whitespace and blank lines matter for this exact-match check — leave exactly one blank line between the two tables."
+                ]
+            },
+            {
+                "taskId": "pyp_2",
+                "title": "Part 2 — Declare Runtime Dependencies",
+                "difficulty": null,
+                "background": "Dependencies your package needs at runtime (like 'requests') go under dependencies in the [project] table, each as a version-constrained string.",
+                "backgroundCode": "[project]\ndependencies = [\n    \"requests>=2.28\"\n]",
+                "backgroundCodeOutput": "(Config file — no runtime output.)",
+                "instructions": [
+                    "Extend your [project] table with a dependencies list containing exactly: \"requests>=2.28\" and \"click>=8.0\".",
+                    "Print just this dependencies block on its own (four lines: opening bracket line, two dependency lines, closing bracket line)."
+                ],
+                "expectedOutput": "dependencies = [\n    \"requests>=2.28\",\n    \"click>=8.0\"\n]",
+                "checkMode": "exact",
+                "hints": [
+                    "Each dependency string is comma-separated except the last one, and indented with 4 spaces by convention.",
+                    "This mirrors requirements.txt content but scoped inside pyproject.toml instead of a separate file."
+                ],
+                "warnings": [
+                    "Don't add a trailing comma after the last dependency — TOML allows it but this exact-match check does not expect one."
+                ]
+            },
+            {
+                "taskId": "pyp_3",
+                "title": "Part 3 — Wheel vs Source Distribution, Applied",
+                "difficulty": null,
+                "background": "A wheel (.whl) is a prebuilt, ready-to-install package format; a source distribution (.tar.gz / sdist) contains raw source that must be built. pip prefers wheels when available because they install faster.",
+                "backgroundCode": "# No code needed — conceptual identification task.",
+                "backgroundCodeOutput": "",
+                "instructions": [
+                    "As a comment, note which of these two filenames is a wheel and which is an sdist: weather_cli-1.0.0-py3-none-any.whl and weather_cli-1.0.0.tar.gz.",
+                    "Print the string \"wheel\" followed on the next line by \"sdist\", in that order, matching the two filenames above."
+                ],
+                "expectedOutput": "wheel\nsdist",
+                "checkMode": "exact",
+                "hints": [
+                    "The .whl extension always signals a wheel; .tar.gz is the classic sdist archive format.",
+                    "print(\"wheel\") then print(\"sdist\") on separate lines."
+                ],
+                "warnings": [
+                    "This is intentionally simple — the goal is cementing the naming convention, which trips people up when reading pip install logs."
+                ]
+            }
+        ]
+    },
+    "test_ex_mocking_practice": {
+        "id": "test_ex_mocking_practice",
+        "title": "Mock External Calls with pytest",
+        "lead": "Practice using unittest.mock to isolate code under test from slow or unpredictable external dependencies.",
+        "starterCode": "from unittest.mock import Mock, patch\n# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "mock_1",
+                "title": "Part 1 — Replace a Dependency with a Mock",
+                "difficulty": null,
+                "background": "A Mock object stands in for a real dependency and can be configured to return whatever value you want, without actually performing the real (possibly slow or network-based) operation.",
+                "backgroundCode": "from unittest.mock import Mock\n\nfake_db = Mock()\nfake_db.get_user.return_value = {\"id\": 1, \"name\": \"Ana\"}\nprint(fake_db.get_user(1))",
+                "backgroundCodeOutput": "{'id': 1, 'name': 'Ana'}",
+                "instructions": [
+                    "Create a Mock called fake_api with a method fetch_price configured via return_value to return 42.5 when called.",
+                    "Call fake_api.fetch_price(\"AAPL\") and print the result."
+                ],
+                "expectedOutput": "42.5",
+                "checkMode": "exact",
+                "hints": [
+                    "fake_api = Mock() then fake_api.fetch_price.return_value = 42.5.",
+                    "The mock ignores whatever arguments you pass — it always returns the configured value."
+                ],
+                "warnings": [
+                    "Mock() attributes and methods are created on the fly — you don't need to predefine fetch_price anywhere."
+                ]
+            },
+            {
+                "taskId": "mock_2",
+                "title": "Part 2 — Assert the Mock Was Called Correctly",
+                "difficulty": null,
+                "background": "Beyond returning fake data, mocks record how they were called, so tests can assert the right arguments were passed — this is central to unit testing code that depends on external services.",
+                "backgroundCode": "from unittest.mock import Mock\n\nlogger = Mock()\nlogger.warn(\"disk low\")\nprint(logger.warn.called)\nlogger.warn.assert_called_with(\"disk low\")\nprint(\"assertion passed\")",
+                "backgroundCodeOutput": "True\nassertion passed",
+                "instructions": [
+                    "Using fake_api from Part 1, call fake_api.fetch_price(\"AAPL\") again.",
+                    "Print fake_api.fetch_price.call_count.",
+                    "Then call fake_api.fetch_price.assert_called_with(\"AAPL\") and, if it doesn't raise, print \"assertion passed\"."
+                ],
+                "expectedOutput": "2\nassertion passed",
+                "checkMode": "exact",
+                "hints": [
+                    "call_count increases each time the mocked method is invoked — this is the second call from Part 1 plus this one.",
+                    "assert_called_with checks the arguments of the MOST RECENT call, not all calls."
+                ],
+                "warnings": [
+                    "If Part 1's call used a different argument than \"AAPL\", the assert_called_with here would raise AssertionError."
+                ]
+            },
+            {
+                "taskId": "mock_3",
+                "title": "Part 3 — Patch a Function During a Test",
+                "difficulty": null,
+                "background": "@patch temporarily replaces a real function or object with a mock for the duration of a test, then restores the original afterward — useful for isolating code that calls things like requests.get.",
+                "backgroundCode": "from unittest.mock import patch\n\ndef get_time():\n    return \"real time\"\n\nwith patch(\"__main__.get_time\", return_value=\"fake time\"):\n    print(get_time())\nprint(get_time())",
+                "backgroundCodeOutput": "fake time\nreal time",
+                "instructions": [
+                    "Define a function get_weather() that returns \"real weather\".",
+                    "Using a with patch(...) block, patch get_weather to return \"sunny (mocked)\" and print the result while inside the block.",
+                    "After the with block ends, call get_weather() again and print that result too."
+                ],
+                "expectedOutput": "sunny (mocked)\nreal weather",
+                "checkMode": "exact",
+                "hints": [
+                    "Use with patch(\"__main__.get_weather\", return_value=\"sunny (mocked)\"): as the pattern, matching the background example's structure.",
+                    "Once the with block exits, the patch is automatically undone and the real function returns."
+                ],
+                "warnings": [
+                    "The patch target string must match where the function is looked up, not just its bare name — in this sandboxed context, \"__main__.get_weather\" is correct."
+                ]
+            }
+        ]
+    },
+    "conc_ex_asyncio_gather": {
+        "id": "conc_ex_asyncio_gather",
+        "title": "Concurrent Downloads with asyncio.gather",
+        "lead": "Move from sequential async calls to running several coroutines concurrently and collecting all their results.",
+        "starterCode": "import asyncio\n# Write your code below\n",
+        "tasks": [
+            {
+                "taskId": "gather_1",
+                "title": "Part 1 — One Coroutine at a Time",
+                "difficulty": null,
+                "background": "await pauses until a single coroutine finishes before moving to the next line — calling several awaits back-to-back still runs them one after another, not concurrently.",
+                "backgroundCode": "import asyncio\n\nasync def fetch(n):\n    await asyncio.sleep(0.1)\n    return f\"result-{n}\"\n\nasync def main():\n    r1 = await fetch(1)\n    r2 = await fetch(2)\n    print(r1, r2)\n\nasyncio.run(main())",
+                "backgroundCodeOutput": "result-1 result-2",
+                "instructions": [
+                    "Write an async function fetch(n) that awaits asyncio.sleep(0.05) then returns f\"item-{n}\".",
+                    "Write an async main() that awaits fetch(1), then fetch(2), then fetch(3) sequentially, storing each result in a list.",
+                    "Print the list of results."
+                ],
+                "expectedOutput": "['item-1', 'item-2', 'item-3']",
+                "checkMode": "exact",
+                "hints": [
+                    "Collect results with results = [await fetch(1), await fetch(2), await fetch(3)] or three separate awaits appended to a list.",
+                    "Don't forget asyncio.run(main()) to actually execute the coroutine."
+                ],
+                "warnings": [
+                    "This sequential version is intentionally slower — Part 2 will show the concurrent alternative for comparison."
+                ]
+            },
+            {
+                "taskId": "gather_2",
+                "title": "Part 2 — Run Them Concurrently with gather",
+                "difficulty": null,
+                "background": "asyncio.gather(*coroutines) schedules multiple coroutines to run concurrently and returns their results in the same order they were passed in, once all complete.",
+                "backgroundCode": "import asyncio\n\nasync def fetch(n):\n    await asyncio.sleep(0.1)\n    return f\"result-{n}\"\n\nasync def main():\n    results = await asyncio.gather(fetch(1), fetch(2))\n    print(results)\n\nasyncio.run(main())",
+                "backgroundCodeOutput": "['result-1', 'result-2']",
+                "instructions": [
+                    "Reusing the fetch(n) coroutine from Part 1, write a new main() that uses asyncio.gather to run fetch(1), fetch(2), and fetch(3) concurrently.",
+                    "Print the gathered results list."
+                ],
+                "expectedOutput": "['item-1', 'item-2', 'item-3']",
+                "checkMode": "exact",
+                "hints": [
+                    "results = await asyncio.gather(fetch(1), fetch(2), fetch(3)) preserves call order in the output list, even though execution overlaps.",
+                    "The printed result looks identical to Part 1 — the difference here is speed (all sleeps overlap instead of stacking), not the returned values."
+                ],
+                "warnings": [
+                    "gather() doesn't guarantee execution order, only result order — don't assume fetch(1) finishes before fetch(2)."
+                ]
+            },
+            {
+                "taskId": "gather_3",
+                "title": "Part 3 — Handle One Failing Task Gracefully",
+                "difficulty": null,
+                "background": "If one coroutine passed to gather raises an exception, by default gather immediately raises that exception too — passing return_exceptions=True instead collects exceptions as results rather than crashing everything.",
+                "backgroundCode": "import asyncio\n\nasync def risky(n):\n    if n == 2:\n        raise ValueError(\"bad item\")\n    return f\"ok-{n}\"\n\nasync def main():\n    results = await asyncio.gather(risky(1), risky(2), risky(3), return_exceptions=True)\n    print(results)\n\nasyncio.run(main())",
+                "backgroundCodeOutput": "['ok-1', ValueError('bad item'), 'ok-3']",
+                "instructions": [
+                    "Write an async function fetch_or_fail(n) that raises ValueError(f\"failed-{n}\") if n == 2, otherwise returns f\"item-{n}\" (after awaiting asyncio.sleep(0.01)).",
+                    "In main(), use asyncio.gather with return_exceptions=True across fetch_or_fail(1), fetch_or_fail(2), fetch_or_fail(3).",
+                    "Print just the count of results that are instances of Exception."
+                ],
+                "expectedOutput": "1",
+                "checkMode": "exact",
+                "hints": [
+                    "isinstance(item, Exception) checks each element of the results list.",
+                    "sum(1 for r in results if isinstance(r, Exception)) gives the count directly."
+                ],
+                "warnings": [
+                    "Without return_exceptions=True, this would raise ValueError and halt the whole gather instead of returning it as a result."
                 ]
             }
         ]

@@ -1,0 +1,104 @@
+<div class="exercise-content">
+  <h2>FizzBuzz Variations</h2>
+  <p class="exercise-lead">Classic conditional + loop logic — with a twist.</p>
+
+  <section class="exercise-task" id="fb_1">
+  <h3>Classic FizzBuzz (1–20) </h3>
+  <p class="task-background">For each number 1–20: print Fizz if divisible by 3, Buzz if divisible by 5, FizzBuzz if both, otherwise print the number.</p>
+  <pre class="code-block"><code>for n in range(1, 6):
+    if n % 15 == 0:
+        print(&quot;FizzBuzz&quot;)
+    elif n % 3 == 0:
+        print(&quot;Fizz&quot;)
+    elif n % 5 == 0:
+        print(&quot;Buzz&quot;)
+    else:
+        print(n)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>1
+2
+Fizz
+4
+Buzz</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Print FizzBuzz for numbers 1 through 20 following the rules above.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Order matters — if you check % 3 before % 15 you&#39;ll print Fizz instead of FizzBuzz for 15.</li>
+  <li>Each number/word must be on its own line — do not use end=&#39; &#39; here.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Check divisibility by 15 (or both 3 and 5) FIRST, before checking 3 or 5 individually.</li>
+  <li>Use the % (modulo) operator: n % 3 == 0 means n is divisible by 3.</li>
+  <li>An alternative to checking n % 15 is: if n % 3 == 0 and n % 5 == 0 — both are equivalent.</li>
+  <li>range(1, 21) gives 1 through 20 inclusive — range(1, 20) would stop at 19.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="fb_2">
+  <h3>FizzBuzz Sum </h3>
+  <p class="task-background">You can accumulate results while looping by maintaining a running variable outside the loop.</p>
+  <pre class="code-block"><code>total = 0
+for n in range(1, 6):
+    total += n
+print(total)  # 15</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>15</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Sum all numbers from 1 to 100 that are NOT divisible by 3 or 5.</li>
+  <li>Print just the final sum.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Print only the number — no labels.</li>
+  <li>range(1, 100) stops at 99 — use range(1, 101) to include 100.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Only add n to the total when n % 3 != 0 and n % 5 != 0.</li>
+  <li>Use range(1, 101) to include 100.</li>
+  <li>Alternatively: total = sum(n for n in range(1, 101) if n % 3 != 0 and n % 5 != 0)</li>
+  <li>Initialise total = 0 before the loop.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="fb_stretch">
+  <h3>Stretch — Generalised FizzBuzz <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A generalised FizzBuzz accepts any number of (divisor, word) pairs and builds the output string dynamically. This eliminates hard-coded conditionals entirely.</p>
+  <pre class="code-block"><code># pairs = [(3, &#39;Fizz&#39;), (5, &#39;Buzz&#39;), (7, &#39;Bazz&#39;)]
+# 21 → FizzBazz (divisible by 3 and 7)
+# 35 → BuzzBazz (divisible by 5 and 7)
+# 105 → FizzBuzzBazz (divisible by 3, 5, and 7)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write fizzbuzz(n, pairs) where pairs is a list of (divisor, word) tuples.</li>
+  <li>For each number 1 to n, build the output string by concatenating the word for each matching divisor.</li>
+  <li>If no divisor matches, use the number itself.</li>
+  <li>Call fizzbuzz(20, [(3, &#39;Fizz&#39;), (5, &#39;Buzz&#39;)]) and print each result — it must match classic FizzBuzz output.</li>
+  <li>Then call fizzbuzz(15, [(3, &#39;Fizz&#39;), (5, &#39;Buzz&#39;), (7, &#39;Bazz&#39;)]) and print — verify 14 prints FizzBazz.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The pairs must be checked in order — the order they appear in the list controls the output string.</li>
+  <li>Do not use a hard-coded 15 or any product — derive matches purely from the pairs list.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>Build result = &#39;&#39; then loop over pairs: if n % div == 0: result += word</li>
+  <li>After the loop: print(result if result else n)</li>
+  <li>This pattern scales to any number of rules without adding more if/elif branches.</li>
+</ul>
+</details>
+</section>
+</div>

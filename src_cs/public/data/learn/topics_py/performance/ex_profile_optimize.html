@@ -1,0 +1,63 @@
+<div class="exercise-content">
+  <h2>Profile and Optimize a Slow Script</h2>
+  <p class="exercise-lead">Identify bottlenecks with timeit and replace O(n²) logic with O(n) alternatives.</p>
+
+  <section class="exercise-task" id="perf_1">
+  <h3>Part 1 — Faster Duplicate Check </h3>
+  <p class="task-background">Checking membership in a set is O(1). Building the set is O(n). That makes a set-based duplicate check O(n) — much better than the O(n²) nested loop.</p>
+  <pre class="code-block"><code>def has_duplicates_fast(lst):
+    return len(lst) != len(set(lst))</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write has_duplicates_fast(lst) using a set.</li>
+  <li>Assert it gives the same results as the slow version for [1,2,3], [1,2,1], and [].</li>
+  <li>Print True and False to confirm.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Print True first (for [1,2,1]) and False second (for [1,2,3]) — order matters.</li>
+  <li>The fast version must return a bool, not a set or length.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>len(lst) != len(set(lst)) is True only when there are duplicates.</li>
+  <li>Test with [1, 2, 1] (True) and [1, 2, 3] (False).</li>
+  <li>An empty list has no duplicates — len([]) == len(set([])) == 0, so False is correct.</li>
+  <li>set() discards duplicates — if the lengths differ, at least one duplicate existed.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="perf_stretch">
+  <h3>Stretch — Benchmark with timeit <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">timeit.timeit(stmt, number) runs stmt n times and returns total seconds. Comparing both versions on a large input quantifies the speedup.</p>
+  <pre class="code-block"><code>import timeit
+t = timeit.timeit(&#39;has_duplicates_slow(lst)&#39;, globals=globals(), number=100)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create test_list = list(range(1000)) (no duplicates — worst case for the slow version).</li>
+  <li>Use timeit.timeit to time has_duplicates_slow(test_list) and has_duplicates_fast(test_list), each for 100 repetitions.</li>
+  <li>Print the speedup factor: slow_time / fast_time, rounded to 1 decimal place.</li>
+  <li>Print: &#39;Fast is Nx faster&#39; where N is the rounded speedup.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>number=100 is enough — using 10000 on the slow version will take a long time.</li>
+  <li>The exact speedup depends on your machine — the checker only looks for &#39;Fast is&#39; as a prefix.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>timeit.timeit(lambda: has_duplicates_slow(test_list), number=100) is cleaner than using globals().</li>
+  <li>speedup = slow_time / fast_time</li>
+  <li>f&#39;Fast is {round(speedup, 1)}x faster&#39;</li>
+  <li>On most machines the fast version is 50–200x faster for n=1000.</li>
+</ul>
+</details>
+</section>
+</div>

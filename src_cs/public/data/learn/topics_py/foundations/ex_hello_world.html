@@ -1,90 +1,94 @@
-<!-- ============================================================
-     EXERCISE CONTENT TEMPLATE
-     File location: /public/data/learn/<exercise-id>.html
-     Loaded by ExerciseView.tsx via fetch() into .learning-container
-
-     This file only contains the DESCRIPTION / INSTRUCTIONS.
-     The editor, run button, and output are rendered by ExerciseView.
-     Do NOT put editor markup here.
-
-     HOW TO USE:
-     - Copy this file, rename it, fill in the content
-     - Do NOT include <html>, <head>, <body> tags
-     - The .exercise-content wrapper is required
-     ============================================================ -->
-
 <div class="exercise-content">
-    <!-- ── TITLE ─────────────────────────────────────────────── -->
-    <h1>Print a Greeting</h1>
-    <p class="lead">
-        Use variables and an f-string to output a personalised message.
-    </p>
+  <h2>Hello World Variants &amp; Variable Juggling</h2>
+  <p class="exercise-lead">Get comfortable with print() and variables by producing specific outputs.</p>
 
-    <hr />
-
-    <!-- ── BRIEF CONTEXT (optional) ─────────────────────────── -->
-    <h2>Background</h2>
-    <p>
-        F-strings let you embed variable values directly inside a string. Prefix
-        the string with <span class="inline-code">f</span> and wrap variable
-        names in curly braces.
-    </p>
-
-    <div class="code-block" data-lang="python">
-        <pre>name = <span class="tok-str">"Alice"</span>
-<span class="tok-builtin">print</span>(<span class="tok-str">f"Hello, <span class="tok-builtin">{name}</span>!"</span>)</pre>
-    </div>
-
-    <span class="output-label">Output</span>
-    <div class="output">Hello, Alice!</div>
-
-    <hr />
-
-    <!-- ── TASK BLOCK ────────────────────────────────────────── -->
-    <div class="task-block">
-        <h3>Your Task</h3>
-        <p>Write a program that does all of the following:</p>
-        <ul class="constraint-list">
-            <li>
-                Create a variable <span class="inline-code">name</span> set to
-                your name.
-            </li>
-            <li>
-                Create a variable <span class="inline-code">age</span> set to
-                your age as an integer.
-            </li>
-            <li>
-                Print exactly:
-                <span class="inline-code"
-                    >Hello, I'm [name] and I'm [age] years old.</span
-                >
-            </li>
-        </ul>
-
-        <!-- Expected output block -->
-        <div class="expected-output">
-            <span class="output-label">Expected Output</span>
-            <div class="output">Hello, I'm Alice and I'm 30 years old.</div>
-        </div>
-    </div>
-
-    <!-- ── HINTS (optional — shown via HintSystem in ExerciseView) ── -->
-    <!-- If your ExerciseView renders hints from topics.json, delete  -->
-    <!-- this section. If you render hints from HTML, keep it.        -->
-    <div class="callout callout--info" style="margin-top: 16px">
-        <span class="callout-icon">ℹ️</span>
-        <div>
-            Use the <span class="inline-code">f"..."</span> prefix and
-            <span class="inline-code">{variable}</span> inside the string.
-        </div>
-    </div>
-
-    <div class="callout callout--warn">
-        <span class="callout-icon">⚠️</span>
-        <div>
-            Watch punctuation — the test checks your output character for
-            character, including the period at the end.
-        </div>
-    </div>
+  <section class="exercise-task" id="hw_1">
+  <h3>Part 1 — Hello, World! </h3>
+  <p class="task-background">The print() function outputs text to the console. Pass it a string — text wrapped in quotes — and Python displays it.</p>
+  <pre class="code-block"><code>print(&quot;Hello, World!&quot;)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Hello, World!</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Print exactly: Hello, World!</li>
+  <li>Print exactly: I am learning Python.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The checker is case-sensitive and whitespace-sensitive.</li>
+  <li>Do not add extra blank lines between the two print() calls — they won&#39;t affect output, but get into the habit of clean code.</li>
+</ul>
 </div>
-<!-- end .exercise-content -->
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Call print() once for each line — each call starts a new line automatically.</li>
+  <li>Watch capitalisation and punctuation — commas, exclamation marks, and periods all count.</li>
+  <li>Strings can use single quotes or double quotes interchangeably: print(&#39;Hello&#39;) and print(&quot;Hello&quot;) both work.</li>
+  <li>If you see a SyntaxError, check that every opening quote has a matching closing quote.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="hw_2">
+  <h3>Part 2 — Variable Juggling </h3>
+  <p class="task-background">Variables store values. You can reassign a variable to a new value at any point, and Python will use the latest value.</p>
+  <pre class="code-block"><code>x = 10
+x = 20
+print(x)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>20</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create a variable called language and set it to &quot;Python&quot;.</li>
+  <li>Create a variable called version and set it to 3.</li>
+  <li>Print: I love Python 3</li>
+  <li>Then reassign version to 4.</li>
+  <li>Print: I love Python 4</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>No extra spaces or punctuation — match the expected output exactly.</li>
+  <li>version is an integer (3), not a string (&quot;3&quot;) — f-strings handle the conversion for you automatically.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use an f-string: f&quot;I love {language} {version}&quot;</li>
+  <li>Reassign version = 4 before the second print.</li>
+  <li>f-strings evaluate the variable at the moment print() is called — so reassigning version before the second print will automatically give you the new value.</li>
+  <li>You only need to define language once; only version changes.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="hw_stretch">
+  <h3>Stretch — Multi-Variable Swap <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Python allows you to swap two variables in a single line using tuple unpacking: a, b = b, a. No temporary variable needed.</p>
+  <pre class="code-block"><code>a = &#39;hello&#39;
+b = &#39;world&#39;
+a, b = b, a
+print(a, b)  # world hello</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>world hello</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create three variables: first = &#39;alpha&#39;, second = &#39;beta&#39;, third = &#39;gamma&#39;.</li>
+  <li>Using only one line of code (tuple unpacking), rotate them so first gets second&#39;s value, second gets third&#39;s value, and third gets first&#39;s value.</li>
+  <li>Print all three on one line separated by spaces.</li>
+  <li>Expected output: beta gamma alpha</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not use a temporary variable — the point is to do it in one assignment line.</li>
+  <li>Order matters: first, second, third = second, third, first is correct; reversing the order gives a different rotation.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>Tuple unpacking: first, second, third = second, third, first</li>
+  <li>The right-hand side is evaluated completely before any assignment happens — Python captures the original values first.</li>
+  <li>This is a three-way rotation, not a two-way swap.</li>
+</ul>
+</details>
+</section>
+</div>

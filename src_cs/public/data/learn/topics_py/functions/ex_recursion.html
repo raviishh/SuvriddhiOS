@@ -1,0 +1,131 @@
+<div class="exercise-content">
+  <h2>Recursive Challenges</h2>
+  <p class="exercise-lead">Implement factorial, Fibonacci, and a list-flattener using recursion.</p>
+
+  <section class="exercise-task" id="rec_1">
+  <h3>Part 1 — Factorial </h3>
+  <p class="task-background">A recursive function calls itself with a smaller input. Every recursive function needs a base case to stop.</p>
+  <pre class="code-block"><code>def countdown(n):
+    if n == 0:        # base case
+        print(&quot;Go!&quot;)
+    else:
+        print(n)
+        countdown(n - 1)
+
+countdown(3)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>3
+2
+1
+Go!</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write factorial(n) recursively.</li>
+  <li>factorial(0) and factorial(1) should both return 1.</li>
+  <li>Print factorial(5) and factorial(10).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not use a loop — the solution must be recursive.</li>
+  <li>factorial(0) must return 1 by mathematical convention — do not return 0.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Base case: if n &lt;= 1: return 1</li>
+  <li>Recursive case: return n * factorial(n - 1)</li>
+  <li>Trace it mentally: factorial(3) = 3 * factorial(2) = 3 * 2 * factorial(1) = 3 * 2 * 1 = 6.</li>
+  <li>Python&#39;s default recursion limit is 1000 — fine for n=10, but factorial(1000) would hit it.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="rec_2">
+  <h3>Part 2 — Fibonacci </h3>
+  <p class="task-background">Fibonacci: fib(0)=0, fib(1)=1, fib(n)=fib(n-1)+fib(n-2). This is naturally recursive but slow for large n — fine for small values here.</p>
+  <pre class="code-block"><code># fib(6) = 0,1,1,2,3,5,8  → 8</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write fib(n) recursively.</li>
+  <li>Print fib(0) through fib(7), one per line.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>fib(0) is 0 and fib(1) is 1 — both must be explicit base cases, not just one.</li>
+  <li>Do not confuse the index with the value: fib(7) = 13, not 7.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Base cases: if n == 0: return 0; if n == 1: return 1</li>
+  <li>Recursive case: return fib(n-1) + fib(n-2)</li>
+  <li>fib(n) makes exponentially many calls — fib(30) takes noticeably longer. This is intentional; the next stretch goal addresses it.</li>
+  <li>Use a for loop calling fib(i) for i in range(8) to print all 8 values.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="rec_3">
+  <h3>Part 3 — Flatten a Nested List </h3>
+  <p class="task-background">Recursion shines when the depth of nesting is unknown. Check if each item is itself a list, and if so, recurse into it.</p>
+  <pre class="code-block"><code>nested = [1, [2, [3, 4]], 5]
+# Should produce: [1, 2, 3, 4, 5]</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write flatten(lst) that returns a flat list from an arbitrarily nested list.</li>
+  <li>Print flatten([1, [2, [3, 4]], 5]).</li>
+  <li>Print flatten([[1, 2], [3, [4, [5]]]]).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not use sum([[...], [...]], []) as a shortcut — it is O(n²) and considered unreadable.</li>
+  <li>The function must handle arbitrary depth — do not hard-code a maximum level.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Loop through each item. If isinstance(item, list), extend with flatten(item). Otherwise append item.</li>
+  <li>Start with result = [] and return it at the end.</li>
+  <li>isinstance(item, list) is safer than type(item) == list because it also catches subclasses.</li>
+  <li>extend() adds all items from an iterable; append() adds one item — use extend with the recursive result.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="rec_stretch">
+  <h3>Stretch — Memoised Fibonacci <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Naive recursive Fibonacci recomputes the same values exponentially. Storing results in a dict (memoisation) turns it into O(n).</p>
+  <pre class="code-block"><code>memo = {}
+def fib_memo(n):
+    if n in memo:
+        return memo[n]
+    # ... compute and store</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Implement fib_fast(n) using a memo dict (either passed in or module-level).</li>
+  <li>Print fib_fast(35) — it should return instantly whereas naive fib(35) would take seconds.</li>
+  <li>Also print the number of unique subproblems solved: len(memo) after the call.</li>
+  <li>Expected: 9227465 and 36.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Pre-seed memo = {0: 0, 1: 1} or handle the base cases with if n &lt;= 1 before the cache lookup.</li>
+  <li>If you use a decorator (@functools.lru_cache) that&#39;s valid Python, but implement the dict approach manually first so you understand what the decorator is doing.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Check the cache at the top of the function before recursing.</li>
+  <li>Store the result in memo before returning it.</li>
+  <li>A module-level dict persists between calls to fib_fast — that&#39;s intentional.</li>
+  <li>len(memo) after fib_fast(35) should be 36 (values for n=0 through n=35).</li>
+</ul>
+</details>
+</section>
+</div>

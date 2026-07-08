@@ -1,0 +1,109 @@
+<div class="exercise-content">
+  <h2>Pattern Matching Practice</h2>
+  <p class="exercise-lead">Use Python 3.10+ match/case to handle structured data cleanly.</p>
+
+  <section class="exercise-task" id="pm_1">
+  <h3>Part 1 — HTTP Status Classifier </h3>
+  <p class="task-background">match/case works like a supercharged switch. The wildcard case _ matches anything not caught above.</p>
+  <pre class="code-block"><code>status = 404
+match status:
+    case 200:
+        print(&quot;OK&quot;)
+    case 404:
+        print(&quot;Not Found&quot;)
+    case _:
+        print(&quot;Unknown&quot;)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Not Found</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a match statement for a variable code.</li>
+  <li>200 → print OK</li>
+  <li>301 → print Moved Permanently</li>
+  <li>404 → print Not Found</li>
+  <li>500 → print Internal Server Error</li>
+  <li>Anything else → print Unknown Status</li>
+  <li>Test it with code = 301.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Python 3.10+ required for match/case.</li>
+  <li>case _ must be the last branch — if placed earlier it will catch everything and skip later cases.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Each case: value: is a branch.</li>
+  <li>Put case _: last as the catch-all.</li>
+  <li>There is no fall-through in Python&#39;s match — only the first matching case runs.</li>
+  <li>The match subject (code) is evaluated once, then compared to each case in order.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="pm_2">
+  <h3>Part 2 — Command Dispatcher </h3>
+  <p class="task-background">match can match strings and even destructure sequences (lists/tuples).</p>
+  <pre class="code-block"><code>command = [&quot;go&quot;, &quot;north&quot;]
+match command:
+    case [&quot;go&quot;, direction]:
+        print(f&quot;Moving {direction}&quot;)
+    case [&quot;quit&quot;]:
+        print(&quot;Goodbye&quot;)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Moving north</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create command = [&quot;go&quot;, &quot;south&quot;].</li>
+  <li>Match on: [&quot;go&quot;, direction] → Moving [direction]</li>
+  <li>Match on: [&quot;pick&quot;, item] → Picking up [item]</li>
+  <li>Match on: [&quot;quit&quot;] → Goodbye</li>
+  <li>Default → Unknown command</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>case [&quot;go&quot;, direction] only matches a two-element list starting with &#39;go&#39; — a three-element list would fall through to the default.</li>
+  <li>Literal string patterns are case-sensitive: &#39;Go&#39; would not match &#39;go&#39;.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Sequence patterns unpack automatically — direction captures the second element.</li>
+  <li>Test a few values by changing command to verify all branches work.</li>
+  <li>The capture variable (direction, item) can be any valid Python name — it binds to whatever is in that position.</li>
+  <li>case [&quot;quit&quot;] matches a list with exactly one element &#39;quit&#39;.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="pm_stretch">
+  <h3>Stretch — Nested Pattern Matching <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">match/case can destructure nested structures such as dicts and tuples, and can apply guard clauses with if.</p>
+  <pre class="code-block"><code># Guard clause example:
+# case [&quot;go&quot;, direction] if direction in (&quot;north&quot;, &quot;south&quot;, &quot;east&quot;, &quot;west&quot;):
+#     print(f&quot;Valid move: {direction}&quot;)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Extend the command dispatcher to handle a dict-based command format.</li>
+  <li>command = {&#39;action&#39;: &#39;go&#39;, &#39;direction&#39;: &#39;north&#39;} → Moving north</li>
+  <li>command = {&#39;action&#39;: &#39;pick&#39;, &#39;item&#39;: &#39;sword&#39;} → Picking up sword</li>
+  <li>Add a guard: only accept directions in (&#39;north&#39;, &#39;south&#39;, &#39;east&#39;, &#39;west&#39;); anything else → Invalid direction.</li>
+  <li>Test with {&#39;action&#39;: &#39;go&#39;, &#39;direction&#39;: &#39;up&#39;} — should print Invalid direction.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Dict patterns match if the dict contains at least those keys — extra keys are ignored.</li>
+  <li>Guard conditions (if ...) are evaluated only if the structural pattern matches first.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>Dict patterns: case {&#39;action&#39;: &#39;go&#39;, &#39;direction&#39;: direction}:</li>
+  <li>Add a guard: case {&#39;action&#39;: &#39;go&#39;, &#39;direction&#39;: direction} if direction in (&#39;north&#39;, &#39;south&#39;, &#39;east&#39;, &#39;west&#39;):</li>
+  <li>Put the guarded case before a more general &#39;go&#39; case that handles the invalid direction.</li>
+</ul>
+</details>
+</section>
+</div>

@@ -1,0 +1,106 @@
+<div class="exercise-content">
+  <h2>Exception Handling Drills</h2>
+  <p class="exercise-lead">Wrap risky operations in try/except and handle errors gracefully.</p>
+
+  <section class="exercise-task" id="exc_1">
+  <h3>Part 1 — Safe Division </h3>
+  <p class="task-background">Dividing by zero raises ZeroDivisionError. Wrap it in try/except to handle it without crashing.</p>
+  <pre class="code-block"><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print(&quot;Cannot divide by zero&quot;)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Cannot divide by zero</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a function safe_divide(a, b) that returns a / b.</li>
+  <li>If b is 0, return the string &quot;Error: division by zero&quot;.</li>
+  <li>Print safe_divide(10, 2) and safe_divide(5, 0).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Return the error string — don&#39;t raise, don&#39;t print from inside the function.</li>
+  <li>The result of 10 / 2 is 5.0, not 5 — Python 3 always returns float for /.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use try/except ZeroDivisionError inside the function.</li>
+  <li>Return the error string, don&#39;t print it inside the function.</li>
+  <li>10 / 2 returns 5.0 (float division) — that is correct.</li>
+  <li>You could also check if b == 0 before dividing, but using try/except is more Pythonic (EAFP: Easier to Ask Forgiveness than Permission).</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="exc_2">
+  <h3>Part 2 — finally Always Runs </h3>
+  <p class="task-background">The finally block executes whether or not an exception occurred — useful for cleanup.</p>
+  <pre class="code-block"><code>try:
+    x = int(&quot;abc&quot;)
+except ValueError:
+    print(&quot;Bad value&quot;)
+finally:
+    print(&quot;Done&quot;)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Bad value
+Done</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write code that tries to convert the string &quot;123abc&quot; to int.</li>
+  <li>Catch the ValueError and print: Conversion failed.</li>
+  <li>In a finally block, print: Attempted conversion.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Include the period at the end of both printed lines.</li>
+  <li>finally is not the same as else — else only runs on success, finally always runs.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>int(&quot;123abc&quot;) raises ValueError.</li>
+  <li>finally runs no matter what.</li>
+  <li>The finally block runs even when there is no exception — try passing &#39;123&#39; to see it succeed, then check finally still runs.</li>
+  <li>You can also use the else clause: try/except/else/finally — else runs only when no exception occurred.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="exc_stretch">
+  <h3>Stretch — Custom Exception Hierarchy <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Custom exceptions let you communicate domain-specific errors clearly. They should inherit from Exception (or a more specific built-in) and optionally carry extra data.</p>
+  <pre class="code-block"><code>class AppError(Exception):
+    pass
+
+class ValidationError(AppError):
+    def __init__(self, field, message):
+        self.field = field
+        super().__init__(f&quot;{field}: {message}&quot;)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Define a base class AppError(Exception).</li>
+  <li>Define ValidationError(AppError) with field and message attributes.</li>
+  <li>Define NotFoundError(AppError) with resource and id_ attributes.</li>
+  <li>Write validate_age(age) that raises ValidationError(&#39;age&#39;, &#39;must be positive&#39;) if age &lt;= 0.</li>
+  <li>Write find_user(id_) that raises NotFoundError(&#39;user&#39;, id_) if id_ not in {1, 2, 3}.</li>
+  <li>Call both with invalid inputs, catch each with except AppError as e and print str(e).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not catch Exception directly — catching AppError is more precise.</li>
+  <li>str(e) returns the message passed to __init__ via super() — make sure you call super().__init__.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>super().__init__(message) passes the message to the base Exception so str(e) works.</li>
+  <li>For NotFoundError: super().__init__(f&quot;{resource}: {id_}&quot;)</li>
+  <li>except AppError catches both ValidationError and NotFoundError because of inheritance.</li>
+  <li>Catch them in two separate try/except blocks to print each error independently.</li>
+</ul>
+</details>
+</section>
+</div>

@@ -1,0 +1,117 @@
+<div class="exercise-content">
+  <h2>Write Your Own Iterator &amp; Generator</h2>
+  <p class="exercise-lead">Implement the iterator protocol from scratch, then simplify it with yield.</p>
+
+  <section class="exercise-task" id="iter_1">
+  <h3>Part 1 — Counter Iterator </h3>
+  <p class="task-background">An iterator implements __iter__ (returns self) and __next__ (returns the next value or raises StopIteration).</p>
+  <pre class="code-block"><code>class Counter:
+    def __init__(self, limit):
+        self.limit = limit
+        self.current = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current &gt;= self.limit:
+            raise StopIteration
+        self.current += 1
+        return self.current
+
+for n in Counter(3):
+    print(n)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>1
+2
+3</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Build a class EvenCounter(start, stop) that iterates over even numbers from start to stop (inclusive).</li>
+  <li>Use it in a for loop and print each value.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Use EvenCounter(1, 10) to produce the expected output.</li>
+  <li>__iter__ must return self — this makes the iterator also iterable, allowing use in for loops.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Skip to the next even number in __init__ if start is odd.</li>
+  <li>In __next__, advance by 2 each time.</li>
+  <li>Raise StopIteration when self.current &gt; self.stop.</li>
+  <li>if start % 2 != 0: start += 1 — snap to the next even number.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="iter_2">
+  <h3>Part 2 — Generator Version </h3>
+  <p class="task-background">A generator function uses yield to lazily produce values — it&#39;s the same idea as an iterator, written in far fewer lines.</p>
+  <pre class="code-block"><code>def countdown(n):
+    while n &gt; 0:
+        yield n
+        n -= 1
+
+for v in countdown(3):
+    print(v)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>3
+2
+1</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Rewrite EvenCounter as a generator function even_range(start, stop).</li>
+  <li>It should yield the same values as Part 1.</li>
+  <li>Print all yielded values in a for loop.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Call even_range(1, 10) to match the expected output.</li>
+  <li>Do not use return inside the generator loop — just let the while condition end the iteration.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Start current at start if even, else start + 1.</li>
+  <li>while current &lt;= stop: yield current; current += 2</li>
+  <li>A generator function is any function that contains yield — calling it returns a generator object.</li>
+  <li>The function body pauses at each yield and resumes from there on the next iteration.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="iter_stretch">
+  <h3>Stretch — Infinite Generator with take() <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Generators can be infinite — they never raise StopIteration on their own. A separate take(n, gen) helper consumes only the first n values.</p>
+  <pre class="code-block"><code>def naturals():
+    n = 1
+    while True:
+        yield n
+        n += 1</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write an infinite generator fibonacci_gen() that yields Fibonacci numbers indefinitely.</li>
+  <li>Write take(n, gen) that returns the first n values from a generator as a list.</li>
+  <li>Print take(10, fibonacci_gen()).</li>
+  <li>Expected: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not add a StopIteration inside fibonacci_gen — it should truly be infinite.</li>
+  <li>Call fibonacci_gen() fresh each time — a generator is exhausted after use.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>fibonacci_gen: a, b = 0, 1; while True: yield a; a, b = b, a + b</li>
+  <li>take: return [next(gen) for _ in range(n)]</li>
+  <li>The generator never raises StopIteration — take() must stop it by only consuming n values.</li>
+  <li>itertools.islice(gen, n) does the same thing as take — implement take manually first.</li>
+</ul>
+</details>
+</section>
+</div>

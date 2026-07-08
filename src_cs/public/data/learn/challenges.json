@@ -1,0 +1,2806 @@
+[
+    [
+        {
+            "id": "challenge_found_001",
+            "type": "challenge",
+            "section": "foundations",
+            "title": "Incident #001 \u2014 Conference Check-in Terminal",
+            "difficulty": "easy",
+            "conceptsAssessed": [
+                "variables",
+                "input/output",
+                "string formatting",
+                "execution order"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're helping build a self-service check-in kiosk for a technology conference.",
+                "incidentReport": "The current kiosk only prints raw data, making badges unreadable for attendees.",
+                "task": "Write a function generate_badge(name, age, city) that returns a neatly formatted attendee badge.",
+                "constraints": [
+                    "Do not print directly; return the completed badge string.",
+                    "Preserve the name exactly as entered.",
+                    "Age should appear as a number in the output."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #001 \u2014 Conference Check-in Terminal</h3><p>The conference badge printer currently outputs messy information. Create <code>generate_badge(name, age, city)</code> that returns a professional attendee badge.</p>",
+            "starterCode": "def generate_badge(name, age, city):\n    # Return a formatted badge string\n    pass\n",
+            "functionSignature": {
+                "name": "generate_badge",
+                "params": ["name", "age", "city"],
+                "returns": "str"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "You need one final string that combines all three pieces of information."
+                },
+                {
+                    "level": 2,
+                    "text": "Python has a convenient way to insert variables directly into strings."
+                },
+                {
+                    "level": 3,
+                    "text": "The function should return the completed string rather than printing it."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "name": "Alice",
+                        "age": 17,
+                        "city": "Paris"
+                    },
+                    "expected": "Attendee: Alice | Age: 17 | City: Paris",
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2",
+                    "call": {
+                        "name": "John",
+                        "age": 25,
+                        "city": "Bengaluru"
+                    },
+                    "expected": "Attendee: John | Age: 25 | City: Bengaluru",
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc3_hidden",
+                    "call": {
+                        "name": "Mia",
+                        "age": 12,
+                        "city": "Tokyo"
+                    },
+                    "expected": "Attendee: Mia | Age: 12 | City: Tokyo",
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the badge instead of printing it."
+                    }
+                ]
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "The returned badge doesn't match the requested format. Check spacing and punctuation."
+            },
+            "successMessage": "Badge printer restored. Attendees now receive readable conference badges.",
+            "estimatedMinutes": 8
+        },
+        {
+            "id": "challenge_found_002",
+            "type": "challenge",
+            "section": "foundations",
+            "title": "Incident #002 \u2014 Coffee Shop Receipt Generator",
+            "difficulty": "easy",
+            "conceptsAssessed": [
+                "variables",
+                "arithmetic",
+                "string formatting",
+                "functions"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A local caf\u00e9 needs an automatic receipt generator.",
+                "incidentReport": "Cashiers are calculating totals manually, causing frequent mistakes.",
+                "task": "Write create_receipt(item, quantity, price) that returns a formatted receipt including the total cost.",
+                "constraints": [
+                    "Total = quantity \u00d7 price.",
+                    "Return the receipt as a multi-line string.",
+                    "Display the total with two decimal places."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #002 \u2014 Coffee Shop Receipt Generator</h3><p>Create <code>create_receipt(item, quantity, price)</code> that returns a clean receipt.</p>",
+            "starterCode": "def create_receipt(item, quantity, price):\n    # Return the completed receipt\n    pass\n",
+            "functionSignature": {
+                "name": "create_receipt",
+                "params": ["item", "quantity", "price"],
+                "returns": "str"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "You'll need to calculate the total before building the output."
+                },
+                {
+                    "level": 2,
+                    "text": "Format decimal values using :.2f inside an f-string."
+                },
+                {
+                    "level": 3,
+                    "text": "Return one string containing multiple lines separated by \\n."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "item": "Latte",
+                        "quantity": 2,
+                        "price": 4.5
+                    },
+                    "expected": "Item: Latte\nQuantity: 2\nUnit Price: $4.50\nTotal: $9.00",
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2",
+                    "call": {
+                        "item": "Tea",
+                        "quantity": 1,
+                        "price": 2
+                    },
+                    "expected": "Item: Tea\nQuantity: 1\nUnit Price: $2.00\nTotal: $2.00",
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc3_hidden",
+                    "call": {
+                        "item": "Cookie",
+                        "quantity": 5,
+                        "price": 1.2
+                    },
+                    "expected": "Item: Cookie\nQuantity: 5\nUnit Price: $1.20\nTotal: $6.00",
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the receipt rather than printing it."
+                    }
+                ]
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "Verify the arithmetic and formatting, especially the currency precision."
+            },
+            "successMessage": "Receipt generator deployed successfully.",
+            "estimatedMinutes": 10
+        }
+    ],
+    [
+        {
+            "id": "challenge_types_001",
+            "type": "challenge",
+            "section": "core_data_types",
+            "title": "Incident #018 \u2014 Password Security Audit",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "strings",
+                "booleans",
+                "string methods",
+                "type conversion"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're part of the cybersecurity team at a software company.",
+                "incidentReport": "Thousands of weak passwords are making it through the registration system because no validation is being performed.",
+                "task": "Write validate_password(password) that returns a report describing whether the password contains an uppercase letter, lowercase letter, digit, special character, its length, and whether it is considered strong.",
+                "constraints": [
+                    "A strong password must be at least 8 characters long.",
+                    "It must contain an uppercase letter, lowercase letter, digit, and special character.",
+                    "Return a dictionary describing the results."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #018 \u2014 Password Security Audit</h3><p>Implement <code>validate_password(password)</code> that analyses a password and returns a validation report.</p>",
+            "starterCode": "def validate_password(password):\n    # Return a dictionary describing the password\n    pass\n",
+            "functionSignature": {
+                "name": "validate_password",
+                "params": ["password"],
+                "returns": "dict"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Inspect each character individually."
+                },
+                {
+                    "level": 2,
+                    "text": "String methods like isupper(), islower(), and isdigit() may be useful."
+                },
+                {
+                    "level": 3,
+                    "text": "Build up boolean values while looping through the password."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "password": "Hello123!"
+                    },
+                    "expected": {
+                        "length": 9,
+                        "has_upper": true,
+                        "has_lower": true,
+                        "has_digit": true,
+                        "has_special": true,
+                        "strong": true
+                    },
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2",
+                    "call": {
+                        "password": "password"
+                    },
+                    "expected": {
+                        "length": 8,
+                        "has_upper": false,
+                        "has_lower": true,
+                        "has_digit": false,
+                        "has_special": false,
+                        "strong": false
+                    },
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc3_hidden",
+                    "call": {
+                        "password": "ABC123"
+                    },
+                    "expected": {
+                        "length": 6,
+                        "has_upper": true,
+                        "has_lower": false,
+                        "has_digit": true,
+                        "has_special": false,
+                        "strong": false
+                    },
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the report instead of printing it."
+                    }
+                ]
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "Check how you're identifying character types and computing the final strength."
+            },
+            "successMessage": "Security audit passed. Weak passwords are now detected.",
+            "estimatedMinutes": 15
+        },
+        {
+            "id": "challenge_types_002",
+            "type": "challenge",
+            "section": "core_data_types",
+            "title": "Incident #027 \u2014 Faulty Temperature Sensor",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "type conversion",
+                "numbers",
+                "strings",
+                "rounding"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A weather station stores every sensor reading as raw text.",
+                "incidentReport": "Engineers can't process the readings until they're converted into usable numeric values.",
+                "task": "Write process_reading(reading) that converts the string into a numeric value and returns useful statistics.",
+                "constraints": [
+                    "The input is always a valid decimal string.",
+                    "Return the original float, integer truncation, rounded value (1 decimal place), and detected Python type."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #027 \u2014 Faulty Temperature Sensor</h3><p>Implement <code>process_reading(reading)</code> to convert and summarize a raw sensor reading.</p>",
+            "starterCode": "def process_reading(reading):\n    # Return a dictionary containing processed values\n    pass\n",
+            "functionSignature": {
+                "name": "process_reading",
+                "params": ["reading"],
+                "returns": "dict"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "The reading arrives as text."
+                },
+                {
+                    "level": 2,
+                    "text": "Convert it before performing mathematical operations."
+                },
+                {
+                    "level": 3,
+                    "text": "type() can help report the detected data type."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "reading": "23.87"
+                    },
+                    "expected": {
+                        "float": 23.87,
+                        "integer": 23,
+                        "rounded": 23.9,
+                        "type": "float"
+                    },
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2_hidden",
+                    "call": {
+                        "reading": "-7.25"
+                    },
+                    "expected": {
+                        "float": -7.25,
+                        "integer": -7,
+                        "rounded": -7.2,
+                        "type": "float"
+                    },
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the processed information."
+                    }
+                ]
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "Verify your numeric conversions and rounding logic."
+            },
+            "successMessage": "Sensor calibration pipeline restored.",
+            "estimatedMinutes": 12
+        }
+    ],
+    [
+        {
+            "id": "challenge_control_001",
+            "type": "challenge",
+            "section": "control_flow",
+            "title": "Incident #051 \u2014 Smart Parking Garage",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "conditionals",
+                "logical operators",
+                "control flow"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're writing the access controller for a multi-level smart parking garage.",
+                "incidentReport": "Cars are being admitted incorrectly because the access rules aren't enforced consistently.",
+                "task": "Implement decide_entry(vehicle_type, is_vip, has_subscription, garage_full) that returns one of: 'ALLOW', 'DENY', or 'VIP OVERRIDE'.",
+                "constraints": [
+                    "VIPs may enter even if the garage is full.",
+                    "Non-VIPs cannot enter when the garage is full.",
+                    "Only subscribed drivers may enter when space is available."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #051 \u2014 Smart Parking Garage</h3><p>Implement <code>decide_entry(...)</code> according to the parking rules.</p>",
+            "starterCode": "def decide_entry(vehicle_type, is_vip, has_subscription, garage_full):\n    pass\n",
+            "functionSignature": {
+                "name": "decide_entry",
+                "params": [
+                    "vehicle_type",
+                    "is_vip",
+                    "has_subscription",
+                    "garage_full"
+                ],
+                "returns": "str"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Break the problem into independent rules before writing code."
+                },
+                {
+                    "level": 2,
+                    "text": "Some conditions should be checked before others."
+                },
+                {
+                    "level": 3,
+                    "text": "Think about the one situation that bypasses all other rules."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "vehicle_type": "car",
+                        "is_vip": true,
+                        "has_subscription": false,
+                        "garage_full": true
+                    },
+                    "expected": "VIP OVERRIDE",
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2",
+                    "call": {
+                        "vehicle_type": "car",
+                        "is_vip": false,
+                        "has_subscription": true,
+                        "garage_full": false
+                    },
+                    "expected": "ALLOW",
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc3",
+                    "call": {
+                        "vehicle_type": "bike",
+                        "is_vip": false,
+                        "has_subscription": false,
+                        "garage_full": false
+                    },
+                    "expected": "DENY",
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc4_hidden",
+                    "call": {
+                        "vehicle_type": "car",
+                        "is_vip": false,
+                        "has_subscription": true,
+                        "garage_full": true
+                    },
+                    "expected": "DENY",
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the decision instead of printing it."
+                    }
+                ]
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "Review the order of your conditional logic."
+            },
+            "successMessage": "Parking controller deployed successfully.",
+            "estimatedMinutes": 15
+        },
+        {
+            "id": "challenge_control_002",
+            "type": "challenge",
+            "section": "control_flow",
+            "title": "Incident #063 \u2014 Elevator Dispatch System",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "loops",
+                "break",
+                "continue",
+                "pattern matching"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A building's elevator simulator is behaving unpredictably.",
+                "incidentReport": "The elevator should process requests sequentially but immediately stop if an emergency command appears.",
+                "task": "Implement process_requests(requests) that returns the floors successfully visited.",
+                "constraints": [
+                    "Ignore 'SKIP' requests.",
+                    "If 'EMERGENCY' appears, stop processing immediately.",
+                    "Only integer floor numbers should be visited."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #063 \u2014 Elevator Dispatch System</h3><p>Process a queue of elevator requests while handling control commands.</p>",
+            "starterCode": "def process_requests(requests):\n    # Return a list of visited floors\n    pass\n",
+            "functionSignature": {
+                "name": "process_requests",
+                "params": ["requests"],
+                "returns": "list"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Read the requests one at a time in order."
+                },
+                {
+                    "level": 2,
+                    "text": "Not every request should be added to the output."
+                },
+                {
+                    "level": 3,
+                    "text": "One special command should terminate processing immediately."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "requests": [1, 2, "SKIP", 3]
+                    },
+                    "expected": [1, 2, 3],
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2",
+                    "call": {
+                        "requests": [5, "EMERGENCY", 6, 7]
+                    },
+                    "expected": [5],
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc3",
+                    "call": {
+                        "requests": ["SKIP", 4, "SKIP", 8]
+                    },
+                    "expected": [4, 8],
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc4_hidden",
+                    "call": {
+                        "requests": ["EMERGENCY", 1, 2]
+                    },
+                    "expected": [],
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the visited floors instead of printing them."
+                    }
+                ]
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "Check how you handle SKIP and EMERGENCY requests."
+            },
+            "successMessage": "Elevator control system is operating correctly.",
+            "estimatedMinutes": 15
+        }
+    ],
+    [
+        {
+            "id": "challenge_func_001",
+            "type": "challenge",
+            "section": "functions",
+            "title": "Incident #084 \u2014 E-Commerce Pricing Engine",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "functions",
+                "parameters",
+                "return values",
+                "abstraction"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're maintaining the pricing service for an online store.",
+                "incidentReport": "The checkout page repeats the same calculations in multiple places, causing inconsistent totals whenever pricing rules change.",
+                "task": "Implement calculate_order_total(subtotal, discount_percent, tax_percent) that returns the final amount after applying the discount first, then tax.",
+                "constraints": [
+                    "Do not print the answer; return it.",
+                    "Round the final result to two decimal places.",
+                    "Discount is applied before tax."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #084 \u2014 E-Commerce Pricing Engine</h3><p>Implement <code>calculate_order_total(subtotal, discount_percent, tax_percent)</code> for the checkout service.</p>",
+            "starterCode": "def calculate_order_total(subtotal, discount_percent, tax_percent):\n    # Return the final total\n    pass\n",
+            "functionSignature": {
+                "name": "calculate_order_total",
+                "params": ["subtotal", "discount_percent", "tax_percent"],
+                "returns": "float"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Break the calculation into small intermediate steps."
+                },
+                {
+                    "level": 2,
+                    "text": "Apply the discount before calculating tax."
+                },
+                {
+                    "level": 3,
+                    "text": "Return the computed value instead of printing it."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "subtotal": 100,
+                        "discount_percent": 20,
+                        "tax_percent": 10
+                    },
+                    "expected": 88.0,
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2",
+                    "call": {
+                        "subtotal": 250,
+                        "discount_percent": 0,
+                        "tax_percent": 18
+                    },
+                    "expected": 295.0,
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc3_hidden",
+                    "call": {
+                        "subtotal": 80,
+                        "discount_percent": 25,
+                        "tax_percent": 5
+                    },
+                    "expected": 63.0,
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the result instead of printing it."
+                    }
+                ]
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "Verify the order of operations and ensure you're returning the computed value."
+            },
+            "successMessage": "Pricing engine now produces consistent checkout totals.",
+            "estimatedMinutes": 12
+        },
+        {
+            "id": "challenge_func_002",
+            "type": "challenge",
+            "section": "functions",
+            "title": "Incident #097 \u2014 Company Folder Size Analyzer",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "recursion",
+                "functions",
+                "problem decomposition"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "Your IT department stores folders as nested Python lists.",
+                "incidentReport": "Management needs a tool that can count every file inside folders of arbitrary depth.",
+                "task": "Implement count_files(folder) that returns the total number of files contained in a nested folder structure.",
+                "constraints": [
+                    "Strings represent files.",
+                    "Lists represent folders.",
+                    "Folders may be nested to any depth."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #097 \u2014 Company Folder Size Analyzer</h3><p>Implement <code>count_files(folder)</code> to count every file inside a nested folder structure.</p>",
+            "starterCode": "def count_files(folder):\n    # Return the total number of files\n    pass\n",
+            "functionSignature": {
+                "name": "count_files",
+                "params": ["folder"],
+                "returns": "int"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Consider what the smallest possible folder looks like."
+                },
+                {
+                    "level": 2,
+                    "text": "If you encounter another folder, solve the same problem on that folder."
+                },
+                {
+                    "level": 3,
+                    "text": "Combine the counts from every nested folder."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "folder": ["a.txt", ["b.txt", "c.txt"], "d.txt"]
+                    },
+                    "expected": 4,
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2",
+                    "call": {
+                        "folder": [["a.txt"], [["b.txt"]], ["c.txt", "d.txt"]]
+                    },
+                    "expected": 4,
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc3_hidden",
+                    "call": {
+                        "folder": []
+                    },
+                    "expected": 0,
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the total instead of printing it."
+                    }
+                ],
+                "requireAny": {
+                    "patterns": ["count_files("],
+                    "reasonIfMissing": "Your solution doesn't appear to call itself recursively.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "Think about how to handle nested folders of unknown depth."
+            },
+            "successMessage": "Folder analyzer successfully indexed every file.",
+            "estimatedMinutes": 18
+        }
+    ],
+    [
+        {
+            "id": "challenge_ds_001",
+            "type": "challenge",
+            "section": "data_structures",
+            "title": "Incident #112 \u2014 Music Streaming Analytics Failure",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "lists",
+                "dictionaries",
+                "sets",
+                "aggregation"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're working on the analytics backend for a music streaming platform.",
+                "incidentReport": "Duplicate song records and inconsistent counting are producing incorrect daily reports.",
+                "task": "Implement analyze_library(songs) that returns a report containing the most played artist, the number of unique songs, and total plays per artist.",
+                "constraints": [
+                    "Each song is a dict with keys: title, artist, plays.",
+                    "Songs with the same title and artist count as one unique song.",
+                    "Return a dictionary."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #112 \u2014 Music Streaming Analytics Failure</h3><p>Implement <code>analyze_library(songs)</code> to summarize a streaming catalog.</p>",
+            "starterCode": "def analyze_library(songs):\n    # Return analytics report\n    pass\n",
+            "functionSignature": {
+                "name": "analyze_library",
+                "params": ["songs"],
+                "returns": "dict"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Different pieces of information may require different data structures."
+                },
+                {
+                    "level": 2,
+                    "text": "One structure is useful for uniqueness while another is useful for totals."
+                },
+                {
+                    "level": 3,
+                    "text": "Determine the most played artist after accumulating all play counts."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "songs": [
+                            {
+                                "title": "A",
+                                "artist": "X",
+                                "plays": 10
+                            },
+                            {
+                                "title": "B",
+                                "artist": "Y",
+                                "plays": 5
+                            },
+                            {
+                                "title": "A",
+                                "artist": "X",
+                                "plays": 10
+                            }
+                        ]
+                    },
+                    "expected": {
+                        "unique_songs": 2,
+                        "artist_plays": {
+                            "X": 20,
+                            "Y": 5
+                        },
+                        "top_artist": "X"
+                    },
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2_hidden",
+                    "call": {
+                        "songs": []
+                    },
+                    "expected": {
+                        "unique_songs": 0,
+                        "artist_plays": {},
+                        "top_artist": null
+                    },
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the report instead of printing it."
+                    }
+                ]
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "Check how you're handling duplicates and accumulating play counts."
+            },
+            "successMessage": "Analytics dashboard is reporting accurate statistics.",
+            "estimatedMinutes": 18
+        },
+        {
+            "id": "challenge_ds_002",
+            "type": "challenge",
+            "section": "data_structures",
+            "title": "Incident #128 \u2014 Warehouse Inventory Merge",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "nested data structures",
+                "dictionaries",
+                "lists",
+                "choosing data structures"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A warehouse has merged inventory from multiple branches.",
+                "incidentReport": "Duplicate products appear with different quantities, making stock reports unreliable.",
+                "task": "Implement merge_inventory(shipments) that combines all shipments into a single inventory mapping product names to total quantity.",
+                "constraints": [
+                    "shipments is a list of dictionaries.",
+                    "Missing products should be created automatically.",
+                    "Return one merged dictionary."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #128 \u2014 Warehouse Inventory Merge</h3><p>Implement <code>merge_inventory(shipments)</code> to consolidate warehouse stock.</p>",
+            "starterCode": "def merge_inventory(shipments):\n    # Return merged inventory\n    pass\n",
+            "functionSignature": {
+                "name": "merge_inventory",
+                "params": ["shipments"],
+                "returns": "dict"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Process one shipment at a time."
+                },
+                {
+                    "level": 2,
+                    "text": "Each shipment contains multiple products."
+                },
+                {
+                    "level": 3,
+                    "text": "Update a running inventory as you iterate."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "shipments": [
+                            {
+                                "Apple": 5,
+                                "Banana": 2
+                            },
+                            {
+                                "Banana": 3,
+                                "Orange": 4
+                            },
+                            {
+                                "Apple": 1
+                            }
+                        ]
+                    },
+                    "expected": {
+                        "Apple": 6,
+                        "Banana": 5,
+                        "Orange": 4
+                    },
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2",
+                    "call": {
+                        "shipments": []
+                    },
+                    "expected": {},
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc3_hidden",
+                    "call": {
+                        "shipments": [
+                            {
+                                "Pen": 1
+                            },
+                            {
+                                "Pen": 9
+                            },
+                            {
+                                "Book": 2
+                            }
+                        ]
+                    },
+                    "expected": {
+                        "Pen": 10,
+                        "Book": 2
+                    },
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "disallow": [
+                    {
+                        "pattern": "print(",
+                        "reason": "Return the merged inventory instead of printing it."
+                    }
+                ]
+            },
+            "gradingWeights": {
+                "visibleTests": 0.7,
+                "hiddenTests": 0.3
+            },
+            "onFailFeedback": {
+                "generic": "Verify that quantities are accumulated instead of overwritten."
+            },
+            "successMessage": "Warehouse inventory successfully consolidated.",
+            "estimatedMinutes": 15
+        }
+    ],
+    [
+        {
+            "id": "challenge_file_001",
+            "type": "challenge",
+            "section": "file_handling",
+            "title": "Incident #141 \u2014 Corrupted Student Grade Archive",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "file reading",
+                "file writing",
+                "context managers",
+                "CSV processing"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're maintaining the student records system for a school.",
+                "incidentReport": "Teachers have submitted a CSV containing every student's grade, but the principal only wants students who scored at least 90 in the honor roll file.",
+                "task": "Implement create_honor_roll(input_csv, output_file) that reads the CSV and writes only qualifying student names to the output text file.",
+                "constraints": [
+                    "Each CSV row contains Name,Grade.",
+                    "Create the output file if it doesn't exist.",
+                    "One student name per line."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #141 \u2014 Corrupted Student Grade Archive</h3><p>Read a CSV of grades and generate an honor roll text file.</p>",
+            "starterCode": "def create_honor_roll(input_csv, output_file):\n    # Read the CSV and write qualifying students\n    pass\n",
+            "functionSignature": {
+                "name": "create_honor_roll",
+                "params": ["input_csv", "output_file"],
+                "returns": "None"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Open both files safely."
+                },
+                {
+                    "level": 2,
+                    "text": "Each row contains a student's name and grade."
+                },
+                {
+                    "level": 3,
+                    "text": "Only write students whose grade is at least 90."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Basic honor roll generation"
+                },
+                {
+                    "id": "tc2_hidden",
+                    "description": "Handles an empty CSV",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["with open(", "csv.reader", "csv.DictReader"],
+                    "reasonIfMissing": "Your solution doesn't appear to use context managers or CSV processing.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Check that you're correctly reading the CSV and writing only qualifying students."
+            },
+            "successMessage": "Honor roll generated successfully.",
+            "estimatedMinutes": 18
+        },
+        {
+            "id": "challenge_file_002",
+            "type": "challenge",
+            "section": "file_handling",
+            "title": "Incident #156 \u2014 Customer Backup Recovery",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "JSON",
+                "file handling",
+                "pathlib",
+                "data transformation"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A company's customer backups were split across two JSON files.",
+                "incidentReport": "Some customers appear in both backups with updated information. The recovery tool must merge everything into one clean backup.",
+                "task": "Implement merge_backups(file_a, file_b, output_file) that combines both JSON files into a single deduplicated backup.",
+                "constraints": [
+                    "Customer IDs are unique identifiers.",
+                    "If a customer exists in both files, the record from file_b replaces file_a.",
+                    "Write the merged result as JSON."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #156 \u2014 Customer Backup Recovery</h3><p>Merge two JSON backups into one deduplicated backup.</p>",
+            "starterCode": "def merge_backups(file_a, file_b, output_file):\n    # Merge customer backups\n    pass\n",
+            "functionSignature": {
+                "name": "merge_backups",
+                "params": ["file_a", "file_b", "output_file"],
+                "returns": "None"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Load both JSON files before merging."
+                },
+                {
+                    "level": 2,
+                    "text": "Think about which data structure naturally maps IDs to records."
+                },
+                {
+                    "level": 3,
+                    "text": "After merging, write the combined data back to disk."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Merge two small backups"
+                },
+                {
+                    "id": "tc2_hidden",
+                    "description": "Duplicate customer IDs",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["json.load", "json.dump", "Path("],
+                    "reasonIfMissing": "Expected JSON file processing was not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Verify that duplicate customer IDs are handled correctly and that the merged data is written to the output file."
+            },
+            "successMessage": "Customer backup successfully recovered.",
+            "estimatedMinutes": 20
+        }
+    ],
+    [
+        {
+            "id": "challenge_error_001",
+            "type": "challenge",
+            "section": "error_handling",
+            "title": "Incident #173 \u2014 ATM Transaction Failure",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "exceptions",
+                "try/except",
+                "raising exceptions",
+                "defensive programming"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're maintaining the software for a nationwide ATM network.",
+                "incidentReport": "Unexpected inputs are causing ATM terminals to crash instead of displaying helpful messages.",
+                "task": "Implement withdraw(balance, amount) that safely processes a withdrawal request.",
+                "constraints": [
+                    "Raise ValueError if amount is negative.",
+                    "Return 'Insufficient funds' if amount exceeds the balance.",
+                    "Otherwise return the updated balance.",
+                    "The function should never crash because of invalid numeric input."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #173 \u2014 ATM Transaction Failure</h3><p>Implement <code>withdraw(balance, amount)</code> so invalid transactions are handled safely.</p>",
+            "starterCode": "def withdraw(balance, amount):\n    # Process the withdrawal safely\n    pass\n",
+            "functionSignature": {
+                "name": "withdraw",
+                "params": ["balance", "amount"],
+                "returns": "int | str"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Not every input should be treated as valid."
+                },
+                {
+                    "level": 2,
+                    "text": "Some situations should return a message while others should raise an exception."
+                },
+                {
+                    "level": 3,
+                    "text": "Separate normal execution from exceptional cases."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "call": {
+                        "balance": 100,
+                        "amount": 40
+                    },
+                    "expected": 60,
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc2",
+                    "call": {
+                        "balance": 50,
+                        "amount": 80
+                    },
+                    "expected": "Insufficient funds",
+                    "comparison": "exact"
+                },
+                {
+                    "id": "tc3",
+                    "call": {
+                        "balance": 25,
+                        "amount": -5
+                    },
+                    "expected": "ValueError",
+                    "comparison": "raises"
+                },
+                {
+                    "id": "tc4_hidden",
+                    "call": {
+                        "balance": 0,
+                        "amount": 0
+                    },
+                    "expected": 0,
+                    "comparison": "exact",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["try:", "except", "raise"],
+                    "reasonIfMissing": "Expected exception handling constructs were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Review how exceptional situations differ from normal transactions."
+            },
+            "successMessage": "ATM network is now resilient against invalid transactions.",
+            "estimatedMinutes": 15
+        },
+        {
+            "id": "challenge_error_002",
+            "type": "challenge",
+            "section": "error_handling",
+            "title": "Incident #189 \u2014 Broken Configuration Loader",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "file errors",
+                "custom exceptions",
+                "logging",
+                "defensive programming"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "Your application reads its configuration from disk during startup.",
+                "incidentReport": "When the configuration file is missing or malformed, the application crashes instead of recovering gracefully.",
+                "task": "Implement load_config(path) that safely loads configuration data.",
+                "constraints": [
+                    "If the file is missing, return a default configuration.",
+                    "If the JSON is invalid, raise ConfigurationError.",
+                    "Log every failure before handling it."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #189 \u2014 Broken Configuration Loader</h3><p>Implement <code>load_config(path)</code> to safely load application settings.</p>",
+            "starterCode": "class ConfigurationError(Exception):\n    pass\n\n\ndef load_config(path):\n    # Load configuration safely\n    pass\n",
+            "functionSignature": {
+                "name": "load_config",
+                "params": ["path"],
+                "returns": "dict"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Different failures should be handled differently."
+                },
+                {
+                    "level": 2,
+                    "text": "A missing file is recoverable; malformed data is not."
+                },
+                {
+                    "level": 3,
+                    "text": "Record failures before returning or raising."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Loads a valid configuration file"
+                },
+                {
+                    "id": "tc2",
+                    "description": "Returns default configuration when file is missing"
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Raises ConfigurationError for malformed JSON",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": [
+                        "logging.",
+                        "except",
+                        "raise ConfigurationError"
+                    ],
+                    "reasonIfMissing": "Expected logging or custom exception usage was not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Check that each failure mode is handled according to the incident report."
+            },
+            "successMessage": "Configuration loader recovered successfully from startup failures.",
+            "estimatedMinutes": 20
+        }
+    ],
+    [
+        {
+            "id": "challenge_oop_001",
+            "type": "challenge",
+            "section": "oop",
+            "title": "Incident #203 \u2014 Hospital Patient Management System",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "classes",
+                "objects",
+                "encapsulation",
+                "methods",
+                "inheritance"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're developing software for a hospital's patient management system.",
+                "incidentReport": "Different patient types are being handled by duplicated code, making updates error-prone.",
+                "task": "Design the required classes so doctors can register patients, schedule appointments, and retrieve patient summaries.",
+                "constraints": [
+                    "Create a base Patient class.",
+                    "Support InPatient and OutPatient with their own behavior.",
+                    "Patient data should not be modified directly from outside the class."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #203 \u2014 Hospital Patient Management System</h3><p>Model a flexible patient management system using object-oriented design.</p>",
+            "starterCode": "class Patient:\n    pass\n\n# Implement the remaining classes below\n",
+            "functionSignature": {
+                "name": "Patient",
+                "params": [],
+                "returns": "object"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Look for behavior that every patient shares."
+                },
+                {
+                    "level": 2,
+                    "text": "Some patient types need specialized behavior."
+                },
+                {
+                    "level": 3,
+                    "text": "Think about which attributes should only be changed through methods."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Creates patients and retrieves summaries"
+                },
+                {
+                    "id": "tc2",
+                    "description": "Subclass-specific behavior"
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Checks encapsulation and inheritance",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["class ", "__init__", "super(", "def "],
+                    "reasonIfMissing": "Expected object-oriented constructs were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Review your class relationships and where responsibilities belong."
+            },
+            "successMessage": "Hospital management system successfully deployed.",
+            "estimatedMinutes": 25
+        },
+        {
+            "id": "challenge_oop_002",
+            "type": "challenge",
+            "section": "oop",
+            "title": "Incident #224 \u2014 Warehouse Robot Fleet",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "polymorphism",
+                "inheritance",
+                "dunder methods",
+                "dataclasses",
+                "enums"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A logistics company controls several kinds of warehouse robots.",
+                "incidentReport": "Each robot behaves differently, but the control software currently relies on long chains of if statements.",
+                "task": "Design an object model where different robot types share a common interface while implementing their own movement behavior.",
+                "constraints": [
+                    "Create a common Robot base class.",
+                    "Implement at least PickerRobot and CarrierRobot subclasses.",
+                    "Robot objects should provide meaningful string representations.",
+                    "Robot status should use an enum."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #224 \u2014 Warehouse Robot Fleet</h3><p>Replace conditional-heavy logic with an extensible object-oriented design.</p>",
+            "starterCode": "from enum import Enum\n\nclass RobotStatus(Enum):\n    IDLE = 1\n\n# Continue your implementation below\n",
+            "functionSignature": {
+                "name": "Robot",
+                "params": [],
+                "returns": "object"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "What behavior is common to every robot?"
+                },
+                {
+                    "level": 2,
+                    "text": "Subclasses should override behavior rather than duplicating code."
+                },
+                {
+                    "level": 3,
+                    "text": "Special methods can make your objects easier to inspect and debug."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Polymorphic movement"
+                },
+                {
+                    "id": "tc2",
+                    "description": "String representation"
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Enum usage and inheritance",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["class ", "Enum", "__str__", "super("],
+                    "reasonIfMissing": "Expected OOP features were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Consider replacing conditionals with polymorphism."
+            },
+            "successMessage": "Warehouse robot controller upgraded successfully.",
+            "estimatedMinutes": 30
+        }
+    ],
+    [
+        {
+            "id": "challenge_modules_001",
+            "type": "challenge",
+            "section": "modules_project_structure",
+            "title": "Incident #241 \u2014 The Monolithic Utility Script",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "modules",
+                "imports",
+                "custom modules",
+                "__main__",
+                "project structure"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A startup's internal utility has grown into a 1200-line script.",
+                "incidentReport": "Every feature is in one file, making maintenance nearly impossible. Engineers accidentally execute code whenever they import the script.",
+                "task": "Refactor the project into reusable modules and ensure executable code only runs when appropriate.",
+                "constraints": [
+                    "Separate utility functions into logical modules.",
+                    "The main program should only execute when run directly.",
+                    "Other modules must be importable without side effects."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #241 \u2014 The Monolithic Utility Script</h3><p>Refactor a large script into a clean, modular Python project.</p>",
+            "starterCode": "# project/\n# \u251c\u2500\u2500 main.py\n# \u251c\u2500\u2500 math_utils.py\n# \u251c\u2500\u2500 file_utils.py\n# \u2514\u2500\u2500 string_utils.py\n\n# Complete the project structure.\n",
+            "functionSignature": {
+                "name": "project_structure",
+                "params": [],
+                "returns": "project"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Different responsibilities belong in different modules."
+                },
+                {
+                    "level": 2,
+                    "text": "Import reusable code instead of duplicating it."
+                },
+                {
+                    "level": 3,
+                    "text": "Prevent accidental execution during imports."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Modules import successfully."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Main script executes correctly."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Importing modules causes no side effects.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": [
+                        "import ",
+                        "from ",
+                        "__name__ == \"__main__\""
+                    ],
+                    "reasonIfMissing": "Expected module imports or a main guard were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Review your module organization and ensure executable code is protected by a main guard."
+            },
+            "successMessage": "The project has been successfully modularized.",
+            "estimatedMinutes": 25
+        },
+        {
+            "id": "challenge_modules_002",
+            "type": "challenge",
+            "section": "modules_project_structure",
+            "title": "Incident #259 \u2014 Broken Developer Environment",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "virtual environments",
+                "requirements.txt",
+                "dependency management",
+                "pyproject.toml"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A new developer cloned your team's repository.",
+                "incidentReport": "The application won't start because dependencies are inconsistent across machines.",
+                "task": "Configure the project so another developer can create an isolated environment and install every dependency successfully.",
+                "constraints": [
+                    "Use a virtual environment.",
+                    "Provide dependency information.",
+                    "Ensure the project metadata is correctly configured."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #259 \u2014 Broken Developer Environment</h3><p>Prepare a Python project so it can be reproduced on another machine.</p>",
+            "starterCode": "# Files to configure:\n# requirements.txt\n# pyproject.toml\n# README setup instructions\n",
+            "functionSignature": {
+                "name": "project_setup",
+                "params": [],
+                "returns": "configured_project"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Think about what another developer needs before running the project."
+                },
+                {
+                    "level": 2,
+                    "text": "Project dependencies should be explicitly listed."
+                },
+                {
+                    "level": 3,
+                    "text": "Modern Python projects also include metadata describing the package."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Environment builds successfully."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Dependencies install correctly."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Project metadata is valid.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["requirements.txt", "pyproject.toml", "venv"],
+                    "reasonIfMissing": "Expected packaging or dependency-management artifacts were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Ensure another developer can recreate the environment using only your project files."
+            },
+            "successMessage": "Development environment successfully standardized.",
+            "estimatedMinutes": 20
+        }
+    ],
+    [
+        {
+            "id": "challenge_intermediate_001",
+            "type": "challenge",
+            "section": "intermediate_python",
+            "title": "Incident #301 \u2014 Infinite Log Stream",
+            "difficulty": "hard",
+            "conceptsAssessed": ["iterators", "generators", "yield", "regex"],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "Your monitoring system receives millions of server log entries every day.",
+                "incidentReport": "The current implementation loads every log into memory before filtering, causing the service to run out of RAM.",
+                "task": "Implement filter_errors(log_file) that lazily yields only ERROR log entries matching the expected format.",
+                "constraints": [
+                    "Do not load the entire file into memory.",
+                    "Ignore malformed log lines.",
+                    "Yield one matching line at a time."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #301 \u2014 Infinite Log Stream</h3><p>Implement <code>filter_errors(log_file)</code> so error logs are processed lazily.</p>",
+            "starterCode": "def filter_errors(log_file):\n    # Yield matching ERROR log lines\n    pass\n",
+            "functionSignature": {
+                "name": "filter_errors",
+                "params": ["log_file"],
+                "returns": "generator"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Think about producing values one at a time instead of returning a complete list."
+                },
+                {
+                    "level": 2,
+                    "text": "A regular expression can validate the log format."
+                },
+                {
+                    "level": 3,
+                    "text": "Your solution should scale to files with millions of lines."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Returns only ERROR entries."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Malformed lines are ignored."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Memory usage remains constant for large files.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["yield", "re.", "for "],
+                    "reasonIfMissing": "Expected generator or regex usage was not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Review how you're processing the file. Avoid building a complete list before returning results."
+            },
+            "successMessage": "Streaming log processor deployed successfully.",
+            "estimatedMinutes": 25
+        },
+        {
+            "id": "challenge_intermediate_002",
+            "type": "challenge",
+            "section": "intermediate_python",
+            "title": "Incident #327 \u2014 API Rate Limiter",
+            "difficulty": "hard",
+            "conceptsAssessed": ["decorators", "closures", "type hinting"],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A public API is receiving too many requests from buggy client applications.",
+                "incidentReport": "Developers need a reusable way to prevent a function from being called too frequently.",
+                "task": "Implement a decorator rate_limit(max_calls) that blocks additional calls after the configured limit.",
+                "constraints": [
+                    "The decorator must preserve independent state for each wrapped function.",
+                    "Return 'Rate limit exceeded' after the limit is reached.",
+                    "Include type hints where appropriate."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #327 \u2014 API Rate Limiter</h3><p>Create a reusable decorator that limits how many times a function may be called.</p>",
+            "starterCode": "def rate_limit(max_calls):\n    # Return a decorator\n    pass\n",
+            "functionSignature": {
+                "name": "rate_limit",
+                "params": ["max_calls"],
+                "returns": "decorator"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "The decorator needs somewhere to remember how many calls have occurred."
+                },
+                {
+                    "level": 2,
+                    "text": "Inner functions can access variables from their enclosing scope."
+                },
+                {
+                    "level": 3,
+                    "text": "Each decorated function should maintain its own independent counter."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Stops execution after the configured number of calls."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Independent decorated functions have separate counters."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Decorator works with different call limits.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["def ", "return wrapper", "->", "nonlocal"],
+                    "reasonIfMissing": "Expected decorator or closure constructs were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Check how state is preserved between function calls."
+            },
+            "successMessage": "API rate limiter is protecting the service successfully.",
+            "estimatedMinutes": 30
+        }
+    ],
+    [
+        {
+            "id": "challenge_testing_001",
+            "type": "challenge",
+            "section": "testing_code_quality",
+            "title": "Incident #351 \u2014 Banking Interest Calculation Bug",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "unit testing",
+                "pytest",
+                "refactoring",
+                "TDD"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A bank deployed a new interest calculation service.",
+                "incidentReport": "Customers report incorrect balances, but nobody knows which inputs trigger the bug because there are almost no automated tests.",
+                "task": "Write a comprehensive test suite for calculate_interest(), identify the failing behavior, then fix the implementation without breaking existing functionality.",
+                "constraints": [
+                    "Write tests before modifying the implementation.",
+                    "Cover normal cases, edge cases, and invalid inputs.",
+                    "Keep the public API unchanged."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #351 \u2014 Banking Interest Calculation Bug</h3><p>Use automated tests to locate and fix a defect in a financial calculation library.</p>",
+            "starterCode": "# calculate_interest() has already been implemented.\n# Your job is to write tests, discover the bug, and fix it.\n",
+            "functionSignature": {
+                "name": "calculate_interest",
+                "params": ["principal", "rate", "years"],
+                "returns": "float"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Start by describing the expected behavior with tests."
+                },
+                {
+                    "level": 2,
+                    "text": "Boundary values often expose hidden defects."
+                },
+                {
+                    "level": 3,
+                    "text": "Only change the implementation after a failing test demonstrates the bug."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Standard interest calculation passes."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Edge cases are covered."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Regression tests catch the original bug.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["assert", "def test_", "pytest"],
+                    "reasonIfMissing": "Expected automated tests were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Focus on writing tests that describe the expected behavior before modifying the implementation."
+            },
+            "successMessage": "Banking bug eliminated and protected by automated tests.",
+            "estimatedMinutes": 30
+        },
+        {
+            "id": "challenge_testing_002",
+            "type": "challenge",
+            "section": "testing_code_quality",
+            "title": "Incident #372 \u2014 Unstable Weather Service",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "mocking",
+                "pytest",
+                "code quality",
+                "refactoring"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "Your application retrieves weather data from an external API.",
+                "incidentReport": "Tests randomly fail because they depend on the live internet service.",
+                "task": "Write reliable tests by mocking the external API so the application can be tested offline.",
+                "constraints": [
+                    "Do not contact the real API during testing.",
+                    "Mock successful and failed responses.",
+                    "Refactor only if necessary to improve testability."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #372 \u2014 Unstable Weather Service</h3><p>Replace unreliable network-dependent tests with deterministic mocked tests.</p>",
+            "starterCode": "# fetch_weather(city) is already implemented.\n# Write a reliable test suite using mocking.\n",
+            "functionSignature": {
+                "name": "fetch_weather",
+                "params": ["city"],
+                "returns": "dict"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Replace the external dependency rather than calling it."
+                },
+                {
+                    "level": 2,
+                    "text": "Test both successful and failed requests."
+                },
+                {
+                    "level": 3,
+                    "text": "Your tests should pass without an internet connection."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Successful API response is mocked."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Network failure is mocked."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "No real network requests occur.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["mock", "patch(", "pytest"],
+                    "reasonIfMissing": "Expected mocking constructs were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Your tests should isolate the code from external services by using mocks."
+            },
+            "successMessage": "Weather service test suite is now fast and deterministic.",
+            "estimatedMinutes": 25
+        }
+    ],
+    [
+        {
+            "id": "challenge_concurrency_001",
+            "type": "challenge",
+            "section": "concurrency_parallelism",
+            "title": "Incident #401 \u2014 Food Delivery Dispatch Meltdown",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "threads",
+                "thread synchronization",
+                "I/O concurrency",
+                "GIL intuition"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're building the backend for a food delivery platform.",
+                "incidentReport": "Orders are currently prepared one at a time, causing massive delays during dinner hours.",
+                "task": "Implement dispatch_orders(orders) so multiple restaurant orders can be prepared concurrently while collecting every completed order.",
+                "constraints": [
+                    "Each order is independent.",
+                    "The returned list should contain every completed order.",
+                    "Do not lose or duplicate any orders."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #401 \u2014 Food Delivery Dispatch Meltdown</h3><p>Process restaurant orders concurrently to reduce customer wait times.</p>",
+            "starterCode": "def dispatch_orders(orders):\n    # Process orders concurrently\n    pass\n",
+            "functionSignature": {
+                "name": "dispatch_orders",
+                "params": ["orders"],
+                "returns": "list"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Each order can be processed independently."
+                },
+                {
+                    "level": 2,
+                    "text": "Consider which concurrency model is appropriate for waiting on tasks."
+                },
+                {
+                    "level": 3,
+                    "text": "Collect results safely after every worker finishes."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Processes multiple orders correctly."
+                },
+                {
+                    "id": "tc2",
+                    "description": "No orders are lost."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Execution benefits from concurrent processing.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["threading", "Thread(", "concurrent.futures"],
+                    "reasonIfMissing": "Expected concurrency constructs were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Ensure orders are processed concurrently while preserving all results."
+            },
+            "successMessage": "Food delivery system now handles peak-hour demand efficiently.",
+            "estimatedMinutes": 25
+        },
+        {
+            "id": "challenge_concurrency_002",
+            "type": "challenge",
+            "section": "concurrency_parallelism",
+            "title": "Incident #428 \u2014 Satellite Image Processing Queue",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "multiprocessing",
+                "asyncio",
+                "async/await",
+                "parallelism"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A space agency receives thousands of satellite images every hour.",
+                "incidentReport": "CPU-intensive image analysis is blocking new downloads, causing the processing queue to grow indefinitely.",
+                "task": "Build a pipeline that downloads image metadata asynchronously and analyzes image data in parallel.",
+                "constraints": [
+                    "Network operations should not block each other.",
+                    "CPU-intensive work should run independently of downloads.",
+                    "Return processed image summaries."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #428 \u2014 Satellite Image Processing Queue</h3><p>Design a concurrent pipeline that combines asynchronous downloads with parallel computation.</p>",
+            "starterCode": "async def download_metadata(image_ids):\n    pass\n\n# Implement the remaining pipeline\n",
+            "functionSignature": {
+                "name": "process_pipeline",
+                "params": ["image_ids"],
+                "returns": "list"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Downloading metadata and analyzing images have different performance characteristics."
+                },
+                {
+                    "level": 2,
+                    "text": "One task spends most of its time waiting, while the other uses the CPU."
+                },
+                {
+                    "level": 3,
+                    "text": "Combine asynchronous programming with parallel execution."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Downloads metadata concurrently."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Processes images in parallel."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Pipeline scales efficiently with many images.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": [
+                        "async def",
+                        "await",
+                        "asyncio",
+                        "multiprocessing",
+                        "ProcessPoolExecutor"
+                    ],
+                    "reasonIfMissing": "Expected async or multiprocessing constructs were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Separate I/O-bound work from CPU-bound work and choose appropriate concurrency tools."
+            },
+            "successMessage": "Satellite processing pipeline restored to real-time performance.",
+            "estimatedMinutes": 35
+        }
+    ],
+    [
+        {
+            "id": "challenge_perf_001",
+            "type": "challenge",
+            "section": "performance_optimization",
+            "title": "Incident #452 \u2014 Search Engine Slowdown",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "time complexity",
+                "data structure selection",
+                "profiling",
+                "algorithm optimization"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "You're working on the backend of a search engine.",
+                "incidentReport": "Searching through millions of records has become painfully slow after the user base grew tenfold.",
+                "task": "Optimize search_records(records, queries) so it returns the same results while significantly improving performance.",
+                "constraints": [
+                    "Do not change the function's behavior.",
+                    "Large datasets should complete much faster than the naive implementation.",
+                    "Profile the implementation before optimizing."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #452 \u2014 Search Engine Slowdown</h3><p>Analyze and optimize a slow search implementation without changing its output.</p>",
+            "starterCode": "# A slow implementation of search_records() is provided.\n# Profile it, identify the bottleneck, then optimize it.\n",
+            "functionSignature": {
+                "name": "search_records",
+                "params": ["records", "queries"],
+                "returns": "list"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Measure performance before changing the code."
+                },
+                {
+                    "level": 2,
+                    "text": "Repeated linear searches often become expensive."
+                },
+                {
+                    "level": 3,
+                    "text": "Consider whether another data structure could reduce lookup time."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Produces correct search results."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Runs substantially faster on large datasets."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Profiler identifies the optimized bottleneck.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["cProfile", "set(", "dict(", "timeit"],
+                    "reasonIfMissing": "Expected profiling or optimization techniques were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Optimize only after identifying the performance bottleneck. Preserve the original behavior."
+            },
+            "successMessage": "Search engine performance restored.",
+            "estimatedMinutes": 30
+        },
+        {
+            "id": "challenge_perf_002",
+            "type": "challenge",
+            "section": "performance_optimization",
+            "title": "Incident #479 \u2014 Social Media Feed Memory Leak",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "memory management",
+                "garbage collection",
+                "profiling",
+                "optimization"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A social media platform keeps crashing after several hours of continuous use.",
+                "incidentReport": "Memory usage grows steadily until the application is terminated by the operating system.",
+                "task": "Investigate the feed generator, identify the memory issue, and modify the implementation to minimize memory usage without changing functionality.",
+                "constraints": [
+                    "Maintain identical output.",
+                    "Reduce peak memory usage significantly.",
+                    "Verify the improvement using profiling tools."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #479 \u2014 Social Media Feed Memory Leak</h3><p>Reduce the memory footprint of a long-running feed generation service.</p>",
+            "starterCode": "# A working but memory-hungry feed generator has been provided.\n# Optimize it without changing the output.\n",
+            "functionSignature": {
+                "name": "generate_feed",
+                "params": ["posts"],
+                "returns": "iterable"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Correct programs can still waste memory."
+                },
+                {
+                    "level": 2,
+                    "text": "Look for unnecessary data stored in memory simultaneously."
+                },
+                {
+                    "level": 3,
+                    "text": "Measure the memory improvement after making changes."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Produces identical feed output."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Uses substantially less memory."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Handles very large datasets efficiently.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["gc.", "yield", "tracemalloc", "cProfile"],
+                    "reasonIfMissing": "Expected memory optimization techniques were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Focus on reducing memory consumption while preserving functionality."
+            },
+            "successMessage": "Feed service optimized successfully.",
+            "estimatedMinutes": 30
+        }
+    ],
+    [
+        {
+            "id": "challenge_system_001",
+            "type": "challenge",
+            "section": "system_interaction",
+            "title": "Incident #503 \u2014 Downloads Folder Disaster",
+            "difficulty": "medium",
+            "conceptsAssessed": [
+                "os module",
+                "pathlib",
+                "file operations",
+                "directory traversal"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "IT receives complaints that employees can't find downloaded files.",
+                "incidentReport": "Every file is dumped into one giant Downloads folder, slowing productivity.",
+                "task": "Implement organize_downloads(downloads_path) that organizes files into folders based on their extensions.",
+                "constraints": [
+                    "Create folders if they don't exist.",
+                    "Move files without overwriting existing ones.",
+                    "Ignore directories already inside Downloads."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #503 \u2014 Downloads Folder Disaster</h3><p>Automatically organize a messy Downloads folder into categorized subfolders.</p>",
+            "starterCode": "def organize_downloads(downloads_path):\n    # Organize files by extension\n    pass\n",
+            "functionSignature": {
+                "name": "organize_downloads",
+                "params": ["downloads_path"],
+                "returns": "None"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Walk through every item in the directory."
+                },
+                {
+                    "level": 2,
+                    "text": "Determine each file's extension before moving it."
+                },
+                {
+                    "level": 3,
+                    "text": "Modern path manipulation libraries simplify filesystem work."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Moves images, documents, and videos into separate folders."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Creates missing folders automatically."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Leaves existing directories untouched.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["pathlib", "Path(", "os.", "shutil.move"],
+                    "reasonIfMissing": "Expected filesystem APIs were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Ensure only files are moved and folders are preserved."
+            },
+            "successMessage": "Downloads folder successfully organized.",
+            "estimatedMinutes": 25
+        },
+        {
+            "id": "challenge_system_002",
+            "type": "challenge",
+            "section": "system_interaction",
+            "title": "Incident #528 \u2014 Automated Deployment Pipeline",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "subprocess",
+                "environment variables",
+                "shell interaction"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "Your company deploys applications manually using terminal commands.",
+                "incidentReport": "Developers frequently forget steps, causing failed deployments.",
+                "task": "Implement deploy_project(project_path) that executes the required shell commands, validates environment variables, and reports success or failure.",
+                "constraints": [
+                    "Verify DEPLOY_ENV exists before deployment.",
+                    "Run commands in order using subprocess.",
+                    "Stop immediately if any command fails."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #528 \u2014 Automated Deployment Pipeline</h3><p>Automate a deployment process using system tools.</p>",
+            "starterCode": "def deploy_project(project_path):\n    # Execute deployment pipeline\n    pass\n",
+            "functionSignature": {
+                "name": "deploy_project",
+                "params": ["project_path"],
+                "returns": "bool"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Some information comes from the operating system rather than your program."
+                },
+                {
+                    "level": 2,
+                    "text": "Execute shell commands programmatically."
+                },
+                {
+                    "level": 3,
+                    "text": "Check each step before continuing to the next."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Deployment succeeds when all commands complete."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Fails if required environment variables are missing."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Stops after the first failed command.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["subprocess", "os.environ", "run("],
+                    "reasonIfMissing": "Expected subprocess or environment-variable usage was not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Validate the environment first, then execute commands sequentially."
+            },
+            "successMessage": "Deployment pipeline automated successfully.",
+            "estimatedMinutes": 30
+        }
+    ],
+    [
+        {
+            "id": "challenge_apps_001",
+            "type": "challenge",
+            "section": "real_applications",
+            "title": "Incident #601 \u2014 Weather Operations Dashboard Outage",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "requests",
+                "REST APIs",
+                "CLI applications",
+                "JSON parsing"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "An emergency response center relies on live weather information before dispatching rescue teams.",
+                "incidentReport": "The command-line weather tool stopped working after an API update, leaving operators without current weather conditions.",
+                "task": "Implement weather_cli(city) that retrieves weather information from a REST API and displays a clean command-line report.",
+                "constraints": [
+                    "Handle API failures gracefully.",
+                    "Parse JSON responses correctly.",
+                    "Display temperature, conditions, and humidity."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #601 \u2014 Weather Operations Dashboard Outage</h3><p>Build a command-line application that retrieves and displays live weather information.</p>",
+            "starterCode": "def weather_cli(city):\n    # Fetch and display weather information\n    pass\n",
+            "functionSignature": {
+                "name": "weather_cli",
+                "params": ["city"],
+                "returns": "dict"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "The server returns structured JSON rather than plain text."
+                },
+                {
+                    "level": 2,
+                    "text": "HTTP requests can fail, even when your code is correct."
+                },
+                {
+                    "level": 3,
+                    "text": "Separate data retrieval from presentation."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Correctly parses a successful API response."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Handles network failures gracefully."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Produces a well-formatted CLI report.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["requests.get", ".json(", "argparse"],
+                    "reasonIfMissing": "Expected HTTP request or CLI handling was not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Verify your request handling, JSON parsing, and error handling."
+            },
+            "successMessage": "Emergency weather dashboard restored successfully.",
+            "estimatedMinutes": 30
+        },
+        {
+            "id": "challenge_apps_002",
+            "type": "challenge",
+            "section": "real_applications",
+            "title": "Incident #624 \u2014 Restaurant Ordering Service Failure",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "Flask",
+                "REST API",
+                "SQLite",
+                "project architecture"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A restaurant chain has launched an online ordering platform.",
+                "incidentReport": "Orders cannot be created or queried reliably because the backend API was only partially implemented.",
+                "task": "Build a REST API that allows customers to create orders, retrieve existing orders, update order status, and store everything in SQLite.",
+                "constraints": [
+                    "Use SQLite for persistence.",
+                    "Expose REST endpoints.",
+                    "Return appropriate HTTP status codes.",
+                    "Organize the project cleanly."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #624 \u2014 Restaurant Ordering Service Failure</h3><p>Complete a production-style REST API backed by SQLite.</p>",
+            "starterCode": "# Flask application skeleton provided.\n# Complete the REST API implementation.\n",
+            "functionSignature": {
+                "name": "app",
+                "params": [],
+                "returns": "Flask"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Think about the resources your API should expose."
+                },
+                {
+                    "level": 2,
+                    "text": "Each order should have a persistent representation."
+                },
+                {
+                    "level": 3,
+                    "text": "Separate routing, database access, and business logic."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Creates and retrieves orders."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Persists data between requests."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Returns appropriate HTTP status codes.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["@app.route", "sqlite3", "Flask(", "request"],
+                    "reasonIfMissing": "Expected web framework or database constructs were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Ensure your API behaves consistently and persists order data correctly."
+            },
+            "successMessage": "Restaurant ordering platform is now fully operational.",
+            "estimatedMinutes": 45
+        }
+    ],
+    [
+        {
+            "id": "challenge_ecosystem_001",
+            "type": "challenge",
+            "section": "ecosystem_overview",
+            "title": "Incident #701 \u2014 Disease Outbreak Analytics",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "NumPy",
+                "Pandas",
+                "Matplotlib",
+                "data analysis"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "A public health agency receives daily disease reports from hundreds of hospitals.",
+                "incidentReport": "Analysts are manually processing spreadsheets, delaying critical decisions during an outbreak.",
+                "task": "Build a data analysis pipeline that loads the dataset, computes key statistics, identifies unusual trends, and generates summary visualizations.",
+                "constraints": [
+                    "Use Pandas for data processing.",
+                    "Use NumPy where numerical operations are appropriate.",
+                    "Generate at least one chart.",
+                    "Produce a summary report."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #701 \u2014 Disease Outbreak Analytics</h3><p>Analyze a real-world dataset and generate actionable insights for public health officials.</p>",
+            "starterCode": "# outbreak.csv is provided.\n# Analyze the data and generate a report.\n",
+            "functionSignature": {
+                "name": "analyze_outbreak",
+                "params": ["csv_path"],
+                "returns": "dict"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "Load the dataset into a DataFrame before analyzing it."
+                },
+                {
+                    "level": 2,
+                    "text": "Aggregate statistics often reveal hidden trends."
+                },
+                {
+                    "level": 3,
+                    "text": "Visualizations should communicate the important findings clearly."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Correct summary statistics are generated."
+                },
+                {
+                    "id": "tc2",
+                    "description": "Charts are created successfully."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Handles missing values correctly.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": ["pandas", "numpy", "matplotlib", "DataFrame"],
+                    "reasonIfMissing": "Expected data analysis libraries were not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Verify your analysis pipeline and ensure the reported statistics match the dataset."
+            },
+            "successMessage": "Public health dashboard generated successfully.",
+            "estimatedMinutes": 35
+        },
+        {
+            "id": "challenge_ecosystem_002",
+            "type": "challenge",
+            "section": "ecosystem_overview",
+            "title": "Incident #728 \u2014 Release Engineering Crisis",
+            "difficulty": "hard",
+            "conceptsAssessed": [
+                "packaging",
+                "distribution",
+                "project structure",
+                "CLI tooling"
+            ],
+            "conceptsIntentionallyHidden": true,
+            "briefing": {
+                "context": "Your team's internal analytics tool is being released to customers for the first time.",
+                "incidentReport": "Users cannot install or run the application because the package has not been prepared correctly.",
+                "task": "Package the application into an installable Python project with a command-line entry point and verify it can be installed into a clean environment.",
+                "constraints": [
+                    "Configure package metadata.",
+                    "Expose a CLI entry point.",
+                    "Ensure installation works in a fresh virtual environment.",
+                    "Document installation steps."
+                ]
+            },
+            "descriptionHtml": "<h3>Incident #728 \u2014 Release Engineering Crisis</h3><p>Prepare a Python application for distribution to end users.</p>",
+            "starterCode": "# Project skeleton provided.\n# Configure packaging and distribution files.\n",
+            "functionSignature": {
+                "name": "package_project",
+                "params": [],
+                "returns": "package"
+            },
+            "hints": [
+                {
+                    "level": 1,
+                    "text": "A project intended for users needs more than working source code."
+                },
+                {
+                    "level": 2,
+                    "text": "Think about how users install and launch the application."
+                },
+                {
+                    "level": 3,
+                    "text": "Package metadata and entry points are both required for a polished release."
+                }
+            ],
+            "checkMode": "functional",
+            "testCases": [
+                {
+                    "id": "tc1",
+                    "description": "Package installs successfully."
+                },
+                {
+                    "id": "tc2",
+                    "description": "CLI entry point launches correctly."
+                },
+                {
+                    "id": "tc3_hidden",
+                    "description": "Metadata and distribution files are valid.",
+                    "visibility": "hidden"
+                }
+            ],
+            "astChecks": {
+                "requireAny": {
+                    "patterns": [
+                        "pyproject.toml",
+                        "entry_points",
+                        "setuptools",
+                        "build"
+                    ],
+                    "reasonIfMissing": "Expected packaging configuration was not detected.",
+                    "blocking": false
+                }
+            },
+            "gradingWeights": {
+                "visibleTests": 0.6,
+                "hiddenTests": 0.3,
+                "astAdvisory": 0.1
+            },
+            "onFailFeedback": {
+                "generic": "Ensure the project can be installed and executed on a clean machine."
+            },
+            "successMessage": "Application packaged and released successfully.",
+            "estimatedMinutes": 40
+        }
+    ]
+]

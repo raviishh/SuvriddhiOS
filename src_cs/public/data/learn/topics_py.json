@@ -52,6 +52,24 @@
                 "contentFile": "topics_py/foundations/ex_io_programs.html"
             },
             {
+                "id": "found_ex_execution_trace",
+                "type": "exercise",
+                "title": "Exercise: Trace the Execution Model",
+                "contentFile": "topics_py/foundations/ex_execution_trace.html"
+            },
+            {
+                "id": "challenge_found_001",
+                "type": "challenge",
+                "title": "Incident #001 — Conference Check-in Terminal",
+                "contentFile": "topics_py/foundations/challenge_found_001.html"
+            },
+            {
+                "id": "challenge_found_002",
+                "type": "challenge",
+                "title": "Incident #002 — Coffee Shop Receipt Generator",
+                "contentFile": "topics_py/foundations/challenge_found_002.html"
+            },
+            {
                 "id": "found_quiz",
                 "type": "quiz",
                 "title": "Quiz: Foundations Knowledge Check",
@@ -122,6 +140,18 @@
                 "type": "exercise",
                 "title": "Exercise: Spot the Mutation Bug",
                 "contentFile": "topics_py/core_data_types/ex_mutation.html"
+            },
+            {
+                "id": "challenge_types_001",
+                "type": "challenge",
+                "title": "Incident #018 — Password Security Audit",
+                "contentFile": "topics_py/core_data_types/challenge_types_001.html"
+            },
+            {
+                "id": "challenge_types_002",
+                "type": "challenge",
+                "title": "Incident #027 — Faulty Temperature Sensor",
+                "contentFile": "topics_py/core_data_types/challenge_types_002.html"
             },
             {
                 "id": "types_quiz",
@@ -196,6 +226,18 @@
                 "contentFile": "topics_py/control_flow/ex_pattern_matching.html"
             },
             {
+                "id": "challenge_control_001",
+                "type": "challenge",
+                "title": "Incident #051 — Smart Parking Garage",
+                "contentFile": "topics_py/control_flow/challenge_control_001.html"
+            },
+            {
+                "id": "challenge_control_002",
+                "type": "challenge",
+                "title": "Incident #063 — Elevator Dispatch System",
+                "contentFile": "topics_py/control_flow/challenge_control_002.html"
+            },
+            {
                 "id": "control_quiz",
                 "type": "quiz",
                 "title": "Quiz: Control Flow Knowledge Check",
@@ -260,6 +302,24 @@
                 "type": "exercise",
                 "title": "Exercise: Recursive Challenges (Factorial, Fibonacci, Flatten)",
                 "contentFile": "topics_py/functions/ex_recursion.html"
+            },
+            {
+                "id": "func_ex_lambda_scope",
+                "type": "exercise",
+                "title": "Exercise: Lambda, Scope & Docstring Drills",
+                "contentFile": "topics_py/functions/ex_lambda_scope.html"
+            },
+            {
+                "id": "challenge_func_001",
+                "type": "challenge",
+                "title": "Incident #084 — E-Commerce Pricing Engine",
+                "contentFile": "topics_py/functions/challenge_func_001.html"
+            },
+            {
+                "id": "challenge_func_002",
+                "type": "challenge",
+                "title": "Incident #097 — Company Folder Size Analyzer",
+                "contentFile": "topics_py/functions/challenge_func_002.html"
             },
             {
                 "id": "func_quiz",
@@ -352,6 +412,24 @@
                 "contentFile": "topics_py/data_structures/ex_frequency.html"
             },
             {
+                "id": "ds_ex_choosing_structures",
+                "type": "exercise",
+                "title": "Exercise: Pick the Right Structure & Estimate Complexity",
+                "contentFile": "topics_py/data_structures/ex_choosing_structures.html"
+            },
+            {
+                "id": "challenge_ds_001",
+                "type": "challenge",
+                "title": "Incident #112 — Music Streaming Analytics Failure",
+                "contentFile": "topics_py/data_structures/challenge_ds_001.html"
+            },
+            {
+                "id": "challenge_ds_002",
+                "type": "challenge",
+                "title": "Incident #128 — Warehouse Inventory Merge",
+                "contentFile": "topics_py/data_structures/challenge_ds_002.html"
+            },
+            {
                 "id": "ds_quiz",
                 "type": "quiz",
                 "title": "Quiz: Data Structures Knowledge Check",
@@ -424,6 +502,24 @@
                 "contentFile": "topics_py/file_handling/ex_csv_json.html"
             },
             {
+                "id": "file_ex_pathlib_pipeline",
+                "type": "exercise",
+                "title": "Exercise: pathlib Batch-Processing Pipeline",
+                "contentFile": "topics_py/file_handling/ex_pathlib_pipeline.html"
+            },
+            {
+                "id": "challenge_file_001",
+                "type": "challenge",
+                "title": "Incident #141 — Corrupted Student Grade Archive",
+                "contentFile": "topics_py/file_handling/challenge_file_001.html"
+            },
+            {
+                "id": "challenge_file_002",
+                "type": "challenge",
+                "title": "Incident #156 — Customer Backup Recovery",
+                "contentFile": "topics_py/file_handling/challenge_file_002.html"
+            },
+            {
                 "id": "file_quiz",
                 "type": "quiz",
                 "title": "Quiz: File Handling Knowledge Check",
@@ -482,6 +578,24 @@
                 "type": "exercise",
                 "title": "Exercise: Debug the Broken Program",
                 "contentFile": "topics_py/error_handling/ex_debug.html"
+            },
+            {
+                "id": "err_ex_custom_logging",
+                "type": "exercise",
+                "title": "Exercise: Custom Exceptions with Logging",
+                "contentFile": "topics_py/error_handling/ex_custom_logging.html"
+            },
+            {
+                "id": "challenge_error_001",
+                "type": "challenge",
+                "title": "Incident #173 — ATM Transaction Failure",
+                "contentFile": "topics_py/error_handling/challenge_error_001.html"
+            },
+            {
+                "id": "challenge_error_002",
+                "type": "challenge",
+                "title": "Incident #189 — Broken Configuration Loader",
+                "contentFile": "topics_py/error_handling/challenge_error_002.html"
             },
             {
                 "id": "err_quiz",
@@ -580,6 +694,24 @@
                 "contentFile": "topics_py/oop/ex_inheritance.html"
             },
             {
+                "id": "oop_ex_dataclass_enum",
+                "type": "exercise",
+                "title": "Exercise: Dataclasses & Enums in Practice",
+                "contentFile": "topics_py/oop/ex_dataclass_enum.html"
+            },
+            {
+                "id": "challenge_oop_001",
+                "type": "challenge",
+                "title": "Incident #203 — Hospital Patient Management System",
+                "contentFile": "topics_py/oop/challenge_oop_001.html"
+            },
+            {
+                "id": "challenge_oop_002",
+                "type": "challenge",
+                "title": "Incident #224 — Warehouse Robot Fleet",
+                "contentFile": "topics_py/oop/challenge_oop_002.html"
+            },
+            {
                 "id": "oop_quiz",
                 "type": "quiz",
                 "title": "Quiz: OOP Knowledge Check",
@@ -664,6 +796,24 @@
                 "contentFile": "topics_py/modules/ex_venv_setup.html"
             },
             {
+                "id": "mod_ex_pyproject_setup",
+                "type": "exercise",
+                "title": "Exercise: Configure a Package with pyproject.toml",
+                "contentFile": "topics_py/modules_project_structure/ex_pyproject_setup.html"
+            },
+            {
+                "id": "challenge_modules_001",
+                "type": "challenge",
+                "title": "Incident #241 — The Monolithic Utility Script",
+                "contentFile": "topics_py/modules_project_structure/challenge_modules_001.html"
+            },
+            {
+                "id": "challenge_modules_002",
+                "type": "challenge",
+                "title": "Incident #259 — Broken Developer Environment",
+                "contentFile": "topics_py/modules_project_structure/challenge_modules_002.html"
+            },
+            {
                 "id": "mod_quiz",
                 "type": "quiz",
                 "title": "Quiz: Modules & Packaging Knowledge Check",
@@ -742,6 +892,18 @@
                 "contentFile": "topics_py/intermediate/ex_regex.html"
             },
             {
+                "id": "challenge_intermediate_001",
+                "type": "challenge",
+                "title": "Incident #301 — Infinite Log Stream",
+                "contentFile": "topics_py/intermediate_python/challenge_intermediate_001.html"
+            },
+            {
+                "id": "challenge_intermediate_002",
+                "type": "challenge",
+                "title": "Incident #327 — API Rate Limiter",
+                "contentFile": "topics_py/intermediate_python/challenge_intermediate_002.html"
+            },
+            {
                 "id": "int_quiz",
                 "type": "quiz",
                 "title": "Quiz: Intermediate Features Knowledge Check",
@@ -802,10 +964,28 @@
                 "contentFile": "topics_py/testing/ex_bank_account.html"
             },
             {
+                "id": "test_ex_mocking_practice",
+                "type": "exercise",
+                "title": "Exercise: Mock External Calls with pytest",
+                "contentFile": "topics_py/testing_code_quality/ex_mocking_practice.html"
+            },
+            {
                 "id": "test_ex_tdd_kata",
                 "type": "exercise",
                 "title": "Exercise: TDD Kata (Red → Green → Refactor)",
                 "contentFile": "topics_py/testing/ex_tdd_kata.html"
+            },
+            {
+                "id": "challenge_testing_001",
+                "type": "challenge",
+                "title": "Incident #351 — Banking Interest Calculation Bug",
+                "contentFile": "topics_py/testing_code_quality/challenge_testing_001.html"
+            },
+            {
+                "id": "challenge_testing_002",
+                "type": "challenge",
+                "title": "Incident #372 — Unstable Weather Service",
+                "contentFile": "topics_py/testing_code_quality/challenge_testing_002.html"
             },
             {
                 "id": "test_quiz",
@@ -868,6 +1048,24 @@
                 "contentFile": "topics_py/concurrency/ex_async_fetch.html"
             },
             {
+                "id": "conc_ex_asyncio_gather",
+                "type": "exercise",
+                "title": "Exercise: Concurrent Downloads with asyncio.gather",
+                "contentFile": "topics_py/concurrency_parallelism/ex_asyncio_gather.html"
+            },
+            {
+                "id": "challenge_concurrency_001",
+                "type": "challenge",
+                "title": "Incident #401 — Food Delivery Dispatch Meltdown",
+                "contentFile": "topics_py/concurrency_parallelism/challenge_concurrency_001.html"
+            },
+            {
+                "id": "challenge_concurrency_002",
+                "type": "challenge",
+                "title": "Incident #428 — Satellite Image Processing Queue",
+                "contentFile": "topics_py/concurrency_parallelism/challenge_concurrency_002.html"
+            },
+            {
                 "id": "conc_quiz",
                 "type": "quiz",
                 "title": "Quiz: Concurrency Knowledge Check",
@@ -920,6 +1118,18 @@
                 "type": "exercise",
                 "title": "Exercise: Memory Footprint Comparison",
                 "contentFile": "topics_py/performance/ex_memory_footprint.html"
+            },
+            {
+                "id": "challenge_perf_001",
+                "type": "challenge",
+                "title": "Incident #452 — Search Engine Slowdown",
+                "contentFile": "topics_py/performance_optimization/challenge_perf_001.html"
+            },
+            {
+                "id": "challenge_perf_002",
+                "type": "challenge",
+                "title": "Incident #479 — Social Media Feed Memory Leak",
+                "contentFile": "topics_py/performance_optimization/challenge_perf_002.html"
             },
             {
                 "id": "perf_quiz",
@@ -976,6 +1186,18 @@
                 "contentFile": "topics_py/system/ex_subprocess_pipeline.html"
             },
             {
+                "id": "challenge_system_001",
+                "type": "challenge",
+                "title": "Incident #503 — Downloads Folder Disaster",
+                "contentFile": "topics_py/system_interaction/challenge_system_001.html"
+            },
+            {
+                "id": "challenge_system_002",
+                "type": "challenge",
+                "title": "Incident #528 — Automated Deployment Pipeline",
+                "contentFile": "topics_py/system_interaction/challenge_system_002.html"
+            },
+            {
                 "id": "sys_quiz",
                 "type": "quiz",
                 "title": "Quiz: System Interaction Knowledge Check",
@@ -1030,6 +1252,18 @@
                 "contentFile": "topics_py/applications/ex_consume_api.html"
             },
             {
+                "id": "challenge_apps_001",
+                "type": "challenge",
+                "title": "Incident #601 — Weather Operations Dashboard Outage",
+                "contentFile": "topics_py/real_applications/challenge_apps_001.html"
+            },
+            {
+                "id": "challenge_apps_002",
+                "type": "challenge",
+                "title": "Incident #624 — Restaurant Ordering Service Failure",
+                "contentFile": "topics_py/real_applications/challenge_apps_002.html"
+            },
+            {
                 "id": "app_project_task_manager",
                 "type": "project",
                 "title": "Capstone Project: Task Manager REST API (Flask + SQLite + Tests)",
@@ -1053,12 +1287,12 @@
                 "title": "Pandas Basics",
                 "contentFile": "topics_py/ecosystems/pandas.html"
             },
-            # {
-            #    "id": "eco_matplotlib",
-            #    "type": "lesson",
-            #    "title": "Matplotlib",
-            #    "contentFile": "topics_py/ecosystems/matplotlib.html"
-            #},
+            {
+                "id": "eco_matplotlib",
+                "type": "lesson",
+                "title": "Matplotlib",
+                "contentFile": "topics_py/ecosystems/matplotlib.html"
+            },
             {
                 "id": "eco_packaging",
                 "type": "lesson",
@@ -1076,6 +1310,18 @@
                 "type": "exercise",
                 "title": "Exercise: Plot & Interpret a Dataset",
                 "contentFile": "topics_py/ecosystems/ex_plot_dataset.html"
+            },
+            {
+                "id": "challenge_ecosystem_001",
+                "type": "challenge",
+                "title": "Incident #701 — Disease Outbreak Analytics",
+                "contentFile": "topics_py/ecosystem_overview/challenge_ecosystem_001.html"
+            },
+            {
+                "id": "challenge_ecosystem_002",
+                "type": "challenge",
+                "title": "Incident #728 — Release Engineering Crisis",
+                "contentFile": "topics_py/ecosystem_overview/challenge_ecosystem_002.html"
             },
             {
                 "id": "eco_quiz",

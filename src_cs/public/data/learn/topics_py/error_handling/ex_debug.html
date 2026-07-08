@@ -1,0 +1,105 @@
+<div class="exercise-content">
+  <h2>Debug the Broken Program</h2>
+  <p class="exercise-lead">Read buggy code, identify the error, and fix it.</p>
+
+  <section class="exercise-task" id="dbg_1">
+  <h3>Part 1 — Fix the ZeroDivisionError </h3>
+  <p class="task-background">The function crashes when passed an empty list because len([]) is 0. Guard against edge cases.</p>
+  <pre class="code-block"><code># calculate_average([]) → ZeroDivisionError: division by zero</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Fix calculate_average() so it returns 0 when passed an empty list.</li>
+  <li>It should still work correctly for non-empty lists.</li>
+  <li>Print calculate_average([]) and calculate_average([10, 20, 30]).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Return 0 (integer), not 0.0 — the checker expects &#39;0&#39; on the first line.</li>
+  <li>Do not change the logic for non-empty lists — only guard the empty case.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Add an early return: if not numbers: return 0</li>
+  <li>Or check len(numbers) == 0.</li>
+  <li>if not numbers is idiomatic Python — an empty list is falsy.</li>
+  <li>The average of [10, 20, 30] is (10+20+30)/3 = 60/3 = 20.0.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="dbg_2">
+  <h3>Part 2 — Off-by-One in a Loop </h3>
+  <p class="task-background">range(n) goes from 0 to n-1. range(1, n) goes from 1 to n-1. Use range(1, n+1) to include n.</p>
+  <pre class="code-block"><code># This prints 0 through 4 on separate lines — missing 5!
+for i in range(5):
+    print(i)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>0
+1
+2
+3
+4</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Fix the code so it prints numbers 1 through 5 inclusive, one per line.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>range(5) gives 0, 1, 2, 3, 4 — starting at 0, stopping before 5.</li>
+  <li>Do not hardcode the numbers — use range.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>range(1, 6) starts at 1 and stops before 6.</li>
+  <li>A common pattern: range(1, n+1) when you want 1 through n inclusive.</li>
+  <li>Remember: range&#39;s stop is exclusive — range(1, 6) gives 1, 2, 3, 4, 5.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="dbg_stretch">
+  <h3>Stretch — Multi-Bug Hunt <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Real bugs are rarely alone. This snippet has three distinct bugs — a logic error, a type error, and a name error. Find and fix all three.</p>
+  <pre class="code-block"><code>def word_count(text):
+    words = text.split(&quot; &quot;)
+    counts = {}
+    for Word in words:
+        counts[word] = counts.get(word, 0) + 1
+    return counts
+
+def most_frequent(counts)
+    return max(counts, key=counts.get)
+
+result = word_count(&#39;the cat sat on the mat the cat&#39;)
+print(most_frequent(result))
+print(lenn(result))</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Fix all bugs in the snippet above.</li>
+  <li>word_count should return {&#39;the&#39;: 3, &#39;cat&#39;: 2, &#39;sat&#39;: 1, &#39;on&#39;: 1, &#39;mat&#39;: 1}.</li>
+  <li>most_frequent should return &#39;the&#39;.</li>
+  <li>The final print should output the number of unique words: 5.</li>
+  <li>Print most_frequent(result) then len(result).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Fix all three bugs — the program must run to completion without any errors.</li>
+  <li>Do not change the logic, only fix the bugs — the algorithm is correct once the syntax/name errors are resolved.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Bug 1 (NameError): the loop variable is capitalised as Word, but used as word — Python names are case-sensitive.</li>
+  <li>Bug 2 (SyntaxError): the def line for most_frequent is missing a colon at the end.</li>
+  <li>Bug 3 (NameError): lenn is not a function — the built-in is len.</li>
+  <li>After fixing: run mentally — word_count produces the dict, most_frequent returns &#39;the&#39;, len returns 5.</li>
+</ul>
+</details>
+</section>
+</div>

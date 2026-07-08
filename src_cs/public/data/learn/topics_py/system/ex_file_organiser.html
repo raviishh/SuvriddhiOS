@@ -1,0 +1,98 @@
+<div class="exercise-content">
+  <h2>Build a File Organiser Script</h2>
+  <p class="exercise-lead">Simulate scanning a folder of mixed files and sorting them into subfolders by type — using an in-memory model of the filesystem.</p>
+
+  <section class="exercise-task" id="org_1">
+  <h3>Part 1 — Categorise by Extension </h3>
+  <p class="task-background">os.path.splitext(path) splits a filename into (root, extension). The extension includes the leading dot.</p>
+  <pre class="code-block"><code>import os
+root, ext = os.path.splitext(&quot;photo.jpg&quot;)
+print(root, ext)  # photo .jpg</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>photo .jpg</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using filenames above, build a dict mapping each file extension (without the dot, lowercase) to a list of filenames with that extension.</li>
+  <li>Print the dict, with extensions sorted alphabetically as keys.</li>
+  <li>Print the total number of distinct extensions found.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Print the dict with sorted keys but original (insertion) order within each list — do not sort the filenames themselves.</li>
+  <li>Extensions must be lowercased even if a real filename used uppercase, e.g. &#39;.JPG&#39; should count as &#39;jpg&#39;.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>os.path.splitext(name) returns (root, ext); strip the leading dot with ext[1:] and lowercase it.</li>
+  <li>Build the dict with grouped.setdefault(ext, []).append(name), iterating filenames in their original order so pdf&#39;s list keeps report.pdf before invoice.pdf.</li>
+  <li>To print keys sorted alphabetically while preserving insertion order for values, build a new dict: {k: grouped[k] for k in sorted(grouped)}.</li>
+  <li>len(grouped) gives the number of distinct extensions.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="org_2">
+  <h3>Part 2 — Simulated Move Plan </h3>
+  <p class="task-background">A real organiser would call shutil.move(src, dest_folder). Here we simulate that by producing a plan (a list of source→destination pairs) without touching disk.</p>
+  <pre class="code-block"><code>CATEGORY_MAP = {
+    &quot;pdf&quot;: &quot;Documents&quot;, &quot;txt&quot;: &quot;Documents&quot;, &quot;md&quot;: &quot;Documents&quot;, &quot;csv&quot;: &quot;Documents&quot;,
+    &quot;jpg&quot;: &quot;Images&quot;, &quot;png&quot;: &quot;Images&quot;,
+    &quot;zip&quot;: &quot;Archives&quot;
+}</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using CATEGORY_MAP above and filenames from the starter code, build a move plan: a list of tuples (filename, target_folder), where target_folder comes from CATEGORY_MAP based on the file&#39;s extension.</li>
+  <li>If an extension isn&#39;t in CATEGORY_MAP, use &#39;Misc&#39; as the target folder.</li>
+  <li>Print each plan entry as &#39;filename -&gt; target_folder/&#39;, one per line, preserving the original filenames order.</li>
+  <li>Print the total count of files planned for the &#39;Documents&#39; folder.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Preserve the exact order from the original filenames list — do not group or sort them for this part.</li>
+  <li>The trailing slash in the printed target folder (&#39;Documents/&#39;) is required and part of the exact match.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Get the extension the same way as Part 1: os.path.splitext(name)[1][1:].lower()</li>
+  <li>Use CATEGORY_MAP.get(ext, &#39;Misc&#39;) to default unmapped extensions to &#39;Misc&#39;.</li>
+  <li>f&#39;{name} -&gt; {folder}/&#39; formats each plan line.</li>
+  <li>Count Documents entries with sum(1 for _, folder in plan if folder == &#39;Documents&#39;).</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="org_stretch">
+  <h3>Stretch — Duplicate Detection by Simulated Content Hash <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Real duplicate-file finders hash file contents (e.g. with hashlib.sha256) rather than comparing names, since two differently-named files can have identical content.</p>
+  <pre class="code-block"><code>import hashlib
+data = b&quot;hello world&quot;
+print(hashlib.sha256(data).hexdigest()[:8])</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>b94d27b9</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Given file_contents = {&#39;a.txt&#39;: &#39;hello&#39;, &#39;b.txt&#39;: &#39;world&#39;, &#39;c.txt&#39;: &#39;hello&#39;, &#39;d.txt&#39;: &#39;hello&#39;, &#39;e.txt&#39;: &#39;world&#39;} (simulating file contents as strings instead of reading real files), compute the SHA-256 hash of each file&#39;s content (encode as utf-8 first).</li>
+  <li>Group filenames by identical hash.</li>
+  <li>Print only the groups that contain more than one file (i.e. actual duplicates), sorted by the first filename in each group, each group&#39;s filenames also sorted.</li>
+  <li>Expected: [[&#39;a.txt&#39;, &#39;c.txt&#39;, &#39;d.txt&#39;], [&#39;b.txt&#39;, &#39;e.txt&#39;]]</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Always encode strings to bytes before hashing — hashlib functions require bytes, not str, and will raise a TypeError otherwise.</li>
+  <li>Sort both the outer list of groups and the filenames within each group for a deterministic, checker-friendly output.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>hashlib.sha256(content.encode(&#39;utf-8&#39;)).hexdigest() gives a stable hash string per unique content.</li>
+  <li>Group with a dict: hash_groups.setdefault(hash_value, []).append(filename).</li>
+  <li>Filter to groups where len(group) &gt; 1, then sort each group&#39;s filenames and sort the list of groups by their first element.</li>
+  <li>Two files with identical content will always produce identical hashes — this is deterministic, unlike comparing by filename or size alone.</li>
+</ul>
+</details>
+</section>
+</div>

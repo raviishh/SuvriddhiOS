@@ -1,0 +1,80 @@
+<div class="exercise-content">
+  <h2>Build and Stack Decorators</h2>
+  <p class="exercise-lead">Write decorators that add timing, logging, and validation to functions.</p>
+
+  <section class="exercise-task" id="dec_1">
+  <h3>Part 1 — Timer Decorator </h3>
+  <p class="task-background">A decorator is a function that takes a function and returns a new function. Use functools.wraps to preserve the original function&#39;s metadata.</p>
+  <pre class="code-block"><code>import functools
+
+def my_decorator(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print(&quot;Before&quot;)
+        result = func(*args, **kwargs)
+        print(&quot;After&quot;)
+        return result
+    return wrapper
+
+@my_decorator
+def say_hi():
+    print(&quot;Hi!&quot;)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Before
+Hi!
+After</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a @timer decorator that prints how long a function takes to run in seconds, formatted to 4 decimal places.</li>
+  <li>Apply it to a function slow_add(a, b) that sleeps 0.1 seconds then returns a + b.</li>
+  <li>Print the return value too.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The exact time will vary — the checker looks for &#39;slow_add took 0.1&#39; as a substring.</li>
+  <li>Do not forget to return result from wrapper — otherwise slow_add(...) returns None.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>start = time.time() before calling func; elapsed = time.time() - start after.</li>
+  <li>print(f&quot;{func.__name__} took {elapsed:.4f}s&quot;)</li>
+  <li>Use @functools.wraps(func) on wrapper to preserve __name__ and __doc__.</li>
+  <li>The return value of the decorated function must still be returned from wrapper.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="dec_stretch">
+  <h3>Stretch — Retry Decorator <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A retry decorator calls the wrapped function again if it raises an exception, up to a maximum number of attempts. This is common in network and I/O code.</p>
+  <pre class="code-block"><code># Usage:
+# @retry(times=3)
+# def flaky(): ...</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a decorator factory retry(times=3) that retries the function up to times attempts if it raises an exception.</li>
+  <li>On each failure, print: &#39;Attempt [n] failed: [error]&#39;.</li>
+  <li>If all attempts fail, re-raise the last exception.</li>
+  <li>Test with a function that fails the first two calls (use a counter) then succeeds on the third.</li>
+  <li>Print the successful return value.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>@retry(times=3) is a decorator factory — it is called with parentheses, unlike @timer.</li>
+  <li>Re-raise after all attempts so the caller can still handle the error if needed.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (5)</summary>
+  <ul>
+  <li>retry(times) returns a decorator; the decorator returns a wrapper — so there are three levels of nesting.</li>
+  <li>Use a for loop with range(times) inside wrapper.</li>
+  <li>Catch all exceptions with except Exception as e; print the attempt number and error.</li>
+  <li>After the loop, raise the last exception: raise e</li>
+  <li>A counter can be simulated with a list: calls = [0]; inside the function calls[0] += 1; if calls[0] &lt; 3: raise RuntimeError(...)</li>
+</ul>
+</details>
+</section>
+</div>

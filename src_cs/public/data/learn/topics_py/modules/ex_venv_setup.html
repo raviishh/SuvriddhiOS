@@ -1,0 +1,99 @@
+<div class="exercise-content">
+  <h2>Set Up a Project with venv &amp; requirements.txt</h2>
+  <p class="exercise-lead">Practice the reasoning and file formats behind virtual environments and dependency pinning, without needing a real terminal.</p>
+
+  <section class="exercise-task" id="venv_1">
+  <h3>Part 1 — Writing a requirements.txt </h3>
+  <p class="task-background">requirements.txt lists a project&#39;s dependencies, one per line, optionally pinned to exact versions with ==.</p>
+  <pre class="code-block"><code>requirements = &quot;&quot;&quot;requests==2.31.0
+flask==3.0.0
+&quot;&quot;&quot;
+print(requirements.strip())</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>requests==2.31.0
+flask==3.0.0</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Given a project that uses requests version 2.31.0, pandas version 2.1.4, and pytest version 7.4.3 (dev-only), build the exact text content of a requirements.txt file with each package pinned using ==, one per line, in alphabetical order by package name.</li>
+  <li>Print the resulting string.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not add a trailing blank line to the printed output — the checker compares exact text.</li>
+  <li>Match the version strings exactly as given, including all digits.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Build a list of tuples [(&#39;requests&#39;, &#39;2.31.0&#39;), (&#39;pandas&#39;, &#39;2.1.4&#39;), (&#39;pytest&#39;, &#39;7.4.3&#39;)], sort it by name, then format each as f&#39;{name}=={version}&#39;.</li>
+  <li>&#39;\n&#39;.join(lines) produces the final file content, one dependency per line.</li>
+  <li>Alphabetical order: pandas, pytest, requests.</li>
+  <li>In real projects, dev-only dependencies like pytest are sometimes split into a separate requirements-dev.txt, but this exercise keeps them together for simplicity.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="venv_2">
+  <h3>Part 2 — Diagnosing a venv Problem </h3>
+  <p class="task-background">A very common beginner bug: installing a package with pip while the virtual environment isn&#39;t activated, so the package installs globally rather than into the project&#39;s isolated environment.</p>
+  <pre class="code-block"><code># Symptom: &#39;pip install requests&#39; succeeds, but &#39;import requests&#39; still
+# raises ModuleNotFoundError inside the project&#39;s venv.
+# Likely cause: the venv was never activated before running pip.</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a function diagnose(venv_active, package_installed_globally, import_error) that returns the most likely cause as a short string, given these three booleans.</li>
+  <li>If venv_active is False and package_installed_globally is True and import_error is True: return &#39;venv not activated — package installed globally instead&#39;.</li>
+  <li>If venv_active is True and import_error is True and package_installed_globally is False: return &#39;package not installed in this venv — run pip install again&#39;.</li>
+  <li>Otherwise return &#39;no obvious issue detected&#39;.</li>
+  <li>Test diagnose(False, True, True), diagnose(True, False, True), and diagnose(True, True, False), printing each result.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Copy the return strings exactly — the checker is exact-match, including the — character (em dash, not a hyphen).</li>
+  <li>Test all three calls in the order given so the printed lines match the expected output order.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>This is a straightforward if/elif/else chain over the three boolean inputs.</li>
+  <li>Order your conditions to check the most specific combinations first.</li>
+  <li>The exact returned strings must match char-for-char, including the em dash and punctuation.</li>
+  <li>diagnose(True, True, False) means the venv is active, the package IS installed, and there&#39;s no import error — hence &#39;no obvious issue detected&#39;.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="venv_stretch">
+  <h3>Stretch — Dependency Conflict Resolver <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">When two packages require incompatible version ranges of a shared dependency, pip (or a human) must find a version satisfying both, or report that none exists.</p>
+  <pre class="code-block"><code># package_a needs shared&gt;=2.0,&lt;3.0
+# package_b needs shared&gt;=2.5,&lt;4.0
+# Overlap: [2.5, 3.0) — any version in that range satisfies both.</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a function resolve(range_a, range_b) where each range is a tuple (min_inclusive, max_exclusive), and it returns the overlapping range as a tuple, or None if there is no overlap.</li>
+  <li>resolve((2.0, 3.0), (2.5, 4.0)) → (2.5, 3.0)</li>
+  <li>resolve((1.0, 2.0), (2.0, 3.0)) → None (no overlap since the first range&#39;s max is exclusive and equals the second&#39;s min)</li>
+  <li>resolve((1.0, 5.0), (2.0, 3.0)) → (2.0, 3.0)</li>
+  <li>Print all three results.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Since the max in each range is exclusive, an overlap_min equal to overlap_max means zero width — treat that as no overlap (return None), not a valid single-point range.</li>
+  <li>Print None (the Python object), not the string &#39;None&#39;, for the second case — print(None) naturally shows &#39;None&#39; as text, which is fine.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>overlap_min = max(range_a[0], range_b[0]); overlap_max = min(range_a[1], range_b[1])</li>
+  <li>If overlap_min &gt;= overlap_max, there is no valid overlapping range — return None.</li>
+  <li>Otherwise return (overlap_min, overlap_max) as a tuple.</li>
+  <li>This models exactly what pip&#39;s dependency resolver does at a conceptual level, just simplified to single ranges.</li>
+</ul>
+</details>
+</section>
+</div>
