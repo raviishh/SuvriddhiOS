@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createHashRouter, RouterProvider } from "react-router";
 import "./styles/index.css";
 import "./styles/fonts.css";
 
@@ -17,7 +17,7 @@ import FlashcardApp from "./components/study_zone/Flashcard";
 import LearnPage from "./components/study_zone/pdf_thing";
 import WiFi from "./components/settings/wifi";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     { path: "/", element: <Home /> },
     { path: "/learn", element: <Learn /> },
     { path: "/data", element: <DatasheetSelector /> },

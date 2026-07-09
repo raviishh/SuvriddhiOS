@@ -35,11 +35,6 @@ jobs:
                   cd src_cs
                   npm ci
 
-            - name: Install dependencies (Home)
-              run: |
-                  cd home
-                  npm ci
-
             - name: Make release directory structure
               run: |
                   mkdir $GITHUB_WORKSPACE/release
@@ -72,13 +67,7 @@ jobs:
             - name: Build Home
               run: |
                   cd home
-                  npm run build
-                  cp -r dist/. $GITHUB_WORKSPACE/release/
-
-            - name: Audit Home
-              run: |
-                  cd home
-                  npm audit --audit-level=critical
+                  cp -r . $GITHUB_WORKSPACE/release/
 
             - name: Add init.d directory
               run: |
