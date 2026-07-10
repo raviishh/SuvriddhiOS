@@ -102,6 +102,18 @@ function UnityMathLesson({ levelId }: { levelId: string }) {
     return (
         <>
             <div style={{ height: "30px" }} />
+            <h1
+                style={{
+                    color: "white",
+                    fontFamily: "Arial, sans-serif",
+                    textAlign: "center",
+                    fontSize: "24px",
+                }}
+            >
+                Press R to reset or use WASD to move (See manual for reference
+                on WASD).
+            </h1>
+            <div style={{ height: "30px" }} />
             <Unity
                 unityProvider={unityProvider}
                 style={{
