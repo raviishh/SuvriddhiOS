@@ -6,6 +6,16 @@
 
 using json = nlohmann::json;
 
+namespace
+{
+const std::string whitespaceChars = " \n\r\t";
+std::string TrimTrailingWhitespace(std::string s)
+{
+	size_t end = s.find_last_not_of(whitespaceChars);
+	return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+}
+} // namespace
+
 json RunTests(json tests, std::string token, Language lang)
 {
 	std::string exePath = "/tmp/" + token + ((lang == Language::kC) ? ".c" : ".py");
@@ -18,7 +28,7 @@ json RunTests(json tests, std::string token, Language lang)
 		std::string runCmd;
 		runCmd = " \"" + exePath + "\" > \"" + tmp_out + "\" 2>&1";
 		if (lang == Language::kPython) {
-			runCmd = "python3"+runCmd;
+			runCmd = "python3" + runCmd;
 		}
 		int ret = std::system(runCmd.c_str());
 		lastInput = "";
@@ -30,8 +40,8 @@ json RunTests(json tests, std::string token, Language lang)
 		}
 	} else {
 		for (auto &t : tests) {
-			std::string input = t.value("input", "");
-			std::string expected = t.value("expected", "");
+			std::string input = TrimTrailingWhitespace(t.value("input", ""));
+			std::string expected = TrimTrailingWhitespace(t.value("expected", ""));
 			std::string tmpIn = "/tmp/" + token + ".in";
 			WriteFile(tmpIn, input);
 			std::string runCmd;
