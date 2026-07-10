@@ -26,6 +26,7 @@
                     "The checker is case-sensitive and whitespace-sensitive.",
                     "Do not add extra blank lines between the two print() calls \u2014 they won't affect output, but get into the habit of clean code."
                 ],
+                "expectedOutput": "Hello, World!\nI am learning Python.",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -57,6 +58,7 @@
                     "No extra spaces or punctuation \u2014 match the expected output exactly.",
                     "version is an integer (3), not a string (\"3\") \u2014 f-strings handle the conversion for you automatically."
                 ],
+                "expectedOutput": "I love Python 3\nI love Python 4",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -86,6 +88,7 @@
                     "Do not use a temporary variable \u2014 the point is to do it in one assignment line.",
                     "Order matters: first, second, third = second, third, first is correct; reversing the order gives a different rotation."
                 ],
+                "expectedOutput": "beta gamma alpha",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -127,6 +130,7 @@
                     "The test will supply sample inputs \u2014 don't hard-code values.",
                     "Match the punctuation exactly: comma after the name, exclamation mark, then 'You live in'."
                 ],
+                "expectedOutput": "Hello, Alice! You live in Paris.",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -162,6 +166,7 @@
                     "Labels must match exactly: 'Sum: ' and 'Product: ' with a capital letter and a space after the colon.",
                     "Using float() instead of int() will produce 8.0 and 15.0 \u2014 the checker expects plain integers."
                 ],
+                "expectedOutput": "Sum: 8\nProduct: 15",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -200,6 +205,7 @@
                     "Don't forget .strip() on the unit input \u2014 a trailing space will break the comparison.",
                     "The formula uses integer division with Python 3 \u2014 9/5 gives 1.8, not 1 (which it would in Python 2)."
                 ],
+                "expectedOutput": "100.0C = 212.0F",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -243,6 +249,7 @@
                     "int() truncates, it does not round \u2014 int(9.99) is 9, not 10.",
                     "int(-3.9) is -3, not -4 \u2014 truncation always moves toward zero."
                 ],
+                "expectedOutput": "9\n100.0\n7 wonders",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -272,6 +279,7 @@
                     "Print the type object itself, not a string description like 'float'.",
                     "type(5 + 2.0) gives <class 'float'>, not <class 'int'> \u2014 the int is promoted."
                 ],
+                "expectedOutput": "7.0\n2\n<class 'float'>",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -303,6 +311,7 @@
                     "int('3.14') raises ValueError \u2014 you cannot skip the float step.",
                     "Return the converted value, not a string representation of it."
                 ],
+                "expectedOutput": "<class 'int'> 42\n<class 'float'> 3.14\n<class 'NoneType'> None",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -341,6 +350,7 @@
                     "Slicing is zero-indexed \u2014 count characters carefully.",
                     "The step -1 in [::-1] works on the full string \u2014 you do not need to specify start or stop."
                 ],
+                "expectedOutput": "quick\nxof nworb kciuq eht\nte ujbonfx",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -372,6 +382,7 @@
                     "Methods are case-sensitive \u2014 .Count() does not exist.",
                     ".title() capitalises the first letter of every word, including small prepositions \u2014 that's expected here."
                 ],
+                "expectedOutput": "THE QUICK BROWN FOX\nThe Quick Brown Fox\nthe quick brown cat\n2",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -405,6 +416,7 @@
                     "% 26 handles the wrap-around \u2014 'x' shifted by 3 should give 'a', not a character outside the alphabet.",
                     "Do not shift non-letter characters \u2014 append them unchanged."
                 ],
+                "expectedOutput": "Khoor, Zruog!",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -441,6 +453,7 @@
                     "Both lines must be printed in the exact format shown.",
                     "copy = original[:] creates a shallow copy \u2014 nested lists inside would still be shared. For this exercise the list is flat, so [:] is sufficient."
                 ],
+                "expectedOutput": "original: [1, 2, 3]\ncopy: [1, 2, 3, 4]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -470,6 +483,7 @@
                     "greeting must remain lowercase in the output \u2014 do not reassign it.",
                     "Print greeting first, then shouted \u2014 order matters for the checker."
                 ],
+                "expectedOutput": "hello world\nHELLO WORLD",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -502,6 +516,7 @@
                     "shallow = matrix[:] copies the outer list only \u2014 inner list objects are still the same.",
                     "Print each list on its own line \u2014 the checker matches line by line."
                 ],
+                "expectedOutput": "[[1, 2, 99], [3, 4]]\n[[1, 2, 99], [3, 4]]\n[[1, 2], [3, 4, 88]]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -537,6 +552,7 @@
                     "Order matters \u2014 if you check % 3 before % 15 you'll print Fizz instead of FizzBuzz for 15.",
                     "Each number/word must be on its own line \u2014 do not use end=' ' here."
                 ],
+                "expectedOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -569,6 +585,7 @@
                     "Print only the number \u2014 no labels.",
                     "range(1, 100) stops at 99 \u2014 use range(1, 101) to include 100."
                 ],
+                "expectedOutput": "2418",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -599,6 +616,7 @@
                     "The pairs must be checked in order \u2014 the order they appear in the list controls the output string.",
                     "Do not use a hard-coded 15 or any product \u2014 derive matches purely from the pairs list."
                 ],
+                "expectedOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -640,6 +658,7 @@
                     "Print only the number, nothing else.",
                     "The break must come after the print \u2014 otherwise you stop before outputting anything."
                 ],
+                "expectedOutput": "12",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -666,6 +685,7 @@
                     "range(1, 16) includes 15, which is a multiple of 3 \u2014 it should be skipped.",
                     "Numbers 3, 6, 9, 12, 15 should not appear in the output."
                 ],
+                "expectedOutput": "1\n2\n4\n5\n7\n8\n10\n11\n13\n14",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -694,6 +714,7 @@
                     "There is a trailing space after the last number on each row \u2014 match it exactly.",
                     "for i in [3, 4] is cleaner than range(3, 5) here \u2014 use whichever is clearer to you."
                 ],
+                "expectedOutput": "3 6 9 12 15 \n4 8 12 16 20 ",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -724,6 +745,7 @@
                     "Right-alignment means numbers line up on the right \u2014 ' 1' not '1 '.",
                     "Columns are separated by a single space \u2014 do not add extra padding between columns."
                 ],
+                "expectedOutput": " 1  2  3  4\n 5  6  7  8\n 9 10 11 12\n13 14 15 16",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -765,6 +787,7 @@
                     "Python 3.10+ required for match/case.",
                     "case _ must be the last branch \u2014 if placed earlier it will catch everything and skip later cases."
                 ],
+                "expectedOutput": "Moved Permanently",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -796,6 +819,7 @@
                     "case [\"go\", direction] only matches a two-element list starting with 'go' \u2014 a three-element list would fall through to the default.",
                     "Literal string patterns are case-sensitive: 'Go' would not match 'go'."
                 ],
+                "expectedOutput": "Moving south",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -826,6 +850,7 @@
                     "Dict patterns match if the dict contains at least those keys \u2014 extra keys are ignored.",
                     "Guard conditions (if ...) are evaluated only if the structural pattern matches first."
                 ],
+                "expectedOutput": "Invalid direction",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -862,6 +887,7 @@
                     "Do not print inside the function \u2014 return the value and let the caller print.",
                     "square(n) should work for any n, not just 2, 3, and 4."
                 ],
+                "expectedOutput": "4\n9\n16",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -891,6 +917,7 @@
                     "Default parameters are evaluated once at function definition time \u2014 don't use mutable objects (like lists) as defaults.",
                     "power(3) means power(3, 2) \u2014 the default silently fills in the missing argument."
                 ],
+                "expectedOutput": "9\n1024",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -922,6 +949,7 @@
                     "slow_square should print 'computing N' then return n ** 2 \u2014 print inside the function, not in the caller.",
                     "The closure shares one cache dict across all calls to the same memoised_square \u2014 don't recreate it on every call."
                 ],
+                "expectedOutput": "computing 4\n16\n16\ncomputing 5\n25",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -959,6 +987,7 @@
                     "Do not use a loop \u2014 the solution must be recursive.",
                     "factorial(0) must return 1 by mathematical convention \u2014 do not return 0."
                 ],
+                "expectedOutput": "120\n3628800",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -995,6 +1024,7 @@
                     "fib(0) is 0 and fib(1) is 1 \u2014 both must be explicit base cases, not just one.",
                     "Do not confuse the index with the value: fib(7) = 13, not 7."
                 ],
+                "expectedOutput": "0\n1\n1\n2\n3\n5\n8\n13",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1024,6 +1054,7 @@
                     "Do not use sum([[...], [...]], []) as a shortcut \u2014 it is O(n\u00b2) and considered unreadable.",
                     "The function must handle arbitrary depth \u2014 do not hard-code a maximum level."
                 ],
+                "expectedOutput": "[1, 2, 3, 4, 5]\n[1, 2, 3, 4, 5]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1058,6 +1089,7 @@
                     "Pre-seed memo = {0: 0, 1: 1} or handle the base cases with if n <= 1 before the cache lookup.",
                     "If you use a decorator (@functools.lru_cache) that's valid Python, but implement the dict approach manually first so you understand what the decorator is doing."
                 ],
+                "expectedOutput": "9227465\n36",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1095,6 +1127,7 @@
                     "The third list uses range(1, 6), not all of numbers \u2014 read the instructions carefully.",
                     "Ternary syntax: value_if_true if condition else value_if_false \u2014 the condition sits in the middle."
                 ],
+                "expectedOutput": "[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]\n[1, 9, 25, 49, 81, 121, 169, 225, 289, 361]\n['1 is odd', '2 is even', '3 is odd', '4 is even', '5 is odd']",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1122,6 +1155,7 @@
                     "Dicts maintain insertion order in Python 3.7+ \u2014 print output should match the expected order.",
                     "range(1, 6) gives 1, 2, 3, 4, 5 \u2014 range(1, 5) would stop at 4."
                 ],
+                "expectedOutput": "{1: 1, 2: 8, 3: 27, 4: 64, 5: 125}",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1152,6 +1186,7 @@
                     "The outer comprehension produces the rows; the inner produces the columns \u2014 keep the order consistent.",
                     "table[0][0] should be 1 (1\u00d71), table[4][4] should be 25 (5\u00d75)."
                 ],
+                "expectedOutput": "[1, 2, 3, 4, 5]\n[2, 4, 6, 8, 10]\n[3, 6, 9, 12, 15]\n[4, 8, 12, 16, 20]\n[5, 10, 15, 20, 25]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1188,6 +1223,7 @@
                     "The order of names in the output dict follows insertion order (Python 3.7+) \u2014 Alice appears first because she appears first in data.",
                     "Do not sort the output \u2014 match the expected order exactly."
                 ],
+                "expectedOutput": "{'Alice': [85, 78], 'Bob': [92, 88], 'Carol': [95]}",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1216,6 +1252,7 @@
                     "Carol's average is 95.0, not 95 \u2014 round() preserves the float.",
                     "Build grouped first (from Part 1) before computing averages."
                 ],
+                "expectedOutput": "{'Alice': 81.5, 'Bob': 90.0, 'Carol': 95.0}",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1245,6 +1282,7 @@
                     "rank starts at 1, not 0 \u2014 use enumerate(..., start=1).",
                     "Ties are not present in this data, but in general sorted() is stable \u2014 equal items keep their original order."
                 ],
+                "expectedOutput": "#1 Carol: 95.0\n#2 Bob: 90.0\n#3 Alice: 81.5",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1282,6 +1320,7 @@
                     "The dict must be printed before the most common word \u2014 order matters.",
                     "If there were a tie, max() would return one arbitrarily \u2014 no tie-breaking needed here."
                 ],
+                "expectedOutput": "{'apple': 3, 'banana': 2, 'cherry': 1, 'date': 1}\napple: 3",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1310,6 +1349,7 @@
                     "Do not use set() \u2014 it does not preserve order.",
                     "The output must be a list, not a dict or a dict_keys view."
                 ],
+                "expectedOutput": "['apple', 'banana', 'cherry', 'date']",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1344,6 +1384,7 @@
                     "Negating the count (-x[1]) sorts descending by count while keeping the sort ascending for the word.",
                     "cherry and date both have count 1 \u2014 they are tied; alphabetically cherry < date, so cherry ranks higher among the tail."
                 ],
+                "expectedOutput": "['apple', 'banana']",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1381,6 +1422,7 @@
                     "Return the error string \u2014 don't raise, don't print from inside the function.",
                     "The result of 10 / 2 is 5.0, not 5 \u2014 Python 3 always returns float for /."
                 ],
+                "expectedOutput": "5.0\nError: division by zero",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1410,6 +1452,7 @@
                     "Include the period at the end of both printed lines.",
                     "finally is not the same as else \u2014 else only runs on success, finally always runs."
                 ],
+                "expectedOutput": "Conversion failed.\nAttempted conversion.",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1442,6 +1485,7 @@
                     "Do not catch Exception directly \u2014 catching AppError is more precise.",
                     "str(e) returns the message passed to __init__ via super() \u2014 make sure you call super().__init__."
                 ],
+                "expectedOutput": "age: must be positive\nuser: 99",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1479,6 +1523,7 @@
                     "Return 0 (integer), not 0.0 \u2014 the checker expects '0' on the first line.",
                     "Do not change the logic for non-empty lists \u2014 only guard the empty case."
                 ],
+                "expectedOutput": "0\n20.0",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1505,6 +1550,7 @@
                     "range(5) gives 0, 1, 2, 3, 4 \u2014 starting at 0, stopping before 5.",
                     "Do not hardcode the numbers \u2014 use range."
                 ],
+                "expectedOutput": "1\n2\n3\n4\n5",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1540,6 +1586,7 @@
                     "Fix all three bugs \u2014 the program must run to completion without any errors.",
                     "Do not change the logic, only fix the bugs \u2014 the algorithm is correct once the syntax/name errors are resolved."
                 ],
+                "expectedOutput": "the\n5",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1577,6 +1624,7 @@
                     "Use the exact title/author/pages shown in the expected output.",
                     "pages is an integer in __init__ \u2014 the f-string will format it correctly as a number."
                 ],
+                "expectedOutput": "Python Crash Course by Eric Matthes (544 pages)",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1607,6 +1655,7 @@
                     "Books must appear in the order they were added \u2014 do not sort them.",
                     "Call book.summary() to get the string \u2014 do not duplicate the formatting logic in Library."
                 ],
+                "expectedOutput": "Python Crash Course by Eric Matthes (544 pages)\nClean Code by Robert C. Martin (431 pages)",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1639,6 +1688,7 @@
                     "Raise ValueError, don't print an error \u2014 let the caller decide how to handle it.",
                     "The borrower attribute should reset to None when a book is returned."
                 ],
+                "expectedOutput": "Clean Code by Robert C. Martin (431 pages)",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -1679,6 +1729,7 @@
                     "The formats differ: __str__ uses Vector(1, 2) and __repr__ uses Vector(x=1, y=2) \u2014 do not mix them up.",
                     "print(v) calls __str__; print(repr(v)) calls __repr__ then prints the resulting string."
                 ],
+                "expectedOutput": "Vector(1, 2)\nVector(x=1, y=2)",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1708,6 +1759,7 @@
                     "Vector(4, 6) is printed using __str__ \u2014 make sure Part 1's __str__ is still present.",
                     "__eq__ should return True or False \u2014 do not return 1 or 0."
                 ],
+                "expectedOutput": "Vector(4, 6)\nTrue",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1740,6 +1792,7 @@
                     "If __eq__ is defined without __hash__, Python sets __hash__ to None \u2014 making the object unhashable. Always define both together.",
                     "magnitude of Vector(1,2) = sqrt(5) \u2248 2.2361 \u2014 use round(..., 4)."
                 ],
+                "expectedOutput": "Vector(4, 4)\nVector(3, 6)\n2.2361\n1",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1777,6 +1830,7 @@
                     "area is formatted to 2 decimal places inside describe() \u2014 do not reformat it.",
                     "Do not override describe() \u2014 the whole point is that it is inherited and still works correctly."
                 ],
+                "expectedOutput": "I am a Circle with area 78.54\nI am a Rectangle with area 24.00",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1807,6 +1861,7 @@
                     "round(total, 2) may show 54.27 \u2014 floating-point arithmetic; use round() rather than :.2f for the total to get an exact value for the checker.",
                     "Do not hard-code the total \u2014 compute it by summing the areas."
                 ],
+                "expectedOutput": "I am a Circle with area 28.27\nI am a Rectangle with area 20.00\nI am a Triangle with area 6.00\nTotal area: 54.27",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1847,6 +1902,7 @@
                     "Use EvenCounter(1, 10) to produce the expected output.",
                     "__iter__ must return self \u2014 this makes the iterator also iterable, allowing use in for loops."
                 ],
+                "expectedOutput": "2\n4\n6\n8\n10",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1876,6 +1932,7 @@
                     "Call even_range(1, 10) to match the expected output.",
                     "Do not use return inside the generator loop \u2014 just let the while condition end the iteration."
                 ],
+                "expectedOutput": "2\n4\n6\n8\n10",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1910,6 +1967,7 @@
                     "Do not add a StopIteration inside fibonacci_gen \u2014 it should truly be infinite.",
                     "Call fibonacci_gen() fresh each time \u2014 a generator is exhausted after use."
                 ],
+                "expectedOutput": "[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -1947,6 +2005,7 @@
                     "The exact time will vary \u2014 the checker looks for 'slow_add took 0.1' as a substring.",
                     "Do not forget to return result from wrapper \u2014 otherwise slow_add(...) returns None."
                 ],
+                "expectedOutput": "slow_add took 0.1",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -1979,6 +2038,7 @@
                     "@retry(times=3) is a decorator factory \u2014 it is called with parentheses, unlike @timer.",
                     "Re-raise after all attempts so the caller can still handle the error if needed."
                 ],
+                "expectedOutput": "Attempt 1 failed",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2015,6 +2075,7 @@
                     "Raw strings (r'...') are essential for regex \u2014 without the r prefix, \\ would need to be escaped as \\\\.",
                     "The pattern does not validate the TLD length \u2014 it just matches the shape, which is sufficient here."
                 ],
+                "expectedOutput": "['support@example.com', 'sales@company.org']",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2043,6 +2104,7 @@
                     "re.match() would pass '555-123-4567extra' because it only checks the start \u2014 use re.fullmatch() or add $ anchor.",
                     "The hyphens are literal characters \u2014 no escaping needed."
                 ],
+                "expectedOutput": "True\nFalse",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2072,6 +2134,7 @@
                     ".+ is greedy and will capture everything after the level, including trailing whitespace \u2014 strip() if needed.",
                     "Named groups use (?P<name>...) syntax \u2014 not the same as non-capturing (?:...)."
                 ],
+                "expectedOutput": "2024-03-15\nERROR\nSomething went wrong\n****-**-** ERROR Something went wrong",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2109,6 +2172,7 @@
                     "Each test function must be independent \u2014 create a new BankAccount inside each one.",
                     "Assert the final balance, not an intermediate state \u2014 one assert per test is fine."
                 ],
+                "expectedOutput": "3 passed",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2135,6 +2199,7 @@
                     "The withdrawal amount must exceed the balance \u2014 don't accidentally set the balance higher than the withdrawal.",
                     "pytest.raises is a context manager \u2014 the risky code must be inside the with block."
                 ],
+                "expectedOutput": "1 passed",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2165,6 +2230,7 @@
                     "Do not use a module-level account \u2014 create a fresh one inside each parametrised test body.",
                     "Depositing 0 should leave balance at 0 \u2014 test this edge case explicitly."
                 ],
+                "expectedOutput": "6 passed",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2202,6 +2268,7 @@
                     "Write each test before writing the implementation code \u2014 that's the kata discipline.",
                     "s.split(',') on an empty string gives [''] \u2014 handle the empty string case before splitting."
                 ],
+                "expectedOutput": "3 passed",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2232,6 +2299,7 @@
                     "The custom delimiter line ('//;') must be stripped before processing the numbers.",
                     "Test '1\\n2,3' (should give 6) and '//;\\n1;2' (should give 3) before implementing them."
                 ],
+                "expectedOutput": "5 passed",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2269,6 +2337,7 @@
                     "Print True first (for [1,2,1]) and False second (for [1,2,3]) \u2014 order matters.",
                     "The fast version must return a bool, not a set or length."
                 ],
+                "expectedOutput": "True\nFalse",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2299,6 +2368,7 @@
                     "number=100 is enough \u2014 using 10000 on the slow version will take a long time.",
                     "The exact speedup depends on your machine \u2014 the checker only looks for 'Fast is' as a prefix."
                 ],
+                "expectedOutput": "Fast is",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2336,6 +2406,7 @@
                     "The generator object is tiny (around 104\u2013120 bytes) regardless of range size \u2014 it stores only a reference to the iterator state.",
                     "Do not consume the generator before measuring \u2014 iterating it changes its state."
                 ],
+                "expectedOutput": "List is larger",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2365,6 +2436,7 @@
                     "range(1, 16) includes 15 \u2014 you should see a final chunk of [13, 14, 15].",
                     "Print each chunk before adding to the running total \u2014 order matters."
                 ],
+                "expectedOutput": "[1, 2, 3, 4]\n[5, 6, 7, 8]\n[9, 10, 11, 12]\n[13, 14, 15]\n120",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2402,6 +2474,7 @@
                     "This task works on an in-memory string, not an actual file \u2014 no need to open() anything here.",
                     "Blank lines with just whitespace (e.g. '   ') should also be treated as empty."
                 ],
+                "expectedOutput": "3\napple\nbanana\ncherry\ndate",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2432,6 +2505,7 @@
                     "Without maxsplit, a message containing spaces (like 'Disk full') would be split into extra parts.",
                     "Print the count line first, then the messages in their original order."
                 ],
+                "expectedOutput": "ERROR count: 3\nDisk full\nConnection lost\nTimeout",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2462,6 +2536,7 @@
                     "Do not use regex here \u2014 string.punctuation and str.translate are sufficient and simpler.",
                     "Ties among lower-frequency words should break alphabetically, matching Python's stable sort behaviour when you sort by (-count, word)."
                 ],
+                "expectedOutput": "python: 4\nis: 3",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2504,6 +2579,7 @@
                     "Remember to call buf.seek(0) after writing and before reading \u2014 the cursor is at the end after writing.",
                     "Values read from CSV are always strings, even numbers like '85' \u2014 sum them only after converting to int."
                 ],
+                "expectedOutput": "('Alice', '85')\n('Bob', '92')\n('Carol', '78')\n255",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2534,6 +2610,7 @@
                     "json.dumps() converts True/False to lowercase true/false in the JSON text, but json.loads() converts them back to Python's True/False.",
                     "Don't forget to round the average \u2014 the raw float will have many more decimal digits."
                 ],
+                "expectedOutput": "86.33",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2564,6 +2641,7 @@
                     "Prices arrive as strings from CSV \u2014 always convert to float before summing or storing.",
                     "12.99 + 1.50 + 0.50 = 14.99 \u2014 verify your rounding doesn't introduce floating-point artefacts like 14.989999999999998; round() fixes this for display."
                 ],
+                "expectedOutput": "14.99",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2601,6 +2679,7 @@
                     "In a real project you would create actual .py files and use 'from shapes import area_circle' \u2014 this exercise simulates that boundary in a single file.",
                     "Keep the rounding to 2 decimal places via the :.2f format spec, not manual round()."
                 ],
+                "expectedOutput": "$28.27\n$16.00",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2631,6 +2710,7 @@
                     "The explanation text is not strictly checked \u2014 focus your effort on getting the simulated module structure and final number correct.",
                     "Do not have 'orders' and a hypothetical 'inventory' module import from each other in your simulation \u2014 that defeats the purpose of the exercise."
                 ],
+                "expectedOutput": "108.0",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2661,6 +2741,7 @@
                     "Only include the three re-exported names in the final printed list \u2014 not any internal helpers.",
                     "The list must be printed with Python's default list repr, e.g. ['area_circle', 'area_square', 'money']."
                 ],
+                "expectedOutput": "$78.54\n['area_circle', 'area_square', 'money']",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2697,6 +2778,7 @@
                     "Do not add a trailing blank line to the printed output \u2014 the checker compares exact text.",
                     "Match the version strings exactly as given, including all digits."
                 ],
+                "expectedOutput": "pandas==2.1.4\npytest==7.4.3\nrequests==2.31.0",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2728,6 +2810,7 @@
                     "Copy the return strings exactly \u2014 the checker is exact-match, including the \u2014 character (em dash, not a hyphen).",
                     "Test all three calls in the order given so the printed lines match the expected output order."
                 ],
+                "expectedOutput": "venv not activated \u2014 package installed globally instead\npackage not installed in this venv \u2014 run pip install again\nno obvious issue detected",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2759,6 +2842,7 @@
                     "Since the max in each range is exclusive, an overlap_min equal to overlap_max means zero width \u2014 treat that as no overlap (return None), not a valid single-point range.",
                     "Print None (the Python object), not the string 'None', for the second case \u2014 print(None) naturally shows 'None' as text, which is fine."
                 ],
+                "expectedOutput": "(2.5, 3.0)\nNone\n(2.0, 3.0)",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2797,6 +2881,7 @@
                     "Thread execution order is not guaranteed, but since each thread writes to its own index, the final result is deterministic regardless of order.",
                     "Do not sort or modify results after threads finish \u2014 print it in the natural index order [0,1,2,3]."
                 ],
+                "expectedOutput": "[0, 1, 4, 9]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2827,6 +2912,7 @@
                     "The unsafe counter's final value is not deterministic \u2014 do not hard-code an expected number for it; just print whatever it computes.",
                     "Make sure to actually reset counter to 0 before the locked run, or your total will be inflated by leftover value from the unsafe run."
                 ],
+                "expectedOutput": "10000",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2861,6 +2947,7 @@
                     "multiprocessing.Pool has real process-startup overhead \u2014 for very small workloads, threads or even sequential code can outperform it.",
                     "Each worker process gets a COPY of shared state \u2014 modifying a global inside a worker will not be visible in the parent process."
                 ],
+                "expectedOutput": "[100003, 100019, 100043]",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2903,6 +2990,7 @@
                     "Do not use asyncio.gather() in this part \u2014 the point is to observe sequential (additive) timing first.",
                     "Timing-based checks can be slightly flaky on slow machines \u2014 the check allows some tolerance below the exact 0.6s figure."
                 ],
+                "expectedOutput": "Sequential total >= 0.6",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -2937,6 +3025,7 @@
                     "gather() does not guarantee execution order, only result order \u2014 'B' might actually finish before 'A' internally, but results[0] is still A's result.",
                     "This part must show a clear speedup versus Part 1 \u2014 if your total is still close to 0.6s, you're likely still awaiting sequentially somewhere."
                 ],
+                "expectedOutput": "['A done', 'B done', 'C done']\nConcurrent total < 0.4",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -2968,6 +3057,7 @@
                     "Creating an asyncio.Semaphore() outside of a running event loop can raise errors on some Python versions \u2014 construct it inside your async main() function to be safe.",
                     "The 0.25s threshold leaves margin below the expected ~0.3s while still clearly exceeding the ~0.1s unbounded case, proving the semaphore had an effect."
                 ],
+                "expectedOutput": "Bounded total >= 0.25",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -3009,6 +3099,7 @@
                     "Print the dict with sorted keys but original (insertion) order within each list \u2014 do not sort the filenames themselves.",
                     "Extensions must be lowercased even if a real filename used uppercase, e.g. '.JPG' should count as 'jpg'."
                 ],
+                "expectedOutput": "{'csv': ['data.csv'], 'jpg': ['photo1.jpg'], 'md': ['README.md'], 'pdf': ['report.pdf', 'invoice.pdf'], 'png': ['photo2.png'], 'txt': ['notes.txt'], 'zip': ['archive.zip']}\n7",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3039,6 +3130,7 @@
                     "Preserve the exact order from the original filenames list \u2014 do not group or sort them for this part.",
                     "The trailing slash in the printed target folder ('Documents/') is required and part of the exact match."
                 ],
+                "expectedOutput": "report.pdf -> Documents/\nphoto1.jpg -> Images/\nnotes.txt -> Documents/\nphoto2.png -> Images/\narchive.zip -> Archives/\ninvoice.pdf -> Documents/\nREADME.md -> Documents/\ndata.csv -> Documents/\n5",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3069,6 +3161,7 @@
                     "Always encode strings to bytes before hashing \u2014 hashlib functions require bytes, not str, and will raise a TypeError otherwise.",
                     "Sort both the outer list of groups and the filenames within each group for a deterministic, checker-friendly output."
                 ],
+                "expectedOutput": "[['a.txt', 'c.txt', 'd.txt'], ['b.txt', 'e.txt']]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3106,6 +3199,7 @@
                     "If 'python3' isn't the correct interpreter name in your environment, adjust it accordingly (e.g. 'python') \u2014 the concept is what matters.",
                     "Always pass args as a list, not a single shell string, unless you explicitly set shell=True (which has security implications with untrusted input)."
                 ],
+                "expectedOutput": "4\n0",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3136,6 +3230,7 @@
                     "Catch subprocess.CalledProcessError specifically, not a bare except \u2014 you want to let unrelated errors (like a missing interpreter) surface normally.",
                     "The f-string format 'ERROR (code {e.returncode})' must match exactly, including the parentheses."
                 ],
+                "expectedOutput": "ok\nERROR (code 3)",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3165,6 +3260,7 @@
                     "Do not use shell=True with string concatenation to build this pipeline \u2014 passing untrusted or dynamic strings to a shell is a command-injection risk; the input= approach avoids that entirely.",
                     "'sort' must be available on the system running this \u2014 if unavailable, the underlying concept (feeding one process's output into another's input) is still what's being tested."
                 ],
+                "expectedOutput": "1\n2\n3",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3207,6 +3303,7 @@
                     "Always pass a list to parse_args() in this simulated environment \u2014 normally argparse reads sys.argv automatically, but explicit lists make testing deterministic.",
                     "Without type=int, args.count would be the string '5', not the integer 5 \u2014 print(args.count) would look the same but int-specific operations would fail."
                 ],
+                "expectedOutput": "data.txt\nTrue\n5",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3238,6 +3335,7 @@
                     "Each subcommand's arguments are isolated \u2014 'name' only exists on args when the 'greet' subcommand was used.",
                     "Print exactly 'Hello, World!' with the exclamation mark, matching the f-string format given."
                 ],
+                "expectedOutput": "Hello, World!\n30",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3268,6 +3366,7 @@
                     "argparse's default behaviour on a validation failure is to print usage info to stderr and call sys.exit(2) \u2014 this is normal and expected; your job is just to catch the SystemExit so the exercise script itself doesn't crash.",
                     "Do not catch generic Exception here \u2014 SystemExit does not inherit from Exception, so you need 'except SystemExit' specifically."
                 ],
+                "expectedOutput": "4\nRejected invalid value",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3305,6 +3404,7 @@
                     "Always check the 'status' field (or equivalent) before trusting a real API's data \u2014 this simulated example assumes status is already 'ok'.",
                     "Round only for display \u2014 don't round intermediate values before further calculations, or you can accumulate small errors."
                 ],
+                "expectedOutput": "44.48\nGadget",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3335,6 +3435,7 @@
                     "Using 'or 0' works here because a legitimate price is never falsy in this dataset, but be cautious with 'or' when 0 itself could be a valid, meaningful value elsewhere.",
                     "Check for None explicitly with 'is None' when identifying missing items, not with a falsy check, for the same reason."
                 ],
+                "expectedOutput": "17\n['B']",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3366,6 +3467,7 @@
                     "Watch out for the setdefault() trap mentioned in the hints \u2014 it's a common source of bugs when the default value itself has side effects (like an API call).",
                     "call_count must be a mutable container (like a one-element list) if you want to increment it inside a nested function without needing a 'nonlocal' or 'global' declaration."
                 ],
+                "expectedOutput": "2\n25",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3403,6 +3505,7 @@
                     "60000.0 prints with a trailing .0 since it's a float average \u2014 don't convert it to an int.",
                     "Sort departments alphabetically for the printed lines, but the final 'highest average' line is not sorted \u2014 it's just the single winning department name."
                 ],
+                "expectedOutput": "Engineering: 99333.33\nSales: 60000.0\nEngineering",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3433,6 +3536,7 @@
                     "Compute the median BEFORE removing outliers (using the None-free list), not after \u2014 the outlier threshold must be based on the original spread of legitimate values.",
                     "The final list must preserve the ORIGINAL order from scores (minus the removed None and the outlier), not the sorted order used internally to compute the median."
                 ],
+                "expectedOutput": "[88, 92, 79, 45, 91]\n79.0",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3462,6 +3566,7 @@
                     "Build the sorted-key version only for printing \u2014 don't let sorting logic interfere with the accumulation step, which should happen before any sorting.",
                     "The grand total must equal the sum of ALL original 'amount' values, which serves as a good sanity check against your pivot's own totals."
                 ],
+                "expectedOutput": "{'East': {'A': 130, 'B': 50}, 'West': {'A': 200, 'B': 75}}\n455",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3501,6 +3606,7 @@
                     "Months are 1-indexed in the output (January = month 1), but list indices are 0-indexed \u2014 remember the +1 adjustment.",
                     "index() returns the FIRST matching index \u2014 fine here since there are no duplicate max/min values in this dataset."
                 ],
+                "expectedOutput": "Peak: month 12 (200)\nTrough: month 1 (120)\nNet change: 80",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3530,6 +3636,7 @@
                     "Without pre-initialising all expected bins, an empty bin would simply be missing from the dict rather than showing a 0 count \u2014 make sure to seed them explicitly.",
                     "Double-check boundary values like 150 and 175 fall into the correct bin ([150,175) not [125,150), and [175,200) not [150,175))."
                 ],
+                "expectedOutput": "[(100, 1), (125, 3), (150, 3), (175, 4), (200, 1)]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3560,6 +3667,7 @@
                     "A centered window requires an odd window size to have equal neighbours on both sides \u2014 window=3 is used here specifically because it divides evenly around each center point.",
                     "Don't pad the edges with partial windows for this task \u2014 the instructions specifically ask you to skip indices without a full window, which is why the result has exactly 10 (not 12) values."
                 ],
+                "expectedOutput": "10\npositive",
                 "tests": [
                     {
                         "type": "output_contains",
@@ -3593,6 +3701,7 @@
                 "warnings": [
                     "A common mistake is assuming variables are 'linked' \u2014 they are not. doubled holds a copied value, not a reference to count."
                 ],
+                "expectedOutput": "4",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3620,6 +3729,7 @@
                 "warnings": [
                     "Don't call countdown() before Setup complete has printed \u2014 the checker verifies exact line order."
                 ],
+                "expectedOutput": "Setup complete\n3\n2\n1\nGo!\nDone",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3645,6 +3755,7 @@
                 "warnings": [
                     "Keep the numeric result identical \u2014 this is about readability, not changing the calculation."
                 ],
+                "expectedOutput": "314.159",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3678,6 +3789,7 @@
                 "warnings": [
                     "Don't write print(people.sort(...)) \u2014 that prints None."
                 ],
+                "expectedOutput": "[('Bo', 21), ('Cy', 28), ('Ana', 34)]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3704,6 +3816,7 @@
                 "warnings": [
                     "If you use the global keyword here, the output will differ \u2014 this task specifically wants the shadowing behavior."
                 ],
+                "expectedOutput": "100\n0",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3734,6 +3847,7 @@
                 "warnings": [
                     "Remember ** has higher precedence than * \u2014 radius ** 2 is squared before multiplying by 3.14159."
                 ],
+                "expectedOutput": "Return the area of a circle given its radius.\n50.27424",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3767,6 +3881,7 @@
                 "warnings": [
                     "Sets are unordered \u2014 always sort before printing if order matters for the check."
                 ],
+                "expectedOutput": "['data', 'py', 'web']",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3792,6 +3907,7 @@
                 "warnings": [
                     "The point of this exercise is avoiding a for-loop scan \u2014 use the dict's O(1) key access instead."
                 ],
+                "expectedOutput": "Bo",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3817,6 +3933,7 @@
                 "warnings": [
                     "This task grades the printed output only \u2014 the comment is for your own understanding but won't be checked."
                 ],
+                "expectedOutput": "set",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3850,6 +3967,7 @@
                 "warnings": [
                     "On Windows the separator renders as backslash \u2014 this exercise assumes POSIX-style output as shown."
                 ],
+                "expectedOutput": "logs/2026/july/output.json\noutput",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3875,6 +3993,7 @@
                 "warnings": [
                     "Preserve the original row order in your output list."
                 ],
+                "expectedOutput": "[{'name': 'Ana', 'dept': 'Eng'}, {'name': 'Bo', 'dept': 'Sales'}, {'name': 'Cy', 'dept': 'Eng'}]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3900,6 +4019,7 @@
                 "warnings": [
                     "Don't add indent= \u2014 the default compact output is what's being checked here."
                 ],
+                "expectedOutput": "[{\"name\": \"Ana\", \"dept\": \"Eng\"}, {\"name\": \"Bo\", \"dept\": \"Sales\"}, {\"name\": \"Cy\", \"dept\": \"Eng\"}]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3934,6 +4054,7 @@
                 "warnings": [
                     "Make sure the except clause names InsufficientFundsError specifically, not a bare except."
                 ],
+                "expectedOutput": "Caught: Not enough funds",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3960,6 +4081,7 @@
                 "warnings": [
                     "If your output includes the INFO line, your basicConfig level is set too low \u2014 it must be WARNING or higher."
                 ],
+                "expectedOutput": "ERROR:Withdrawal failed: Not enough funds",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -3985,6 +4107,7 @@
                 "warnings": [
                     "Don't swallow the original ValueError silently \u2014 using 'from e' keeps the traceback chain, which the exercise is testing conceptually even though only the final message is checked."
                 ],
+                "expectedOutput": "Caught: invalid amount",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4018,6 +4141,7 @@
                 "warnings": [
                     "Don't write your own __init__ or __repr__ \u2014 the point of this task is to let @dataclass generate them."
                 ],
+                "expectedOutput": "Book(title='Dune', author='Herbert', year=1965)",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4043,6 +4167,7 @@
                 "warnings": [
                     "This would print False on a plain class without @dataclass, since default equality checks identity, not field values."
                 ],
+                "expectedOutput": "True",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4069,6 +4194,7 @@
                 "warnings": [
                     "Make sure the redefined Book dataclass includes genre as its fourth annotated field, in order, or the constructor call will fail."
                 ],
+                "expectedOutput": "FICTION",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4103,6 +4229,7 @@
                 "warnings": [
                     "Whitespace and blank lines matter for this exact-match check \u2014 leave exactly one blank line between the two tables."
                 ],
+                "expectedOutput": "[build-system]\nrequires = [\"setuptools>=61.0\"]\nbuild-backend = \"setuptools.build_meta\"\n\n[project]\nname = \"weather-cli\"\nversion = \"1.0.0\"\nrequires-python = \">=3.10\"",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4128,6 +4255,7 @@
                 "warnings": [
                     "Don't add a trailing comma after the last dependency \u2014 TOML allows it but this exact-match check does not expect one."
                 ],
+                "expectedOutput": "dependencies = [\n    \"requests>=2.28\",\n    \"click>=8.0\"\n]",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4153,6 +4281,7 @@
                 "warnings": [
                     "This is intentionally simple \u2014 the goal is cementing the naming convention, which trips people up when reading pip install logs."
                 ],
+                "expectedOutput": "wheel\nsdist",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4186,6 +4315,7 @@
                 "warnings": [
                     "Mock() attributes and methods are created on the fly \u2014 you don't need to predefine fetch_price anywhere."
                 ],
+                "expectedOutput": "42.5",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4212,6 +4342,7 @@
                 "warnings": [
                     "If Part 1's call used a different argument than \"AAPL\", the assert_called_with here would raise AssertionError."
                 ],
+                "expectedOutput": "2\nassertion passed",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4238,6 +4369,7 @@
                 "warnings": [
                     "The patch target string must match where the function is looked up, not just its bare name \u2014 in this sandboxed context, \"__main__.get_weather\" is correct."
                 ],
+                "expectedOutput": "sunny (mocked)\nreal weather",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4272,6 +4404,7 @@
                 "warnings": [
                     "This sequential version is intentionally slower \u2014 Part 2 will show the concurrent alternative for comparison."
                 ],
+                "expectedOutput": "['item-1', 'item-2', 'item-3']",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4297,6 +4430,7 @@
                 "warnings": [
                     "gather() doesn't guarantee execution order, only result order \u2014 don't assume fetch(1) finishes before fetch(2)."
                 ],
+                "expectedOutput": "['item-1', 'item-2', 'item-3']",
                 "tests": [
                     {
                         "type": "output_exact",
@@ -4323,6 +4457,7 @@
                 "warnings": [
                     "Without return_exceptions=True, this would raise ValueError and halt the whole gather instead of returning it as a result."
                 ],
+                "expectedOutput": "1",
                 "tests": [
                     {
                         "type": "output_exact",

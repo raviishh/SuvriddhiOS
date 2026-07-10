@@ -46,6 +46,8 @@ json RunTests(json tests, std::string token, Language lang)
 		for (auto &t : tests) {
 			std::string input = TrimTrailingWhitespace(t.value("input", ""));
 			std::string expected = TrimTrailingWhitespace(t.value("expected", ""));
+			lastInput = input;
+			lastExpected = expected;
 			std::string tmpIn = "/tmp/" + token + ".in";
 			WriteFile(tmpIn, input);
 			std::string runCmd;
