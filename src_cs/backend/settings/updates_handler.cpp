@@ -22,7 +22,7 @@ int handle_update(struct mg_connection *conn, void *)
 		error = "Failed to restart!";
 		break;
 	default:
-		error = "Unknown error! Please try again.";
+		error = "Update has successfully started! You may continue using suvriddhi OS and wait until the restart in ~10 minutes. If the restart doesn't happen, the system will update the next time SuvriddhiOS Reboots.";
 	}
 
 	json res = { { "error", error } };

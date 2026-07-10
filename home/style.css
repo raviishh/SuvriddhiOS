@@ -1,0 +1,268 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("wallpapers/sunset-bridge.jpg");
+  background-size: 100vw;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+.searchcontainer {
+  display: flex;
+  align-items: center;
+  margin-left: 30vw; /* move positioning here since it's the outer wrapper now */
+  margin-top: 15vh;
+  gap: 1vw; /* space between the two pills */
+}
+
+.searchbar {
+  height: 5vh;
+  width: 35vw;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  padding-left: 1.5vw;
+  box-sizing: border-box;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  font-size: 3vh;
+  color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* this is now real typed text color, not placeholder color */
+}
+
+.search-input::placeholder {
+  color: rgba(0, 0, 0, 0.4); /* placeholder-specific styling goes here */
+}
+
+.search-icon {
+  height: 4vh;
+  width: 4vh;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0; /* stops it getting squished by the input taking space */
+  margin-right: 0.5vw;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.clock {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* or flex-start, depending on where you want it positioned */
+}
+
+.date {
+  font-size: 3.6vh;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.time {
+  font-weight: 500; /* Medium weight, similar to the native look */
+  font-size: 16vh;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 1; /* kills default line-height gap between date and time */
+}
+.app-cards {
+  display: flex;
+  gap: 1.5vw;
+  margin-left: 37vw; /* match your searchbar's horizontal position */
+  margin-top: 2vh; /* between clock and searchbar, tune this */
+}
+
+.app-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  padding: 1.5vh 2.4vw;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 9999px; /* pill shape now, not rounded-square */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app-card.pcm {
+  flex-direction: row-reverse;
+}
+
+.app-icon {
+  font-size: 2.6vh;
+}
+
+.app-label {
+  font-size: 2.2vh;
+  color: rgba(255, 255, 255, 0.9);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Helvetica Neue",
+    Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.app-arrow {
+  font-size: 2.2vh;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 0.3vw; /* pushes it slightly away from text */
+}
+
+.dock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  margin-top: 10vh;
+  align-items: center;
+}
+
+.dock-row {
+  display: flex;
+  gap: 1vw;
+}
+
+.dock-item {
+  width: 4.5vw;
+  height: 7vh;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vh;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.dock-item:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.dock-icon-svg {
+  width: 2.2vh;
+  height: 2.2vh;
+  filter: brightness(0) invert(1);
+}
+
+.dock-icon-emoji {
+  font-size: 2.2vh;
+}
+
+.dock-label {
+  font-size: 0.9vh;
+  color: rgba(255, 255, 255, 0.85);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Helvetica Neue",
+    Arial, sans-serif;
+  text-align: center;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 4.2vw;
+}
+.wallpaper-picker {
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  display: flex;
+  gap: 0.8vw;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1vh 1vw;
+  border-radius: 9999px;
+}
+
+.wp-dot {
+  width: 1.2vh;
+  height: 1.2vh;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.wp-dot:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.wp-dot.active {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.3);
+}
+
+.settings-btn {
+  position: fixed;
+  bottom: 2vh;
+  left: 2vw; /* opposite corner from wallpaper picker, balances the layout */
+  width: 4vh;
+  height: 4vh;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vh;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.settings-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(200, 50, 50, 0.85);
+  color: white;
+  text-align: center;
+  padding: 1vh;
+  font-size: 1.6vh;
+  z-index: 999;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Helvetica Neue",
+    Arial, sans-serif;
+}

@@ -2,12 +2,160 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>home</title>
+    <title>Suvriddhi Home</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="offline-banner" id="offlineBanner" style="display: none">
+      <span class="offline-icon">📡</span>
+      <span class="offline-text"
+        >You're offline - Suvriddhi OS will still works, but external sites and
+        icons won't load until you're back online.</span
+      >
+    </div>
+    <div class="clock">
+      <span class="date">Thu 9 Jul</span>
+      <span class="time">12:41</span>
+    </div>
+    <div class="app-cards">
+      <a href="http://127.0.0.1:8082" class="app-card pcm">
+        <span class="app-icon">💎</span>
+        <span class="app-label">Learn</span>
+        <span class="app-arrow">←</span>
+      </a>
+      <a href="http://127.0.0.1:8081" class="app-card">
+        <span class="app-icon">💻</span>
+        <span class="app-label">Build</span>
+        <span class="app-arrow">→</span>
+      </a>
+    </div>
+    <div class="searchcontainer">
+      <div class="searchbar">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search for anything."
+        />
+      </div>
+      <button class="search-icon" id="searchBtn">🔍</button>
+    </div>
+    <div class="dock">
+      <div class="dock-row">
+        <a href="https://www.khanacademy.org" class="dock-item" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/khanacademy.svg"
+            class="dock-icon-svg"
+            alt=""
+          />
+          <span class="dock-label">Khan Academy</span>
+        </a>
+        <a href="https://ncert.nic.in" class="dock-item" target="_blank">
+          <span class="dock-icon-emoji">📘</span>
+          <span class="dock-label">NCERT</span>
+        </a>
+        <a href="http://127.0.0.1:8082" class="dock-item" target="_blank">
+          <span class="dock-icon-emoji">⚛️</span>
+          <span class="dock-label">Quark</span>
+        </a>
+        <a href="https://www.youtube.com" class="dock-item" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg"
+            class="dock-icon-svg"
+            alt=""
+          />
+          <span class="dock-label">YouTube</span>
+        </a>
+        <a href="https://www.wikipedia.org" class="dock-item" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wikipedia.svg"
+            class="dock-icon-svg"
+            alt=""
+          />
+          <span class="dock-label">Wikipedia</span>
+        </a>
+        <a href="https://www.desmos.com" class="dock-item" target="_blank">
+          <span class="dock-icon-emoji">📈</span>
+          <span class="dock-label">Desmos</span>
+        </a>
+        <a href="https://phet.colorado.edu" class="dock-item" target="_blank">
+          <span class="dock-icon-emoji">🔬</span>
+          <span class="dock-label">PhET</span>
+        </a>
+      </div>
+      <div class="dock-row">
+        <a href="https://github.com" class="dock-item" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg"
+            class="dock-icon-svg"
+            alt=""
+          />
+          <span class="dock-label">GitHub</span>
+        </a>
+        <a href="https://www.w3schools.com" class="dock-item" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/w3schools.svg"
+            class="dock-icon-svg"
+            alt=""
+          />
+          <span class="dock-label">W3Schools</span>
+        </a>
+        <a href="https://mail.google.com" class="dock-item" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/gmail.svg"
+            class="dock-icon-svg"
+            alt=""
+          />
+          <span class="dock-label">Gmail</span>
+        </a>
+        <a href="https://docs.google.com" class="dock-item" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/googledocs.svg"
+            class="dock-icon-svg"
+            alt=""
+          />
+          <span class="dock-label">Google Docs</span>
+        </a>
+        <a href="https://gemini.google.com" class="dock-item" target="_blank">
+          <span class="dock-icon-emoji">✨</span>
+          <span class="dock-label">Gemini</span>
+        </a>
+        <a href="https://chat.openai.com" class="dock-item" target="_blank">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg"
+            class="dock-icon-svg"
+            alt=""
+          />
+          <span class="dock-label">ChatGPT</span>
+        </a>
+        <a
+          href="https://translate.google.com"
+          class="dock-item"
+          target="_blank"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/googletranslate.svg"
+            class="dock-icon-svg"
+            alt=""
+          />
+          <span class="dock-label">Google Translate</span>
+        </a>
+      </div>
+    </div>
+    <a
+      href="http://127.0.0.1:8082/#/settings"
+      class="settings-btn"
+      target="_blank"
+      >⚙️</a
+    >
+    <div class="wallpaper-picker" id="wallpaperPicker">
+      <span class="wp-dot active" data-file="mountain-beach.jpg"></span>
+      <span class="wp-dot" data-file="mountain-view.jpg"></span>
+      <span class="wp-dot" data-file="mountain.jpg"></span>
+      <span class="wp-dot" data-file="river-mountain.jpg"></span>
+      <span class="wp-dot" data-file="sunset-bridge.jpg"></span>
+      <span class="wp-dot" data-file="tokyo-morning.jpg"></span>
+    </div>
   </body>
+  <script src="script.js"></script>
 </html>

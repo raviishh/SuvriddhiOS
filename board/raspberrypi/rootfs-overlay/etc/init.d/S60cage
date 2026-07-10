@@ -58,9 +58,9 @@ start() {
 }
 
 stop() {
-    killall chromium-browser 2>/dev/null
-    killall httpd 2>/dev/null
-    killall cage 2>/dev/null
+    killall -9 chromium-browser 2>/dev/null
+    killall -9 httpd 2>/dev/null
+    killall -9 cage 2>/dev/null
 }
 
 case "$1" in

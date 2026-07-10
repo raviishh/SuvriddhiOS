@@ -33,11 +33,7 @@ unzip drive-download-20260617T081439Z-3-001.zip "*" -d .
 rm drive-download-20260617T081439Z-3-001.zip
 
 cd ${TARGET_DIR}/../../home
-npm install
-npm run build
-rm -rf ${TARGET_DIR}/root/www/
-mkdir -p ${TARGET_DIR}/root/www/
-mv dist/* ${TARGET_DIR}/root/www/
+mv * ${TARGET_DIR}/root/www/
 
 cd ../src_cs
 npm install

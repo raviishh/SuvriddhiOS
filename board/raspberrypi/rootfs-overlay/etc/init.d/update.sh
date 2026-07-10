@@ -12,7 +12,6 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-killall chromium
-killall cage
+/etc/init.d/S60cage stop
 sleep 1
 reboot
