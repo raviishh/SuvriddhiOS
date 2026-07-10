@@ -7,5 +7,5 @@
 #include <string>
 #include "utils.h"
 
-constexpr char kSaveDir[] = "./codes";
+constexpr char kSaveDir[] = "/root/codes";
 #endif // HELPERS_COMMON_H_
