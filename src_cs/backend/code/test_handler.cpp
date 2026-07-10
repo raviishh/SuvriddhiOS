@@ -82,12 +82,8 @@ json RunTests(json tests, std::string token, Language lang)
             }
 
             std::string output = ReadFile(tmp_out);
-
+			std::string type = tests["type"];
             lastOutput = output;
-
-            //
-            // OUTPUT EXACT
-            //
             if (type == "output_exact")
             {
                 while (!output.empty() &&
