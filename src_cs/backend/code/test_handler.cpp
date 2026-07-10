@@ -15,19 +15,14 @@ json RunTests(json tests, std::string token, Language lang)
 	std::string tmp_out = "/tmp/" + token + ".out";
 
 	if (tests.empty()) {
-std::string runCmd;
+		std::string runCmd;
 
-if (lang == Language::kPython) {
-    runCmd =
-        "python3 \"" + exePath +
-        "\" > \"" + tmp_out +
-        "\" 2>&1";
-} else {
-    runCmd =
-        "\"" + exePath +
-        "\" > \"" + tmp_out +
-        "\" 2>&1";
-}		std::cout << runCmd << std::endl;
+		if (lang == Language::kPython) {
+			runCmd = "python3 \"" + exePath + "\" > \"" + tmp_out + "\" 2>&1";
+		} else {
+			runCmd = "\"" + exePath + "\" > \"" + tmp_out + "\" 2>&1";
+		}
+		std::cout << runCmd << std::endl;
 		int ret = std::system(runCmd.c_str());
 		std::cout << runCmd << std::endl;
 		lastInput = "";
@@ -46,17 +41,9 @@ if (lang == Language::kPython) {
 			std::string runCmd;
 
 			if (lang == Language::kPython) {
-				runCmd =
-					"timeout 5s python3 \"" + exePath +
-					"\" < \"" + tmpIn +
-					"\" > \"" + tmp_out +
-					"\" 2>&1";
+				runCmd = "timeout 5s python3 \"" + exePath + "\" < \"" + tmpIn + "\" > \"" + tmp_out + "\" 2>&1";
 			} else {
-				runCmd =
-					"timeout 5s \"" + exePath +
-					"\" < \"" + tmpIn +
-					"\" > \"" + tmp_out +
-					"\" 2>&1";
+				runCmd = "timeout 5s \"" + exePath + "\" < \"" + tmpIn + "\" > \"" + tmp_out + "\" 2>&1";
 			}
 			std::cout << runCmd << std::endl;
 			int ret = std::system(runCmd.c_str());

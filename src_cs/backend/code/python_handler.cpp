@@ -10,30 +10,23 @@
 
 using json = nlohmann::json;
 
-
 int HandlePython(struct mg_connection *conn, void *)
 {
-    json req = GetJsonReq(conn);
+	json req = GetJsonReq(conn);
 
-    std::string code = req.value("code", "");
-    json tests = req.value("tests", json::array());
+	std::string code = req["code"];
+	json tests = req.value("tests", json::array());
+	std::string token = GenerateToken(16);
+	std::string path = "/tmp/" + token + ".py";
 
-    std::string token = GenerateToken(16);
+	WriteFile(path, code);
 
-    std::string path = "/tmp/" + token + ".py";
+	json res = RunTests(tests, token, Language::kPython);
 
-    WriteFile(path, code);
+	std::filesystem::remove(path);
 
-    json res = RunTests(
-        tests,
-        token,
-        Language::kPython
-    );
-
-    std::filesystem::remove(path);
-
-    SendResponse(conn, res.dump());
+	SendResponse(conn, res.dump());
 	std::cout << req.dump(4) << std::endl;
 
-    return 200;
+	return 200;
 }
