@@ -28,5 +28,16 @@ int HandlePython(struct mg_connection *conn, void *)
 	SendResponse(conn, res.dump());
 	std::cout << req.dump(4) << std::endl;
 
-	return 200;
+    return 200;
+}
+static void TrimTrailingWhitespace(std::string &s)
+{
+    while (!s.empty() &&
+          (s.back() == '\n' ||
+           s.back() == '\r' ||
+           s.back() == ' '  ||
+           s.back() == '\t'))
+    {
+        s.pop_back();
+    }
 }
