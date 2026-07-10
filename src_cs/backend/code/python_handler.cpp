@@ -20,13 +20,9 @@ int HandlePython(struct mg_connection *conn, void *)
 	std::string path = "/tmp/" + token + ".py";
 
 	WriteFile(path, code);
-
 	json res = RunTests(tests, token, Language::kPython);
-
 	std::filesystem::remove(path);
-
 	SendResponse(conn, res.dump());
-	std::cout << req.dump(4) << std::endl;
 
     return 200;
 }
