@@ -1,0 +1,101 @@
+<div class="exercise-content">
+  <h2>Refactor a Script into a Package</h2>
+  <p class="exercise-lead">Simulate splitting a single flat script into logically separated modules using in-memory module objects.</p>
+
+  <section class="exercise-task" id="pkg_1">
+  <h3>Part 1 — Separating Concerns </h3>
+  <p class="task-background">Splitting code into modules means grouping related functions together and importing what you need. A module is just a namespace — you can build one dynamically to demonstrate the concept.</p>
+  <pre class="code-block"><code>import types
+mathutils = types.ModuleType(&quot;mathutils&quot;)
+exec(&quot;def square(n): return n * n&quot;, mathutils.__dict__)
+print(mathutils.square(4))</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>16</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create a module object named &#39;shapes&#39; containing two functions: area_circle(r) returning 3.14159 * r ** 2, and area_square(s) returning s ** 2.</li>
+  <li>Create a second module object named &#39;formatting&#39; containing one function: money(x) returning f&#39;${x:.2f}&#39;.</li>
+  <li>Using both modules together, print formatting.money(shapes.area_circle(3)) and formatting.money(shapes.area_square(4)).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>In a real project you would create actual .py files and use &#39;from shapes import area_circle&#39; — this exercise simulates that boundary in a single file.</li>
+  <li>Keep the rounding to 2 decimal places via the :.2f format spec, not manual round().</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use types.ModuleType(&#39;name&#39;) then exec(code_string, module.__dict__) to define functions inside it, simulating a real module file.</li>
+  <li>3.14159 * 3 ** 2 = 28.27311 which rounds to 28.27 under :.2f formatting.</li>
+  <li>This mirrors how, in a real project, shapes.py and formatting.py would each be separate files imported with &#39;import shapes&#39;.</li>
+  <li>Access functions via moduleobj.function_name(...), exactly like a real imported module.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="pkg_2">
+  <h3>Part 2 — Avoiding Circular Imports </h3>
+  <p class="task-background">Circular imports happen when module A imports module B and module B imports module A. The fix is usually to move the shared logic into a third module, or to import inside a function rather than at the top of the file.</p>
+  <pre class="code-block"><code># BAD (circular):
+# a.py: from b import helper
+# b.py: from a import CONFIG
+#
+# GOOD: move CONFIG to a shared config.py that both import from</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Explain, by writing it as a printed multi-line string, why the following would cause a circular import: module &#39;orders&#39; needs a function from &#39;inventory&#39;, and &#39;inventory&#39; needs a constant from &#39;orders&#39;.</li>
+  <li>Then simulate the fix: create a &#39;shared&#39; module containing TAX_RATE = 0.08.</li>
+  <li>Create an &#39;orders&#39; module that imports TAX_RATE from shared and defines total_with_tax(amount) returning amount * (1 + TAX_RATE).</li>
+  <li>Print orders.total_with_tax(100), rounded to 2 decimal places.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The explanation text is not strictly checked — focus your effort on getting the simulated module structure and final number correct.</li>
+  <li>Do not have &#39;orders&#39; and a hypothetical &#39;inventory&#39; module import from each other in your simulation — that defeats the purpose of the exercise.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>For the explanation, a short printed paragraph is fine — the checker looks for the numeric result at the end, not exact wording.</li>
+  <li>shared.TAX_RATE is a plain module attribute — access it as shared.TAX_RATE inside orders&#39; exec&#39;d code, or capture it in the module dict before exec.</li>
+  <li>100 * 1.08 = 108.0</li>
+  <li>The key lesson: extracting the shared value breaks the cycle because neither module depends on the other anymore.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="pkg_stretch">
+  <h3>Stretch — Package with __init__ Re-exports <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A package&#39;s __init__.py commonly re-exports selected names from submodules so users can write &#39;from mypackage import thing&#39; instead of reaching into submodules directly.</p>
+  <pre class="code-block"><code># mypackage/__init__.py
+# from .shapes import area_circle
+# from .formatting import money
+#
+# usage: from mypackage import area_circle, money</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Simulate a package &#39;geometry&#39; with two submodules (&#39;shapes&#39; and &#39;formatting&#39;, reusing Part 1&#39;s definitions).</li>
+  <li>Simulate an __init__-style re-export: create a top-level module &#39;geometry&#39; whose namespace includes area_circle, area_square, and money pulled directly from the submodules (i.e. geometry.area_circle should work without going through geometry.shapes).</li>
+  <li>Print geometry.money(geometry.area_circle(5)).</li>
+  <li>Print a sorted list of the public names available directly on &#39;geometry&#39; (just the three function names).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Only include the three re-exported names in the final printed list — not any internal helpers.</li>
+  <li>The list must be printed with Python&#39;s default list repr, e.g. [&#39;area_circle&#39;, &#39;area_square&#39;, &#39;money&#39;].</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>After building shapes and formatting modules, assign geometry.area_circle = shapes.area_circle etc., directly on the geometry module&#39;s __dict__ — this is exactly what a real __init__.py&#39;s import statements accomplish.</li>
+  <li>3.14159 * 5 ** 2 = 78.53975, formatted to 2 decimals as 78.54.</li>
+  <li>sorted([&#39;area_circle&#39;, &#39;area_square&#39;, &#39;money&#39;]) gives the alphabetical order shown.</li>
+  <li>This pattern is why you can &#39;from requests import get&#39; instead of &#39;from requests.api import get&#39;.</li>
+</ul>
+</details>
+</section>
+</div>

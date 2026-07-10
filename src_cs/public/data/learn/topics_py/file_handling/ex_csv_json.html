@@ -1,0 +1,109 @@
+<div class="exercise-content">
+  <h2>CSV &amp; JSON Read/Write Drills</h2>
+  <p class="exercise-lead">Practice round-tripping structured data through the csv and json modules.</p>
+
+  <section class="exercise-task" id="csvjson_1">
+  <h3>Part 1 — Writing and Reading CSV </h3>
+  <p class="task-background">csv.writer writes rows as lists. csv.DictWriter writes rows as dicts, using a header row of fieldnames.</p>
+  <pre class="code-block"><code>import csv, io
+buf = io.StringIO()
+writer = csv.writer(buf)
+writer.writerow([&quot;name&quot;, &quot;age&quot;])
+writer.writerow([&quot;Alice&quot;, 30])
+print(buf.getvalue())</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>name,age
+Alice,30
+</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using io.StringIO() as an in-memory file, write a CSV with header [&#39;name&#39;, &#39;score&#39;] and rows [(&#39;Alice&#39;, 85), (&#39;Bob&#39;, 92), (&#39;Carol&#39;, 78)] using csv.writer.</li>
+  <li>Then read it back using csv.reader, skipping the header.</li>
+  <li>Print each data row as a tuple: (&#39;Alice&#39;, &#39;85&#39;) etc.</li>
+  <li>Print the sum of all scores converted to int: 255.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Remember to call buf.seek(0) after writing and before reading — the cursor is at the end after writing.</li>
+  <li>Values read from CSV are always strings, even numbers like &#39;85&#39; — sum them only after converting to int.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use io.StringIO() to avoid touching the real filesystem, then buf.seek(0) before reading it back.</li>
+  <li>csv.reader yields lists — convert with tuple(row) to match the expected format.</li>
+  <li>next(reader) consumes and discards the header row.</li>
+  <li>CSV always returns strings — convert with int(row[1]) before summing.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="csvjson_2">
+  <h3>Part 2 — JSON Serialization Round-Trip </h3>
+  <p class="task-background">json.dumps() converts a Python object to a JSON string; json.loads() converts it back. Only JSON-compatible types (dict, list, str, int, float, bool, None) can be serialised directly.</p>
+  <pre class="code-block"><code>import json
+data = {&quot;name&quot;: &quot;Alice&quot;, &quot;active&quot;: True}
+s = json.dumps(data)
+print(s)  # &#39;{&quot;name&quot;: &quot;Alice&quot;, &quot;active&quot;: true}&#39;
+back = json.loads(s)
+print(back == data)  # True</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>{&quot;name&quot;: &quot;Alice&quot;, &quot;active&quot;: true}
+True</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create a dict: student = {&#39;name&#39;: &#39;Dana&#39;, &#39;grades&#39;: [88, 92, 79], &#39;passed&#39;: True}.</li>
+  <li>Serialise it to a JSON string with json.dumps(), using indent=2.</li>
+  <li>Print the JSON string.</li>
+  <li>Deserialise it back and print the average of grades, rounded to 2 decimal places.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>json.dumps() converts True/False to lowercase true/false in the JSON text, but json.loads() converts them back to Python&#39;s True/False.</li>
+  <li>Don&#39;t forget to round the average — the raw float will have many more decimal digits.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>json.dumps(student, indent=2) produces pretty-printed, human-readable JSON.</li>
+  <li>json.loads(json_string) reconstructs the original dict (with the same structure).</li>
+  <li>average = round(sum(grades) / len(grades), 2)</li>
+  <li>(88 + 92 + 79) / 3 = 259 / 3 ≈ 86.33</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="csvjson_stretch">
+  <h3>Stretch — CSV to Nested JSON Pipeline <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A common real-world task is converting flat tabular data (CSV) into a nested structure (JSON) grouped by a key — for example, grouping purchases by customer.</p>
+  <pre class="code-block"><code># CSV rows: customer,item,price
+# alice,book,12.99
+# alice,pen,1.50
+# bob,book,12.99
+# Target JSON:
+# {&quot;alice&quot;: [{&quot;item&quot;: &quot;book&quot;, &quot;price&quot;: 12.99}, {&quot;item&quot;: &quot;pen&quot;, &quot;price&quot;: 1.5}], &quot;bob&quot;: [...]}</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using csv.DictReader on the in-memory CSV text: &#39;customer,item,price\nalice,book,12.99\nalice,pen,1.50\nbob,book,12.99\nbob,pen,1.50\nbob,pencil,0.50\n&#39;, group rows by customer into a dict of lists.</li>
+  <li>Each list entry should be a dict with keys &#39;item&#39; and &#39;price&#39; (price converted to float).</li>
+  <li>Serialise the resulting dict to a JSON string with json.dumps(sort_keys=True).</li>
+  <li>Print the total spent by bob, rounded to 2 decimal places: 14.99.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Prices arrive as strings from CSV — always convert to float before summing or storing.</li>
+  <li>12.99 + 1.50 + 0.50 = 14.99 — verify your rounding doesn&#39;t introduce floating-point artefacts like 14.989999999999998; round() fixes this for display.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>csv.DictReader(io.StringIO(csv_text)) gives you an iterable of dicts with keys matching the header row.</li>
+  <li>Use grouped.setdefault(row[&#39;customer&#39;], []).append({&#39;item&#39;: row[&#39;item&#39;], &#39;price&#39;: float(row[&#39;price&#39;])}).</li>
+  <li>Sum bob&#39;s prices with sum(entry[&#39;price&#39;] for entry in grouped[&#39;bob&#39;]).</li>
+  <li>json.dumps(grouped, sort_keys=True) is only needed to demonstrate serialisation — the final printed value is the numeric total.</li>
+</ul>
+</details>
+</section>
+</div>

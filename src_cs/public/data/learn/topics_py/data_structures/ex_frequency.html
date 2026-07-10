@@ -1,0 +1,94 @@
+<div class="exercise-content">
+  <h2>Frequency Counter &amp; Deduplication</h2>
+  <p class="exercise-lead">Count occurrences and remove duplicates — two of the most common real-world data tasks.</p>
+
+  <section class="exercise-task" id="freq_1">
+  <h3>Part 1 — Word Frequency </h3>
+  <p class="task-background">A frequency counter is a dict where keys are items and values are counts. dict.get(key, 0) returns 0 if the key is missing.</p>
+  <pre class="code-block"><code>freq = {}
+for item in items:
+    freq[item] = freq.get(item, 0) + 1</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Count how many times each word appears in words.</li>
+  <li>Print the frequency dict.</li>
+  <li>Print the most common word and its count.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The dict must be printed before the most common word — order matters.</li>
+  <li>If there were a tie, max() would return one arbitrarily — no tie-breaking needed here.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>freq[word] = freq.get(word, 0) + 1</li>
+  <li>max(freq, key=freq.get) gives the key with the highest value.</li>
+  <li>collections.Counter(words) does this in one line — implement it manually first, then compare.</li>
+  <li>f&quot;{most_common}: {freq[most_common]}&quot; formats the second output line.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="freq_2">
+  <h3>Part 2 — Deduplication with Order Preserved </h3>
+  <p class="task-background">set() removes duplicates but loses order. To deduplicate while preserving insertion order, use a dict (Python 3.7+ maintains insertion order).</p>
+  <pre class="code-block"><code>seen = {}
+for item in items:
+    seen[item] = True
+deduped = list(seen.keys())</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Produce a deduplicated version of words preserving original order.</li>
+  <li>Print the result.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not use set() — it does not preserve order.</li>
+  <li>The output must be a list, not a dict or a dict_keys view.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>dict.fromkeys(words) creates a dict with each word as a key (values are None) — then list() it.</li>
+  <li>Or iterate and track seen items in a regular dict.</li>
+  <li>list(dict.fromkeys(words)) is idiomatic Python for order-preserving deduplication.</li>
+  <li>Verify: len(deduped) should be 4.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="freq_stretch">
+  <h3>Stretch — Top-N with Ties <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">collections.Counter has a most_common(n) method, but implementing it yourself teaches sorting and tie-handling.</p>
+  <pre class="code-block"><code># Target: top 2 most frequent words, ties broken alphabetically
+# apple: 3, banana: 2 → apple and banana</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using the frequency dict from Part 1, write top_n(freq, n) that returns the top-n words by frequency.</li>
+  <li>Break ties alphabetically (ascending).</li>
+  <li>Print top_n(freq, 2).</li>
+  <li>Expected: [&#39;apple&#39;, &#39;banana&#39;]</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Negating the count (-x[1]) sorts descending by count while keeping the sort ascending for the word.</li>
+  <li>cherry and date both have count 1 — they are tied; alphabetically cherry &lt; date, so cherry ranks higher among the tail.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Sort by (-count, word) to get highest count first and alphabetical order for ties.</li>
+  <li>sorted(freq.items(), key=lambda x: (-x[1], x[0]))</li>
+  <li>Slice the sorted list: [:n] to get the top n.</li>
+  <li>Return only the words, not the counts: [word for word, _ in sorted_items[:n]]</li>
+</ul>
+</details>
+</section>
+</div>

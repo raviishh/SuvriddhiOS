@@ -1,0 +1,95 @@
+<div class="exercise-content">
+  <h2>Data Structure Transformation Challenges</h2>
+  <p class="exercise-lead">Convert between lists, tuples, sets, and dicts to solve real-shaped problems.</p>
+
+  <section class="exercise-task" id="trans_1">
+  <h3>Part 1 — Group Scores by Name </h3>
+  <p class="task-background">Dicts with list values are a common pattern for grouping. Check if the key exists first, or use dict.setdefault().</p>
+  <pre class="code-block"><code>grouped = {}
+for name, score in data:
+    grouped.setdefault(name, []).append(score)
+print(grouped)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>{&#39;Alice&#39;: [85, 78], &#39;Bob&#39;: [92, 88], &#39;Carol&#39;: [95]}</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using data above, build a dict mapping each name to a list of their scores.</li>
+  <li>Print the dict.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The order of names in the output dict follows insertion order (Python 3.7+) — Alice appears first because she appears first in data.</li>
+  <li>Do not sort the output — match the expected order exactly.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use grouped.setdefault(name, []).append(score).</li>
+  <li>Iterate over the list of tuples with for name, score in data.</li>
+  <li>setdefault(key, default) returns the existing value if the key exists, otherwise inserts default and returns it.</li>
+  <li>An alternative: if name not in grouped: grouped[name] = []; grouped[name].append(score)</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="trans_2">
+  <h3>Part 2 — Average per Person </h3>
+  <p class="task-background">Once you have grouped data, computing aggregates (sum, average) per group is straightforward.</p>
+  <pre class="code-block"><code>scores = [85, 78]
+avg = sum(scores) / len(scores)
+print(avg)  # 81.5</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>81.5</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>From the grouped dict, create a new dict mapping each name to their average score (rounded to 1 decimal place).</li>
+  <li>Print it.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Carol&#39;s average is 95.0, not 95 — round() preserves the float.</li>
+  <li>Build grouped first (from Part 1) before computing averages.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use a dict comprehension: {name: round(sum(scores)/len(scores), 1) for name, scores in grouped.items()}</li>
+  <li>round(value, 1) rounds to one decimal place.</li>
+  <li>sum([95]) / len([95]) = 95.0 — a single-element list still works correctly.</li>
+  <li>.items() returns (key, value) pairs — unpack them in the comprehension.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="trans_stretch">
+  <h3>Stretch — Ranking &amp; Sorting <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">sorted() with a key function lets you sort by any attribute. Combined with enumerate(), you can produce ranked output.</p>
+  <pre class="code-block"><code># Sort a dict by value descending:
+# sorted(d.items(), key=lambda x: x[1], reverse=True)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using the averages dict from Part 2, produce a ranked leaderboard.</li>
+  <li>Sort names by average score descending.</li>
+  <li>Print each entry as: #[rank] [name]: [average]</li>
+  <li>Expected:
+#1 Carol: 95.0
+#2 Bob: 90.0
+#3 Alice: 81.5</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>rank starts at 1, not 0 — use enumerate(..., start=1).</li>
+  <li>Ties are not present in this data, but in general sorted() is stable — equal items keep their original order.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>sorted(averages.items(), key=lambda x: x[1], reverse=True) gives [(name, avg), ...] in descending order.</li>
+  <li>Use enumerate(sorted_items, start=1) to get 1-based ranks.</li>
+  <li>f&quot;#{rank} {name}: {avg}&quot; formats the output.</li>
+</ul>
+</details>
+</section>
+</div>

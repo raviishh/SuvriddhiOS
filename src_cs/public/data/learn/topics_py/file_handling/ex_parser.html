@@ -1,0 +1,97 @@
+<div class="exercise-content">
+  <h2>File Parser Challenges</h2>
+  <p class="exercise-lead">Read, parse, and extract structured information from plain text files.</p>
+
+  <section class="exercise-task" id="parse_1">
+  <h3>Part 1 — Line Counting &amp; Filtering </h3>
+  <p class="task-background">open(path) returns a file object you can iterate line by line. Always use a &#39;with&#39; block so the file closes automatically.</p>
+  <pre class="code-block"><code>with open(&quot;notes.txt&quot;) as f:
+    lines = f.readlines()
+print(len(lines))</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>5</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Given the multi-line string data = &quot;apple\nbanana\n\ncherry\ndate\n\n\n&quot;, split it into lines using .splitlines().</li>
+  <li>Print the total number of non-empty lines.</li>
+  <li>Print only the non-empty lines, one per line.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>This task works on an in-memory string, not an actual file — no need to open() anything here.</li>
+  <li>Blank lines with just whitespace (e.g. &#39;   &#39;) should also be treated as empty.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>data.splitlines() avoids trailing newline characters, unlike readlines().</li>
+  <li>Filter with: [line for line in lines if line.strip()]</li>
+  <li>len() of the filtered list gives the non-empty count.</li>
+  <li>An empty string is falsy, so &#39;if line.strip()&#39; skips blank lines including ones with only whitespace.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="parse_2">
+  <h3>Part 2 — Structured Log Extraction </h3>
+  <p class="task-background">Real log files have a predictable shape per line. Splitting on whitespace or a delimiter lets you pull out fields.</p>
+  <pre class="code-block"><code>line = &quot;2024-01-15 ERROR Disk full&quot;
+parts = line.split(&quot; &quot;, 2)
+print(parts)  # [&#39;2024-01-15&#39;, &#39;ERROR&#39;, &#39;Disk full&#39;]</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>[&#39;2024-01-15&#39;, &#39;ERROR&#39;, &#39;Disk full&#39;]</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Given log_data = &quot;2024-01-15 INFO Server started\n2024-01-15 ERROR Disk full\n2024-01-16 INFO Backup complete\n2024-01-16 ERROR Connection lost\n2024-01-16 ERROR Timeout&quot;, split it into lines.</li>
+  <li>Count how many lines contain the level ERROR.</li>
+  <li>Print: &#39;ERROR count: [n]&#39;</li>
+  <li>Print each ERROR line&#39;s message only (the text after the level), one per line.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Without maxsplit, a message containing spaces (like &#39;Disk full&#39;) would be split into extra parts.</li>
+  <li>Print the count line first, then the messages in their original order.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use line.split(&quot; &quot;, 2) to split into exactly 3 parts: date, level, message.</li>
+  <li>Check parts[1] == &#39;ERROR&#39; to filter.</li>
+  <li>The maxsplit argument (the &#39;2&#39; in split(&#39; &#39;, 2)) prevents the message itself from being split further.</li>
+  <li>Build a list of ERROR messages first, then print the count followed by each message.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="parse_stretch">
+  <h3>Stretch — Word Frequency Across a Multi-Line Document <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Parsing real documents usually means normalising case and punctuation before counting, otherwise &#39;Word&#39; and &#39;word,&#39; are treated as different tokens.</p>
+  <pre class="code-block"><code>import string
+text = &quot;The cat. The dog! The cat?&quot;
+clean = text.translate(str.maketrans(&#39;&#39;, &#39;&#39;, string.punctuation)).lower()
+print(clean.split())</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>[&#39;the&#39;, &#39;cat&#39;, &#39;the&#39;, &#39;dog&#39;, &#39;the&#39;, &#39;cat&#39;]</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Given document = &quot;Python is great. Python is fun! Is Python easy? Python, yes.&quot;, normalise it by removing punctuation and lowercasing.</li>
+  <li>Count the frequency of each word.</li>
+  <li>Print the top 3 most frequent words with their counts, sorted by count descending then alphabetically for ties, one per line as &#39;word: count&#39;.</li>
+  <li>Expected: python: 4, is: 3, great: 1 (or another word tied at 1, resolved alphabetically).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not use regex here — string.punctuation and str.translate are sufficient and simpler.</li>
+  <li>Ties among lower-frequency words should break alphabetically, matching Python&#39;s stable sort behaviour when you sort by (-count, word).</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use str.maketrans(&#39;&#39;, &#39;&#39;, string.punctuation) with .translate() to strip punctuation.</li>
+  <li>Sort with sorted(freq.items(), key=lambda x: (-x[1], x[0])).</li>
+  <li>Slice the sorted list to get the top 3.</li>
+  <li>Remember to .lower() before splitting so &#39;Python&#39; and &#39;python&#39; count as the same word.</li>
+</ul>
+</details>
+</section>
+</div>

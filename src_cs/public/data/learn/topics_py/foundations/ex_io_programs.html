@@ -1,0 +1,182 @@
+<div class="exercise-content">
+    <h2>I/O Mini-Programs (Calculator, Greeter)</h2>
+    <p class="exercise-lead">
+        Use input() and print() together to build small interactive programs.
+    </p>
+
+    <section class="exercise-task" id="io_1">
+        <h3>Part 1 — Greeter</h3>
+        <p class="task-background">
+            input() reads a line of text the user types and returns it as a
+            string. You can store it in a variable and use it immediately.
+        </p>
+        <pre
+            class="code-block"
+        ><code>name = input(&quot;What is your name? &quot;)
+print(f&quot;Hello, {name}!&quot;)</code></pre>
+        <div class="code-output-label">Output:</div>
+        <pre class="code-output"><code>What is your name? Alice
+Hello, Alice!</code></pre>
+        <div class="task-instructions">
+            <h4>What to do</h4>
+            <ul>
+                <li>Ask the user for their name using input().</li>
+                <li>Ask the user for their city using input().</li>
+                <li>Print: Hello, [name]! You live in [city].</li>
+            </ul>
+        </div>
+        <div class="task-warnings">
+            <h4>Watch out for</h4>
+            <ul>
+                <li>
+                    The test will supply sample inputs — don&#39;t hard-code
+                    values.
+                </li>
+                <li>
+                    Match the punctuation exactly: comma after the name,
+                    exclamation mark, then &#39;You live in&#39;.
+                </li>
+            </ul>
+        </div>
+        <details class="task-hints">
+            <summary>Hints (4)</summary>
+            <ul>
+                <li>Store each input() call in its own variable.</li>
+                <li>Build the output with an f-string.</li>
+                <li>
+                    The prompt string you pass to input() is optional but good
+                    practice — it tells the user what to type.
+                </li>
+                <li>
+                    input() always returns a string, even if the user types a
+                    number.
+                </li>
+            </ul>
+        </details>
+    </section>
+
+    <section class="exercise-task" id="io_2">
+        <h3>Part 2 — Simple Calculator</h3>
+        <p class="task-background">
+            input() always returns a string. To do maths you must convert it:
+            int() for whole numbers, float() for decimals.
+        </p>
+        <pre
+            class="code-block"
+        ><code>a = int(input(&quot;Enter a number: &quot;))
+b = int(input(&quot;Enter another: &quot;))
+print(a + b)</code></pre>
+        <div class="code-output-label">Output:</div>
+        <pre class="code-output"><code>Enter a number: 5
+Enter another: 3
+8</code></pre>
+        <div class="task-instructions">
+            <h4>What to do</h4>
+            <ul>
+                <li>
+                    Ask the user for two numbers (use int() to convert each).
+                </li>
+                <li>Print their sum on one line: Sum: [result]</li>
+                <li>Print their product on the next line: Product: [result]</li>
+            </ul>
+        </div>
+        <div class="task-warnings">
+            <h4>Watch out for</h4>
+            <ul>
+                <li>
+                    Labels must match exactly: &#39;Sum: &#39; and &#39;Product:
+                    &#39; with a capital letter and a space after the colon.
+                </li>
+                <li>
+                    Using float() instead of int() will produce 8.0 and 15.0 —
+                    the checker expects plain integers.
+                </li>
+            </ul>
+        </div>
+        <details class="task-hints">
+            <summary>Hints (4)</summary>
+            <ul>
+                <li>
+                    Wrap input() inside int(): a = int(input(&quot;First number:
+                    &quot;))
+                </li>
+                <li>Use * for multiplication.</li>
+                <li>
+                    Both conversions must happen before you do any arithmetic —
+                    you can&#39;t add strings.
+                </li>
+                <li>
+                    If you get a ValueError, check that int() is wrapping the
+                    entire input() call.
+                </li>
+            </ul>
+        </details>
+    </section>
+
+    <section class="exercise-task" id="io_stretch">
+        <h3>
+            Stretch — Temperature Converter
+            <span class="difficulty-badge difficulty-stretch">stretch</span>
+        </h3>
+        <p class="task-background">
+            Real-world programs often need to branch based on user input.
+            Combine input(), float conversion, and conditionals to handle
+            multiple conversion directions.
+        </p>
+        <pre class="code-block"><code># Celsius to Fahrenheit: F = C * 9/5 + 32
+# Fahrenheit to Celsius: C = (F - 32) * 5/9</code></pre>
+
+        <div class="task-instructions">
+            <h4>What to do</h4>
+            <ul>
+                <li>
+                    Ask the user to enter a temperature value (convert to
+                    float).
+                </li>
+                <li>Ask the user to enter the unit: C or F.</li>
+                <li>
+                    If C, convert to Fahrenheit and print: [value]C = [result]F
+                </li>
+                <li>
+                    If F, convert to Celsius and print: [value]F = [result]C
+                </li>
+                <li>
+                    Round both the input and result to 1 decimal place in the
+                    output.
+                </li>
+                <li>
+                    Test with 100C (should give 100.0C = 212.0F) and 32F (should
+                    give 32.0F = 0.0C).
+                </li>
+            </ul>
+        </div>
+        <div class="task-warnings">
+            <h4>Watch out for</h4>
+            <ul>
+                <li>
+                    Don&#39;t forget .strip() on the unit input — a trailing
+                    space will break the comparison.
+                </li>
+                <li>
+                    The formula uses integer division with Python 3 — 9/5 gives
+                    1.8, not 1 (which it would in Python 2).
+                </li>
+            </ul>
+        </div>
+        <details class="task-hints">
+            <summary>Hints (4)</summary>
+            <ul>
+                <li>
+                    Use unit = input(...).strip().upper() to handle lowercase
+                    input gracefully.
+                </li>
+                <li>round(value, 1) rounds to one decimal place.</li>
+                <li>Use an if/elif block to branch on the unit.</li>
+                <li>
+                    f&quot;{round(val, 1)}C = {round(result, 1)}F&quot; formats
+                    the output cleanly.
+                </li>
+            </ul>
+        </details>
+    </section>
+</div>

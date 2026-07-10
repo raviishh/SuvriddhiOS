@@ -1,0 +1,101 @@
+<div class="exercise-content">
+  <h2>Plot &amp; Interpret a Dataset</h2>
+  <p class="exercise-lead">Practice choosing the right chart type and computing the summary statistics a chart would visualise, even without rendering an actual image.</p>
+
+  <section class="exercise-task" id="plot_1">
+  <h3>Part 1 — Summary Statistics for a Line Chart </h3>
+  <p class="task-background">Before plotting a trend line, you typically compute the min, max, and overall change to understand the shape of the data. matplotlib.pyplot.plot(x, y) would draw this as a line, but the numbers behind it are what matter first.</p>
+  <pre class="code-block"><code>data = [10, 15, 12, 20]
+print(max(data), min(data), data[-1] - data[0])  # 20 10 10</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>20 10 10</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using monthly_sales (12 values, one per month, January first), find the month with the highest sales (1-indexed) and the value.</li>
+  <li>Find the month with the lowest sales (1-indexed) and the value.</li>
+  <li>Print: &#39;Peak: month [n] ([value])&#39;</li>
+  <li>Print: &#39;Trough: month [n] ([value])&#39;</li>
+  <li>Print the net change from January to December: &#39;Net change: [value]&#39;</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Months are 1-indexed in the output (January = month 1), but list indices are 0-indexed — remember the +1 adjustment.</li>
+  <li>index() returns the FIRST matching index — fine here since there are no duplicate max/min values in this dataset.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use monthly_sales.index(max(monthly_sales)) + 1 to get the 1-indexed peak month.</li>
+  <li>Similarly for the trough using min().</li>
+  <li>Net change: monthly_sales[-1] - monthly_sales[0]</li>
+  <li>This is exactly the data a line chart&#39;s y-axis annotations would highlight.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="plot_2">
+  <h3>Part 2 — Binning for a Histogram </h3>
+  <p class="task-background">A histogram groups continuous data into bins and counts how many values fall in each. matplotlib.pyplot.hist(data, bins=n) does this automatically, but understanding the binning logic helps you interpret (or debug) the resulting chart.</p>
+  <pre class="code-block"><code>values = [5, 12, 15, 22, 28, 33, 8]
+bin_size = 10
+bins = {}
+for v in values:
+    b = (v // bin_size) * bin_size
+    bins[b] = bins.get(b, 0) + 1
+print(sorted(bins.items()))</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>[(0, 2), (10, 2), (20, 2), (30, 1)]</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using monthly_sales, create bins of width 25 starting at 100 (i.e. bins are [100,125), [125,150), [150,175), [175,200), [200,225)).</li>
+  <li>Count how many months fall into each bin.</li>
+  <li>Print the bin counts as a sorted list of tuples (bin_start, count), including any empty bins in the range with count 0.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Without pre-initialising all expected bins, an empty bin would simply be missing from the dict rather than showing a 0 count — make sure to seed them explicitly.</li>
+  <li>Double-check boundary values like 150 and 175 fall into the correct bin ([150,175) not [125,150), and [175,200) not [150,175)).</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>bin_start = 100 + ((v - 100) // 25) * 25 assigns each value to the correct bin floor.</li>
+  <li>Initialise all 5 expected bins to 0 first: bins = {100: 0, 125: 0, 150: 0, 175: 0, 200: 0}, then increment as you iterate.</li>
+  <li>This ensures empty bins still appear in the final sorted output, matching what a real histogram would show as a zero-height bar.</li>
+  <li>200 falls into the [200, 225) bin on its own since it&#39;s the maximum value in the data.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="plot_stretch">
+  <h3>Stretch — Moving Average Smoothing <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A moving average smooths a noisy line chart by averaging each point with its neighbours, making the underlying trend easier to see — a very common technique before plotting time-series data.</p>
+  <pre class="code-block"><code># 3-point moving average for [1, 2, 3, 4, 5]:
+# point 2 (index 1): avg(1,2,3) = 2.0
+# point 3 (index 2): avg(2,3,4) = 3.0
+# edges (index 0 and 4) have fewer neighbours and are often left out or handled specially</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write moving_average(data, window) that computes a centered moving average, only for indices that have a FULL window available on both sides (i.e. skip the edges rather than padding them).</li>
+  <li>For window=3, the result for monthly_sales should have exactly 10 values (skipping the first and last month).</li>
+  <li>Print the moving average list, with each value rounded to 2 decimal places.</li>
+  <li>Print how much smoother it is: the difference between max(monthly_sales) - min(monthly_sales) and max(smoothed) - min(smoothed), rounded to 2 decimal places (should be positive, showing reduced range).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>A centered window requires an odd window size to have equal neighbours on both sides — window=3 is used here specifically because it divides evenly around each center point.</li>
+  <li>Don&#39;t pad the edges with partial windows for this task — the instructions specifically ask you to skip indices without a full window, which is why the result has exactly 10 (not 12) values.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>For window=3 centered on index i, average data[i-1], data[i], data[i+1] — valid for i from 1 to len(data)-2 inclusive.</li>
+  <li>len(monthly_sales) - 2 = 10 valid centered points for a window of 3.</li>
+  <li>range_original = max(monthly_sales) - min(monthly_sales); range_smoothed = max(smoothed) - min(smoothed); the difference should be positive since smoothing narrows the range.</li>
+  <li>This exercise&#39;s checker looks for &#39;10&#39; (the count) and the word &#39;positive&#39; somewhere in your printed output — print your own descriptive line confirming the range shrank, alongside the required numeric list.</li>
+</ul>
+</details>
+</section>
+</div>

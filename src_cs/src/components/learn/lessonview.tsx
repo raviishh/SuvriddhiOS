@@ -12,11 +12,10 @@ export default function LessonView({ item, onMarkComplete }: LessonViewProps) {
 
     useEffect(() => {
         fetch(`/data/learn/${item.contentFile}`)
-            .then(r => r.text())
-            .then(t => setHtml(t))
+            .then((r) => r.text())
+            .then((t) => setHtml(t))
             .catch(() => setHtml("<p>Unable to load content.</p>"));
     }, [item.contentFile]);
-
 
     return (
         <div className="grow p-6">
@@ -25,14 +24,22 @@ export default function LessonView({ item, onMarkComplete }: LessonViewProps) {
             </div> */}
             {/* <h2 className="text-2xl text-center -ml-[calc((100vw-100%)/2)] font-bold mb-4"></h2> */}
 
-
             {/* Include title with html file for now. Later make it standardized here */}
             <link rel="stylesheet" href="common.css"></link>
-            <div className="max-w-none learning-container" dangerouslySetInnerHTML={{ __html: html ?? "<p>Loading...</p>" }} />
-
+            <div
+                className="max-w-none learning-container"
+                dangerouslySetInnerHTML={{
+                    __html: html ?? "<p>Loading...</p>",
+                }}
+            />
 
             <div className="flex items-center justify-center">
-                <button onClick={onMarkComplete} className="px-4 py-3 bg-secondary text-primary-foreground rounded-3xl font-medium shadow-md hover:bg-secondary/80 transition-all"><Check /></button>
+                <button
+                    onClick={onMarkComplete}
+                    className="px-4 py-3 bg-secondary text-primary-foreground rounded-3xl font-medium shadow-md hover:bg-secondary/80 transition-all"
+                >
+                    <Check />
+                </button>
             </div>
         </div>
     );

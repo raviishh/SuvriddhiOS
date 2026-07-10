@@ -1,0 +1,98 @@
+<div class="exercise-content">
+  <h2>Write Tests for the Bank Account Project</h2>
+  <p class="exercise-lead">Write pytest tests covering normal behaviour and edge cases.</p>
+
+  <section class="exercise-task" id="test_1">
+  <h3>Part 1 — Happy-Path Tests </h3>
+  <p class="task-background">A pytest test is a function whose name starts with test_. Use assert to check expected values.</p>
+  <pre class="code-block"><code>def test_addition():
+    assert 1 + 1 == 2
+
+def test_string_upper():
+    assert &#39;hello&#39;.upper() == &#39;HELLO&#39;</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write test_deposit() — deposit 100, assert balance is 100.</li>
+  <li>Write test_withdraw() — deposit 200, withdraw 50, assert balance is 150.</li>
+  <li>Write test_initial_balance() — assert default balance is 0.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Each test function must be independent — create a new BankAccount inside each one.</li>
+  <li>Assert the final balance, not an intermediate state — one assert per test is fine.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>account = BankAccount() creates a fresh account each test.</li>
+  <li>assert account.balance == expected_value</li>
+  <li>Each test function is independent — a fresh BankAccount() in every test prevents state from leaking.</li>
+  <li>pytest discovers functions starting with test_ automatically — no registration needed.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="test_2">
+  <h3>Part 2 — Edge Cases with pytest.raises </h3>
+  <p class="task-background">pytest.raises(ExceptionType) asserts that a block of code raises the expected exception.</p>
+  <pre class="code-block"><code>def test_bad_input():
+    with pytest.raises(ValueError):
+        int(&quot;not a number&quot;)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write test_overdraft() — assert that withdrawing more than the balance raises ValueError.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>The withdrawal amount must exceed the balance — don&#39;t accidentally set the balance higher than the withdrawal.</li>
+  <li>pytest.raises is a context manager — the risky code must be inside the with block.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>with pytest.raises(ValueError): account.withdraw(amount_greater_than_balance)</li>
+  <li>You can also capture the exception info: with pytest.raises(ValueError) as exc_info: ... and then check str(exc_info.value).</li>
+  <li>The test passes only if the ValueError is raised — if no exception is raised, the test fails.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="test_stretch">
+  <h3>Stretch — Parametrised Tests <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">@pytest.mark.parametrize runs a test function multiple times with different inputs, keeping your test suite DRY.</p>
+  <pre class="code-block"><code>@pytest.mark.parametrize(&#39;a, b, expected&#39;, [
+    (1, 2, 3),
+    (0, 0, 0),
+    (-1, 1, 0),
+])
+def test_add(a, b, expected):
+    assert add(a, b) == expected</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a parametrised test test_deposit_amounts that tests depositing 0, 50, and 1000.</li>
+  <li>Each case should assert the resulting balance equals the deposited amount (starting from 0).</li>
+  <li>Write a second parametrised test test_withdraw_valid that tests valid withdrawals from a 500-balance account: withdraw 100 (balance 400), 0 (balance 500), 500 (balance 0).</li>
+  <li>All 6 parametrised cases must pass.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not use a module-level account — create a fresh one inside each parametrised test body.</li>
+  <li>Depositing 0 should leave balance at 0 — test this edge case explicitly.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>@pytest.mark.parametrize(&#39;amount, expected&#39;, [(0, 0), (50, 50), (1000, 1000)])</li>
+  <li>For withdrawal: create BankAccount(500) inside the test to start with a known balance.</li>
+  <li>Each parametrised case is a separate test run — they are isolated.</li>
+  <li>Parametrize decorator goes directly above the test function definition.</li>
+</ul>
+</details>
+</section>
+</div>

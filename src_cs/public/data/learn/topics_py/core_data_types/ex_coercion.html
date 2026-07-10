@@ -1,0 +1,102 @@
+<div class="exercise-content">
+  <h2>Type Coercion Puzzles</h2>
+  <p class="exercise-lead">Predict and verify what Python does when types meet each other.</p>
+
+  <section class="exercise-task" id="coerce_1">
+  <h3>Part 1 — Explicit Conversion </h3>
+  <p class="task-background">int(), float(), and str() convert values between types. int(3.9) truncates (gives 3), not rounds.</p>
+  <pre class="code-block"><code>print(int(3.9))   # 3
+print(float(7))   # 7.0
+print(str(42))    # &#39;42&#39;</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>3
+7.0
+42</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Convert the float 9.99 to an int and print it.</li>
+  <li>Convert the integer 100 to a float and print it.</li>
+  <li>Convert the integer 7 to a string, concatenate &quot; wonders&quot;, and print it.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>int() truncates, it does not round — int(9.99) is 9, not 10.</li>
+  <li>int(-3.9) is -3, not -4 — truncation always moves toward zero.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>int(9.99) truncates toward zero.</li>
+  <li>String concatenation requires both sides to be strings: str(7) + &quot; wonders&quot;</li>
+  <li>float(100) adds a decimal point: 100.0</li>
+  <li>You cannot concatenate an int and a string directly — Python will raise a TypeError.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="coerce_2">
+  <h3>Part 2 — Mixed-Type Arithmetic </h3>
+  <p class="task-background">Python automatically promotes int to float when you mix them in arithmetic. Adding a bool to an int also works — True is 1, False is 0.</p>
+  <pre class="code-block"><code>print(3 + 1.0)      # 4.0
+print(True + 5)     # 6
+print(False + 10)   # 10</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>4.0
+6
+10</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Print the result of 5 + 2.0</li>
+  <li>Print the result of True + True + False</li>
+  <li>Print the type of (5 + 2.0) using type()</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Print the type object itself, not a string description like &#39;float&#39;.</li>
+  <li>type(5 + 2.0) gives &lt;class &#39;float&#39;&gt;, not &lt;class &#39;int&#39;&gt; — the int is promoted.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>int + float → float automatically.</li>
+  <li>type() returns the type object; print it directly.</li>
+  <li>True == 1 and False == 0 in arithmetic contexts — this is guaranteed by the Python spec.</li>
+  <li>Wrap the expression in type(): type(5 + 2.0)</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="coerce_stretch">
+  <h3>Stretch — Safe String-to-Number Pipeline <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">int() and float() raise ValueError for invalid strings. A robust pipeline checks the string first or catches the exception.</p>
+  <pre class="code-block"><code>def safe_int(s):
+    try:
+        return int(s)
+    except ValueError:
+        return None</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a function coerce_number(s) that tries to convert string s to int first, then float, and returns None if neither works.</li>
+  <li>coerce_number(&#39;42&#39;) → 42 (int)</li>
+  <li>coerce_number(&#39;3.14&#39;) → 3.14 (float)</li>
+  <li>coerce_number(&#39;hello&#39;) → None</li>
+  <li>Print the type and value for each of the three test cases.</li>
+  <li>Expected output (three lines): &lt;class &#39;int&#39;&gt; 42 / &lt;class &#39;float&#39;&gt; 3.14 / &lt;class &#39;NoneType&#39;&gt; None</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>int(&#39;3.14&#39;) raises ValueError — you cannot skip the float step.</li>
+  <li>Return the converted value, not a string representation of it.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (3)</summary>
+  <ul>
+  <li>Nest two try/except blocks: try int() first, then float() in the except, then return None in the second except.</li>
+  <li>type(None) is &lt;class &#39;NoneType&#39;&gt;.</li>
+  <li>print(type(result), result) produces the correct format in one call.</li>
+</ul>
+</details>
+</section>
+</div>

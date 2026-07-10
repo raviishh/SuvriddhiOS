@@ -38,6 +38,42 @@
                 "type": "lesson",
                 "title": "The Zen of Python & Pythonic Thinking",
                 "contentFile": "topics_py/foundations/zen_python.html"
+            },
+            {
+                "id": "found_ex_hello_world",
+                "type": "exercise",
+                "title": "Exercise: Hello World Variants & Variable Juggling",
+                "contentFile": "topics_py/foundations/ex_hello_world.html"
+            },
+            {
+                "id": "found_ex_io_programs",
+                "type": "exercise",
+                "title": "Exercise: I/O Mini-Programs (Calculator, Greeter)",
+                "contentFile": "topics_py/foundations/ex_io_programs.html"
+            },
+            {
+                "id": "found_ex_execution_trace",
+                "type": "exercise",
+                "title": "Exercise: Trace the Execution Model",
+                "contentFile": "topics_py/foundations/ex_execution_trace.html"
+            },
+            {
+                "id": "challenge_found_001",
+                "type": "challenge",
+                "title": "Incident #001 — Conference Check-in Terminal",
+                "contentFile": "topics_py/foundations/challenge_found_001.html"
+            },
+            {
+                "id": "challenge_found_002",
+                "type": "challenge",
+                "title": "Incident #002 — Coffee Shop Receipt Generator",
+                "contentFile": "topics_py/foundations/challenge_found_002.html"
+            },
+            {
+                "id": "found_quiz",
+                "type": "quiz",
+                "title": "Quiz: Foundations Knowledge Check",
+                "contentFile": "topics_py/foundations/quiz.html"
             }
         ]
     },
@@ -86,6 +122,42 @@
                 "type": "lesson",
                 "title": "Shallow vs Deep Copy",
                 "contentFile": "topics_py/core_data_types/shallow_deep_copy.html"
+            },
+            {
+                "id": "types_ex_coercion",
+                "type": "exercise",
+                "title": "Exercise: Type Coercion Puzzles",
+                "contentFile": "topics_py/core_data_types/ex_coercion.html"
+            },
+            {
+                "id": "types_ex_strings",
+                "type": "exercise",
+                "title": "Exercise: String Manipulation Challenges (f-strings, Slicing, Methods)",
+                "contentFile": "topics_py/core_data_types/ex_strings.html"
+            },
+            {
+                "id": "types_ex_mutation",
+                "type": "exercise",
+                "title": "Exercise: Spot the Mutation Bug",
+                "contentFile": "topics_py/core_data_types/ex_mutation.html"
+            },
+            {
+                "id": "challenge_types_001",
+                "type": "challenge",
+                "title": "Incident #018 — Password Security Audit",
+                "contentFile": "topics_py/core_data_types/challenge_types_001.html"
+            },
+            {
+                "id": "challenge_types_002",
+                "type": "challenge",
+                "title": "Incident #027 — Faulty Temperature Sensor",
+                "contentFile": "topics_py/core_data_types/challenge_types_002.html"
+            },
+            {
+                "id": "types_quiz",
+                "type": "quiz",
+                "title": "Quiz: Data Types Knowledge Check",
+                "contentFile": "topics_py/core_data_types/quiz.html"
             }
         ]
     },
@@ -134,6 +206,42 @@
                 "type": "lesson",
                 "title": "Pattern Matching (Python 3.10+)",
                 "contentFile": "topics_py/control_flow/pattern_matching.html"
+            },
+            {
+                "id": "control_ex_fizzbuzz",
+                "type": "exercise",
+                "title": "Exercise: FizzBuzz Variations",
+                "contentFile": "topics_py/control_flow/ex_fizzbuzz.html"
+            },
+            {
+                "id": "control_ex_loop_logic",
+                "type": "exercise",
+                "title": "Exercise: Loop Logic Puzzles",
+                "contentFile": "topics_py/control_flow/ex_loop_logic.html"
+            },
+            {
+                "id": "control_ex_pattern_matching",
+                "type": "exercise",
+                "title": "Exercise: Pattern Matching Practice",
+                "contentFile": "topics_py/control_flow/ex_pattern_matching.html"
+            },
+            {
+                "id": "challenge_control_001",
+                "type": "challenge",
+                "title": "Incident #051 — Smart Parking Garage",
+                "contentFile": "topics_py/control_flow/challenge_control_001.html"
+            },
+            {
+                "id": "challenge_control_002",
+                "type": "challenge",
+                "title": "Incident #063 — Elevator Dispatch System",
+                "contentFile": "topics_py/control_flow/challenge_control_002.html"
+            },
+            {
+                "id": "control_quiz",
+                "type": "quiz",
+                "title": "Quiz: Control Flow Knowledge Check",
+                "contentFile": "topics_py/control_flow/quiz.html"
             }
         ]
     },
@@ -182,6 +290,48 @@
                 "type": "lesson",
                 "title": "Docstrings & Documentation",
                 "contentFile": "topics_py/functions/docstrings.html"
+            },
+            {
+                "id": "func_ex_refactoring",
+                "type": "exercise",
+                "title": "Exercise: Function Refactoring Drills",
+                "contentFile": "topics_py/functions/ex_refactoring.html"
+            },
+            {
+                "id": "func_ex_recursion",
+                "type": "exercise",
+                "title": "Exercise: Recursive Challenges (Factorial, Fibonacci, Flatten)",
+                "contentFile": "topics_py/functions/ex_recursion.html"
+            },
+            {
+                "id": "func_ex_lambda_scope",
+                "type": "exercise",
+                "title": "Exercise: Lambda, Scope & Docstring Drills",
+                "contentFile": "topics_py/functions/ex_lambda_scope.html"
+            },
+            {
+                "id": "challenge_func_001",
+                "type": "challenge",
+                "title": "Incident #084 — E-Commerce Pricing Engine",
+                "contentFile": "topics_py/functions/challenge_func_001.html"
+            },
+            {
+                "id": "challenge_func_002",
+                "type": "challenge",
+                "title": "Incident #097 — Company Folder Size Analyzer",
+                "contentFile": "topics_py/functions/challenge_func_002.html"
+            },
+            {
+                "id": "func_quiz",
+                "type": "quiz",
+                "title": "Quiz: Functions Knowledge Check",
+                "contentFile": "topics_py/functions/quiz.html"
+            },
+            {
+                "id": "func_project_guessing_game",
+                "type": "project",
+                "title": "Mini-Project: Number Guessing Game CLI",
+                "contentFile": "topics_py/functions/project_guessing_game.html"
             }
         ]
     },
@@ -242,6 +392,54 @@
                 "type": "lesson",
                 "title": "Time Complexity Intuition",
                 "contentFile": "topics_py/data_structures/time_complexity_intuition.html"
+            },
+            {
+                "id": "ds_ex_comprehensions",
+                "type": "exercise",
+                "title": "Exercise: List & Dict Comprehension Drills",
+                "contentFile": "topics_py/data_structures/ex_comprehensions.html"
+            },
+            {
+                "id": "ds_ex_transformation",
+                "type": "exercise",
+                "title": "Exercise: Data Structure Transformation Challenges",
+                "contentFile": "topics_py/data_structures/ex_transformation.html"
+            },
+            {
+                "id": "ds_ex_frequency",
+                "type": "exercise",
+                "title": "Exercise: Frequency Counter & Deduplication Problems",
+                "contentFile": "topics_py/data_structures/ex_frequency.html"
+            },
+            {
+                "id": "ds_ex_choosing_structures",
+                "type": "exercise",
+                "title": "Exercise: Pick the Right Structure & Estimate Complexity",
+                "contentFile": "topics_py/data_structures/ex_choosing_structures.html"
+            },
+            {
+                "id": "challenge_ds_001",
+                "type": "challenge",
+                "title": "Incident #112 — Music Streaming Analytics Failure",
+                "contentFile": "topics_py/data_structures/challenge_ds_001.html"
+            },
+            {
+                "id": "challenge_ds_002",
+                "type": "challenge",
+                "title": "Incident #128 — Warehouse Inventory Merge",
+                "contentFile": "topics_py/data_structures/challenge_ds_002.html"
+            },
+            {
+                "id": "ds_quiz",
+                "type": "quiz",
+                "title": "Quiz: Data Structures Knowledge Check",
+                "contentFile": "topics_py/data_structures/quiz.html"
+            },
+            {
+                "id": "ds_project_contact_book",
+                "type": "project",
+                "title": "Mini-Project: Contact Book (Dict-Based CRUD)",
+                "contentFile": "topics_py/data_structures/project_contact_book.html"
             }
         ]
     },
@@ -290,6 +488,42 @@
                 "type": "lesson",
                 "title": "pathlib (Modern Approach)",
                 "contentFile": "topics_py/file_handling/pathlib.html"
+            },
+            {
+                "id": "file_ex_parser",
+                "type": "exercise",
+                "title": "Exercise: File Parser Challenges",
+                "contentFile": "topics_py/file_handling/ex_parser.html"
+            },
+            {
+                "id": "file_ex_csv_json",
+                "type": "exercise",
+                "title": "Exercise: CSV & JSON Read/Write Drills",
+                "contentFile": "topics_py/file_handling/ex_csv_json.html"
+            },
+            {
+                "id": "file_ex_pathlib_pipeline",
+                "type": "exercise",
+                "title": "Exercise: pathlib Batch-Processing Pipeline",
+                "contentFile": "topics_py/file_handling/ex_pathlib_pipeline.html"
+            },
+            {
+                "id": "challenge_file_001",
+                "type": "challenge",
+                "title": "Incident #141 — Corrupted Student Grade Archive",
+                "contentFile": "topics_py/file_handling/challenge_file_001.html"
+            },
+            {
+                "id": "challenge_file_002",
+                "type": "challenge",
+                "title": "Incident #156 — Customer Backup Recovery",
+                "contentFile": "topics_py/file_handling/challenge_file_002.html"
+            },
+            {
+                "id": "file_quiz",
+                "type": "quiz",
+                "title": "Quiz: File Handling Knowledge Check",
+                "contentFile": "topics_py/file_handling/quiz.html"
             }
         ]
     },
@@ -332,66 +566,56 @@
                 "type": "lesson",
                 "title": "Logging Module",
                 "contentFile": "topics_py/error_handling/logging.html"
-            }
-        ]
-    },
-    {
-        "id": "modules_project_structure",
-        "title": "Modules & Project Structure",
-        "items": [
-            {
-                "id": "mod_import_system",
-                "type": "lesson",
-                "title": "Import System",
-                "contentFile": "topics_py/modules/import_system.html"
             },
             {
-                "id": "mod_custom_modules",
-                "type": "lesson",
-                "title": "Creating Custom Modules",
-                "contentFile": "topics_py/modules/custom_modules.html"
+                "id": "err_ex_handling",
+                "type": "exercise",
+                "title": "Exercise: Exception Handling Drills",
+                "contentFile": "topics_py/error_handling/ex_handling.html"
             },
             {
-                "id": "mod_main_guard",
-                "type": "lesson",
-                "title": "__name__ == \"__main__\"",
-                "contentFile": "topics_py/modules/main_guard.html"
+                "id": "err_ex_debug",
+                "type": "exercise",
+                "title": "Exercise: Debug the Broken Program",
+                "contentFile": "topics_py/error_handling/ex_debug.html"
             },
             {
-                "id": "mod_package_structure",
-                "type": "lesson",
-                "title": "Package Structure",
-                "contentFile": "topics_py/modules/package_structure.html"
+                "id": "err_ex_custom_logging",
+                "type": "exercise",
+                "title": "Exercise: Custom Exceptions with Logging",
+                "contentFile": "topics_py/error_handling/ex_custom_logging.html"
             },
             {
-                "id": "mod_venv",
-                "type": "lesson",
-                "title": "Virtual Environments (venv)",
-                "contentFile": "topics_py/modules/venv.html"
+                "id": "challenge_error_001",
+                "type": "challenge",
+                "title": "Incident #173 — ATM Transaction Failure",
+                "contentFile": "topics_py/error_handling/challenge_error_001.html"
             },
             {
-                "id": "mod_dependency_mgmt",
-                "type": "lesson",
-                "title": "Dependency Management",
-                "contentFile": "topics_py/modules/dependency_management.html"
+                "id": "challenge_error_002",
+                "type": "challenge",
+                "title": "Incident #189 — Broken Configuration Loader",
+                "contentFile": "topics_py/error_handling/challenge_error_002.html"
             },
             {
-                "id": "mod_pip_requirements",
-                "type": "lesson",
-                "title": "pip & Requirements Files",
-                "contentFile": "topics_py/modules/pip_requirements.html"
+                "id": "err_quiz",
+                "type": "quiz",
+                "title": "Quiz: Error Handling Knowledge Check",
+                "contentFile": "topics_py/error_handling/quiz.html",
+                "id": "err_quiz",
+                "type": "quiz",
+                "title": "Quiz: Error Handling Knowledge Check",
+                "contentFile": "topics_py/error_handling/quiz.html"
             },
             {
-                "id": "mod_pyproject",
-                "type": "lesson",
-                "title": "pyproject.toml",
-                "contentFile": "topics_py/modules/pyproject.html"
-            },
-            {
-                "id": "mod_wheels_vs_source",
-                "type": "lesson",
-                "title": "Wheels vs Source Distributions",
-                "contentFile": "topics_py/modules/wheels_vs_source.html"
+                "id": "err_project_contact_book_v2",
+                "type": "project",
+                "title": "Mini-Project: Upgrade Contact Book with File Persistence & Error Handling",
+                "contentFile": "topics_py/error_handling/project_contact_book_v2.html",
+                "id": "err_project_contact_book_v2",
+                "type": "project",
+                "title": "Mini-Project: Upgrade Contact Book with File Persistence & Error Handling",
+                "contentFile": "topics_py/error_handling/project_contact_book_v2.html"
             }
         ]
     },
@@ -458,6 +682,150 @@
                 "type": "lesson",
                 "title": "Enums",
                 "contentFile": "topics_py/oop/enums.html"
+            },
+            {
+                "id": "oop_ex_model_system",
+                "type": "exercise",
+                "title": "Exercise: Model a Real-World System in Classes",
+                "contentFile": "topics_py/oop/ex_model_system.html"
+            },
+            {
+                "id": "oop_ex_dunder",
+                "type": "exercise",
+                "title": "Exercise: Dunder Method Implementation Drills",
+                "contentFile": "topics_py/oop/ex_dunder.html"
+            },
+            {
+                "id": "oop_ex_inheritance",
+                "type": "exercise",
+                "title": "Exercise: Inheritance Hierarchy Design",
+                "contentFile": "topics_py/oop/ex_inheritance.html"
+            },
+            {
+                "id": "oop_ex_dataclass_enum",
+                "type": "exercise",
+                "title": "Exercise: Dataclasses & Enums in Practice",
+                "contentFile": "topics_py/oop/ex_dataclass_enum.html"
+            },
+            {
+                "id": "challenge_oop_001",
+                "type": "challenge",
+                "title": "Incident #203 — Hospital Patient Management System",
+                "contentFile": "topics_py/oop/challenge_oop_001.html"
+            },
+            {
+                "id": "challenge_oop_002",
+                "type": "challenge",
+                "title": "Incident #224 — Warehouse Robot Fleet",
+                "contentFile": "topics_py/oop/challenge_oop_002.html"
+            },
+            {
+                "id": "oop_quiz",
+                "type": "quiz",
+                "title": "Quiz: OOP Knowledge Check",
+                "contentFile": "topics_py/oop/quiz.html"
+            },
+            {
+                "id": "oop_project_bank_account",
+                "type": "project",
+                "title": "Project: Bank Account System (OOP)",
+                "contentFile": "topics_py/oop/project_bank_account.html"
+            }
+        ]
+    },
+    {
+        "id": "modules_project_structure",
+        "title": "Modules & Project Structure",
+        "items": [
+            {
+                "id": "mod_import_system",
+                "type": "lesson",
+                "title": "Import System",
+                "contentFile": "topics_py/modules/import_system.html"
+            },
+            {
+                "id": "mod_custom_modules",
+                "type": "lesson",
+                "title": "Creating Custom Modules",
+                "contentFile": "topics_py/modules/custom_modules.html"
+            },
+            {
+                "id": "mod_main_guard",
+                "type": "lesson",
+                "title": "__name__ == \"__main__\"",
+                "contentFile": "topics_py/modules/main_guard.html"
+            },
+            {
+                "id": "mod_package_structure",
+                "type": "lesson",
+                "title": "Package Structure",
+                "contentFile": "topics_py/modules/package_structure.html"
+            },
+            {
+                "id": "mod_venv",
+                "type": "lesson",
+                "title": "Virtual Environments (venv)",
+                "contentFile": "topics_py/modules/venv.html"
+            },
+            {
+                "id": "mod_dependency_mgmt",
+                "type": "lesson",
+                "title": "Dependency Management",
+                "contentFile": "topics_py/modules/dependency_management.html"
+            },
+            {
+                "id": "mod_pip_requirements",
+                "type": "lesson",
+                "title": "pip & Requirements Files",
+                "contentFile": "topics_py/modules/pip_requirements.html"
+            },
+            {
+                "id": "mod_pyproject",
+                "type": "lesson",
+                "title": "pyproject.toml",
+                "contentFile": "topics_py/modules/pyproject.html"
+            },
+            {
+                "id": "mod_wheels_vs_source",
+                "type": "lesson",
+                "title": "Wheels vs Source Distributions",
+                "contentFile": "topics_py/modules/wheels_vs_source.html"
+            },
+            {
+                "id": "mod_ex_refactor_package",
+                "type": "exercise",
+                "title": "Exercise: Refactor a Script into a Package",
+                "contentFile": "topics_py/modules/ex_refactor_package.html"
+            },
+            {
+                "id": "mod_ex_venv_setup",
+                "type": "exercise",
+                "title": "Exercise: Set Up a Project with venv & requirements.txt",
+                "contentFile": "topics_py/modules/ex_venv_setup.html"
+            },
+            {
+                "id": "mod_ex_pyproject_setup",
+                "type": "exercise",
+                "title": "Exercise: Configure a Package with pyproject.toml",
+                "contentFile": "topics_py/modules_project_structure/ex_pyproject_setup.html"
+            },
+            {
+                "id": "challenge_modules_001",
+                "type": "challenge",
+                "title": "Incident #241 — The Monolithic Utility Script",
+                "contentFile": "topics_py/modules_project_structure/challenge_modules_001.html"
+            },
+            {
+                "id": "challenge_modules_002",
+                "type": "challenge",
+                "title": "Incident #259 — Broken Developer Environment",
+                "contentFile": "topics_py/modules_project_structure/challenge_modules_002.html"
+            },
+            {
+                "id": "mod_quiz",
+                "type": "quiz",
+                "title": "Quiz: Modules & Packaging Knowledge Check",
+                "contentFile": "topics_py/modules/quiz.html"
             }
         ]
     },
@@ -478,16 +846,16 @@
                 "contentFile": "topics_py/intermediate/generators.html"
             },
             {
-                "id": "int_decorators",
-                "type": "lesson",
-                "title": "Decorators",
-                "contentFile": "topics_py/intermediate/decorators.html"
-            },
-            {
                 "id": "int_closures",
                 "type": "lesson",
                 "title": "Closures",
                 "contentFile": "topics_py/intermediate/closures.html"
+            },
+            {
+                "id": "int_decorators",
+                "type": "lesson",
+                "title": "Decorators",
+                "contentFile": "topics_py/intermediate/decorators.html"
             },
             {
                 "id": "int_type_hinting",
@@ -512,48 +880,48 @@
                 "type": "lesson",
                 "title": "Regular Expressions",
                 "contentFile": "topics_py/intermediate/regex.html"
-            }
-        ]
-    },
-    {
-        "id": "concurrency_parallelism",
-        "title": "Concurrency & Parallelism",
-        "items": [
-            {
-                "id": "conc_threads",
-                "type": "lesson",
-                "title": "Threads",
-                "contentFile": "topics_py/concurrency/threads.html"
             },
             {
-                "id": "conc_multiprocessing",
-                "type": "lesson",
-                "title": "Multiprocessing",
-                "contentFile": "topics_py/concurrency/multiprocessing.html"
+                "id": "int_ex_iterator_generator",
+                "type": "exercise",
+                "title": "Exercise: Write Your Own Iterator & Generator",
+                "contentFile": "topics_py/intermediate/ex_iterator_generator.html"
             },
             {
-                "id": "conc_gil",
-                "type": "lesson",
-                "title": "The GIL Explained",
-                "contentFile": "topics_py/concurrency/gil.html"
+                "id": "int_ex_decorators",
+                "type": "exercise",
+                "title": "Exercise: Build and Stack Decorators",
+                "contentFile": "topics_py/intermediate/ex_decorators.html"
             },
             {
-                "id": "conc_async_basics",
-                "type": "lesson",
-                "title": "Async Programming Basics",
-                "contentFile": "topics_py/concurrency/async_basics.html"
+                "id": "int_ex_regex",
+                "type": "exercise",
+                "title": "Exercise: Regex Pattern Challenges",
+                "contentFile": "topics_py/intermediate/ex_regex.html"
             },
             {
-                "id": "conc_async_await",
-                "type": "lesson",
-                "title": "async / await",
-                "contentFile": "topics_py/concurrency/async_await.html"
+                "id": "challenge_intermediate_001",
+                "type": "challenge",
+                "title": "Incident #301 — Infinite Log Stream",
+                "contentFile": "topics_py/intermediate_python/challenge_intermediate_001.html"
             },
             {
-                "id": "conc_asyncio",
-                "type": "lesson",
-                "title": "asyncio",
-                "contentFile": "topics_py/concurrency/asyncio.html"
+                "id": "challenge_intermediate_002",
+                "type": "challenge",
+                "title": "Incident #327 — API Rate Limiter",
+                "contentFile": "topics_py/intermediate_python/challenge_intermediate_002.html"
+            },
+            {
+                "id": "int_quiz",
+                "type": "quiz",
+                "title": "Quiz: Intermediate Features Knowledge Check",
+                "contentFile": "topics_py/intermediate/quiz.html"
+            },
+            {
+                "id": "int_project_log_parser",
+                "type": "project",
+                "title": "Mini-Project: Log File Parser Using Generators & Regex",
+                "contentFile": "topics_py/intermediate/project_log_parser.html"
             }
         ]
     },
@@ -596,6 +964,120 @@
                 "type": "lesson",
                 "title": "PEP 8 Deep Dive",
                 "contentFile": "topics_py/testing/pep8.html"
+            },
+            {
+                "id": "test_ex_bank_account",
+                "type": "exercise",
+                "title": "Exercise: Write Tests for the Bank Account Project",
+                "contentFile": "topics_py/testing/ex_bank_account.html"
+            },
+            {
+                "id": "test_ex_mocking_practice",
+                "type": "exercise",
+                "title": "Exercise: Mock External Calls with pytest",
+                "contentFile": "topics_py/testing_code_quality/ex_mocking_practice.html"
+            },
+            {
+                "id": "test_ex_tdd_kata",
+                "type": "exercise",
+                "title": "Exercise: TDD Kata (Red → Green → Refactor)",
+                "contentFile": "topics_py/testing/ex_tdd_kata.html"
+            },
+            {
+                "id": "challenge_testing_001",
+                "type": "challenge",
+                "title": "Incident #351 — Banking Interest Calculation Bug",
+                "contentFile": "topics_py/testing_code_quality/challenge_testing_001.html"
+            },
+            {
+                "id": "challenge_testing_002",
+                "type": "challenge",
+                "title": "Incident #372 — Unstable Weather Service",
+                "contentFile": "topics_py/testing_code_quality/challenge_testing_002.html"
+            },
+            {
+                "id": "test_quiz",
+                "type": "quiz",
+                "title": "Quiz: Testing & Code Quality Knowledge Check",
+                "contentFile": "topics_py/testing/quiz.html"
+            }
+        ]
+    },
+    {
+        "id": "concurrency_parallelism",
+        "title": "Concurrency & Parallelism",
+        "items": [
+            {
+                "id": "conc_threads",
+                "type": "lesson",
+                "title": "Threads",
+                "contentFile": "topics_py/concurrency/threads.html"
+            },
+            {
+                "id": "conc_multiprocessing",
+                "type": "lesson",
+                "title": "Multiprocessing",
+                "contentFile": "topics_py/concurrency/multiprocessing.html"
+            },
+            {
+                "id": "conc_gil",
+                "type": "lesson",
+                "title": "The GIL Explained",
+                "contentFile": "topics_py/concurrency/gil.html"
+            },
+            {
+                "id": "conc_async_basics",
+                "type": "lesson",
+                "title": "Async Programming Basics",
+                "contentFile": "topics_py/concurrency/async_basics.html"
+            },
+            {
+                "id": "conc_async_await",
+                "type": "lesson",
+                "title": "async / await",
+                "contentFile": "topics_py/concurrency/async_await.html"
+            },
+            {
+                "id": "conc_asyncio",
+                "type": "lesson",
+                "title": "asyncio",
+                "contentFile": "topics_py/concurrency/asyncio.html"
+            },
+            {
+                "id": "conc_ex_thread_vs_process",
+                "type": "exercise",
+                "title": "Exercise: Thread vs Process Benchmarking",
+                "contentFile": "topics_py/concurrency/ex_thread_vs_process.html"
+            },
+            {
+                "id": "conc_ex_async_fetch",
+                "type": "exercise",
+                "title": "Exercise: Async Fetch Simulator",
+                "contentFile": "topics_py/concurrency/ex_async_fetch.html"
+            },
+            {
+                "id": "conc_ex_asyncio_gather",
+                "type": "exercise",
+                "title": "Exercise: Concurrent Downloads with asyncio.gather",
+                "contentFile": "topics_py/concurrency_parallelism/ex_asyncio_gather.html"
+            },
+            {
+                "id": "challenge_concurrency_001",
+                "type": "challenge",
+                "title": "Incident #401 — Food Delivery Dispatch Meltdown",
+                "contentFile": "topics_py/concurrency_parallelism/challenge_concurrency_001.html"
+            },
+            {
+                "id": "challenge_concurrency_002",
+                "type": "challenge",
+                "title": "Incident #428 — Satellite Image Processing Queue",
+                "contentFile": "topics_py/concurrency_parallelism/challenge_concurrency_002.html"
+            },
+            {
+                "id": "conc_quiz",
+                "type": "quiz",
+                "title": "Quiz: Concurrency Knowledge Check",
+                "contentFile": "topics_py/concurrency/quiz.html"
             }
         ]
     },
@@ -632,6 +1114,36 @@
                 "type": "lesson",
                 "title": "When Python Is Slow (and why)",
                 "contentFile": "topics_py/performance/why_slow.html"
+            },
+            {
+                "id": "perf_ex_profile_optimize",
+                "type": "exercise",
+                "title": "Exercise: Profile and Optimize a Slow Script",
+                "contentFile": "topics_py/performance/ex_profile_optimize.html"
+            },
+            {
+                "id": "perf_ex_memory_footprint",
+                "type": "exercise",
+                "title": "Exercise: Memory Footprint Comparison",
+                "contentFile": "topics_py/performance/ex_memory_footprint.html"
+            },
+            {
+                "id": "challenge_perf_001",
+                "type": "challenge",
+                "title": "Incident #452 — Search Engine Slowdown",
+                "contentFile": "topics_py/performance_optimization/challenge_perf_001.html"
+            },
+            {
+                "id": "challenge_perf_002",
+                "type": "challenge",
+                "title": "Incident #479 — Social Media Feed Memory Leak",
+                "contentFile": "topics_py/performance_optimization/challenge_perf_002.html"
+            },
+            {
+                "id": "perf_quiz",
+                "type": "quiz",
+                "title": "Quiz: Performance Knowledge Check",
+                "contentFile": "topics_py/performance/quiz.html"
             }
         ]
     },
@@ -668,6 +1180,36 @@
                 "type": "lesson",
                 "title": "Working with the Shell",
                 "contentFile": "topics_py/system/shell.html"
+            },
+            {
+                "id": "sys_ex_file_organiser",
+                "type": "exercise",
+                "title": "Exercise: Build a File Organiser Script",
+                "contentFile": "topics_py/system/ex_file_organiser.html"
+            },
+            {
+                "id": "sys_ex_subprocess_pipeline",
+                "type": "exercise",
+                "title": "Exercise: Subprocess Pipeline Challenge",
+                "contentFile": "topics_py/system/ex_subprocess_pipeline.html"
+            },
+            {
+                "id": "challenge_system_001",
+                "type": "challenge",
+                "title": "Incident #503 — Downloads Folder Disaster",
+                "contentFile": "topics_py/system_interaction/challenge_system_001.html"
+            },
+            {
+                "id": "challenge_system_002",
+                "type": "challenge",
+                "title": "Incident #528 — Automated Deployment Pipeline",
+                "contentFile": "topics_py/system_interaction/challenge_system_002.html"
+            },
+            {
+                "id": "sys_quiz",
+                "type": "quiz",
+                "title": "Quiz: System Interaction Knowledge Check",
+                "contentFile": "topics_py/system/quiz.html"
             }
         ]
     },
@@ -704,6 +1246,36 @@
                 "type": "lesson",
                 "title": "Project Architecture",
                 "contentFile": "topics_py/applications/project_architecture.html"
+            },
+            {
+                "id": "app_ex_argparse",
+                "type": "exercise",
+                "title": "Exercise: Add argparse to an Existing Project",
+                "contentFile": "topics_py/applications/ex_argparse.html"
+            },
+            {
+                "id": "app_ex_consume_api",
+                "type": "exercise",
+                "title": "Exercise: Consume a Public API and Store Results",
+                "contentFile": "topics_py/applications/ex_consume_api.html"
+            },
+            {
+                "id": "challenge_apps_001",
+                "type": "challenge",
+                "title": "Incident #601 — Weather Operations Dashboard Outage",
+                "contentFile": "topics_py/real_applications/challenge_apps_001.html"
+            },
+            {
+                "id": "challenge_apps_002",
+                "type": "challenge",
+                "title": "Incident #624 — Restaurant Ordering Service Failure",
+                "contentFile": "topics_py/real_applications/challenge_apps_002.html"
+            },
+            {
+                "id": "app_project_task_manager",
+                "type": "project",
+                "title": "Capstone Project: Task Manager REST API (Flask + SQLite + Tests)",
+                "contentFile": "topics_py/applications/project_task_manager.html"
             }
         ]
     },
@@ -723,17 +1295,53 @@
                 "title": "Pandas Basics",
                 "contentFile": "topics_py/ecosystems/pandas.html"
             },
-            # {
-            #    "id": "eco_matplotlib",
-            #    "type": "lesson",
-            #    "title": "Matplotlib",
-            #    "contentFile": "topics_py/ecosystems/matplotlib.html"
-            #},
+            {
+                "id": "eco_matplotlib",
+                "type": "lesson",
+                "title": "Matplotlib",
+                "contentFile": "topics_py/ecosystems/matplotlib.html"
+            },
             {
                 "id": "eco_packaging",
                 "type": "lesson",
                 "title": "Packaging & Distribution",
                 "contentFile": "topics_py/ecosystems/packaging.html"
+            },
+            {
+                "id": "eco_ex_data_analysis",
+                "type": "exercise",
+                "title": "Exercise: Data Analysis on a Sample Dataset",
+                "contentFile": "topics_py/ecosystems/ex_data_analysis.html"
+            },
+            {
+                "id": "eco_ex_plot_dataset",
+                "type": "exercise",
+                "title": "Exercise: Plot & Interpret a Dataset",
+                "contentFile": "topics_py/ecosystems/ex_plot_dataset.html"
+            },
+            {
+                "id": "challenge_ecosystem_001",
+                "type": "challenge",
+                "title": "Incident #701 — Disease Outbreak Analytics",
+                "contentFile": "topics_py/ecosystem_overview/challenge_ecosystem_001.html"
+            },
+            {
+                "id": "challenge_ecosystem_002",
+                "type": "challenge",
+                "title": "Incident #728 — Release Engineering Crisis",
+                "contentFile": "topics_py/ecosystem_overview/challenge_ecosystem_002.html"
+            },
+            {
+                "id": "eco_quiz",
+                "type": "quiz",
+                "title": "Quiz: Ecosystem Overview Knowledge Check",
+                "contentFile": "topics_py/ecosystems/quiz.html"
+            },
+            {
+                "id": "eco_project_final_capstone",
+                "type": "project",
+                "title": "Final Capstone: End-to-End Data Pipeline & Packaged CLI Tool",
+                "contentFile": "topics_py/ecosystems/project_final_capstone.html"
             }
         ]
     }

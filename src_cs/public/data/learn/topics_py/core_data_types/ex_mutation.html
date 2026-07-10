@@ -1,0 +1,99 @@
+<div class="exercise-content">
+  <h2>Spot the Mutation Bug</h2>
+  <p class="exercise-lead">Identify and fix bugs caused by unexpected mutation and shared references.</p>
+
+  <section class="exercise-task" id="mut_1">
+  <h3>Part 1 — Fix the Shared Reference </h3>
+  <p class="task-background">Assigning a list to a new variable does NOT copy it — both names point to the same object. Use list() or [:] to make a real copy.</p>
+  <pre class="code-block"><code>a = [1, 2, 3]
+b = a          # same object!
+b.append(4)
+print(a)       # [1, 2, 3, 4]  ← surprise!</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>[1, 2, 3, 4]</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Fix the starter code so that appending 4 to copy does NOT affect original.</li>
+  <li>After your fix, original should still print [1, 2, 3] and copy should print [1, 2, 3, 4].</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Both lines must be printed in the exact format shown.</li>
+  <li>copy = original[:] creates a shallow copy — nested lists inside would still be shared. For this exercise the list is flat, so [:] is sufficient.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Use copy = original[:] or copy = list(original).</li>
+  <li>Do not use copy = original — that just creates another name for the same list.</li>
+  <li>You can verify they are different objects with: print(original is copy) — it should print False after the fix.</li>
+  <li>copy.copy() from the copy module also works: import copy; c = copy.copy(original)</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="mut_2">
+  <h3>Part 2 — Immutable Strings </h3>
+  <p class="task-background">Strings are immutable — methods like .replace() return a new string rather than modifying the original.</p>
+  <pre class="code-block"><code>word = &quot;hello&quot;
+word.upper()     # does nothing to word!
+print(word)      # still &#39;hello&#39;</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>hello</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Start with greeting = &quot;hello world&quot;.</li>
+  <li>Convert it to upper case and store the result in shouted.</li>
+  <li>Print greeting (unchanged) and then print shouted.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>greeting must remain lowercase in the output — do not reassign it.</li>
+  <li>Print greeting first, then shouted — order matters for the checker.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>shouted = greeting.upper()  — remember to capture the return value.</li>
+  <li>Do not reassign greeting.</li>
+  <li>If you just write greeting.upper() without assigning it, the result is discarded.</li>
+  <li>This pattern — capturing the return value of a method — is the correct way to work with all immutable types.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="mut_stretch">
+  <h3>Stretch — Deep Copy Trap <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A shallow copy duplicates the outer list but not any nested lists inside it. Use copy.deepcopy() when you need full independence at every level.</p>
+  <pre class="code-block"><code>import copy
+nested = [[1, 2], [3, 4]]
+shallow = nested[:]
+shallow[0].append(99)
+print(nested)   # [[1, 2, 99], [3, 4]] ← the inner list is still shared!</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>[[1, 2, 99], [3, 4]]</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Start with matrix = [[1, 2], [3, 4]].</li>
+  <li>Create a shallow copy called shallow using [:].</li>
+  <li>Create a deep copy called deep using copy.deepcopy().</li>
+  <li>Append 99 to shallow[0] and append 88 to deep[1].</li>
+  <li>Print matrix, shallow, and deep — one per line.</li>
+  <li>Expected: matrix is [[1,2,99],[3,4]], shallow is [[1,2,99],[3,4]], deep is [[1,2],[3,4,88]].</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>shallow = matrix[:] copies the outer list only — inner list objects are still the same.</li>
+  <li>Print each list on its own line — the checker matches line by line.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>import copy at the top.</li>
+  <li>deep = copy.deepcopy(matrix) creates a fully independent copy.</li>
+  <li>Appending to shallow[0] modifies the inner list, which matrix still references.</li>
+  <li>Appending to deep[1] only affects deep — its inner lists are independent copies.</li>
+</ul>
+</details>
+</section>
+</div>

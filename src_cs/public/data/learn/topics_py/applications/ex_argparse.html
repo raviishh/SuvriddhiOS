@@ -1,0 +1,106 @@
+<div class="exercise-content">
+  <h2>Add argparse to an Existing Project</h2>
+  <p class="exercise-lead">Turn a hardcoded script into a flexible CLI tool using the argparse module.</p>
+
+  <section class="exercise-task" id="argp_1">
+  <h3>Part 1 — Positional and Optional Arguments </h3>
+  <p class="task-background">argparse.ArgumentParser() builds a parser. add_argument() defines positional args (no dashes) and optional flags (with -- prefix).</p>
+  <pre class="code-block"><code>parser = argparse.ArgumentParser()
+parser.add_argument(&quot;name&quot;)
+parser.add_argument(&quot;--shout&quot;, action=&quot;store_true&quot;)
+args = parser.parse_args([&quot;Alice&quot;, &quot;--shout&quot;])
+print(args.name, args.shout)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Alice True</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Build a parser with a required positional argument &#39;filename&#39; and an optional flag &#39;--verbose&#39; (action=&#39;store_true&#39;).</li>
+  <li>Also add an optional argument &#39;--count&#39; with type=int and default=1.</li>
+  <li>Parse the simulated arguments [&#39;data.txt&#39;, &#39;--verbose&#39;, &#39;--count&#39;, &#39;5&#39;].</li>
+  <li>Print args.filename, args.verbose, and args.count on separate lines.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Always pass a list to parse_args() in this simulated environment — normally argparse reads sys.argv automatically, but explicit lists make testing deterministic.</li>
+  <li>Without type=int, args.count would be the string &#39;5&#39;, not the integer 5 — print(args.count) would look the same but int-specific operations would fail.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>parser.add_argument(&#39;filename&#39;) with no dashes makes it required and positional.</li>
+  <li>parser.add_argument(&#39;--count&#39;, type=int, default=1) ensures args.count is an int, not a string.</li>
+  <li>parser.parse_args([&#39;data.txt&#39;, &#39;--verbose&#39;, &#39;--count&#39;, &#39;5&#39;]) simulates command-line input without needing sys.argv.</li>
+  <li>action=&#39;store_true&#39; means the flag&#39;s presence sets the attribute to True; its absence leaves it False.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="argp_2">
+  <h3>Part 2 — Subcommands </h3>
+  <p class="task-background">add_subparsers() lets a single CLI tool support multiple subcommands (like &#39;git commit&#39; vs &#39;git push&#39;), each with its own arguments.</p>
+  <pre class="code-block"><code>parser = argparse.ArgumentParser()
+sub = parser.add_subparsers(dest=&quot;command&quot;)
+add_p = sub.add_parser(&quot;add&quot;)
+add_p.add_argument(&quot;x&quot;, type=int)
+add_p.add_argument(&quot;y&quot;, type=int)
+args = parser.parse_args([&quot;add&quot;, &quot;2&quot;, &quot;3&quot;])
+print(args.command, args.x + args.y)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>add 5</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Build a parser with subcommands &#39;greet&#39; and &#39;add&#39;.</li>
+  <li>&#39;greet&#39; takes one positional argument &#39;name&#39;.</li>
+  <li>&#39;add&#39; takes two positional integer arguments &#39;x&#39; and &#39;y&#39;.</li>
+  <li>Parse [&#39;greet&#39;, &#39;World&#39;] and print f&#39;Hello, {args.name}!&#39;.</li>
+  <li>Parse [&#39;add&#39;, &#39;10&#39;, &#39;20&#39;] (using a freshly created parser or re-parsing) and print the sum.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Each subcommand&#39;s arguments are isolated — &#39;name&#39; only exists on args when the &#39;greet&#39; subcommand was used.</li>
+  <li>Print exactly &#39;Hello, World!&#39; with the exclamation mark, matching the f-string format given.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>sub = parser.add_subparsers(dest=&#39;command&#39;) then sub.add_parser(&#39;greet&#39;).add_argument(&#39;name&#39;).</li>
+  <li>args.command tells you which subcommand was used, useful for dispatching to different functions.</li>
+  <li>You can reuse the same parser object for both parse_args() calls — subparsers don&#39;t retain state between calls.</li>
+  <li>For the &#39;add&#39; subcommand, remember both x and y need type=int so you can sum them directly.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="argp_stretch">
+  <h3>Stretch — Validation and Custom Error Messages <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">argparse&#39;s type= parameter can be any callable, including a custom validation function that raises argparse.ArgumentTypeError with a helpful message.</p>
+  <pre class="code-block"><code>def positive_int(value):
+    ivalue = int(value)
+    if ivalue &lt;= 0:
+        raise argparse.ArgumentTypeError(f&quot;{value} is not a positive integer&quot;)
+    return ivalue</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write the positive_int(value) validator shown above.</li>
+  <li>Build a parser with one argument &#39;--workers&#39; using type=positive_int and default=1.</li>
+  <li>Parse [&#39;--workers&#39;, &#39;4&#39;] and print args.workers.</li>
+  <li>Then attempt to parse [&#39;--workers&#39;, &#39;-2&#39;] wrapped in a try/except catching SystemExit (argparse calls sys.exit() on validation errors), printing &#39;Rejected invalid value&#39; if it was caught.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>argparse&#39;s default behaviour on a validation failure is to print usage info to stderr and call sys.exit(2) — this is normal and expected; your job is just to catch the SystemExit so the exercise script itself doesn&#39;t crash.</li>
+  <li>Do not catch generic Exception here — SystemExit does not inherit from Exception, so you need &#39;except SystemExit&#39; specifically.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>argparse.parse_args() calls sys.exit(2) internally when a type validator raises ArgumentTypeError — catch SystemExit to prevent the whole program from exiting during this exercise.</li>
+  <li>You&#39;ll likely want to suppress the default error message argparse prints to stderr; redirecting or ignoring it is fine for this exercise — only the two required print lines are checked.</li>
+  <li>Build a fresh parser (or reuse the same one) for both parse attempts since parsers are stateless between calls.</li>
+  <li>positive_int must both convert to int AND validate positivity — do both steps in the same function.</li>
+</ul>
+</details>
+</section>
+</div>

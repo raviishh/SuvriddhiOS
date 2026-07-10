@@ -1,0 +1,109 @@
+<div class="exercise-content">
+  <h2>Async Fetch Simulator</h2>
+  <p class="exercise-lead">Simulate concurrent I/O-bound requests using asyncio, without needing real network access.</p>
+
+  <section class="exercise-task" id="async_1">
+  <h3>Part 1 — Sequential vs Concurrent Awaits </h3>
+  <p class="task-background">await pauses a coroutine without blocking the whole program. asyncio.gather() runs multiple coroutines concurrently and waits for all of them.</p>
+  <pre class="code-block"><code>import asyncio
+
+async def fetch(name, delay):
+    await asyncio.sleep(delay)
+    return f&quot;{name} done&quot;
+
+async def main():
+    result = await fetch(&quot;A&quot;, 0.1)
+    print(result)
+
+asyncio.run(main())</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>A done</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write an async function fetch(name, delay) that awaits asyncio.sleep(delay) then returns f&#39;{name} done&#39;.</li>
+  <li>Write an async main() that awaits fetch(&#39;A&#39;, 0.2), fetch(&#39;B&#39;, 0.2), and fetch(&#39;C&#39;, 0.2) SEQUENTIALLY (one after another with separate await statements), timing the total with time.time().</li>
+  <li>Print &#39;Sequential total &gt;= 0.6&#39; if the elapsed time is at least 0.6 seconds (allow a small margin), else print the elapsed time directly.</li>
+  <li>Run it with asyncio.run(main()).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not use asyncio.gather() in this part — the point is to observe sequential (additive) timing first.</li>
+  <li>Timing-based checks can be slightly flaky on slow machines — the check allows some tolerance below the exact 0.6s figure.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Sequential awaiting means: r1 = await fetch(...); r2 = await fetch(...); r3 = await fetch(...) — each one waits for the previous to finish.</li>
+  <li>Three 0.2-second sleeps done sequentially take roughly 0.6 seconds total.</li>
+  <li>Use start = time.time() before and elapsed = time.time() - start after all three awaits.</li>
+  <li>A small margin (e.g. elapsed &gt;= 0.55) protects against minor timing jitter in different environments.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="async_2">
+  <h3>Part 2 — Concurrent Fetching with gather() </h3>
+  <p class="task-background">asyncio.gather(*coroutines) schedules all of them to run concurrently, so the total time is closer to the longest single task rather than the sum of all of them.</p>
+  <pre class="code-block"><code>async def main():
+    results = await asyncio.gather(fetch(&quot;A&quot;, 0.2), fetch(&quot;B&quot;, 0.2), fetch(&quot;C&quot;, 0.2))
+    print(results)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Reuse fetch(name, delay) from Part 1.</li>
+  <li>Write main() that awaits asyncio.gather(fetch(&#39;A&#39;, 0.2), fetch(&#39;B&#39;, 0.2), fetch(&#39;C&#39;, 0.2)) and times the total.</li>
+  <li>Print the list of results.</li>
+  <li>Print &#39;Concurrent total &lt; 0.4&#39; if elapsed is under 0.4 seconds, else print the elapsed time.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>gather() does not guarantee execution order, only result order — &#39;B&#39; might actually finish before &#39;A&#39; internally, but results[0] is still A&#39;s result.</li>
+  <li>This part must show a clear speedup versus Part 1 — if your total is still close to 0.6s, you&#39;re likely still awaiting sequentially somewhere.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>asyncio.gather() preserves the order of results matching the order of the coroutines passed in, regardless of which finishes first.</li>
+  <li>Because all three sleeps run concurrently, the whole gather takes about 0.2 seconds, not 0.6.</li>
+  <li>Print the results list exactly as returned by gather — it will be [&#39;A done&#39;, &#39;B done&#39;, &#39;C done&#39;].</li>
+  <li>0.4 seconds gives comfortable margin above the expected ~0.2s concurrent runtime.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="async_stretch">
+  <h3>Stretch — Bounded Concurrency with a Semaphore <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Unbounded concurrency can overwhelm a real server. asyncio.Semaphore(n) limits how many coroutines run a critical section at once, simulating a connection pool or rate limit.</p>
+  <pre class="code-block"><code>sem = asyncio.Semaphore(2)
+
+async def limited_fetch(name, delay):
+    async with sem:
+        await asyncio.sleep(delay)
+        return name</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create asyncio.Semaphore(2) to allow at most 2 concurrent fetches.</li>
+  <li>Write limited_fetch(name, delay) that acquires the semaphore, sleeps for delay, then returns name.</li>
+  <li>Launch 6 fetches, each with delay=0.1, using asyncio.gather() wrapped around limited_fetch for names &#39;A&#39; through &#39;F&#39;.</li>
+  <li>With max concurrency 2 and 6 tasks of 0.1s each, the total time should be roughly 0.3 seconds (3 batches of 2).</li>
+  <li>Print &#39;Bounded total &gt;= 0.25&#39; if elapsed is at least 0.25 seconds (proving the semaphore is actually limiting concurrency), else print the elapsed value.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Creating an asyncio.Semaphore() outside of a running event loop can raise errors on some Python versions — construct it inside your async main() function to be safe.</li>
+  <li>The 0.25s threshold leaves margin below the expected ~0.3s while still clearly exceeding the ~0.1s unbounded case, proving the semaphore had an effect.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>async with sem: acquires and releases the semaphore automatically, even if an exception occurs inside the block.</li>
+  <li>6 tasks / 2 concurrent slots = 3 sequential batches, each taking ~0.1s, totalling ~0.3s.</li>
+  <li>Without the semaphore, all 6 would run concurrently and finish in ~0.1s total — the semaphore is what forces the extra time.</li>
+  <li>Create the Semaphore inside the same event loop as the coroutines that use it (i.e. inside main(), or ensure it&#39;s created after asyncio.run starts) to avoid loop-binding issues.</li>
+</ul>
+</details>
+</section>
+</div>

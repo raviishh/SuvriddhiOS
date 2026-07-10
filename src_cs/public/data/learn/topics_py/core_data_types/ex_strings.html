@@ -1,0 +1,104 @@
+<div class="exercise-content">
+  <h2>String Manipulation Challenges</h2>
+  <p class="exercise-lead">Practise f-strings, slicing, and common string methods.</p>
+
+  <section class="exercise-task" id="str_1">
+  <h3>Part 1 — Slicing </h3>
+  <p class="task-background">Strings are sequences. s[start:stop:step] extracts a slice. Negative indices count from the end.</p>
+  <pre class="code-block"><code>s = &quot;Hello, World!&quot;
+print(s[0:5])    # Hello
+print(s[-6:])    # World!
+print(s[::-1])   # !dlroW ,olleH</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Hello
+World!
+!dlroW ,olleH</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Using sentence = &quot;the quick brown fox&quot;, print just the word &quot;quick&quot; using a slice.</li>
+  <li>Print sentence reversed using a slice.</li>
+  <li>Print every other character of sentence starting from index 0.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Slicing is zero-indexed — count characters carefully.</li>
+  <li>The step -1 in [::-1] works on the full string — you do not need to specify start or stop.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (5)</summary>
+  <ul>
+  <li>&quot;quick&quot; starts at index 4 and ends before index 9.</li>
+  <li>Reverse with [::-1].</li>
+  <li>Every other character: [::2]</li>
+  <li>To find the right indices, count characters from zero: t=0, h=1, e=2, (space)=3, q=4 ...</li>
+  <li>s[4:9] extracts characters at positions 4, 5, 6, 7, 8 — stop index is exclusive.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="str_2">
+  <h3>Part 2 — Methods &amp; f-strings </h3>
+  <p class="task-background">String methods return new strings — they do not modify the original. Chain them freely.</p>
+  <pre class="code-block"><code>s = &quot;  hello world  &quot;
+print(s.strip().title())   # Hello World
+print(s.strip().replace(&quot;world&quot;, &quot;Python&quot;))  # hello Python</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Hello World
+hello Python</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Take sentence = &quot;the quick brown fox&quot;.</li>
+  <li>Print it in UPPER CASE.</li>
+  <li>Print it in Title Case.</li>
+  <li>Replace &quot;fox&quot; with &quot;cat&quot; and print.</li>
+  <li>Print the number of times the letter &#39;o&#39; appears.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Methods are case-sensitive — .Count() does not exist.</li>
+  <li>.title() capitalises the first letter of every word, including small prepositions — that&#39;s expected here.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>.upper(), .title(), .replace(), .count() are all you need.</li>
+  <li>.count(&#39;o&#39;) counts non-overlapping occurrences.</li>
+  <li>Methods do not modify sentence in place — sentence remains unchanged after each call.</li>
+  <li>You can call methods on the string literal directly or on the variable — both work.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="str_stretch">
+  <h3>Stretch — Caesar Cipher <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A Caesar cipher shifts each letter by a fixed number of positions in the alphabet, wrapping around from z back to a. Non-letter characters are left unchanged.</p>
+  <pre class="code-block"><code># ord(&#39;a&#39;) = 97, chr(97) = &#39;a&#39;
+# Shift &#39;a&#39; by 3: ord(&#39;a&#39;) - 97 = 0; (0 + 3) % 26 = 3; chr(3 + 97) = &#39;d&#39;</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write caesar(text, shift) that encodes text using a Caesar cipher.</li>
+  <li>Preserve case: uppercase letters shift within uppercase, lowercase within lowercase.</li>
+  <li>Leave spaces, digits, and punctuation unchanged.</li>
+  <li>caesar(&#39;Hello, World!&#39;, 3) → &#39;Khoor, Zruog!&#39;</li>
+  <li>Print the result of caesar(&#39;Hello, World!&#39;, 3).</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>% 26 handles the wrap-around — &#39;x&#39; shifted by 3 should give &#39;a&#39;, not a character outside the alphabet.</li>
+  <li>Do not shift non-letter characters — append them unchanged.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (6)</summary>
+  <ul>
+  <li>Loop over each character with a for loop.</li>
+  <li>Use c.isalpha() to check if a character is a letter.</li>
+  <li>Use c.isupper() to branch between uppercase and lowercase shifting.</li>
+  <li>For uppercase: chr((ord(c) - ord(&#39;A&#39;) + shift) % 26 + ord(&#39;A&#39;))</li>
+  <li>For lowercase: chr((ord(c) - ord(&#39;a&#39;) + shift) % 26 + ord(&#39;a&#39;))</li>
+  <li>Build the result with a list and &#39;&#39;.join() for efficiency.</li>
+</ul>
+</details>
+</section>
+</div>

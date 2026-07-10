@@ -1,0 +1,107 @@
+<div class="exercise-content">
+  <h2>Model a Real-World System in Classes</h2>
+  <p class="exercise-lead">Design and implement a small class hierarchy for a library book system.</p>
+
+  <section class="exercise-task" id="oop_1">
+  <h3>Part 1 — Book Class </h3>
+  <p class="task-background">__init__ sets up instance variables. Methods operate on self — the specific instance.</p>
+  <pre class="code-block"><code>class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def bark(self):
+        return f&quot;{self.name} says: Woof!&quot;
+
+dog = Dog(&quot;Rex&quot;, &quot;Labrador&quot;)
+print(dog.bark())</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Rex says: Woof!</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create a class Book with attributes: title, author, pages.</li>
+  <li>Add a method summary() that returns: &#39;[title] by [author] ([pages] pages)&#39;.</li>
+  <li>Create a Book and print its summary().</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Use the exact title/author/pages shown in the expected output.</li>
+  <li>pages is an integer in __init__ — the f-string will format it correctly as a number.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>def __init__(self, title, author, pages):</li>
+  <li>def summary(self): return f&#39;{self.title} by {self.author} ({self.pages} pages)&#39;</li>
+  <li>The method must return the string, not print it — the caller prints it.</li>
+  <li>self is the first parameter of every instance method — it refers to the specific Book object.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="oop_2">
+  <h3>Part 2 — Library Class </h3>
+  <p class="task-background">One class can hold a collection of instances of another class — a composition pattern.</p>
+  <pre class="code-block"><code>class Shelf:
+    def __init__(self):
+        self.books = []
+
+    def add(self, book):
+        self.books.append(book)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Create a Library class with an empty list of books.</li>
+  <li>Add an add_book(book) method that appends a Book.</li>
+  <li>Add a list_books() method that prints each book&#39;s summary() on its own line.</li>
+  <li>Add 2 books and call list_books().</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Books must appear in the order they were added — do not sort them.</li>
+  <li>Call book.summary() to get the string — do not duplicate the formatting logic in Library.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>self.books = [] in __init__.</li>
+  <li>Iterate with for book in self.books: print(book.summary())</li>
+  <li>list_books() uses print() internally — it doesn&#39;t need to return anything.</li>
+  <li>Create the Library, add both Book objects, then call library.list_books().</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="oop_stretch">
+  <h3>Stretch — Borrowing System <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Add state to Book and behaviour to Library to model a real borrowing system. Track whether each book is checked out and who has it.</p>
+  <pre class="code-block"><code># Book gains: is_checked_out (bool), borrower (str or None)
+# Library gains: checkout(title, borrower) and return_book(title)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Add is_checked_out = False and borrower = None to Book.__init__.</li>
+  <li>Add checkout(borrower) and return_book() methods to Book.</li>
+  <li>Add checkout(title, borrower) to Library that finds the book by title and checks it out; raise ValueError if not found or already checked out.</li>
+  <li>Add return_book(title) to Library similarly.</li>
+  <li>Add available_books() that prints only books not currently checked out.</li>
+  <li>Demonstrate: add two books, check out one, print available_books() — only the unchecked book should appear.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Raise ValueError, don&#39;t print an error — let the caller decide how to handle it.</li>
+  <li>The borrower attribute should reset to None when a book is returned.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>Book.checkout(borrower): if self.is_checked_out: raise ValueError; self.is_checked_out = True; self.borrower = borrower</li>
+  <li>Book.return_book(): self.is_checked_out = False; self.borrower = None</li>
+  <li>Library.checkout: use next((b for b in self.books if b.title == title), None) to find the book.</li>
+  <li>available_books: filter with if not book.is_checked_out</li>
+</ul>
+</details>
+</section>
+</div>

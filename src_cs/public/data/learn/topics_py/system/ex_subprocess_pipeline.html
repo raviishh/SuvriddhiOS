@@ -1,0 +1,100 @@
+<div class="exercise-content">
+  <h2>Subprocess Pipeline Challenge</h2>
+  <p class="exercise-lead">Use the subprocess module to run shell commands, capture output, and chain commands like a pipeline.</p>
+
+  <section class="exercise-task" id="sub_1">
+  <h3>Part 1 — Running a Command and Capturing Output </h3>
+  <p class="task-background">subprocess.run(args, capture_output=True, text=True) runs a command and gives you a CompletedProcess with .stdout, .stderr, and .returncode.</p>
+  <pre class="code-block"><code>import subprocess
+result = subprocess.run([&quot;echo&quot;, &quot;hello&quot;], capture_output=True, text=True)
+print(result.stdout.strip())
+print(result.returncode)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>hello
+0</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Run the command [&#39;python3&#39;, &#39;-c&#39;, &#39;print(2 + 2)&#39;] using subprocess.run with capture_output=True and text=True.</li>
+  <li>Print the stripped stdout.</li>
+  <li>Print the return code.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>If &#39;python3&#39; isn&#39;t the correct interpreter name in your environment, adjust it accordingly (e.g. &#39;python&#39;) — the concept is what matters.</li>
+  <li>Always pass args as a list, not a single shell string, unless you explicitly set shell=True (which has security implications with untrusted input).</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>subprocess.run([&#39;python3&#39;, &#39;-c&#39;, &#39;print(2 + 2)&#39;], capture_output=True, text=True)</li>
+  <li>result.stdout includes a trailing newline — use .strip() before printing.</li>
+  <li>A returncode of 0 conventionally means the command succeeded; non-zero means an error occurred.</li>
+  <li>text=True decodes stdout/stderr as strings instead of raw bytes.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="sub_2">
+  <h3>Part 2 — Handling Failures Gracefully </h3>
+  <p class="task-background">check=True makes subprocess.run() raise CalledProcessError on a non-zero exit code, which you can catch just like any other exception.</p>
+  <pre class="code-block"><code>import subprocess
+try:
+    subprocess.run([&quot;python3&quot;, &quot;-c&quot;, &quot;import sys; sys.exit(1)&quot;], check=True)
+except subprocess.CalledProcessError as e:
+    print(f&quot;Failed with code {e.returncode}&quot;)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Failed with code 1</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write run_safely(cmd) that runs cmd with subprocess.run(cmd, capture_output=True, text=True, check=True) inside a try/except.</li>
+  <li>On success, return the stripped stdout.</li>
+  <li>On subprocess.CalledProcessError, return f&#39;ERROR (code {e.returncode})&#39;.</li>
+  <li>Call run_safely([&#39;python3&#39;, &#39;-c&#39;, &#39;print(&quot;ok&quot;)&#39;]) and run_safely([&#39;python3&#39;, &#39;-c&#39;, &#39;import sys; sys.exit(3)&#39;]), printing both results.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Catch subprocess.CalledProcessError specifically, not a bare except — you want to let unrelated errors (like a missing interpreter) surface normally.</li>
+  <li>The f-string format &#39;ERROR (code {e.returncode})&#39; must match exactly, including the parentheses.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>check=True is what causes a non-zero exit to raise CalledProcessError — without it, you&#39;d need to check result.returncode manually.</li>
+  <li>e.returncode on the caught exception gives you the exact exit code the subprocess reported.</li>
+  <li>Remember to .strip() the successful stdout before returning it.</li>
+  <li>Each call to run_safely is independent — the second call&#39;s failure does not affect the first call&#39;s already-returned result.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="sub_stretch">
+  <h3>Stretch — Chaining Two Commands (Simulated Pipe) <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A shell pipeline like &#39;cmd1 | cmd2&#39; feeds cmd1&#39;s stdout into cmd2&#39;s stdin. subprocess lets you do this manually by passing one process&#39;s output as the next one&#39;s input.</p>
+  <pre class="code-block"><code># Shell equivalent: echo &quot;b\na\nc&quot; | sort
+p1 = subprocess.run([&quot;echo&quot;, &quot;b\na\nc&quot;], capture_output=True, text=True)
+p2 = subprocess.run([&quot;sort&quot;], input=p1.stdout, capture_output=True, text=True)
+print(p2.stdout)</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write pipeline(cmd1, cmd2) that runs cmd1, captures its stdout, then feeds that stdout as the &#39;input&#39; argument to cmd2, returning cmd2&#39;s stripped stdout.</li>
+  <li>Test it with cmd1 = [&#39;python3&#39;, &#39;-c&#39;, &#39;print(&quot;3\\n1\\n2&quot;)&#39;] and cmd2 = [&#39;sort&#39;].</li>
+  <li>Print the result — it should show the numbers sorted: 1, 2, 3 each on their own line.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not use shell=True with string concatenation to build this pipeline — passing untrusted or dynamic strings to a shell is a command-injection risk; the input= approach avoids that entirely.</li>
+  <li>&#39;sort&#39; must be available on the system running this — if unavailable, the underlying concept (feeding one process&#39;s output into another&#39;s input) is still what&#39;s being tested.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>step1 = subprocess.run(cmd1, capture_output=True, text=True); step2 = subprocess.run(cmd2, input=step1.stdout, capture_output=True, text=True)</li>
+  <li>The &#39;input&#39; parameter feeds a string directly into the subprocess&#39;s stdin — no need to manage pipes manually.</li>
+  <li>return step2.stdout.strip()</li>
+  <li>This is functionally identical to shell piping (cmd1 | cmd2) but expressed in pure Python without shell=True.</li>
+</ul>
+</details>
+</section>
+</div>

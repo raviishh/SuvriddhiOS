@@ -1,0 +1,99 @@
+<div class="exercise-content">
+  <h2>Consume a Public API and Store Results</h2>
+  <p class="exercise-lead">Simulate calling a JSON API, parsing the response, and persisting selected fields — without needing live network access.</p>
+
+  <section class="exercise-task" id="api_1">
+  <h3>Part 1 — Parsing a JSON API Response </h3>
+  <p class="task-background">requests.get(url).json() would normally give you a dict parsed from the response body. Here we start from that already-parsed dict to focus on extraction logic.</p>
+  <pre class="code-block"><code>response = {&quot;status&quot;: &quot;ok&quot;, &quot;data&quot;: {&quot;temp_c&quot;: 21.5, &quot;humidity&quot;: 60}}
+if response[&quot;status&quot;] == &quot;ok&quot;:
+    print(response[&quot;data&quot;][&quot;temp_c&quot;])</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>21.5</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Given api_response = {&#39;status&#39;: &#39;ok&#39;, &#39;results&#39;: [{&#39;id&#39;: 1, &#39;name&#39;: &#39;Widget&#39;, &#39;price&#39;: 9.99}, {&#39;id&#39;: 2, &#39;name&#39;: &#39;Gadget&#39;, &#39;price&#39;: 19.99}, {&#39;id&#39;: 3, &#39;name&#39;: &#39;Gizmo&#39;, &#39;price&#39;: 14.5}]}, extract the &#39;results&#39; list.</li>
+  <li>Print the total value of all items: sum of price, printed rounded to 2 decimal places.</li>
+  <li>Print the name of the most expensive item.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Always check the &#39;status&#39; field (or equivalent) before trusting a real API&#39;s data — this simulated example assumes status is already &#39;ok&#39;.</li>
+  <li>Round only for display — don&#39;t round intermediate values before further calculations, or you can accumulate small errors.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>results = api_response[&#39;results&#39;]</li>
+  <li>total = round(sum(item[&#39;price&#39;] for item in results), 2)</li>
+  <li>max(results, key=lambda item: item[&#39;price&#39;])[&#39;name&#39;] gives the most expensive item&#39;s name.</li>
+  <li>9.99 + 19.99 + 14.5 = 44.48</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="api_2">
+  <h3>Part 2 — Handling Errors and Missing Fields </h3>
+  <p class="task-background">Real APIs sometimes return error statuses or omit expected fields. Defensive code checks before accessing, using .get() with defaults rather than direct indexing.</p>
+  <pre class="code-block"><code>response = {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;Not found&quot;}
+if response.get(&quot;status&quot;) != &quot;ok&quot;:
+    print(f&quot;API error: {response.get(&#39;message&#39;, &#39;unknown error&#39;)}&quot;)</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>API error: Not found</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write fetch_price(item) that returns item[&#39;price&#39;] if &#39;price&#39; is a key in item, otherwise returns None (use .get() rather than raising).</li>
+  <li>Given items = [{&#39;name&#39;: &#39;A&#39;, &#39;price&#39;: 5}, {&#39;name&#39;: &#39;B&#39;}, {&#39;name&#39;: &#39;C&#39;, &#39;price&#39;: 12}], compute the sum of prices, treating missing prices as 0.</li>
+  <li>Print the total.</li>
+  <li>Print a list of names for items missing a price, in original order.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Using &#39;or 0&#39; works here because a legitimate price is never falsy in this dataset, but be cautious with &#39;or&#39; when 0 itself could be a valid, meaningful value elsewhere.</li>
+  <li>Check for None explicitly with &#39;is None&#39; when identifying missing items, not with a falsy check, for the same reason.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>def fetch_price(item): return item.get(&#39;price&#39;)</li>
+  <li>total = sum(fetch_price(item) or 0 for item in items) — treating a None (missing price) as 0.</li>
+  <li>missing = [item[&#39;name&#39;] for item in items if fetch_price(item) is None]</li>
+  <li>5 + 0 + 12 = 17</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="api_stretch">
+  <h3>Stretch — Caching Simulated Requests to Avoid Repeat Calls <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">Real API clients often cache responses to avoid redundant network calls, especially for rate-limited APIs. A simple in-memory dict keyed by request parameters works well for short-lived scripts.</p>
+  <pre class="code-block"><code>cache = {}
+def get_cached(key, compute_fn):
+    if key not in cache:
+        cache[key] = compute_fn()
+    return cache[key]</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Simulate an expensive API call with call_count = [0] (a mutable list used as a counter) and a function simulate_api_call(city) that increments call_count[0] and returns a fixed dict like {&#39;city&#39;: city, &#39;temp&#39;: 20 + len(city)}.</li>
+  <li>Write get_weather(city) that uses a module-level cache dict keyed by city name, calling simulate_api_call only on a cache miss.</li>
+  <li>Call get_weather(&#39;Paris&#39;) three times and get_weather(&#39;Tokyo&#39;) twice.</li>
+  <li>Print call_count[0] — it should be 2 (one real call per unique city, not per call).</li>
+  <li>Print the temp for &#39;Paris&#39;: 25.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Watch out for the setdefault() trap mentioned in the hints — it&#39;s a common source of bugs when the default value itself has side effects (like an API call).</li>
+  <li>call_count must be a mutable container (like a one-element list) if you want to increment it inside a nested function without needing a &#39;nonlocal&#39; or &#39;global&#39; declaration.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>cache.setdefault(city, simulate_api_call(city)) has a subtle bug: it evaluates simulate_api_call(city) every time regardless of whether the key exists. Use an explicit if city not in cache: cache[city] = simulate_api_call(city) instead.</li>
+  <li>call_count[0] increments only inside simulate_api_call — if your cache works correctly, it increments exactly once per unique city.</li>
+  <li>&#39;Paris&#39; has 5 letters, so temp = 20 + 5 = 25.</li>
+  <li>Calling get_weather(&#39;Paris&#39;) a second and third time should hit the cache and NOT call simulate_api_call again.</li>
+</ul>
+</details>
+</section>
+</div>

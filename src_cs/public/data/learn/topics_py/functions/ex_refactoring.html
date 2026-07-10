@@ -1,0 +1,103 @@
+<div class="exercise-content">
+  <h2>Function Refactoring Drills</h2>
+  <p class="exercise-lead">Take flat, repetitive code and refactor it into clean, reusable functions.</p>
+
+  <section class="exercise-task" id="ref_1">
+  <h3>Part 1 — Extract a Function </h3>
+  <p class="task-background">A function groups reusable logic behind a name. Use def, give it parameters, and return the result.</p>
+  <pre class="code-block"><code>def square(n):
+    return n ** 2
+
+print(square(5))  # 25</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>25</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a function square(n) that returns n squared.</li>
+  <li>Call it for 2, 3, and 4 and print each result on its own line.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Do not print inside the function — return the value and let the caller print.</li>
+  <li>square(n) should work for any n, not just 2, 3, and 4.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>def square(n): return n ** 2</li>
+  <li>Call print(square(2)) etc.</li>
+  <li>The function must return the value, not print it — the caller decides what to do with the result.</li>
+  <li>** is the exponentiation operator in Python: 2 ** 2 = 4.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="ref_2">
+  <h3>Part 2 — Default Parameters </h3>
+  <p class="task-background">Parameters can have default values, making them optional at call time.</p>
+  <pre class="code-block"><code>def greet(name, greeting=&quot;Hello&quot;):
+    return f&quot;{greeting}, {name}!&quot;
+
+print(greet(&quot;Alice&quot;))          # Hello, Alice!
+print(greet(&quot;Bob&quot;, &quot;Hi&quot;))     # Hi, Bob!</code></pre>
+  <div class="code-output-label">Output:</div><pre class="code-output"><code>Hello, Alice!
+Hi, Bob!</code></pre>
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write a function power(base, exponent=2) that returns base ** exponent.</li>
+  <li>Call power(3) and print the result.</li>
+  <li>Call power(2, 10) and print the result.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>Default parameters are evaluated once at function definition time — don&#39;t use mutable objects (like lists) as defaults.</li>
+  <li>power(3) means power(3, 2) — the default silently fills in the missing argument.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>def power(base, exponent=2): return base ** exponent</li>
+  <li>power(3) uses the default exponent of 2.</li>
+  <li>Default parameters must come after non-default parameters in the signature.</li>
+  <li>power(2, 10) passes 2 as base and 10 as exponent — 2**10 = 1024.</li>
+</ul>
+</details>
+</section>
+
+<section class="exercise-task" id="ref_stretch">
+  <h3>Stretch — Memoisation with a Closure <span class="difficulty-badge difficulty-stretch">stretch</span></h3>
+  <p class="task-background">A closure captures variables from its enclosing scope. This lets you build a memoised function: results are cached in a dict so repeated calls skip recomputation.</p>
+  <pre class="code-block"><code>def make_memoised(fn):
+    cache = {}
+    def wrapper(n):
+        if n not in cache:
+            cache[n] = fn(n)
+        return cache[n]
+    return wrapper</code></pre>
+  
+  <div class="task-instructions"><h4>What to do</h4><ul>
+  <li>Write make_memoised(fn) as shown above.</li>
+  <li>Apply it to a slow_square(n) function that prints &#39;computing [n]&#39; and returns n ** 2.</li>
+  <li>Call memoised_square = make_memoised(slow_square).</li>
+  <li>Call memoised_square(4) twice and memoised_square(5) once.</li>
+  <li>Expected: &#39;computing 4&#39; appears once (not twice), &#39;computing 5&#39; appears once, and all three calls return the correct result.</li>
+</ul></div>
+  <div class="task-warnings">
+  <h4>Watch out for</h4>
+  <ul>
+  <li>slow_square should print &#39;computing N&#39; then return n ** 2 — print inside the function, not in the caller.</li>
+  <li>The closure shares one cache dict across all calls to the same memoised_square — don&#39;t recreate it on every call.</li>
+</ul>
+</div>
+  <details class="task-hints">
+  <summary>Hints (4)</summary>
+  <ul>
+  <li>The cache dict lives inside make_memoised and is captured by wrapper — it persists between calls.</li>
+  <li>The first call to memoised_square(4) misses the cache and calls slow_square(4).</li>
+  <li>The second call to memoised_square(4) hits the cache and returns 16 without calling slow_square again.</li>
+  <li>Print the return value of each call to memoised_square.</li>
+</ul>
+</details>
+</section>
+</div>
