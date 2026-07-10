@@ -82,7 +82,7 @@ json RunTests(json tests, std::string token, Language lang)
             }
 
             std::string output = ReadFile(tmp_out);
-			std::string type = tests["type"];
+			std::string type = t["type"];
             lastOutput = output;
             if (type == "output_exact")
             {
