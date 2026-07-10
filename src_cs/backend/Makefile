@@ -1,5 +1,5 @@
 CXX      := g++
-CXXFLAGS := -std=c++17 -Wall -Wextra -O2 -I. -Icode -Ihelpers -ISettings
+CXXFLAGS := -std=c++17 -Wall -Wextra -O2 -I. -Icode -Ihelpers -Isettings
 LDFLAGS  := -lcivetweb
 TARGET   := server
 BUILD_DIR := build

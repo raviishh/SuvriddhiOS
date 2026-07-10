@@ -2,16 +2,23 @@ import { useEffect, useMemo, useState } from "react";
 import Sidebar from "../components/learn/sidebar";
 import LessonView from "../components/learn/lessonview";
 import ExerciseView from "../components/learn/exerciseview";
+import ChallengeView from "../components/learn/challengeview";
+// import QuizView from "../components/learn/quizview";
+// import ProjectView from "../components/learn/projectview";
 import { useStore } from "../store/useStore";
 import type { ActiveItem, Topic, TopicItem } from "../types/learningitems";
 import type { LanguageType } from "../types/language";
+
 export default function Learn() {
     const { language } = useStore();
     const { setLastActivity, markItemCompleted, isItemCompleted } = useStore();
     const [topics, setTopics] = useState<Topic[]>([]);
     const [active, setActive] = useState<ActiveItem | null>(null);
+    
 
     useEffect(() => {
+        console.count("Learn mounted");
+        
         let path = "/data/learn/topics.json";
 
         if (language === "Python") {
@@ -19,8 +26,15 @@ export default function Learn() {
         }
         fetch(path)
             .then((r) => r.json())
-            .then((t: Topic[]) => setTopics(t))
-            .catch(() => setTopics([]));
+            .then((t: Topic[]) => {
+                console.log("Loaded topics:", t);
+                setTopics(t);
+            })
+            .catch((e) => {
+                console.error("Failed loading topics:", e);
+                setTopics([]);
+            });
+        return () => console.log("Learn unmounted");
     }, [language]);
 
     useEffect(() => {
@@ -40,9 +54,23 @@ export default function Learn() {
             const savedLast = localStorage.getItem("lastActivity");
             if (savedLast) {
                 const parsed: ActiveItem = JSON.parse(savedLast);
-                if (parsed.topicId && parsed.itemId) {
+                const topicExists = topics.some((t) => t.id === parsed.topicId);
+
+                if (topicExists) {
                     setActive(parsed);
                     setLastActivity(parsed);
+                } else {
+                    console.warn("Saved activity invalid, resetting.");
+
+                    const firstItem = {
+                        topicId: topics[0].id,
+                        itemId: topics[0].items[0].id,
+                    };
+
+                    setActive(firstItem);
+                    setLastActivity(firstItem);
+
+                    localStorage.removeItem("lastActivity");
                 }
             } else {
                 const firstItem: ActiveItem = {
@@ -108,13 +136,83 @@ export default function Learn() {
             }
         }
     }
+    console.log("language", language);
+    console.log("topics", topics);
+    console.log("active", active);
+    const activeItem = useMemo(() => {
+        console.log("Computing activeItem");
 
-    const activeItem: TopicItem | null = useMemo(() => {
-        if (!active) return null;
-        const t = topics.find((x) => x.id === active.topicId);
-        return t?.items.find((i) => i.id === active.itemId) ?? null;
+        if (!active) {
+            console.log("No active item");
+            return null;
+        }
+
+        const topic = topics.find((t) => t.id === active.topicId);
+
+        console.log("Found topic:", topic);
+
+        const item = topic?.items.find((i) => i.id === active.itemId);
+
+        console.log("Found item:", item);
+
+        return item ?? null;
     }, [active, topics]);
 
+    if (!activeItem) {
+        return (
+            <div className="flex-1 flex items-center justify-center">
+                Loading...
+            </div>
+        );
+    }
+
+    let content: JSX.Element;
+
+    switch (activeItem.type) {
+        case "lesson":
+            content = (
+                <LessonView item={activeItem} onMarkComplete={onMarkComplete} />
+            );
+            break;
+
+        case "exercise":
+            content = (
+                <ExerciseView
+                    item={activeItem}
+                    onMarkComplete={onMarkComplete}
+                />
+            );
+            break;
+
+        case "challenge":
+            content = (
+                <ChallengeView
+                    item={activeItem}
+                    onMarkComplete={onMarkComplete}
+                />
+            );
+            break;
+
+        // case "quiz":
+        //     content = (
+        //         <QuizView item={activeItem} onMarkComplete={onMarkComplete} />
+        //     );
+        //     break;
+
+        // case "project":
+        //     content = (
+        //         <ProjectView
+        //             item={activeItem}
+        //             onMarkComplete={onMarkComplete}
+        //         />
+        //     );
+        //     break;
+
+        default:
+            content = (
+                <LessonView item={activeItem} onMarkComplete={onMarkComplete} />
+            );
+    }
     return (
         <div className="min-h-screen flex overflow-hidden h-screen font-display">
             <Sidebar
@@ -124,39 +222,7 @@ export default function Learn() {
                 onOpenItem={handleOpenItem}
             />
 
-            <div className="flex-1 overflow-y-auto">
-                {{
-                    lesson: (
-                        <LessonView
-                            item={activeItem}
-                            onMarkComplete={onMarkComplete}
-                        />
-                    ),
-                    exercise: (
-                        <LessonView
-                            item={activeItem}
-                            onMarkComplete={onMarkComplete}
-                        />
-                    ),
-                    quiz: (
-                        <LessonView
-                            item={activeItem}
-                            onMarkComplete={onMarkComplete}
-                        />
-                    ),
-                    project: (
-                        <LessonView
-                            item={activeItem}
-                            onMarkComplete={onMarkComplete}
-                        />
-                    ),
-                }[activeItem.type] ?? (
-                    <ExerciseView
-                        item={activeItem}
-                        onMarkComplete={onMarkComplete}
-                    />
-                )}
-            </div>
+            <div className="flex-1 overflow-y-auto">{content}</div>
         </div>
     );
 }
